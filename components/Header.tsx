@@ -279,13 +279,15 @@ const Header = ({ programs }) => {
                 </Link>
               </li>
 
-              <li>
-                <a href='' className='mobile-lang-toggle'>
-                  {router.pathname === '/' || router.pathname === '/about'
-                    ? setString(lang.linkLang)
-                    : ''}
-                </a>
-              </li>
+              {router.pathname === '/' || router.pathname === '/about' || router.pathname === '/contact' ? 
+                  <li>
+                    <a href='' className='mobile-lang-toggle'>
+                      {setString(lang.linkLang)}
+                    </a>
+                  </li>
+                  :
+                  null
+                }
             </ul>
             <div className='header-logos'>
               <span className='rabo'>
