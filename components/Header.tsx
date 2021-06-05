@@ -280,6 +280,14 @@ const Header = ({ programs }) => {
               </li>
 
               <li>
+                <Link href='/legal' locale='ru'>
+                  <a className={at.legal ? 'red' : ''}>
+                    {setString(lang.linkLegal)}
+                  </a>
+                </Link>
+              </li>
+
+              <li>
                 <a href='' className='mobile-lang-toggle'>
                   {router.pathname === '/' || router.pathname === '/about'
                     ? setString(lang.linkLang)
