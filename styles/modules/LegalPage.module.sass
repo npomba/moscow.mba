@@ -1,18 +1,127 @@
-.h1
-  margin: 56px 0
+@import @/styles/utils/mixins
+  
+.legalSection
+  border-bottom: solid 1px #D2D2D2
+  &:not(:first-of-type)
+    padding: 75px 0
+    @include media(tablet, phone)
+      padding: 60px 0
+  p
+    font-size: 20px
+    @include media(tablet, phone)
+      font-size: 16px
+  
+.mainHeading
+  margin: 55px 0
+  @include media(tablet, phone)
+    margin: 40px 0 30px
 
-.list
-  margin-bottom: 56px
+.subHeading
+  font-size: 36px
+  @include media(tablet, phone)
+    margin-bottom: 15px
 
-.listItem
-  margin-bottom: 10px
+.currentLicenses
+  padding-bottom: 75px
+  .pdfDocument
+    background-color: #fff
+    @include media(tablet, phone)
+      margin-right: 10px
+      padding-bottom: 20px
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1)
+
+.memberOfRABE
   display: flex
   align-items: center
-  // max-width: 760px
-  &::before
-    content: "•"
+  @include media(tablet, phone)
+    flex-direction: column
+
+.descRABE
+  flex: 1 1 800px
+  margin-right: 150px
+  & > *:not(:last-child)
+    margin-bottom: 30px
+  @include media(tablet, phone)
+    flex: 1 1 0
+    margin-right: 0
+    margin-bottom: 30px
+
+.diplomasAndCertificates
+  p
+    max-width: 810px
+    margin-bottom: 55px
+
+.companyCard
+  p
+    max-width: 900px
+
+.companyDetailsTitle
+  font-weight: 500
+  margin: 20px 0 10px
+
+.legalDocuments
+  border-bottom: none
+
+.pdfContainer
+  display: flex
+  justify-content: space-between
+  margin: 55px 0
+  @include media(tablet, phone)
+    padding: 10px
+    overflow-x: scroll
+
+.pdfDocument
+  display: flex
+  flex-direction: column
+  align-items: center
+
+.pdfPage
+  margin-bottom: 25px
+  @include media(tablet, phone)
+    margin-bottom: 10px
+
+.pdfDocumentLinkContainer
+  display: flex
+  align-items: center
+  color: #000000
+  cursor: pointer
+  transition: all 0.3s ease-out
+  svg
+    flex: 0 0 18px
+    margin-right: 10px
+  svg path
+    fill: currentColor
+  a
+    border-bottom: dashed 1px currentColor
+  &:hover
     color: #ff3535
-    margin-right: 20px
+    a
+      color: currentColor
+
+.list
+  display: flex
+  flex-wrap: wrap
+  margin-bottom: 56px
+  @include media(tablet, phone)
+    margin-bottom: 0
+
+.flexContainer
+  flex: 1 0 100%
+  display: flex
+  align-items: flex-end
+  flex-wrap: wrap
+  .listItem
+    margin-bottom: 20px
+    padding-right: 45px
+    @include media(tablet, phone)
+      flex: 1 0 100%
+
+.listItem
+  list-style: none
+  flex: 0 0 50%
+  display: flex
+  align-items: center
+  margin-bottom: 10px
   & a
     padding: 4px 4px 4px 0
     transition: color 0.2s ease-in-out
