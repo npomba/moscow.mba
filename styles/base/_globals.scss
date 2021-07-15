@@ -2470,59 +2470,10 @@ h2 {
   }
 }
 
-/* reviews-section ========================================*/
-.reviews-section {
-  margin-bottom: 100px;
-}
-
-.reviews-text-list {
-  display: flex;
-  flex-wrap: wrap;
-  padding-top: 20px;
-  margin: 0 -25px 63px;
-}
-
 .reviews-text-block {
-  margin: 0 25px 50px;
-  width: calc(50% - 50px);
-  display: flex;
-  align-items: flex-start;
   &.modal-review {
     margin: 0;
     width: 100%;
-  }
-  .avatar {
-    flex-shrink: 0;
-    width: 185px;
-    height: 185px;
-    overflow: hidden;
-    margin-right: 35px;
-    border-radius: 50%;
-  }
-  .text {
-    font-size: 20px;
-    line-height: 1.3;
-    p {
-      margin-bottom: 25px;
-    }
-  }
-  .link {
-    color: $red;
-    &:hover {
-      font-weight: 400;
-    }
-  }
-  .name {
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 1.2;
-    margin-bottom: 5px;
-  }
-  .job {
-    font-size: 13px;
-    font-weight: 400;
-    line-height: 1.2;
-    color: #808080;
   }
 }
 
@@ -4219,19 +4170,6 @@ h2 {
   .students-list p {
     font-size: 22px;
   }
-  .reviews-text-list {
-    margin: 0 -15px 63px;
-  }
-  .reviews-text-block {
-    margin: 0 15px 40px;
-    width: calc(50% - 30px);
-    .avatar {
-      margin-right: 25px;
-    }
-    .text {
-      font-size: 18px;
-    }
-  }
   .program-price-section {
     padding: 100px 50px;
   }
@@ -5035,18 +4973,8 @@ h2 {
   .students-images {
     padding-top: 35px;
   }
-  .reviews-text-list {
-    margin-bottom: 30px;
-  }
-  .reviews-text-block {
-    width: calc(100% - 30px);
-    margin-bottom: 50px;
-  }
   .reviews-preview-block {
     width: calc(100% - 30px);
-  }
-  .reviews-section {
-    margin-bottom: 50px;
   }
   .program-price-section {
     padding: 50px;
@@ -5672,12 +5600,7 @@ h2 {
   .students-list p {
     font-size: 20px;
   }
-  .reviews-text-list {
-    padding-top: 5px;
-    margin-bottom: 15px;
-  }
   .reviews-text-block {
-    margin-bottom: 30px;
     &.modal-review {
       display: block;
       .avatar {
@@ -5700,20 +5623,6 @@ h2 {
           }
         }
       }
-    }
-    .avatar {
-      width: 100px;
-      height: 100px;
-      margin-right: 20px;
-    }
-    .text {
-      font-size: 15px;
-      p {
-        margin-bottom: 10px;
-      }
-    }
-    .name {
-      font-size: 17px;
     }
   }
   .popup-content-origin {
@@ -6396,10 +6305,6 @@ a.iconPhoneHeader {
   }
   .students-list p {
     font-size: 18px;
-  }
-  .reviews-text-block .avatar {
-    width: 75px;
-    height: 75px;
   }
   .reviews-preview-block {
     height: 260px;
