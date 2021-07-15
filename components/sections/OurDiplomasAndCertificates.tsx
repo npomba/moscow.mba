@@ -1,7 +1,6 @@
 import stls from '@/styles/components/sections/OurDiplomasAndCertificates.module.sass'
-import { useState } from 'react'
 import classNames from 'classnames'
-import Accordion from '@/components/general/Accordion'
+import AccordionsContainer from '@/components/general/AccordionsContainer'
 
 import academyDiplomaProfInd from '@/public/assets/diplomas/profind/diploma-profind.jpg'
 import qualificationDiplomaProfInd from '@/public/assets/diplomas/profind/qualification-diploma-profind.jpg'
@@ -134,26 +133,28 @@ const coursesDocuments = [
 
 const documentsBasedOnProgram = [
   {
-    programType: 'MBA Professional / Industry',
-    documents: profIndDocuments
+    title: 'MBA Professional / Industry',
+    content: profIndDocuments,
+    isImage: true
   },
   {
-    programType: 'MBA Mini',
-    documents: miniDocuments
+    title: 'MBA Mini',
+    content: miniDocuments,
+    isImage: true
   },
   {
-    programType: 'Профессия',
-    documents: professionDocuments
+    title: 'Профессия',
+    content: professionDocuments,
+    isImage: true
   },
   {
-    programType: 'Курс',
-    documents: coursesDocuments
+    title: 'Курс',
+    content: coursesDocuments,
+    isImage: true
   }
 ]
 
 const OurDiplomasAndCertificates = () => {
-  const [activeAccordionIndex, setActiveAccordionIndex] = useState(0)
-
   return (
     <section
       className={classNames(stls.legalSection, stls.diplomasAndCertificates)}>
@@ -165,17 +166,10 @@ const OurDiplomasAndCertificates = () => {
         и международный диплом Supplement, которые можно добавить в портфолио и
         показать работодателю.
       </p>
-      {documentsBasedOnProgram.map(({ programType, documents }, idx) => (
-        <Accordion
-          key={programType + idx}
-          title={programType}
-          accordionContent={documents}
-          isImage
-          accordionIndex={idx}
-          activeAccordion={idx === activeAccordionIndex}
-          setActiveAccordion={setActiveAccordionIndex}
-        />
-      ))}
+      <AccordionsContainer
+        accordionsItems={documentsBasedOnProgram}
+        firstAccordionActive={true}
+      />
     </section>
   )
 }
