@@ -2843,33 +2843,6 @@ h2 {
   }
 }
 
-/* faq-section ========================================*/
-.faq-section {
-  margin-bottom: 125px;
-  .title-pl {
-    margin-top: 15px;
-  }
-}
-
-.faq-flex {
-  display: flex;
-  align-items: flex-start;
-}
-
-.faq-description {
-  width: 330px;
-  flex-shrink: 0;
-  margin-right: 80px;
-  .desc {
-    line-height: 1.2;
-  }
-}
-
-.faq-content {
-  flex-grow: 1;
-  padding-top: 16px;
-}
-
 .accordion-block {
   background: #f7f7f7;
   margin-bottom: 5px;
@@ -4254,9 +4227,6 @@ h2 {
       padding-right: 100px;
     }
   }
-  .faq-description {
-    margin-right: 50px;
-  }
   .advantages-content {
     padding-right: 0;
   }
@@ -5080,25 +5050,6 @@ h2 {
   .single-program-price .time {
     margin-bottom: 20px;
   }
-  .faq-section {
-    margin-bottom: 80px;
-  }
-  .faq-flex {
-    display: block;
-  }
-  .faq-description {
-    margin-right: 0;
-    margin-bottom: 30px;
-    width: 100%;
-    h2 {
-      br {
-        display: none;
-      }
-    }
-  }
-  .faq-content {
-    padding-top: 0;
-  }
   .popup-content-origin {
     padding: 60px 50px;
   }
@@ -5747,9 +5698,6 @@ h2 {
         font-size: 10px;
       }
     }
-  }
-  .faq-section {
-    margin-bottom: 60px;
   }
   .accordion-block {
     padding-left: 58px;
