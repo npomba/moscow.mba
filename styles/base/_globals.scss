@@ -1272,61 +1272,6 @@ h2 {
   }
 }
 
-/*world-mba-section ======================================*/
-.world-mba-section {
-  margin-bottom: 239px;
-  // .title-desc {
-
-  // }
-}
-
-.world-mba-flex {
-  display: flex;
-  align-items: flex-start;
-}
-
-.world-mba-image {
-  position: relative;
-  width: 769px;
-  flex-shrink: 0;
-  margin-right: 60px;
-  .image {
-    img {
-      max-width: 100%;
-    }
-  }
-  .info {
-    background: $red;
-    width: 166px;
-    min-height: 166px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    color: #fff;
-    padding: 10px;
-    position: absolute;
-    right: -83px;
-    bottom: -96px;
-    font-family: $mazzardH;
-    strong {
-      font-size: 62px;
-      font-family: $visuelt;
-      margin: 5px 0 -8px;
-    }
-    span {
-      line-height: 1.2;
-    }
-  }
-}
-
-.world-mba-text {
-  flex-grow: 1;
-  padding-top: 70px;
-  order: 2;
-}
-
-/*world-mba-section ======================================*/
 .clients-section {
   margin-bottom: 141px;
 }
@@ -4029,23 +3974,6 @@ h2 {
   .title-desc {
     font-size: 19px;
   }
-  .world-mba-image {
-    width: 540px;
-    .image {
-      height: 500px;
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    }
-    .info {
-      right: -30px;
-    }
-  }
-  .world-mba-text {
-    padding-top: 0;
-  }
   .header-podmenu-tabs {
     font-size: 18px;
   }
@@ -4768,39 +4696,6 @@ h2 {
   .branches-section {
     margin-bottom: 80px;
   }
-  .world-mba-flex {
-    display: block;
-  }
-  .world-mba-text {
-    margin-bottom: 30px;
-  }
-  .world-mba-image {
-    width: 100%;
-    .image {
-      height: 460px;
-    }
-    .info {
-      right: 20px;
-      width: 140px;
-      min-height: 140px;
-      bottom: -70px;
-    }
-  }
-  .world-mba-section {
-    margin-bottom: 60px;
-    position: relative;
-    padding-bottom: 120px;
-    &:after {
-      content: '';
-      left: 50%;
-      height: 1px;
-      background: #e6e6e6;
-      position: absolute;
-      bottom: 0;
-      width: 102vw;
-      margin-left: -51vw;
-    }
-  }
   .clients-section {
     margin-bottom: 90px;
   }
@@ -5433,9 +5328,6 @@ h2 {
       white-space: nowrap;
       padding: 0 12px;
     }
-  }
-  .world-mba-image .image {
-    height: auto;
   }
   .executive-section {
     margin: 0 -10px;
@@ -6263,15 +6155,6 @@ a.iconPhoneHeader {
     margin: 0 -100px;
     img {
       max-width: calc(100% + 200px);
-    }
-  }
-  .world-mba-image .info {
-    font-size: 12px;
-    min-height: 120px;
-    width: 120px;
-    strong {
-      font-size: 42px;
-      margin-bottom: -4px;
     }
   }
   .header-mobile-podmenu {
