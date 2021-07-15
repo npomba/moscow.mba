@@ -1,5 +1,6 @@
 import stls from '@/styles/components/sections/OurDiplomasAndCertificates.module.sass'
-import Script from 'next/script'
+import { useState } from 'react'
+import classNames from 'classnames'
 import Accordion from '@/components/general/Accordion'
 
 import academyDiplomaProfInd from '@/public/assets/diplomas/profind/diploma-profind.jpg'
@@ -151,10 +152,11 @@ const documentsBasedOnProgram = [
 ]
 
 const OurDiplomasAndCertificates = () => {
-  const diplomasClassNames = [stls.legalSection, stls.diplomasAndCertificates]
+  const [activeAccordionIndex, setActiveAccordionIndex] = useState(0)
 
   return (
-    <section className={diplomasClassNames.join(' ')}>
+    <section
+      className={classNames(stls.legalSection, stls.diplomasAndCertificates)}>
       <h2 className={stls.subHeading}>Выдаваемые дипломы и сертификаты</h2>
       <p className={stls.desc}>
         Мы производим обучение на основании государственной лицензии №041221.
@@ -168,11 +170,12 @@ const OurDiplomasAndCertificates = () => {
           key={programType + idx}
           title={programType}
           accordionContent={documents}
-          isImage={true}
-          idx={idx}
+          isImage
+          accordionIndex={idx}
+          activeAccordion={idx === activeAccordionIndex}
+          setActiveAccordion={setActiveAccordionIndex}
         />
       ))}
-      <Script src='/assets/js/accordion.js' strategy='lazyOnload' />
     </section>
   )
 }

@@ -5459,6 +5459,16 @@ h2 {
   }
   .accreditations-section {
     border: none;
+    &::before {
+      content: '';
+      position: absolute;
+      left: -10px;
+      top: 0;
+      right: -10px;
+      bottom: 0;
+      z-index: -1;
+      background-color: #f7f7f7;
+    }
     &.small-mb {
       margin-bottom: 30px;
     }

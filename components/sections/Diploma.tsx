@@ -1,4 +1,5 @@
 import stls from '@/styles/components/sections/Diploma.module.sass'
+import classNames from 'classnames'
 import Image from 'next/image'
 import useAt from '@/components/hooks/useAt'
 import { base64pixel } from '@/config/index'
@@ -9,7 +10,8 @@ const Diploma = () => {
   const atPrograms = at.mini || at.professional || at.industry
 
   return (
-    <section className='diplom-section'>
+    <section
+      className={classNames('diplom-section', { [stls.noMb]: at.profession })}>
       <div className='image'>
         <Image
           src={

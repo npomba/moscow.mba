@@ -1,4 +1,5 @@
 import stls from '@/styles/components/general/ProgramsModule.module.sass'
+import classNames from 'classnames'
 import { useState } from 'react'
 
 const ProgramsModule = ({
@@ -9,20 +10,10 @@ const ProgramsModule = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false)
 
-  const moduleClassNames = [stls.module]
-  const contentClassNames = [stls.content]
-
-  if (fadeOutEffect) contentClassNames.push(stls.fadeOutEffect)
-
-  if (isOpen) {
-    moduleClassNames.push(stls.opened)
-    contentClassNames.push(stls.show)
-  }
-
   return (
     <div className={stls.container}>
       <div
-        className={moduleClassNames.join(' ')}
+        className={classNames(stls.module, { [stls.opened]: isOpen })}
         onClick={() => setIsOpen(prevState => !prevState)}>
         <div className={stls.plus}>
           <i></i>
@@ -30,7 +21,11 @@ const ProgramsModule = ({
         </div>
         {title}
       </div>
-      <div className={contentClassNames.join(' ')}>
+      <div
+        className={classNames(stls.content, {
+          [stls.show]: isOpen,
+          [stls.fadeOutEffect]: fadeOutEffect
+        })}>
         {subTitle && <h4 className={stls.title}>{subTitle}</h4>}
         <ul className='simple-list'>
           {items.map((item, idx) => (

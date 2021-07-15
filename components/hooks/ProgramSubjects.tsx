@@ -14,6 +14,7 @@ const ProgramSubjects = ({ sum = false, type = '', subjects = '' }) => {
       </span>
     )
   }
+
   if (type === 'professional') {
     return (
       <span>
@@ -25,6 +26,7 @@ const ProgramSubjects = ({ sum = false, type = '', subjects = '' }) => {
       </span>
     )
   }
+
   if (type === 'industry') {
     return (
       <span>
@@ -48,6 +50,7 @@ const ProgramSubjects = ({ sum = false, type = '', subjects = '' }) => {
       </span>
     )
   }
+
   if (type === 'profession') {
     return (
       <span>
@@ -88,10 +91,10 @@ const ProgramSubjects = ({ sum = false, type = '', subjects = '' }) => {
           : at.executive && '51'}
 
         {at.profession && subjects === 'base' && sum === false
-          ? '20'
+          ? '10'
           : at.profession && subjects === 'specialty' && sum === false
           ? '0'
-          : at.profession && '20'}
+          : at.profession && '10'}
       </span>
     )
   }

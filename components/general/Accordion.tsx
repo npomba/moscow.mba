@@ -1,4 +1,5 @@
 import stls from '@/styles/components/general/Accordion.module.sass'
+import classNames from 'classnames'
 import ImageContainer from '@/components/general/ImageContainer'
 
 const Accordion = ({
@@ -6,21 +7,10 @@ const Accordion = ({
   accordionContent,
   isList = false,
   isImage = false,
-  idx = null
+  accordionIndex = null,
+  activeAccordion = null,
+  setActiveAccordion = null
 }) => {
-  const accordionBlockClasses = ['accordion-block']
-  const accordionContentClasses = ['accordion-content']
-
-  if (isImage) {
-    accordionBlockClasses.push('accordion-block--equal-padding')
-    accordionContentClasses.push('accordion-image-content')
-  }
-
-  if (idx === 0) {
-    accordionBlockClasses.push('opened')
-    accordionContentClasses.push('grid')
-  }
-
   let content
 
   if (typeof accordionContent === 'string') {
@@ -58,14 +48,31 @@ const Accordion = ({
     ))
   }
 
+  const handleAccordionClick = () => {
+    if (activeAccordion) setActiveAccordion(-1)
+
+    if (!activeAccordion && setActiveAccordion) setActiveAccordion(accordionIndex)
+  }
+
   return (
-    <div className={accordionBlockClasses.join(' ')}>
+    <div
+      className={classNames('accordion-block', {
+        'accordion-block--equal-padding': isImage,
+        opened: activeAccordion
+      })}
+      onClick={handleAccordionClick}>
       <div className='plus'>
         <i></i>
         <i></i>
       </div>
       <div className='accordion-title'>{title}</div>
-      <div className={accordionContentClasses.join(' ')}>{content}</div>
+      <div
+        className={classNames('accordion-content', {
+          'accordion-image-content': isImage,
+          grid: activeAccordion
+        })}>
+        {content}
+      </div>
     </div>
   )
 }

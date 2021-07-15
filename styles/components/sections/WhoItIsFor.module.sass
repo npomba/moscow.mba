@@ -4,7 +4,7 @@
   margin: 130px 0
   @include m.media(laptop, tablet, phone)
     flex-direction: column
-    margin: 65px 0
+    margin: 60px 0
 
 .title
   margin-bottom: 85px
@@ -16,7 +16,11 @@
     max-width: 100%
   @include m.media(tablet, phone)
     font-size: 32px
+    margin-bottom: 0
 
 .itemsContainer
   display: flex
   flex-wrap: wrap
+  @include m.media(laptop, tablet, phone)
+    padding-bottom: 60px
+    border-bottom: solid 1px #e6e6e6

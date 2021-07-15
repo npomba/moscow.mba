@@ -8,8 +8,11 @@
   margin-bottom: 110px
   background-color: #FF3535
   color: #fff
-  // @include m.media(laptop, tablet, phone)
-  //   justify-content: space-evenly
+
+  @include m.media(laptop, tablet, phone)
+    display: block
+    padding: 45px 25px
+
   @include m.media(laptop)
     margin-bottom: 50px
 
@@ -35,6 +38,7 @@
   @include m.media(laptop, tablet, phone)
     flex-direction: column
     align-items: center
+    margin: 0
   @include m.media(tablet)
     align-items: center
 
@@ -77,7 +81,7 @@
   &.btnLightBg
     background-color: #fff
     color: #000
-  @include m.media(tablet, phone)
+  @include m.media(laptop, tablet, phone)
     width: 100%
     padding: 16px 0
     font-size: 14px

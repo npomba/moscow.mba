@@ -19,7 +19,7 @@ const ProgramDesc = () => {
           {at.mini && at.blended && 'MBA Mini BLENDED'}
           {at.professional && at.blended && 'MBA Professional BLENDED'}
           {at.industry && at.blended && 'MBA Industry BLENDED'}
-          {!at.profession && '— путь руководителя к росту'}
+          {!at.profession && ' — путь руководителя к росту'}
           {at.profession && 'Компетенции, востребованные на рынке'}
         </h2>
         <div className='title-desc'>

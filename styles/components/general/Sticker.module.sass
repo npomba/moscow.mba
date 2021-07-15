@@ -93,16 +93,25 @@
   line-height: 120%
   @include m.media(tablet, phone)
     font-size: 24px
-    padding-bottom: 16px
+    padding-bottom: 32px
 
 .listItem
+  position: relative
+  padding-left: 20px
+  &:not(:last-child)
+    margin-bottom: 10px
   &.many
-    @supports (display: list-item)
-      display: list-item
-      list-style: circle inside
-      &::marker
-        content: '\2022'
-        color: #FF3535
+    &::before
+      content: ''
+      position: absolute
+      left: 0
+      top: 12px
+      width: 5px
+      height: 5px
+      background-color: #FF3535
+      border-radius: 50%
+      @include m.media(tablet, phone)
+        top: 8px
       & p
         padding-left: 18px
     & p
