@@ -3522,93 +3522,6 @@ h2 {
   }
 }
 
-/*executive-results-section ======================================*/
-.executive-results-section {
-  margin-bottom: 150px;
-  h2 {
-    font-size: 50px;
-    span {
-      display: block;
-    }
-  }
-  h4 {
-    font-weight: bold;
-    font-size: 32px;
-    line-height: 1.2;
-    color: $red;
-    margin-bottom: 40px;
-  }
-}
-
-.executive-results-content {
-  .floatLeft {
-    width: 50%;
-    padding-right: 70px;
-  }
-  .floatRight {
-    width: 50%;
-    padding-left: 6px;
-    padding-top: 16px;
-  }
-}
-
-.executive-results-list {
-  font-size: 20px;
-  line-height: 1.3;
-  padding-right: 45px;
-  li {
-    margin-bottom: 20px;
-    padding-left: 20px;
-    position: relative;
-    &:before {
-      content: '';
-      width: 5px;
-      height: 5px;
-      position: absolute;
-      left: 0;
-      top: 11px;
-      background: $red;
-      border-radius: 50%;
-    }
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-}
-
-.executive-results-red {
-  color: #fff;
-  background: $red;
-  padding: 79px 47px;
-  line-height: 1.2;
-  font-size: 30px;
-  font-weight: 400;
-  margin-top: 51px;
-  position: relative;
-  z-index: 2;
-  &:after {
-    content: '';
-    right: 0;
-    top: 0;
-    height: 43px;
-    width: 43px;
-    background: #cd1800;
-    position: absolute;
-    z-index: -2;
-  }
-  &:before {
-    content: '';
-    right: -30px;
-    top: -30px;
-    height: 60px;
-    width: 60px;
-    position: absolute;
-    z-index: -1;
-    background: #fff;
-    transform: rotate(-45deg);
-  }
-}
-
 /* intramural-moduls-section ==============================*/
 .intramural-moduls-section {
   margin-bottom: 170px;
@@ -4291,15 +4204,6 @@ h2 {
   .executive-about-content {
     margin-top: 0;
   }
-  .executive-results-list {
-    padding-right: 0;
-  }
-  .executive-results-red {
-    padding: 65px 45px;
-  }
-  .executive-results-section h2 {
-    font-size: 44px;
-  }
   .intramural-moduls-section {
     padding-right: 250px;
     .image {
@@ -4351,9 +4255,6 @@ h2 {
     .circle {
       margin-bottom: 30px;
     }
-  }
-  .executive-results-content .floatLeft {
-    padding-right: 40px;
   }
   .requirements-info {
     padding: 50px 100px;
@@ -5181,29 +5082,6 @@ h2 {
     padding-bottom: 80px;
     margin-bottom: 80px;
   }
-  .executive-results-section {
-    margin-bottom: 80px;
-    h2 {
-      font-size: 40px;
-      span {
-        display: inline-block;
-      }
-    }
-    h4 {
-      display: none;
-    }
-  }
-  .executive-results-list {
-    padding-top: 10px;
-  }
-  .executive-results-content {
-    .floatRight,
-    .floatLeft {
-      float: none;
-      width: 100%;
-      padding: 0;
-    }
-  }
   .intramural-moduls-section {
     margin-bottom: 80px;
     padding: 0;
@@ -5813,12 +5691,6 @@ h2 {
       display: none;
     }
   }
-  .executive-results-section {
-    margin-bottom: 60px;
-    h2 {
-      font-size: 36px;
-    }
-  }
   .intramural-moduls-section {
     margin-bottom: 60px;
   }
@@ -5845,15 +5717,6 @@ h2 {
       margin-right: -50px;
     }
   }
-  .executive-results-list {
-    font-size: 16px;
-    li {
-      margin-bottom: 12px;
-      &:before {
-        top: 8px;
-      }
-    }
-  }
   .intramural-moduls-content {
     h4 {
       font-size: 25px;
@@ -5874,10 +5737,6 @@ h2 {
     .content {
       padding-left: 20px;
     }
-  }
-  .executive-results-red {
-    font-size: 25px;
-    padding: 40px 30px;
   }
   .requirements-info {
     padding: 45px 40px;
@@ -6492,12 +6351,6 @@ a.iconPhoneHeader {
     .number {
       font-size: 24px;
     }
-  }
-  .executive-results-section h2 {
-    font-size: 32px;
-  }
-  .executive-results-red {
-    font-size: 22px;
   }
   .intramural-moduls-section .image {
     height: 300px;
