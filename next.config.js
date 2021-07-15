@@ -74,7 +74,9 @@ module.exports = {
               ]
             }
           },
-          referrerPolicy: 'no-referrer-when-downgrade'
+          referrerPolicy: 'no-referrer-when-downgrade',
+          // frameGuard: ['allow-from', { uri: 'http://webvisor.com' }]
+          frameGuard: 'sameorigin'
         })
         // headers: createSecureHeaders({
         //   forceHTTPSRedirect: [
