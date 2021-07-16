@@ -1,4 +1,5 @@
 import stls from '@/styles/components/sections/Pros.module.sass'
+import classNames from 'classnames'
 import useAt from '@/components/hooks/useAt'
 import Image from 'next/image'
 import { IconCheck } from '@/components/icons'
@@ -7,8 +8,8 @@ const Pros = ({ format = 'online' }) => {
   const at = useAt()
   if (format === 'online') {
     return (
-      <section className='advantages-section section-pl'>
-        <div className='title-pl red'>
+      <section className={stls.container}>
+        <div className={stls.title}>
           {!at.profession && (
             <>
               online
@@ -21,7 +22,7 @@ const Pros = ({ format = 'online' }) => {
             </>
           )}
         </div>
-        <h2 className='prosTitle'>
+        <h2 className={stls.prosTitle}>
           На{' '}
           {at.mini
             ? 'MBA mini'
@@ -34,14 +35,14 @@ const Pros = ({ format = 'online' }) => {
             : 'курсе'}{' '}
           мы обучаем онлайн. И делаем это качественно
         </h2>
-        <div className='advantages-content'>
-          <ul className='advantages-list'>
-            <li>
-              <div className='circle'>
+        <div className={stls.content}>
+          <ul className={stls.list}>
+            <li className={stls.item}>
+              <div className={stls.circle}>
                 <IconCheck stroke={'#FF3535'} />
               </div>
               <div>
-                <h5>Учитесь из любой точки мира</h5>
+                <h5 className={stls.itemTitle}>Учитесь из любой точки мира</h5>
                 <p>
                   Обучение проходит на нашей образовательной платформе. Всё
                   собрано в личном кабинете: здесь удобно смотреть расписание,
@@ -50,12 +51,14 @@ const Pros = ({ format = 'online' }) => {
                 </p>
               </div>
             </li>
-            <li>
-              <div className='circle'>
+            <li className={stls.item}>
+              <div className={stls.circle}>
                 <IconCheck stroke={'#FF3535'} />
               </div>
               <div>
-                <h5>Онлайн-формат даёт возможность учиться у лучших</h5>
+                <h5 className={stls.itemTitle}>
+                  Онлайн-формат даёт возможность учиться у лучших
+                </h5>
                 <p>
                   Благодаря онлайн-формату Вы можете пройти программу с
                   экспертами сразу из нескольких топовых бизнес-школ мира. Мы
@@ -64,12 +67,12 @@ const Pros = ({ format = 'online' }) => {
                 </p>
               </div>
             </li>
-            <li>
-              <div className='circle'>
+            <li className={stls.item}>
+              <div className={stls.circle}>
                 <IconCheck stroke={'#FF3535'} />
               </div>
               <div>
-                <h5>Получаете престижные дипломы</h5>
+                <h5 className={stls.itemTitle}>Получаете престижные дипломы</h5>
                 <p>
                   Дипломы MBA{' '}
                   {at.mini
@@ -86,12 +89,14 @@ const Pros = ({ format = 'online' }) => {
                 </p>
               </div>
             </li>
-            <li>
-              <div className='circle'>
+            <li className={stls.item}>
+              <div className={stls.circle}>
                 <IconCheck stroke={'#FF3535'} />
               </div>
               <div>
-                <h5>Общайтесь с экспертами online</h5>
+                <h5 className={stls.itemTitle}>
+                  Общайтесь с экспертами online
+                </h5>
                 <p>
                   На MBA mini online у Вас есть возможность задавать вопросы
                   экспертам во время видео-встреч, а также через нашу
@@ -100,7 +105,7 @@ const Pros = ({ format = 'online' }) => {
               </div>
             </li>
           </ul>
-          <div className='right-image'>
+          <div className={stls.imageRight}>
             <Image
               src='/assets/images/advantages_pic_1.jpg'
               alt='Студент MBA'
@@ -115,16 +120,16 @@ const Pros = ({ format = 'online' }) => {
 
   if (format === 'blended') {
     return (
-      <section className='advantages-section blended-advantages section-pl'>
-        <div className='title-pl red'>
+      <section className={classNames(stls.container, stls.blendedContainer)}>
+        <div className={stls.title}>
           online <br /> модули
         </div>
-        <h2>
+        <h2 className={stls.prosTitle}>
           Также на MBA blended мы обучаем онлайн. И делаем это качественно
         </h2>
-        <div className='advantages-content'>
-          <div className='left-image'>
-            <div className='image'>
+        <div className={stls.content}>
+          <div className={stls.imageLeft}>
+            <div className={stls.imageContainer}>
               <Image
                 src='/assets/images/advantages_pic_1.jpg'
                 alt='Студент MBA'
@@ -133,13 +138,13 @@ const Pros = ({ format = 'online' }) => {
               />
             </div>
           </div>
-          <ul className='advantages-list'>
-            <li>
-              <div className='circle'>
+          <ul className={stls.list}>
+            <li className={stls.item}>
+              <div className={stls.circle}>
                 <IconCheck stroke={'#FF3535'} />
               </div>
               <div>
-                <h5>Учитесь из любой точки мира</h5>
+                <h5 className={stls.itemTitle}>Учитесь из любой точки мира</h5>
                 <p>
                   Обучение проходит на нашей образовательной платформе. Всё
                   собрано в личном кабинете: здесь удобно смотреть расписание,
@@ -148,12 +153,14 @@ const Pros = ({ format = 'online' }) => {
                 </p>
               </div>
             </li>
-            <li>
-              <div className='circle'>
+            <li className={stls.item}>
+              <div className={stls.circle}>
                 <IconCheck stroke={'#FF3535'} />
               </div>
               <div>
-                <h5>Онлайн-формат даёт возможность учиться у лучших</h5>
+                <h5 className={stls.itemTitle}>
+                  Онлайн-формат даёт возможность учиться у лучших
+                </h5>
                 <p>
                   Благодаря онлайн-формату Вы можете пройти программу с
                   экспертами сразу из нескольких топовых бизнес-школ мира. Мы
@@ -162,12 +169,14 @@ const Pros = ({ format = 'online' }) => {
                 </p>
               </div>
             </li>
-            <li>
-              <div className='circle'>
+            <li className={stls.item}>
+              <div className={stls.circle}>
                 <IconCheck stroke={'#FF3535'} />
               </div>
               <div>
-                <h5>Общайтесь с экспертами online</h5>
+                <h5 className={stls.itemTitle}>
+                  Общайтесь с экспертами online
+                </h5>
                 <p>
                   На MBA{' '}
                   {at.mini
