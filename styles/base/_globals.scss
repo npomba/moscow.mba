@@ -2049,88 +2049,6 @@ h2 {
   }
 }
 
-/*advantages-section ======================================*/
-.advantages-section {
-  position: relative;
-  padding-bottom: 130px;
-  margin-bottom: 145px;
-  &:after {
-    content: '';
-    height: 1px;
-    background: #e6e6e6;
-    width: 100vw;
-    left: 50%;
-    margin-left: -50vw;
-    position: absolute;
-    z-index: 2;
-    bottom: 0;
-  }
-  &:before {
-    content: '';
-    height: 2px;
-    background: $red;
-    width: 169px;
-    left: 0;
-    position: absolute;
-    z-index: 3;
-    bottom: 0;
-  }
-  .title-pl {
-    margin-top: 13px;
-  }
-  h2 {
-    max-width: 910px;
-  }
-}
-
-.advantages-content {
-  padding-right: 45px;
-  display: flex;
-  align-items: flex-start;
-  padding-top: 59px;
-  .right-image {
-    width: 357px;
-    flex-shrink: 0;
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
-    }
-  }
-}
-
-.advantages-list {
-  flex-grow: 1;
-  padding-right: 80px;
-  line-height: 1.2;
-  li {
-    margin-bottom: 29px;
-    display: flex;
-    align-items: flex-start;
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-  .circle {
-    border: 2px solid rgba(214, 4, 35, 0.2);
-    width: 57px;
-    height: 57px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    border-radius: 50%;
-    flex-shrink: 0;
-    margin-right: 32px;
-  }
-  h5 {
-    font-weight: 500;
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-}
-
 /* process-section ========================================*/
 .process-section {
   position: relative;
@@ -2846,46 +2764,6 @@ h2 {
     }
     img {
       width: 100%;
-    }
-  }
-}
-
-/* blended-advantages ========================================*/
-.blended-advantages {
-  h2 {
-    max-width: 100%;
-  }
-  .advantages-list {
-    padding-right: 0;
-    padding-left: 62px;
-    padding-right: 75px;
-  }
-  .left-image {
-    width: 298px;
-    flex-shrink: 0;
-    padding-top: 113px;
-    padding-left: 33px;
-    .image {
-      width: 100%;
-      position: relative;
-      z-index: 2;
-      height: 317px;
-      &:after {
-        content: '';
-        width: 100%;
-        height: 100%;
-        background: $red;
-        position: absolute;
-        z-index: -1;
-        top: -113px;
-        left: -33px;
-      }
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: top center;
-      }
     }
   }
 }
@@ -3609,9 +3487,6 @@ h2 {
       max-width: 400px;
     }
   }
-  .advantages-list {
-    padding-right: 40px;
-  }
   .process-content {
     h2 {
       width: 360px;
@@ -3645,12 +3520,6 @@ h2 {
     .name {
       padding-right: 100px;
     }
-  }
-  .advantages-content {
-    padding-right: 0;
-  }
-  .blended-advantages .advantages-list {
-    padding-right: 0;
   }
   .blended-info-content {
     padding-right: 50px;
@@ -4290,15 +4159,6 @@ h2 {
     padding-right: 50px;
     padding-bottom: 220px;
   }
-  .advantages-content {
-    padding-top: 20px;
-    .right-image {
-      display: none;
-    }
-  }
-  .advantages-list {
-    padding-right: 0;
-  }
   .process-content {
     display: block;
     h2 {
@@ -4308,7 +4168,6 @@ h2 {
   .process-info {
     padding-top: 20px;
   }
-  .advantages-section,
   .process-section {
     padding-bottom: 80px;
     margin-bottom: 80px;
@@ -4376,14 +4235,6 @@ h2 {
     h4 {
       font-size: 26px;
       margin-bottom: 30px;
-    }
-  }
-  .blended-advantages {
-    .left-image {
-      display: none;
-    }
-    .advantages-list {
-      padding-left: 0;
     }
   }
   .support-section .text {
@@ -4762,8 +4613,7 @@ h2 {
   .top-path-content {
     padding-bottom: 180px;
   }
-  .process-section,
-  .advantages-section {
+  .process-section {
     padding-bottom: 60px;
     margin-bottom: 60px;
   }
@@ -4776,9 +4626,6 @@ h2 {
   }
   .top-path-content {
     padding: 60px 10px 180px;
-  }
-  .advantages-list h5 {
-    font-size: 20px;
   }
   .process-info {
     padding-top: 0;
@@ -4849,7 +4696,6 @@ h2 {
   .simple-list li::before {
     top: 7px;
   }
-  .advantages-section,
   .process-section {
     &:before {
       display: none;
@@ -5445,14 +5291,6 @@ a.iconPhoneHeader {
       font-size: 20px;
     }
   }
-  .advantages-list {
-    .circle {
-      display: none;
-    }
-    h5 {
-      font-size: 18px;
-    }
-  }
   .reviews-preview-block {
     height: 260px;
   }
@@ -5509,9 +5347,6 @@ a.iconPhoneHeader {
   .blended-info-content h4 {
     font-size: 22px;
     margin-bottom: 22px;
-  }
-  .advantages-content {
-    padding-top: 10px;
   }
   .intramural-moduls-content {
     h4 {
@@ -5882,10 +5717,6 @@ html #nprogress .spinner-icon {
     font-weight: 500;
     line-height: 120%;
   }
-}
-
-h2.prosTitle {
-  max-width: 24ch;
 }
 
 input:focus {
