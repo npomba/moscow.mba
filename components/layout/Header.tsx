@@ -1,5 +1,7 @@
 import stls from '@/styles/components/layout/Header.module.sass'
 import Link from 'next/link'
+import { useContext } from 'react'
+import MenuContext from '@/context/menu/menuContext'
 import { useRouter } from 'next/router'
 import lang from '@/data/translation/header'
 import langMenu from '@/data/translation/menu'
@@ -30,6 +32,8 @@ import Discount from '@/components/costs/Discount'
 const Header = ({ programs }) => {
   let data = programs || []
 
+  const { openMenu, closeMenu, toggleMenu } = useContext(MenuContext)
+
   const contactInfo = contactData()
 
   const router = useRouter()
@@ -39,6 +43,9 @@ const Header = ({ programs }) => {
   return (
     <>
       <header>
+        <button onClick={openMenu}>open</button>
+        <button onClick={closeMenu}>close</button>
+        <button onClick={toggleMenu}>toggle</button>
         <div className='container'>
           <div className='header-top'>
             <Link href='/'>

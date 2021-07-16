@@ -15,6 +15,7 @@ import Router, { useRouter } from 'next/router'
 import 'nprogress/nprogress.css'
 
 import Script from 'next/script'
+import MenuState from '@/context/menu/MenuState'
 
 function MyApp({ Component, pageProps, router }) {
   const [loading, setLoading] = useState(false)
@@ -83,10 +84,11 @@ function MyApp({ Component, pageProps, router }) {
       />
       <Script src='/assets/js/vendors/jquery-3.6.0.min.js' />
       <Script src='/assets/js/myjs.js' strategy='lazyOnload' />
-      <Wrapper>
-        <Header programs={programs} />
-        {/* <AnimatePresence> */}
-        {/* <motion.div
+      <MenuState>
+        <Wrapper>
+          <Header programs={programs} />
+          {/* <AnimatePresence> */}
+          {/* <motion.div
             key={router.route}
             initial='initial'
             animate='animate'
@@ -103,13 +105,14 @@ function MyApp({ Component, pageProps, router }) {
                 opacity: 0
               }
             }}> */}
-        <div className='main-content'>
-          <Component {...pageProps} />
-        </div>
-        {/* </motion.div> */}
-        {/* </AnimatePresence> */}
-        <Footer />
-      </Wrapper>
+          <div className='main-content'>
+            <Component {...pageProps} />
+          </div>
+          {/* </motion.div> */}
+          {/* </AnimatePresence> */}
+          <Footer />
+        </Wrapper>
+      </MenuState>
     </>
   )
 }
