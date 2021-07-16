@@ -73,6 +73,7 @@ const Qna = ({ programId, programTitle }) => {
         <div className={stls.content}>
           {faq.map((item, idx) => (
             <AccordionsContainer
+              key={item.title + idx}
               accordionsItems={faq}
               firstAccordionActive={false}
             />
@@ -80,7 +81,6 @@ const Qna = ({ programId, programTitle }) => {
         </div>
       </div>
     </section>
-
   )
 }
 
