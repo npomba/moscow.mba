@@ -2802,50 +2802,6 @@ h2 {
   }
 }
 
-/* intramural-moduls-section ==============================*/
-.intramural-moduls-section {
-  margin-bottom: 170px;
-  padding-right: 392px;
-  position: relative;
-  z-index: 2;
-  .image {
-    position: absolute;
-    z-index: 3;
-    right: 0;
-    bottom: -50px;
-    max-width: 467px;
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
-}
-
-.intramural-moduls-content {
-  color: #fff;
-  background: #2d2c2a;
-  padding: 105px 140px;
-  .title-desc {
-    p {
-      margin-bottom: 20px;
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-  }
-  h4 {
-    font-size: 32px;
-    font-weight: 400;
-    line-height: 1.2;
-    margin-bottom: 40px;
-    padding-top: 10px;
-  }
-  .title-pl {
-    display: none;
-  }
-}
-
 /* vebinars-section ========================================*/
 .simple-section {
   padding: 54px 0 100px;
@@ -3295,15 +3251,6 @@ h2 {
   }
   .executive-about-content {
     margin-top: 0;
-  }
-  .intramural-moduls-section {
-    padding-right: 250px;
-    .image {
-      max-width: 340px;
-    }
-  }
-  .intramural-moduls-content {
-    padding: 90px 105px 90px 50px;
   }
   .requirements-list {
     li {
@@ -3955,29 +3902,6 @@ h2 {
     padding-bottom: 80px;
     margin-bottom: 80px;
   }
-  .intramural-moduls-section {
-    margin-bottom: 80px;
-    padding: 0;
-    .image {
-      position: static;
-      margin-top: 40px;
-      width: 100%;
-      max-width: 100%;
-      height: 400px;
-    }
-  }
-  .intramural-moduls-content {
-    padding: 0;
-    background: #fff;
-    color: $text_color;
-    .title-pl {
-      display: block;
-    }
-    h4 {
-      font-size: 30px;
-      margin-bottom: 30px;
-    }
-  }
   .requirements-section {
     margin-bottom: 80px;
   }
@@ -4396,9 +4320,6 @@ h2 {
       display: none;
     }
   }
-  .intramural-moduls-section {
-    margin-bottom: 60px;
-  }
   .requirements-section {
     margin-bottom: 60px;
   }
@@ -4414,17 +4335,6 @@ h2 {
     padding-right: 50px;
     .pic-2 {
       margin-right: -50px;
-    }
-  }
-  .intramural-moduls-content {
-    h4 {
-      font-size: 25px;
-      font-weight: 500;
-      padding-top: 0;
-      margin-bottom: 20px;
-    }
-    .title-pl {
-      margin-bottom: 10px;
     }
   }
   .requirements-info {
@@ -4913,11 +4823,6 @@ a.iconPhoneHeader {
     font-size: 22px;
     margin-bottom: 22px;
   }
-  .intramural-moduls-content {
-    h4 {
-      font-size: 20px;
-    }
-  }
   .executive-about-content h2 {
     font-size: 28px;
   }
@@ -4930,9 +4835,6 @@ a.iconPhoneHeader {
     .number {
       font-size: 24px;
     }
-  }
-  .intramural-moduls-section .image {
-    height: 300px;
   }
   .requirements-info {
     padding: 40px 30px;

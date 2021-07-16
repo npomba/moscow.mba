@@ -1,0 +1,101 @@
+@use '@/styles/utils/mixin' as m
+
+.container
+  margin-bottom: 170px
+  padding-right: 392px
+  position: relative
+  z-index: 2
+  @include m.media(desktop)
+    padding-right: 250px
+  @include m.media(laptop, tablet, phone)
+    margin-bottom: 80px
+    padding: 0
+  @include m.media(tablet, phone)
+    margin-bottom: 60px
+
+.content
+  color: #fff
+  background: #2d2c2a
+  padding: 105px 140px
+  @include m.media(desktop)
+    padding: 90px 105px 90px 50px
+  @include m.media(laptop, tablet, phone)
+    padding: 0
+    background: #fff
+    color: #262626
+
+.smallScreenTitle
+  display: none
+  position: absolute
+  left: 0
+  width: 220px
+  padding-right: 20px
+  text-transform: uppercase
+  font-weight: bold
+  font-size: 20px
+  line-height: 1.3
+  color: #ff3535
+  @include m.media(laptop, tablet, phone)
+    display: block
+    position: static
+    width: auto
+    padding-right: 0
+    margin-bottom: 20px
+    margin-top: 0 !important
+  @include m.media(tablet, phone)
+    margin-bottom: 10px
+  @include m.media(phone)
+    font-size: 18px
+
+.title
+  font-size: 32px
+  font-weight: 400
+  line-height: 1.2
+  margin-bottom: 40px
+  padding-top: 10px
+  @include m.media(laptop)
+    font-size: 30px
+    margin-bottom: 30px
+  @include m.media(tablet, phone)
+    font-size: 25px
+    font-weight: 500
+    padding-top: 0
+    margin-bottom: 20px
+  @include m.media(phone)
+    font-size: 20px
+
+.descContainer
+  line-height: 1.3
+  font-size: 20px
+  @include m.media(desktop)
+    font-size: 19px
+  @include m.media(laptop)
+    font-size: 18px
+  @include m.media(tablet)
+    font-size: 16px
+  @include m.media(phone)
+    font-size: 15px
+
+.desc
+  margin-bottom: 20px
+  &:last-child
+    margin-bottom: 0
+
+.image
+  position: absolute
+  z-index: 3
+  right: 0
+  bottom: -50px
+  max-width: 467px
+  @include m.media(desktop)
+    max-width: 340px
+  @include m.media(laptop, tablet, phone)
+    position: static
+    margin-top: 40px
+    width: 100%
+    max-width: 100%
+  @include m.media(phone)
+  img
+    width: 100%
+    height: 100%
+    object-fit: cover
