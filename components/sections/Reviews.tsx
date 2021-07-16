@@ -45,15 +45,15 @@ const Reviews = () => {
   ]
   return (
     <>
-      <section className='reviews-section'>
-        <div className='section-pl'>
+      <section className={stls.container}>
+        <div className={stls.titleContainer}>
           <h2>Что о нас говорят</h2>
         </div>
-        <div className='reviews-text-list'>
+        <div className={stls.list}>
           {reviews.map((review, idx) => {
             return (
-              <div className='reviews-text-block' key={review.id}>
-                <div className='avatar'>
+              <div className={stls.item} key={review.id}>
+                <div className={stls.avatar}>
                   <Image
                     src={`/assets/images/reviews/${review.picUrl}`}
                     alt={review.name}
@@ -61,12 +61,12 @@ const Reviews = () => {
                     height={187}
                   />
                 </div>
-                <div className='info'>
-                  <div className='text'>
-                    <p>
+                <div>
+                  <div className={stls.excerptContainer}>
+                    <p className={stls.excerpt}>
                       {review.excerpt + ' '}
                       <Popup
-                        trigger={<a className='link cursor-pointer'>Читать</a>}
+                        trigger={<a className={stls.link}>Читать</a>}
                         modal
                         nested>
                         {close => (
@@ -78,8 +78,8 @@ const Reviews = () => {
                       </Popup>
                     </p>
                   </div>
-                  <div className='name'>{review.name}</div>
-                  <div className='job'>{review.profession}</div>
+                  <div className={stls.name}>{review.name}</div>
+                  <div className={stls.job}>{review.profession}</div>
                 </div>
               </div>
             )
