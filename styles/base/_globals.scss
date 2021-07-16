@@ -3438,90 +3438,6 @@ h2 {
   }
 }
 
-/* abroad-modules-section ==================================*/
-.abroad-modules-top {
-  display: flex;
-  margin-bottom: 74px;
-  h2 {
-    font-size: 90px;
-    max-width: 590px;
-    line-height: 1;
-  }
-}
-
-.abroad-modules-text {
-  width: 50%;
-  flex-shrink: 0;
-  margin-left: auto;
-  padding-left: 86px;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 1.3;
-  padding-top: 17px;
-  .content {
-    border-left: 2px solid #ff3535;
-    padding-left: 34px;
-  }
-}
-
-.abroad-modules-list {
-  display: flex;
-  margin: 0 -90px;
-  line-height: 1.2;
-  li {
-    padding: 0 90px 130px;
-    border-right: 1px solid #e6e6e6;
-    &:last-child {
-      border-right: none;
-    }
-    &:first-of-type {
-      .image {
-        margin-bottom: 74px;
-      }
-    }
-    &:nth-of-type(2) {
-      .image {
-        margin-top: 35px;
-      }
-    }
-  }
-  .image {
-    position: relative;
-    margin-bottom: 37px;
-    .red-offset {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background-color: $red;
-      z-index: -1;
-      &.top-left {
-        top: -35px;
-        left: -35px;
-      }
-      &.bottom-right {
-        bottom: -35px;
-        right: -35px;
-      }
-    }
-    img {
-      max-width: 100%;
-    }
-  }
-  .text {
-    max-width: 500px;
-  }
-  .country {
-    font-weight: bold;
-    font-size: 36px;
-    margin-bottom: 10px;
-  }
-  h5 {
-    font-weight: 500;
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-}
-
 /*executive-results-section ======================================*/
 .executive-results-section {
   margin-bottom: 150px;
@@ -4308,38 +4224,6 @@ h2 {
   }
   .intramural-moduls-content {
     padding: 90px 105px 90px 50px;
-  }
-  .abroad-modules-top h2 {
-    font-size: 70px;
-  }
-  .abroad-modules-list {
-    margin: 0 -40px;
-    li {
-      padding: 0 40px 120px;
-      &:first-of-type {
-        .image {
-          margin-bottom: 57px;
-        }
-      }
-      &:nth-of-type(2) {
-        .image {
-          margin-top: 17px;
-        }
-      }
-    }
-    .image {
-      .red-offset.bottom-right {
-        bottom: -17px;
-        right: -17px;
-      }
-      .red-offset.top-left {
-        top: -17px;
-        left: -17px;
-      }
-    }
-  }
-  .abroad-modules-text {
-    padding-left: 41px;
   }
   .requirements-list {
     li {
@@ -5227,48 +5111,6 @@ h2 {
       margin-bottom: 30px;
     }
   }
-  .abroad-modules-section {
-    margin-bottom: 80px;
-    h2 {
-      font-size: 50px;
-      width: 100%;
-    }
-  }
-  .abroad-modules-top {
-    display: block;
-    margin-bottom: 40px;
-  }
-  .abroad-modules-text {
-    width: 100%;
-    padding-left: 0;
-  }
-  .abroad-modules-list {
-    margin: 0;
-    display: block;
-    li {
-      padding: 0;
-      width: 100%;
-      border-right: none;
-      margin-bottom: 40px;
-      &:first-of-type,
-      &:nth-of-type(2) {
-        .image {
-          margin-bottom: 20px;
-        }
-      }
-    }
-    .image {
-      .red-offset {
-        display: none;
-      }
-      img {
-        width: 100%;
-      }
-    }
-    .text {
-      max-width: 100%;
-    }
-  }
   .requirements-section {
     margin-bottom: 80px;
   }
@@ -5822,12 +5664,6 @@ h2 {
   .intramural-moduls-section {
     margin-bottom: 60px;
   }
-  .abroad-modules-section {
-    margin-bottom: 60px;
-    h2 {
-      font-size: 36px;
-    }
-  }
   .requirements-section {
     margin-bottom: 60px;
   }
@@ -5863,16 +5699,6 @@ h2 {
     }
     .title-pl {
       margin-bottom: 10px;
-    }
-  }
-  .abroad-modules-top {
-    margin-bottom: 30px;
-  }
-  .abroad-modules-text {
-    font-size: 16px;
-    padding-top: 10px;
-    .content {
-      padding-left: 20px;
     }
   }
   .executive-results-red {
@@ -6501,9 +6327,6 @@ a.iconPhoneHeader {
   }
   .intramural-moduls-section .image {
     height: 300px;
-  }
-  .abroad-modules-section h2 {
-    font-size: 32px;
   }
   .requirements-info {
     padding: 40px 30px;
