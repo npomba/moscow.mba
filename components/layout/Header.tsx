@@ -43,9 +43,9 @@ const Header = ({ programs }) => {
   return (
     <>
       <header>
-        <button onClick={openMenu}>open</button>
+        {/* <button onClick={openMenu}>open</button>
         <button onClick={closeMenu}>close</button>
-        <button onClick={toggleMenu}>toggle</button>
+        <button onClick={toggleMenu}>toggle</button> */}
         <div className='container'>
           <div className='header-top'>
             <Link href='/'>
