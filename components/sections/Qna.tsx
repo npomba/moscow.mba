@@ -71,13 +71,10 @@ const Qna = ({ programId, programTitle }) => {
           </Popup>
         </div>
         <div className={stls.content}>
-          {faq.map((item, idx) => (
-            <AccordionsContainer
-              key={item.title + idx}
-              accordionsItems={faq}
-              firstAccordionActive={false}
-            />
-          ))}
+          <AccordionsContainer
+            accordionsItems={faq}
+            firstAccordionActive={false}
+          />
         </div>
       </div>
     </section>
