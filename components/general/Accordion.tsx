@@ -3,32 +3,31 @@ import classNames from 'classnames'
 import ImageContainer from '@/components/general/ImageContainer'
 
 const Accordion = ({
-  title,
-  accordionContent,
-  isList = false,
-  isImage = false,
+  accordionItem,
   accordionIndex = null,
   activeAccordion = null,
   setActiveAccordion = null
 }) => {
-  let content
+  const { title, content, isList, isImage } = accordionItem
 
-  if (typeof accordionContent === 'string') {
-    content = <p className={stls.mb}>{accordionContent}</p>
+  let accordionContent
+
+  if (typeof content === 'string') {
+    accordionContent = <p className={stls.mb}>{content}</p>
   }
 
-  if (!isList && Array.isArray(accordionContent)) {
-    content = accordionContent.map((item, idx) => (
+  if (!isList && Array.isArray(content)) {
+    accordionContent = content.map((item, idx) => (
       <p key={idx} className={stls.mb}>
         {item}
       </p>
     ))
   }
 
-  if (isList && Array.isArray(accordionContent)) {
-    content = (
+  if (isList) {
+    accordionContent = (
       <ol>
-        {accordionContent.map((item, idx) => (
+        {content.map((item, idx) => (
           <li key={idx} className={stls.olItem}>
             {item}
           </li>
@@ -37,8 +36,8 @@ const Accordion = ({
     )
   }
 
-  if (isImage && Array.isArray(accordionContent)) {
-    content = accordionContent.map((image, idx) => (
+  if (isImage) {
+    accordionContent = content.map((image, idx) => (
       <ImageContainer
         key={idx}
         image={image}
@@ -51,27 +50,27 @@ const Accordion = ({
   const handleAccordionClick = () => {
     if (activeAccordion) setActiveAccordion(-1)
 
-    if (!activeAccordion && setActiveAccordion) setActiveAccordion(accordionIndex)
+    if (!activeAccordion && setActiveAccordion)
+      setActiveAccordion(accordionIndex)
   }
 
   return (
     <div
-      className={classNames('accordion-block', {
-        'accordion-block--equal-padding': isImage,
-        opened: activeAccordion
+      className={classNames(stls.container, {
+        [stls.equalPadding]: isImage,
+        [stls.opened]: activeAccordion
       })}
       onClick={handleAccordionClick}>
-      <div className='plus'>
+      <div className={stls.plus}>
         <i></i>
         <i></i>
       </div>
-      <div className='accordion-title'>{title}</div>
+      <div className={stls.title}>{title}</div>
       <div
-        className={classNames('accordion-content', {
-          'accordion-image-content': isImage,
-          grid: activeAccordion
+        className={classNames(stls.content, {
+          [stls.imageContent]: isImage
         })}>
-        {content}
+        {accordionContent}
       </div>
     </div>
   )

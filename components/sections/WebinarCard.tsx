@@ -1,4 +1,5 @@
 import stls from '@/styles/components/sections/WebinarCard.module.sass'
+import classNames from 'classnames'
 import Image from 'next/image'
 import PopupForm from '@/components/popups/PopupForm'
 import Popup from 'reactjs-popup'
@@ -21,28 +22,30 @@ const WebinarCard = ({
       <Popup
         trigger={
           <a
-            className={`vebinars-block ${disabled && 'disabled'} popup-open`}
+            className={classNames(stls.container, {
+              [stls.disabled]: disabled
+            })}
             data-effect='mfp-zoom-in'>
-            <div className='bell'>
+            <div className={stls.bell}>
               <IconBell />
             </div>
-            <div className='date'>
+            <div className={stls.date}>
               <strong>
                 {date} {month},
               </strong>{' '}
               {hours}:{minutes}
             </div>
-            <div className='title'>{title}</div>
-            <div className='info'>
-              <div className='author'>
-                <div className='avatar'>
+            <div className={stls.title}>{title}</div>
+            <div className={stls.info}>
+              <div className={stls.author}>
+                <div className={stls.avatar}>
                   <Image src={portrait} alt={speaker} width={50} height={50} />
                 </div>
                 <div>
-                  Спикер: <span className='name'>{speaker}</span>
+                  Спикер: <span className={stls.name}>{speaker}</span>
                 </div>
               </div>
-              <div className='long'>{dur}</div>
+              <div className={stls.duration}>{dur}</div>
             </div>
           </a>
         }
