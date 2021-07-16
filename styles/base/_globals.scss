@@ -1982,42 +1982,6 @@ h2 {
   }
 }
 
-/*top-path-section ======================================*/
-.top-path-section {
-  padding-top: 76px;
-  padding-right: 324px;
-  margin-bottom: 130px;
-  position: relative;
-  z-index: 2;
-  .image {
-    position: absolute;
-    z-index: 3;
-    right: 0;
-    top: 0;
-    max-width: 503px;
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
-}
-
-.top-path-content {
-  color: #fff;
-  background: $red;
-  padding: 117px 220px 117px 270px;
-  position: relative;
-  .title-desc {
-    max-width: 480px;
-  }
-  .title-pl {
-    left: 57px;
-    margin-top: 11px;
-    max-width: 166px;
-  }
-}
-
 /* process-section ========================================*/
 .process-section {
   position: relative;
@@ -3445,16 +3409,6 @@ h2 {
       left: 0;
     }
   }
-  .top-path-content {
-    padding: 100px 50px;
-    padding-right: 150px;
-  }
-  .top-path-section {
-    padding-right: 250px;
-    .image {
-      max-width: 400px;
-    }
-  }
   .process-content {
     h2 {
       width: 360px;
@@ -4106,23 +4060,6 @@ h2 {
       margin-bottom: 20px;
     }
   }
-  .top-path-section {
-    padding-top: 0;
-    padding-right: 0;
-    margin-bottom: 400px;
-    .image {
-      width: 80%;
-      left: 10%;
-      max-width: 100%;
-      height: 320px;
-      top: 100%;
-      margin-top: -160px;
-    }
-  }
-  .top-path-content {
-    padding-right: 50px;
-    padding-bottom: 220px;
-  }
   .process-content {
     display: block;
     h2 {
@@ -4563,29 +4500,8 @@ h2 {
       font-weight: 500;
     }
   }
-  .top-path-section {
-    margin-bottom: 60vw;
-    .image {
-      height: 280px;
-      margin-top: -140px;
-    }
-  }
-  .top-path-content {
-    padding-bottom: 180px;
-  }
-  .process-section {
-    padding-bottom: 60px;
-    margin-bottom: 60px;
-  }
   .accreditations-section {
     margin-bottom: 60px;
-  }
-  .top-path-section {
-    margin-left: -10px;
-    margin-right: -10px;
-  }
-  .top-path-content {
-    padding: 60px 10px 180px;
   }
   .process-info {
     padding-top: 0;

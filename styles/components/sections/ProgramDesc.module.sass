@@ -1,11 +1,34 @@
 @use '@/styles/utils/mixin' as m
 
-.imageContainer
-  width: 503px
-  height: 503px
+.container
+  padding-top: 76px
+  padding-right: 324px
+  margin-bottom: 130px
+  position: relative
+  z-index: 2
+  @include m.media(desktop)
+    padding-right: 250px
   @include m.media(laptop, tablet, phone)
-    width: 280px
-    height: 280px
+    padding-top: 0
+    padding-right: 0
+    margin-bottom: 400px
+  @include m.media(tablet, phone)
+    margin-left: -10px
+    margin-right: -10px
+    margin-bottom: 60vw
+
+.content
+  color: #fff
+  background: #ff3535
+  padding: 117px 220px 117px 270px
+  position: relative
+  @include m.media(desktop, laptop, tablet)
+    padding: 100px 150px 100px 50px
+  @include m.media(laptop, tablet)
+    padding-right: 50px
+    padding-bottom: 220px
+  @include m.media(tablet, phone)
+    padding: 60px 10px 180px
 
 .smallPl
   padding: 117px 290px 117px 215px
@@ -16,3 +39,59 @@
     padding-bottom: 220px
   @include m.media(tablet, phone)
     padding: 60px 10px 180px
+
+.title
+  position: absolute
+  left: 57px
+  width: 220px
+  padding-right: 20px
+  text-transform: uppercase
+  font-weight: bold
+  font-size: 20px
+  line-height: 1.3
+  margin-top: 11px
+  max-width: 166px
+  @include m.media(desktop, laptop, tablet, phone)
+    position: static
+    width: auto
+    padding-right: 0
+    margin-bottom: 20px
+    margin-top: 0 !important
+  @include m.media(phone)
+    font-size: 18px
+
+.desc
+  line-height: 1.3
+  font-size: 20px
+  max-width: 480px
+  @include m.media(desktop)
+    font-size: 19px
+  @include m.media(laptop)
+    font-size: 18px
+  @include m.media(tablet, phone)
+    font-size: 16px
+  @include m.media(phone)
+    font-size: 15px
+
+.imageContainer
+  position: absolute
+  z-index: 3
+  right: 0
+  top: 0
+  max-width: 503px
+  @include m.media(desktop)
+    max-width: 400px
+  @include m.media(laptop, tablet, phone)
+    width: 80%
+    left: 10%
+    max-width: 100%
+    height: 320px
+    top: 100%
+    margin-top: -160px
+  @include m.media(tablet, phone)
+    height: 280px
+    margin-top: -140px
+  img
+    width: 100%
+    height: 100%
+    object-fit: cover
