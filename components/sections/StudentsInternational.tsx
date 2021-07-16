@@ -7,14 +7,14 @@ import { base64pixel } from '@/config/index'
 
 const StudentsInternational = () => {
   return (
-    <section className='world-mba-section'>
-      <div className='world-mba-flex'>
-        <div className='world-mba-text'>
+    <section className={stls.container}>
+      <div className={stls.content}>
+        <div className={stls.descContainer}>
           <h2>{SetString(lang.mbaWorldTitle)}</h2>
-          <p className='title-desc'>{SetString(lang.mbaWorldDics)}</p>
+          <p className={stls.desc}>{SetString(lang.mbaWorldDics)}</p>
         </div>
-        <div className='world-mba-image'>
-          <div className='image'>
+        <div className={stls.imageContainer}>
+          <div className={stls.image}>
             <Image
               src={imageData.image.src}
               alt={SetString(imageData.image.alt)}
@@ -24,7 +24,7 @@ const StudentsInternational = () => {
               blurDataURL={base64pixel}
             />
           </div>
-          <div className='info'>
+          <div className={stls.info}>
             <span>{SetString(lang.mbaWorldMoreThan)}</span>
             <strong>15</strong>
             <span>{SetString(lang.mbaWorldCountries)}</span>
