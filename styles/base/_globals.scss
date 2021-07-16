@@ -883,26 +883,6 @@ h1 {
   }
 }
 
-.jumbotron-top {
-  margin-bottom: 32px;
-}
-
-.jumbotron-label {
-  font-size: 14px;
-  text-transform: uppercase;
-  font-weight: 400;
-  color: #fff;
-  letter-spacing: 0.1em;
-  line-height: 1.2;
-  span {
-    display: inline-block;
-    padding: 13px 29px;
-    text-align: center;
-    border: 1px solid #ffffff;
-    border-radius: 80px;
-  }
-}
-
 .jumbotron-list {
   margin-left: auto;
   margin-bottom: 40px;
@@ -3272,11 +3252,6 @@ h2 {
     padding-right: 35px;
     padding-left: 50px;
   }
-  .jumbotron-top {
-    display: inline-flex;
-    align-items: center;
-    position: relative;
-  }
   .discount-sticker {
     left: auto;
     right: 0;
@@ -3290,9 +3265,6 @@ h2 {
     }
     span {
       font-size: 12px;
-    }
-    & ~ .jumbotron-label {
-      margin-right: 140px;
     }
   }
   .discount-sticker.left-corner {
@@ -4318,9 +4290,6 @@ h2 {
     span {
       font-size: 10px;
     }
-    & ~ .jumbotron-label {
-      margin-right: 120px;
-    }
   }
   .jumbotron-list .number {
     font-size: 38px;
@@ -4976,17 +4945,8 @@ a.iconPhoneHeader {
   // .accreditations-section .image {
   //   height: 300px;
   // }
-  .jumbotron-top {
-    margin-bottom: 25px;
-  }
-  .jumbotron-label {
-    font-size: 12px;
-  }
   .discount-sticker {
     margin-top: -23px;
-    & ~ .jumbotron-label {
-      margin-right: 110px;
-    }
   }
   .support-section {
     h3 {
@@ -5388,34 +5348,6 @@ html #nprogress .bar {
 html #nprogress .spinner-icon {
   border-top-color: $red;
   border-left-color: $red;
-}
-
-.btnLoanGroup {
-  display: flex;
-  margin-bottom: 40px;
-  @include m.media(phone, tablet) {
-    flex-direction: column;
-  }
-  & .button {
-    margin-bottom: 0;
-  }
-}
-
-.loanContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 27ch;
-  margin-left: 31px;
-  @include m.media(phone, tablet) {
-    margin-left: 0;
-    margin-top: 11px;
-  }
-  & p {
-    margin-left: 11px;
-    font-weight: 500;
-    line-height: 120%;
-  }
 }
 
 input:focus {
