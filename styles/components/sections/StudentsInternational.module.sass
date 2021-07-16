@@ -1,0 +1,105 @@
+@use '@/styles/utils/mixin' as m
+
+.container
+  margin-bottom: 239px
+  @include m.media(laptop, tablet, phone)
+    margin-bottom: 60px
+    position: relative
+    padding-bottom: 120px
+    &:after
+      content: ''
+      left: 50%
+      height: 1px
+      background: #e6e6e6
+      position: absolute
+      bottom: 0
+      width: 102vw
+      margin-left: -51vw
+
+.content
+  display: flex
+  align-items: flex-start
+  @include m.media(laptop, tablet, phone)
+    display: block
+
+.descContainer
+  flex-grow: 1
+  padding-top: 70px
+  order: 2
+  @include m.media(desktop, laptop, tablet, phone)
+    padding-top: 0
+  @include m.media(laptop, tablet, phone)
+    margin-bottom: 30px
+
+.desc
+  line-height: 1.3
+  font-size: 20px
+  @include m.media(desktop)
+    font-size: 19px
+  @include m.media(laptop)
+    font-size: 18px
+  @include m.media(tablet)
+    font-size: 16px
+  @include m.media(phone)
+    font-size: 15px
+
+.imageContainer
+  position: relative
+  width: 769px
+  flex-shrink: 0
+  margin-right: 60px
+  @include m.media(desktop)
+    width: 540px
+  @include m.media(laptop, tablet, phone)
+    width: 100%
+
+.image
+  @include m.media(desktop, laptop)
+    height: 500px
+  @include m.media(laptop)
+    height: 460px
+  @include m.media(tablet, phone)
+    height: auto
+  // @include m.media(laptop, tablet, phone)
+  //   height: 460px
+  img
+    max-width: 100%
+    @include m.media(desktop, laptop, tablet, phone)
+      width: 100%
+      height: 100%
+      object-fit: cover
+
+.info
+  background: #ff3535
+  width: 166px
+  min-height: 166px
+  display: flex
+  flex-direction: column
+  justify-content: center
+  text-align: center
+  color: #fff
+  padding: 10px
+  position: absolute
+  right: -83px
+  bottom: -96px
+  font-family: 'mazzardH', Arial, Tahoma, sans-serif
+  @include m.media(desktop)
+    right: -30px
+  @include m.media(laptop, tablet, phone)
+    right: 20px
+    width: 140px
+    min-height: 140px
+    bottom: -70px
+  @include m.media(phone)
+    font-size: 12px
+    min-height: 120px
+    width: 120px
+  strong
+    font-size: 62px
+    font-family: 'Visuelt', Arial, Tahoma, sans-serif
+    margin: 5px 0 -8px
+    @include m.media(phone)
+      font-size: 42px
+      margin-bottom: -4px
+  span
+    line-height: 1.2
