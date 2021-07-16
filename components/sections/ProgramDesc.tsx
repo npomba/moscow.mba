@@ -6,12 +6,12 @@ import Image from 'next/image'
 const ProgramDesc = () => {
   const at = useAt()
   return (
-    <section className='top-path-section'>
+    <section className={stls.container}>
       <div
-        className={classNames('top-path-content', {
+        className={classNames(stls.content, {
           [stls.smallPl]: at.profession
         })}>
-        {!at.profession && <div className='title-pl'>О&nbsp;программе</div>}
+        {!at.profession && <div className={stls.title}>О&nbsp;программе</div>}
         <h2>
           {at.mini && at.online && 'MBA Mini ONLINE'}
           {at.professional && at.online && 'MBA Professional ONLINE'}
@@ -22,7 +22,7 @@ const ProgramDesc = () => {
           {!at.profession && ' — путь руководителя к росту'}
           {at.profession && 'Компетенции, востребованные на рынке'}
         </h2>
-        <div className='title-desc'>
+        <div className={stls.desc}>
           {at.mini &&
             at.online &&
             'Дистанционная программа Mini MBA разработана для специалистов и руководителей среднего звена, которые хотят систематизировать имеющиеся знания или познакомиться с ключевыми аспектами новой для себя сферы управленческой деятельности'}
@@ -45,7 +45,7 @@ const ProgramDesc = () => {
             'Мы проводим более 100 исследований ежегодно и добавляем в программу то, что требуют топовые работодатели. После обучения вы будете на 100% готовы к новым профессиональным вызовам'}
         </div>
       </div>
-      <div className='image'>
+      <div className={stls.imageContainer}>
         {!at.profession && (
           <Image
             src='/assets/images/top_path_pic_1.jpg'
