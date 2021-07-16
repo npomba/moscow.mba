@@ -22,21 +22,22 @@ const JumbotronProgram = ({ data }) => {
     (at.profession && at.online)
 
   return (
-    <section className='jumbotron-section'>
-      <div className='image'>
+    <section className={stls.container}>
+      <div className={stls.image}>
         <Image
           src={`/assets/images/programs-bgs/${data.picture}`}
           alt='Студенты обучаются'
           layout='fill'
         />
       </div>
-      <div className='container'>
-        <div className='jumbotron-content'>
+      <div className={stls.generalContainer}>
+        <div className={stls.content}>
           <Breadcrumbs programChunkData={data} />
-          <div className='jumbotron-top'>
+          <div className={stls.contentTop}>
             {at.online && (
-              <div className='discount-sticker left-corner'>
-                <div className='size'>
+              <div
+                className={classNames(stls.discountSticker, stls.leftCorner)}>
+                <div className={stls.discountAmount}>
                   <Discount />
                 </div>
                 <span>
@@ -44,28 +45,24 @@ const JumbotronProgram = ({ data }) => {
                 </span>
               </div>
             )}
-            <div className='jumbotron-label'>
+            <div className={stls.label}>
               <JumbotronLabel />
             </div>
           </div>
-          <div className='jumbotron-flex'>
-            <div className='jumbotron-text'>
+          <div className={stls.flexContainer}>
+            <div className={stls.descContainer}>
               <h1
                 className={classNames({ [stls.smallerTitle]: at.profession })}>
                 {data.title}
               </h1>
-              <div className='desc'>
+              <div className={stls.desc}>
                 {at.profession
                   ? data.description
                   : 'Оставьте заявку и получите консультацию по программе, а также узнайте возможные варианты скидок и требования к поступлению'}
               </div>
-              <div className='btnLoanGroup'>
+              <div className={stls.btnLoanGroup}>
                 <Popup
-                  trigger={
-                    <a className='button white-button cursor-pointer'>
-                      Оставить заявку
-                    </a>
-                  }
+                  trigger={<a className={stls.button}>Оставить заявку</a>}
                   modal
                   nested>
                   {close => (
@@ -77,9 +74,9 @@ const JumbotronProgram = ({ data }) => {
                     />
                   )}
                 </Popup>
-                <div className='loanContainer'>
+                <div className={stls.loanContainer}>
                   <IconCheckCircleAlt />
-                  <p>
+                  <p className={stls.loanDesc}>
                     Можно учиться в рассрочку за{' '}
                     <Loan
                       discount={isDiscounted}
@@ -91,21 +88,21 @@ const JumbotronProgram = ({ data }) => {
                 </div>
               </div>
             </div>
-            <ul className='jumbotron-list jumbotron-list-program'>
-              <li>
-                <div className='number'>2021</div>
+            <ul className={stls.list}>
+              <li className={stls.item}>
+                <div className={stls.number}>2021</div>
                 <p>Новейшая программа 2021 года</p>
               </li>
-              <li className='jumDivider'></li>
+              <li className={stls.separator}></li>
 
-              <li>
-                <div className='number'>150+</div>
+              <li className={stls.item}>
+                <div className={stls.number}>150+</div>
                 <p>международных экспертов</p>
               </li>
-              <li className='jumDivider'></li>
+              <li className={stls.separator}></li>
 
-              <li>
-                <div className='number'>2000+</div>
+              <li className={stls.item}>
+                <div className={stls.number}>2000+</div>
                 <p>студентов по всему миру</p>
               </li>
             </ul>
