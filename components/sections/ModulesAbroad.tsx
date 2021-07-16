@@ -1,13 +1,14 @@
 import stls from '@/styles/components/sections/ModulesAbroad.module.sass'
+import classNames from 'classnames'
 import Image from 'next/image'
 
 const ModulesAbroad = () => {
   return (
-    <section className='abroad-modules-section'>
-      <div className='abroad-modules-top'>
-        <h2>2 модуля за рубежом</h2>
-        <div className='abroad-modules-text'>
-          <div className='content'>
+    <section className={stls.container}>
+      <div className={stls.content}>
+        <h2 className={stls.title}>2 модуля за рубежом</h2>
+        <div className={stls.desc}>
+          <div className={stls.descText}>
             В программу включены 2 выездных модуля, во время которых вы
             познакомитесь с лучшими бизнес-практиками крупнейших деловых центров
             мира: Китая и США. В рамках модулей Вы посетите крупнейшие
@@ -16,20 +17,20 @@ const ModulesAbroad = () => {
           </div>
         </div>
       </div>
-      <ul className='abroad-modules-list'>
-        <li>
-          <div className='image'>
+      <ul className={stls.list}>
+        <li className={stls.item}>
+          <div className={stls.image}>
             <Image
               src='/assets/images/new_abroad_modules_pic_1.jpg'
               alt={'Вид на Статую Свободы, США'}
               width={516}
               height={344}
             />
-            <div className='red-offset bottom-right'></div>
+            <div className={classNames(stls.redOffset, stls.bottomRight)}></div>
           </div>
-          <div className='text'>
-            <div className='country'>США</div>
-            <h5>Инновации и предпринимательство</h5>
+          <div className={stls.itemTextContainer}>
+            <div className={stls.countryName}>США</div>
+            <h5 className={stls.itemTitle}>Инновации и предпринимательство</h5>
             <p>
               Модуль разработан с опорой на передовой опыт и лучшие практики в
               области управления инновациями в США. Вы проведете встречи с
@@ -39,19 +40,21 @@ const ModulesAbroad = () => {
             </p>
           </div>
         </li>
-        <li>
-          <div className='image'>
+        <li className={stls.item}>
+          <div className={stls.image}>
             <Image
               src='/assets/images/new_abroad_modules_pic_2.jpg'
               alt={'Вид на небоскреб Wangjing SOHO, Китай'}
               width={516}
               height={344}
             />
-            <div className='red-offset top-left'></div>
+            <div className={classNames(stls.redOffset, stls.topLeft)}></div>
           </div>
-          <div className='text'>
-            <div className='country'>Китай</div>
-            <h5>Стратегии выхода на международние рынки</h5>
+          <div className={stls.itemTextContainer}>
+            <div className={stls.countryName}>Китай</div>
+            <h5 className={stls.itemTitle}>
+              Стратегии выхода на международние рынки
+            </h5>
             <p>
               На модуле в Китае Вы получите инструменты для вывода продукта на
               новые рынки и узнаете, как устроена самая быстрорастущая экономика
