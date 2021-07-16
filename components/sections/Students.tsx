@@ -1,10 +1,7 @@
 import stls from '@/styles/components/sections/Students.module.sass'
+import classNames from 'classnames'
 import useAt from '@/components/hooks/useAt'
-import {
-  CircularProgressbar,
-  CircularProgressbarWithChildren
-} from 'react-circular-progressbar'
-// import 'react-circular-progressbar/dist/styles.css'
+import { CircularProgressbarWithChildren } from 'react-circular-progressbar'
 
 import circleStls from '@/styles/components/CircularProgressBar.module.sass'
 import Image from 'next/image'
@@ -13,48 +10,48 @@ const Students = () => {
   const at = useAt()
 
   return (
-    <section className='students-section section-pl'>
-      <div className='title-pl red'>Более 2000</div>
-      <div className='students-flex'>
-        <div className='students-detail'>
+    <section className={stls.container}>
+      <div className={stls.title}>Более 2000</div>
+      <div className={stls.content}>
+        <div className={stls.detail}>
           <h2>Наши студенты</h2>
-          <div className='desc'>
+          <div className={stls.desc}>
             Вы станете частью эффективного нетворкинга по всему миру
           </div>
-          <h4>Согласно опросу 2000 наших студентов:</h4>
-          <ul className='students-list'>
-            <li>
+          <h4 className={stls.stats}>Согласно опросу 2000 наших студентов:</h4>
+          <ul className={stls.list}>
+            <li className={stls.item}>
               <CircularProgressbarWithChildren
                 value={96}
                 className={circleStls.circle}>
                 <p className={circleStls.text}>96%</p>
               </CircularProgressbarWithChildren>
-              <p>остались довольны обучением</p>
+              <p className={stls.results}>остались довольны обучением</p>
             </li>
-            <li>
+            <li className={stls.item}>
               <CircularProgressbarWithChildren
                 className={circleStls.circle}
                 value={92}>
                 <p className={circleStls.text}>92%</p>
               </CircularProgressbarWithChildren>
-              <p>
+              <p className={stls.results}>
                 {at.profession
                   ? 'применили полученные знания в работе'
                   : 'повысили показатели своих проектов'}
               </p>
             </li>
-            <li>
+            <li className={stls.item}>
               <CircularProgressbarWithChildren
                 className={circleStls.circle}
                 value={72}>
                 <p className={circleStls.text}>72%</p>
               </CircularProgressbarWithChildren>
-              <p>продвинулись по карьерной лестнице</p>
+              <p className={stls.results}>продвинулись по карьерной лестнице</p>
             </li>
           </ul>
         </div>
-        <div className='dobble-images students-images'>
-          <div className='image pic-1'>
+        <div className={stls.imagesContainer}>
+          <div className={classNames(stls.image, stls.imageOne)}>
             <Image
               src='/assets/images/students_pic_1.png'
               alt='Группа счастливых выпускников'
@@ -62,7 +59,7 @@ const Students = () => {
               height={473}
             />
           </div>
-          <div className='image pic-2'>
+          <div className={classNames(stls.image, stls.imageTwo)}>
             <Image
               src='/assets/images/students_pic_2.jpg'
               alt='Счастливый выпускник'

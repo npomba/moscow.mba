@@ -101,7 +101,7 @@ const WebinarCards = ({ timeframe }) => {
       : data
 
   return (
-    <div className='vebinars-list'>
+    <div className={stls.list}>
       {cards.map(card => {
         const month = months.filter(
           (str, idx) => idx === card.date.getMonth()

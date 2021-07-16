@@ -1,11 +1,83 @@
 @use '@/styles/utils/mixin' as m
 
+.container
+  position: relative
+  z-index: 2
+  padding-left: 220px
+  margin-bottom: 125px
+  @include m.media(desktop, laptop, tablet, phone)
+    padding-left: 0
+  @include m.media(laptop)
+    margin-bottom: 80px
+  @include m.media(tablet)
+    margin-bottom: 60px
+
+.title
+  position: absolute
+  left: 0
+  width: 220px
+  margin-top: 15px
+  padding-right: 20px
+  text-transform: uppercase
+  font-weight: bold
+  font-size: 20px
+  line-height: 1.3
+  color: #ff3535
+  @include m.media(desktop, laptop, tablet, phone)
+    position: static
+    width: auto
+    padding-right: 0
+    margin-bottom: 20px
+    margin-top: 0 !important
+  @include m.media(phone)
+    font-size: 18px
+
+.flexContent
+  display: flex
+  align-items: flex-start
+  @include m.media(laptop, tablet, phone)
+    display: block
+
+.descContainer
+  width: 330px
+  flex-shrink: 0
+  margin-right: 80px
+  @include m.media(desktop)
+    margin-right: 50px
+  @include m.media(laptop, tablet, phone)
+    margin-right: 0
+    margin-bottom: 30px
+    width: 100%
+
+.descTitle
+  br
+    @include m.media(laptop, tablet, phone)
+      display: none
+
+.desc
+  line-height: 1.2
+
+.content
+  flex-grow: 1
+  padding-top: 16px
+  @include m.media(laptop, tablet, phone)
+    padding-top: 0
+
 .mb,
 .olItem
   &:not(:last-child)
     margin-bottom: 20px
 
-a.emptyBtn
+.button
+  display: inline-block
+  font-family: 'MazzardM', Arial, Tahoma, sans-serif
+  font-size: 15px
+  text-transform: uppercase
+  letter-spacing: 0.1em
+  text-align: center
+  border-radius: 0
+  padding: 20px 30px
+  font-weight: 700
   width: 260px
   margin-top: 20px
   border: solid 2px #ff3535

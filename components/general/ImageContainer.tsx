@@ -23,7 +23,7 @@ const ImageContainer = ({ image, imageWidth, imageHeight }) => {
   )
 
   return (
-    <Popup trigger={container} className='image-popup' modal nested>
+    <Popup trigger={container} className='image-popup' modal>
       {close => <PopupImage closePopupImage={close} image={image} />}
     </Popup>
   )
