@@ -2,6 +2,7 @@ const { createSecureHeaders } = require('next-secure-headers')
 const dev = process.env.NODE_ENV !== 'production'
 
 module.exports = {
+  // reactStrictMode: true,
   poweredByHeader: false,
   i18n: {
     locales: ['ru', 'en-US'],
