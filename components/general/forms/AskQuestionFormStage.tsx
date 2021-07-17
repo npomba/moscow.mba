@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import TagManager from 'react-gtm-module'
 import ContactButton from '@/components/btns/ContactButton'
 import { v4 as uuidv4 } from 'uuid'
+import useAt from '@/components/hooks/useAt'
 
 import {
   IconArrowLeft,
@@ -391,6 +392,7 @@ const AskQuestionFormStage = ({
 }) => {
   const router = useRouter()
   const leadPage = router.asPath
+  const at = useAt()
 
   let validationType
 
@@ -440,7 +442,21 @@ const AskQuestionFormStage = ({
               products: [
                 {
                   id: 'question',
-                  name: 'question'
+                  name: 'question',
+                  programFormat: at.online
+                    ? 'online'
+                    : at.blended
+                    ? 'blended'
+                    : null,
+                  programType: at.mini
+                    ? 'mini'
+                    : at.professional
+                    ? 'professional'
+                    : at.industry
+                    ? 'industry'
+                    : at.profession
+                    ? 'profession'
+                    : null
                 }
               ]
             }

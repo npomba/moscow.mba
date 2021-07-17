@@ -32,7 +32,8 @@ import Discount from '@/components/costs/Discount'
 const Header = ({ programs }) => {
   let data = programs || []
 
-  const { openMenu, closeMenu, toggleMenu } = useContext(MenuContext)
+  const { isOpen, openMenu, closeMenu, toggleMenu } = useContext(MenuContext)
+  // console.log(isOpen)
 
   const contactInfo = contactData()
 
