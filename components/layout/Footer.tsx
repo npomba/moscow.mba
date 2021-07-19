@@ -151,10 +151,16 @@ const Footer = () => {
           <div className={stls.copyright}>
             &copy; Moscow Business Academy, 2021
           </div>
-          <a href='#!' className={stls.legalLink}>
+          <a
+            href='/legaldocuments/oferta.pdf'
+            target='_blank'
+            className={stls.legalLink}>
             {SetString(lang.offerContract)}
           </a>
-          <a href='#!' className={stls.legalLink}>
+          <a
+            href='/legaldocuments/NDA.pdf'
+            target='_blank'
+            className={stls.legalLink}>
             {SetString(lang.privacyPolicy)}
           </a>
         </div>
