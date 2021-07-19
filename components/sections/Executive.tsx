@@ -26,7 +26,9 @@ const Executive = () => {
             <li className={stls.listItem}>
               <TrainingPeriod type={'executive'} />
             </li>
-            <li>2 {SetString(lang.executiveOfflineModules)}</li>
+            <li className={stls.listItem}>
+              2 {SetString(lang.executiveOfflineModules)}
+            </li>
             <li className={stls.listItem}>
               <ProgramSubjects sum={true} type={'executive'} />{' '}
               {SetString(langMenu.qtSubjects)}
