@@ -2193,23 +2193,6 @@ h2 {
   }
 }
 
-/* program-price-section ==============================*/
-.program-price-section {
-  position: relative;
-  margin-bottom: 130px;
-  background: #f7f7f7;
-  padding: 130px 120px 130px 130px;
-
-  .discount-sticker.right-corner {
-    top: 66px;
-    right: 66px;
-    transform: rotate(15deg);
-    @media screen and (max-width: 767px) {
-      display: none;
-    }
-  }
-}
-
 .program-price-tabs {
   display: none;
   margin-bottom: 30px;
@@ -2242,88 +2225,11 @@ h2 {
 }
 
 .program-price-block {
-  line-height: 1.2;
-  width: 50%;
-  padding: 0 73px;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  &:first-child {
-    border-right: 1px solid #d9d9d9;
-  }
-  .name {
-    font-weight: 400;
-    font-size: 36px;
-    margin-bottom: 20px;
-    display: flex;
-    position: relative;
-    z-index: 2;
-    display: inline-block;
-    padding-right: 120px;
-  }
-  .discount {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 128px;
-    height: 128px;
-    position: absolute;
-    z-index: -1;
-    border-radius: 50%;
-    background: $red;
-    color: #fff;
-    text-align: center;
-    right: 0;
-    top: 0;
-    margin-right: -32px;
-    line-height: 1;
-    transform: rotate(20deg);
-    .size {
-      font-weight: bold;
-      font-size: 35px;
-      font-family: $visuelt;
-    }
-    span {
-      font-size: 14px;
-      font-family: $mazzardH;
-      font-weight: 400;
-    }
-  }
   .price {
     font-size: 32px;
     font-weight: 500;
     margin-bottom: 17px;
     margin-top: auto;
-  }
-  .old-price {
-    color: #808080;
-    font-size: 24px;
-    position: relative;
-    margin-left: 28px;
-    display: inline-block;
-    @media screen and (min-width: 1019px) and (max-width: 1329px) {
-      margin-left: 15px;
-    }
-    &:after {
-      content: '';
-      width: 110%;
-      height: 1px;
-      background: #808080;
-      position: absolute;
-      top: 51%;
-      left: -5%;
-      z-index: 2;
-    }
-  }
-  .button-block {
-    margin-bottom: 18px;
-    width: 100%;
-  }
-  .button {
-    border-width: 2px;
-    border-color: $red;
-    width: 100%;
-    max-width: 260px;
   }
   .cheaper-link {
     border-bottom: 1px dotted #808080;
@@ -2331,29 +2237,6 @@ h2 {
     transition: $transition;
     &:hover {
       border-bottom-color: transparent;
-    }
-  }
-  .simple-list {
-    font-size: 20px;
-    line-height: 1.3;
-    position: relative;
-    z-index: 4;
-    li::before {
-      top: 11px;
-    }
-  }
-  .note {
-    font-size: 16px;
-    color: #808080;
-    margin-top: 13px;
-    padding-left: 21px;
-    margin-bottom: 40px;
-  }
-  .text {
-    font-size: 18px;
-    font-weight: 400;
-    p {
-      margin-bottom: 10px;
     }
   }
   .time {
@@ -2366,35 +2249,6 @@ h2 {
 }
 
 .single-program-price {
-  display: flex;
-  flex-direction: row;
-  margin: 0 -15px;
-  padding: 0 !important;
-  width: 100%;
-  .inner-block {
-    padding: 0 15px;
-    width: 50%;
-    &:last-child {
-      padding-left: 50px;
-    }
-    &:first-child {
-      @media screen and (max-width: 1019px) {
-        margin-bottom: 30px;
-      }
-    }
-  }
-  .price {
-    margin-top: 0;
-  }
-  .note {
-    margin-bottom: 0;
-  }
-  .text {
-    padding-top: 46px;
-  }
-  .name {
-    padding-right: 0;
-  }
   .time {
     margin-bottom: 0;
   }
@@ -3213,33 +3067,11 @@ h2 {
       width: 460px;
     }
   }
-  .program-price-section {
-    padding: 100px 50px;
-  }
   .program-price-flex {
     margin: 0 -50px;
   }
-  .program-price-block {
-    padding: 0 50px;
-    .discount {
-      height: 110px;
-      width: 110px;
-      .size {
-        font-size: 28px;
-      }
-      span {
-        font-size: 12px;
-      }
-    }
-    .name {
-      padding-right: 100px;
-    }
-  }
   .blended-info-content {
     padding-right: 50px;
-  }
-  .single-program-price .inner-block:last-child {
-    padding-left: 15px;
   }
   .executive-about-images {
     width: 380px;
@@ -3282,9 +3114,6 @@ h2 {
 @media (min-width: 1020px) {
   .header-mobile-podmenu {
     display: none !important;
-  }
-  .program-price-block {
-    display: flex !important;
   }
 }
 @media (max-width: 1019px) {
@@ -3813,10 +3642,6 @@ h2 {
   .reviews-preview-block {
     width: calc(100% - 30px);
   }
-  .program-price-section {
-    padding: 50px;
-    margin-bottom: 80px;
-  }
   .program-price-tabs {
     display: flex;
     margin-top: 40px;
@@ -3827,16 +3652,6 @@ h2 {
     display: block;
   }
   .program-price-block {
-    width: 100%;
-    padding: 0;
-    display: none;
-    &:first-child {
-      border-right: none;
-      display: block;
-    }
-    .note {
-      margin-bottom: 30px;
-    }
     .time {
       margin-top: 20px;
       margin-bottom: 20px;
@@ -3869,17 +3684,6 @@ h2 {
   }
   .support-section.mb-130 {
     margin-bottom: 80px;
-  }
-  .single-program-price {
-    display: block;
-    margin: 0;
-    .inner-block {
-      width: 100%;
-      padding: 0 !important;
-    }
-    .text {
-      padding-top: 0;
-    }
   }
   .executive-about-content {
     margin-bottom: 40px;
@@ -4276,24 +4080,9 @@ h2 {
       font-size: 18px;
     }
   }
-  .program-price-section {
-    margin: 0 -10px 60px;
-    padding: 50px 10px;
-  }
   .program-price-block {
     .name {
       padding-right: 110px;
-    }
-    .discount {
-      margin-right: 0;
-      width: 90px;
-      height: 90px;
-      .size {
-        font-size: 24px;
-      }
-      span {
-        font-size: 10px;
-      }
     }
   }
   .blended-info-section {
@@ -4774,41 +4563,6 @@ a.iconPhoneHeader {
     height: 76px;
   }
   .program-price-block {
-    .name {
-      font-size: 22px;
-      width: 100%;
-      margin-bottom: 25px;
-      padding-right: 90px;
-    }
-    .discount {
-      margin-top: -10px;
-      height: 80px;
-      width: 80px;
-      .size {
-        font-size: 22px;
-      }
-      span {
-        font-size: 9px;
-      }
-    }
-    .simple-list {
-      font-size: 15px;
-      li:before {
-        top: 7px;
-      }
-    }
-    .price {
-      font-size: 28px;
-    }
-    .old-price {
-      font-size: 20px;
-    }
-    .button {
-      max-width: 100%;
-    }
-    .text {
-      font-size: 16px;
-    }
     .time {
       font-size: 16px;
       span {
