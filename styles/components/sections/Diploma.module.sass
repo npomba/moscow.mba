@@ -1,2 +1,56 @@
-.noMb
-  margin-bottom: 0
+@use '@/styles/utils/mixin' as m
+
+.container
+  background: #ff3535
+  margin-bottom: 130px
+  display: flex
+  padding: 149px 82px
+  color: #fff
+  @include m.media(desktop)
+    padding: 120px 50px
+  @include m.media(laptop, tablet, phone)
+    display: block
+    padding: 60px 50px
+    margin-bottom: 80px
+  @include m.media(tablet, phone)
+    margin: 0 -10px 60px
+    padding: 60px 10px
+  &.noMb
+    margin-bottom: 0
+
+.image
+  width: 532px
+  flex-shrink: 0
+  margin-right: 94px
+  @include m.media(desktop)
+    margin-right: 50px
+    width: 460px
+  @include m.media(desktop)
+    margin-right: 50px
+    width: 460px
+  @include m.media(laptop, tablet, phone)
+    margin-right: 0
+    margin-bottom: 25px
+    width: auto
+    max-width: 100%
+  img
+    max-width: 100%
+
+.content
+  flex-grow: 1
+  display: flex
+  flex-direction: column
+  align-items: flex-start
+
+.desc
+  line-height: 1.2
+  margin-bottom: 30px
+  margin-top: -4px
+
+.note
+  margin-top: auto
+  opacity: 0.56
+  font-size: 13px
+  font-weight: 400
+  max-width: 368px
+  line-height: 1.2
