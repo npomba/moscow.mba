@@ -10,6 +10,7 @@ import Loan from '@/components/costs/Loan'
 import Discount from '@/components/costs/Discount'
 import TrainingPeriod from '../costs/TrainingPeriod'
 import ProgramSubjects from '../hooks/ProgramSubjects'
+import { RSA_PSS_SALTLEN_MAX_SIGN } from 'constants'
 
 const PriceBlock = ({
   isDiscounted,
@@ -23,7 +24,7 @@ const PriceBlock = ({
 
   if (withDesc) {
     topContentPart = (
-      <div className='text'>
+      <div className={stls.ctaTextContainer}>
         <p>
           Успех в бизнесе напрямую связывают с получением бизнес-образования
         </p>
@@ -31,19 +32,20 @@ const PriceBlock = ({
           Инвестируйте своё время в образование с Moscow Business Academy и
           кратно увеличьте свой запас знаний и доход
         </p>
-        <p className='red'>Запишитесь на MBA сегодня:</p>
+        <p className={stls.red}>Запишитесь на MBA сегодня:</p>
       </div>
     )
   }
 
   if (!withDesc) {
     topContentPart = (
-      <div className='price'>
+      <div className={stls.price}>
         {withPriceTitles && <p className={stls.priceDesc}>Стоимость курса</p>}
         <Price
           discount={isDiscounted}
           type={programType}
           format={programFormat}
+          renderedByComponent='CostOfStudy'
         />{' '}
       </div>
     )
@@ -52,7 +54,7 @@ const PriceBlock = ({
   return (
     <>
       {topContentPart}
-      <div className='price'>
+      <div className={stls.price}>
         {withPriceTitles && (
           <p className={stls.priceDesc}>Оплата по месяцам без переплаты</p>
         )}
@@ -61,6 +63,7 @@ const PriceBlock = ({
             discount={isDiscounted}
             type={programType}
             format={programFormat}
+            renderedByComponent='CostOfStudy'
           />
         ) : (
           <Price
@@ -96,8 +99,8 @@ const CostOfStudy = ({
   if (at.mini || at.professional || at.industry || at.executive) {
     list = (
       <>
-        <ul className='simple-list'>
-          <li>
+        <ul className={stls.list}>
+          <li className={stls.listItem}>
             <TrainingPeriod
               type={
                 at.mini
@@ -112,19 +115,19 @@ const CostOfStudy = ({
               }
             />
           </li>
-          <li>
+          <li className={stls.listItem}>
             {at.online
               ? 'Дистанционно'
               : at.blended
               ? 'С очными модулями'
               : 'Очно'}
           </li>
-          <li>
+          <li className={stls.listItem}>
             Ближайший набор{' '}
             <Until preposition={false} executive={at.executive && true} />
           </li>
-          <li>Живое общение с экспертами</li>
-          <li>
+          <li className={stls.listItem}>Живое общение с экспертами</li>
+          <li className={stls.listItem}>
             <ProgramSubjects
               type={
                 at.mini
@@ -141,7 +144,7 @@ const CostOfStudy = ({
             />{' '}
             дисциплин об управлении
           </li>
-          <li>
+          <li className={stls.listItem}>
             <ProgramSubjects
               type={
                 at.mini
@@ -158,36 +161,38 @@ const CostOfStudy = ({
             />{' '}
             дисциплин специализации
           </li>
-          {!at.online && <li>3 выездных модуля в Москве</li>}
+          {!at.online && (
+            <li className={stls.listItem}>3 выездных модуля в Москве</li>
+          )}
         </ul>
-        <div className='note'>*Возможна рассрочка</div>
+        <div className={stls.note}>*Возможна рассрочка</div>
       </>
     )
   } else {
     list = (
-      <ul className='simple-list'>
-        <li>От 4 месяцев обучения</li>
-        <li>
+      <ul className={stls.list}>
+        <li className={stls.listItem}>От 4 месяцев обучения</li>
+        <li className={stls.listItem}>
           {at.online
             ? 'Дистанционно'
             : at.blended
             ? 'С очными модулями'
             : 'Очно'}
         </li>
-        <li>
+        <li className={stls.listItem}>
           Ближайший набор <Until preposition={false} />
         </li>
-        <li>Теория и практические задания</li>
-        <li>Диплом установленного образца</li>
+        <li className={stls.listItem}>Теория и практические задания</li>
+        <li className={stls.listItem}>Диплом установленного образца</li>
       </ul>
     )
   }
 
   return (
-    <section className='program-price-section'>
+    <section className={stls.container}>
       {isDiscounted && (
-        <div className='discount-sticker right-corner'>
-          <div className='size'>
+        <div className={stls.discountSticker}>
+          <div className={stls.discountSize}>
             <Discount />
           </div>
           <span>
@@ -198,9 +203,9 @@ const CostOfStudy = ({
       <h2 className={classNames({ [stls.bigMb]: at.profession })}>
         Стоимость обучения
       </h2>
-      <div className='program-price-block single-program-price'>
-        <div className='inner-block'>
-          <div className='name'>
+      <div className={stls.content}>
+        <div className={stls.contentBlock}>
+          <div className={stls.programName}>
             {at.mini
               ? 'MBA Mini'
               : at.professional
@@ -214,7 +219,7 @@ const CostOfStudy = ({
           {list}
         </div>
         <div
-          className={classNames('inner-block', {
+          className={classNames(stls.contentBlock, {
             [stls.verticalSeparatorLine]: at.profession
           })}>
           <PriceBlock
@@ -226,11 +231,11 @@ const CostOfStudy = ({
             withPriceTitles={at.profession}
           />
           <div
-            className={classNames('button-block', {
+            className={classNames(stls.buttonBlock, {
               [stls.noMb]: at.profession
             })}>
             <Popup
-              trigger={<a className='button empty-button'>Оставить заявку</a>}
+              trigger={<a className={stls.button}>Оставить заявку</a>}
               modal
               nested>
               {close => (
@@ -243,9 +248,6 @@ const CostOfStudy = ({
               )}
             </Popup>
           </div>
-          {/* <a href='' className='cheaper-link'>
-        Хочу дешевле
-      </a> */}
         </div>
       </div>
     </section>

@@ -7,13 +7,13 @@ import { base64pixel } from '@/config/index'
 
 const ForeignAffiliates = () => {
   return (
-    <section className='branches-section section-pl'>
+    <section className={stls.container}>
       <h2>{SetString(lang.foreignAffiliatesTitle)}</h2>
-      <p className='title-desc'>{SetString(lang.foreignAffiliatesDisc)}</p>
-      <div className='branches-flex'>
-        <ul className='branches-images'>
-          <li>
-            <div className='image'>
+      <p className={stls.title}>{SetString(lang.foreignAffiliatesDisc)}</p>
+      <div className={stls.flexContainer}>
+        <ul className={stls.imagesList}>
+          <li className={stls.imagesListItem}>
+            <div className={stls.image}>
               <Image
                 src={imageData.circleOne.src}
                 alt={SetString(imageData.circleOne.alt)}
@@ -24,8 +24,8 @@ const ForeignAffiliates = () => {
               />
             </div>
           </li>
-          <li>
-            <div className='image'>
+          <li className={stls.imagesListItem}>
+            <div className={stls.image}>
               <Image
                 src={imageData.circleTwo.src}
                 alt={SetString(imageData.circleTwo.alt)}
@@ -36,8 +36,8 @@ const ForeignAffiliates = () => {
               />
             </div>
           </li>
-          <li>
-            <div className='image'>
+          <li className={stls.imagesListItem}>
+            <div className={stls.image}>
               <Image
                 src={imageData.circleThree.src}
                 alt={SetString(imageData.circleThree.alt)}
@@ -48,17 +48,17 @@ const ForeignAffiliates = () => {
               />
             </div>
           </li>
-          <li>
-            <div className='circle'>
-              <div className='number'>
+          <li className={stls.imagesListItem}>
+            <div className={stls.circle}>
+              <div className={stls.number}>
                 5 000 м<sup>2</sup>
               </div>
-              <div className='line'></div>
+              <div className={stls.line}></div>
               <p>{SetString(lang.foreignAffiliatesSurfaceArea)}</p>
             </div>
           </li>
         </ul>
-        <div className='branches-map'>
+        <div className={stls.mapContainer}>
           {/*TODO: swap fixed layout with default, fix up the css for an image */}
           <Image
             src='/assets/images/branches_map-alt.png'
