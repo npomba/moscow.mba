@@ -22,17 +22,17 @@ const CorporateClients = ({ partnershipTitle = false }) => {
   )
 
   return (
-    <section className='clients-section'>
+    <section className={stls.container}>
       <div
-        className={classNames('section-pl', {
+        className={classNames(stls.titleContainer, {
           [stls.noPaddingLeft]: partnershipTitle
         })}>
-        <div className='clients-text'>{title}</div>
+        <div className={stls.title}>{title}</div>
       </div>
-      <div className='clients-slider js-slick'>
-        <ul className='clients-slider-block'>
-          <li>
-            <div className='image'>
+      <div className={stls.slider}>
+        <ul className={stls.list}>
+          <li className={stls.listItem}>
+            <div className={stls.image}>
               <Image
                 src={imageData.hh.src}
                 alt={SetString(imageData.hh.alt)}
@@ -43,8 +43,8 @@ const CorporateClients = ({ partnershipTitle = false }) => {
               />
             </div>
           </li>
-          <li>
-            <div className='image'>
+          <li className={stls.listItem}>
+            <div className={stls.image}>
               <Image
                 src={imageData.rzd.src}
                 alt={SetString(imageData.rzd.alt)}
@@ -55,8 +55,8 @@ const CorporateClients = ({ partnershipTitle = false }) => {
               />
             </div>
           </li>
-          <li>
-            <div className='image'>
+          <li className={stls.listItem}>
+            <div className={stls.image}>
               <Image
                 src={imageData.tatenergo.src}
                 alt={SetString(imageData.tatenergo.alt)}
@@ -67,8 +67,8 @@ const CorporateClients = ({ partnershipTitle = false }) => {
               />
             </div>
           </li>
-          <li>
-            <div className='image'>
+          <li className={stls.listItem}>
+            <div className={stls.image}>
               <Image
                 src={imageData.toms.src}
                 alt={SetString(imageData.toms.alt)}
@@ -80,9 +80,9 @@ const CorporateClients = ({ partnershipTitle = false }) => {
             </div>
           </li>
         </ul>
-        <ul className='clients-slider-block'>
-          <li>
-            <div className='image'>
+        <ul className={stls.list}>
+          <li className={stls.listItem}>
+            <div className={stls.image}>
               <Image
                 src={imageData.rosneft.src}
                 alt={SetString(imageData.rosneft.alt)}
@@ -93,8 +93,8 @@ const CorporateClients = ({ partnershipTitle = false }) => {
               />
             </div>
           </li>
-          <li>
-            <div className='image'>
+          <li className={stls.listItem}>
+            <div className={stls.image}>
               <Image
                 src={imageData.rosseti.src}
                 alt={SetString(imageData.rosseti.alt)}
@@ -105,8 +105,8 @@ const CorporateClients = ({ partnershipTitle = false }) => {
               />
             </div>
           </li>
-          <li>
-            <div className='image'>
+          <li className={stls.listItem}>
+            <div className={stls.image}>
               <Image
                 src={imageData.sberbankLeasing.src}
                 alt={SetString(imageData.sberbankLeasing.alt)}
@@ -117,8 +117,8 @@ const CorporateClients = ({ partnershipTitle = false }) => {
               />
             </div>
           </li>
-          <li>
-            <div className='image'>
+          <li className={stls.listItem}>
+            <div className={stls.image}>
               <Image
                 src={imageData.lukomA.src}
                 alt={SetString(imageData.lukomA.alt)}
