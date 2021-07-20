@@ -1006,7 +1006,6 @@ h1 {
   }
 }
 
-/*about-section =======================================*/
 .section-pl {
   position: relative;
   z-index: 2;
@@ -1023,44 +1022,6 @@ h1 {
   font-size: 20px;
   line-height: 1.3;
 }
-
-.about-section {
-  padding-top: 19px;
-  margin-bottom: 69px;
-  .title-desc {
-    width: 362px;
-    flex-shrink: 0;
-    margin-right: 75px;
-    p {
-      margin-bottom: 20px;
-    }
-  }
-}
-
-.about-flex {
-  display: flex;
-}
-
-.about-list {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 -25px;
-  li {
-    width: 50%;
-    padding: 0 25px;
-    margin-bottom: 77px;
-  }
-  .number {
-    font-weight: bold;
-    font-size: 72px;
-    margin-bottom: 17px;
-    margin-top: -11px;
-  }
-  p {
-    line-height: 1.2;
-  }
-}
-
 h2 {
   font-weight: bold;
   font-size: 48px;
@@ -2515,22 +2476,6 @@ h2 {
   .title-desc {
     font-size: 18px;
   }
-  .about-section {
-    .title-desc {
-      margin-right: 0;
-      width: 100%;
-      margin-bottom: 40px;
-    }
-  }
-  .about-flex {
-    display: block;
-  }
-  h2 {
-    font-size: 40px;
-  }
-  .about-list li {
-    margin-bottom: 50px;
-  }
   .program-options-section {
     padding-top: 60px;
   }
@@ -2721,17 +2666,6 @@ h2 {
   }
   .title-desc {
     font-size: 16px;
-  }
-  .about-list {
-    li {
-      margin-bottom: 35px;
-    }
-    .number {
-      font-size: 48px;
-    }
-  }
-  .about-section {
-    margin-bottom: 40px;
   }
   .program-tabs-content {
     .prog-time {
@@ -2980,11 +2914,6 @@ a.iconPhoneHeader {
   .title-desc {
     font-size: 15px;
   }
-  .about-list {
-    .number {
-      font-size: 36px;
-    }
-  }
   .program-options-tabs {
     font-size: 16px;
     a {
@@ -3164,10 +3093,6 @@ a.iconPhoneHeader {
     .new-price {
       font-size: 16px;
     }
-  }
-  .about-list .number {
-    font-size: 30px;
-    margin-bottom: 10px;
   }
   .header-mobile-podmenu {
     height: calc(100vh - 63px);

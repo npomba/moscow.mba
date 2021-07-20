@@ -4,30 +4,30 @@ import lang from '@/data/translation/index'
 
 const About = () => {
   return (
-    <section className='about-section section-pl'>
-      <div className='title-pl'>{SetString(lang.aboutTitle)}</div>
-      <div className='about-flex'>
-        <div className='title-desc'>
-          <p>{SetString(lang.aboutTxtFirst)}</p>
-          <p>{SetString(lang.aboutTxtSecond)}</p>
+    <section className={stls.container}>
+      <div className={stls.title}>{SetString(lang.aboutTitle)}</div>
+      <div className={stls.flexContainer}>
+        <div className={stls.titleDesc}>
+          <p className={stls.desc}>{SetString(lang.aboutTxtFirst)}</p>
+          <p className={stls.desc}>{SetString(lang.aboutTxtSecond)}</p>
         </div>
-        <ul className='about-list'>
-          <li>
-            <div className='number'>
+        <ul className={stls.list}>
+          <li className={stls.listItem}>
+            <div className={stls.number}>
               {SetString(lang.aboutBenefitTitleFirst)}
             </div>
             <p>{SetString(lang.aboutBenefitDicsFirst)}</p>
           </li>
-          <li>
-            <div className='number'>9000+</div>
+          <li className={stls.listItem}>
+            <div className={stls.number}>9000+</div>
             <p>{SetString(lang.aboutBenefitDicsSecond)}</p>
           </li>
-          <li>
-            <div className='number'>25%</div>
+          <li className={stls.listItem}>
+            <div className={stls.number}>25%</div>
             <p>{SetString(lang.aboutBenefitDicsThird)}</p>
           </li>
-          <li>
-            <div className='number'>150+</div>
+          <li className={stls.listItem}>
+            <div className={stls.number}>150+</div>
             <p>{SetString(lang.aboutBenefitDicsFourth)}</p>
           </li>
         </ul>
