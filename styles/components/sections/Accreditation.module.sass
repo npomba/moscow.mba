@@ -1,0 +1,129 @@
+@use '@/styles/utils/mixin' as m
+
+.container
+  margin-bottom: 70px
+  border: 1px solid #e5e5e5
+  position: relative
+  z-index: 2
+  @include m.media(laptop)
+    margin-bottom: 40px
+  @include m.media(tablet, phone)
+    border: none
+    margin-bottom: 30px
+  &::before
+    @include m.media(tablet, phone)
+      content: ''
+      position: absolute
+      left: -10px
+      top: 0
+      right: -10px
+      bottom: 0
+      z-index: -1
+      background-color: #f7f7f7
+  &::after
+    content: ''
+    width: 169px
+    height: 2px
+    background: #ff3535
+    top: -2px
+    left: 50%
+    position: absolute
+    margin-left: 76px
+    @include m.media(desktop)
+      margin-left: 50px
+    @include m.media(laptop, tablet, phone)
+      display: none
+
+.image
+  height: calc(100% + 2px)
+  width: 50%
+  left: -1px
+  top: -1px
+  position: absolute
+  z-index: 2
+  @include m.media(laptop)
+    width: calc(100% + 2px)
+  @include m.media(tablet, phone)
+    position: static
+    margin-left: -10px
+    width: calc(100% + 20px)
+    margin-bottom: 30px
+
+.content
+  margin-left: 50%
+  padding: 76px 59px 50px 76px
+  min-height: 662px
+  @include m.media(desktop)
+    padding-right: 35px
+    padding-left: 50px
+  @include m.media(laptop, tablet, phone)
+    margin-left: 0
+    margin-top: 701px
+    min-height: 1px
+    padding: 40px 50px 30px
+  @include m.media(tablet, phone)
+    margin-top: 0
+    padding: 0
+
+.titleDesc
+  line-height: 1.3
+  font-size: 20px
+  font-weight: 500
+  margin-bottom: 40px
+  padding-top: 10px
+  @include m.media(desktop)
+    font-size: 19px
+  @include m.media(laptop)
+    font-size: 18px
+  @include m.media(tablet)
+    font-size: 16px
+  @include m.media(phone)
+    font-size: 15px
+  @include m.media(laptop, tablet, phone)
+    max-width: 100%
+    margin-bottom: 40px
+  @include m.media(tablet, phone)
+    padding-top: 0
+    margin-bottom: 20px
+
+.list
+  line-height: 1.2
+  margin-bottom: 40px
+  @include m.media(tablet, phone)
+    margin-bottom: 20px
+
+.listItem
+  position: relative
+  padding-left: 19px
+  margin-bottom: 9px
+  &::before
+    background: #ff3535
+    content: ''
+    height: 5px
+    left: 0
+    position: absolute
+    top: 8px
+    width: 5px
+    border-radius: 50%
+
+.link
+  color: #ff3535
+  padding-left: 29px
+  position: relative
+  display: inline-block
+  margin-bottom: 20px
+  &:hover
+    span
+      border-bottom-color: transparent
+  span
+    border-bottom: 1px dotted #ff3535
+    line-height: 1.4
+    transition: all .3s ease-out
+
+.iconContainer
+  flex-shrink: 0
+  margin-right: 11px
+  padding-top: 3px
+  position: absolute
+  left: 0
+  top: 0

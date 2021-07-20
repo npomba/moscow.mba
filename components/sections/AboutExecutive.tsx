@@ -1,22 +1,23 @@
 import stls from '@/styles/components/sections/AboutExecutive.module.sass'
+import classNames from 'classnames'
 import Image from 'next/image'
 
 const AboutExecutive = () => {
   return (
-    <section className='executive-about-section'>
-      <div className='executive-about-flex'>
-        <div className='executive-about-content'>
-          <h2>
-            <span className='red'>Executive MBA </span>Международная программа,
-            в которой есть всё для раскрытия вашего потенциала
+    <section className={stls.container}>
+      <div className={stls.flexContainer}>
+        <div className={stls.titleContainer}>
+          <h2 className={stls.title}>
+            <span>Executive MBA </span>Международная программа, в которой есть
+            всё для раскрытия вашего потенциала
           </h2>
-          <div className='title-desc'>
-            <p>
+          <div className={stls.titleDesc}>
+            <p className={stls.desc}>
               Программа Executive MBA разработана для амбициозных
               предпринимателей и топ-менеджеров крупных компаний, которые
               привыкли быть лучшими и не готовы останавливаться на достигнутом.
             </p>
-            <p>
+            <p className={stls.desc}>
               Курс, объединивший лучшие отечественные бизнес-практики с
               глобальным мировым опытом, поможет Вам совершить настоящий прорыв
               в управлении компанией. Вы построите пошаговую стратегию развития,
@@ -24,8 +25,8 @@ const AboutExecutive = () => {
             </p>
           </div>
         </div>
-        <div className='dobble-images executive-about-images'>
-          <div className='image pic-1'>
+        <div className={stls.imagesContainer}>
+          <div className={classNames(stls.image, stls.imageOne)}>
             <Image
               src='/assets/images/executive_about_1.jpg'
               alt='Слушатели на конференции'
@@ -33,11 +34,11 @@ const AboutExecutive = () => {
               height={466}
             />
           </div>
-          <div className='image pic-2'>
-            <div className='number'>
+          <div className={classNames(stls.image, stls.imageTwo)}>
+            <div className={stls.number}>
               200+<sup></sup>
             </div>
-            <div className='line'></div>
+            <div className={stls.line}></div>
             <p>студентов уже обучились</p>
           </div>
         </div>

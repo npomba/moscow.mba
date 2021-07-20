@@ -1,0 +1,76 @@
+@use '@/styles/utils/mixin' as m
+
+.container
+  position: relative
+  z-index: 2
+  padding-left: 220px
+  margin-bottom: 170px
+  @include m.media(desktop, laptop, tablet, phone)
+    padding-left: 0
+  @include m.media(laptop)
+    margin-bottom: 80px
+  @include m.media(tablet, phone)
+    margin-bottom: 60px
+
+.circle
+  position: absolute
+  z-index: -1
+  width: 780px
+  height: 780px
+  top: -64px
+  right: 100%
+  margin-right: -474px
+  border: 1px solid #e6e6e6
+  border-radius: 50%
+  @include m.media(laptop, tablet, phone)
+    margin-right: 0
+    right: -20px
+    top: -40px
+    width: 700px
+    height: 700px
+
+.flexContainer
+  display: flex
+  @include m.media(laptop, tablet, phone)
+    display: block
+
+.descContainer
+  flex-grow: 1
+  padding-top: 65px
+  @include m.media(laptop, tablet, phone)
+    padding-top: 0
+
+.titleDesc
+  max-width: 425px
+  margin-bottom: 75px
+  line-height: 1.3
+  font-size: 20px
+  @include m.media(desktop)
+    font-size: 19px
+  @include m.media(laptop)
+    font-size: 18px
+  @include m.media(tablet)
+    font-size: 16px
+  @include m.media(phone)
+    font-size: 15px
+  @include m.media(laptop, tablet, phone)
+    max-width: 100%
+    margin-bottom: 40px
+
+.image
+  img
+    height: 100%
+    width: 100%
+    object-fit: cover
+
+.imageContainer
+  margin-left: 32px
+  width: 415px
+  flex-shrink: 0
+  @include m.media(laptop, tablet, phone)
+    display: none
+  .image
+    height: 100%
+
+.red
+  color: #ff3535

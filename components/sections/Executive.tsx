@@ -1,4 +1,5 @@
 import stls from '@/styles/components/sections/Executive.module.sass'
+import classNames from 'classnames'
 import Link from 'next/link'
 import Image from 'next/image'
 import SetString from '@/components/hooks/SetString'
@@ -12,41 +13,37 @@ import { base64pixel } from '@/config/index'
 
 const Executive = () => {
   return (
-    <section className='executive-section'>
-      <div className='executive-flex'>
-        <div className='executive-detail'>
-          <div className='label'>
+    <section className={stls.container}>
+      <div className={stls.flexContainer}>
+        <div className={stls.content}>
+          <div className={stls.title}>
             <span>Premium</span>
           </div>
           <h2>Executive MBA</h2>
-          <p className='title-desc'>{SetString(lang.executiveMBADicsFirst)}</p>
-          <p className='title-desc'>{SetString(lang.executiveMBADicsSecond)}</p>
-          <ul className='count-list'>
-            <li>
+          <p className={stls.desc}>{SetString(lang.executiveMBADicsFirst)}</p>
+          <p className={stls.desc}>{SetString(lang.executiveMBADicsSecond)}</p>
+          <ul className={stls.list}>
+            <li className={stls.listItem}>
               <TrainingPeriod type={'executive'} />
             </li>
-            <li>2 {SetString(lang.executiveOfflineModules)}</li>
-            <li>
+            <li className={stls.listItem}>
+              2 {SetString(lang.executiveOfflineModules)}
+            </li>
+            <li className={stls.listItem}>
               <ProgramSubjects sum={true} type={'executive'} />{' '}
               {SetString(langMenu.qtSubjects)}
             </li>
           </ul>
-          <div className='price'>
+          <div className={stls.price}>
             {SetString(langMenu.price)}:{' '}
             <Price discount={false} type={'executive'} />
-            {/* <i className='old-price'>
-              {' '}
-              <Price discount={true} type={'executive'} /> Р.
-            </i> */}
           </div>
           <Link href='/programs/executive/' locale='ru'>
-            <a className='button empty-button'>
-              {SetString(lang.learnMoreBtn)}
-            </a>
+            <a className={stls.button}>{SetString(lang.learnMoreBtn)}</a>
           </Link>
         </div>
-        <div className='dobble-images executive-images'>
-          <div className='image pic-1'>
+        <div className={stls.imagesContainer}>
+          <div className={classNames(stls.image, stls.imageOne)}>
             <Image
               src={imageData.largerCircle.src}
               alt={SetString(imageData.largerCircle.alt)}
@@ -56,7 +53,7 @@ const Executive = () => {
               blurDataURL={base64pixel}
             />
           </div>
-          <div className='image pic-2'>
+          <div className={classNames(stls.image, stls.imageTwo)}>
             <Image
               src={imageData.smallerCircle.src}
               alt={SetString(imageData.smallerCircle.alt)}
@@ -66,7 +63,7 @@ const Executive = () => {
               blurDataURL={base64pixel}
             />
           </div>
-          <div className='count'>
+          <div className={stls.count}>
             <strong>200+</strong>
             <span>{SetString(lang.graduates)}</span>
           </div>

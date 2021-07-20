@@ -1,6 +1,12 @@
+import stls from '@/styles/components/costs/Price.module.sass'
 import useAt from '@/components/hooks/useAt'
 
-const Price = ({ discount = false, type = null, format = null }) => {
+const Price = ({
+  discount = false,
+  type = null,
+  format = null,
+  renderedByComponent = null
+}) => {
   const at = useAt()
 
   const price = {
@@ -39,6 +45,30 @@ const Price = ({ discount = false, type = null, format = null }) => {
     }
   }
 
+  const componentSpecificClasses = {
+    simple: {},
+    new: {},
+    old: {
+      CostOfStudy: stls.costOfStudyOldPrice
+    }
+  }
+
+  const generalClasses = {
+    simple: stls.simplePrice,
+    new: stls.newPrice,
+    old: stls.oldPrice
+  }
+
+  const getPriceClass = (typeOfPrice, renderedByComponent) => {
+    if (!renderedByComponent) return `${typeOfPrice}-price`
+
+    const componentSpecificClass =
+      componentSpecificClasses[typeOfPrice]?.[renderedByComponent]
+    const generalClass = generalClasses[typeOfPrice]
+
+    return componentSpecificClass ? componentSpecificClass : generalClass
+  }
+
   const regularOrDiscounted = discount ? 'discounted' : 'regular'
 
   if ((!format && at.executive) || (!format && type === 'executive'))
@@ -46,11 +76,18 @@ const Price = ({ discount = false, type = null, format = null }) => {
 
   return (
     <>
-      <i className={discount ? 'new-price' : 'simple-price'}>
+      <i
+        className={
+          discount
+            ? getPriceClass('new', renderedByComponent)
+            : getPriceClass('simple', renderedByComponent)
+        }>
         {price[regularOrDiscounted]?.[type]?.[format]} Р.
       </i>
       {discount && (
-        <i className='old-price'>{price.regular[type]?.[format]} Р.</i>
+        <i className={getPriceClass('old', renderedByComponent)}>
+          {price.regular[type]?.[format]} Р.
+        </i>
       )}
     </>
   )
