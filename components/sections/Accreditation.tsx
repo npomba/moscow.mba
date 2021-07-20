@@ -8,8 +8,8 @@ import { base64pixel } from '@/config/index'
 
 const Accreditation = () => {
   return (
-    <section className='accreditations-section small-mb'>
-      <div className='image'>
+    <section className={stls.container}>
+      <div className={stls.image}>
         <Image
           src={imgData.accreditationImageAlt.src}
           alt={SetString(imgData.accreditationImageAlt.alt)}
@@ -20,19 +20,25 @@ const Accreditation = () => {
           layout='responsive'
         />
       </div>
-      <div className='accreditations-content'>
+      <div className={stls.content}>
         <h2>{SetString(lang.accreditationTitle)}</h2>
-        <div className='title-desc'>{SetString(lang.accreditationDics)}</div>
-        <ul className='accreditations-list'>
-          <li>{SetString(lang.accreditationItemOne)}</li>
-          <li>{SetString(lang.accreditationItemTwo)}</li>
+        <div className={stls.titleDesc}>
+          {SetString(lang.accreditationDics)}
+        </div>
+        <ul className={stls.list}>
+          <li className={stls.listItem}>
+            {SetString(lang.accreditationItemOne)}
+          </li>
+          <li className={stls.listItem}>
+            {SetString(lang.accreditationItemTwo)}
+          </li>
         </ul>
         <a
           href='https://isga.obrnadzor.gov.ru/rlic/details/2df11621-2d30-4173-9389-2fecc24a7639/'
           target='_blank'
           rel='noopener noreferrer'
-          className='accreditations-link'>
-          <div className='pic'>
+          className={stls.link}>
+          <div className={stls.iconContainer}>
             <IconPaperCorner fill={'#C7C7C7'} />
           </div>
           <span>{SetString(lang.accreditationLicenseLink)}</span>
