@@ -1061,51 +1061,6 @@ h1 {
   }
 }
 
-/*organization-section ================================*/
-.organization-section {
-  margin-bottom: 170px;
-  .circle {
-    position: absolute;
-    z-index: -1;
-    width: 780px;
-    height: 780px;
-    top: -64px;
-    right: 100%;
-    margin-right: -474px;
-    border: 1px solid #e6e6e6;
-    border-radius: 50%;
-  }
-  .title-desc {
-    max-width: 425px;
-    margin-bottom: 75px;
-  }
-}
-
-.organization-flex {
-  display: flex;
-  .image {
-    img {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
-    }
-  }
-}
-
-.organization-text {
-  flex-grow: 1;
-  padding-top: 65px;
-}
-
-.organization-image {
-  margin-left: 32px;
-  width: 415px;
-  flex-shrink: 0;
-  .image {
-    height: 100%;
-  }
-}
-
 h2 {
   font-weight: bold;
   font-size: 48px;
@@ -3602,29 +3557,6 @@ h2 {
   .about-flex {
     display: block;
   }
-  .organization-section {
-    margin-bottom: 80px;
-    .title-desc {
-      max-width: 100%;
-      margin-bottom: 40px;
-    }
-    .circle {
-      margin-right: 0;
-      right: -20px;
-      top: -40px;
-      width: 700px;
-      height: 700px;
-    }
-  }
-  .organization-flex {
-    display: block;
-  }
-  .organization-text {
-    padding-top: 0;
-  }
-  .organization-image {
-    display: none;
-  }
   h2 {
     font-size: 40px;
   }
@@ -3970,9 +3902,6 @@ h2 {
     }
   }
   .branches-section {
-    margin-bottom: 60px;
-  }
-  .organization-section {
     margin-bottom: 60px;
   }
   .program-options-section {
