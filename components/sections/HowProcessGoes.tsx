@@ -1,18 +1,66 @@
 import stls from '@/styles/components/sections/HowProcessGoes.module.sass'
+import classNames from 'classnames'
+import { useState } from 'react'
 import studentPhoto from '@/public/assets/images/student-using-laptop.jpg'
 import Image from 'next/image'
 import useAt from '@/components/hooks/useAt'
-import Script from 'next/script'
+
+const processSteps = [
+  {
+    tabTitle: 'Поступление',
+    stepTitle: 'Поступление',
+    listItems: [
+      'Вы проходите собеседование со специалистом приемной комиссии, подписываете договор, осуществляете оплату и получаете доступ в образовательную платформу',
+      'Ваш личный куратор презентует программу и расскажет о процессе обучения на вводном персональном занятии',
+      'В личном кабинете Вам будет доступна вся информация по обучению: модули, график мероприятий, видеолекции и другие сервисы'
+    ]
+  },
+  {
+    tabTitle: 'Обучение',
+    stepTitle: 'Обучение',
+    listItems: [
+      'Вы проходите курсы последовательно: от модуля к модулю, от курса к курсу',
+      'Вы будете закреплять полученные знания на специальных кейсах, тренажерах и тестированиях',
+      'В процессе обучения Вы будете выполнять домашние задания, участвовать в групповых заданиях и выполнять проектные работы'
+    ]
+  },
+  {
+    tabTitle: 'Помощь и обратная связь',
+    stepTitle: 'Помощь и обратная связь от экспертов',
+    listItems: [
+      'Вы будете получать обратную связь по решению кейсов, проектным работам и домашним заданиям',
+      'Вы сможете задать любой вопрос и получить советы и рекомендации',
+      'В конце каждого модуля студенты принимают участие во внедренческих вебинарах, где разбираются итоги модуля и вопросы слушателей программы'
+    ]
+  },
+  {
+    tabTitle: 'Сопровождение процесса обучения',
+    stepTitle: 'Сопровождение процесса обучения',
+    listItems: [
+      'Вы получаете личного куратора, который поддерживает Вас по телефону и в мессенджерах и готов всегда ответить на ваши вопросы',
+      'Мы гарантируем результат за счет особой системы поддержки процесса обучения'
+    ]
+  },
+  {
+    tabTitle: 'Завершение обучения',
+    stepTitle: 'Завершение обучения',
+    listItems: [
+      'Вы сдаете финальный экзамен по всей программе, готовитесь и защищаете выпускной проект перед аттестационной комиссией',
+      'По окончании обучения вы получаете 2 престижных диплома'
+    ]
+  }
+]
 
 const HowProcessGoes = () => {
+  const [activeStep, setActiveStep] = useState(0)
   const at = useAt()
 
   return (
     <>
-      <section className='process-section'>
-        <div className='process-content'>
-          <div className='process-heading-container'>
-            <h2>Как проходит процесс обучения</h2>
+      <section className={stls.container}>
+        <div className={stls.content}>
+          <div>
+            <h2 className={stls.title}>Как проходит процесс обучения</h2>
             {at.profession && (
               <div className={stls.studentPhoto}>
                 <Image
@@ -24,120 +72,44 @@ const HowProcessGoes = () => {
               </div>
             )}
           </div>
-          <div className='process-info'>
-            <ul className='process-step-tabs'>
-              <li>
-                <a href='#process-step-1' className='active'>
-                  Поступление
-                </a>
-              </li>
-              <li>
-                <a href='#process-step-2'>Обучение</a>
-              </li>
-              <li>
-                <a href='#process-step-3'>Помощь и обратная связь</a>
-              </li>
-              <li>
-                <a href='#process-step-4'>Сопровождение процесса обучения</a>
-              </li>
-              <li>
-                <a href='#process-step-5'>Завершение обучения</a>
-              </li>
+          <div className={stls.infoContainer}>
+            <ul className={stls.tabsList}>
+              {processSteps.map((step, idx) => (
+                <li
+                  key={step.tabTitle + idx}
+                  className={stls.tabItem}
+                  onClick={() => setActiveStep(idx)}>
+                  <a
+                    className={classNames(
+                      stls.tabLink,
+                      idx === activeStep && stls.activeTabLink
+                    )}>
+                    {step.tabTitle}
+                  </a>
+                </li>
+              ))}
             </ul>
-            <div id='process-step-1' className='process-step-block'>
-              <div className='number'>1</div>
-              <div className='title'>Поступление</div>
-              <ul className='simple-list'>
-                <li>
-                  Вы проходите собеседование со специалистом приемной комиссии,
-                  подписываете договор, осуществляете оплату и получаете доступ
-                  в образовательную платформу
-                </li>
-                <li>
-                  Ваш личный куратор презентует программу и расскажет о процессе
-                  обучения на вводном персональном занятии
-                </li>
-                <li>
-                  В личном кабинете Вам будет доступна вся информация по
-                  обучению: модули, график мероприятий, видеолекции и другие
-                  сервисы
-                </li>
-              </ul>
-            </div>
-            <div id='process-step-2' className='process-step-block'>
-              <div className='number'>2</div>
-              <div className='title'>Обучение</div>
-              <ul className='simple-list'>
-                <li>
-                  Вы проходите курсы последовательно: от модуля к модулю, от
-                  курса к курсу
-                </li>
-                <li>
-                  {at.online &&
-                    'Вы будете закреплять полученные знания на специальных кейсах, тренажерах и тестированиях'}
-                  {at.blended &&
-                    'Выезжаете на очные модули в Москве на которых общаетесь с единомышленниками и разбираете со спикерами кейсы и конкретные ситуации вашего бизнеса'}
-                </li>
-                <li>
-                  В процессе обучения Вы будете выполнять домашние задания,
-                  участвовать в групповых заданиях и выполнять проектные работы
-                </li>
-              </ul>
-            </div>
-            <div id='process-step-3' className='process-step-block'>
-              <div className='number'>3</div>
-              <div className='title'>Помощь и обратная связь от экспертов</div>
-              <ul className='simple-list'>
-                <li>
-                  Вы будете получать обратную связь по решению кейсов, проектным
-                  работам и домашним заданиям
-                </li>
-                <li>
-                  Вы сможете задать любой вопрос и получить советы и
-                  рекомендации
-                </li>
-                <li>
-                  В конце каждого модуля студенты принимают участие во
-                  внедренческих вебинарах, где разбираются итоги модуля и
-                  вопросы слушателей программы
-                </li>
-              </ul>
-            </div>
-            <div id='process-step-4' className='process-step-block'>
-              <div className='number'>4</div>
-              <div className='title'>Сопровождение процесса обучения</div>
-              <ul className='simple-list'>
-                <li>
-                  Вы получаете личного куратора, который поддерживает Вас по
-                  телефону и в мессенджерах и готов всегда ответить на ваши
-                  вопросы
-                </li>
-                <li>
-                  Мы гарантируем результат за счет особой системы поддержки
-                  процесса обучения
-                </li>
-              </ul>
-            </div>
-
-            <div id='process-step-5' className='process-step-block'>
-              <div className='number'>5</div>
-              <div className='title'>Завершение обучения</div>
-              <ul className='simple-list'>
-                <li>
-                  Вы сдаете финальный экзамен по всей программе, готовитесь и
-                  защищаете выпускной проект перед аттестационной комиссией
-                </li>
-                {!at.profession && (
-                  <li>
-                    По окончании обучения вы получаете 2 престижных диплома
-                  </li>
-                )}
-              </ul>
-            </div>
+            {processSteps.map((step, idx) => (
+              <div
+                key={idx + step.tabTitle}
+                className={classNames(
+                  stls.processStep,
+                  idx === activeStep && stls.activeProcessStep
+                )}>
+                <div className={stls.processStepNumber}>{idx + 1}</div>
+                <div className={stls.processStepTitle}>{step.stepTitle}</div>
+                <ul className={stls.list}>
+                  {step.listItems.map((item, idx) => (
+                    <li key={item + idx} className={stls.listItem}>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </section>
-      <Script src='/assets/js/howProcessGoes.js' strategy='lazyOnload' />
     </>
   )
 }
