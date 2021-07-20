@@ -1460,93 +1460,6 @@ h2 {
     }
   }
 }
-
-/*accreditations-section =================================*/
-.accreditations-section {
-  margin-bottom: 130px;
-  border: 1px solid #e5e5e5;
-  position: relative;
-  z-index: 2;
-  &.small-mb {
-    margin-bottom: 70px;
-  }
-  &:after {
-    content: '';
-    width: 169px;
-    height: 2px;
-    background: $red;
-    top: -2px;
-    left: 50%;
-    position: absolute;
-    margin-left: 76px;
-  }
-  .image {
-    height: calc(100% + 2px);
-    width: 50%;
-    left: -1px;
-    top: -1px;
-    position: absolute;
-    z-index: 2;
-  }
-}
-
-.accreditations-content {
-  margin-left: 50%;
-  padding: 76px 59px 50px 76px;
-  min-height: 662px;
-  .title-desc {
-    font-weight: 500;
-    margin-bottom: 40px;
-    padding-top: 10px;
-  }
-}
-
-.accreditations-list {
-  line-height: 1.2;
-  margin-bottom: 40px;
-  li {
-    position: relative;
-    padding-left: 19px;
-    margin-bottom: 9px;
-    &:before {
-      background: $red;
-      content: '';
-      height: 5px;
-      left: 0;
-      position: absolute;
-      top: 8px;
-      width: 5px;
-      border-radius: 50%;
-    }
-  }
-}
-
-.accreditations-link {
-  color: $red;
-  padding-left: 29px;
-  position: relative;
-  display: inline-block;
-  margin-bottom: 20px;
-  &:hover {
-    span {
-      border-bottom-color: transparent;
-    }
-  }
-  .pic {
-    flex-shrink: 0;
-    margin-right: 11px;
-    padding-top: 3px;
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
-  span {
-    border-bottom: 1px dotted $red;
-    line-height: 1.4;
-    transition: $transition;
-  }
-}
-
 .simple-list {
   line-height: 1.2;
   li {
@@ -2334,13 +2247,6 @@ h2 {
       display: block;
     }
   }
-  .accreditations-section::after {
-    margin-left: 50px;
-  }
-  .accreditations-content {
-    padding-right: 35px;
-    padding-left: 50px;
-  }
   .discount-sticker {
     left: auto;
     right: 0;
@@ -2796,25 +2702,6 @@ h2 {
     justify-content: center;
     align-items: center;
   }
-  .accreditations-section {
-    margin-bottom: 80px;
-    &.small-mb {
-      margin-bottom: 40px;
-    }
-    &:after {
-      display: none;
-    }
-    .image {
-      width: calc(100% + 2px);
-      // height: 400px;
-    }
-  }
-  .accreditations-content {
-    margin-left: 0;
-    margin-top: 701px;
-    min-height: 1px;
-    padding: 40px 50px 30px;
-  }
   .jumbotron-content-cta ul.jumbotron-list {
     width: 100%;
   }
@@ -3027,39 +2914,6 @@ h2 {
       }
     }
   }
-  .accreditations-section {
-    border: none;
-    &::before {
-      content: '';
-      position: absolute;
-      left: -10px;
-      top: 0;
-      right: -10px;
-      bottom: 0;
-      z-index: -1;
-      background-color: #f7f7f7;
-    }
-    &.small-mb {
-      margin-bottom: 30px;
-    }
-    .image {
-      position: static;
-      margin-left: -10px;
-      width: calc(100% + 20px);
-      margin-bottom: 30px;
-    }
-  }
-  .accreditations-content {
-    margin-top: 0;
-    padding: 0;
-    .title-desc {
-      padding-top: 0;
-      margin-bottom: 20px;
-    }
-  }
-  .accreditations-list {
-    margin-bottom: 20px;
-  }
   .breadcrumbs-outer {
     margin: 0 -10px;
     padding-left: 10px;
@@ -3110,9 +2964,6 @@ h2 {
       font-size: 25px;
       font-weight: 500;
     }
-  }
-  .accreditations-section {
-    margin-bottom: 60px;
   }
   .simple-list li::before {
     top: 7px;
@@ -3507,10 +3358,6 @@ a.iconPhoneHeader {
       padding: 19px;
     }
   }
-
-  // .accreditations-section .image {
-  //   height: 300px;
-  // }
   .discount-sticker {
     margin-top: -23px;
   }
