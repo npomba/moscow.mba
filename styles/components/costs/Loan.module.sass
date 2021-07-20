@@ -1,0 +1,21 @@
+@use '@/styles/utils/mixin' as m
+
+.costOfStudyOldPrice
+  color: #808080
+  font-size: 24px
+  position: relative
+  margin-left: 28px
+  display: inline-block
+  @include m.media(desktop)
+    margin-left: 15px
+  @include m.media(phone)
+    font-size: 20px
+  &::after
+    content: ''
+    width: 110%
+    height: 1px
+    background: #808080
+    position: absolute
+    top: 51%
+    left: -5%
+    z-index: 2
