@@ -2,17 +2,36 @@ import stls from '@/styles/components/sections/ExecutiveRequirements.module.sass
 import { IconCheck } from '@/components/icons'
 import Image from 'next/image'
 
+const requirements = [
+  {
+    title: 'Управление отношениями',
+    desc: 'лидерские качества, социальная уверенность, влиятельность, кооперативность, заботливость'
+  },
+  {
+    title: 'Управление задачами',
+    desc: 'аналитичность, концептуальность, широта и комплексность мышления, креативность, воображение и любознательность, методичность, нормативность'
+  },
+  {
+    title: 'Управление собой',
+    desc: 'уравновешенность, стрессоустойчивость, эмоциональный контроль, восприятие критики, жизнерадостность, гибкость, адаптивность, открытость новым задачам, энергичность'
+  },
+  {
+    title: 'Амбициозность',
+    desc: 'ориентация на результат, карьерные амбиции, степень понимания своих сильных сторон и областей для развития'
+  }
+]
+
 const ExecutiveRequirements = () => {
   return (
-    <section className='requirements-section'>
-      <div className='requirements-info'>
-        <p>
+    <section className={stls.container}>
+      <div className={stls.infoContainer}>
+        <p className={stls.info}>
           Программа EMBA предназначена для предпринимателей и топ-менеджеров,
           которые уже достигли определенной ступени развития и теперь хотят
           выйти на международный уровень. Поэтому к участникам программы
           предъявляются особые требования.
         </p>
-        <div className='image'>
+        <div className={stls.image}>
           <Image
             src='/assets/images/requirements_pic_1.jpg'
             alt='Студенты Executive на конференции'
@@ -23,57 +42,18 @@ const ExecutiveRequirements = () => {
           />
         </div>
       </div>
-      <ul className='requirements-list'>
-        <li>
-          <div className='circle'>
-            <IconCheck />
-          </div>
-          <div>
-            <h5>Управление отношениями</h5>
-            <p>
-              лидерские качества, социальная уверенность, влиятельность,
-              кооперативность, заботливость
-            </p>
-          </div>
-        </li>
-        <li>
-          <div className='circle'>
-            <IconCheck />
-          </div>
-          <div>
-            <h5>Управление задачами</h5>
-            <p>
-              аналитичность, концептуальность, широта и комплексность мышления,
-              креативность, воображение и любознательность, методичность,
-              нормативность
-            </p>
-          </div>
-        </li>
-        <li>
-          <div className='circle'>
-            <IconCheck />
-          </div>
-          <div>
-            <h5>Управление собой</h5>
-            <p>
-              уравновешенность, стрессоустойчивость, эмоциональный контроль,
-              восприятие критики, жизнерадостность, гибкость, адаптивность,
-              открытость новым задачам, энергичность
-            </p>
-          </div>
-        </li>
-        <li>
-          <div className='circle'>
-            <IconCheck />
-          </div>
-          <div>
-            <h5>Амбициозность</h5>
-            <p>
-              ориентация на результат, карьерные амбиции, степень понимания
-              своих сильных сторон и областей для развития
-            </p>
-          </div>
-        </li>
+      <ul className={stls.list}>
+        {requirements.map((req, idx) => (
+          <li key={req.title + idx} className={stls.listItem}>
+            <div className={stls.circle}>
+              <IconCheck />
+            </div>
+            <div>
+              <h5 className={stls.listItemTitle}>{req.title}</h5>
+              <p>{req.desc}</p>
+            </div>
+          </li>
+        ))}
       </ul>
     </section>
   )
