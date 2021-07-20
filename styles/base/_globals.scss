@@ -1717,32 +1717,6 @@ h2 {
     width: 221px;
   }
 }
-
-/*support-section ======================================*/
-.support-section {
-  // margin-bottom: -30px;
-  margin-bottom: 110px;
-  color: #fff;
-  padding: 96px 110px 135px 220px;
-  background: $red;
-  &.mb-130 {
-    margin-bottom: 130px;
-  }
-  .text {
-    line-height: 1.2;
-    margin-bottom: 50px;
-    max-width: 760px;
-    color: #fddfe4;
-    margin-top: -10px;
-  }
-  h3 {
-    font-size: 36px;
-    font-weight: bold;
-    line-height: 1.2;
-    margin-bottom: 20px;
-  }
-}
-
 .simple-form {
   input,
   textarea {
@@ -3146,9 +3120,6 @@ h2 {
     margin-right: -20px;
     width: 350px;
   }
-  .support-section {
-    padding: 90px 100px;
-  }
   .accreditations-section::after {
     margin-left: 50px;
   }
@@ -3713,10 +3684,6 @@ h2 {
     max-width: 401px;
     padding-top: 0;
   }
-  .support-section {
-    padding: 40px;
-    margin-bottom: 50px;
-  }
   .simple-form {
     .inputs-flex .width-33 {
       width: calc(50% - 30px);
@@ -3863,12 +3830,6 @@ h2 {
       font-size: 26px;
       margin-bottom: 30px;
     }
-  }
-  .support-section .text {
-    margin-bottom: 30px;
-  }
-  .support-section.mb-130 {
-    margin-bottom: 80px;
   }
   .single-program-price {
     display: block;
@@ -4066,12 +4027,6 @@ h2 {
       .width-33 {
         width: calc(100% - 30px);
       }
-    }
-  }
-  .support-section {
-    padding: 40px 25px;
-    .text {
-      margin-bottom: 20px;
     }
   }
   .accreditations-section {
@@ -4297,9 +4252,6 @@ h2 {
     }
   }
   .blended-info-section {
-    margin-bottom: 60px;
-  }
-  .support-section.mb-130 {
     margin-bottom: 60px;
   }
   .blended-info-content {
