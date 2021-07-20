@@ -7,16 +7,16 @@ import { base64pixel } from '@/config/index'
 
 const ConferencesInEurope = () => {
   return (
-    <section className='organization-section section-pl'>
-      <div className='circle'></div>
-      <div className='organization-flex'>
-        <div className='organization-text'>
-          <h2>
+    <section className={stls.container}>
+      <div className={stls.circle}></div>
+      <div className={stls.flexContainer}>
+        <div className={stls.descContainer}>
+          <h2 className={stls.title}>
             {SetString(lang.orgTitleFirst)}{' '}
-            <span className='red'>{SetString(lang.orgTitleSecond)}</span>
+            <span className={stls.red}>{SetString(lang.orgTitleSecond)}</span>
           </h2>
-          <p className='title-desc'>{SetString(lang.orgDisc)}</p>
-          <div className='image'>
+          <p className={stls.titleDesc}>{SetString(lang.orgDisc)}</p>
+          <div className={stls.image}>
             <Image
               src={imageData.shorterImage.src}
               alt={SetString(imageData.shorterImage.alt)}
@@ -28,8 +28,8 @@ const ConferencesInEurope = () => {
             />
           </div>
         </div>
-        <div className='organization-image'>
-          <div className='image'>
+        <div className={stls.imageContainer}>
+          <div className={stls.image}>
             <Image
               src={imageData.higherImage.src}
               alt={SetString(imageData.higherImage.alt)}
