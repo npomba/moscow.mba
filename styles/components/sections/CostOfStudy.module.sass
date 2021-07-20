@@ -1,5 +1,153 @@
 @use '@/styles/utils/mixin' as m
-  
+
+.container
+  position: relative
+  margin-bottom: 130px
+  background: #f7f7f7
+  padding: 130px 120px 130px 130px
+  @include m.media(desktop)
+    padding: 100px 50px
+  @include m.media(laptop)
+    padding: 50px
+    margin-bottom: 80px
+  @include m.media(tablet, phone)
+    margin: 0 -10px 60px
+    padding: 50px 10px
+
+.discountSticker
+  display: flex
+  flex-direction: column
+  justify-content: center
+  width: 128px
+  height: 128px
+  position: absolute
+  border-radius: 50%
+  background: #ff3535
+  color: #fff
+  text-align: center
+  line-height: 1
+  top: 66px
+  right: 66px
+  line-height: 1
+  transform: rotate(15deg)
+  @include m.media(desktop, laptop)
+    left: auto
+    width: 110px
+    height: 110px
+    margin-top: -30px
+  @include m.media(tablet, phone)
+    display: none
+  span
+    font-size: 14px
+    font-family: 'mazzardH', Arial, Tahoma, sans-serif
+    font-weight: 400
+    @include m.media(desktop, laptop)
+      font-size: 12px
+
+.discountSize
+  font-weight: bold
+  font-size: 35px
+  font-family: 'Visuelt', Arial, Tahoma, sans-serif
+  margin-bottom: -2px
+  @include m.media(desktop, laptop)
+    font-size: 28px
+    margin-bottom: 0
+
+.ctaTextContainer
+  font-size: 18px
+  font-weight: 400
+  padding-top: 46px
+  @include m.media(laptop, tablet, phone)
+    padding-top: 0
+  @include m.media(phone)
+    font-size: 16px
+  p
+    margin-bottom: 10px
+
+.content
+  line-height: 1.2
+  width: 50%
+  padding: 0 73px
+  display: flex
+  align-items: stretch
+  margin: 0 -15px
+  padding: 0 !important
+  width: 100%
+  @include m.media(desktop)
+    padding: 0 50px
+  @include m.media(laptop, tablet, phone)
+    width: 100%
+    padding: 0
+    display: none
+    display: block
+    margin: 0
+  &:first-child
+    border-right: 1px solid #d9d9d9
+    @include m.media(laptop, tablet, phone)
+      border-right: none
+      display: block
+
+.contentBlock
+  padding: 0 15px
+  width: 50%
+  @include m.media(laptop, tablet, phone)
+    width: 100%
+    padding: 0 !important
+  &:last-child
+    padding-left: 50px
+    @include m.media(desktop, laptop, tablet, phone)
+      padding-left: 15px
+  &:first-child
+    @include m.media(laptop, tablet, phone)
+      margin-bottom: 30px
+
+.programName
+  font-weight: 400
+  font-size: 36px
+  margin-bottom: 20px
+  display: flex
+  position: relative
+  z-index: 2
+  display: inline-block
+  padding-right: 0
+  @include m.media(laptop)
+    padding-right: 100px
+  @include m.media(tablet)
+    padding-right: 110px
+  @include m.media(phone)
+    font-size: 22px
+    width: 100%
+    margin-bottom: 25px
+    padding-right: 90px
+
+.buttonBlock
+  margin-bottom: 18px
+  width: 100%
+
+.button
+  transition: all .3s ease-out
+  display: inline-block
+  font-family: 'MazzardM', Arial, Tahoma, sans-serif
+  font-weight: 700
+  font-size: 15px
+  text-transform: uppercase
+  letter-spacing: 0.1em
+  text-align: center
+  border-radius: 0
+  color: #262626
+  border: 2px solid #ff3535
+  background: transparent
+  padding: 19px 29px
+  width: 100%
+  max-width: 260px
+  @include m.media(phone)
+    padding: 19px
+    max-width: 100%
+  &:hover
+    color: #fff
+    background: #ff3535
+    border-color: #ff3535
+
 .bigMb
   margin-bottom: 50px
 
@@ -22,6 +170,52 @@
     @include m.media(desktop, laptop, tablet, phone)
       display: none
 
+.price
+  font-size: 32px
+  font-weight: 500
+  margin-bottom: 17px
+  margin-top: 0
+  @include m.media(phone)
+    font-size: 28px
+
 .priceDesc
   font-size: 20px
   margin-bottom: 10px
+
+.list
+  font-size: 20px
+  line-height: 1.3
+  position: relative
+  z-index: 4
+  @include m.media(phone)
+    font-size: 15px
+
+.listItem
+  margin-bottom: 10px
+  padding-left: 20px
+  position: relative
+  &:before
+    content: ''
+    width: 5px
+    height: 5px
+    position: absolute
+    left: 0
+    top: 11px
+    background: #ff3535
+    border-radius: 50%
+    @include m.media(phone)
+      top: 7px
+    &:last-child
+      margin-bottom: 0 !important
+
+.note
+  font-size: 16px
+  color: #808080
+  margin-top: 13px
+  padding-left: 21px
+  margin-bottom: 0
+  @include m.media(laptop, tablet, phone)
+    margin-bottom: 30px
+
+.red
+  color: #ff3535

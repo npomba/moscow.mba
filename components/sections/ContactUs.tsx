@@ -58,7 +58,7 @@ const ContactUs = ({
   }
 
   return (
-    <section className='support-section'>
+    <section className={stls.container}>
       <Popup open={openLoader} onClose={closeLoadingModal}>
         <PopupLoader closePopUp={closeLoadingModal} />
       </Popup>
@@ -77,7 +77,7 @@ const ContactUs = ({
           </>
         )}
       </h2>
-      <div className='text'>{disc}</div>
+      <div className={stls.desc}>{disc}</div>
       <form
         method='post'
         className='simple-form support-form embedded-form'
