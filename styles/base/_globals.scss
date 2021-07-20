@@ -2565,70 +2565,6 @@ h2 {
   }
 }
 
-/* blended-info-section ====================================*/
-.blended-info-section {
-  margin-bottom: 130px;
-  .title-pl {
-    margin-top: 11px;
-  }
-  h2 {
-    max-width: 725px;
-    font-size: 40px;
-  }
-}
-
-.blended-info-flex {
-  display: flex;
-  align-items: flex-start;
-  padding-top: 9px;
-}
-
-.blended-info-content {
-  flex-grow: 1;
-  padding-right: 78px;
-  h4 {
-    font-size: 32px;
-    line-height: 1.2;
-    font-weight: 400;
-    margin-bottom: 39px;
-  }
-  .simple-list {
-    font-size: 20px;
-    line-height: 1.3;
-    li {
-      margin-bottom: 21px;
-      &:before {
-        top: 11px;
-      }
-    }
-  }
-}
-
-.blended-info-images {
-  width: 382px;
-  flex-shrink: 0;
-  padding-top: 29px;
-  padding-right: 67px;
-  .image {
-    width: 100%;
-    position: relative;
-    z-index: 2;
-    &:after {
-      content: '';
-      width: 225px;
-      height: 225px;
-      background: $red;
-      position: absolute;
-      z-index: -1;
-      top: -67px;
-      right: -67px;
-    }
-    img {
-      width: 100%;
-    }
-  }
-}
-
 /* executive-about-section ===============================*/
 .executive-about-section {
   position: relative;
@@ -3234,9 +3170,6 @@ h2 {
     .name {
       padding-right: 100px;
     }
-  }
-  .blended-info-content {
-    padding-right: 50px;
   }
   .single-program-price .inner-block:last-child {
     padding-left: 15px;
@@ -3848,22 +3781,6 @@ h2 {
   .popup-content-origin {
     padding: 60px 50px;
   }
-  .blended-info-section {
-    margin-bottom: 80px;
-    h2 {
-      font-size: 36px;
-    }
-  }
-  .blended-info-images {
-    display: none;
-  }
-  .blended-info-content {
-    padding-right: 0;
-    h4 {
-      font-size: 26px;
-      margin-bottom: 30px;
-    }
-  }
   .support-section .text {
     margin-bottom: 30px;
   }
@@ -4296,22 +4213,8 @@ h2 {
       }
     }
   }
-  .blended-info-section {
-    margin-bottom: 60px;
-  }
   .support-section.mb-130 {
     margin-bottom: 60px;
-  }
-  .blended-info-content {
-    .simple-list {
-      font-size: 16px;
-      li {
-        margin-bottom: 10px;
-        &::before {
-          top: 8px;
-        }
-      }
-    }
   }
   .executive-about-section {
     padding-bottom: 60px;
@@ -4745,9 +4648,6 @@ a.iconPhoneHeader {
       width: 170px;
     }
   }
-  .title-pl {
-    font-size: 18px;
-  }
   .button {
     padding: 20px;
     &.empty-button {
@@ -4815,13 +4715,6 @@ a.iconPhoneHeader {
         display: block;
       }
     }
-  }
-  .blended-info-section h2 {
-    font-size: 28px;
-  }
-  .blended-info-content h4 {
-    font-size: 22px;
-    margin-bottom: 22px;
   }
   .executive-about-content h2 {
     font-size: 28px;
