@@ -19,3 +19,29 @@
     top: 51%
     left: -5%
     z-index: 2
+
+.infoRectangleOldPrice
+  position: relative
+  font-size: 16px
+  font-weight: 300
+  &::after
+    content: ''
+    width: 110%
+    height: 2px
+    background: #fff
+    top: 50%
+    left: 0
+    margin-left: -5%
+    margin-top: -1px
+    position: absolute
+    z-index: 3
+    transform: rotate(9deg)
+
+.infoRectangleNewPrice
+  font-size: 20px
+  font-weight: 500
+  margin-right: 8px
+  &::after
+    display: none
+  @include m.media(phone)
+    font-size: 16px
