@@ -47,9 +47,12 @@ const Price = ({
 
   const componentSpecificClasses = {
     simple: {},
-    new: {},
+    new: {
+      InfoRectangle: stls.infoRectangleNewPrice
+    },
     old: {
-      CostOfStudy: stls.costOfStudyOldPrice
+      CostOfStudy: stls.costOfStudyOldPrice,
+      InfoRectangle: stls.infoRectangleOldPrice
     }
   }
 
@@ -66,7 +69,7 @@ const Price = ({
       componentSpecificClasses[typeOfPrice]?.[renderedByComponent]
     const generalClass = generalClasses[typeOfPrice]
 
-    return componentSpecificClass ? componentSpecificClass : generalClass
+    return componentSpecificClass ?? generalClass
   }
 
   const regularOrDiscounted = discount ? 'discounted' : 'regular'

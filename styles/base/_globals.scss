@@ -725,29 +725,6 @@ header {
       }
     }
   }
-  @media (max-width: 1019px) {
-    & ul.jumbotron-red-info {
-      display: block;
-      & li:nth-child(1) {
-        display: block;
-        width: 100%;
-        max-width: 100%;
-        border-right: 0;
-      }
-      & li:nth-child(2) {
-        display: block;
-        width: 100%;
-        max-width: 100%;
-        border-right: 0;
-      }
-      & li:nth-child(3) {
-        display: block;
-        width: 100%;
-        max-width: 100%;
-        border-right: 0;
-      }
-    }
-  }
 }
 
 .jumbotron-text {
@@ -812,76 +789,13 @@ h1 {
   }
 }
 
-.jumbotron-red-info {
-  position: absolute;
-  z-index: 5;
-  left: 0;
-  margin-left: 220px;
-  height: 112px;
-  width: calc(100% - 220px);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  bottom: -56px;
-  @media (max-width: 767px) {
-    bottom: -139px;
-  }
-  background: $red;
-  padding: 5px 35px;
-  line-height: 1.2;
-  li {
-    padding: 0 15px;
-  }
-  p {
-    opacity: 0.67;
-    font-weight: 400;
-    font-size: 13px;
-    margin-bottom: 3px;
-  }
-  .detail {
-    font-weight: 500;
-    font-size: 20px;
-  }
-  span {
-    display: inline-block;
-  }
-  .old-price {
-    position: relative;
-    margin-right: 4px;
-    &:after {
-      content: '';
-      width: 110%;
-      height: 2px;
-      background: #fff;
-      top: 50%;
-      left: 0;
-      margin-left: -5%;
-      margin-top: -1px;
-      position: absolute;
-      z-index: 3;
-      transform: rotate(9deg);
-    }
-  }
-  .new-price {
-    font-weight: 300;
-    font-size: 16px;
-  }
-}
-
-.jumbotron-content-cta {
-  & .jumbotron-red-info {
-    @media (max-width: 767px) {
-      bottom: -106px;
-    }
-  }
-}
-
 h2 {
   font-weight: bold;
   font-size: 48px;
   line-height: 1.2;
   margin-bottom: 20px;
 }
+
 /*program-options-section ======================================*/
 .program-options-section {
   margin-bottom: 140px;
@@ -1467,16 +1381,6 @@ h2 {
   margin: 0;
 }
 
-.jumbotron-red-info.jumbotron-red-info-programs-page {
-  position: relative;
-  bottom: initial;
-  top: 0;
-  margin-top: 0;
-  margin-left: 0;
-  width: 100%;
-  color: #fff;
-}
-
 .jumbotron-text-mini {
   padding-top: 56px;
   max-width: 780px;
@@ -1593,26 +1497,6 @@ h2 {
     i {
       margin-right: 0;
       display: block;
-    }
-  }
-  .jumbotron-red-info {
-    margin-left: 0;
-    width: 100%;
-    flex-wrap: wrap;
-    height: auto;
-    min-height: 112px;
-    padding: 30px;
-    justify-content: space-evenly;
-    li {
-      padding: 0 8px;
-      width: 40%;
-      margin-bottom: 20px;
-      &:nth-last-child(1) {
-        margin-bottom: 0;
-      }
-      &:nth-last-child(2) {
-        margin-bottom: 0;
-      }
     }
   }
 }
@@ -1995,23 +1879,8 @@ h2 {
     }
   }
 
-  .jumbotron-content-cta ul.jumbotron-red-info {
-    justify-content: space-between;
-  }
   .jumbotron-content-cta .jumbotron-list {
     flex-wrap: wrap;
-  }
-
-  .jumbotron-red-info {
-    flex-wrap: wrap;
-    height: auto;
-    min-height: 112px;
-    padding: 30px;
-    li {
-      padding: 0 8px;
-      width: 50%;
-      margin-bottom: 20px;
-    }
   }
   .reviews-preview-block {
     width: calc(100% - 30px);
@@ -2130,16 +1999,6 @@ h2 {
   }
   .jumbotron-list .number {
     font-size: 38px;
-  }
-  .jumbotron-red-info {
-    padding-left: 20px;
-    padding-right: 20px;
-    .detail {
-      font-size: 17px;
-    }
-    .new-price {
-      font-size: 14px;
-    }
   }
   .simple-list li::before {
     top: 7px;
@@ -2350,26 +2209,6 @@ a.iconPhoneHeader {
         margin: 0;
       }
     }
-    & ul.jumbotron-red-info {
-      margin-top: -80px;
-      padding-top: 25px;
-      & li:nth-child(1),
-      & li:nth-child(2),
-      & li:nth-child(3) {
-        max-width: 100%;
-      }
-
-      & li:not(:last-child) {
-        padding-bottom: 17px;
-        border-bottom: 1px solid rgb(#fff, 0.3);
-      }
-
-      & .detail {
-        font-style: normal;
-        font-weight: 500;
-        font-size: 14px;
-      }
-    }
   }
   .jumbotron-text {
     .desc {
@@ -2389,21 +2228,6 @@ a.iconPhoneHeader {
     }
     .number {
       font-size: 32px;
-    }
-  }
-  ul.jumbotron-red-info {
-    // margin-top: -130px;
-    li {
-      width: 100%;
-      &:nth-last-child(2) {
-        margin-bottom: 20px;
-      }
-    }
-    .detail {
-      font-size: 20px;
-    }
-    .new-price {
-      font-size: 16px;
     }
   }
   .header-mobile-podmenu {
@@ -2531,25 +2355,6 @@ div.popup-content.pdf-popup-content {
     line-height: 130%;
     margin-bottom: 23px;
   }
-
-  & .jumbotron-red-info {
-    margin-left: 0;
-    width: 100%;
-    justify-content: space-evenly;
-    & li:nth-child(1) {
-      max-width: 277px;
-      padding-right: 57px;
-      border-right: 1px solid rgb(#fff, 0.3);
-    }
-    & li:nth-child(2) {
-      max-width: 297px;
-      padding-right: 57px;
-      border-right: 1px solid rgb(#fff, 0.3);
-    }
-    & li:nth-child(3) {
-      max-width: 287px;
-    }
-  }
   & input.texted ~ .input-placeholder,
   & input:focus ~ .input-placeholder {
     color: #fff;
@@ -2597,35 +2402,6 @@ div.popup-content.pdf-popup-content {
 @media (max-width: 480px) {
   .jumbotron-content-cta h1 {
     font-size: 21px;
-  }
-}
-
-.red-rectangle-price {
-  & .new-price {
-    font-size: 20px;
-    font-weight: 500;
-    margin-right: 8px;
-    &::after {
-      display: none;
-    }
-  }
-  & .old-price {
-    position: relative;
-    font-size: 16px;
-    font-weight: 300;
-    &::after {
-      content: '';
-      width: 110%;
-      height: 2px;
-      background: #fff;
-      top: 50%;
-      left: 0;
-      margin-left: -5%;
-      margin-top: -1px;
-      position: absolute;
-      z-index: 3;
-      transform: rotate(9deg);
-    }
   }
 }
 

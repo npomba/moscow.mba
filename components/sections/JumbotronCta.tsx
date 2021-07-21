@@ -15,6 +15,7 @@ import Until from '@/components/costs/Until'
 import { useRouter } from 'next/router'
 import Breadcrumbs from '@/components/general/Breadcrumbs'
 import { IconArrowTopRight } from '@/components/icons'
+import InfoRectangle from '@/components/general/InfoRectangle'
 
 type FormValues = {
   name: string
@@ -215,17 +216,7 @@ const JumbotronCta = ({ programTitle = null, programId = null }) => {
               </li>
             </ul>
           </div>
-          <ul className='jumbotron-red-info'>
-            <li>
-              <div className='detail'>{SetString(lang.jumInfoOne)}</div>
-            </li>
-            <li>
-              <div className='detail'>{SetString(lang.jumInfoTwo)}</div>
-            </li>
-            <li>
-              <div className='detail'>{SetString(lang.jumInfoThree)}</div>
-            </li>
-          </ul>
+          <InfoRectangle />
         </div>
       </div>
     </section>
