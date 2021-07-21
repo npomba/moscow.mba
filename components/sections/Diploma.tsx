@@ -11,8 +11,8 @@ const Diploma = () => {
 
   return (
     <section
-      className={classNames('diplom-section', { [stls.noMb]: at.profession })}>
-      <div className='image'>
+      className={classNames(stls.container, { [stls.noMb]: at.profession })}>
+      <div className={stls.image}>
         <Image
           src={
             at.mini
@@ -31,15 +31,15 @@ const Diploma = () => {
           blurDataURL={base64pixel}
         />
       </div>
-      <div className='content'>
+      <div className={stls.content}>
         <h2>Ваш будущий диплом</h2>
-        <div className='desc'>
+        <div className={stls.desc}>
           {at.mini || at.professional || at.industry
             ? 'Международный диплом установленного образца с присвоением степени «Мастер делового администрирования» с европейским приложением'
             : 'Мы производим обучение на основании государственной лицензии №041221. Вы получите диплом о профессиональной переподготовке и сертификат академии, которые можно добавить в портфолио и показать работодателю.'}
         </div>
         {at.online && (
-          <div className='note'>
+          <div className={stls.note}>
             Диплом {atPrograms && 'MBA'} Online {!atPrograms && 'программ'} не
             отличается от дипломов очных программ за счет того, что преподают те
             же спикеры по тем же учебным планам
