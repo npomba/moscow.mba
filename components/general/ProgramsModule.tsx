@@ -27,9 +27,11 @@ const ProgramsModule = ({
           [stls.fadeOutEffect]: fadeOutEffect
         })}>
         {subTitle && <h4 className={stls.title}>{subTitle}</h4>}
-        <ul className='simple-list'>
+        <ul className={stls.list}>
           {items.map((item, idx) => (
-            <li key={idx}>{item}</li>
+            <li key={idx} className={stls.listItem}>
+              {item}
+            </li>
           ))}
         </ul>
       </div>
