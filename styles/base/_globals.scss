@@ -1147,27 +1147,6 @@ h2 {
     }
   }
 }
-.simple-list {
-  line-height: 1.2;
-  li {
-    margin-bottom: 10px;
-    padding-left: 20px;
-    position: relative;
-    &:before {
-      content: '';
-      width: 5px;
-      height: 5px;
-      position: absolute;
-      left: 0;
-      top: 8px;
-      background: $red;
-      border-radius: 50%;
-    }
-    &:last-child {
-      margin-bottom: 0 !important;
-    }
-  }
-}
 
 .reviews-text-block {
   &.modal-review {
@@ -1999,9 +1978,6 @@ h2 {
   }
   .jumbotron-list .number {
     font-size: 38px;
-  }
-  .simple-list li::before {
-    top: 7px;
   }
   .reviews-text-block {
     &.modal-review {

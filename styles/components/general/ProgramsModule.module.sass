@@ -1,7 +1,6 @@
 @use '@/styles/utils/mixin' as m
 
 .container
-  // margin: 0 15px 59px
   margin: 0 0 59px
   width: calc(50% - 30px)
   border-top: 1px solid rgba(0, 0, 0, 0.11)
@@ -18,7 +17,7 @@
     width: 100%
     margin: 0 0 10px
     padding-right: 0
-  &:before
+  &::before
     content: ''
     width: 145px
     background: #ff3535
@@ -122,3 +121,24 @@
   font-size: 17px
   line-height: 120%
   margin-bottom: 17px
+
+.list
+  line-height: 1.2
+
+.listItem
+  margin-bottom: 10px
+  padding-left: 20px
+  position: relative
+  &::before
+    content: ''
+    width: 5px
+    height: 5px
+    position: absolute
+    left: 0
+    top: 8px
+    background: #ff3535
+    border-radius: 50%
+    @include m.media(tablet, phone)
+      top: 7px
+  &:last-child
+    margin-bottom: 0 !important
