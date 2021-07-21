@@ -1,23 +1,25 @@
 import stls from '@/styles/components/sections/UpToDateContent.module.sass'
+import classNames from 'classnames'
 import SetString from '@/components/hooks/SetString'
 import lang from '@/data/translation/about'
 import Image from 'next/image'
 
 const UpToDateContent = ({ withBottomLine = false }) => {
-  const upToDateContentClasses = [stls.container]
-
-  if (withBottomLine) upToDateContentClasses.push(stls.withLine)
-
   return (
-    <section className={upToDateContentClasses.join(' ')}>
-      <div className='section-pl'>
+    <section
+      className={classNames(stls.container, {
+        [stls.withLine]: withBottomLine
+      })}>
+      <div className={stls.section}>
         <h2>{SetString(lang.uptodateTitle)}</h2>
       </div>
       <div className={stls.content}>
         <div className={stls.top}>
           <div className={stls.desc}>
             {SetString(lang.uptodateDicsFirst)}{' '}
-            <strong className='red'>{SetString(lang.uptodateDicsRed)} </strong>
+            <strong className={stls.red}>
+              {SetString(lang.uptodateDicsRed)}{' '}
+            </strong>
             {SetString(lang.uptodateDicsSecond)}
           </div>
           <div className={stls.bottomImg}>
@@ -38,7 +40,7 @@ const UpToDateContent = ({ withBottomLine = false }) => {
           />
         </div>
       </div>
-      <div className='section-pl'>
+      <div className={stls.section}>
         <ul className={stls.list}>
           <li>
             <div className={stls.number}>
