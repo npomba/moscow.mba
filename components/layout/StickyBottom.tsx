@@ -40,7 +40,6 @@ const StickyBottom = ({
 
   return (
     <div className={`${stls.sticky} sticky-bottom-part show`}>
-      {/* <div className='container'> */}
       <div className={stls.content}>
         <p className={stls.p}>
           <strong>Скидка 45%</strong>

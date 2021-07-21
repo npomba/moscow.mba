@@ -1,3 +1,4 @@
+import stls from '@/styles/pages/About.module.sass'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import JumbotronMain from '@/components/sections/JumbotronMain'
@@ -26,7 +27,7 @@ const about = ({ programs }) => {
 
       <JumbotronMain />
 
-      <div className='container'>
+      <div className={stls.generalContainer}>
         <About />
         <ConferencesInEurope />
         <ForeignAffiliates />

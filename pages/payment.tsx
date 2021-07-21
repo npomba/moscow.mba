@@ -23,13 +23,12 @@ const payment = ({ programs }) => {
         )}
         canonical={'https://moscow.mba/payment'}
       />
-      <section
-        className={`jumbotron-section ${breadcrumbsStls.jumbotronGeneral}`}>
-        <div className='container'>
+      <section className={breadcrumbsStls.jumbotronGeneral}>
+        <div className={stls.generalContainer}>
           <Breadcrumbs />
         </div>
       </section>
-      <div className='container'>
+      <div className={stls.generalContainer}>
         <div className={stls.content}>
           <h1 className={stls.h1}>Оплата</h1>
           <h2 className={stls.h2}>Банковской картой</h2>

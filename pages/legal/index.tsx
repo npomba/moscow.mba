@@ -20,13 +20,12 @@ const legal = ({ programs }) => {
         canonical={'https://moscow.mba/legal'}
       />
 
-      <section
-        className={`jumbotron-section ${breadcrumbsStls.jumbotronGeneral}`}>
-        <div className='container'>
+      <section className={breadcrumbsStls.jumbotronGeneral}>
+        <div className={stls.generalContainer}>
           <Breadcrumbs />
         </div>
       </section>
-      <div className='container'>
+      <div className={stls.generalContainer}>
         <h1 className={stls.mainHeading}>Сведения об организации</h1>
         <CurrentLicenses />
         <MemberOfRabe />

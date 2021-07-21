@@ -1,4 +1,5 @@
-import stls from '@/styles/components/general/Breadcrumbs.module.sass'
+import stls from '@/styles/pages/Teachers.module.sass'
+import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import Teachers from '../components/sections/Teachers'
@@ -16,12 +17,12 @@ const teachers = ({ programs }) => {
         )}
         canonical={'https://moscow.mba/teachers'}
       />
-      <section className={`jumbotron-section ${stls.jumbotronGeneral}`}>
-        <div className='container'>
+      <section className={breadcrumbsStls.jumbotronGeneral}>
+        <div className={stls.generalContainer}>
           <Breadcrumbs />
         </div>
       </section>
-      <div className='container'>
+      <div className={stls.generalContainer}>
         <Teachers atStandAlonePage />
       </div>
     </>

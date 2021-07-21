@@ -42,7 +42,7 @@ const PageOnlineProgram = ({ program }) => {
 
       <JumbotronProgram data={data} />
 
-      <div className='container'>
+      <div className={stls.generalContainer}>
         <ProgramGoal data={data} />
         <WhatWillYouLearn data={data} />
         <ProgramDesc />

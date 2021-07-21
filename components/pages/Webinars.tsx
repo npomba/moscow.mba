@@ -1,4 +1,5 @@
 import stls from '@/styles/components/pages/Webinars.module.sass'
+import classNames from 'classnames'
 import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
@@ -9,6 +10,25 @@ import Breadcrumbs from '@/components/general/Breadcrumbs'
 
 const Webinars = ({ title, heading, timeframe = 'all' }) => {
   const at = useAt()
+
+  const webinarsLinks = [
+    {
+      title: 'Все вебинары',
+      ref: '/webinars',
+      isActive: at.webinarsIndex
+    },
+    {
+      title: 'Ближайшие вебинары',
+      ref: '/webinars/upcoming',
+      isActive: at.webinarsUpcoming
+    },
+    {
+      title: 'Прошедшие вебинары',
+      ref: '/webinars/archive',
+      isActive: at.webinarsArchive
+    }
+  ]
+
   return (
     <>
       <NextSeo
@@ -17,38 +37,27 @@ const Webinars = ({ title, heading, timeframe = 'all' }) => {
         canonical={'https://moscow.mba/webinars'}
       />
 
-      <section
-        className={`jumbotron-section ${breadcrumbsStls.jumbotronGeneral}`}>
-        <div className='container'>
+      <section className={breadcrumbsStls.jumbotronGeneral}>
+        <div className={stls.generalContainer}>
           <Breadcrumbs />
         </div>
       </section>
-      <div className='container'>
-        {/* vebinars-section */}
-        <section className='simple-section'>
-          <h1>{heading}</h1>
-          <ul className='vebinars-tabs'>
-            <li>
-              <Link href='/webinars' locale='ru'>
-                <a className={`${at.webinarsIndex && 'active'}`}>
-                  Все вебинары
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Link href='/webinars/upcoming' locale='ru'>
-                <a className={`${at.webinarsUpcoming && 'active'}`}>
-                  Ближайшие вебинары
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Link href='/webinars/archive' locale='ru'>
-                <a className={`${at.webinarsArchive && 'active'}`}>
-                  Прошедшие вебинары
-                </a>
-              </Link>
-            </li>
+      <div className={stls.generalContainer}>
+        <section className={stls.container}>
+          <h1 className={stls.title}>{heading}</h1>
+          <ul className={stls.list}>
+            {webinarsLinks.map((link, idx) => (
+              <li key={idx + link.ref} className={stls.listItem}>
+                <Link href={link.ref} locale='ru'>
+                  <a
+                    className={classNames(stls.link, {
+                      [stls.active]: link.isActive
+                    })}>
+                    {link.title}
+                  </a>
+                </Link>
+              </li>
+            ))}
           </ul>
           <WebinarCards timeframe={timeframe} />
         </section>

@@ -1,3 +1,4 @@
+import stls from '@/styles/pages/programs/Executive.module.sass'
 import { NextSeo, CourseJsonLd } from 'next-seo'
 import truncate from 'truncate'
 import JumbotronProgram from '@/components/sections/JumbotronProgram'
@@ -57,7 +58,7 @@ const executive = ({ programs }) => {
       />
 
       <JumbotronProgram data={data} />
-      <div className='container'>
+      <div className={stls.generalContainer}>
         <AboutExecutive />
         <ResultsExecutive />
         <InPersonWithExperts />
