@@ -47,7 +47,7 @@ const Header = ({ programs }) => {
         {/* <button onClick={openMenu}>open</button>
         <button onClick={closeMenu}>close</button>
         <button onClick={toggleMenu}>toggle</button> */}
-        <div className='container'>
+        <div className={stls.generalContainer}>
           <div className='header-top'>
             <Link href='/'>
               <a className='main-logo' aria-label='Moscow Business Academy'>

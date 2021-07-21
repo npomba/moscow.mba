@@ -657,38 +657,6 @@ header {
 }
 
 /*jumbotron-section ===================================*/
-.jumbotron-section {
-  position: relative;
-  z-index: 5;
-  margin-bottom: 184px;
-  color: #fff;
-  .image {
-    position: absolute;
-    z-index: -1;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(#000, 0.5);
-    &:after {
-      content: '';
-      position: absolute;
-      z-index: 2;
-      left: 0;
-      top: 0;
-      height: 100%;
-      width: 100%;
-      background: #070f24;
-      opacity: 0.7;
-    }
-    img {
-      object-fit: cover;
-      height: 100%;
-      width: 100%;
-    }
-  }
-}
-
 .jumbotron-content {
   padding-left: 220px;
   padding-top: 86px;
@@ -1311,60 +1279,6 @@ h2 {
     margin: 20px auto;
   }
 }
-/* vebinars-section ========================================*/
-.simple-section {
-  padding: 54px 0 100px;
-  h1 {
-    text-transform: uppercase;
-    margin-bottom: 50px;
-  }
-}
-
-.vebinars-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 -10px 10px;
-  li {
-    margin: 0 10px 20px;
-  }
-  a {
-    display: flex;
-    height: 78px;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    border-radius: 90px;
-    transition: $transition;
-    background: #fff;
-    border: 1px solid #e6e6e6;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 1.2;
-    padding: 10px 40px;
-    &:hover {
-      background: #f2f2f2;
-      border-color: #f2f2f2;
-    }
-    &.active {
-      border-color: $red;
-      color: #fff;
-      background: $red;
-    }
-  }
-}
-
-/* mini-programs-section ==================================*/
-
-.jumbotron-content.jumbotron-content-programs-page {
-  padding: 0;
-  margin: 0;
-}
-
-.jumbotron-text-mini {
-  padding-top: 56px;
-  max-width: 780px;
-  padding-bottom: 10px;
-}
 
 /* ========================================*/
 /* ========================================*/
@@ -1867,19 +1781,6 @@ h2 {
   .popup-content-origin {
     padding: 60px 50px;
   }
-  .vebinars-tabs {
-    margin-left: -5px;
-    margin-right: -5px;
-    li {
-      margin-left: 5px;
-      margin-right: 5px;
-    }
-    a {
-      font-size: 16px;
-      padding: 10px 20px;
-      height: 56px;
-    }
-  }
 }
 
 @media (min-width: 768px) {
@@ -2007,27 +1908,6 @@ h2 {
   .popup-content-origin {
     padding: 40px 30px;
   }
-  .simple-section {
-    padding: 30px 0 60px;
-    h1 {
-      margin-bottom: 25px;
-    }
-  }
-  .vebinars-tabs {
-    flex-wrap: nowrap;
-    overflow: auto;
-    margin-right: -10px;
-    a {
-      white-space: nowrap;
-      height: 50px;
-    }
-  }
-  .jumbotron-text-mini {
-    padding-top: 10px;
-    .desc {
-      margin-bottom: 0;
-    }
-  }
   .popup-content-origin {
     .desc {
       margin-bottom: 25px;
@@ -2100,14 +1980,8 @@ a.iconPhoneHeader {
   .header-buter {
     margin-left: 22px;
   }
-  .jumbotron-section {
-    margin-bottom: 190px;
-  }
   .jumbotron-content {
     padding-bottom: 210px;
-  }
-  .jumbotron-section.jumbotron-section--cta {
-    margin-bottom: 110px;
   }
   .jumbotron-content-cta {
     padding-top: 29px;

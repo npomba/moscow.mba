@@ -77,7 +77,7 @@ const JumbotronCta = ({ programTitle = null, programId = null }) => {
           layout='fill'
         />
       </div>
-      <div className='container'>
+      <div className={stls.generalContainer}>
         <div className='jumbotron-content jumbotron-content-cta'>
           <Breadcrumbs />
           <div className='jumbotron-flex'>

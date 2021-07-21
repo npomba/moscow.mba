@@ -36,13 +36,12 @@ const contact = ({ programs }) => {
           }
         ]}
       />
-      <section
-        className={`jumbotron-section ${breadcrumbsStls.jumbotronGeneral}`}>
-        <div className='container'>
+      <section className={breadcrumbsStls.jumbotronGeneral}>
+        <div className={stls.generalContainer}>
           <Breadcrumbs />
         </div>
       </section>
-      <div className='container'>
+      <div className={stls.generalContainer}>
         <h1 className={stls.h1}>{SetString(lang.linkContacts)}</h1>
         <ContactCards />
       </div>

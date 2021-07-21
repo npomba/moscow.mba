@@ -17,7 +17,7 @@ const Footer = () => {
 
   return (
     <footer className={stls.container}>
-      <div className='container'>
+      <div className={stls.generalContainer}>
         <div className={stls.top}>
           <div className={stls.contactDetails}>
             <div className={stls.telephone}>

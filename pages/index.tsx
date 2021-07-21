@@ -1,3 +1,4 @@
+import stls from '@/styles/pages/Index.module.sass'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import SetString from '@/components/hooks/SetString'
@@ -32,7 +33,7 @@ const Home = ({ programs }) => {
 
       <JumbotronCta />
 
-      <div className='container'>
+      <div className={stls.generalContainer}>
         <About />
         <ConferencesInEurope />
         <ForeignAffiliates />
