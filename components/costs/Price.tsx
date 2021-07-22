@@ -46,11 +46,15 @@ const Price = ({
   }
 
   const componentSpecificClasses = {
-    simple: {},
+    simple: {
+      ProgramsColumn: stls.programsColumnSimplePrice
+    },
     new: {
+      ProgramsColumn: stls.programsColumnNewPrice,
       InfoRectangle: stls.infoRectangleNewPrice
     },
     old: {
+      ProgramsColumn: stls.programsColumnOldPrice,
       CostOfStudy: stls.costOfStudyOldPrice,
       InfoRectangle: stls.infoRectangleOldPrice
     }

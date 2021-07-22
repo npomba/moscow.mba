@@ -1,4 +1,5 @@
 import stls from '@/styles/components/general/ProgramsColumn.module.sass'
+import classNames from 'classnames'
 import Link from 'next/link'
 import langMenu from '@/data/translation/menu'
 import SetString from '@/components/hooks/SetString'
@@ -19,15 +20,15 @@ const ProgramsColumn = ({ data, id, type }) => {
   return (
     <ul
       id={id}
-      className={`header-podmenu-content ${
-        id === 'header-podmenu-1' ? 'visible' : ''
-      }`}>
-      <li>
-        <div className='program-detail-list'>
-          <div className='name'>
+      className={classNames(stls.container, 'header-podmenu-content', {
+        [stls.visible]: id === 'header-podmenu-1'
+      })}>
+      <li className={stls.containerItem}>
+        <div className={stls.itemDetails}>
+          <div className={stls.itemTitle}>
             {SetString(langMenu.onlineTitle)}
-            <div className='discount'>
-              <div className='size'>
+            <div className={stls.itemDiscount}>
+              <div className={stls.itemDiscountAmount}>
                 <Discount />
               </div>
               <span>
@@ -35,20 +36,30 @@ const ProgramsColumn = ({ data, id, type }) => {
               </span>
             </div>
           </div>
-          <ProgramsQty programs={data} type={type} format={'online'} />
-          <div className='price'>
+          <ProgramsQty
+            programs={data}
+            type={type}
+            format={'online'}
+            isInsideHeader
+          />
+          <div className={stls.itemPrice}>
             {SetString(langMenu.price)}:{' '}
-            <Price discount={true} type={type} format={'online'} />
+            <Price
+              discount={true}
+              type={type}
+              format={'online'}
+              renderedByComponent='ProgramsColumn'
+            />
           </div>
-          <div className='info-list'>
-            <div className='info-flex'>
-              <div className='pic'>
+          <div className={stls.itemInfo}>
+            <div className={stls.infoFlexContainer}>
+              <div className={stls.iconContainer}>
                 <IconCheckCircle fill={'#C7C7C7'} />
               </div>
               <span>{SetString(langMenu.formatRemote)}</span>
             </div>
-            <div className='info-flex'>
-              <div className='pic'>
+            <div className={stls.infoFlexContainer}>
+              <div className={stls.iconContainer}>
                 <IconScreen fill={'#C7C7C7'} />
               </div>
               <span>
@@ -57,14 +68,14 @@ const ProgramsColumn = ({ data, id, type }) => {
               </span>
             </div>
           </div>
-          <ul className='program-directions-list'>
+          <ul className={stls.list}>
             {data.map(item => {
               if (
                 item.mbaTypeOfProgram === type &&
                 item.mbaFormat === 'online'
               ) {
                 return (
-                  <li key={item._id}>
+                  <li key={item._id} className={stls.listItem}>
                     <Link
                       href={`/programs/${item.mbaTypeOfProgram}/${item.mbaFormat}/${item.url}`}
                       locale='ru'>
@@ -77,24 +88,36 @@ const ProgramsColumn = ({ data, id, type }) => {
           </ul>
         </div>
       </li>
-      <li>
-        <div className='program-detail-list'>
-          <div className='name'>{SetString(langMenu.blendedTitle)}</div>
-
-          <ProgramsQty programs={data} type={type} format={'blended'} />
-          <div className='price'>
-            {SetString(langMenu.price)}:{' '}
-            <Price discount={false} type={type} format={'blended'} />
+      <li className={stls.containerItem}>
+        <div className={stls.itemDetails}>
+          <div className={stls.itemTitle}>
+            {SetString(langMenu.blendedTitle)}
           </div>
-          <div className='info-list'>
-            <div className='info-flex'>
-              <div className='pic'>
+
+          <ProgramsQty
+            programs={data}
+            type={type}
+            format={'blended'}
+            isInsideHeader
+          />
+          <div className={stls.itemPrice}>
+            {SetString(langMenu.price)}:{' '}
+            <Price
+              discount={false}
+              type={type}
+              format={'blended'}
+              renderedByComponent='ProgramsColumn'
+            />
+          </div>
+          <div className={stls.itemInfo}>
+            <div className={stls.infoFlexContainer}>
+              <div className={stls.iconContainer}>
                 <IconCheckCircle fill={'#C7C7C7'} />
               </div>
               <span>{SetString(langMenu.formatBlended)}</span>
             </div>
-            <div className='info-flex'>
-              <div className='pic'>
+            <div className={stls.infoFlexContainer}>
+              <div className={stls.iconContainer}>
                 <IconScreen fill={'#C7C7C7'} />
               </div>
               <span>
@@ -103,14 +126,14 @@ const ProgramsColumn = ({ data, id, type }) => {
               </span>
             </div>
           </div>
-          <ul className='program-directions-list'>
+          <ul className={stls.list}>
             {data.map(item => {
               if (
                 item.mbaTypeOfProgram === type &&
                 item.mbaFormat === 'blended'
               ) {
                 return (
-                  <li key={item._id}>
+                  <li key={item._id} className={stls.listItem}>
                     <Link
                       href={`/programs/${item.mbaTypeOfProgram}/${item.mbaFormat}/${item.url}`}
                       locale='ru'>
@@ -123,9 +146,9 @@ const ProgramsColumn = ({ data, id, type }) => {
           </ul>
         </div>
       </li>
-      <li>
-        <div className='header-podmenu-info'>
-          <div className='name'>
+      <li className={stls.containerItem}>
+        <div className={stls.programInfo}>
+          <div className={stls.programTitle}>
             {type === 'mini'
               ? 'Mini MBA'
               : type === 'professional'
@@ -134,15 +157,15 @@ const ProgramsColumn = ({ data, id, type }) => {
               ? 'Industry MBA'
               : null}
           </div>
-          <div className='info-flex'>
-            <div className='pic'>
+          <div className={stls.infoFlexContainer}>
+            <div className={stls.iconContainer}>
               <IconClock fill={'#C7C7C7'} />
             </div>
             <span>
               <TrainingPeriod type={type} />
             </span>
           </div>
-          <p>
+          <p className={stls.programDesc}>
             {type === 'mini'
               ? SetString(langMenu.categoryDiscMini)
               : type === 'professional'
@@ -151,8 +174,8 @@ const ProgramsColumn = ({ data, id, type }) => {
               ? SetString(langMenu.categoryDiscIndustry)
               : null}
           </p>
-          <div className='info-flex'>
-            <div className='pic'>
+          <div className={stls.infoFlexContainer}>
+            <div className={stls.iconContainer}>
               <IconPaperCorner fill={'#C7C7C7'} />
             </div>
             <span>
@@ -160,8 +183,8 @@ const ProgramsColumn = ({ data, id, type }) => {
               {SetString(langMenu.categoryAboutManagement)}
             </span>
           </div>
-          <div className='info-flex'>
-            <div className='pic'>
+          <div className={stls.infoFlexContainer}>
+            <div className={stls.iconContainer}>
               <IconPaperCorner fill={'#C7C7C7'} />
             </div>
             <span>

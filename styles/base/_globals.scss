@@ -466,47 +466,7 @@ header {
   margin-right: -42px;
 }
 
-.header-podmenu-content {
-  display: none;
-  height: 100%;
-  &.visible {
-    display: flex;
-  }
-  & > li {
-    width: 36.5%;
-    border-right: 1px solid #e6e6e6;
-    padding: 44px 28px 50px;
-    &:last-child {
-      border-right: none;
-      width: 27%;
-      padding-right: 0;
-    }
-  }
-  .info-flex {
-    .pic {
-      width: 20px;
-      text-align: center;
-      flex-shrink: 0;
-      margin-right: 8px;
-    }
-    img {
-      filter: grayscale(1);
-      opacity: 0.35;
-    }
-    span {
-      line-height: 1.2;
-      font-size: 14px;
-    }
-  }
-}
-
 .header-podmenu-info {
-  .image {
-    margin-bottom: 33px;
-    img {
-      width: 100%;
-    }
-  }
   .name {
     font-size: 36px;
     line-height: 1.2;
@@ -532,113 +492,6 @@ header {
     span {
       line-height: 1.2;
       font-size: 14px;
-    }
-  }
-}
-
-.program-detail-list {
-  line-height: 1.2;
-  padding-top: 8px;
-  .info-list {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 -6px 7px;
-    .info-flex {
-      margin-left: 6px;
-      margin-right: 6px;
-    }
-  }
-  .info-flex {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    font-weight: 700;
-    padding-left: 2px;
-    font-size: 14px;
-    span {
-      height: 100%;
-      line-height: 1.2;
-      padding-top: 1px;
-      padding-top: 3px;
-    }
-  }
-  .name {
-    font-weight: 500;
-    font-size: 24px;
-    margin-bottom: 4px;
-    display: flex;
-    position: relative;
-    display: inline-block;
-  }
-  .discount {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 74px;
-    height: 74px;
-    position: absolute;
-    border-radius: 50%;
-    background: $red;
-    color: #fff;
-    text-align: center;
-    left: 100%;
-    top: 50%;
-    margin-top: -36px;
-    margin-left: 20px;
-    line-height: 1;
-    transform: rotate(20deg);
-    .size {
-      font-weight: bold;
-      font-size: 20px;
-      font-family: $visuelt;
-    }
-    span {
-      font-size: 8px;
-      font-family: $mazzardH;
-      font-weight: 400;
-    }
-  }
-  .directions-count {
-    font-size: 13px;
-    font-weight: 400;
-    margin-bottom: 11px;
-    color: #808080;
-  }
-  .price {
-    font-size: 20px;
-    color: #000;
-    margin-bottom: 22px;
-  }
-  .simple-price {
-    font-size: 16px;
-    font-weight: 400;
-    display: inline-block;
-  }
-  .new-price {
-    font-weight: bold;
-    font-size: 20px;
-    display: inline-block;
-    margin-right: 5px;
-  }
-  .old-price {
-    color: #808080;
-    font-size: 16px;
-    font-weight: 400;
-    text-decoration: line-through;
-    display: inline-block;
-  }
-}
-
-.program-directions-list {
-  line-height: 1.2;
-  color: #000000;
-  li {
-    margin-bottom: 10px;
-  }
-  a {
-    transition: $transition;
-    &:hover {
-      color: $red;
     }
   }
 }
@@ -951,11 +804,6 @@ h2 {
       font-family: $mazzardH;
       font-weight: 400;
     }
-  }
-  .directions-count {
-    font-size: 13px;
-    font-weight: 400;
-    margin-bottom: 42px;
   }
   .price {
     font-size: 20px;
@@ -1342,23 +1190,10 @@ h2 {
   .header-podmenu-left {
     width: 180px;
   }
-  .header-podmenu-content {
-    & > li {
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-  }
   .header-podmenu-info .name {
     font-size: 28px;
   }
-  .program-detail-list {
-    .name {
-      font-size: 19px;
-    }
-    .discount {
-      margin-left: 10px;
-    }
-  }
+
   .header-podmenu-flex {
     min-height: 600px;
   }
@@ -1681,9 +1516,6 @@ h2 {
   .program-options-block {
     .discount {
       margin-top: -30px;
-    }
-    .directions-count {
-      margin-bottom: 30px;
     }
     .info-list {
       margin-bottom: 10px;
