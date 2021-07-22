@@ -1,3 +1,5 @@
+import stls from '@/styles/components/general/ProgramsQty.module.sass'
+import classNames from 'classnames'
 import setString from '@/components/hooks/SetString'
 import langMenu from '@/data/translation/menu'
 
@@ -12,7 +14,12 @@ const getStringDeclensionNumber = num => {
   return 2
 }
 
-const ProgramsQty = ({ programs, type = '', format = '' }) => {
+const ProgramsQty = ({
+  programs,
+  type = '',
+  format = '',
+  isInsideHeader = false
+}) => {
   let ProgramsQty
 
   if (type && format)
@@ -23,7 +30,10 @@ const ProgramsQty = ({ programs, type = '', format = '' }) => {
   else ProgramsQty = programs.length
 
   return (
-    <div className='directions-count'>
+    <div
+      className={classNames(stls.container, {
+        [stls.headerContainer]: isInsideHeader
+      })}>
       <span>{ProgramsQty} </span>
       {setString(
         langMenu.qtPrograms,
