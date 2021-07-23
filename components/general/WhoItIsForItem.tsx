@@ -1,4 +1,5 @@
 import stls from '@/styles/components/general/WhoItIsForItem.module.sass'
+import classNames from 'classnames'
 
 const WhoItIsForItem = ({ title, description, moduleIndex }) => {
   const itemIdx =

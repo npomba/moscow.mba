@@ -169,6 +169,8 @@ const OurDiplomasAndCertificates = () => {
       <AccordionsContainer
         accordionsItems={documentsBasedOnProgram}
         firstAccordionActive={true}
+        closeAll={false}
+        setCloseAll={() => {}}
       />
     </section>
   )

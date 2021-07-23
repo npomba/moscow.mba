@@ -1,10 +1,28 @@
 import stls from '@/styles/components/sections/Accreditation.module.sass'
 import Image from 'next/image'
+import logoEcicel from '@/public/assets/images/logo_ecicel.jpg'
+import logoRabe from '@/public/assets/images/logo_rabo.png'
+import logoDepartment from '@/public/assets/images/logo_department.png'
 import imgData from '@/data/images/accreditation'
 import SetString from '@/components/hooks/SetString'
 import lang from '@/data/translation/about'
 import { IconPaperCorner } from '@/components/icons'
 import { base64pixel } from '@/config/index'
+
+const logos = [
+  {
+    image: logoEcicel,
+    alt: 'Логотип ECICEL'
+  },
+  {
+    image: logoRabe,
+    alt: 'Логотип РАБО'
+  },
+  {
+    image: logoDepartment,
+    alt: 'Логотип Деп. обр. г. Москвы'
+  }
+]
 
 const Accreditation = () => {
   return (
@@ -13,17 +31,24 @@ const Accreditation = () => {
         <Image
           src={imgData.accreditationImageAlt.src}
           alt={SetString(imgData.accreditationImageAlt.alt)}
-          width={644}
-          height={664}
+          width={645}
+          height={861}
           placeholder='blur'
           blurDataURL={base64pixel}
           layout='responsive'
         />
       </div>
       <div className={stls.content}>
-        <h2>{SetString(lang.accreditationTitle)}</h2>
+        <h2 className={stls.title}>{SetString(lang.accreditationTitle)}</h2>
         <div className={stls.titleDesc}>
           {SetString(lang.accreditationDics)}
+        </div>
+        <div className={stls.logosContainer}>
+          {logos.map(logo => (
+            <div key={logo.alt} className={stls.logo}>
+              <Image src={logo.image} alt={logo.alt} placeholder={'blur'} />
+            </div>
+          ))}
         </div>
         <ul className={stls.list}>
           <li className={stls.listItem}>
@@ -31,6 +56,10 @@ const Accreditation = () => {
           </li>
           <li className={stls.listItem}>
             {SetString(lang.accreditationItemTwo)}
+          </li>
+          <p>{SetString(lang.accreditationItemTwoPara)}</p>
+          <li className={stls.listItem}>
+            {SetString(lang.accreditationItemThree)}
           </li>
         </ul>
         <a

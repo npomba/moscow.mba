@@ -19,8 +19,9 @@ const ProgramDesc = () => {
           {at.mini && at.blended && 'MBA Mini BLENDED'}
           {at.professional && at.blended && 'MBA Professional BLENDED'}
           {at.industry && at.blended && 'MBA Industry BLENDED'}
-          {!at.profession && ' — путь руководителя к росту'}
-          {at.profession && 'Компетенции, востребованные на рынке'}
+          {!at.profession && !at.promo && ' — путь руководителя к росту'}
+          {(at.profession || at.promo) &&
+            'Компетенции, востребованные на рынке'}
         </h2>
         <div className={stls.desc}>
           {at.mini &&
@@ -41,12 +42,12 @@ const ProgramDesc = () => {
           {at.industry &&
             at.blended &&
             'MBA Industry Blended — смешанная программа MBA: дистанционный формат плюс очные сессии. Разработана для предпринимателей и руководителей компаний, которые ценят свое время и хотят пройти обучение без сильного отрыва от работы'}
-          {at.profession &&
+          {(at.profession || at.promo) &&
             'Мы проводим более 100 исследований ежегодно и добавляем в программу то, что требуют топовые работодатели. После обучения вы будете на 100% готовы к новым профессиональным вызовам'}
         </div>
       </div>
       <div className={stls.imageContainer}>
-        {!at.profession && (
+        {!at.profession && !at.promo && (
           <Image
             src='/assets/images/top_path_pic_1.jpg'
             alt='Слушатели на конференции'
@@ -54,7 +55,7 @@ const ProgramDesc = () => {
             height={503}
           />
         )}
-        {at.profession && (
+        {(at.profession || at.promo) && (
           <Image
             src='/assets/images/handsome-business-man.jpg'
             alt='Слушатели на конференции'

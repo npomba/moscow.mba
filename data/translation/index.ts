@@ -234,6 +234,11 @@ export default {
     en: 'Contact us to get help'
   },
 
+  receiveConsultation: {
+    ru: 'Получите консультацию по программам',
+    en: 'Receive a consultation on the MBA programs'
+  },
+
   helpToChooseDics: {
     ru: 'Оставьте заявку и получите консультацию по программам MBA, узнайте их стоимость, возможные варианты скидок и требования к поступлению',
     en: 'Leave your request for a consultation on the MBA programs, their fees, available discounts and admission requirements'

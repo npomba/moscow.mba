@@ -50,7 +50,7 @@ const InfoRectangle = ({ programPage = false, type = null, format = null }) => {
         )
       }
     ],
-    homePageInfo: [
+    academyInfo: [
       {
         itemDetail: SetString(lang.jumInfoOne)
       },
@@ -63,22 +63,24 @@ const InfoRectangle = ({ programPage = false, type = null, format = null }) => {
     ]
   }
 
-  const typeOfContent = at.index ? 'homePageInfo' : 'programInfo'
+  const typeOfContent = at.index || at.promo ? 'academyInfo' : 'programInfo'
 
   return (
     <ul
       className={classNames(stls.container, {
         [stls.programsPageContainer]: programPage,
-        [stls.homePageContainer]: at.index
+        [stls.academyInfoContainer]: at.index || at.promo
       })}>
       {infoRectangleContent[typeOfContent].map((item, idx) => (
         <li
           key={idx + item.itemDetail}
-          className={classNames(stls.item, { [stls.homePageItem]: at.index })}>
+          className={classNames(stls.item, {
+            [stls.academyInfoItem]: at.index || at.promo
+          })}>
           {item.itemTitle && <p className={stls.itemTitle}>{item.itemTitle}</p>}
           <div
             className={classNames(stls.itemDetail, {
-              [stls.homePageItemDetail]: at.index
+              [stls.academyInfoItemDetail]: at.index || at.promo
             })}>
             {item.itemDetail}
           </div>

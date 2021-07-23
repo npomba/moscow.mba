@@ -1,26 +1,57 @@
 import stls from '@/styles/components/general/AccordionsContainer.module.sass'
 import { useState } from 'react'
 import Accordion from '@/components/general/Accordion'
+import CourseAccordion from '@/components/general/CourseAccordion'
 
-const AccordionsContainer = ({ accordionsItems, firstAccordionActive }) => {
-  const initialActiveAccordion = firstAccordionActive ? 0 : -1
+const AccordionsContainer = ({
+  accordionsItems,
+  firstAccordionActive,
+  closeAll,
+  setCloseAll,
+  isCoursesContainer = false
+}) => {
   const [activeAccordionIndex, setActiveAccordionIndex] = useState(
-    initialActiveAccordion
+    firstAccordionActive ? 0 : -1
   )
 
-  return (
-    <>
-      {accordionsItems.map((item, idx) => (
-        <Accordion
-          key={item.title + idx}
-          accordionItem={item}
-          accordionIndex={idx}
-          activeAccordion={idx === activeAccordionIndex}
-          setActiveAccordion={setActiveAccordionIndex}
-        />
-      ))}
-    </>
-  )
+  const handleSetActiveAccordion = idx => {
+    setActiveAccordionIndex(idx)
+    setCloseAll(false)
+  }
+
+  if (closeAll && activeAccordionIndex !== -1) setActiveAccordionIndex(-1)
+
+  if (!isCoursesContainer) {
+    return (
+      <>
+        {accordionsItems.map((item, idx) => (
+          <Accordion
+            key={item.title + idx}
+            accordionItem={item}
+            accordionIndex={idx}
+            activeAccordion={idx === activeAccordionIndex}
+            setActiveAccordion={setActiveAccordionIndex}
+          />
+        ))}
+      </>
+    )
+  }
+
+  if (isCoursesContainer) {
+    return (
+      <>
+        {accordionsItems.map((item, idx) => (
+          <CourseAccordion
+            key={item.title + idx}
+            course={item}
+            accordionIndex={idx}
+            activeAccordion={idx === activeAccordionIndex}
+            setActiveAccordion={idx => handleSetActiveAccordion(idx)}
+          />
+        ))}
+      </>
+    )
+  }
 }
 
 export default AccordionsContainer

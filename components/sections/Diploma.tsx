@@ -4,14 +4,17 @@ import Image from 'next/image'
 import useAt from '@/components/hooks/useAt'
 import { base64pixel } from '@/config/index'
 
-const Diploma = () => {
+const Diploma = ({ darkBackground = false }) => {
   const at = useAt()
 
   const atPrograms = at.mini || at.professional || at.industry
 
   return (
     <section
-      className={classNames(stls.container, { [stls.noMb]: at.profession })}>
+      className={classNames(stls.container, {
+        [stls.noMb]: at.profession,
+        [stls.darkBg]: darkBackground
+      })}>
       <div className={stls.image}>
         <Image
           src={
@@ -21,6 +24,8 @@ const Diploma = () => {
               ? '/assets/images/diplomas/mba-professional-diploma.jpg'
               : at.industry
               ? '/assets/images/diplomas/mba-industry-diploma.jpg'
+              : at.promo
+              ? '/assets/images/diplomas/mba-professional-industry-diploma.jpg'
               : '/assets/images/diplomas/course-diploma.jpg'
           }
           alt='Ваш будущий диплом'

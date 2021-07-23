@@ -97,11 +97,13 @@ const Breadcrumbs = ({ programChunkData = {} }) => {
   const maxNumOfBreadcrumbs = 3
   const additionalRoutes = []
 
-  const matchingMainRoutes = mainRoutes.filter(
-    route =>
-      router.pathname === route.path ||
-      at.getSplitedPath.includes(route.path.slice(1))
-  )
+  const matchingMainRoutes = mainRoutes
+    .filter(route => route.path !== '/')
+    .filter(
+      route =>
+        router.pathname === route.path ||
+        at.getSplitedPath.includes(route.path.slice(1))
+    )
 
   const addProgramsRoute = splitedPath => {
     const excludingMainProgramsRoute = splitedPath.filter(
@@ -151,7 +153,7 @@ const Breadcrumbs = ({ programChunkData = {} }) => {
   if (matchingMainRoutes.length) breadcrumbsList.push(...matchingMainRoutes)
   if (additionalRoutes.length) breadcrumbsList.push(...additionalRoutes)
 
-  if (!at.getSplitedPath.length) return null
+  if (breadcrumbsList.length === 1) return null
 
   if (breadcrumbsList.length > maxNumOfBreadcrumbs)
     breadcrumbsList = breadcrumbsList.slice(-maxNumOfBreadcrumbs)

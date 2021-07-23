@@ -1,7 +1,21 @@
 @use '@/styles/utils/mixin' as m
 
 .container
+  position: relative
   margin-bottom: 82px
+  &.withTopLine
+    @include m.media(tablet, phone)
+      padding-top: 60px
+      border-top: solid 2px #e6e6e6
+      &::before
+        content: ''
+        position: absolute
+        left: 0
+        top: -1px
+        height: 1px
+        width: 110px
+        background-color: #ff3535
+
   @include m.media(phone)
     margin-bottom: 60px
 
@@ -31,6 +45,10 @@
   padding-left: 220px
   @include m.media(desktop, laptop, tablet, phone)
     padding-left: 0
+  &.smallPl
+    padding-left: 190px
+    @include m.media(desktop, laptop, tablet, phone)
+      padding-left: 0
 
 .title
   br

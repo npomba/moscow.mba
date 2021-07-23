@@ -255,23 +255,33 @@ export default {
   },
 
   accreditationTitle: {
-    ru: 'Аккредитации',
-    en: 'Accreditation'
+    ru: 'Аккредитации и лицензии',
+    en: 'Accreditation and licenses'
   },
 
   accreditationDics: {
-    ru: 'В России Moscow Business Academy имеет все лицензии и аккредитации, позволяющие готовить специалистов международного уровня по направлению MBA',
+    ru: 'Moscow Business Academy имеет все лицензии и аккредитации, позволяющие готовить специалистов международного уровня в сфере менеджмента и управления',
     en: 'Moscow Business Academy has all needed licenses and accreditation to graduate world-class MBA specialists'
   },
 
   accreditationItemOne: {
-    ru: 'В частности аккредитацию НАСДОБР — самая престижная национальная аккредитация, учрежденная РАБО, Ассоциацией менеджеров, Деловой Россией при поддержке Государственной Думы РФ. Аккредитацию НАСДОБР имеют не более 10 организаций в России',
+    ru: 'В частности, европейскую аккредитацию ECICEL. Благодаря этой аккредитации наши дипломы признаются в Европе и приравниваются к европейской магистратуре',
     en: 'NACBE - the most prestigious international accreditation'
   },
 
   accreditationItemTwo: {
-    ru: 'Также Moscow Business Academy является членом Российской Ассоциации Бизнес Образования и имеет государственную лицензию, что подтверждает полное соответствие всех предоставляемых нами программ образовательному стандарту РФ',
+    ru: 'Moscow Business Academy является членом Российской Ассоциации Бизнес-образования (РАБО). В России членство РАБО имеются ограниченное количество организаций, которые соответствуют требованиям качества образовательных программ.',
     en: 'Moscow Business Academy is also a member of Russian Association of Business Education and has a state license, which proves that our programs fully comply with the educational standards of Russian Federation'
+  },
+
+  accreditationItemTwoPara: {
+    ru: 'В настоящий момент за РАБО закрепился статус признанного лидера, инициатора и координатора программ подготовки кадров для предпринимательства и бизнеса.',
+    en: ''
+  },
+
+  accreditationItemThree: {
+    ru: 'Также наша академия имеет государственную лицензию на образовательную деятельность №041221.',
+    en: ''
   },
 
   accreditationLicenseLink: {
