@@ -75,6 +75,8 @@
   display: inline-block
   margin-bottom: 24px
   padding: 13px 29px
+  font-size: 11px
+  font-weight: normal
   text-align: center
   border: 1px solid currentColor
   border-radius: 80px
@@ -92,6 +94,10 @@
 
 .courseMainInfoItem
   position: relative
+  font-size: 10px
+  font-weight: normal
+  letter-spacing: .1em
+  text-transform: uppercase
   color: #000
   @include m.media(desktop)
     margin-bottom: 5px
@@ -120,7 +126,7 @@
 
 .additionalInfoContainer
   display: none
-  padding: 48px 50px
+  padding: 48px 50px 28px
   @include m.media(tablet, phone)
     padding: 30px 17px
 
@@ -197,6 +203,7 @@
   display: flex
   margin-bottom: 25px
   color: #000
+  line-height: 120%
   @include m.media(tablet, phone)
     flex: 1 0 100%
     display: flex
