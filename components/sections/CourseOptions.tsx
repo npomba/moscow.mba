@@ -26,7 +26,7 @@ const CourseOptions = ({ data }) => {
   }
 
   return (
-    <div className={stls.container}>
+    <section className={stls.container}>
       <div className={stls.titleContainer}>
         <h2 className={stls.title}>Направления обучения</h2>
         <p className={stls.coursesNumber}>{numberOfCourses}+ направлений</p>
@@ -51,7 +51,7 @@ const CourseOptions = ({ data }) => {
           toggleItems={handleToggleAllCourses}
         />
       </div>
-    </div>
+    </section>
   )
 }
 

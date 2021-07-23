@@ -240,7 +240,7 @@ export default {
   },
 
   helpToChooseDics: {
-    ru: 'Оставьте заявку и получите консультацию по программам MBA, узнайте их стоимость, возможные варианты скидок и требования к поступлению',
+    ru: 'Оставьте заявку и получите консультацию по программам MBA, узнайте их точную стоимость, возможные варианты скидок и требования к поступлению',
     en: 'Leave your request for a consultation on the MBA programs, their fees, available discounts and admission requirements'
   },
 

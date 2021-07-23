@@ -9,9 +9,11 @@ const ProgramDesc = () => {
     <section className={stls.container}>
       <div
         className={classNames(stls.content, {
-          [stls.smallPl]: at.profession
+          [stls.smallPl]: at.profession || at.promo
         })}>
-        {!at.profession && <div className={stls.title}>О&nbsp;программе</div>}
+        {!at.profession && !at.promo && (
+          <div className={stls.title}>О&nbsp;программе</div>
+        )}
         <h2>
           {at.mini && at.online && 'MBA Mini ONLINE'}
           {at.professional && at.online && 'MBA Professional ONLINE'}
@@ -20,8 +22,8 @@ const ProgramDesc = () => {
           {at.professional && at.blended && 'MBA Professional BLENDED'}
           {at.industry && at.blended && 'MBA Industry BLENDED'}
           {!at.profession && !at.promo && ' — путь руководителя к росту'}
-          {(at.profession || at.promo) &&
-            'Компетенции, востребованные на рынке'}
+          {at.profession && 'Компетенции, востребованные на рынке'}
+          {at.promo && 'Вы получите востребованные на рынке компетенции'}
         </h2>
         <div className={stls.desc}>
           {at.mini &&
@@ -42,8 +44,10 @@ const ProgramDesc = () => {
           {at.industry &&
             at.blended &&
             'MBA Industry Blended — смешанная программа MBA: дистанционный формат плюс очные сессии. Разработана для предпринимателей и руководителей компаний, которые ценят свое время и хотят пройти обучение без сильного отрыва от работы'}
-          {(at.profession || at.promo) &&
+          {at.profession &&
             'Мы проводим более 100 исследований ежегодно и добавляем в программу то, что требуют топовые работодатели. После обучения вы будете на 100% готовы к новым профессиональным вызовам'}
+          {at.promo &&
+            'Мы проводим более 100 исследований ежегодно и постоянно добавляем в программу самые современные инструменты для построения высокодоходных бизнес-систем.  После обучения вы будете на 100% готовы к новым профессиональным вызовам.'}
         </div>
       </div>
       <div className={stls.imageContainer}>

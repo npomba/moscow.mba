@@ -5,6 +5,7 @@ import SetString from '@/components/hooks/SetString'
 import langHeader from '@/data/translation/header'
 import lang from '@/data/translation/footer'
 import contactData from '@/data/contactData'
+import useAt from '@/components/hooks/useAt'
 import {
   IconLocation,
   IconVk,
@@ -14,6 +15,7 @@ import {
 
 const Footer = () => {
   const contactInfo = contactData()
+  const at = useAt()
 
   return (
     <footer className={stls.container}>
@@ -32,85 +34,91 @@ const Footer = () => {
             </div>
           </div>
           <div className={stls.links}>
-            <ul className={stls.linksList}>
-              <li className={stls.linkItem}>
-                <Link href='/programs/mini/online' locale='ru'>
-                  <a className={stls.link}>MBA Mini</a>
-                </Link>
-              </li>
-              {/* <li>
+            {!at.promo && (
+              <ul className={stls.linksList}>
+                <li className={stls.linkItem}>
+                  <Link href='/programs/mini/online' locale='ru'>
+                    <a className={stls.link}>MBA Mini</a>
+                  </Link>
+                </li>
+                {/* <li>
                 <Link href='/programs/mini/blended' locale='ru'>
                   <a>MBA Mini Blended</a>
                 </Link>
               </li> */}
-              <li className={stls.linkItem}>
-                <Link href='/programs/professional/online' locale='ru'>
-                  <a className={stls.link}>MBA Professional</a>
-                </Link>
-              </li>
-              {/* <li>
+                <li className={stls.linkItem}>
+                  <Link href='/programs/professional/online' locale='ru'>
+                    <a className={stls.link}>MBA Professional</a>
+                  </Link>
+                </li>
+                {/* <li>
                 <Link href='/programs/professional/blended' locale='ru'>
                   <a>MBA Professional Blended</a>
                 </Link>
               </li> */}
-              <li className={stls.linkItem}>
-                <Link href='/programs/industry/online' locale='ru'>
-                  <a className={stls.link}>MBA Industry</a>
-                </Link>
-              </li>
-              {/* <li>
+                <li className={stls.linkItem}>
+                  <Link href='/programs/industry/online' locale='ru'>
+                    <a className={stls.link}>MBA Industry</a>
+                  </Link>
+                </li>
+                {/* <li>
                 <Link href='/programs/industry/blended' locale='ru'>
                   <a>MBA Industry Blended</a>
                 </Link>
               </li> */}
-              <li className={stls.linkItem}>
-                <Link href='/programs/executive' locale='ru'>
-                  <a className={stls.link}>Executive MBA</a>
-                </Link>
-              </li>
-              <li className={classNames(stls.linkItem, stls.emptyItem)}></li>
-              <li className={stls.linkItem}>
-                <Link href='/about'>
-                  <a className={stls.link}>{SetString(langHeader.linkAbout)}</a>
-                </Link>
-              </li>
-              <li className={stls.linkItem}>
-                <Link href='/teachers' locale='ru'>
-                  <a className={stls.link}>
-                    {SetString(langHeader.linkTeachers)}
-                  </a>
-                </Link>
-              </li>
-              <li className={stls.linkItem}>
-                <Link href='/webinars' locale='ru'>
-                  <a className={stls.link}>
-                    {SetString(langHeader.linkWebinars)}
-                  </a>
-                </Link>
-              </li>
-              <li className={stls.linkItem}>
-                <Link href='/contact'>
-                  <a className={stls.link}>
-                    {SetString(langHeader.linkContacts)}
-                  </a>
-                </Link>
-              </li>
-              <li className={stls.linkItem}>
-                <Link href='/legal' locale='ru'>
-                  <a className={stls.link}>{SetString(langHeader.linkLegal)}</a>
-                </Link>
-              </li>
-              {/* <li>
+                <li className={stls.linkItem}>
+                  <Link href='/programs/executive' locale='ru'>
+                    <a className={stls.link}>Executive MBA</a>
+                  </Link>
+                </li>
+                <li className={classNames(stls.linkItem, stls.emptyItem)}></li>
+                <li className={stls.linkItem}>
+                  <Link href='/about'>
+                    <a className={stls.link}>
+                      {SetString(langHeader.linkAbout)}
+                    </a>
+                  </Link>
+                </li>
+                <li className={stls.linkItem}>
+                  <Link href='/teachers' locale='ru'>
+                    <a className={stls.link}>
+                      {SetString(langHeader.linkTeachers)}
+                    </a>
+                  </Link>
+                </li>
+                <li className={stls.linkItem}>
+                  <Link href='/webinars' locale='ru'>
+                    <a className={stls.link}>
+                      {SetString(langHeader.linkWebinars)}
+                    </a>
+                  </Link>
+                </li>
+                <li className={stls.linkItem}>
+                  <Link href='/contact'>
+                    <a className={stls.link}>
+                      {SetString(langHeader.linkContacts)}
+                    </a>
+                  </Link>
+                </li>
+                <li className={stls.linkItem}>
+                  <Link href='/legal' locale='ru'>
+                    <a className={stls.link}>
+                      {SetString(langHeader.linkLegal)}
+                    </a>
+                  </Link>
+                </li>
+                {/* <li>
                 <Link href='/legal/about' locale='ru'>
                   <a>{SetString(lang.legalAboutLink)}</a>
                 </Link>
               </li> */}
-              <li className={stls.linkItem}>
-                <Link href='/payment' locale='ru'>
-                  <a className={stls.link}>{SetString(lang.paymentLink)}</a>
-                </Link>
-              </li>
-            </ul>
+                <li className={stls.linkItem}>
+                  <Link href='/payment' locale='ru'>
+                    <a className={stls.link}>{SetString(lang.paymentLink)}</a>
+                  </Link>
+                </li>
+              </ul>
+            )}
             <div className={stls.contacts}>
               <div className={stls.location}>
                 <IconLocation />

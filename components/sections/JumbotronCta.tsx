@@ -1,4 +1,5 @@
 import stls from '@/styles/components/sections/JumbotronCta.module.sass'
+import classNames from 'classnames'
 import 'reactjs-popup/dist/index.css'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -22,7 +23,11 @@ type FormValues = {
   phone: string
 }
 
-const JumbotronCta = ({ programTitle = null, programId = null }) => {
+const JumbotronCta = ({
+  programTitle = null,
+  programId = null,
+  dimmed = false
+}) => {
   const {
     register,
     handleSubmit,

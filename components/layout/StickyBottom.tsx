@@ -20,12 +20,13 @@ const StickyBottom = ({
       const pathArr = window.location.pathname.split('/').filter(part => part)
       if (
         !(
-          pathArr[0] === 'programs' &&
-          (pathArr[1] === 'mini' ||
-            pathArr[1] === 'professional' ||
-            pathArr[1] === 'industry') &&
-          (pathArr[2] === 'online' || pathArr[2] === 'blended') &&
-          !pathArr[3]
+          pathArr[0] === 'promo' ||
+          (pathArr[0] === 'programs' &&
+            (pathArr[1] === 'mini' ||
+              pathArr[1] === 'professional' ||
+              pathArr[1] === 'industry') &&
+            (pathArr[2] === 'online' || pathArr[2] === 'blended') &&
+            !pathArr[3])
         )
       ) {
         const pageHeight = document.body.scrollHeight

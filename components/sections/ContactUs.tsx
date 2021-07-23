@@ -1,4 +1,5 @@
 import stls from '@/styles/components/sections/ContactUs.module.sass'
+import classNames from 'classnames'
 import SetString from '@/components/hooks/SetString'
 import lang from '@/data/translation/index'
 import onSubmitForm from '@/components/hooks/onSubmitForm'
@@ -20,7 +21,8 @@ const ContactUs = ({
   programId = null,
   title = SetString(lang.helpToChooseTitle),
   titleNewStr = null,
-  disc = SetString(lang.helpToChooseDics)
+  disc = SetString(lang.helpToChooseDics),
+  overlapsFooter = false
 }) => {
   const {
     register,
@@ -58,7 +60,10 @@ const ContactUs = ({
   }
 
   return (
-    <section className={stls.container}>
+    <section
+      className={classNames(stls.container, {
+        [stls.overlapsFooter]: overlapsFooter
+      })}>
       <Popup open={openLoader} onClose={closeLoadingModal}>
         <PopupLoader closePopUp={closeLoadingModal} />
       </Popup>
