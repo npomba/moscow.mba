@@ -1,0 +1,25 @@
+@use '@/styles/utils/mixin' as m
+
+.container
+  display: flex
+  @include m.media(laptop, tablet, phone)
+    flex-direction: column
+
+.titleContainer
+  flex: 0 1 361px
+  margin-right: 55px
+  @include m.media(laptop, tablet, phone)
+    flex: 0
+    margin-bottom: 38px
+
+.title
+  @include m.media(tablet, phone)
+    font-size: 38px
+
+.coursesNumber
+  font-size: 25px
+  @include m.media(tablet, phone)
+    font-size: 20px
+
+.content
+  flex: 1

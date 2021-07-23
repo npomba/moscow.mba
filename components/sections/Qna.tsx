@@ -74,6 +74,8 @@ const Qna = ({ programId, programTitle }) => {
           <AccordionsContainer
             accordionsItems={faq}
             firstAccordionActive={false}
+            closeAll={false}
+            setCloseAll={() => {}}
           />
         </div>
       </div>

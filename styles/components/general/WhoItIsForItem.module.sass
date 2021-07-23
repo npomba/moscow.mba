@@ -8,14 +8,13 @@
   padding-top: 38px
   border-top: 1px solid rgba(0, 0, 0, 0.11)
   color: #262626
-
+  @include m.media(widescreen)
+    margin-bottom: 0
   @include m.media(desktop, laptop, tablet, phone)
     flex: 1 1 100%
-
   @include m.media(tablet, phone)
     flex-direction: column
     margin: 40px 0 0
-
   &:nth-of-type(odd)
     margin-right: 75px
     @include m.media(desktop, laptop, tablet, phone)

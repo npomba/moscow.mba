@@ -25,6 +25,10 @@ const useAt = () => {
     return getSplitedPath[0] === 'legal' && !getSplitedPath[1]
   }
 
+  const promo = () => {
+    return getSplitedPath[0] === 'promo'
+  }
+
   const webinars = () => {
     return getSplitedPath[0] === 'webinars'
   }
@@ -93,6 +97,7 @@ const useAt = () => {
     about: about(),
     teachers: teachers(),
     legal: legal(),
+    promo: promo(),
     mini: mini(),
     professional: professional(),
     industry: industry(),
