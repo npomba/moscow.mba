@@ -31,9 +31,11 @@
     color: currentColor
   &:hover
     &::before
-      transform: scale(1.02)
+      @include m.media(widescreen, desktop, laptop)
+        transform: scale(1.02)
     .plus i
-      background: #ff3535
+      @include m.media(widescreen, desktop, laptop)
+        background: #ff3535
   &::before
     content: ''
     position: absolute

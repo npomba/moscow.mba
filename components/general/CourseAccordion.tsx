@@ -1,6 +1,7 @@
 import stls from '@/styles/components/general/CourseAccordion.module.sass'
 import classNames from 'classnames'
-import Link from 'next/link'
+import Popup from 'reactjs-popup'
+import PopupForm from '@/components/popups/PopupForm'
 import Until from '@/components/costs/Until'
 import TrainingPeriod from '@/components/costs/TrainingPeriod'
 import { IconCheckCircle, IconClock, IconScreen } from '@/components/icons'
@@ -85,9 +86,21 @@ const CourseAccordion = ({
             </li>
           ))}
         </ul>
-        <Link href={`/programs/${mbaTypeOfProgram}/${mbaFormat}/${url}`}>
-          <a className={stls.learnMoreBtn}>Узнать больше о программе</a>
-        </Link>
+        <Popup
+          trigger={
+            <a className={stls.learnMoreBtn}>Узнать больше о программе</a>
+          }
+          modal
+          nested>
+          {close => (
+            <PopupForm
+              title={'Получите консультацию по программе'}
+              closePopUpForm={close}
+              programTitle={title}
+              promoCourseLink={`/programs/${mbaTypeOfProgram}/${mbaFormat}/${url}`}
+            />
+          )}
+        </Popup>
       </div>
     </div>
   )

@@ -21,7 +21,8 @@ const Form = ({
   programTitle = null,
   programId = null,
   title = SetString(lang.helpToChooseTitle),
-  disc = SetString(lang.helpToChooseDics)
+  disc = SetString(lang.helpToChooseDics),
+  promoCourseLink = null
 }) => {
   const {
     register,
@@ -44,7 +45,7 @@ const Form = ({
   const onSubmitFormThis = async values => {
     setOpenLoader(o => !o)
     values.programTitle = programTitle
-    values.leadPage = asPath
+    values.leadPage = promoCourseLink ? promoCourseLink : asPath
     const utms = JSON.parse(sessionStorage.getItem('utms'))
     values.utms = utms
     sessionStorage.removeItem('utms')
@@ -79,7 +80,10 @@ const Form = ({
         <div className='desc'>
           {!programTitle && disc}{' '}
           {programTitle &&
+            !promoCourseLink &&
             `Оставьте заявку и получите консультацию по программе ${programTitle}, узнайте возможные варианты скидок и требования к поступлению`}
+          {promoCourseLink &&
+            'Оставьте заявку и получите консультацию по программе MBA, узнайте точную стоимость, возможные варианты скидок и требования к поступлению'}
         </div>
         <form
           method='post'

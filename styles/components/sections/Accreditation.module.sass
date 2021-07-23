@@ -5,11 +5,11 @@
   border: 1px solid #e5e5e5
   position: relative
   z-index: 2
-  @include m.media(laptop)
-    margin-bottom: 40px
+  @include m.media(laptop, tablet, phone)
+    margin-bottom: 60px
   @include m.media(tablet, phone)
+    padding-bottom: 60px
     border: none
-    margin-bottom: 30px
   &::before
     @include m.media(tablet, phone)
       content: ''
@@ -24,7 +24,7 @@
     content: ''
     width: 169px
     height: 2px
-    background: #ff3535
+    background: #ff3535h
     top: -2px
     left: 50%
     position: absolute

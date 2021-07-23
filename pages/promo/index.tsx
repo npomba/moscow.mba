@@ -53,7 +53,7 @@ const promo = ({ programs }) => {
         canonical={'https://moscow.mba/promo'}
       />
 
-      <JumbotronCta />
+      <JumbotronCta dimmed />
       <div className={stls.generalContainer}>
         <WhatWillYouLearn />
         <ProgramDesc />
@@ -65,6 +65,7 @@ const promo = ({ programs }) => {
         <ContactUs
           title={'Есть вопросы?'}
           titleNewStr={'Получите консультацию по программам MBA'}
+          overlapsFooter
         />
       </div>
     </>

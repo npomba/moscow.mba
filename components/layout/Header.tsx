@@ -96,51 +96,54 @@ const Header = ({ programs }) => {
               </a>
             </div>
             {at.index || at.about || at.contact ? <HeaderLangLink /> : null}
-            <div className='header-buter'>
-              <i></i>
-              <i></i>
-              <i></i>
-            </div>
-          </div>
-          <div className='header-bottom'>
-            <div className='header-podmenu-outer'>
-              <div className='header-podmenu-toggle'>
-                <div className='pic'>
-                  <i></i>
-                  <i></i>
-                </div>
-                <span>{SetString(lang.programsBtn)}</span>
+            {!at.promo && (
+              <div className='header-buter'>
+                <i></i>
+                <i></i>
+                <i></i>
               </div>
-            </div>
-            <ul className='header-menu'>
-              <li>
-                <Link href='/about'>
-                  <a className={at.about ? 'red' : ''}>
-                    {SetString(lang.linkAbout)}
-                  </a>
-                </Link>
-              </li>
-              <li>
-                <Link href='/teachers' locale='ru'>
-                  <a className={at.teachers ? 'red' : ''}>
-                    {SetString(lang.linkTeachers)}
-                  </a>
-                </Link>
-              </li>
-              <li>
-                <Link href='/webinars' locale='ru'>
-                  <a className={at.webinars ? 'red' : ''}>
-                    {SetString(lang.linkWebinars)}
-                  </a>
-                </Link>
-              </li>
-              {/* <li>
+            )}
+          </div>
+          {!at.promo && (
+            <div className='header-bottom'>
+              <div className='header-podmenu-outer'>
+                <div className='header-podmenu-toggle'>
+                  <div className='pic'>
+                    <i></i>
+                    <i></i>
+                  </div>
+                  <span>{SetString(lang.programsBtn)}</span>
+                </div>
+              </div>
+              <ul className='header-menu'>
+                <li>
+                  <Link href='/about'>
+                    <a className={at.about ? 'red' : ''}>
+                      {SetString(lang.linkAbout)}
+                    </a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href='/teachers' locale='ru'>
+                    <a className={at.teachers ? 'red' : ''}>
+                      {SetString(lang.linkTeachers)}
+                    </a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href='/webinars' locale='ru'>
+                    <a className={at.webinars ? 'red' : ''}>
+                      {SetString(lang.linkWebinars)}
+                    </a>
+                  </Link>
+                </li>
+                {/* <li>
               <a href=''>Журнал</a>
             </li> */}
-              {/* <li>
+                {/* <li>
               <a href=''>Контакты</a>
             </li> */}
-              {/* <li>
+                {/* <li>
               <Link href='/articles' locale='ru'>
                 <a className={at.articles ? 'red' : ''}>
                   {SetString(lang.linkNews)}
@@ -148,23 +151,24 @@ const Header = ({ programs }) => {
               </Link>
             </li> */}
 
-              <li>
-                <Link href='/contact'>
-                  <a className={at.contact ? 'red' : ''}>
-                    {SetString(lang.linkContacts)}
-                  </a>
-                </Link>
-              </li>
+                <li>
+                  <Link href='/contact'>
+                    <a className={at.contact ? 'red' : ''}>
+                      {SetString(lang.linkContacts)}
+                    </a>
+                  </Link>
+                </li>
 
-              <li className='widescreen-only'>
-                <Link href='/legal' locale='ru'>
-                  <a className={at.legal ? 'red' : ''}>
-                    {SetString(lang.linkLegal)}
-                  </a>
-                </Link>
-              </li>
-            </ul>
-          </div>
+                <li className='widescreen-only'>
+                  <Link href='/legal' locale='ru'>
+                    <a className={at.legal ? 'red' : ''}>
+                      {SetString(lang.linkLegal)}
+                    </a>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          )}
         </div>
         <div className='header-podmenu'>
           <div className='container'>
