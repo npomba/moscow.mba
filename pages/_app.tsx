@@ -1,5 +1,5 @@
 import App from 'next/app'
-import { useEffect, useState, useContext } from 'react'
+import { useEffect, useState } from 'react'
 import TagManager from 'react-gtm-module'
 import { DefaultSeo, LogoJsonLd } from 'next-seo'
 import SEO from '../seo.config'
@@ -12,7 +12,7 @@ import '@/styles/app.sass'
 import { dev, gtmId } from '@/config/index'
 
 import NProgress from 'nprogress'
-import Router, { useRouter } from 'next/router'
+import Router from 'next/router'
 import 'nprogress/nprogress.css'
 
 import Script from 'next/script'
