@@ -1,5 +1,5 @@
 import stls from '@/styles/components/layout/StickyBottom.module.sass'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import Link from 'next/link'
 import Until from '@/components/costs/Until'
 import { IconCross, IconClose } from '@/components/icons'
@@ -7,6 +7,8 @@ import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import PopupForm from '@/components/popups/PopupForm'
 import PopupLearnMore from '@/components/popups/PopupLearnMore'
+import OverlayContext from '@/context/overlay/overlayContext'
+import classNames from 'classnames'
 
 const StickyBottom = ({
   openStickyModule,
@@ -39,8 +41,17 @@ const StickyBottom = ({
     })
   }, [hideStickyModule, openStickyModule, clickedAsk])
 
+  const { overlayIsShown, showOverlay, hideOverlay, toggleOverlay } =
+    useContext(OverlayContext)
+
   return (
-    <div className={`${stls.sticky} sticky-bottom-part show`}>
+    <div
+      className={classNames({
+        [stls.sticky]: true,
+        'sticky-bottom-part': true,
+        show: true,
+        [stls.overlay]: overlayIsShown
+      })}>
       <div className={stls.content}>
         <p className={stls.p}>
           <strong>Скидка 45%</strong>

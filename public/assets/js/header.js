@@ -9,13 +9,6 @@ $(document).ready(function () {
   })
 
   /*работа подменю в десктопе*/
-  $('.header-podmenu-toggle').click(function () {
-    $(this).toggleClass('opened')
-    $('.header-podmenu').fadeToggle(300)
-    // $('.header-overlay').fadeToggle(300)
-    $('.main-content').toggleClass('show-overlay')
-    $('.sticky-bottom-part').toggleClass('show-overlay')
-  })
 
   $(document).mouseup(function (e) {
     var container = $('header')

@@ -25,7 +25,7 @@ const MenuState = props => {
   return (
     <MenuContext.Provider
       value={{
-        isOpen: state.isOpen,
+        menuIsOpen: state.menuIsOpen,
         openMenu,
         closeMenu,
         toggleMenu

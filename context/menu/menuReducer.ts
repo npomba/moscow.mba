@@ -5,17 +5,17 @@ const contactReducer = (state, action) => {
     case OPEN_MENU:
       return {
         ...state,
-        isOpen: action.payload
+        menuIsOpen: action.payload
       }
     case CLOSE_MENU:
       return {
         ...state,
-        isOpen: action.payload
+        menuIsOpen: action.payload
       }
     case TOGGLE_MENU:
       return {
         ...state,
-        isOpen: !state.isOpen
+        menuIsOpen: !state.menuIsOpen
       }
     default:
       return state

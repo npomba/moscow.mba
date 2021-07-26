@@ -1,7 +1,7 @@
 import { createContext } from 'react'
 
 const menuContext = createContext({
-  isOpen: false,
+  menuIsOpen: false,
   openMenu: () => {},
   closeMenu: () => {},
   toggleMenu: () => {}

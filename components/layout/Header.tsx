@@ -2,6 +2,7 @@ import stls from '@/styles/components/layout/Header.module.sass'
 import Link from 'next/link'
 import { useContext } from 'react'
 import MenuContext from '@/context/menu/menuContext'
+import OverlayContext from '@/context/overlay/overlayContext'
 import { useRouter } from 'next/router'
 import lang from '@/data/translation/header'
 import langMenu from '@/data/translation/menu'
@@ -15,6 +16,7 @@ import ProgramsQty from '@/components/general/ProgramsQty'
 import Script from 'next/script'
 import TrainingPeriod from '@/components/costs/TrainingPeriod'
 import contactData from '@/data/contactData'
+import classNames from 'classnames'
 import {
   IconLocation,
   IconLogo,
@@ -32,8 +34,16 @@ import Discount from '@/components/costs/Discount'
 const Header = ({ programs }) => {
   let data = programs || []
 
-  const { isOpen, openMenu, closeMenu, toggleMenu } = useContext(MenuContext)
-  // console.log(isOpen)
+  const { menuIsOpen, openMenu, closeMenu, toggleMenu } =
+    useContext(MenuContext)
+
+  const { overlayIsShown, showOverlay, hideOverlay, toggleOverlay } =
+    useContext(OverlayContext)
+
+  const handleMenu = e => {
+    toggleMenu()
+    toggleOverlay()
+  }
 
   const contactInfo = contactData()
 
@@ -107,7 +117,12 @@ const Header = ({ programs }) => {
           {!at.promo && (
             <div className='header-bottom'>
               <div className='header-podmenu-outer'>
-                <div className='header-podmenu-toggle'>
+                <div
+                  className={classNames({
+                    'header-podmenu-toggle': true,
+                    opened: menuIsOpen
+                  })}
+                  onClick={e => handleMenu(e)}>
                   <div className='pic'>
                     <i></i>
                     <i></i>
@@ -170,7 +185,11 @@ const Header = ({ programs }) => {
             </div>
           )}
         </div>
-        <div className='header-podmenu'>
+        <div
+          className={classNames({
+            'header-podmenu': true,
+            [stls.menuIsClosed]: !menuIsOpen
+          })}>
           <div className='container'>
             <div className='header-podmenu-flex'>
               <div className='header-podmenu-left'>

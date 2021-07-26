@@ -1,11 +1,12 @@
 import App from 'next/app'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import TagManager from 'react-gtm-module'
 import { DefaultSeo, LogoJsonLd } from 'next-seo'
 import SEO from '../seo.config'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import Wrapper from '@/components/layout/Wrapper'
+import Content from '@/components/layout/Content'
 import '@/styles/app.sass'
 // import { motion, AnimatePresence } from 'framer-motion'
 import { dev, gtmId } from '@/config/index'
@@ -16,6 +17,8 @@ import 'nprogress/nprogress.css'
 
 import Script from 'next/script'
 import MenuState from '@/context/menu/MenuState'
+
+import OverlayState from '@/context/overlay/OverlayState'
 
 function MyApp({ Component, pageProps, router }) {
   const [loading, setLoading] = useState(false)
@@ -84,11 +87,12 @@ function MyApp({ Component, pageProps, router }) {
       />
       <Script src='/assets/js/vendors/jquery-3.6.0.min.js' />
       <Script src='/assets/js/myjs.js' strategy='lazyOnload' />
-      <MenuState>
-        <Wrapper>
-          <Header programs={programs} />
-          {/* <AnimatePresence> */}
-          {/* <motion.div
+      <OverlayState>
+        <MenuState>
+          <Wrapper>
+            <Header programs={programs} />
+            {/* <AnimatePresence> */}
+            {/* <motion.div
             key={router.route}
             initial='initial'
             animate='animate'
@@ -105,14 +109,15 @@ function MyApp({ Component, pageProps, router }) {
                 opacity: 0
               }
             }}> */}
-          <div className='main-content'>
-            <Component {...pageProps} />
-          </div>
-          {/* </motion.div> */}
-          {/* </AnimatePresence> */}
-          <Footer />
-        </Wrapper>
-      </MenuState>
+            <Content>
+              <Component {...pageProps} />
+            </Content>
+            {/* </motion.div> */}
+            {/* </AnimatePresence> */}
+            <Footer />
+          </Wrapper>
+        </MenuState>
+      </OverlayState>
     </>
   )
 }
