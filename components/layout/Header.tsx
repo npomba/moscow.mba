@@ -45,6 +45,23 @@ const Header = ({ programs }) => {
     toggleOverlay()
   }
 
+  const handleMouseEnter = e => {
+    const list = Array.from(
+      document.querySelectorAll('.header-podmenu-tabs a')
+    ).slice(0, -1)
+    list.forEach(item => item.classList.remove('active-tab'))
+    e.currentTarget.classList.add('active-tab')
+
+    const contentList = Array.from(
+      document.querySelectorAll('.header-podmenu-content')
+    )
+    contentList.forEach(item =>
+      item.id === e.currentTarget.dataset.tab.slice(1)
+        ? (item.style.display = 'flex')
+        : (item.style.display = 'none')
+    )
+  }
+
   const contactInfo = contactData()
 
   const router = useRouter()
@@ -185,7 +202,7 @@ const Header = ({ programs }) => {
         <div
           className={classNames({
             'header-podmenu': true,
-            [stls.menuIsClosed]: !menuIsOpen
+            [stls.hidden]: !menuIsOpen
           })}>
           <div className='container'>
             <div className='header-podmenu-flex'>
@@ -194,8 +211,9 @@ const Header = ({ programs }) => {
                   <li>
                     <Link href='/programs/mini/online' locale='ru'>
                       <a
+                        className='active-tab'
                         data-tab='#header-podmenu-1'
-                        className='active-tab headerMenuTabs'>
+                        onMouseEnter={e => handleMouseEnter(e)}>
                         Mini MBA
                       </a>
                     </Link>
@@ -204,7 +222,7 @@ const Header = ({ programs }) => {
                     <Link href='/programs/professional/online' locale='ru'>
                       <a
                         data-tab='#header-podmenu-2'
-                        className='headerMenuTabs'>
+                        onMouseEnter={e => handleMouseEnter(e)}>
                         Professional MBA
                       </a>
                     </Link>
@@ -213,7 +231,7 @@ const Header = ({ programs }) => {
                     <Link href='/programs/industry/online' locale='ru'>
                       <a
                         data-tab='#header-podmenu-3'
-                        className='headerMenuTabs'>
+                        onMouseEnter={e => handleMouseEnter(e)}>
                         Industry MBA
                       </a>
                     </Link>

@@ -8,7 +8,6 @@ import Footer from '@/components/layout/Footer'
 import Wrapper from '@/components/layout/Wrapper'
 import Content from '@/components/layout/Content'
 import '@/styles/app.sass'
-// import { motion, AnimatePresence } from 'framer-motion'
 import { dev, gtmId } from '@/config/index'
 
 import NProgress from 'nprogress'

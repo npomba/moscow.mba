@@ -1,13 +1,4 @@
 $(document).ready(function () {
-  /*Табы программ в шапке*/
-  $('.header-podmenu-tabs a.headerMenuTabs').mouseenter(function () {
-    var $searchId = $($(this).data('tab'))
-    $('.header-podmenu-tabs a').not($(this)).removeClass('active-tab')
-    $(this).addClass('active-tab')
-    $('.header-podmenu-content').not($searchId).css('display', 'none')
-    $searchId.css('display', 'flex')
-  })
-
   $(document).mouseup(function (e) {
     var container = $('header')
     if (!container.is(e.target) && container.has(e.target).length === 0) {
