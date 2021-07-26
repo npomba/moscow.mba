@@ -54,9 +54,6 @@ const Header = ({ programs }) => {
   return (
     <>
       <header>
-        {/* <button onClick={openMenu}>open</button>
-        <button onClick={closeMenu}>close</button>
-        <button onClick={toggleMenu}>toggle</button> */}
         <div className={stls.generalContainer}>
           <div className='header-top'>
             <Link href='/'>

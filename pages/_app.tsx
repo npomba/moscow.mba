@@ -86,7 +86,6 @@ function MyApp({ Component, pageProps, router }) {
         url='https://moscow.mba/'
       />
       <Script src='/assets/js/vendors/jquery-3.6.0.min.js' />
-      <Script src='/assets/js/myjs.js' strategy='lazyOnload' />
       <OverlayState>
         <MenuState>
           <Wrapper>
