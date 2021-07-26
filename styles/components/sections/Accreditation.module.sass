@@ -8,18 +8,7 @@
   @include m.media(laptop, tablet, phone)
     margin-bottom: 60px
   @include m.media(tablet, phone)
-    padding-bottom: 60px
     border: none
-  &::before
-    @include m.media(tablet, phone)
-      content: ''
-      position: absolute
-      left: -10px
-      top: 0
-      right: -10px
-      bottom: 0
-      z-index: -1
-      background-color: #f7f7f7
   &::after
     content: ''
     width: 169px

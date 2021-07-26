@@ -1,8 +1,10 @@
 import stls from '@/styles/components/sections/WhoItIsFor.module.sass'
+import classNames from 'classnames'
 import useAt from '@/components/hooks/useAt'
 import WhoItIsForItem from '@/components/general/WhoItIsForItem'
 
 const WhoItIsFor = ({ data: { suitsForTitle, suitsForDesc, title } }) => {
+  const at = useAt()
   const columnsContent = []
 
   suitsForTitle.forEach((title, idx) => {
@@ -14,7 +16,10 @@ const WhoItIsFor = ({ data: { suitsForTitle, suitsForDesc, title } }) => {
       <h2 className={stls.title}>
         {title ? title : 'Кому подойдет программа?'}
       </h2>
-      <div className={stls.itemsContainer}>
+      <div
+        className={classNames(stls.itemsContainer, {
+          [stls.noBottomLine]: at.promo
+        })}>
         {columnsContent.map(({ title, description }, idx) => (
           <WhoItIsForItem
             key={title + idx}
