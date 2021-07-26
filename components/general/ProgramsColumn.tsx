@@ -1,4 +1,7 @@
 import stls from '@/styles/components/general/ProgramsColumn.module.sass'
+import { useContext } from 'react'
+import MenuContext from '@/context/menu/menuContext'
+import OverlayContext from '@/context/overlay/overlayContext'
 import classNames from 'classnames'
 import Link from 'next/link'
 import langMenu from '@/data/translation/menu'
@@ -17,6 +20,17 @@ import {
 } from '@/components/icons'
 
 const ProgramsColumn = ({ data, id, type }) => {
+  const { menuIsOpen, openMenu, closeMenu, toggleMenu } =
+    useContext(MenuContext)
+
+  const { overlayIsShown, showOverlay, hideOverlay, toggleOverlay } =
+    useContext(OverlayContext)
+
+  const handleLinkClick = () => {
+    closeMenu()
+    hideOverlay()
+  }
+
   return (
     <ul
       id={id}
@@ -79,7 +93,7 @@ const ProgramsColumn = ({ data, id, type }) => {
                     <Link
                       href={`/programs/${item.mbaTypeOfProgram}/${item.mbaFormat}/${item.url}`}
                       locale='ru'>
-                      <a>{SetString(item, true)}</a>
+                      <a onClick={handleLinkClick}>{SetString(item, true)}</a>
                     </Link>
                   </li>
                 )

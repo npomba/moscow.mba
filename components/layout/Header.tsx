@@ -40,9 +40,14 @@ const Header = ({ programs }) => {
   const { overlayIsShown, showOverlay, hideOverlay, toggleOverlay } =
     useContext(OverlayContext)
 
-  const handleMenu = e => {
+  const handleMenu = () => {
     toggleMenu()
     toggleOverlay()
+  }
+
+  const handleMenuClose = () => {
+    closeMenu()
+    hideOverlay()
   }
 
   const handleMouseEnter = e => {
@@ -74,7 +79,10 @@ const Header = ({ programs }) => {
         <div className={stls.generalContainer}>
           <div className='header-top'>
             <Link href='/'>
-              <a className='main-logo' aria-label='Moscow Business Academy'>
+              <a
+                className='main-logo'
+                onClick={handleMenuClose}
+                aria-label='Moscow Business Academy'>
                 <span className='pic'>
                   <IconLogo />
                 </span>
@@ -136,7 +144,7 @@ const Header = ({ programs }) => {
                     'header-podmenu-toggle': true,
                     opened: menuIsOpen
                   })}
-                  onClick={e => handleMenu(e)}>
+                  onClick={handleMenu}>
                   <div className='pic'>
                     <i></i>
                     <i></i>
@@ -147,21 +155,27 @@ const Header = ({ programs }) => {
               <ul className='header-menu'>
                 <li>
                   <Link href='/about'>
-                    <a className={at.about ? 'red' : ''}>
+                    <a
+                      onClick={handleMenuClose}
+                      className={at.about ? 'red' : ''}>
                       {SetString(lang.linkAbout)}
                     </a>
                   </Link>
                 </li>
                 <li>
                   <Link href='/teachers' locale='ru'>
-                    <a className={at.teachers ? 'red' : ''}>
+                    <a
+                      onClick={handleMenuClose}
+                      className={at.teachers ? 'red' : ''}>
                       {SetString(lang.linkTeachers)}
                     </a>
                   </Link>
                 </li>
                 <li>
                   <Link href='/webinars' locale='ru'>
-                    <a className={at.webinars ? 'red' : ''}>
+                    <a
+                      onClick={handleMenuClose}
+                      className={at.webinars ? 'red' : ''}>
                       {SetString(lang.linkWebinars)}
                     </a>
                   </Link>
@@ -182,7 +196,9 @@ const Header = ({ programs }) => {
 
                 <li>
                   <Link href='/contact'>
-                    <a className={at.contact ? 'red' : ''}>
+                    <a
+                      onClick={handleMenuClose}
+                      className={at.contact ? 'red' : ''}>
                       {SetString(lang.linkContacts)}
                     </a>
                   </Link>
@@ -190,7 +206,9 @@ const Header = ({ programs }) => {
 
                 <li className='widescreen-only'>
                   <Link href='/legal' locale='ru'>
-                    <a className={at.legal ? 'red' : ''}>
+                    <a
+                      onClick={handleMenuClose}
+                      className={at.legal ? 'red' : ''}>
                       {SetString(lang.linkLegal)}
                     </a>
                   </Link>
@@ -213,6 +231,7 @@ const Header = ({ programs }) => {
                       <a
                         className='active-tab'
                         data-tab='#header-podmenu-1'
+                        onClick={handleMenuClose}
                         onMouseEnter={e => handleMouseEnter(e)}>
                         Mini MBA
                       </a>
@@ -222,6 +241,7 @@ const Header = ({ programs }) => {
                     <Link href='/programs/professional/online' locale='ru'>
                       <a
                         data-tab='#header-podmenu-2'
+                        onClick={handleMenuClose}
                         onMouseEnter={e => handleMouseEnter(e)}>
                         Professional MBA
                       </a>
@@ -231,6 +251,7 @@ const Header = ({ programs }) => {
                     <Link href='/programs/industry/online' locale='ru'>
                       <a
                         data-tab='#header-podmenu-3'
+                        onClick={handleMenuClose}
                         onMouseEnter={e => handleMouseEnter(e)}>
                         Industry MBA
                       </a>
@@ -238,7 +259,9 @@ const Header = ({ programs }) => {
                   </li>
                   <li>
                     <Link href='/programs/mini/online' locale='ru'>
-                      <a>{SetString(langMenu.allPrograms)}</a>
+                      <a onClick={handleMenuClose}>
+                        {SetString(langMenu.allPrograms)}
+                      </a>
                     </Link>
                   </li>
                 </ul>
@@ -247,7 +270,7 @@ const Header = ({ programs }) => {
                     <span>Premium</span>
                   </div>
                   <Link href='/programs/executive' locale='ru'>
-                    <a>Executive MBA</a>
+                    <a onClick={handleMenuClose}>Executive MBA</a>
                   </Link>
                 </div>
               </div>

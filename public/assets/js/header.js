@@ -1,27 +1,4 @@
 $(document).ready(function () {
-  $(document).mouseup(function (e) {
-    var container = $('header')
-    if (!container.is(e.target) && container.has(e.target).length === 0) {
-      $('.header-podmenu').fadeOut(300)
-      // $('.header-overlay').fadeOut(300)
-      $('.header-podmenu-toggle').removeClass('opened')
-      $('.main-content').removeClass('show-overlay')
-      $('.sticky-bottom-part').removeClass('show-overlay')
-      $('html').removeClass('non-overflow')
-    }
-  })
-
-  $(
-    '.header-overlay, .header-podmenu-content .program-directions-list a, .header-podmenu-premium a, .header-podmenu-tabs a'
-  ).click(function () {
-    $('.header-podmenu').fadeOut(300)
-    $('.header-mobile-podmenu').fadeOut(300)
-    $('.header-overlay').fadeOut(300)
-    $('.header-podmenu-toggle').removeClass('opened')
-    $('.main-content').toggleClass('show-overlay')
-    $('.sticky-bottom-part').toggleClass('show-overlay')
-  })
-
   $('.main-logo, .header-menu a').click(function () {
     $('.header-podmenu').fadeOut(300)
     $('.header-mobile-podmenu').fadeOut(300)
