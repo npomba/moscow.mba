@@ -24,7 +24,9 @@
   z-index: 5
   margin-bottom: 184px
   color: #fff
-  & .image
+  @include m.media(phone)
+    margin-bottom: 110px
+  .image
     position: absolute
     z-index: -1
     left: 0
@@ -32,7 +34,7 @@
     height: 100%
     width: 100%
     background-color: rgba(#000, 0.5)
-    &:after
+    &::after
       content: ''
       position: absolute
       z-index: 2
@@ -42,56 +44,223 @@
       width: 100%
       background: #070f24
       opacity: 0.9
-    img
-      object-fit: cover
-      height: 100%
-      width: 100%
+  img
+    object-fit: cover
+    height: 100%
+    width: 100%
 
 .content
-  padding-left: 220px
   padding-top: 86px
   padding-bottom: 108px
   position: relative
   z-index: 2
-  & .jumbotron-flex
+  @include m.media(laptop, tablet, phone)
+    padding-top: 82px
+  @include m.media(phone)
+    padding-top: 29px
+    padding-bottom: 140px
+
+.flexContainer
+  display: flex
+  @include m.media(desktop, laptop, tablet, phone)
+    flex-direction: column
+    justify-content: center
+    align-items: center
+
+.descContainer
+  max-width: 950px
+  flex-shrink: 1
+  margin-right: 40px
+  @include m.media(tablet, phone)
+    margin-right: 0
+
+.desktopLinksList
+  display: flex
+  flex-wrap: wrap
+  margin-bottom: 17px
+  font-size: 23px
+  @include m.media(phone)
+    display: none
+
+.desktopLinkBorder
+  border-right: 1px solid #fff
+  &:not(:last-child)
+    margin-right: 15px
+
+.mobileLinksList
+  display: none
+  @include m.media(phone)
     display: flex
-    @media (max-width: 1329px) and (min-width: 1019px)
-      flex-direction: column
-      & .jumbotron-list
-        display: flex
-        margin: 0
-        width: 100%
-        & li
-          margin-bottom: 0
-          padding-bottom: 0
-          border-bottom: 0
-          &:not(:last-child)
-            border-right: 1px solid rgb(#fff, 0.3)
-            margin-right: 20px
+    margin-bottom: 29px
+    font-style: normal
+    font-weight: normal
+    font-size: 14px
+    line-height: 100%
 
-          &:not(:first-child)
-            padding-left: 20px
+.linkItem
+  &:not(:last-child)
+    margin-right: 15px
+  a
+    @include m.media(phone)
+      cursor: pointer
 
-  @media (max-width: 1019px)
-    & ul.jumbotron-red-info
-      display: block
-      & li:nth-child(1)
-        display: block
-        width: 100%
-        max-width: 100%
-        border-right: 0
+.title
+  font-size: 58px
+  @include m.media(phone)
+    font-style: normal
+    font-weight: bold
+    font-size: 21px
+    line-height: 100%
+    margin-bottom: 14px
 
-      & li:nth-child(2)
-        display: block
-        width: 100%
-        max-width: 100%
-        border-right: 0
+.descTopPart
+  font-style: normal
+  font-weight: 500
+  font-size: 23px
+  line-height: 130%
+  margin-top: 27px
+  @include m.media(phone)
+    margin-top: 14px
+    font-style: normal
+    font-weight: 500
+    font-size: 14px
+    line-height: 130%
 
-      & li:nth-child(3)
-        display: block
-        width: 100%
-        max-width: 100%
-        border-right: 0
-  & .jumbotron-red-info
-    @media (max-width: 767px)
-      bottom: -106px
+.descForm
+  margin-top: 45px
+  @include m.media(phone)
+    margin-top: 29px
+
+.descBottomPart
+  font-style: normal
+  font-weight: 300
+  font-size: 23px
+  line-height: 130%
+  margin-bottom: 23px
+  @include m.media(phone)
+    font-style: normal
+    font-weight: 500
+    font-size: 14px
+    line-height: 130%
+    margin-bottom: 14px
+
+.prosList
+  display: flex
+  flex-direction: column
+  justify-content: space-between
+  margin-left: auto
+  margin-bottom: 40px
+  line-height: 1.2
+  width: 272px
+  margin-top: -13px
+  @include m.media(desktop, laptop, tablet, phone)
+    flex-direction: row
+    justify-content: space-between
+    width: 100%
+    margin: 0
+    width: 100%
+  @include m.media(laptop, tablet, phone)
+    flex-wrap: wrap
+    margin: 0 -15px 10px
+  @include m.media(phone)
+    margin-bottom: -20px
+
+.prosItem
+  @include m.media(desktop)
+    &:not(:last-child)
+      border-right: 1px solid hsla(0,0%,100%,.3)
+      margin-right: 20px
+    &:not(:first-child)
+      padding-left: 20px
+  @include m.media(laptop, tablet, phone)
+    width: 33.333%
+    margin-right: 0
+    padding: 0 15px
+  @include m.media(desktop, laptop, tablet, phone)
+    padding-bottom: 0
+    margin-bottom: 0
+    border-bottom: none
+  @include m.media(phone)
+    padding: 0
+    margin: 0
+    width: 50%
+    &:nth-child(1)
+      border-bottom: 1px solid rgb(#fff, 0.3)
+      border-right: 1px solid rgb(#fff, 0.3)
+      padding-right: 22px
+      padding-bottom: 22px
+    &:nth-child(3)
+      border-bottom: 1px solid rgb(#fff, 0.3)
+      padding-left: 36px
+      padding-bottom: 22px
+    &:nth-child(5)
+      border-right: 1px solid rgb(#fff, 0.3)
+      padding-top: 22px
+      padding-right: 22px
+    &:nth-child(7)
+      padding-top: 22px
+      padding-left: 36px
+
+.prosStatsNumber
+  font-weight: bold
+  font-size: 48px
+  @include m.media(tablet)
+    font-size: 38px
+  @include m.media(phone)
+    font-size: 32px
+
+.prosSeparator
+  display: flex
+  height: 1px
+  width: 100%
+  background-color: rgba(255, 255, 255, 0.3)
+  @include m.media(desktop, laptop, tablet, phone)
+    display: none
+
+.red
+  color: #ff3535
+
+.button
+  border: none
+  cursor: pointer
+  font-family: inherit
+  line-height: 1
+  font-size: 13px
+  transition: all .3s ease-out
+  font-family: inherit
+  font-weight: 700
+  font-size: 13px
+  text-transform: uppercase
+  letter-spacing: 0.1em
+  text-align: center
+  border-radius: 0
+  padding: 20px 30px
+  background: #ff3535
+  color: #fff
+  display: flex
+  justify-content: center
+  align-items: center
+  width: 100%
+  max-width: 260px
+  height: 56px
+  padding: 5px 20px
+  max-width: 260px
+  &:hover
+    background: #e63030
+  &.disabledButton
+    cursor: not-allowed
+  @include m.media(laptop, tablet, phone)
+    max-width: 100%
+  @include m.media(phone)
+    padding: 20px
+    margin-bottom: 30px
+
+.buttonArrow
+  margin-left: 11px
+  width: 38px
+  height: 38px
+  display: flex
+  justify-content: center
+  align-items: center
+  background-color: rgb(#000, 0.1)
+  border-radius: 50%
