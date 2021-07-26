@@ -24,3 +24,7 @@
   @include m.media(laptop, tablet, phone)
     padding-bottom: 60px
     border-bottom: solid 1px #e6e6e6
+  &.noBottomLine
+    @include m.media(laptop, tablet, phone)
+    padding-bottom: 0
+    border-bottom: none
