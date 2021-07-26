@@ -8,8 +8,6 @@ $(document).ready(function () {
     $searchId.css('display', 'flex')
   })
 
-  /*работа подменю в десктопе*/
-
   $(document).mouseup(function (e) {
     var container = $('header')
     if (!container.is(e.target) && container.has(e.target).length === 0) {
@@ -95,14 +93,4 @@ $(document).ready(function () {
       .css('display', 'none')
     $searchId.css('display', 'block')
   })
-
-  /*Табы цен программ для мобилки*/
-  // $('.program-price-tabs a').click(function (e) {
-  //   e.preventDefault()
-  //   var $searchId = $($(this).attr('href'))
-  //   $('.program-price-tabs a').not($(this)).removeClass('active')
-  //   $(this).addClass('active')
-  //   $('.program-price-block').not($searchId).css('display', 'none')
-  //   $searchId.css('display', 'block')
-  // })
 })

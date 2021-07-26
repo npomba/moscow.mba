@@ -91,29 +91,9 @@ function MyApp({ Component, pageProps, router }) {
         <MenuState>
           <Wrapper>
             <Header programs={programs} />
-            {/* <AnimatePresence> */}
-            {/* <motion.div
-            key={router.route}
-            initial='initial'
-            animate='animate'
-            transition={{ ease: 'easeInOut', duration: 0.4 }}
-            exit='exit'
-            variants={{
-              initial: {
-                opacity: 0
-              },
-              animate: {
-                opacity: 1
-              },
-              exit: {
-                opacity: 0
-              }
-            }}> */}
             <Content>
               <Component {...pageProps} />
             </Content>
-            {/* </motion.div> */}
-            {/* </AnimatePresence> */}
             <Footer />
           </Wrapper>
         </MenuState>
