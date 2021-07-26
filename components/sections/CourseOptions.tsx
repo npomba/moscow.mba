@@ -17,16 +17,27 @@ const CourseOptions = ({ data }) => {
 
   const shownCourses = data.slice(firstCourseOnPage, lastCourseOnPage)
 
+  const scrollToCoursesContainer = () => {
+    const coursesContainerTop =
+      coursesContainerRef.current.getBoundingClientRect().top
+    const offsetY = 100
+
+    window.scrollTo({
+      top: coursesContainerTop + window.pageYOffset - offsetY,
+      behavior: 'smooth'
+    })
+  }
+
   const handleShowNextPage = newFirstCourseOnPage => {
     setFirstCourseOnPage(newFirstCourseOnPage)
     setLastCourseOnPage(newFirstCourseOnPage + coursesPerPage)
     setCloseAllAccordions(true)
-    coursesContainerRef.current.scrollIntoView({ behavior: 'smooth' })
+    scrollToCoursesContainer()
   }
 
   const handleToggleAllCourses = () => {
     setLastCourseOnPage(firstCourseOnPage + coursesPerPage)
-    coursesContainerRef.current.scrollIntoView({ behavior: 'smooth' })
+    scrollToCoursesContainer()
   }
 
   return (
