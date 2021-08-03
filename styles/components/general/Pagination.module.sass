@@ -1,23 +1,41 @@
 @use '@/styles/utils/mixin' as m
 
 .container
-  @include m.media(laptop, tablet, phone)
-    margin-top: 25px
+
+.onlyPagination
+  .paginationBtn
+    @include m.media(tablet, phone)
+      display: inline-block
+  .toggleItemsBtn
+    @include m.media(tablet, phone)
+      display: none
 
 .paginationBtn
-  background-color: #f2f2f2
   padding: 11px 16px
   font-size: 16px
   font-weight: 300
   border: none
   cursor: pointer
+  transition: all .3s ease-out
   @include m.media(tablet, phone)
     display: none
   &:not(:last-child)
     margin-right: 5px
-  &.active
-    background-color: #ff3535
+  &.ordinaryBg
+    background-color: #f2f2f2
+    &.active
+      background-color: #ff3535
+      color: #fff
+  &.semiTransparentBg
+    background-color: rgba(255, 255, 255, .2)
     color: #fff
+    opacity: .55
+    &:hover
+      opacity: .75
+    &.active
+      background-color: #fff
+      color: #ff3535
+      opacity: 1
 
 .loadMoreBtn
   display: none

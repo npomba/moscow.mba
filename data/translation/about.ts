@@ -49,8 +49,13 @@ export default {
     en: 'Learn from the unique foreign experts who adapted their experience for Russian market'
   },
 
-  teachersListItemTitle: {
+  teachersListItemTitleMain: {
     ru: 'Практикующие специалисты',
+    en: 'Practitioners'
+  },
+
+  teachersListItemTitleSecondary: {
+    ru: 'Практикующие эксперты',
     en: 'Practitioners'
   },
 

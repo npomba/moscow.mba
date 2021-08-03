@@ -204,18 +204,24 @@ const CostOfStudy = ({
         Стоимость обучения
       </h2>
       <div className={stls.content}>
-        <div className={stls.contentBlock}>
-          <div className={stls.programName}>
-            {at.mini
-              ? 'MBA Mini'
-              : at.professional
-              ? 'MBA Professional'
-              : at.industry
-              ? 'MBA Industry'
-              : at.executive
-              ? 'MBA Executive'
-              : 'Профессиональная переподготовка'}
-          </div>
+        <div
+          className={classNames({
+            [stls.contentBlock]: true,
+            [stls.flexBlock]: at.profession
+          })}>
+          {!at.profession && (
+            <div className={stls.programName}>
+              {at.mini
+                ? 'MBA Mini'
+                : at.professional
+                ? 'MBA Professional'
+                : at.industry
+                ? 'MBA Industry'
+                : at.executive
+                ? 'MBA Executive'
+                : ''}
+            </div>
+          )}
           {list}
         </div>
         <div

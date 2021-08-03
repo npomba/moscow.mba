@@ -54,17 +54,19 @@ const CourseOptions = ({ data }) => {
           setCloseAll={setCloseAllAccordions}
           isCoursesContainer
         />
-        <Pagination
-          numberOfPages={numberOfPages}
-          itemsPerPage={coursesPerPage}
-          totalItems={numberOfCourses}
-          lastShownItem={lastCourseOnPage}
-          showNextPage={newFirstCourseOnPage =>
-            handleShowNextPage(newFirstCourseOnPage)
-          }
-          loadMoreItems={setLastCourseOnPage}
-          toggleItems={handleToggleAllCourses}
-        />
+        <div className={stls.paginationContainer}>
+          <Pagination
+            numberOfPages={numberOfPages}
+            itemsPerPage={coursesPerPage}
+            totalItems={numberOfCourses}
+            lastShownItem={lastCourseOnPage}
+            showNextPage={newFirstCourseOnPage =>
+              handleShowNextPage(newFirstCourseOnPage)
+            }
+            loadMoreItems={setLastCourseOnPage}
+            toggleItems={handleToggleAllCourses}
+          />
+        </div>
       </div>
     </section>
   )

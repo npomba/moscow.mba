@@ -71,7 +71,17 @@ const Footer = () => {
                     <a className={stls.link}>Executive MBA</a>
                   </Link>
                 </li>
-                <li className={classNames(stls.linkItem, stls.emptyItem)}></li>
+                <li className={stls.linkItem}>
+                  <Link href='#' locale='ru'>
+                    <a
+                      className={classNames({
+                        [stls.link]: true,
+                        [stls.inactiveLink]: true
+                      })}>
+                      Профессии
+                    </a>
+                  </Link>
+                </li>
                 <li className={stls.linkItem}>
                   <Link href='/about'>
                     <a className={stls.link}>
