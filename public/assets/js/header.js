@@ -1,31 +1,4 @@
 $(document).ready(function () {
-  // $('.main-logo, .header-menu a').click(function () {
-  //   $('.header-podmenu').fadeOut(300)
-  //   $('.header-mobile-podmenu').fadeOut(300)
-  //   $('.header-overlay').fadeOut(300)
-  //   $('.header-podmenu-toggle').removeClass('opened')
-  //   $('.main-content').removeClass('show-overlay')
-  //   $('.sticky-bottom-part').removeClass('show-overlay')
-  //   $('html').removeClass('non-overflow')
-  // })
-
-  // $(
-  //   '.mobileAllProgramsLink, .main-logo, .header-menu a, .program-options-block-list a, #switchToRuBtn, #switchToEnBtn, .onClickCloseMobileMenu'
-  // ).click(function () {
-  //   $('.header-mobile-podmenu').fadeOut(300)
-  //   $('.header-buter').removeClass('opened')
-  //   $('html').removeClass('non-overflow')
-  // })
-
-  /*работа подменю в мобилке*/
-  // $('.header-buter').click(function () {
-  //   $(this).toggleClass('opened')
-  //   $('html').toggleClass('non-overflow')
-  //   $('.header-mobile-podmenu').slideToggle(300, function () {
-  //     $('.js-header-mobile').removeClass('opened')
-  //   })
-  // })
-
   $('.mobile-second-toggle').click(function (e) {
     e.preventDefault()
     $('.header-mobile-second').addClass('opened')
