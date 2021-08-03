@@ -60,11 +60,15 @@ const Header = ({ programs }) => {
     const contentList = Array.from(
       document.querySelectorAll('.header-podmenu-content')
     )
-    contentList.forEach(item =>
-      item.id === e.currentTarget.dataset.tab.slice(1)
-        ? (item.style.display = 'flex')
-        : (item.style.display = 'none')
-    )
+    contentList.forEach(item => {
+      if (item.id === e.currentTarget.dataset.tab.slice(1)) {
+        item.classList.add('dflex')
+        item.classList.remove('dnone')
+      } else {
+        item.classList.add('dnone')
+        item.classList.remove('dflex')
+      }
+    })
   }
 
   const contactInfo = contactData()

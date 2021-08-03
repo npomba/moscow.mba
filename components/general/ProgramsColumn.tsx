@@ -151,7 +151,7 @@ const ProgramsColumn = ({ data, id, type }) => {
                     <Link
                       href={`/programs/${item.mbaTypeOfProgram}/${item.mbaFormat}/${item.url}`}
                       locale='ru'>
-                      <a>{SetString(item, true)}</a>
+                      <a onClick={handleLinkClick}>{SetString(item, true)}</a>
                     </Link>
                   </li>
                 )
