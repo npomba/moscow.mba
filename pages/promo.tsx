@@ -53,7 +53,7 @@ const promo = ({ programs }) => {
         canonical={'https://moscow.mba/promo'}
       />
 
-      <JumbotronCta dimmed />
+      <JumbotronCta />
       <div className={stls.generalContainer}>
         <WhatWillYouLearn />
         <ProgramDesc />

@@ -23,11 +23,7 @@ type FormValues = {
   phone: string
 }
 
-const JumbotronCta = ({
-  programTitle = null,
-  programId = null,
-  dimmed = false
-}) => {
+const JumbotronCta = ({ programTitle = null, programId = null }) => {
   const {
     register,
     handleSubmit,
@@ -83,57 +79,57 @@ const JumbotronCta = ({
         />
       </div>
       <div className={stls.generalContainer}>
-        <div className='jumbotron-content jumbotron-content-cta'>
+        <div className={stls.content}>
           <Breadcrumbs />
-          <div className='jumbotron-flex'>
-            <div className='jumbotron-text'>
-              <ul className='jumCta-links desktop'>
-                <li>
+          <div className={stls.flexContainer}>
+            <div className={stls.descContainer}>
+              <ul className={stls.desktopLinksList}>
+                <li className={stls.linkItem}>
                   {/* <Link href='/programs/industry'>
                     <a>INDUSTRY MBA</a>
                   </Link> */}
                   INDUSTRY MBA
                 </li>
-                <li className='jumCta-links__border'></li>
-                <li>
+                <li className={stls.desktopLinkBorder}></li>
+                <li className={stls.linkItem}>
                   {/* <Link href='/programs/professional'>
                     <a>PROFESSIONAL MBA</a>
                   </Link> */}
                   PROFESSIONAL MBA
                 </li>
-                <li className='jumCta-links__border'></li>
-                <li>
+                <li className={stls.desktopLinkBorder}></li>
+                <li className={stls.linkItem}>
                   {/* <Link href='/programs/mini'>
                     <a>MINI MBA</a>
                   </Link> */}
                   MINI MBA
                 </li>
-                <li className='jumCta-links__border'></li>
-                <li>{SetString(lang.courses)}</li>
+                <li className={stls.desktopLinkBorder}></li>
+                <li className={stls.linkItem}>{SetString(lang.courses)}</li>
               </ul>
 
-              <ul className='jumCta-links mobile'>
-                <li>
+              <ul className={stls.mobileLinksList}>
+                <li className={stls.linkItem}>
                   <Link href='/programs' locale='ru'>
                     <a>{SetString(lang.programsMbaMobileLink)}</a>
                   </Link>
                 </li>
               </ul>
-              <h1>
+              <h1 className={stls.title}>
                 {SetString(lang.headerTitlePreHighlight)}{' '}
-                <span className='red'>
+                <span className={stls.red}>
                   {SetString(lang.headerTitleHighlight)}
                 </span>{' '}
                 {SetString(lang.headerTitlePostHighlight)}
               </h1>
-              <div className='jumCta-desc-top'>
-                <span className='red'>
+              <div className={stls.descTopPart}>
+                <span className={stls.red}>
                   {SetString(lang.headerDescTopHightlight)}
                 </span>{' '}
                 {SetString(lang.headerDescTop)} <Until preposition={true} />!
               </div>
-              <div className='jumCta-form-desc'>
-                <p className='jumCta-desc-bottom'>
+              <div className={stls.descForm}>
+                <p className={stls.descBottomPart}>
                   {SetString(lang.headerDescription)}
                 </p>
                 <form
@@ -183,12 +179,12 @@ const JumbotronCta = ({
                     <div className='input-block width-33'>
                       <button
                         type='submit'
-                        className={`button red-button ${
-                          errors.name || errors.phone ? 'btn-disabled' : ''
-                        }`}
+                        className={classNames(stls.button, {
+                          [stls.disabledButton]: errors.name || errors.phone
+                        })}
                         disabled={errors.name || errors.phone ? true : false}>
                         {SetString(lang.inputSubmitAlt)}
-                        <div className='arrow'>
+                        <div className={stls.buttonArrow}>
                           <IconArrowTopRight width={'17'} height={'17'} />
                         </div>
                       </button>
@@ -197,26 +193,26 @@ const JumbotronCta = ({
                 </form>
               </div>
             </div>
-            <ul className='jumbotron-list'>
-              <li>
-                <div className='number'>100+</div>
+            <ul className={stls.prosList}>
+              <li className={stls.prosItem}>
+                <div className={stls.prosStatsNumber}>100+</div>
                 <p>{SetString(lang.benefitOneDisc)}</p>
               </li>
-              <li className='jumDivider'></li>
-              <li>
-                <div className='number'>2021+</div>
+              <li className={stls.prosSeparator}></li>
+              <li className={stls.prosItem}>
+                <div className={stls.prosStatsNumber}>2021+</div>
                 <p>{SetString(lang.benefitTwoDisc)}</p>
               </li>
-              <li className='jumDivider'></li>
+              <li className={stls.prosSeparator}></li>
 
-              <li>
-                <div className='number'>150+</div>
+              <li className={stls.prosItem}>
+                <div className={stls.prosStatsNumber}>150+</div>
                 <p>{SetString(lang.benefitThreeDisc)}</p>
               </li>
-              <li className='jumDivider'></li>
+              <li className={stls.prosSeparator}></li>
 
-              <li>
-                <div className='number'>2000+</div>
+              <li className={stls.prosItem}>
+                <div className={stls.prosStatsNumber}>2000+</div>
                 <p>{SetString(lang.benefitFourDisc)}</p>
               </li>
             </ul>
