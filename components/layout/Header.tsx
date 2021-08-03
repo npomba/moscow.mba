@@ -313,21 +313,27 @@ const Header = ({ programs }) => {
                 </li>
                 <li>
                   <Link href='/about'>
-                    <a className='onClickCloseMobileMenu'>
+                    <a
+                      className='onClickCloseMobileMenu'
+                      onClick={handleMenuClose}>
                       {SetString(lang.linkAbout)}
                     </a>
                   </Link>
                 </li>
                 <li>
                   <Link href='/teachers' locale='ru'>
-                    <a className='onClickCloseMobileMenu'>
+                    <a
+                      className='onClickCloseMobileMenu'
+                      onClick={handleMenuClose}>
                       {SetString(lang.linkTeachers)}
                     </a>
                   </Link>
                 </li>
                 <li>
                   <Link href='/webinars' locale='ru'>
-                    <a className='onClickCloseMobileMenu'>
+                    <a
+                      className='onClickCloseMobileMenu'
+                      onClick={handleMenuClose}>
                       {SetString(lang.linkWebinars)}
                     </a>
                   </Link>
@@ -347,7 +353,9 @@ const Header = ({ programs }) => {
               </li> */}
                 <li>
                   <Link href='/contact'>
-                    <a className='onClickCloseMobileMenu'>
+                    <a
+                      className='onClickCloseMobileMenu'
+                      onClick={handleMenuClose}>
                       {SetString(lang.linkContacts)}
                     </a>
                   </Link>
@@ -358,7 +366,8 @@ const Header = ({ programs }) => {
                     <a
                       className={`onClickCloseMobileMenu ${
                         at.legal ? 'red' : ''
-                      }`}>
+                      }`}
+                      onClick={handleMenuClose}>
                       {SetString(lang.linkLegal)}
                     </a>
                   </Link>
@@ -489,7 +498,9 @@ const Header = ({ programs }) => {
                                       <Link
                                         href={`/programs/${item.mbaTypeOfProgram}/${item.mbaFormat}/${item.url}`}
                                         locale='ru'>
-                                        <a>{SetString(item, true)}</a>
+                                        <a onClick={handleMenuClose}>
+                                          {SetString(item, true)}
+                                        </a>
                                       </Link>
                                     </li>
                                   )
@@ -544,7 +555,9 @@ const Header = ({ programs }) => {
                                       <Link
                                         href={`/programs/${item.mbaTypeOfProgram}/${item.mbaFormat}/${item.url}`}
                                         locale='ru'>
-                                        <a>{SetString(item, true)}</a>
+                                        <a onClick={handleMenuClose}>
+                                          {SetString(item, true)}
+                                        </a>
                                       </Link>
                                     </li>
                                   )
@@ -675,7 +688,9 @@ const Header = ({ programs }) => {
                                       <Link
                                         href={`/programs/${item.mbaTypeOfProgram}/${item.mbaFormat}/${item.url}`}
                                         locale='ru'>
-                                        <a>{SetString(item, true)}</a>
+                                        <a onClick={handleMenuClose}>
+                                          {SetString(item, true)}
+                                        </a>
                                       </Link>
                                     </li>
                                   )
@@ -733,7 +748,9 @@ const Header = ({ programs }) => {
                                       <Link
                                         href={`/programs/${item.mbaTypeOfProgram}/${item.mbaFormat}/${item.url}`}
                                         locale='ru'>
-                                        <a>{SetString(item, true)}</a>
+                                        <a onClick={handleMenuClose}>
+                                          {SetString(item, true)}
+                                        </a>
                                       </Link>
                                     </li>
                                   )
@@ -867,7 +884,9 @@ const Header = ({ programs }) => {
                                       <Link
                                         href={`/programs/${item.mbaTypeOfProgram}/${item.mbaFormat}/${item.url}`}
                                         locale='ru'>
-                                        <a>{SetString(item, true)}</a>
+                                        <a onClick={handleMenuClose}>
+                                          {SetString(item, true)}
+                                        </a>
                                       </Link>
                                     </li>
                                   )
@@ -922,7 +941,9 @@ const Header = ({ programs }) => {
                                       <Link
                                         href={`/programs/${item.mbaTypeOfProgram}/${item.mbaFormat}/${item.url}`}
                                         locale='ru'>
-                                        <a>{SetString(item, true)}</a>
+                                        <a onClick={handleMenuClose}>
+                                          {SetString(item, true)}
+                                        </a>
                                       </Link>
                                     </li>
                                   )
@@ -975,7 +996,9 @@ const Header = ({ programs }) => {
                 </li>
                 <li>
                   <Link href='/programs/mini/online' locale='ru'>
-                    <a className='mobileAllProgramsLink'>
+                    <a
+                      className='mobileAllProgramsLink'
+                      onClick={handleMenuClose}>
                       {SetString(langMenu.allPrograms)}
                     </a>
                   </Link>
@@ -995,12 +1018,16 @@ const Header = ({ programs }) => {
               <ul className='header-mobile-menu'>
                 <li>
                   <Link href={`${router.pathname}`} locale='ru'>
-                    <a id='switchToRuBtn'>🇷🇺&nbsp;Русский</a>
+                    <a id='switchToRuBtn' onClick={handleMenuClose}>
+                      🇷🇺&nbsp;Русский
+                    </a>
                   </Link>
                 </li>
                 <li>
                   <Link href={`${router.pathname}`} locale='en-US'>
-                    <a id='switchToEnBtn'>🇺🇸&nbsp;English</a>
+                    <a id='switchToEnBtn' onClick={handleMenuClose}>
+                      🇺🇸&nbsp;English
+                    </a>
                   </Link>
                 </li>
               </ul>

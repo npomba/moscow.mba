@@ -97,7 +97,11 @@ const JumbotronProgram = ({ data }) => {
 
               <li className={stls.item}>
                 <div className={stls.number}>150+</div>
-                <p>международных экспертов</p>
+                <p>
+                  {at.profession
+                    ? 'экспертов формируют программы'
+                    : 'международных экспертов'}
+                </p>
               </li>
               <li className={stls.separator}></li>
 

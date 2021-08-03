@@ -37,7 +37,9 @@ const ProgramsModules = ({ data, smallerMb = false }) => {
             </p>
           </li>
         </ul>
-        <h3 className={stls.h3}>{!at.executive && 'Базовые дисциплины'}</h3>
+        <h3 className={stls.h3}>
+          {!at.executive && !at.profession && 'Базовые дисциплины'}
+        </h3>
       </div>
       <div className={stls.list}>
         {at.mini && (
