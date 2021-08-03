@@ -133,7 +133,12 @@ const Header = ({ programs }) => {
             </div>
             {at.index || at.about || at.contact ? <HeaderLangLink /> : null}
             {!at.promo && (
-              <div className='header-buter'>
+              <div
+                className={classNames({
+                  'header-buter': true,
+                  opened: menuIsOpen
+                })}
+                onClick={toggleMenu}>
                 <i></i>
                 <i></i>
                 <i></i>
@@ -301,7 +306,11 @@ const Header = ({ programs }) => {
         {/* <div className='header-overlay'></div> */}
 
         {/* mobile menu */}
-        <div className='header-mobile-podmenu'>
+        <div
+          className={classNames({
+            'header-mobile-podmenu': true,
+            dblock: menuIsOpen
+          })}>
           {/* first */}
           <div className='header-mobile-first'>
             <div className='container'>

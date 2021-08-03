@@ -18,13 +18,13 @@ $(document).ready(function () {
   // })
 
   /*работа подменю в мобилке*/
-  $('.header-buter').click(function () {
-    $(this).toggleClass('opened')
-    $('html').toggleClass('non-overflow')
-    $('.header-mobile-podmenu').slideToggle(300, function () {
-      $('.js-header-mobile').removeClass('opened')
-    })
-  })
+  // $('.header-buter').click(function () {
+  //   $(this).toggleClass('opened')
+  //   $('html').toggleClass('non-overflow')
+  //   $('.header-mobile-podmenu').slideToggle(300, function () {
+  //     $('.js-header-mobile').removeClass('opened')
+  //   })
+  // })
 
   $('.mobile-second-toggle').click(function (e) {
     e.preventDefault()
