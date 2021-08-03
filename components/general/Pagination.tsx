@@ -7,10 +7,12 @@ const Pagination = ({
   numberOfPages,
   itemsPerPage,
   totalItems,
-  lastShownItem,
+  lastShownItem = totalItems,
   showNextPage,
-  loadMoreItems,
-  toggleItems
+  loadMoreItems = _ => {},
+  toggleItems = () => {},
+  onlyPagination = false,
+  semiTransparentBg = false
 }) => {
   const [currentPage, setCurrentPage] = useState(0)
 
@@ -29,7 +31,10 @@ const Pagination = ({
     paginationBtns.push(
       <button
         key={`btn${i}`}
-        className={classNames(stls.paginationBtn, {
+        className={classNames({
+          [stls.paginationBtn]: true,
+          [stls.semiTransparentBg]: semiTransparentBg,
+          [stls.ordinaryBg]: !semiTransparentBg,
           [stls.active]: i === currentPage
         })}
         onClick={() => handlePaginationBtnClick(i)}>
@@ -39,7 +44,11 @@ const Pagination = ({
   }
 
   return (
-    <div className={stls.container}>
+    <div
+      className={classNames({
+        [stls.container]: true,
+        [stls.onlyPagination]: onlyPagination
+      })}>
       {paginationBtns}
       <button
         className={classNames(stls.loadMoreBtn, {

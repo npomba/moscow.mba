@@ -17,8 +17,25 @@
     padding: 60px 10px
   &.darkBg
     background-color: #2D2C2A
-  &.noMb
-    margin-bottom: 0
+  &.noMobileMb
+    @include m.media(tablet, phone)
+      margin-bottom: 0
+
+.imageContainer
+  display: flex
+  flex-direction: column
+  @include m.media(laptop, tablet, phone)
+    flex-direction: column-reverse
+
+.paginationContainer
+  margin-bottom: 31px
+
+.imageTitle
+  margin-bottom: 12px
+  font-size: 16px
+  font-weight: 400
+  @include m.media(tablet, phone)
+    margin-bottom: 20px
 
 .image
   width: 532px
@@ -32,9 +49,13 @@
     width: 460px
   @include m.media(laptop, tablet, phone)
     margin-right: 0
-    margin-bottom: 25px
+
     width: auto
     max-width: 100%
+  @include m.media(laptop)
+    margin-bottom: 25px
+  @include m.media(tablet, phone)
+    margin-bottom: 15px
   img
     max-width: 100%
 

@@ -70,7 +70,8 @@ const ProfessionOnlineProgram = ({ program }) => {
           programId={data._id}
           programTitle={data.title}
           title={'Не знаете что выбрать?'}
-          titleNewStr={'Получите консультацию по программам MBA'}
+          titleNewStr={'Получите консультацию по программам'}
+          overlapsFooter
         />
       </div>
     </>

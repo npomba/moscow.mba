@@ -16,7 +16,8 @@ const Students = () => {
         <div className={stls.detail}>
           <h2>Наши студенты</h2>
           <div className={stls.desc}>
-            Вы станете частью эффективного нетворкинга по всему миру
+            Вы станете частью эффективного нетворкинга{' '}
+            {!at.profession && 'по всему миру'}
           </div>
           <h4 className={stls.stats}>Согласно опросу 2000 наших студентов:</h4>
           <ul className={stls.list}>

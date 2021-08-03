@@ -94,7 +94,9 @@ const Teachers = ({
           </div>
           <div className={stls.content}>
             {title}
-            <div className={stls.text}>{SetString(lang.teachersDics)}</div>
+            {!at.profession && (
+              <div className={stls.text}>{SetString(lang.teachersDics)}</div>
+            )}
             <div className={`${stls.twoImages} ${stls.detailImage}`}>
               <div className={`${stls.image} ${stls.pic1}`}>
                 <Image
@@ -125,7 +127,13 @@ const Teachers = ({
                   <IconCheck />
                 </div>
                 <div>
-                  <h5>{SetString(lang.teachersListItemTitle)}</h5>
+                  <h5>
+                    {SetString(
+                      at.profession
+                        ? lang.teachersListItemTitleSecondary
+                        : lang.teachersListItemTitleMain
+                    )}
+                  </h5>
                   <p>
                     {firstParaPartOne}
                     <span className={stls.breakLine}>{firstParaPartTwo}</span>
