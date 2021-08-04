@@ -74,20 +74,48 @@ const Diploma = ({ darkBackground = false }) => {
         [stls.darkBg]: darkBackground
       })}>
       <div className={stls.imageContainer}>
-        <div className={stls.paginationContainer}>
-          <Pagination
-            numberOfPages={numberOfPages}
-            itemsPerPage={diplomasPerPage}
-            totalItems={diplomaImages.length}
-            showNextPage={showNextDiplomaImage}
-            onlyPagination
-            semiTransparentBg
-          />
+        {at.profession && (
+          <div className={stls.paginationContainer}>
+            <Pagination
+              numberOfPages={numberOfPages}
+              itemsPerPage={diplomasPerPage}
+              totalItems={diplomaImages.length}
+              showNextPage={showNextDiplomaImage}
+              onlyPagination
+              semiTransparentBg
+            />
+          </div>
+        )}
+        {at.profession && (
+          <h3 className={stls.imageTitle}>
+            {diplomaImages[currentDiploma].title}
+          </h3>
+        )}
+        <div className={stls.image}>
+          {at.profession ? (
+            diplomaImages[currentDiploma].image
+          ) : (
+            <Image
+              src={
+                at.mini
+                  ? '/assets/images/diplomas/mba-mini-diploma.jpg'
+                  : at.professional
+                  ? '/assets/images/diplomas/mba-professional-diploma.jpg'
+                  : at.industry
+                  ? '/assets/images/diplomas/mba-industry-diploma.jpg'
+                  : at.promo
+                  ? '/assets/images/diplomas/mba-professional-industry-diploma.jpg'
+                  : '/assets/images/diplomas/course-diploma.jpg'
+              }
+              alt='Ваш будущий диплом'
+              width={532}
+              height={376}
+              layout={'responsive'}
+              placeholder='blur'
+              blurDataURL={base64pixel}
+            />
+          )}
         </div>
-        <h3 className={stls.imageTitle}>
-          {diplomaImages[currentDiploma].title}
-        </h3>
-        <div className={stls.image}>{diplomaImages[currentDiploma].image}</div>
       </div>
       <div className={stls.content}>
         <h2>Ваши будущие дипломы</h2>

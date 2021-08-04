@@ -70,6 +70,7 @@ const PriceBlock = ({
             discount={isDiscounted}
             type={programType}
             format={programFormat}
+            renderedByComponent={'CostOfStudy'}
           />
         )}
       </div>
@@ -90,7 +91,7 @@ const CostOfStudy = ({
     (at.industry && at.online) ||
     (at.profession && at.online)
 
-  const canPayInInstalments = at.online
+  const canPayInInstalments = at.profession
   const costWithDescription =
     at.mini || at.professional || at.industry || at.executive
 
