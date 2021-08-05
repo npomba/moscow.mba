@@ -1,16 +1,17 @@
+@use '@/styles/utils/mixin' as m
+
 .filters
-  width: 100%
   min-width: 296px
-  @media (min-width: 1330px)
+  @include m.media(widescreen)
     margin-right: 61px
-  @media (max-width: 1330px) and (min-width: 1019px)
+  @include m.media(desktop)
     margin-right: 33px
-  @media (max-width: 1019px) and (min-width: 480px)
+  @include m.media(laptop)
     display: flex
     margin-right: 0
     & > *:nth-child(1)
       margin-right: 33px
-  @media (max-width: 480px)
+  @include m.media(tablet, phone)
     flex-direction: column
 
 .title
@@ -26,13 +27,39 @@
   & a
     display: flex
     align-items: center
-    margin-bottom: 20px
-    &:hover .filter-circle
+    &:not(:last-child)
+      margin-bottom: 20px
+    &.inactiveLink
+      opacity: .4
+      cursor: not-allowed
+      &:hover
+        .circle
+          border-color: transparent
+    &:hover .circle
       border-color: #ff3535
+
+.fieldButton
+  display: flex
+  align-items: center
+  padding: 0
+  border: none
+  background: none
+  text-align: left
+  font-size: inherit
+  font-family: inherit
+  font-weight: inherit
+  cursor: pointer
+  &:not(:last-child)
+    margin-bottom: 20px
+  &:hover
+    .circle
+      border-color: #ff3535
+  .circle
+    flex: 0 0 20px
 
 .circle
   display: inline-block
-  width: 20px
+  flex: 0 0 20px
   height: 20px
   background-color: #efefef
   border-radius: 50%

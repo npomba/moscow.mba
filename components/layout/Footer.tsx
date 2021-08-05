@@ -72,14 +72,8 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li className={stls.linkItem}>
-                  <Link href='#' locale='ru'>
-                    <a
-                      className={classNames({
-                        [stls.link]: true,
-                        [stls.inactiveLink]: true
-                      })}>
-                      Профессии
-                    </a>
+                  <Link href='/programs/profession/online' locale='ru'>
+                    <a className={stls.link}>Профессии</a>
                   </Link>
                 </li>
                 <li className={stls.linkItem}>

@@ -2,17 +2,7 @@ import stls from '@/styles/components/general/ProgramsQty.module.sass'
 import classNames from 'classnames'
 import setString from '@/components/hooks/SetString'
 import langMenu from '@/data/translation/menu'
-
-const getStringDeclensionNumber = num => {
-  const value = Math.abs(num) % 100
-  const number = num % 10
-
-  if (value > 10 && value < 20) return 2
-  if (number > 1 && number < 5) return 1
-  if (number === 1) return 0
-
-  return 2
-}
+import { getStringDeclensionNumber } from '@/components/utils/'
 
 const ProgramsQty = ({
   programs,
