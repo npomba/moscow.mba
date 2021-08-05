@@ -6,7 +6,7 @@ import Pagination from '@/components/general/Pagination'
 import Image from 'next/image'
 import { base64pixel } from '@/config/index'
 
-const diplomaImages = [
+const diplomaPaginationImages = [
   {
     title: 'Сертификат академии',
     image: (
@@ -54,17 +54,58 @@ const diplomaImages = [
   }
 ]
 
+const getProgramDiplomaImage = typeOfPage => {
+  return (
+    <Image
+      src={`/assets/images/diplomas/mba-${typeOfPage}-diploma.jpg`}
+      alt='Ваш будущий диплом'
+      width={532}
+      height={376}
+      layout={'responsive'}
+      placeholder='blur'
+      blurDataURL={base64pixel}
+    />
+  )
+}
+
 const Diploma = ({ darkBackground = false }) => {
   const at = useAt()
+  const typeOfPage = at.onWhichPage
   const atPrograms = at.mini || at.professional || at.industry
 
   const [currentDiploma, setCurrentDiploma] = useState(0)
 
   const diplomasPerPage = 1
-  const numberOfPages = diplomaImages.length / diplomasPerPage
+  const numberOfPages = diplomaPaginationImages.length / diplomasPerPage
 
   const showNextDiplomaImage = newPage => {
     setCurrentDiploma(newPage)
+  }
+
+  const renderPaginationAndTitle = () => {
+    return !atPrograms && !at.promo ? (
+      <>
+        <div className={stls.paginationContainer}>
+          <Pagination
+            numberOfPages={numberOfPages}
+            itemsPerPage={diplomasPerPage}
+            totalItems={diplomaPaginationImages.length}
+            showNextPage={showNextDiplomaImage}
+            onlyPagination
+            semiTransparentBg
+          />
+        </div>
+        <h3 className={stls.imageTitle}>
+          {diplomaPaginationImages[currentDiploma].title}
+        </h3>
+      </>
+    ) : null
+  }
+
+  const renderDiplomaImage = () => {
+    return atPrograms || at.promo
+      ? getProgramDiplomaImage(typeOfPage)
+      : diplomaPaginationImages[currentDiploma].image
   }
 
   return (
@@ -74,51 +115,11 @@ const Diploma = ({ darkBackground = false }) => {
         [stls.darkBg]: darkBackground
       })}>
       <div className={stls.imageContainer}>
-        {at.profession && (
-          <div className={stls.paginationContainer}>
-            <Pagination
-              numberOfPages={numberOfPages}
-              itemsPerPage={diplomasPerPage}
-              totalItems={diplomaImages.length}
-              showNextPage={showNextDiplomaImage}
-              onlyPagination
-              semiTransparentBg
-            />
-          </div>
-        )}
-        {at.profession && (
-          <h3 className={stls.imageTitle}>
-            {diplomaImages[currentDiploma].title}
-          </h3>
-        )}
-        <div className={stls.image}>
-          {at.profession ? (
-            diplomaImages[currentDiploma].image
-          ) : (
-            <Image
-              src={
-                at.mini
-                  ? '/assets/images/diplomas/mba-mini-diploma.jpg'
-                  : at.professional
-                  ? '/assets/images/diplomas/mba-professional-diploma.jpg'
-                  : at.industry
-                  ? '/assets/images/diplomas/mba-industry-diploma.jpg'
-                  : at.promo
-                  ? '/assets/images/diplomas/mba-professional-industry-diploma.jpg'
-                  : '/assets/images/diplomas/course-diploma.jpg'
-              }
-              alt='Ваш будущий диплом'
-              width={532}
-              height={376}
-              layout={'responsive'}
-              placeholder='blur'
-              blurDataURL={base64pixel}
-            />
-          )}
-        </div>
+        {renderPaginationAndTitle()}
+        <div className={stls.image}>{renderDiplomaImage()}</div>
       </div>
       <div className={stls.content}>
-        <h2>Ваши будущие дипломы</h2>
+        <h2>{at.profession ? 'Ваши будущие дипломы' : 'Ваш будущий диплом'}</h2>
         <div className={stls.desc}>
           {at.mini || at.professional || at.industry || at.promo
             ? 'Международный диплом установленного образца с присвоением степени «Мастер делового администрирования» с европейским приложением'
