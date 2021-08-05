@@ -1,10 +1,22 @@
 import stls from '@/styles/components/general/Filters.module.sass'
+import classNames from 'classnames'
 import Link from 'next/link'
 import useAt from '@/components/hooks/useAt'
 import Discount from '@/components/costs/Discount'
 
-const Filters = ({ mbaTypeOfProgram, mbaFormat }) => {
+const Filters = ({
+  mbaTypeOfProgram,
+  mbaFormat,
+  fields,
+  currentField,
+  updateCurrentField
+}) => {
   const at = useAt()
+
+  const handleLinkClick = e => {
+    if (fields) e.preventDefault()
+  }
+
   return (
     <ul className={stls.filters}>
       <li>
@@ -13,9 +25,10 @@ const Filters = ({ mbaTypeOfProgram, mbaFormat }) => {
           <Link href={`/programs/mini/${mbaFormat}`}>
             <a>
               <span
-                className={`${stls.circle} ${
-                  at.mini ? stls.active : ''
-                }`}></span>{' '}
+                className={classNames({
+                  [stls.circle]: true,
+                  [stls.active]: at.mini
+                })}></span>{' '}
               Mini MBA
             </a>
           </Link>
@@ -23,9 +36,10 @@ const Filters = ({ mbaTypeOfProgram, mbaFormat }) => {
           <Link href={`/programs/professional/${mbaFormat}`}>
             <a>
               <span
-                className={`${stls.circle} ${
-                  at.professional ? stls.active : ''
-                }`}></span>{' '}
+                className={classNames({
+                  [stls.circle]: true,
+                  [stls.active]: at.professional
+                })}></span>{' '}
               Professional MBA
             </a>
           </Link>
@@ -33,10 +47,22 @@ const Filters = ({ mbaTypeOfProgram, mbaFormat }) => {
           <Link href={`/programs/industry/${mbaFormat}`}>
             <a>
               <span
-                className={`${stls.circle} ${
-                  at.industry ? stls.active : ''
-                }`}></span>{' '}
+                className={classNames({
+                  [stls.circle]: true,
+                  [stls.active]: at.industry
+                })}></span>{' '}
               Industry MBA
+            </a>
+          </Link>
+
+          <Link href={`/programs/profession/online`}>
+            <a>
+              <span
+                className={classNames({
+                  [stls.circle]: true,
+                  [stls.active]: at.profession
+                })}></span>{' '}
+              Профессии
             </a>
           </Link>
 
@@ -51,11 +77,14 @@ const Filters = ({ mbaTypeOfProgram, mbaFormat }) => {
         <h4 className={stls.title}>Формат обучения</h4>
         <div className={stls.content}>
           <Link href={`/programs/${mbaTypeOfProgram}/blended`}>
-            <a>
+            <a
+              className={classNames({ [stls.inactiveLink]: fields })}
+              onClick={e => handleLinkClick(e)}>
               <span
-                className={`${stls.circle} ${
-                  at.blended ? stls.active : ''
-                }`}></span>{' '}
+                className={classNames({
+                  [stls.circle]: true,
+                  [stls.active]: at.blended
+                })}></span>{' '}
               BLENDED (с очными модулями)
             </a>
           </Link>
@@ -63,9 +92,10 @@ const Filters = ({ mbaTypeOfProgram, mbaFormat }) => {
           <Link href={`/programs/${mbaTypeOfProgram}/online`}>
             <a>
               <span
-                className={`${stls.circle} ${
-                  at.online ? stls.active : ''
-                }`}></span>{' '}
+                className={classNames({
+                  [stls.circle]: true,
+                  [stls.active]: at.online
+                })}></span>{' '}
               ONLINE (дистанционно){' '}
               <span className={stls.discount50}>
                 <Discount />
@@ -74,6 +104,26 @@ const Filters = ({ mbaTypeOfProgram, mbaFormat }) => {
           </Link>
         </div>
       </li>
+      {fields && (
+        <li>
+          <h4 className={stls.title}>Направление</h4>
+          <div className={stls.content}>
+            {fields.map((field, idx) => (
+              <button
+                key={`field-btn-${idx}`}
+                className={stls.fieldButton}
+                onClick={() => updateCurrentField(field)}>
+                <span
+                  className={classNames({
+                    [stls.circle]: true,
+                    [stls.active]: field === currentField
+                  })}></span>
+                {field}
+              </button>
+            ))}
+          </div>
+        </li>
+      )}
     </ul>
   )
 }
