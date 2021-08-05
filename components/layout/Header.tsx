@@ -267,8 +267,13 @@ const Header = ({ programs }) => {
                     </Link>
                   </li>
                   <li>
+                    <Link href='/programs/profession/online' locale='ru'>
+                      <a onClick={handleMenuClose}>Профессии</a>
+                    </Link>
+                  </li>
+                  <li>
                     <Link href='/programs/mini/online' locale='ru'>
-                      <a onClick={handleMenuClose}>
+                      <a className='allPrograms' onClick={handleMenuClose}>
                         {SetString(langMenu.allPrograms)}
                       </a>
                     </Link>
@@ -1002,6 +1007,15 @@ const Header = ({ programs }) => {
                     </div>
                   </div>
                   {/* //third */}
+                </li>
+                <li>
+                  <Link href='/programs/profession/online' locale='ru'>
+                    <a
+                      className='mobileAllProgramsLink'
+                      onClick={handleMenuClose}>
+                      Профессии
+                    </a>
+                  </Link>
                 </li>
                 <li>
                   <Link href='/programs/mini/online' locale='ru'>

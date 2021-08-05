@@ -2,21 +2,24 @@
 
 .container
   display: none
+  flex-wrap: wrap
   height: 100%
+  padding-left: 30px
   &.visible
     display: flex
 
 .containerItem
-  width: 36.5%
-  border-right: 1px solid #e6e6e6
-  padding: 44px 28px 50px
+  flex: 0 0 50%
+  padding: 0 28px 50px
   @include m.media(desktop, laptop, tablet, phone)
     padding-left: 20px
     padding-right: 20px
+  &:first-child
+    flex: 0 0 100%
+    padding-top: 40px
+    padding-bottom: 0
   &:last-child
-    border-right: none
-    width: 27%
-    padding-right: 0
+    border-left: solid 1px #e6e6e6
 
 .itemDetails
   line-height: 1.2
@@ -73,11 +76,16 @@
   font-weight: 700
   padding-left: 2px
   font-size: 14px
+
+.infoItemContainer
+  display: flex
+  &:not(:last-child)
+    margin-right: 37px
   span
     height: 100%
+    padding-top: 3px
     line-height: 1.2
     font-size: 14px
-    padding-top: 3px
 
 .itemInfo
   display: flex
@@ -133,4 +141,4 @@
 
 .programDesc
   line-height: 1.2
-  margin-bottom: 15px
+  margin-bottom: 38px

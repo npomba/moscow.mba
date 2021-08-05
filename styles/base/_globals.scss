@@ -396,6 +396,9 @@ header {
     transition: $transition;
     padding-right: 10px;
     position: relative;
+    &.allPrograms {
+      color: #262626;
+    }
     &:hover {
       color: $red;
     }

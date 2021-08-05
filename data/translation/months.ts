@@ -1,4 +1,9 @@
 export default {
+  months: {
+    ru: ['месяц', 'месяца', 'месяцев'],
+    en: 'month'
+  },
+
   january: {
     ru: 'января',
     en: 'January'

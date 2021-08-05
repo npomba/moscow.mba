@@ -51,12 +51,14 @@ const Price = ({
     },
     new: {
       ProgramsColumn: stls.programsColumnNewPrice,
-      InfoRectangle: stls.infoRectangleNewPrice
+      InfoRectangle: stls.infoRectangleNewPrice,
+      CardProgram: stls.cardProgramNewPrice
     },
     old: {
       ProgramsColumn: stls.programsColumnOldPrice,
       CostOfStudy: stls.costOfStudyOldPrice,
-      InfoRectangle: stls.infoRectangleOldPrice
+      InfoRectangle: stls.infoRectangleOldPrice,
+      CardProgram: stls.cardProgramOldPrice
     }
   }
 

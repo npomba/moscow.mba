@@ -10,6 +10,41 @@ import { IconCheckCircleAltDim } from '@/components/icons'
 const ProgramsModules = ({ data, smallerMb = false }) => {
   const at = useAt()
 
+  const generateProfessionModules = () => {
+    const professionModules = []
+    const subjects = data.specializedSubjects
+    let numberOfSubjects = subjects.length
+    let currentSubjectIndex = 0
+
+    while (numberOfSubjects >= 10) {
+      const moduleSlice = subjects.slice(
+        currentSubjectIndex,
+        currentSubjectIndex + 5
+      )
+      professionModules.push({ items: moduleSlice })
+      currentSubjectIndex += 5
+      numberOfSubjects -= 5
+    }
+
+    if (numberOfSubjects > 0 && numberOfSubjects < 10) {
+      const subjectsDivisionRemainder = numberOfSubjects / 2
+      const firstModuleSlice = subjects.slice(
+        currentSubjectIndex,
+        currentSubjectIndex + Math.ceil(subjectsDivisionRemainder)
+      )
+      const secondModuleSlice = subjects.slice(
+        Math.ceil(currentSubjectIndex + subjectsDivisionRemainder)
+      )
+      professionModules.push(
+        { items: firstModuleSlice },
+        { items: secondModuleSlice }
+      )
+    }
+    return professionModules
+  }
+
+  const professionModules = generateProfessionModules()
+
   return (
     <section
       className={classNames(stls.container, { [stls.smallMb]: smallerMb })}>
@@ -146,31 +181,18 @@ const ProgramsModules = ({ data, smallerMb = false }) => {
           </>
         )}
 
-        {at.profession && (
-          <>
+        {at.profession &&
+          professionModules.map((moduleItem, idx, moduleItems) => (
             <ProgramsModule
-              title='1 модуль'
-              subTitle=''
-              items={[
-                'Бизнес-стратегия в эпоху цифровизации: как изменить бизнес-модель и сделать технологию конкурентным преимуществом',
-                'Что такое подрывные инновации и как их предвидеть',
-                'Платформы и экосистемы как основа цифрового бизнеса',
-                'Стратегия голубого океана и создание новых ценностных кривых'
-              ]}
-              fadeOutEffect
+              key={`programsModule-${idx}`}
+              title={`${idx + 1} модуль`}
+              items={moduleItem.items}
+              fadeOutEffect={
+                idx === moduleItems.length - 1 ||
+                (idx === moduleItems.length - 2 && moduleItems.length % 2 === 0)
+              }
             />
-            <ProgramsModule
-              title='2 модуль'
-              subTitle=''
-              items={[
-                'Основы современного маркетинга: модели, каналы и инструменты B2C- и B2B-маркетинга в цифровой среде',
-                'Управление взаимоотношениями с клиентами',
-                'Принципы использования маркетинговой аналитики и больших данных в современном бизнесе'
-              ]}
-              fadeOutEffect
-            />
-          </>
-        )}
+          ))}
 
         {at.executive && (
           <>

@@ -1,7 +1,7 @@
 import stls from '@/styles/components/pages/Programs.module.sass'
+import { useState } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import Link from 'next/link'
 import useAt from '@/components/hooks/useAt'
 import langMenu from '@/data/translation/menu'
 import SetString from '@/components/hooks/SetString'
@@ -10,10 +10,59 @@ import InfoRectangle from '@/components/general/InfoRectangle'
 import ProgramSubjects from '@/components/hooks/ProgramSubjects'
 import ProgramsQty from '@/components/general/ProgramsQty'
 import Filters from '@/components/general/Filters'
-import { IconCheckCircle, IconArrowTopRight } from '@/components/icons'
+import CardProgram from '@/components/general/cards/CardProgram'
+import { IconCheckCircle } from '@/components/icons'
 
 const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
   const at = useAt()
+
+  const [currentField, setCurrentField] = useState(null)
+
+  let fields
+
+  if (at.profession) {
+    fields = programs.reduce((acc, curr) => {
+      if (!acc.includes(curr.field)) acc.push(curr.field)
+      return acc
+    }, [])
+
+    const [firstField] = fields
+
+    if (!currentField) setCurrentField(firstField)
+  }
+
+  const generateHeading = () => {
+    const atMBAPrograms = at.mini || at.industry || at.professional
+
+    if (atMBAPrograms) {
+      const programType =
+        at.onWhichPage[0].toUpperCase() + at.onWhichPage.slice(1)
+
+      return `${programType} MBA ${mbaFormat}`
+    }
+
+    if (at.profession) {
+      return 'Профессии'
+    }
+  }
+
+  const generatePrograms = () => {
+    let programsToDisplay
+
+    if (currentField) {
+      programsToDisplay = programs.filter(
+        program => program.field === currentField
+      )
+    }
+
+    if (!currentField) {
+      programsToDisplay = programs
+    }
+
+    return programsToDisplay
+  }
+
+  const programsToDisplay = generatePrograms()
 
   return (
     <>
@@ -49,20 +98,17 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
       <div className={stls.generalContainer}>
         <h1 className={stls.title}>ПРОГРАММЫ ОБУЧЕНИЯ</h1>
         <div className={stls.container}>
-          <Filters mbaTypeOfProgram={mbaTypeOfProgram} mbaFormat={mbaFormat} />
+          <Filters
+            mbaTypeOfProgram={mbaTypeOfProgram}
+            mbaFormat={mbaFormat}
+            fields={fields}
+            currentField={currentField}
+            updateCurrentField={setCurrentField}
+          />
           <div className={stls.content}>
-            <div>
+            <div className={stls.programMainInfo}>
               <div className={stls.subtitle}>
-                <h2>
-                  {at.mini
-                    ? 'Mini MBA'
-                    : at.professional
-                    ? 'Professional MBA'
-                    : at.industry
-                    ? 'Industry MBA'
-                    : ''}{' '}
-                  {mbaFormat}
-                </h2>
+                <h2>{generateHeading()}</h2>
                 <span className={stls.qtPrograms}>
                   <ProgramsQty programs={programs} />
                 </span>
@@ -78,38 +124,47 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
                   : ''}
               </p>
 
-              <div className={stls.counters}>
-                <p>
-                  <IconCheckCircle />
-                  <ProgramSubjects subjects='base' />
-                  &nbsp;дисциплин об управлениии
-                </p>
-                <p>
-                  <IconCheckCircle />
-                  <ProgramSubjects subjects='specialty' />
-                  &nbsp;дисциплин специализации
-                </p>
-              </div>
+              {at.profession ? (
+                <div className={stls.desc}>
+                  Программа профессиональной переподготовки Mini MBA разработана
+                  для специалистов и руководителей среднего звена, которые хотят
+                  систематизировать имеющиеся знания или познакомиться с
+                  ключевыми аспектами новой для себя сферы управленческой
+                  деятельности.
+                </div>
+              ) : (
+                <div className={stls.counters}>
+                  <p>
+                    <IconCheckCircle />
+                    <ProgramSubjects subjects='base' />
+                    &nbsp;дисциплин об управлениии
+                  </p>
+                  <p>
+                    <IconCheckCircle />
+                    <ProgramSubjects subjects='specialty' />
+                    &nbsp;дисциплин специализации
+                  </p>
+                </div>
+              )}
             </div>
-            <InfoRectangle
-              programPage={true}
-              type={mbaTypeOfProgram}
-              format={mbaFormat}
-            />
+            {!at.profession && (
+              <InfoRectangle
+                programPage={true}
+                type={mbaTypeOfProgram}
+                format={mbaFormat}
+              />
+            )}
             <div className={`mini-programs-slider ${stls.programs}`}>
-              {programs.map((program, idx) => {
+              {programsToDisplay.map((program, idx) => {
                 return (
-                  <Link
-                    href={`/programs/${mbaTypeOfProgram}/${mbaFormat}/${program.url}`}
-                    key={program._id}>
-                    <a className={stls.program}>
-                      <div className={stls.arrow}>
-                        <IconArrowTopRight />
-                      </div>
-                      <div className={stls.number}>{idx + 1}.</div>
-                      <div className={stls.programTitle}>{program.title}</div>
-                    </a>
-                  </Link>
+                  <CardProgram
+                    key={program._id}
+                    professionLayout={at.profession}
+                    program={program}
+                    number={idx + 1}
+                    type={mbaTypeOfProgram}
+                    format={mbaFormat}
+                  />
                 )
               })}
             </div>
