@@ -38,6 +38,56 @@ const ProgramsColumn = ({ data, id, type }) => {
         [stls.visible]: id === 'header-podmenu-1'
       })}>
       <li className={stls.containerItem}>
+        <div className={stls.programInfo}>
+          <div className={stls.programTitle}>
+            {type === 'mini'
+              ? 'Mini MBA'
+              : type === 'professional'
+              ? 'Professional MBA'
+              : type === 'industry'
+              ? 'Industry MBA'
+              : null}
+          </div>
+          <div className={stls.infoFlexContainer}>
+            <div className={stls.infoItemContainer}>
+              <div className={stls.iconContainer}>
+                <IconClock fill={'#C7C7C7'} />
+              </div>
+              <span>
+                <TrainingPeriod type={type} />
+              </span>
+            </div>
+            <div className={stls.infoItemContainer}>
+              <div className={stls.iconContainer}>
+                <IconPaperCorner fill={'#C7C7C7'} />
+              </div>
+              <span>
+                <ProgramSubjects type={type} subjects='base' />{' '}
+                {SetString(langMenu.categoryAboutManagement)}
+              </span>
+            </div>
+            <div className={stls.infoItemContainer}>
+              <div className={stls.iconContainer}>
+                <IconPaperCorner fill={'#C7C7C7'} />
+              </div>
+              <span>
+                <ProgramSubjects type={type} subjects='specialty' />{' '}
+                {SetString(langMenu.categorySpecializedSubjects)}
+              </span>
+            </div>
+          </div>
+          <p className={stls.programDesc}>
+            {type === 'mini'
+              ? SetString(langMenu.categoryDiscMini)
+              : type === 'professional'
+              ? SetString(langMenu.categoryDiscProfessional)
+              : type === 'industry'
+              ? SetString(langMenu.categoryDiscIndustry)
+              : null}
+          </p>
+        </div>
+      </li>
+      <li className={stls.containerItem}>
         <div className={stls.itemDetails}>
           <div className={stls.itemTitle}>
             {SetString(langMenu.onlineTitle)}
@@ -158,54 +208,6 @@ const ProgramsColumn = ({ data, id, type }) => {
               }
             })}
           </ul>
-        </div>
-      </li>
-      <li className={stls.containerItem}>
-        <div className={stls.programInfo}>
-          <div className={stls.programTitle}>
-            {type === 'mini'
-              ? 'Mini MBA'
-              : type === 'professional'
-              ? 'Professional MBA'
-              : type === 'industry'
-              ? 'Industry MBA'
-              : null}
-          </div>
-          <div className={stls.infoFlexContainer}>
-            <div className={stls.iconContainer}>
-              <IconClock fill={'#C7C7C7'} />
-            </div>
-            <span>
-              <TrainingPeriod type={type} />
-            </span>
-          </div>
-          <p className={stls.programDesc}>
-            {type === 'mini'
-              ? SetString(langMenu.categoryDiscMini)
-              : type === 'professional'
-              ? SetString(langMenu.categoryDiscProfessional)
-              : type === 'industry'
-              ? SetString(langMenu.categoryDiscIndustry)
-              : null}
-          </p>
-          <div className={stls.infoFlexContainer}>
-            <div className={stls.iconContainer}>
-              <IconPaperCorner fill={'#C7C7C7'} />
-            </div>
-            <span>
-              <ProgramSubjects type={type} subjects='base' />{' '}
-              {SetString(langMenu.categoryAboutManagement)}
-            </span>
-          </div>
-          <div className={stls.infoFlexContainer}>
-            <div className={stls.iconContainer}>
-              <IconPaperCorner fill={'#C7C7C7'} />
-            </div>
-            <span>
-              <ProgramSubjects type={type} subjects='specialty' />{' '}
-              {SetString(langMenu.categorySpecializedSubjects)}
-            </span>
-          </div>
         </div>
       </li>
     </ul>
