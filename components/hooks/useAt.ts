@@ -92,6 +92,21 @@ const useAt = () => {
     return getProgramTitle ? true : false
   }
 
+  const onWhichPage = () => {
+    const typesOfPages = {
+      mini: mini(),
+      professional: professional(),
+      industry: industry(),
+      profession: profession(),
+      executive: executive(),
+      promo: promo()
+    }
+
+    for (const [key, value] of Object.entries(typesOfPages)) {
+      if (value) return key
+    }
+  }
+
   return {
     index: index(),
     about: about(),
@@ -113,7 +128,8 @@ const useAt = () => {
     articles: articles(),
     contact: contact(),
     programChunk: programChunk(),
-    getSplitedPath
+    getSplitedPath,
+    onWhichPage: onWhichPage()
   }
 }
 
