@@ -211,6 +211,9 @@ header {
   .pic {
     margin-right: 11px;
   }
+  &.mainLogoDisabled {
+    cursor: default;
+  }
 }
 
 .header-phones {
