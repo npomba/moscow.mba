@@ -848,6 +848,9 @@ h2 {
     .width-33 {
       width: calc(33.333% - 30px);
     }
+    .width-25 {
+      width: calc(25% - 30px);
+    }
   }
   .input-block {
     position: relative;
@@ -1472,7 +1475,8 @@ h2 {
     margin-bottom: 80px;
   }
   .simple-form {
-    .inputs-flex .width-33 {
+    .inputs-flex .width-33,
+    .inputs-flex .width-25 {
       width: calc(50% - 30px);
     }
     .button {
@@ -1570,10 +1574,9 @@ h2 {
   }
   .simple-form {
     .inputs-flex {
-      .width-50 {
-        width: calc(100% - 30px);
-      }
-      .width-33 {
+      .width-50,
+      .width-33,
+      .width-25 {
         width: calc(100% - 30px);
       }
     }

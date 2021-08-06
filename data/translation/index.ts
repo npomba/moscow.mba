@@ -245,13 +245,18 @@ export default {
   },
 
   inputName: {
-    ru: 'Введите имя',
+    ru: 'Имя',
     en: 'Name'
   },
 
   inputPhone: {
-    ru: 'Номер телефона',
+    ru: 'Телефон',
     en: 'Phone number'
+  },
+
+  inputEmail: {
+    ru: 'Электронная почта',
+    en: 'Email address'
   },
 
   inputSubmit: {
@@ -287,5 +292,10 @@ export default {
   formErrShortPhone: {
     ru: 'Номер телефона слишком короткий',
     en: 'Phone number is too short'
+  },
+
+  formErrInvalidEmail: {
+    ru: 'Адрес почты введен неверно',
+    en: 'Email address invalid'
   }
 }

@@ -14,6 +14,7 @@ import { useRouter } from 'next/router'
 type FormValues = {
   name: string
   phone: string
+  email: string
 }
 
 const ContactUs = ({
@@ -88,7 +89,7 @@ const ContactUs = ({
         className='simple-form support-form embedded-form'
         onSubmit={handleSubmit(onSubmitFormThis)}>
         <div className='inputs-flex'>
-          <div className='input-block width-33'>
+          <div className='input-block width-25'>
             <input
               type='text'
               aria-label={SetString(lang.inputName)}
@@ -103,7 +104,7 @@ const ContactUs = ({
             <div className='input-placeholder'>{SetString(lang.inputName)}</div>
             <p className='inpt-err-msg'>{errors.name && errors.name.message}</p>
           </div>
-          <div className='input-block width-33'>
+          <div className='input-block width-25'>
             <input
               type='tel'
               aria-label={SetString(lang.inputPhone)}
@@ -123,7 +124,27 @@ const ContactUs = ({
               {errors.phone && errors.phone.message}
             </p>
           </div>
-          <div className='input-block width-33'>
+          <div className='input-block width-25'>
+            <input
+              type='text'
+              aria-label={SetString(lang.inputEmail)}
+              {...register('email', {
+                pattern: {
+                  value:
+                    /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
+                  message: `*${SetString(lang.formErrInvalidEmail)}`
+                }
+              })}
+              onKeyUp={handleKeyUp}
+            />
+            <div className='input-placeholder'>
+              {SetString(lang.inputEmail)}
+            </div>
+            <p className='inpt-err-msg'>
+              {errors.email && errors.email.message}
+            </p>
+          </div>
+          <div className='input-block width-25'>
             <button
               type='submit'
               className={`button white-button ${

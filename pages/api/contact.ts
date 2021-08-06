@@ -407,7 +407,8 @@ const contact = async (req, res) => {
       subject, // Subject line
       text: `
       ${name}, \n
-      ${phone}
+      ${phone},
+      ${email}
       `, // plain text body
       html
     })
