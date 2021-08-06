@@ -4,6 +4,12 @@ import AccordionsContainer from '@/components/general/AccordionsContainer'
 import Pagination from '@/components/general/Pagination'
 
 const CourseOptions = ({ data }) => {
+  // Change this later
+  const firstItem = data[0]
+  const lastItem = data[data.length - 1]
+  data[0] = firstItem
+  data[data.length - 1] = lastItem
+
   const coursesContainerRef = useRef(null)
 
   const coursesPerPage = 5
