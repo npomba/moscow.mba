@@ -45,6 +45,7 @@ const AccordionsContainer = ({
             key={item.title + idx}
             course={item}
             accordionIndex={idx}
+            activeAccordionIndex={activeAccordionIndex}
             activeAccordion={idx === activeAccordionIndex}
             setActiveAccordion={idx => handleSetActiveAccordion(idx)}
           />
