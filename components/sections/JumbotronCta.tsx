@@ -21,6 +21,7 @@ import InfoRectangle from '@/components/general/InfoRectangle'
 type FormValues = {
   name: string
   phone: string
+  email: string
 }
 
 const JumbotronCta = ({ programTitle = null, programId = null }) => {
@@ -137,7 +138,7 @@ const JumbotronCta = ({ programTitle = null, programId = null }) => {
                   className='simple-form support-form embedded-form'
                   onSubmit={handleSubmit(onSubmitFormThis)}>
                   <div className='inputs-flex inputs-flex--alt'>
-                    <div className='input-block width-33'>
+                    <div className='input-block width-25'>
                       <input
                         type='text'
                         aria-label={SetString(lang.inputName)}
@@ -156,7 +157,7 @@ const JumbotronCta = ({ programTitle = null, programId = null }) => {
                         {errors.name && errors.name.message}
                       </p>
                     </div>
-                    <div className='input-block width-33'>
+                    <div className='input-block width-25'>
                       <input
                         type='tel'
                         aria-label={SetString(lang.inputPhone)}
@@ -176,7 +177,27 @@ const JumbotronCta = ({ programTitle = null, programId = null }) => {
                         {errors.phone && errors.phone.message}
                       </p>
                     </div>
-                    <div className='input-block width-33'>
+                    <div className='input-block width-25'>
+                      <input
+                        type='text'
+                        aria-label={SetString(lang.inputEmail)}
+                        {...register('email', {
+                          pattern: {
+                            value:
+                              /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
+                            message: `*${SetString(lang.formErrInvalidEmail)}`
+                          }
+                        })}
+                        onKeyUp={handleKeyUp}
+                      />
+                      <div className='input-placeholder'>
+                        {SetString(lang.inputEmail)}
+                      </div>
+                      <p className='inpt-err-msg'>
+                        {errors.email && errors.email.message}
+                      </p>
+                    </div>
+                    <div className='input-block width-25'>
                       <button
                         type='submit'
                         className={classNames(stls.button, {

@@ -401,13 +401,14 @@ const contact = async (req, res) => {
       from: 'lead@moscow.mba',
       to: `${
         dev
-          ? 'nova@ipo.msk.ru, novailoveyou3@gmail.com, fullextentofsuperiority@mail.ru'
+          ? 'nova@ipo.msk.ru, novailoveyou3@gmail.com'
           : 'mba.academy@yandex.ru, leads@moscow.mba'
       }`,
       subject, // Subject line
       text: `
       ${name}, \n
-      ${phone}
+      ${phone},
+      ${email}
       `, // plain text body
       html
     })

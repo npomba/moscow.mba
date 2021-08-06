@@ -46,6 +46,11 @@ const Programs = ({ programs }) => {
                 </a>
               </li>
               <li>
+                <Link href='/programs/profession/online' locale='ru'>
+                  <a>Профессии</a>
+                </Link>
+              </li>
+              <li>
                 <Link href='/programs/mini/online' locale='ru'>
                   <a>{SetString(langMenu.allPrograms)}</a>
                 </Link>
