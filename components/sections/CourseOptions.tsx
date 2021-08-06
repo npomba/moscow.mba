@@ -1,9 +1,23 @@
 import stls from '@/styles/components/sections/CourseOptions.module.sass'
+import classNames from 'classnames'
 import { useState, useRef } from 'react'
 import AccordionsContainer from '@/components/general/AccordionsContainer'
 import Pagination from '@/components/general/Pagination'
 
 const CourseOptions = ({ data }) => {
+  const swapDataItems = () => {
+    const firstDataItem = data[0]
+    const lastDataItem = data[data.length - 1]
+    const swappedData = [
+      lastDataItem,
+      ...data.slice(1, data.length - 1),
+      firstDataItem
+    ]
+    return swappedData
+  }
+
+  const swappedData = swapDataItems()
+
   const coursesContainerRef = useRef(null)
 
   const coursesPerPage = 5
@@ -15,7 +29,7 @@ const CourseOptions = ({ data }) => {
   const numberOfCourses = data.length
   const numberOfPages = numberOfCourses / coursesPerPage
 
-  const shownCourses = data.slice(firstCourseOnPage, lastCourseOnPage)
+  const shownCourses = swappedData.slice(firstCourseOnPage, lastCourseOnPage)
 
   const scrollToCoursesContainer = () => {
     const coursesContainerTop =
@@ -46,7 +60,11 @@ const CourseOptions = ({ data }) => {
         <h2 className={stls.title}>Направления обучения</h2>
         <p className={stls.coursesNumber}>{numberOfCourses}+ направлений</p>
       </div>
-      <div className={stls.content}>
+      <div
+        className={classNames({
+          [stls.content]: true,
+          ['accordionsContent']: true
+        })}>
         <AccordionsContainer
           accordionsItems={shownCourses}
           firstAccordionActive={firstCourseOnPage === 0}

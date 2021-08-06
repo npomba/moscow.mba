@@ -21,8 +21,7 @@ const WhatWillYouLearn = ({ data = null }) => {
   const listContent = data ? data.whatWillYouLearn : aboutAcademy
 
   return (
-    <section
-      className={classNames(stls.container, { [stls.withTopLine]: at.promo })}>
+    <section className={stls.container}>
       <div className={stls.content}>
         <div
           className={classNames(stls.titleContainer, stls.floatLeft, {

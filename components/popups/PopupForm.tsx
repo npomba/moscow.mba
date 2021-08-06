@@ -14,6 +14,7 @@ import { useRouter } from 'next/router'
 type FormValues = {
   name: string
   phone: string
+  email: string
 }
 
 const Form = ({
@@ -127,6 +128,26 @@ const Form = ({
               </div>
               <p className='inpt-err-msg'>
                 {errors.phone && errors.phone.message}
+              </p>
+            </div>
+            <div className='input-block width-33'>
+              <input
+                type='text'
+                aria-label={SetString(lang.inputEmail)}
+                {...register('email', {
+                  pattern: {
+                    value:
+                      /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
+                    message: `*${SetString(lang.formErrInvalidEmail)}`
+                  }
+                })}
+                onKeyUp={handleKeyUp}
+              />
+              <div className='input-placeholder'>
+                {SetString(lang.inputEmail)}
+              </div>
+              <p className='inpt-err-msg'>
+                {errors.email && errors.email.message}
               </p>
             </div>
             <div className='input-block width-33'>
