@@ -55,10 +55,10 @@ const promo = ({ programs }) => {
 
       <JumbotronCta />
       <div className={stls.generalContainer}>
-        <WhatWillYouLearn />
-        <ProgramDesc />
         <CourseOptions data={data} />
         <ContactUs title={SetString(lang.receiveConsultation)} />
+        <WhatWillYouLearn />
+        <ProgramDesc />
         <Accreditation />
         <Diploma darkBackground />
         <WhoItIsFor data={courseOptions} />

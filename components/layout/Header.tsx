@@ -45,7 +45,12 @@ const Header = ({ programs }) => {
     toggleOverlay()
   }
 
-  const handleMenuClose = () => {
+  const handleMenuClose = e => {
+    if (at.promo) {
+      e.preventDefault()
+      return
+    }
+
     closeMenu()
     hideOverlay()
   }
@@ -84,8 +89,11 @@ const Header = ({ programs }) => {
           <div className='header-top'>
             <Link href='/'>
               <a
-                className='main-logo'
-                onClick={handleMenuClose}
+                className={classNames({
+                  ['main-logo']: true,
+                  ['mainLogoDisabled']: at.promo
+                })}
+                onClick={e => handleMenuClose(e)}
                 aria-label='Moscow Business Academy'>
                 <span className='pic'>
                   <IconLogo />

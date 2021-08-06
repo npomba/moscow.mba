@@ -275,7 +275,7 @@ export default {
   },
 
   accreditationItemTwo: {
-    ru: 'Moscow Business Academy является членом Российской Ассоциации Бизнес-образования (РАБО). В России членство РАБО имеются ограниченное количество организаций, которые соответствуют требованиям качества образовательных программ.',
+    ru: 'Moscow Business Academy является членом Российской Ассоциации Бизнес-образования (РАБО). В России членство РАБО имеют ограниченное количество организаций, которые соответствуют требованиям качества образовательных программ.',
     en: 'Moscow Business Academy is also a member of Russian Association of Business Education and has a state license, which proves that our programs fully comply with the educational standards of Russian Federation'
   },
 

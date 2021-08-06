@@ -13,7 +13,9 @@ const WhoItIsFor = ({ data: { suitsForTitle, suitsForDesc, title } }) => {
 
   return (
     <section className={stls.container}>
-      <h2 className={stls.title}>Кому подойдет программа?</h2>
+      <h2 className={stls.title}>
+        {at.promo ? 'Форматы обучения' : 'Кому подойдет программа?'}
+      </h2>
       <div
         className={classNames(stls.itemsContainer, {
           [stls.noBottomLine]: at.promo
