@@ -25,6 +25,7 @@ const transitionStyles = {
 const CourseAccordion = ({
   course,
   accordionIndex,
+  activeAccordionIndex,
   activeAccordion,
   setActiveAccordion
 }) => {
@@ -49,11 +50,40 @@ const CourseAccordion = ({
     </>
   ]
 
-  const handleAccordionClick = () => {
+  const handleAccordionClick = e => {
     if (activeAccordion) setActiveAccordion(-1)
 
-    if (!activeAccordion && setActiveAccordion)
+    if (!activeAccordion && setActiveAccordion) {
+      const coursesAccordionTop = e.currentTarget.getBoundingClientRect().top
+      const offsetY = 10
+      const openedAdditionalInfo = e.target
+        .closest('.accordionsContent')
+        .querySelector('.openedAdditionalInfo')
+
+      const doesAdditionalInfoExist = Boolean(openedAdditionalInfo)
+
+      const openedAdditionalInfoHeight = doesAdditionalInfoExist
+        ? openedAdditionalInfo.getBoundingClientRect().height
+        : 0
+
+      let openedAdditionalInfoOffset = openedAdditionalInfoHeight
+
+      const isClickedAccordionAboveActive =
+        accordionIndex < activeAccordionIndex
+
+      if (isClickedAccordionAboveActive) openedAdditionalInfoOffset *= 0
+
+      window.scrollTo({
+        top:
+          coursesAccordionTop +
+          window.pageYOffset -
+          openedAdditionalInfoOffset -
+          offsetY,
+        behavior: 'smooth'
+      })
+
       setActiveAccordion(accordionIndex)
+    }
   }
 
   return (
@@ -66,7 +96,7 @@ const CourseAccordion = ({
           })}>
           <div
             className={stls.mainInfoContainer}
-            onClick={handleAccordionClick}>
+            onClick={e => handleAccordionClick(e)}>
             <span className={stls.accordionLabel}>Курс MBA</span>
             <ul className={stls.courseMainInfoList}>
               <li className={stls.courseMainInfoItem}>
@@ -83,7 +113,11 @@ const CourseAccordion = ({
               <i></i>
             </div>
           </div>
-          <div className={stls.additionalInfoContainer}>
+          <div
+            className={classNames({
+              [stls.additionalInfoContainer]: true,
+              ['openedAdditionalInfo']: activeAccordion
+            })}>
             <p className={stls.listTitle}>Чему научитесь:</p>
             <ul className={stls.whatWillLearnList}>
               {whatWillYouLearn.map(item => (

@@ -814,7 +814,7 @@ h2 {
       & ~ .input-placeholder {
         top: 0;
         font-size: 13px;
-        color: #b20000;
+        color: #fff;
         font-weight: 400;
       }
     }
@@ -847,6 +847,9 @@ h2 {
     }
     .width-33 {
       width: calc(33.333% - 30px);
+    }
+    .width-25 {
+      width: calc(25% - 30px);
     }
   }
   .input-block {
@@ -882,45 +885,90 @@ h2 {
 }
 
 /*================= МОДАЛКИ ======================*/
+.mfp-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  line-height: 1px;
+  opacity: 1;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  &.image-close {
+    top: -18px;
+    right: -18px;
+    svg path {
+      stroke: #eee;
+    }
+  }
+  img,
+  svg,
+  i {
+    pointer-events: none;
+    transition: $transition;
+    opacity: 0.4;
+  }
+  &:hover {
+    img,
+    svg,
+    i {
+      opacity: 1;
+    }
+  }
+}
+
+.reviews-text-block {
+  margin: 0 25px 50px;
+  width: calc(50% - 50px);
+  display: flex;
+  align-items: flex-start;
+  &.modal-review {
+    margin: 0;
+    width: 100%;
+  }
+  .avatar {
+    flex-shrink: 0;
+    width: 185px;
+    height: 185px;
+    overflow: hidden;
+    margin-right: 35px;
+    border-radius: 50%;
+  }
+  .text {
+    font-size: 20px;
+    line-height: 1.3;
+    p {
+      margin-bottom: 25px;
+    }
+  }
+  .link {
+    color: $red;
+    &:hover {
+      font-weight: 400;
+    }
+  }
+  .name {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.2;
+    margin-bottom: 5px;
+  }
+  .job {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.2;
+    color: #808080;
+  }
+}
+
 .popup-modal {
   // max-width: 850px;
   // margin: 30px auto;
   position: relative;
   padding: 0;
   border-radius: 3px;
-  .mfp-close {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    line-height: 1px;
-    opacity: 1;
-    width: 24px;
-    height: 24px;
-    cursor: pointer;
-    background: transparent;
-    border: 0;
-    &.image-close {
-      top: -18px;
-      right: -18px;
-      svg path {
-        stroke: #eee;
-      }
-    }
-    img,
-    svg,
-    i {
-      pointer-events: none;
-      transition: $transition;
-      opacity: 0.4;
-    }
-    &:hover {
-      img,
-      svg,
-      i {
-        opacity: 1;
-      }
-    }
-  }
 
   .image-popup {
     margin-top: 20px;
@@ -1134,8 +1182,17 @@ h2 {
       display: block;
     }
   }
+  .reviews-text-block {
+    margin: 0 15px 40px;
+    width: calc(50% - 30px);
+    .avatar {
+      margin-right: 25px;
+    }
+    .text {
+      font-size: 18px;
+    }
+  }
 }
-
 @media (min-width: 1020px) {
   .header-mobile-podmenu {
     display: none !important;
@@ -1472,7 +1529,8 @@ h2 {
     margin-bottom: 80px;
   }
   .simple-form {
-    .inputs-flex .width-33 {
+    .inputs-flex .width-33,
+    .inputs-flex .width-25 {
       width: calc(50% - 30px);
     }
     .button {
@@ -1570,15 +1628,15 @@ h2 {
   }
   .simple-form {
     .inputs-flex {
-      .width-50 {
-        width: calc(100% - 30px);
-      }
-      .width-33 {
+      .width-50,
+      .width-33,
+      .width-25 {
         width: calc(100% - 30px);
       }
     }
   }
   .reviews-text-block {
+    margin-bottom: 30px;
     &.modal-review {
       display: block;
       .avatar {
@@ -1707,6 +1765,10 @@ a.iconPhoneHeader {
   }
   .thanks-popup-content h3 {
     font-size: 30px;
+  }
+  .reviews-text-block .avatar {
+    width: 75px;
+    height: 75px;
   }
 }
 
