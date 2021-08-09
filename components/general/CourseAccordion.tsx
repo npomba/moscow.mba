@@ -74,7 +74,7 @@ const CourseAccordion = ({
               </li>
               <li className={stls.courseMainInfoItem}>Очно или дистанционно</li>
               <li className={stls.courseMainInfoItem}>
-                Старт {<Until preposition={false} />}
+                Ближайшее зачисление {<Until preposition={false} />}
               </li>
             </ul>
             <h3 className={stls.courseTitle}>{title}</h3>
