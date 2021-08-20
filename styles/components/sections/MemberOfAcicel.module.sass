@@ -1,0 +1,36 @@
+@use '@/styles/utils/mixin' as m
+
+.legalSection
+  border-bottom: solid 1px #D2D2D2
+  &:not(:first-of-type)
+    padding: 75px 0
+    @include m.media(tablet, phone)
+      padding: 60px 0
+  p
+    font-size: 20px
+    @include m.media(tablet, phone)
+      font-size: 16px
+
+.MemberOfAcicel
+  display: flex
+  align-items: center
+  @include m.media(laptop, tablet, phone)
+    flex-direction: column
+
+.descRabe
+  flex: 1 1 800px
+  margin-right: 150px
+  @include m.media(laptop, tablet, phone)
+    flex: 1 1 0
+    margin-right: 0
+    margin-bottom: 30px
+  p
+    margin-bottom: 30px
+    @include m.media(tablet, phone)
+      margin-bottom: 18px
+
+.subHeading
+  font-size: 36px
+  @include m.media(tablet, phone)
+    font-size: 23px
+    margin-bottom: 15px

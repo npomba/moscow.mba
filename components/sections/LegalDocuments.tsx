@@ -37,7 +37,7 @@ const LegalDocuments = () => {
           <li key={document + idx} className={stls.item}>
             <a
               className={stls.link}
-              href={`/legaldocuments/doc-${idx}.pdf`}
+              href={`/legaldocuments/doc-${idx + 1}.pdf`}
               rel='noopener noreferrer'
               target='_blank'>
               <IconPaperCorner fill='#000' />
