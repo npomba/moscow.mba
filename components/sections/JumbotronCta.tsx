@@ -46,6 +46,9 @@ const JumbotronCta = ({ programTitle = null, programId = null }) => {
     const utms = JSON.parse(sessionStorage.getItem('utms'))
     values.utms = utms
     sessionStorage.removeItem('utms')
+    const referer = JSON.parse(sessionStorage.getItem('referer'))
+    values.referer = referer
+    sessionStorage.removeItem('referer')
     const req = await onSubmitForm(values)
     if (req === 200) {
       closeLoadingModal()
