@@ -1,4 +1,4 @@
-export default {
+const about = {
   title: {
     ru: 'Об академии',
     en: 'About'
@@ -270,8 +270,8 @@ export default {
   },
 
   accreditationItemOne: {
-    ru: 'В частности, европейскую аккредитацию ECICEL. Благодаря этой аккредитации наши дипломы признаются в Европе и приравниваются к европейской магистратуре',
-    en: 'NACBE - the most prestigious international accreditation'
+    ru: 'Наши программы прошли строгую проверку европейской аккредитационной комиссии ECICEL и полностью соответствуют всем стандартам. Наличие данной аккредитации гарантирует высокое качество образования в Moscow Business Academy',
+    en: 'Our programs have been tested by the European accreditation commission ECICEL and fully comply with the standards. The presence of this accreditation guarantees the high quality of education at the Moscow Business Academy'
   },
 
   accreditationItemTwo: {
@@ -294,3 +294,5 @@ export default {
     en: 'License of the Ministry of Education'
   }
 }
+
+export default about

@@ -44,6 +44,11 @@ function MyApp({ Component, pageProps, router }) {
       sessionStorage.setItem('utms', JSON.stringify(utms))
     }
 
+    const referer = sessionStorage.getItem('referrer')
+    if (!referer) {
+      sessionStorage.setItem('referer', JSON.stringify(document.referrer))
+    }
+
     NProgress.configure({
       // minimum: 0.3,
       // easing: 'ease',

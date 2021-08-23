@@ -21,7 +21,8 @@ const contact = async (req, res) => {
     question,
     programTitle,
     leadPage,
-    utms
+    utms,
+    referer
   } = req.body
 
   if (name?.includes('@')) {
@@ -41,6 +42,9 @@ const contact = async (req, res) => {
 
   // get protocol
   const protocol = req.headers['x-forwarded-proto']
+
+  // get referer
+  // const referer = req.headers['referer']
 
   // get root path
   const root = protocol + '://' + req.headers.host
@@ -123,7 +127,7 @@ const contact = async (req, res) => {
     timeZone: locationData && locationData.timeZone,
     postalCode: locationData && locationData.postalCode,
     programTitle: programTitle || '',
-    utmSource: (utms && utms.utm_source) || null,
+    utmSource: (utms && utms.utm_source) || referer || null,
     utmMedium: (utms && utms.utm_medium) || null,
     utmCampaign: (utms && utms.utm_campaign) || null,
     utmContent: (utms && utms.utm_content) || null,
