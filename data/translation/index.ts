@@ -1,4 +1,4 @@
-export default {
+const index = {
   headerSubtitle: {
     ru: 'Международное бизнес-образование. У нас есть всё для раскрытия вашего потенциала!',
     en: "International Business Education. We've everything to help you reach your full potential!"
@@ -50,13 +50,13 @@ export default {
   },
 
   benefitOneDisc: {
-    ru: 'Программ MBA и курсов',
+    ru: 'программ MBA и курсов',
     en: 'MBA Programs and courses'
   },
 
   benefitTwoDisc: {
-    ru: 'Новейшие программы 2021 года',
-    en: 'Newest programs of 2021'
+    ru: 'новейшие программы 2021 года',
+    en: 'newest programs of 2021'
   },
 
   benefitThreeDisc: {
@@ -299,3 +299,5 @@ export default {
     en: 'Email address invalid'
   }
 }
+
+export default index
