@@ -89,7 +89,6 @@ function MyApp({ Component, pageProps, router }) {
         logo='https://moscow.mba/logo.jpg'
         url='https://moscow.mba/'
       />
-      <Script src='/assets/js/vendors/jquery-3.6.0.min.js' />
       <OverlayState>
         <MenuState>
           <Wrapper>
