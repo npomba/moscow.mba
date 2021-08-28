@@ -34,7 +34,7 @@ const HeadManifest = () => {
       <link
         rel='apple-touch-icon'
         sizes='180x180'
-        href='/assets/images/icons/touch-icon-iphone-retina.png'
+        href='/assets/images/icons/apple-icon-180.png'
       />
       {/* <link
         rel='apple-touch-icon'
@@ -54,7 +54,7 @@ const HeadManifest = () => {
         sizes='16x16'
         href='/assets/images/icons/favicon-16x16.png'
       /> */}
-      <link rel='manifest' href='/public/manifest.json' />
+      <link rel='manifest' href='/manifest.json' />
       {/* <link
         rel='mask-icon'
         href='/assets/images/icons/safari-pinned-tab.svg'
@@ -64,37 +64,37 @@ const HeadManifest = () => {
 
       <link
         rel='apple-touch-startup-image'
-        href='/public/images/apple-splash-2048-2732.jpg'
+        href='/assets/images/icons/apple-splash-2048-2732.jpg'
         sizes='2048x2732'
       />
       <link
         rel='apple-touch-startup-image'
-        href='/public/images/apple-splash-1668-2224.jpg'
+        href='/assets/images/icons/apple-splash-1668-2224.jpg'
         sizes='1668x2224'
       />
       <link
         rel='apple-touch-startup-image'
-        href='/public/images/apple-splash-1536-2048.jpg'
+        href='/assets/images/icons/apple-splash-1536-2048.jpg'
         sizes='1536x2048'
       />
       <link
         rel='apple-touch-startup-image'
-        href='/public/images/apple-splash-1125-2436.jpg'
+        href='/assets/images/icons/apple-splash-1125-2436.jpg'
         sizes='1125x2436'
       />
       <link
         rel='apple-touch-startup-image'
-        href='/public/images/apple-splash-1242-2208.jpg'
+        href='/assets/images/icons/apple-splash-1242-2208.jpg'
         sizes='1242x2208'
       />
       <link
         rel='apple-touch-startup-image'
-        href='/public/images/apple-splash-750-1334.jpg'
+        href='/assets/images/icons/apple-splash-750-1334.jpg'
         sizes='750x1334'
       />
       <link
         rel='apple-touch-startup-image'
-        href='/public/images/apple-splash-640-1136.jpg'
+        href='/assets/images/icons/apple-splash-640-1136.jpg'
         sizes='640x1136'
       />
 
@@ -104,7 +104,7 @@ const HeadManifest = () => {
       <meta name='twitter:description' content='Best PWA App in the world' />
       <meta
         name='twitter:image'
-        content='https://yourdomain.com/public/assets/images/icons/android-chrome-192x192.png'
+        content='https://yourdomain.com/assets/assets/images/icons/android-chrome-192x192.png'
       />
       <meta name='twitter:creator' content='@DavidWShadow' />
       <meta property='og:type' content='website' />
@@ -114,7 +114,7 @@ const HeadManifest = () => {
       <meta property='og:url' content='https://yourdomain.com' />
       <meta
         property='og:image'
-        content='https://yourdomain.com/public/assets/images/icons/apple-touch-icon.png'
+        content='https://yourdomain.com/assets/assets/images/icons/apple-touch-icon.png'
       /> */}
     </>
   )
