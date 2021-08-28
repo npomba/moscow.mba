@@ -509,6 +509,7 @@ const Header = ({ programs }) => {
                             id='program-mobile-1-1'
                             className={classNames({
                               'program-options-block': true,
+                              atHeader: true,
                               show: miniOnline
                             })}>
                             <div className='name'>
@@ -577,6 +578,7 @@ const Header = ({ programs }) => {
                             id='program-mobile-1-2'
                             className={classNames({
                               'program-options-block': true,
+                              atHeader: true,
                               show: !miniOnline
                             })}>
                             <div className='name'>
@@ -722,6 +724,7 @@ const Header = ({ programs }) => {
                             id='program-mobile-2-1'
                             className={classNames({
                               'program-options-block': true,
+                              atHeader: true,
                               show: professionalOnline
                             })}>
                             <div className='name'>
@@ -793,6 +796,7 @@ const Header = ({ programs }) => {
                             id='program-mobile-2-2'
                             className={classNames({
                               'program-options-block': true,
+                              atHeader: true,
                               show: !professionalOnline
                             })}>
                             <div className='name'>
@@ -945,6 +949,7 @@ const Header = ({ programs }) => {
                             id='program-mobile-3-1'
                             className={classNames({
                               'program-options-block': true,
+                              atHeader: true,
                               show: industryOnline
                             })}>
                             <div className='name'>
@@ -1013,6 +1018,7 @@ const Header = ({ programs }) => {
                             id='program-mobile-3-2'
                             className={classNames({
                               'program-options-block': true,
+                              atHeader: true,
                               show: !industryOnline
                             })}>
                             <div className='name'>
