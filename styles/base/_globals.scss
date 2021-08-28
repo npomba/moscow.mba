@@ -394,7 +394,9 @@ header {
   }
   a {
     display: flex;
-    height: 87px;
+    // height: 87px;
+    padding-top: 29px;
+    padding-bottom: 29px; // 87
     align-items: center;
     transition: $transition;
     padding-right: 10px;
@@ -718,6 +720,7 @@ h2 {
   .price {
     font-size: 20px;
     color: #000;
+    margin-top: 28px;
     margin-bottom: 17px;
   }
   .simple-price {

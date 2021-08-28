@@ -1,7 +1,12 @@
-export default {
+const menu = {
   allPrograms: {
     ru: 'Все программы',
     en: 'All programs'
+  },
+
+  internationalBusinessLaw: {
+    ru: 'Магистр международного бизнес-права',
+    en: 'Master of international business law'
   },
 
   onlineTitle: {
@@ -115,3 +120,5 @@ export default {
     en: ''
   }
 }
+
+export default menu

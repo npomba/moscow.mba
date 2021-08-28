@@ -31,8 +31,8 @@ const Accreditation = () => {
         <Image
           src={imgData.accreditationImageAlt.src}
           alt={SetString(imgData.accreditationImageAlt.alt)}
-          width={645}
-          height={861}
+          width={648}
+          height={899}
           placeholder='blur'
           blurDataURL={base64pixel}
           layout='responsive'

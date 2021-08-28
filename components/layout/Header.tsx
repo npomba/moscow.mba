@@ -294,6 +294,13 @@ const Header = ({ programs }) => {
                   </li>
                 </ul>
                 <div className='header-podmenu-premium'>
+                  <Link href='/programs/international-business-law' locale='ru'>
+                    <a onClick={handleMenuClose}>
+                      {SetString(langMenu.internationalBusinessLaw)}
+                    </a>
+                  </Link>
+                </div>
+                <div className='header-podmenu-premium'>
                   <div className='label'>
                     <span>Premium</span>
                   </div>
