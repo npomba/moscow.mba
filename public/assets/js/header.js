@@ -1,22 +1,22 @@
 $(document).ready(function () {
-  $('.mobile-second-toggle').click(function (e) {
-    e.preventDefault()
-    $('.header-mobile-second').addClass('opened')
-  })
+  // $('.mobile-second-toggle').click(function (e) {
+  //   e.preventDefault()
+  //   $('.header-mobile-second').addClass('opened')
+  // })
 
-  $('.mobile-lang-toggle').click(function (e) {
-    e.preventDefault()
-    $('.header-mobile-lang').addClass('opened')
-  })
+  // $('.mobile-lang-toggle').click(function (e) {
+  //   e.preventDefault()
+  //   $('.header-mobile-lang').addClass('opened')
+  // })
 
-  $('.menu-back-link').click(function () {
-    $(this).closest('.js-header-mobile').removeClass('opened')
-  })
+  // $('.menu-back-link').click(function () {
+  //   $(this).closest('.js-header-mobile').removeClass('opened')
+  // })
 
-  $('.mobile-third-toggle').click(function (e) {
-    e.preventDefault()
-    $(this).siblings('.header-mobile-third').addClass('opened')
-  })
+  // $('.mobile-third-toggle').click(function (e) {
+  //   e.preventDefault()
+  //   $(this).siblings('.header-mobile-third').addClass('opened')
+  // })
 
   $('.program-options-block-tabs a').click(function (e) {
     e.preventDefault()

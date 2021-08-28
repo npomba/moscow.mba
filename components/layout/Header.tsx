@@ -1,6 +1,6 @@
 import stls from '@/styles/components/layout/Header.module.sass'
 import Link from 'next/link'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import MenuContext from '@/context/menu/menuContext'
 import OverlayContext from '@/context/overlay/overlayContext'
 import { useRouter } from 'next/router'
@@ -75,6 +75,12 @@ const Header = ({ programs }) => {
       }
     })
   }
+
+  const [mobileSecond, setMobileSecond] = useState(false)
+  const [mobileLang, setMobileLang] = useState(false)
+  const [mobileThirdMini, setMobileThirdMini] = useState(false)
+  const [mobileThirdProfessional, setMobileThirdProfessional] = useState(false)
+  const [mobileThirdIndustry, setMobileThirdIndustry] = useState(false)
 
   const contactInfo = contactData()
 
@@ -329,7 +335,9 @@ const Header = ({ programs }) => {
             <div className='container'>
               <ul className='header-mobile-menu'>
                 <li>
-                  <a href='' className='mobile-second-toggle'>
+                  <a
+                    className='mobile-second-toggle'
+                    onClick={() => setMobileSecond(true)}>
                     <strong>{SetString(lang.programsBtn)}</strong>
                   </a>
                 </li>
@@ -399,7 +407,9 @@ const Header = ({ programs }) => {
                 router.pathname === '/about' ||
                 router.pathname === '/contact' ? (
                   <li>
-                    <a href='' className='mobile-lang-toggle'>
+                    <a
+                      className='mobile-lang-toggle'
+                      onClick={() => setMobileLang(true)}>
                       {SetString(lang.linkLang)}
                     </a>
                   </li>
@@ -432,23 +442,39 @@ const Header = ({ programs }) => {
           {/* //first */}
 
           {/* second */}
-          <div className='header-mobile-second js-header-mobile'>
+          <div
+            className={classNames({
+              'header-mobile-second': true,
+              'js-header-mobile': true,
+              opened: mobileSecond
+            })}>
             <div className='container'>
-              <div className='menu-back-link'>
+              <div
+                className='menu-back-link'
+                onClick={() => setMobileSecond(false)}>
                 <i></i>
                 {SetString(langMenu.backBtn)}
               </div>
               <h3>{SetString(lang.programsBtn)}</h3>
               <ul className='header-mobile-menu'>
                 <li>
-                  <a href='' className='mobile-third-toggle'>
+                  <a
+                    className='mobile-third-toggle'
+                    onClick={() => setMobileThirdMini(true)}>
                     Mini MBA
                   </a>
 
                   {/* third */}
-                  <div className='header-mobile-third js-header-mobile'>
+                  <div
+                    className={classNames({
+                      'header-mobile-third': true,
+                      'js-header-mobile': true,
+                      opened: mobileThirdMini
+                    })}>
                     <div className='container'>
-                      <div className='menu-back-link'>
+                      <div
+                        className='menu-back-link'
+                        onClick={() => setMobileThirdMini(false)}>
                         <i></i>
                         {SetString(langMenu.toProgramsBtn)}
                       </div>
@@ -619,7 +645,9 @@ const Header = ({ programs }) => {
                           </span>
                         </div>
                       </div>
-                      <div className='menu-back-link last'>
+                      <div
+                        className='menu-back-link last'
+                        onClick={() => setMobileThirdMini(false)}>
                         <i></i>
                         {SetString(langMenu.toProgramsBtn)}
                       </div>
@@ -628,14 +656,23 @@ const Header = ({ programs }) => {
                   {/* //third */}
                 </li>
                 <li>
-                  <a href='' className='mobile-third-toggle'>
+                  <a
+                    className='mobile-third-toggle'
+                    onClick={() => setMobileThirdProfessional(true)}>
                     Professional MBA
                   </a>
 
                   {/*third */}
-                  <div className='header-mobile-third js-header-mobile'>
+                  <div
+                    className={classNames({
+                      'header-mobile-third': true,
+                      'js-header-mobile': true,
+                      opened: mobileThirdProfessional
+                    })}>
                     <div className='container'>
-                      <div className='menu-back-link'>
+                      <div
+                        className='menu-back-link'
+                        onClick={() => setMobileThirdProfessional(false)}>
                         <i></i>
                         {SetString(langMenu.toProgramsBtn)}
                       </div>
@@ -818,7 +855,9 @@ const Header = ({ programs }) => {
                           </span>
                         </div>
                       </div>
-                      <div className='menu-back-link last'>
+                      <div
+                        className='menu-back-link last'
+                        onClick={() => setMobileThirdProfessional(false)}>
                         <i></i>
                         {SetString(langMenu.toProgramsBtn)}
                       </div>
@@ -827,14 +866,23 @@ const Header = ({ programs }) => {
                   {/* //third */}
                 </li>
                 <li>
-                  <a href='' className='mobile-third-toggle'>
+                  <a
+                    className='mobile-third-toggle'
+                    onClick={() => setMobileThirdIndustry(true)}>
                     Industry MBA
                   </a>
 
                   {/* third */}
-                  <div className='header-mobile-third js-header-mobile'>
+                  <div
+                    className={classNames({
+                      'header-mobile-third': true,
+                      'js-header-mobile': true,
+                      opened: mobileThirdIndustry
+                    })}>
                     <div className='container'>
-                      <div className='menu-back-link'>
+                      <div
+                        className='menu-back-link'
+                        onClick={() => setMobileThirdIndustry(false)}>
                         <i></i>
                         {SetString(langMenu.toProgramsBtn)}
                       </div>
@@ -1008,7 +1056,9 @@ const Header = ({ programs }) => {
                           </span>
                         </div>
                       </div>
-                      <div className='menu-back-link last'>
+                      <div
+                        className='menu-back-link last'
+                        onClick={() => setMobileThirdIndustry(false)}>
                         <i></i>
                         {SetString(langMenu.toProgramsBtn)}
                       </div>
@@ -1040,9 +1090,16 @@ const Header = ({ programs }) => {
           {/* //second */}
 
           {/* header-mobile-lang */}
-          <div className='header-mobile-lang js-header-mobile'>
+          <div
+            className={classNames({
+              'header-mobile-lang': true,
+              'js-header-mobile': true,
+              opened: mobileLang
+            })}>
             <div className='container'>
-              <div className='menu-back-link'>
+              <div
+                className='menu-back-link'
+                onClick={() => setMobileLang(false)}>
                 <i></i>
                 {SetString(langMenu.backBtn)}
               </div>
