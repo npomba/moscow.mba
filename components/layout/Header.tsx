@@ -81,6 +81,9 @@ const Header = ({ programs }) => {
   const [mobileThirdMini, setMobileThirdMini] = useState(false)
   const [mobileThirdProfessional, setMobileThirdProfessional] = useState(false)
   const [mobileThirdIndustry, setMobileThirdIndustry] = useState(false)
+  const [miniOnline, setMiniOnline] = useState(true)
+  const [professionalOnline, setProfessionalOnline] = useState(true)
+  const [industryOnline, setIndustryOnline] = useState(true)
 
   const contactInfo = contactData()
 
@@ -452,7 +455,6 @@ const Header = ({ programs }) => {
           <div
             className={classNames({
               'header-mobile-second': true,
-              'js-header-mobile': true,
               opened: mobileSecond
             })}>
             <div className='container'>
@@ -475,7 +477,6 @@ const Header = ({ programs }) => {
                   <div
                     className={classNames({
                       'header-mobile-third': true,
-                      'js-header-mobile': true,
                       opened: mobileThirdMini
                     })}>
                     <div className='container'>
@@ -489,18 +490,27 @@ const Header = ({ programs }) => {
                       <div className='program-tabs-content'>
                         <ul className='program-options-block-tabs'>
                           <li>
-                            <a href='#program-mobile-1-1' className='active'>
+                            <a
+                              className={classNames({ active: miniOnline })}
+                              onClick={() => setMiniOnline(true)}>
                               ONLINE
                             </a>
                           </li>
                           <li>
-                            <a href='#program-mobile-1-2'>BLENDED</a>
+                            <a
+                              className={classNames({ active: !miniOnline })}
+                              onClick={() => setMiniOnline(false)}>
+                              BLENDED
+                            </a>
                           </li>
                         </ul>
                         <div className='program-options-detail'>
                           <div
                             id='program-mobile-1-1'
-                            className='program-options-block'>
+                            className={classNames({
+                              'program-options-block': true,
+                              show: miniOnline
+                            })}>
                             <div className='name'>
                               {SetString(langMenu.onlineTitle)}
                               <div className='discount'>
@@ -565,7 +575,10 @@ const Header = ({ programs }) => {
                           </div>
                           <div
                             id='program-mobile-1-2'
-                            className='program-options-block'>
+                            className={classNames({
+                              'program-options-block': true,
+                              show: !miniOnline
+                            })}>
                             <div className='name'>
                               {SetString(langMenu.blendedTitle)}
                             </div>
@@ -673,7 +686,6 @@ const Header = ({ programs }) => {
                   <div
                     className={classNames({
                       'header-mobile-third': true,
-                      'js-header-mobile': true,
                       opened: mobileThirdProfessional
                     })}>
                     <div className='container'>
@@ -687,18 +699,31 @@ const Header = ({ programs }) => {
                       <div className='program-tabs-content'>
                         <ul className='program-options-block-tabs'>
                           <li>
-                            <a href='#program-mobile-2-1' className='active'>
+                            <a
+                              className={classNames({
+                                active: professionalOnline
+                              })}
+                              onClick={() => setProfessionalOnline(true)}>
                               ONLINE
                             </a>
                           </li>
                           <li>
-                            <a href='#program-mobile-2-2'>BLENDED</a>
+                            <a
+                              className={classNames({
+                                active: !professionalOnline
+                              })}
+                              onClick={() => setProfessionalOnline(false)}>
+                              BLENDED
+                            </a>
                           </li>
                         </ul>
                         <div className='program-options-detail'>
                           <div
                             id='program-mobile-2-1'
-                            className='program-options-block'>
+                            className={classNames({
+                              'program-options-block': true,
+                              show: professionalOnline
+                            })}>
                             <div className='name'>
                               {SetString(langMenu.onlineTitle)}
                               <div className='discount'>
@@ -766,7 +791,10 @@ const Header = ({ programs }) => {
                           </div>
                           <div
                             id='program-mobile-2-2'
-                            className='program-options-block'>
+                            className={classNames({
+                              'program-options-block': true,
+                              show: !professionalOnline
+                            })}>
                             <div className='name'>
                               {SetString(langMenu.blendedTitle)}
                             </div>
@@ -883,7 +911,6 @@ const Header = ({ programs }) => {
                   <div
                     className={classNames({
                       'header-mobile-third': true,
-                      'js-header-mobile': true,
                       opened: mobileThirdIndustry
                     })}>
                     <div className='container'>
@@ -897,18 +924,29 @@ const Header = ({ programs }) => {
                       <div className='program-tabs-content'>
                         <ul className='program-options-block-tabs'>
                           <li>
-                            <a href='#program-mobile-3-1' className='active'>
+                            <a
+                              className={classNames({ active: industryOnline })}
+                              onClick={() => setIndustryOnline(true)}>
                               ONLINE
                             </a>
                           </li>
                           <li>
-                            <a href='#program-mobile-3-2'>BLENDED</a>
+                            <a
+                              className={classNames({
+                                active: !industryOnline
+                              })}
+                              onClick={() => setIndustryOnline(false)}>
+                              BLENDED
+                            </a>
                           </li>
                         </ul>
                         <div className='program-options-detail'>
                           <div
                             id='program-mobile-3-1'
-                            className='program-options-block'>
+                            className={classNames({
+                              'program-options-block': true,
+                              show: industryOnline
+                            })}>
                             <div className='name'>
                               {SetString(langMenu.onlineTitle)}
                               <div className='discount'>
@@ -973,7 +1011,10 @@ const Header = ({ programs }) => {
                           </div>
                           <div
                             id='program-mobile-3-2'
-                            className='program-options-block'>
+                            className={classNames({
+                              'program-options-block': true,
+                              show: !industryOnline
+                            })}>
                             <div className='name'>
                               {SetString(langMenu.blendedTitle)}
                             </div>
@@ -1100,7 +1141,6 @@ const Header = ({ programs }) => {
           <div
             className={classNames({
               'header-mobile-lang': true,
-              'js-header-mobile': true,
               opened: mobileLang
             })}>
             <div className='container'>
@@ -1132,7 +1172,6 @@ const Header = ({ programs }) => {
         </div>
         {/* //mobile menu */}
       </header>
-      <Script src='/assets/js/header.js' strategy='lazyOnload' />
     </>
   )
 }

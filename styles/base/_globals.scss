@@ -654,6 +654,10 @@ h2 {
   padding-top: 8px;
   width: 50%;
   padding: 0 30px;
+  display: none !important;
+  &.show {
+    display: block !important;
+  }
   .info-list {
     display: flex;
     flex-wrap: wrap;
