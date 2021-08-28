@@ -1,7 +1,12 @@
 const { createSecureHeaders } = require('next-secure-headers')
+const withPWA = require('next-pwa')
 const dev = process.env.NODE_ENV !== 'production'
 
-module.exports = {
+module.exports = withPWA({
+  pwa: {
+    dest: 'public',
+    disable: dev
+  },
   // reactStrictMode: true,
   poweredByHeader: false,
   i18n: {
@@ -154,4 +159,4 @@ module.exports = {
   //     },
   //   ]
   // },
-}
+})
