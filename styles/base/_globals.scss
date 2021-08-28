@@ -654,12 +654,10 @@ h2 {
   padding-top: 8px;
   width: 50%;
   padding: 0 30px;
-  &.atHeader {
-    @include m.media(phone, tablet) {
-      display: none !important;
-      &.show {
-        display: block !important;
-      }
+  @include m.media(phone, tablet) {
+    display: none !important;
+    &.show {
+      display: block !important;
     }
   }
   .info-list {

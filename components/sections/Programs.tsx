@@ -21,6 +21,10 @@ const Programs = ({ programs }) => {
   const [isProfessional, setIsProfessional] = useState(false)
   const [isIndustry, setIsIndustry] = useState(false)
 
+  const [isMiniOnline, setIsMiniOnline] = useState(true)
+  const [isProfessionalOnline, setIsProfessionalOnline] = useState(true)
+  const [isIndustryOnline, setIsIndustryOnline] = useState(true)
+
   const handleSetMini = () => {
     setIsMini(true)
     setIsProfessional(false)
@@ -112,16 +116,26 @@ const Programs = ({ programs }) => {
               <div className='desc'>{SetString(langMenu.categoryDiscMini)}</div>
               <ul className='program-options-block-tabs--sctn-programs'>
                 <li>
-                  <a href='#program-options-1-1' className='active'>
+                  <a
+                    className={classNames({ active: isMiniOnline })}
+                    onClick={() => setIsMiniOnline(true)}>
                     ONLINE
                   </a>
                 </li>
                 <li>
-                  <a href='#program-options-1-2'>BLENDED</a>
+                  <a
+                    className={classNames({ active: !isMiniOnline })}
+                    onClick={() => setIsMiniOnline(false)}>
+                    BLENDED
+                  </a>
                 </li>
               </ul>
               <div className='program-options-detail'>
-                <div id='program-options-1-1' className='program-options-block'>
+                <div
+                  className={classNames({
+                    'program-options-block': true,
+                    show: isMiniOnline
+                  })}>
                   <div className='name'>
                     {SetString(langMenu.onlineTitle)}
                     <div className='discount'>
@@ -178,7 +192,11 @@ const Programs = ({ programs }) => {
                     })}
                   </ul>
                 </div>
-                <div id='program-options-1-2' className='program-options-block'>
+                <div
+                  className={classNames({
+                    'program-options-block': true,
+                    show: !isMiniOnline
+                  })}>
                   <div className='name'>{SetString(langMenu.blendedTitle)}</div>
                   <ProgramsQty
                     programs={data}
@@ -252,16 +270,26 @@ const Programs = ({ programs }) => {
               </div>
               <ul className='program-options-block-tabs--sctn-programs'>
                 <li>
-                  <a href='#program-options-2-1' className='active'>
+                  <a
+                    className={classNames({ active: isProfessionalOnline })}
+                    onClick={() => setIsProfessionalOnline(true)}>
                     ONLINE
                   </a>
                 </li>
                 <li>
-                  <a href='#program-options-2-2'>BLENDED</a>
+                  <a
+                    className={classNames({ active: !isProfessionalOnline })}
+                    onClick={() => setIsProfessionalOnline(false)}>
+                    BLENDED
+                  </a>
                 </li>
               </ul>
               <div className='program-options-detail'>
-                <div id='program-options-2-1' className='program-options-block'>
+                <div
+                  className={classNames({
+                    'program-options-block': true,
+                    show: isProfessionalOnline
+                  })}>
                   <div className='name'>
                     {SetString(langMenu.onlineTitle)}
                     <div className='discount'>
@@ -322,7 +350,11 @@ const Programs = ({ programs }) => {
                     })}
                   </ul>
                 </div>
-                <div id='program-options-2-2' className='program-options-block'>
+                <div
+                  className={classNames({
+                    'program-options-block': true,
+                    show: !isProfessionalOnline
+                  })}>
                   <div className='name'>{SetString(langMenu.blendedTitle)}</div>
                   <ProgramsQty
                     programs={data}
@@ -400,16 +432,26 @@ const Programs = ({ programs }) => {
               </div>
               <ul className='program-options-block-tabs--sctn-programs'>
                 <li>
-                  <a href='#program-options-3-1' className='active'>
+                  <a
+                    className={classNames({ active: isIndustryOnline })}
+                    onClick={() => setIsIndustryOnline(true)}>
                     ONLINE
                   </a>
                 </li>
                 <li>
-                  <a href='#program-options-3-2'>BLENDED</a>
+                  <a
+                    className={classNames({ active: !isIndustryOnline })}
+                    onClick={() => setIsIndustryOnline(false)}>
+                    BLENDED
+                  </a>
                 </li>
               </ul>
               <div className='program-options-detail'>
-                <div id='program-options-3-1' className='program-options-block'>
+                <div
+                  className={classNames({
+                    'program-options-block': true,
+                    show: isIndustryOnline
+                  })}>
                   <div className='name'>
                     {SetString(langMenu.onlineTitle)}
                     <div className='discount'>
@@ -470,7 +512,11 @@ const Programs = ({ programs }) => {
                     })}
                   </ul>
                 </div>
-                <div id='program-options-3-2' className='program-options-block'>
+                <div
+                  className={classNames({
+                    'program-options-block': true,
+                    show: !isIndustryOnline
+                  })}>
                   <div className='name'>{SetString(langMenu.blendedTitle)}</div>
                   <ProgramsQty
                     programs={data}
@@ -526,7 +572,6 @@ const Programs = ({ programs }) => {
           </div>
         </div>
       </section>
-      <Script src='/assets/js/programs.js' strategy='lazyOnload' />
     </>
   )
 }
