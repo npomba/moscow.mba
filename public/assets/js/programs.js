@@ -1,15 +1,15 @@
 $(document).ready(function () {
-  $('.program-options-tabs a.headerMenuTabs').click(function (e) {
-    e.preventDefault()
-    var $searchId = $($(this).data('tab'))
-    $('.program-options-tabs a').not($(this)).removeClass('active-tab')
-    $(this).addClass('active-tab')
-    $('.program-options-section')
-      .find('.program-tabs-content')
-      .not($searchId)
-      .css('display', 'none')
-    $searchId.css('display', 'block')
-  })
+  // $('.program-options-tabs a.headerMenuTabs').click(function (e) {
+  //   e.preventDefault()
+  //   var $searchId = $($(this).data('tab'))
+  //   $('.program-options-tabs a').not($(this)).removeClass('active-tab')
+  //   $(this).addClass('active-tab')
+  //   $('.program-options-section')
+  //     .find('.program-tabs-content')
+  //     .not($searchId)
+  //     .css('display', 'none')
+  //   $searchId.css('display', 'block')
+  // })
 
   $('.program-options-block-tabs--sctn-programs a').click(function (e) {
     e.preventDefault()

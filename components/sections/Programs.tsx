@@ -11,9 +11,34 @@ import TrainingPeriod from '@/components/costs/TrainingPeriod'
 import Script from 'next/script'
 import Discount from '@/components/costs/Discount'
 import { IconCheckCircle, IconScreen } from '@/components/icons'
+import { useState } from 'react'
+import classNames from 'classnames'
 
 const Programs = ({ programs }) => {
   const data = programs
+
+  const [isMini, setIsMini] = useState(true)
+  const [isProfessional, setIsProfessional] = useState(false)
+  const [isIndustry, setIsIndustry] = useState(false)
+
+  const handleSetMini = () => {
+    setIsMini(true)
+    setIsProfessional(false)
+    setIsIndustry(false)
+  }
+
+  const handleSetProfessional = () => {
+    setIsMini(false)
+    setIsProfessional(true)
+    setIsIndustry(false)
+  }
+
+  const handleSetIndustry = () => {
+    setIsMini(false)
+    setIsProfessional(false)
+    setIsIndustry(true)
+  }
+
   return (
     <>
       <section className='program-options-section'>
@@ -23,25 +48,31 @@ const Programs = ({ programs }) => {
             <ul className='program-options-tabs'>
               <li>
                 <a
-                  href=''
-                  data-tab='#program-options-1'
-                  className='active-tab headerMenuTabs'>
+                  className={classNames({
+                    headerMenuTabs: true,
+                    'active-tab': isMini
+                  })}
+                  onClick={handleSetMini}>
                   Mini MBA
                 </a>
               </li>
               <li>
                 <a
-                  href=''
-                  data-tab='#program-options-2'
-                  className='headerMenuTabs'>
+                  className={classNames({
+                    headerMenuTabs: true,
+                    'active-tab': isProfessional
+                  })}
+                  onClick={handleSetProfessional}>
                   Professional MBA
                 </a>
               </li>
               <li>
                 <a
-                  href=''
-                  data-tab='#program-options-3'
-                  className='headerMenuTabs'>
+                  className={classNames({
+                    headerMenuTabs: true,
+                    'active-tab': isIndustry
+                  })}
+                  onClick={handleSetIndustry}>
                   Industry MBA
                 </a>
               </li>
@@ -59,8 +90,10 @@ const Programs = ({ programs }) => {
           </div>
           <div className='program-options-right'>
             <div
-              id='program-options-1'
-              className='program-tabs-content visible'>
+              className={classNames({
+                'program-tabs-content': true,
+                visible: isMini
+              })}>
               <div className='top-info'>
                 <div className='prog-time'>
                   <i>
@@ -194,7 +227,11 @@ const Programs = ({ programs }) => {
                 </div>
               </div>
             </div>
-            <div id='program-options-2' className='program-tabs-content'>
+            <div
+              className={classNames({
+                'program-tabs-content': true,
+                visible: isProfessional
+              })}>
               <div className='top-info'>
                 <div className='prog-time'>
                   <i>
@@ -338,7 +375,11 @@ const Programs = ({ programs }) => {
                 </div>
               </div>
             </div>
-            <div id='program-options-3' className='program-tabs-content'>
+            <div
+              className={classNames({
+                'program-tabs-content': true,
+                visible: isIndustry
+              })}>
               <div className='top-info'>
                 <div className='prog-time'>
                   <i>
