@@ -8,10 +8,10 @@ const HeadManifest = () => {
         name='apple-mobile-web-app-title'
         content='Moscow Business Academy'
       />
-      <meta
+      {/* <meta
         name='description'
         content='Moscow Business Academy является одной из ведущих бизнес-школ на территории СНГ и одной из немногих бизнес-школ, которая...'
-      />
+      /> */}
       {/* <meta name='format-detection' content='telephone=no' /> */}
       <meta name='mobile-web-app-capable' content='yes' />
       {/* <meta
