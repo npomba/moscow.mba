@@ -63,6 +63,18 @@ const ProgramSubjects = ({ sum = false, type = '', subjects = '' }) => {
     )
   }
 
+  if (type === 'mbl') {
+    return (
+      <span>
+        {subjects === 'base' && sum === false
+          ? '41'
+          : subjects === 'specialty' && sum === false
+          ? '0'
+          : '0'}
+      </span>
+    )
+  }
+
   if (!type) {
     return (
       <span>
@@ -95,6 +107,12 @@ const ProgramSubjects = ({ sum = false, type = '', subjects = '' }) => {
           : at.profession && subjects === 'specialty' && sum === false
           ? '0'
           : at.profession && '10'}
+
+        {at.mbl && subjects === 'base' && sum === false
+          ? '41'
+          : at.mbl && subjects === 'specialty' && sum === false
+          ? '0'
+          : at.mbl && '41'}
       </span>
     )
   }

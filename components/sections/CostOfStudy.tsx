@@ -10,7 +10,6 @@ import Loan from '@/components/costs/Loan'
 import Discount from '@/components/costs/Discount'
 import TrainingPeriod from '../costs/TrainingPeriod'
 import ProgramSubjects from '../hooks/ProgramSubjects'
-import { RSA_PSS_SALTLEN_MAX_SIGN } from 'constants'
 
 const PriceBlock = ({
   isDiscounted,
@@ -21,6 +20,8 @@ const PriceBlock = ({
   withPriceTitles
 }) => {
   let topContentPart
+
+  const at = useAt()
 
   if (withDesc) {
     topContentPart = (
@@ -89,15 +90,16 @@ const CostOfStudy = ({
     (at.mini && at.online) ||
     (at.professional && at.online) ||
     (at.industry && at.online) ||
-    (at.profession && at.online)
+    (at.profession && at.online) ||
+    at.mbl
 
   const canPayInInstalments = at.profession
   const costWithDescription =
-    at.mini || at.professional || at.industry || at.executive
+    at.mini || at.professional || at.industry || at.executive || at.mbl
 
   let list
 
-  if (at.mini || at.professional || at.industry || at.executive) {
+  if (at.mini || at.professional || at.industry || at.executive || at.mbl) {
     list = (
       <>
         <ul className={stls.list}>
@@ -112,6 +114,8 @@ const CostOfStudy = ({
                   ? 'industry'
                   : at.executive
                   ? 'executive'
+                  : at.mbl
+                  ? 'industry'
                   : null
               }
             />
@@ -121,6 +125,8 @@ const CostOfStudy = ({
               ? 'Дистанционно'
               : at.blended
               ? 'С очными модулями'
+              : at.mbl
+              ? 'Дистанционно'
               : 'Очно'}
           </li>
           <li className={stls.listItem}>
@@ -139,6 +145,8 @@ const CostOfStudy = ({
                   ? 'industry'
                   : at.executive
                   ? 'executive'
+                  : at.mbl
+                  ? 'industry'
                   : null
               }
               subjects={'base'}
@@ -156,6 +164,8 @@ const CostOfStudy = ({
                   ? 'industry'
                   : at.executive
                   ? 'executive'
+                  : at.mbl
+                  ? 'industry'
                   : null
               }
               subjects={'specialty'}

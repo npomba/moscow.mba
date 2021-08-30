@@ -5,8 +5,13 @@ const menu = {
   },
 
   internationalBusinessLaw: {
-    ru: 'Магистр международного бизнес-права',
-    en: 'Master of international business law'
+    ru: 'MBL',
+    en: 'MBL'
+  },
+
+  professions: {
+    ru: 'Профессии',
+    en: 'Professions'
   },
 
   onlineTitle: {

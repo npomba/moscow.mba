@@ -14,7 +14,8 @@ const InfoRectangle = ({ programPage = false, type = null, format = null }) => {
     (at.mini && at.online) ||
     (at.professional && at.online) ||
     (at.industry && at.online) ||
-    (at.profession && at.online)
+    (at.profession && at.online) ||
+    at.mbl
 
   const infoRectangleContent = {
     programInfo: [
@@ -30,6 +31,8 @@ const InfoRectangle = ({ programPage = false, type = null, format = null }) => {
           ? SetString(langMenu.formatBlended)
           : at.executive
           ? SetString(langMenu.formatExecutive)
+          : at.mbl
+          ? SetString(langMenu.formatRemote)
           : ''
       },
       {

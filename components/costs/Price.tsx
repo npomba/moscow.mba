@@ -26,6 +26,9 @@ const Price = ({
       profession: {
         online: '70 000'
       },
+      mbl: {
+        online: '289 000'
+      },
       executive: '1 400 000'
     },
     discounted: {
@@ -40,6 +43,9 @@ const Price = ({
       },
       profession: {
         online: '39 000'
+      },
+      mbl: {
+        online: '159 000'
       },
       executive: '1 400 000'
     }

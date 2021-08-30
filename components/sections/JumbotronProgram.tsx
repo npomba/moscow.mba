@@ -19,7 +19,8 @@ const JumbotronProgram = ({ data }) => {
     (at.mini && at.online) ||
     (at.professional && at.online) ||
     (at.industry && at.online) ||
-    (at.profession && at.online)
+    (at.profession && at.online) ||
+    at.mbl
 
   return (
     <section className={stls.container}>
@@ -34,7 +35,7 @@ const JumbotronProgram = ({ data }) => {
         <div className={stls.content}>
           <Breadcrumbs programChunkData={data} />
           <div className={stls.contentTop}>
-            {at.online && (
+            {(at.online || at.mbl) && (
               <div
                 className={classNames(stls.discountSticker, stls.leftCorner)}>
                 <div className={stls.discountAmount}>

@@ -26,6 +26,9 @@ const Loan = ({
       },
       profession: {
         online: '6 000'
+      },
+      mbl: {
+        online: '24 000'
       }
     },
     loanDiscounted: {
@@ -40,6 +43,9 @@ const Loan = ({
       },
       profession: {
         online: '3 250'
+      },
+      mbl: {
+        online: '13 250'
       }
     }
   }

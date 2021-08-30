@@ -285,7 +285,18 @@ const Header = ({ programs }) => {
                   </li>
                   <li>
                     <Link href='/programs/profession/online' locale='ru'>
-                      <a onClick={handleMenuClose}>Профессии</a>
+                      <a onClick={handleMenuClose}>
+                        {SetString(langMenu.professions)}
+                      </a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href='/programs/international-business-law'
+                      locale='ru'>
+                      <a onClick={handleMenuClose}>
+                        {SetString(langMenu.internationalBusinessLaw)}
+                      </a>
                     </Link>
                   </li>
                   <li>
@@ -296,13 +307,6 @@ const Header = ({ programs }) => {
                     </Link>
                   </li>
                 </ul>
-                <div className='header-podmenu-premium'>
-                  <Link href='/programs/international-business-law' locale='ru'>
-                    <a onClick={handleMenuClose}>
-                      {SetString(langMenu.internationalBusinessLaw)}
-                    </a>
-                  </Link>
-                </div>
                 <div className='header-podmenu-premium'>
                   <div className='label'>
                     <span>Premium</span>

@@ -13,7 +13,10 @@ const JumbotronLabel = () => {
     ? 'Профессия'
     : at.executive
     ? 'Executive MBA'
+    : at.mbl
+    ? 'Industry MBA'
     : ''
+
   return (
     <span>
       {at.online
@@ -22,6 +25,8 @@ const JumbotronLabel = () => {
         ? `${txt} BLENDED`
         : at.executive
         ? txt
+        : at.mbl
+        ? `${txt} ONLINE`
         : ''}
     </span>
   )

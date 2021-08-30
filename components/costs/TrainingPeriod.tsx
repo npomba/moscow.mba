@@ -26,6 +26,11 @@ const TrainingPeriod = ({ type = null }) => {
           26 {SetString(langMenu.months, false, getStringDeclensionNumber(26))}
         </>
       )}
+      {type === 'mbl' && (
+        <>
+          18 {SetString(langMenu.months, false, getStringDeclensionNumber(26))}
+        </>
+      )}
     </>
   )
 }

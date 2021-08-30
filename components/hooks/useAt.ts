@@ -88,6 +88,10 @@ const useAt = () => {
     return getSplitedPath[2] === 'blended'
   }
 
+  const mbl = () => {
+    return getSplitedPath[1] === 'international-business-law'
+  }
+
   const programChunk = () => {
     return getProgramTitle ? true : false
   }
@@ -127,6 +131,7 @@ const useAt = () => {
     webinarsIndex: webinarsIndex(),
     articles: articles(),
     contact: contact(),
+    mbl: mbl(),
     programChunk: programChunk(),
     getSplitedPath,
     onWhichPage: onWhichPage()

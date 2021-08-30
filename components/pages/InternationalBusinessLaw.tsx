@@ -26,7 +26,7 @@ const PageOnlineProgram = () => {
 
   const data = {
     _id: '03067005-fa44-4c28-87bb-3d893fd93fdf',
-    title: 'Магистр Международного права',
+    title: 'Магистр Международного Права',
     goalsOfProgram: (
       <>
         Курс подходит как специалистам, желающим после его окончания занять
@@ -58,7 +58,7 @@ const PageOnlineProgram = () => {
       'Получите навыки soft skills необходимые для профессиональной деятельности юриста'
     ],
     mbaFormat: 'online',
-    mbaTypeOfProgram: 'international-business-law',
+    mbaTypeOfProgram: 'mbl',
     specializedSubjects: [],
     picture: 'bg-header-9.jpg'
   }
