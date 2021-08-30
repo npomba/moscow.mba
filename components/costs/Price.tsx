@@ -12,8 +12,8 @@ const Price = ({
   const price = {
     regular: {
       mini: {
-        online: '143 500',
-        blended: '159 500'
+        online: '162 000',
+        blended: '172 000'
       },
       professional: {
         online: '289 000',
@@ -33,7 +33,7 @@ const Price = ({
     },
     discounted: {
       mini: {
-        online: '79 000'
+        online: '89 000'
       },
       professional: {
         online: '159 000'
