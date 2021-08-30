@@ -27,8 +27,7 @@
   & a
     display: flex
     align-items: center
-    &:not(:last-child)
-      margin-bottom: 20px
+    margin-bottom: 20px
     &.inactiveLink
       opacity: .4
       cursor: not-allowed
@@ -49,8 +48,7 @@
   font-family: inherit
   font-weight: inherit
   cursor: pointer
-  &:not(:last-child)
-    margin-bottom: 20px
+  margin-bottom: 20px
   &:hover
     .circle
       border-color: #ff3535
@@ -85,11 +83,16 @@
   font-weight: 500
   font-size: 16px
   line-height: 120%
+  margin-bottom: 0
   transition: color 0.3s ease-in-out
   &:hover
     color: #ff3535
     & .premium
       border-color: #ff3535
+
+a.mbl
+  margin-top: 11px
+  margin-bottom: 13px
 
 .premium
   border: 1px solid

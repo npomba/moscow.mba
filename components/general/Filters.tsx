@@ -66,6 +66,15 @@ const Filters = ({
             </a>
           </Link>
 
+          <Link href='/programs/international-business-law' locale='ru'>
+            <a
+              className={classNames({
+                [stls.highlight]: true,
+                [stls.mbl]: true
+              })}>
+              MBL
+            </a>
+          </Link>
           <Link href='/programs/executive' locale='ru'>
             <a className={stls.highlight}>
               Executive MBA <span className={stls.premium}>Premium</span>
