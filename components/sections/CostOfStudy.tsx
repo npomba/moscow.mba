@@ -146,33 +146,36 @@ const CostOfStudy = ({
                   : at.executive
                   ? 'executive'
                   : at.mbl
-                  ? 'industry'
+                  ? 'mbl'
                   : null
               }
               subjects={'base'}
             />{' '}
-            дисциплин об управлении
+            {!at.mbl ? 'дисциплин об управлении' : 'дисциплина'}
           </li>
-          <li className={stls.listItem}>
-            <ProgramSubjects
-              type={
-                at.mini
-                  ? 'mini'
-                  : at.professional
-                  ? 'professional'
-                  : at.industry
-                  ? 'industry'
-                  : at.executive
-                  ? 'executive'
-                  : at.mbl
-                  ? 'industry'
-                  : null
-              }
-              subjects={'specialty'}
-            />{' '}
-            дисциплин специализации
-          </li>
-          {!at.online && (
+          {!at.mbl && (
+            <li className={stls.listItem}>
+              <ProgramSubjects
+                type={
+                  at.mini
+                    ? 'mini'
+                    : at.professional
+                    ? 'professional'
+                    : at.industry
+                    ? 'industry'
+                    : at.executive
+                    ? 'executive'
+                    : at.mbl
+                    ? 'industry'
+                    : null
+                }
+                subjects={'specialty'}
+              />{' '}
+              дисциплин специализации
+            </li>
+          )}
+
+          {!at.online && !at.mbl && (
             <li className={stls.listItem}>3 выездных модуля в Москве</li>
           )}
         </ul>
@@ -230,6 +233,8 @@ const CostOfStudy = ({
                 ? 'MBA Industry'
                 : at.executive
                 ? 'MBA Executive'
+                : at.mbl
+                ? 'MBA Industry'
                 : ''}
             </div>
           )}

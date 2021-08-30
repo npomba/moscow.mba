@@ -103,7 +103,8 @@ const useAt = () => {
       industry: industry(),
       profession: profession(),
       executive: executive(),
-      promo: promo()
+      promo: promo(),
+      mbl: mbl()
     }
 
     for (const [key, value] of Object.entries(typesOfPages)) {

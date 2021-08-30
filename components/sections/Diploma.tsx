@@ -70,8 +70,8 @@ const getProgramDiplomaImage = typeOfPage => {
 
 const Diploma = ({ darkBackground = false }) => {
   const at = useAt()
-  const typeOfPage = at.onWhichPage
-  const atPrograms = at.mini || at.professional || at.industry
+  const typeOfPage = at.mbl ? 'industry' : at.onWhichPage
+  const atPrograms = at.mini || at.professional || at.industry || at.mbl
 
   const [currentDiploma, setCurrentDiploma] = useState(0)
 
@@ -121,11 +121,11 @@ const Diploma = ({ darkBackground = false }) => {
       <div className={stls.content}>
         <h2>{at.profession ? 'Ваши будущие дипломы' : 'Ваш будущий диплом'}</h2>
         <div className={stls.desc}>
-          {at.mini || at.professional || at.industry || at.promo
+          {at.mini || at.professional || at.industry || at.promo || at.mbl
             ? 'Международный диплом установленного образца с присвоением степени «Мастер делового администрирования» с европейским приложением'
             : 'Мы производим обучение на основании государственной лицензии №041221. Вы получите диплом о профессиональной переподготовке и сертификат академии, которые можно добавить в портфолио и показать работодателю.'}
         </div>
-        {(at.online || at.promo) && (
+        {(at.online || at.promo || at.mbl) && (
           <div className={stls.note}>
             Диплом {atPrograms ? 'MBA Online' : 'дистанционных'}{' '}
             {!atPrograms && 'программ'} не отличается от дипломов очных программ
