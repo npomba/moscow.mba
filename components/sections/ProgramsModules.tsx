@@ -12,7 +12,7 @@ const ProgramsModules = ({ data, smallerMb = false }) => {
 
   const generateProfessionModules = () => {
     const professionModules = []
-    const subjects = data.specializedSubjects
+    const subjects = data.specializedSubjects || []
     let numberOfSubjects = subjects.length
     let currentSubjectIndex = 0
 
@@ -53,7 +53,11 @@ const ProgramsModules = ({ data, smallerMb = false }) => {
         <ul className={stls.redRectangle}>
           <li className={stls.redItem}>
             <div className={stls.number}>
-              <ProgramSubjects subjects='base' />
+              {at.mini && !data.specializedSubjects ? (
+                data.baseSubjects.length
+              ) : (
+                <ProgramSubjects subjects='base' />
+              )}
             </div>
             <p className={stls.p}>
               {at.profession
@@ -65,14 +69,23 @@ const ProgramsModules = ({ data, smallerMb = false }) => {
           </li>
           <li className={stls.redItem}>
             <div className={stls.number}>
-              {!at.profession && !at.mbl && (
+              {!at.profession && !at.mbl && data.specializedSubjects && (
                 <ProgramSubjects subjects='specialty' />
               )}
-              {(at.profession || at.mbl) && <IconCheckCircleAltDim />}
+              {(at.profession ||
+                at.mbl ||
+                (at.mini && !data.specializedSubjects)) && (
+                <IconCheckCircleAltDim />
+              )}
             </div>
             <p className={stls.p}>
-              {!at.profession && !at.mbl && 'дисциплин специализации'}
-              {(at.profession || at.mbl) &&
+              {!at.profession &&
+                !at.mbl &&
+                data.specializedSubjects &&
+                'дисциплин специализации'}
+              {(at.profession ||
+                at.mbl ||
+                (at.mini && !data.specializedSubjects)) &&
                 'Практика и защита дипломной работы'}
             </p>
           </li>
@@ -82,7 +95,7 @@ const ProgramsModules = ({ data, smallerMb = false }) => {
         </h3>
       </div>
       <div className={stls.list}>
-        {at.mini && (
+        {at.mini && data.specializedSubjects && (
           <>
             <ProgramsModule
               title='1 модуль'
@@ -108,6 +121,22 @@ const ProgramsModules = ({ data, smallerMb = false }) => {
             />
           </>
         )}
+
+        {at.mini && !data.specializedSubjects && (
+          <>
+            <ProgramsModule
+              title='1 модуль'
+              subTitle=''
+              items={data.baseSubjects.filter((item, idx) => idx < 8)}
+            />
+            <ProgramsModule
+              title='2 модуль'
+              subTitle=''
+              items={data.baseSubjects.filter((item, idx) => idx >= 8)}
+            />
+          </>
+        )}
+
         {(at.industry || at.professional) && (
           <>
             <ProgramsModule
@@ -204,20 +233,27 @@ const ProgramsModules = ({ data, smallerMb = false }) => {
             <ProgramsModule
               title='1 модуль'
               subTitle=''
-              items={data.specializedSubjects.filter((item, idx) => idx < 7)}
+              items={
+                data.specializedSubjects &&
+                data.specializedSubjects.filter((item, idx) => idx < 7)
+              }
             />
             <ProgramsModule
               title='2 модуль'
               subTitle=''
-              items={data.specializedSubjects.filter((item, idx) => idx >= 7)}
+              items={
+                data.specializedSubjects &&
+                data.specializedSubjects.filter((item, idx) => idx >= 7)
+              }
             />
           </>
         )}
       </div>
       <div className={stls.pl}>
-        {!at.executive && !at.profession && !at.mbl && (
-          <h3 className={stls.h3}>Специализированные дисциплины</h3>
-        )}
+        {(!at.executive && !at.profession && !at.mbl) ||
+          (at.mini && !data.specializedSubjects && (
+            <h3 className={stls.h3}>Специализированные дисциплины</h3>
+          ))}
       </div>
       <div className={stls.list}>
         {(at.industry || at.professional) && (
@@ -225,12 +261,18 @@ const ProgramsModules = ({ data, smallerMb = false }) => {
             <ProgramsModule
               title='1 модуль'
               subTitle=''
-              items={data.specializedSubjects.filter((item, idx) => idx < 5)}
+              items={
+                data.specializedSubjects &&
+                data.specializedSubjects.filter((item, idx) => idx < 5)
+              }
             />
             <ProgramsModule
               title='2 модуль'
               subTitle=''
-              items={data.specializedSubjects.filter((item, idx) => idx >= 5)}
+              items={
+                data.specializedSubjects &&
+                data.specializedSubjects.filter((item, idx) => idx >= 5)
+              }
             />
           </>
         )}
@@ -328,12 +370,15 @@ const ProgramsModules = ({ data, smallerMb = false }) => {
           </>
         )}
 
-        {at.mini && at.online && (
+        {at.mini && at.online && data.specializedSubjects && (
           <>
             <ProgramsModule
               title='1 модуль'
               subTitle=''
-              items={data.specializedSubjects.filter((item, idx) => idx <= 5)}
+              items={
+                data.specializedSubjects &&
+                data.specializedSubjects.filter((item, idx) => idx <= 5)
+              }
             />
             <ProgramsModule
               title='Практика'
@@ -347,12 +392,15 @@ const ProgramsModules = ({ data, smallerMb = false }) => {
             />
           </>
         )}
-        {at.mini && at.blended && (
+        {at.mini && at.blended && data.specializedSubjects && (
           <>
             <ProgramsModule
               title='1 модуль'
               subTitle=''
-              items={data.specializedSubjects.filter((item, idx) => idx <= 5)}
+              items={
+                data.specializedSubjects &&
+                data.specializedSubjects.filter((item, idx) => idx <= 5)
+              }
             />
             <ProgramsModule
               title='Очный модуль'
@@ -386,7 +434,9 @@ const ProgramsModules = ({ data, smallerMb = false }) => {
             />
           </>
         )}
-        {((!at.profession && at.online && !at.mini) || at.mbl) && (
+        {((!at.profession && at.online && !at.mini) ||
+          at.mbl ||
+          (at.mini && !data.specializedSubjects)) && (
           <Stickers>
             <Sticker
               type={'short'}
@@ -407,7 +457,7 @@ const ProgramsModules = ({ data, smallerMb = false }) => {
             />
           </Stickers>
         )}
-        {!at.profession && at.online && at.mini && (
+        {!at.profession && at.online && at.mini && data.specializedSubjects && (
           <Sticker
             type={'long'}
             clr={'light'}
@@ -431,7 +481,7 @@ const ProgramsModules = ({ data, smallerMb = false }) => {
             ]}
           />
         )}
-        {!at.profession && at.blended && at.mini && (
+        {!at.profession && at.blended && at.mini && data.specializedSubjects && (
           <Stickers>
             <Sticker
               type={'short'}

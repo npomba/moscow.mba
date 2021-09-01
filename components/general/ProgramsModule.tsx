@@ -28,11 +28,12 @@ const ProgramsModule = ({
         })}>
         {subTitle && <h4 className={stls.title}>{subTitle}</h4>}
         <ul className={stls.list}>
-          {items.map((item, idx) => (
-            <li key={idx} className={stls.listItem}>
-              {item}
-            </li>
-          ))}
+          {items &&
+            items.map((item, idx) => (
+              <li key={idx} className={stls.listItem}>
+                {item}
+              </li>
+            ))}
         </ul>
       </div>
     </div>
