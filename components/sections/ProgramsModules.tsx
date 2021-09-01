@@ -60,7 +60,7 @@ const ProgramsModules = ({ data, smallerMb = false }) => {
               )}
             </div>
             <p className={stls.p}>
-              {at.profession
+              {at.profession || (at.mini && !data.specializedSubjects)
                 ? 'профильных дисциплин'
                 : at.mbl
                 ? 'дисциплина'
@@ -91,7 +91,11 @@ const ProgramsModules = ({ data, smallerMb = false }) => {
           </li>
         </ul>
         <h3 className={stls.h3}>
-          {!at.executive && !at.profession && !at.mbl && 'Базовые дисциплины'}
+          {!at.executive &&
+            !at.profession &&
+            !at.mbl &&
+            data.specializedSubjects &&
+            'Базовые дисциплины'}
         </h3>
       </div>
       <div className={stls.list}>
