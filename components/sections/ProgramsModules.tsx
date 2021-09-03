@@ -254,10 +254,10 @@ const ProgramsModules = ({ data, smallerMb = false }) => {
         )}
       </div>
       <div className={stls.pl}>
-        {(!at.executive && !at.profession && !at.mbl) ||
-          (at.mini && !data.specializedSubjects && (
-            <h3 className={stls.h3}>Специализированные дисциплины</h3>
-          ))}
+        {((!at.executive && !at.profession && !at.mbl) ||
+          (at.mini && !data.specializedSubjects)) && (
+          <h3 className={stls.h3}>Специализированные дисциплины</h3>
+        )}
       </div>
       <div className={stls.list}>
         {(at.industry || at.professional) && (
