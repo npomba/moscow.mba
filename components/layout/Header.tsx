@@ -26,7 +26,6 @@ import {
   IconClock,
   IconMobilePhone
 } from '@/components/icons'
-import Image from 'next/image'
 import ProgramsColumn from '@/components/general/ProgramsColumn'
 import Discount from '@/components/costs/Discount'
 import { ImgLogoRabo, ImgLogoMde } from '@/components/images'
