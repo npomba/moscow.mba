@@ -30,6 +30,7 @@ import {
 import Image from 'next/image'
 import ProgramsColumn from '@/components/general/ProgramsColumn'
 import Discount from '@/components/costs/Discount'
+import { ImgLogoRabo } from '@/components/images'
 
 const Header = ({ programs }) => {
   let data = programs || []
@@ -120,6 +121,7 @@ const Header = ({ programs }) => {
                   width={117}
                   height={30}
                 />
+                {/* <ImgLogoRabo /> */}
               </span>
               <span className='dep'>
                 <Image

@@ -14,6 +14,9 @@ type ImgLogoRaboType = {
 const ImgLogoRabo = ({ classNames = [], width, height }: ImgLogoRaboType) => {
   const container = getClassNames({ classNames })
 
+  // const pic =
+  //   'https://res.cloudinary.com/npomba/image/upload/v1631616737/static/logo-rabo_yh7qz7.png'
+
   return (
     <div className={classnames([stls.container], container)}>
       <Image
