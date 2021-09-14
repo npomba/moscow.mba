@@ -30,7 +30,7 @@ import {
 import Image from 'next/image'
 import ProgramsColumn from '@/components/general/ProgramsColumn'
 import Discount from '@/components/costs/Discount'
-import { ImgLogoRabo } from '@/components/images'
+import { ImgLogoRabo, ImgLogoMde } from '@/components/images'
 
 const Header = ({ programs }) => {
   let data = programs || []
@@ -115,21 +115,10 @@ const Header = ({ programs }) => {
             </Link>
             <div className='header-logos'>
               <span className='rabo'>
-                <Image
-                  src='/assets/images/general/logo-rabo.png'
-                  alt='Российская ассоциация бизнес-образования'
-                  width={117}
-                  height={30}
-                />
-                {/* <ImgLogoRabo /> */}
+                <ImgLogoRabo />
               </span>
               <span className='dep'>
-                <Image
-                  src='/assets/images/logo_department.png'
-                  alt='Департамент образования города Москва'
-                  width={105}
-                  height={31}
-                />
+                <ImgLogoMde />
               </span>
             </div>
             <div className='header-place'>
@@ -433,20 +422,10 @@ const Header = ({ programs }) => {
               </ul>
               <div className='header-logos'>
                 <span className='rabo'>
-                  <Image
-                    src='/assets/images/general/logo-rabo.png'
-                    alt='Российская ассоциация бизнес-образования'
-                    width={117}
-                    height={30}
-                  />
+                  <ImgLogoRabo />
                 </span>
                 <span className='dep'>
-                  <Image
-                    src='/assets/images/logo_department.png'
-                    alt='Департамент образования города Москва'
-                    width={105}
-                    height={31}
-                  />
+                  <ImgLogoMde />
                 </span>
               </div>
               <div className='header-place'>

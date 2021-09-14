@@ -5,10 +5,10 @@ const dev = process.env.NODE_ENV !== 'production'
 // module.exports = withPWA({})
 
 module.exports = {
-  pwa: {
-    dest: 'public',
-    disable: dev
-  },
+  // pwa: {
+  //   dest: 'public',
+  //   disable: dev
+  // },
   // reactStrictMode: true,
   poweredByHeader: false,
   i18n: {
@@ -162,3 +162,4 @@ module.exports = {
   //   ]
   // },
 }
+// )
