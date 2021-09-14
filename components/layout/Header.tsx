@@ -115,7 +115,7 @@ const Header = ({ programs }) => {
             <div className='header-logos'>
               <span className='rabo'>
                 <Image
-                  src='/assets/images/logo_rabo.png'
+                  src='/assets/images/general/logo-rabo.png'
                   alt='Российская ассоциация бизнес-образования'
                   width={117}
                   height={30}
@@ -432,7 +432,7 @@ const Header = ({ programs }) => {
               <div className='header-logos'>
                 <span className='rabo'>
                   <Image
-                    src='/assets/images/logo_rabo.png'
+                    src='/assets/images/general/logo-rabo.png'
                     alt='Российская ассоциация бизнес-образования'
                     width={117}
                     height={30}
