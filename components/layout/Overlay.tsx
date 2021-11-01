@@ -1,7 +1,7 @@
 import stls from '@/styles/components/layout/Overlay.module.sass'
 
-const Overlay = ({ handleAskQuestionFormClose }) => (
-  <div className={stls.overlay} onClick={handleAskQuestionFormClose}></div>
+const Overlay = ({ close }) => (
+  <div className={stls.container} onClick={close}></div>
 )
 
 export default Overlay

@@ -1,0 +1,119 @@
+@use '@/styles/utils/mixin' as m;
+
+.content {
+  display: flex;
+
+  .icon {
+    position: relative;
+    svg {
+      cursor: pointer;
+      position: absolute;
+      top: -4px;
+      right: -4px;
+    }
+  }
+}
+
+.overlay {
+  display: none;
+  // position: relative;
+  // z-index: 5;
+  @include m.media(phone) {
+    &.isOpen {
+      display: block;
+    }
+  }
+}
+
+.content__popup {
+  display: flex;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 0;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 480px) {
+    padding: 30px;
+    display: block;
+    .content__icon {
+      margin: 0 0 15px 0;
+    }
+  }
+  .content__icon {
+    margin-right: 19px;
+    width: 25px;
+    svg {
+      width: 25px;
+      height: 25px;
+    }
+  }
+  .content__inner {
+    p {
+      font-size: 16px;
+      line-height: 19px;
+      font-weight: 500;
+
+      @media (max-width: 480px) {
+        font-size: 13px;
+        line-height: 15px;
+      }
+      &:nth-child(1) {
+        margin-bottom: 33px;
+      }
+      &:nth-child(2) {
+        margin-bottom: 9px;
+      }
+      span {
+        font-weight: 300;
+      }
+    }
+  }
+
+  .content__list {
+    li {
+      padding: 0 0 0 15px;
+      margin: 10px 0 0 0;
+      position: relative;
+      &:before {
+        content: '';
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        background-color: red;
+        border-radius: 50%;
+        left: 0;
+        top: 5px;
+      }
+    }
+  }
+}
+
+.test {
+  // background-color: #fff;
+  // padding: 20px;
+  // border-radius: 0;
+  // box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  width: 100% !important;
+  max-width: 448px;
+  transform: translate(-200px, 170px);
+  box-shadow: none !important;
+  animation: anvilTooltip 0.3s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
+  @include m.media(phone) {
+    position: fixed !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    left: 0 !important;
+  }
+}
+
+@keyframes anvilTooltip {
+  0% {
+    opacity: 0;
+  }
+  1% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

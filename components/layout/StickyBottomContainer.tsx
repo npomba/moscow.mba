@@ -28,7 +28,7 @@ const StickyBottomContainer = () => {
     <div className={containerClasses.join(' ')}>
       {clickedAsk ? (
         <>
-          <Overlay handleAskQuestionFormClose={handleAskQuestionFormClose} />
+          <Overlay close={handleAskQuestionFormClose} />
           <AskQuestionForm
             handleAskQuestionFormClose={handleAskQuestionFormClose}
           />
