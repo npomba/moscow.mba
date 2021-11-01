@@ -5,9 +5,9 @@ import SetString from '@/components/hooks/SetString'
 import lang from '@/data/translation/header'
 import ContactCards from '@/components/general/ContactCards'
 import contactData from '@/data/contactData'
-import { apiProgramsReqUrl, backendUrl } from '@/config/index'
 import Breadcrumbs from '@/components/general/Breadcrumbs'
 import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
+import { fetchPrograms, createBlended } from '@/helpers/index'
 
 const contact = ({ programs }) => {
   const contactInfo = contactData()
@@ -50,12 +50,12 @@ const contact = ({ programs }) => {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(`${backendUrl}${apiProgramsReqUrl}`)
-  const { data } = await res.json()
+  const programs = await fetchPrograms()
+  const programsWithBlended = createBlended(programs)
 
   return {
     props: {
-      programs: data
+      programs: programsWithBlended
     }
   }
 }

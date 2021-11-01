@@ -14,7 +14,7 @@ import ContactUs from '@/components/sections/ContactUs'
 import SetString from '@/components/hooks/SetString'
 import lang from '@/data/translation/about'
 import langIndex from '@/data/translation/index'
-import { apiProgramsReqUrl, backendUrl } from '@/config/index'
+import { fetchPrograms, createBlended } from '@/helpers/index'
 
 const about = ({ programs }) => {
   return (
@@ -43,12 +43,12 @@ const about = ({ programs }) => {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(`${backendUrl}${apiProgramsReqUrl}`)
-  const { data } = await res.json()
+  const programs = await fetchPrograms()
+  const programsWithBlended = createBlended(programs)
 
   return {
     props: {
-      programs: data
+      programs: programsWithBlended
     }
   }
 }

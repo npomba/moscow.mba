@@ -1,6 +1,6 @@
 import stls from '@/styles/pages/legal/Index.module.sass'
 import { NextSeo } from 'next-seo'
-import { backendUrl, apiProgramsReqUrl } from '@/config/index'
+import { fetchPrograms, createBlended } from '@/helpers/index'
 import Breadcrumbs from '@/components/general/Breadcrumbs'
 import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
 import CurrentLicenses from '@/components/sections/CurrentLicenses'
@@ -40,8 +40,8 @@ const legal = ({ programs }) => {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(`${backendUrl}${apiProgramsReqUrl}`)
-  const { data } = await res.json()
+  const programs = await fetchPrograms()
+  const programsWithBlended = createBlended(programs)
 
   return {
     props: {

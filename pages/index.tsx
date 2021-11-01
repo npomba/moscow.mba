@@ -14,9 +14,6 @@ import Executive from '@/components/sections/Executive'
 import ContactUs from '@/components/sections/ContactUs'
 import { fetchPrograms, createBlended } from '@/helpers/index'
 
-// import Lang from '../components/hooks/Lang'
-//
-
 const Home = ({ programs }) => {
   console.log(programs)
   return (
@@ -38,10 +35,8 @@ const Home = ({ programs }) => {
         <ForeignAffiliates />
         <StudentsInternational />
         <CorporateClients />
-
         <Programs programs={programs} />
         <Executive />
-
         <ContactUs />
       </div>
       test

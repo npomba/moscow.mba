@@ -68,7 +68,7 @@ const Form = ({
   }
 
   return (
-    <div id='teachersModal' className='popup-modal mfp-hide mfp-with-anim'>
+    <div id='teachersModal' className='popup-modal'>
       <Popup open={openLoader} onClose={closeLoadingModal}>
         <PopupLoader closePopUp={closeLoadingModal} />
       </Popup>

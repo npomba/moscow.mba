@@ -2,7 +2,7 @@ import stls from '@/styles/pages/promo/Index.module.sass'
 import SetString from '@/components/hooks/SetString'
 import lang from '@/data/translation/index'
 import { NextSeo } from 'next-seo'
-import { backendUrl, apiProgramsReqUrl } from '@/config/index'
+import { fetchPrograms, createBlended } from '@/helpers/index'
 import JumbotronCta from '@/components/sections/JumbotronCta'
 import WhatWillYouLearn from '@/components/sections/WhatWillYouLearn'
 import CourseOptions from '@/components/sections/CourseOptions'
@@ -73,8 +73,8 @@ const promo = ({ programs }) => {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(`${backendUrl}${apiProgramsReqUrl}`)
-  const { data } = await res.json()
+  const programs = await fetchPrograms()
+  const programsWithBlended = createBlended(programs)
 
   return {
     props: {
