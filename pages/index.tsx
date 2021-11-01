@@ -12,12 +12,13 @@ import CorporateClients from '@/components/sections/CorporateClients'
 import Programs from '@/components/sections/Programs'
 import Executive from '@/components/sections/Executive'
 import ContactUs from '@/components/sections/ContactUs'
-import { apiProgramsReqUrl, backendUrl } from '@/config/index'
+import { fetchPrograms, createBlended } from '@/helpers/index'
 
 // import Lang from '../components/hooks/Lang'
 //
 
 const Home = ({ programs }) => {
+  console.log(programs)
   return (
     <>
       <NextSeo
@@ -30,9 +31,7 @@ const Home = ({ programs }) => {
         )}
         canonical={'https://moscow.mba/'}
       />
-
       <JumbotronCta />
-
       <div className={stls.generalContainer}>
         <About />
         <ConferencesInEurope />
@@ -45,17 +44,18 @@ const Home = ({ programs }) => {
 
         <ContactUs />
       </div>
+      test
     </>
   )
 }
 
 export async function getStaticProps() {
-  const res = await fetch(`${backendUrl}${apiProgramsReqUrl}`)
-  const { data } = await res.json()
+  const programs = await fetchPrograms()
+  const programsWithBlended = createBlended(programs)
 
   return {
     props: {
-      programs: data
+      programs: programsWithBlended
     }
   }
 }
