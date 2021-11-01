@@ -1,8 +1,8 @@
 import stls from '@/styles/components/general/ProgramsQty.module.sass'
 import classNames from 'classnames'
-import setString from '@/components/hooks/SetString'
+import { SetString } from '@/helpers/index'
 import langMenu from '@/data/translation/menu'
-import { getStringDeclensionNumber } from '@/components/utils/'
+import { getStringDeclensionNumber } from '@/helpers/index'
 
 const ProgramsQty = ({
   programs,
@@ -25,7 +25,7 @@ const ProgramsQty = ({
         [stls.headerContainer]: isInsideHeader
       })}>
       <span>{ProgramsQty} </span>
-      {setString(
+      {SetString(
         langMenu.qtPrograms,
         false,
         getStringDeclensionNumber(ProgramsQty)

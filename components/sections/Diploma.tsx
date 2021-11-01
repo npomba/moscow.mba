@@ -1,7 +1,7 @@
 import stls from '@/styles/components/sections/Diploma.module.sass'
 import classNames from 'classnames'
 import { useState } from 'react'
-import useAt from '@/components/hooks/useAt'
+import { useAt } from '@/helpers/index'
 import Pagination from '@/components/general/Pagination'
 import Image from 'next/image'
 import { base64pixel } from '@/config/index'

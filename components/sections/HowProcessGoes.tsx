@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { useState } from 'react'
 import studentPhoto from '@/public/assets/images/student-using-laptop.jpg'
 import Image from 'next/image'
-import useAt from '@/components/hooks/useAt'
+import { useAt } from '@/helpers/index'
 
 const HowProcessGoes = () => {
   const [activeStep, setActiveStep] = useState(0)

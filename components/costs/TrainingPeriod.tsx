@@ -1,6 +1,6 @@
-import SetString from '@/components/hooks/SetString'
+import { SetString } from '@/helpers/index'
 import langMenu from '@/data/translation/months'
-import { getStringDeclensionNumber } from '@/components/utils'
+import { getStringDeclensionNumber } from '@/helpers/index'
 
 const TrainingPeriod = ({ type = null }) => {
   return (

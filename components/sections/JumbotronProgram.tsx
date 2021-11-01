@@ -9,7 +9,7 @@ import JumbotronLabel from '@/components/general/JumbotronLabel'
 import PopupForm from '@/components/popups/PopupForm'
 import InfoRectangle from '@/components/general/InfoRectangle'
 import Discount from '@/components/costs/Discount'
-import useAt from '@/components/hooks/useAt'
+import { useAt } from '@/helpers/index'
 import { IconCheckCircleAlt } from '@/components/icons'
 import Loan from '@/components/costs/Loan'
 

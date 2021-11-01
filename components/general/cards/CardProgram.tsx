@@ -2,8 +2,8 @@ import stls from '@/styles/components/general/cards/CardProgram.module.sass'
 import Link from 'next/link'
 import Price from '@/components/costs/Price'
 import { IconArrowTopRight } from '@/components/icons'
-import { getStringDeclensionNumber } from '@/components/utils'
-import SetString from '@/components/hooks/SetString'
+import { getStringDeclensionNumber } from '@/helpers/index'
+import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/months'
 
 const CardProgram = ({ professionLayout, program, number, type, format }) => {

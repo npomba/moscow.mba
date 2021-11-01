@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/Pros.module.sass'
 import classNames from 'classnames'
-import useAt from '@/components/hooks/useAt'
+import { useAt } from '@/helpers/index'
 import Image from 'next/image'
 import { IconCheck } from '@/components/icons'
 

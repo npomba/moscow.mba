@@ -1,6 +1,6 @@
 import stls from '@/styles/components/general/Breadcrumbs.module.sass'
 import BreadcrumbItem from '@/components/general/BreadcrumbItem'
-import useAt from '@/components/hooks/useAt'
+import { useAt } from '@/helpers/index'
 import { useRouter } from 'next/router'
 
 const mainRoutes = [

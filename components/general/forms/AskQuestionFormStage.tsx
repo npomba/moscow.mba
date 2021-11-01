@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import TagManager from 'react-gtm-module'
 import ContactButton from '@/components/btns/ContactButton'
 import { v4 as uuidv4 } from 'uuid'
-import useAt from '@/components/hooks/useAt'
+import { useAt } from '@/helpers/index'
 
 import {
   IconArrowLeft,

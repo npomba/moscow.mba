@@ -1,5 +1,5 @@
 import stls from '@/styles/pages/promo/Index.module.sass'
-import SetString from '@/components/hooks/SetString'
+import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/index'
 import { NextSeo } from 'next-seo'
 import { fetchPrograms, createBlended } from '@/helpers/index'
@@ -78,7 +78,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      programs: data
+      programs: programsWithBlended
     }
   }
 }

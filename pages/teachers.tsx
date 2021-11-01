@@ -3,7 +3,8 @@ import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import Teachers from '../components/sections/Teachers'
-import { apiProgramsReqUrl, backendUrl } from '@/config/index'
+import { fetchPrograms, createBlended } from '@/helpers/index'
+
 import Breadcrumbs from '@/components/general/Breadcrumbs'
 
 const teachers = ({ programs }) => {
@@ -30,12 +31,12 @@ const teachers = ({ programs }) => {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(`${backendUrl}${apiProgramsReqUrl}`)
-  const { data } = await res.json()
+  const programs = await fetchPrograms()
+  const programsWithBlended = createBlended(programs)
 
   return {
     props: {
-      programs: data
+      programs: programsWithBlended
     }
   }
 }

@@ -137,7 +137,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      programs: data
+      programs: programsWithBlended
     }
   }
 }

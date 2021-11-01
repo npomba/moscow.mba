@@ -1,5 +1,5 @@
 import stls from '@/styles/components/costs/Price.module.sass'
-import useAt from '@/components/hooks/useAt'
+import { useAt } from '@/helpers/index'
 
 const Price = ({
   discount = false,

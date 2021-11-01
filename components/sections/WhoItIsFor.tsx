@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/WhoItIsFor.module.sass'
 import classNames from 'classnames'
-import useAt from '@/components/hooks/useAt'
+import { useAt } from '@/helpers/index'
 import WhoItIsForItem from '@/components/general/WhoItIsForItem'
 
 const WhoItIsFor = ({ data: { suitsForTitle, suitsForDesc, title } }) => {

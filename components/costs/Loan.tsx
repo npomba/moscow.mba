@@ -1,5 +1,5 @@
 import stls from '@/styles/components/costs/Loan.module.sass'
-import useAt from '@/components/hooks/useAt'
+import { useAt } from '@/helpers/index'
 
 const Loan = ({
   discount = false,

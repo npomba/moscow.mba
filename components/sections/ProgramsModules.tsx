@@ -1,10 +1,10 @@
 import stls from '@/styles/components/sections/ProgramsModules.module.sass'
 import classNames from 'classnames'
-import useAt from '@/components/hooks/useAt'
+import { useAt } from '@/helpers/index'
 import ProgramsModule from '@/components/general/ProgramsModule'
 import Stickers from '@/components/general/Stickers'
 import Sticker from '@/components/general/Sticker'
-import ProgramSubjects from '@/components/hooks/ProgramSubjects'
+import ProgramSubjects from '@/components/general/ProgramSubjects'
 import { IconCheckCircleAltDim } from '@/components/icons'
 
 const ProgramsModules = ({ data, smallerMb = false }) => {

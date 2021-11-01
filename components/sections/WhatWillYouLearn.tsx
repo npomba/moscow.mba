@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/WhatWillYouLearn.module.sass'
 import classNames from 'classnames'
-import useAt from '@/components/hooks/useAt'
+import { useAt } from '@/helpers/index'
 import Image from 'next/image'
 import { base64pixel } from '@/config/index'
 

@@ -1,7 +1,7 @@
 import stls from '@/styles/components/general/Filters.module.sass'
 import classNames from 'classnames'
 import Link from 'next/link'
-import useAt from '@/components/hooks/useAt'
+import { useAt } from '@/helpers/index'
 import Discount from '@/components/costs/Discount'
 
 const Filters = ({

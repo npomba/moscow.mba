@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/Students.module.sass'
 import classNames from 'classnames'
-import useAt from '@/components/hooks/useAt'
+import { useAt } from '@/helpers/index'
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar'
 
 import circleStls from '@/styles/components/CircularProgressBar.module.sass'

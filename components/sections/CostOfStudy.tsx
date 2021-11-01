@@ -4,12 +4,12 @@ import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import Until from '@/components/costs/Until'
 import PopupForm from '@/components/popups/PopupForm'
-import useAt from '@/components/hooks/useAt'
+import { useAt } from '@/helpers/index'
 import Price from '@/components/costs/Price'
 import Loan from '@/components/costs/Loan'
 import Discount from '@/components/costs/Discount'
-import TrainingPeriod from '../costs/TrainingPeriod'
-import ProgramSubjects from '../hooks/ProgramSubjects'
+import TrainingPeriod from '@/components/costs/TrainingPeriod'
+import ProgramSubjects from '@/components/general/ProgramSubjects'
 
 const PriceBlock = ({
   isDiscounted,

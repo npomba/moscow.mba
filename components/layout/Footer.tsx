@@ -1,11 +1,11 @@
 import stls from '@/styles/components/layout/Footer.module.sass'
 import classNames from 'classnames'
 import Link from 'next/link'
-import SetString from '@/components/hooks/SetString'
+import { SetString } from '@/helpers/index'
 import langHeader from '@/data/translation/header'
 import lang from '@/data/translation/footer'
 import contactData from '@/data/contactData'
-import useAt from '@/components/hooks/useAt'
+import { useAt } from '@/helpers/index'
 import {
   IconLocation,
   IconVk,

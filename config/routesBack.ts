@@ -1,7 +1,8 @@
 import { dev } from '@/config/index'
 
 const routesBack = {
-  home: dev ? 'http://localhost:1337' : 'https://api-moscow-mba.herokuapp.com',
+  root: dev ? 'http://localhost:1337' : 'https://api-moscow-mba.herokuapp.com',
+  home: '/',
   programs: '/products',
   categories: '/categories'
 }

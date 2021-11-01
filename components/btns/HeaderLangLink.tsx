@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
-import SetString from '@/components/hooks/SetString'
+import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/header'
 import { IconTriangleBottom } from '@/components/icons'
 

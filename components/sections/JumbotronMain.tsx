@@ -1,7 +1,7 @@
 import stls from '@/styles/components/sections/JumbotronMain.module.sass'
 import Link from 'next/link'
 import Image from 'next/image'
-import SetString from '@/components/hooks/SetString'
+import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/index'
 import Breadcrumbs from '@/components/general/Breadcrumbs'
 import { IconArrowTopRight } from '@/components/icons'

@@ -1,7 +1,7 @@
 import stls from '@/styles/pages/Index.module.sass'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import SetString from '@/components/hooks/SetString'
+import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/index'
 import JumbotronCta from '@/components/sections/JumbotronCta'
 import About from '@/components/sections/About'

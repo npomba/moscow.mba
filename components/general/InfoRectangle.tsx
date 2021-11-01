@@ -2,10 +2,10 @@ import stls from '@/styles/components/general/InfoRectangle.module.sass'
 import classNames from 'classnames'
 import Until from '@/components/costs/Until'
 import TrainingPeriod from '@/components/costs/TrainingPeriod'
-import SetString from '@/components/hooks/SetString'
+import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/index'
 import langMenu from '@/data/translation/menu'
-import useAt from '@/components/hooks/useAt'
+import { useAt } from '@/helpers/index'
 import Price from '@/components/costs/Price'
 
 const InfoRectangle = ({ programPage = false, type = null, format = null }) => {
