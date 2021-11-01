@@ -42,15 +42,16 @@ const InfoRectangle = ({ programPage = false, type = null, format = null }) => {
         )
       },
       {
-        itemTitle: 'Стоимость:',
-        itemDetail: (
-          <Price
-            discount={isDiscounted}
-            type={type}
-            format={format}
-            renderedByComponent='InfoRectangle'
-          />
-        )
+        // itemTitle: 'Стоимость:',
+        itemTitle: 'Диплом:',
+        itemDetail:
+          // <Price
+          //   discount={isDiscounted}
+          //   type={type}
+          //   format={format}
+          //   renderedByComponent='InfoRectangle'
+          // />
+          'Заносится в ФРДО'
       }
     ],
     academyInfo: [

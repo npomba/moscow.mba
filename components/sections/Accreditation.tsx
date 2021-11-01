@@ -1,30 +1,19 @@
 import stls from '@/styles/components/sections/Accreditation.module.sass'
 import Image from 'next/image'
-import logoEcicel from '@/public/assets/images/logo_ecicel.jpg'
-import logoRabe from '@/public/assets/images/logo_rabo.png'
-import logoDepartment from '@/public/assets/images/logo_department.png'
+import { ImgLogoEcicel, ImgLogoRabo, ImgLogoMde } from '@/components/images'
 import imgData from '@/data/images/accreditation'
 import SetString from '@/components/hooks/SetString'
 import lang from '@/data/translation/about'
 import { IconPaperCorner } from '@/components/icons'
 import { base64pixel } from '@/config/index'
 
-const logos = [
-  {
-    image: logoEcicel,
-    alt: 'Логотип ECICEL'
-  },
-  {
-    image: logoRabe,
-    alt: 'Логотип РАБО'
-  },
-  {
-    image: logoDepartment,
-    alt: 'Логотип Деп. обр. г. Москвы'
-  }
-]
-
 const Accreditation = () => {
+  const logos = [
+    { logo: <ImgLogoEcicel /> },
+    { logo: <ImgLogoRabo /> },
+    { logo: <ImgLogoMde /> }
+  ]
+
   return (
     <section className={stls.container}>
       <div className={stls.image}>
@@ -44,9 +33,9 @@ const Accreditation = () => {
           {SetString(lang.accreditationDics)}
         </div>
         <div className={stls.logosContainer}>
-          {logos.map(logo => (
-            <div key={logo.alt} className={stls.logo}>
-              <Image src={logo.image} alt={logo.alt} placeholder={'blur'} />
+          {logos.map(({ logo }, idx) => (
+            <div key={`AccreditationLogos-${idx}`} className={stls.logo}>
+              {logo}
             </div>
           ))}
         </div>

@@ -98,35 +98,36 @@ const contact = async (req, res) => {
   const locationData = await getUserLocation()
 
   const data = {
-    id: uuidv4(),
-    date: now.format('DD-MM-YYYY'),
-    time: now.format('HH:mm:ss'),
-    utc: now.format('Z'),
-    name: name || '',
+    id: uuidv4() || null,
+    date: now.format('DD-MM-YYYY') || null,
+    time: now.format('HH:mm:ss') || null,
+    utc: now.format('Z') || null,
+    name: name || null,
     phone: phone || '',
     email: email || '',
-    vk: vk || '',
-    promocode,
-    contactWay: contactWay || '',
-    contactMethod: contactMethod || '',
-    question: question || '',
-    root: root || '',
-    leadPage: root + leadPage || '',
-    ip,
-    cityEn: locationData && locationData.city.names.en,
-    cityRu: locationData && locationData.city.names.ru,
-    countryCode: locationData && locationData.country.code,
-    countryEn: locationData && locationData.country.names.en,
-    countryRu: locationData && locationData.country.names.ru,
-    continentCode: locationData && locationData.continent.code,
-    continentEn: locationData && locationData.continent.names.en,
-    continentRu: locationData && locationData.continent.names.ru,
-    accuracyRadius: locationData && locationData.coordinates.accuracyRadius,
-    latitude: locationData && locationData.coordinates.latitude,
-    longitude: locationData && locationData.coordinates.longitude,
-    timeZone: locationData && locationData.timeZone,
-    postalCode: locationData && locationData.postalCode,
-    programTitle: programTitle || '',
+    vk: vk || null,
+    promocode: promocode || null,
+    contactWay: contactWay || null,
+    contactMethod: contactMethod || null,
+    question: question || null,
+    root: root || null,
+    leadPage: root + leadPage || null,
+    ip: ip || null,
+    cityEn: (locationData && locationData.city.names.en) || null,
+    cityRu: (locationData && locationData.city.names.ru) || null,
+    countryCode: (locationData && locationData.country.code) || null,
+    countryEn: (locationData && locationData.country.names.en) || null,
+    countryRu: (locationData && locationData.country.names.ru) || null,
+    continentCode: (locationData && locationData.continent.code) || null,
+    continentEn: (locationData && locationData.continent.names.en) || null,
+    continentRu: (locationData && locationData.continent.names.ru) || null,
+    accuracyRadius:
+      (locationData && locationData.coordinates.accuracyRadius) || null,
+    latitude: (locationData && locationData.coordinates.latitude) || null,
+    longitude: (locationData && locationData.coordinates.longitude) || null,
+    timeZone: (locationData && locationData.timeZone) || null,
+    postalCode: (locationData && locationData.postalCode) || null,
+    programTitle: programTitle || null,
     utmSource: (utms && utms.utm_source) || referer || null,
     utmMedium: (utms && utms.utm_medium) || null,
     utmCampaign: (utms && utms.utm_campaign) || null,
@@ -269,19 +270,19 @@ const contact = async (req, res) => {
       },
       {
         tdKey: 'Университет',
-        tdVal: ''
+        tdVal: null
       },
       {
         tdKey: 'Google Client ID',
-        tdVal: ''
+        tdVal: null
       },
       {
         tdKey: 'Yandex Metrics ID',
-        tdVal: ''
+        tdVal: null
       },
       {
         tdKey: 'Устройство пользователя',
-        tdVal: ''
+        tdVal: null
       },
       {
         tdKey: 'Источник рекламы',
@@ -305,7 +306,7 @@ const contact = async (req, res) => {
       },
       {
         tdKey: 'Дубль',
-        tdVal: ''
+        tdVal: null
       }
     ]
 
