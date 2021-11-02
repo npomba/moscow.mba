@@ -13,6 +13,7 @@ import Programs from '@/components/sections/Programs'
 import Executive from '@/components/sections/Executive'
 import ContactUs from '@/components/sections/ContactUs'
 import { apiProgramsReqUrl, backendUrl } from '@/config/index'
+import StandardECTS from '@/components/sections/StandardECTS'
 
 // import Lang from '../components/hooks/Lang'
 //
@@ -42,8 +43,8 @@ const Home = ({ programs }) => {
 
         <Programs programs={programs} />
         <Executive />
-
-        <ContactUs />
+        {/*<ContactUs />*/}
+        <StandardECTS/>
       </div>
     </>
   )

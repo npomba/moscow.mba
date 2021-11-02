@@ -41,7 +41,6 @@ const PageOnlineProgram = ({ program }) => {
       />
 
       <JumbotronProgram data={data} />
-
       <div className={stls.generalContainer}>
         <ProgramGoal data={data} />
         <WhatWillYouLearn data={data} />
@@ -56,6 +55,7 @@ const PageOnlineProgram = ({ program }) => {
           titleNewStr={'по программе обучения'}
         /> */}
         <GetStudyPlan />
+
         <Teachers programId={data._id} programTitle={data.title} />
         <UpToDateContent withBottomLine />
         <CorporateClients />
@@ -73,7 +73,7 @@ const PageOnlineProgram = ({ program }) => {
         <ContactUs
           programId={data._id}
           programTitle={data.title}
-          title={'Не знаете что выбрать?'}
+          title={''}
           titleNewStr={'Получите консультацию по программам MBA'}
         />
       </div>

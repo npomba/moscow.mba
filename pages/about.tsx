@@ -15,6 +15,7 @@ import SetString from '@/components/hooks/SetString'
 import lang from '@/data/translation/about'
 import langIndex from '@/data/translation/index'
 import { apiProgramsReqUrl, backendUrl } from '@/config/index'
+import StandardECTS from '@/components/sections/StandardECTS'
 
 const about = ({ programs }) => {
   return (
@@ -36,7 +37,8 @@ const about = ({ programs }) => {
         <Teachers />
         <UpToDateContent />
         <Accreditation />
-        <ContactUs />
+        {/*<ContactUs />*/}
+        <StandardECTS/>
       </div>
     </>
   )
