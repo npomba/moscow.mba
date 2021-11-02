@@ -3,7 +3,7 @@ import { categories, studyFormats } from '@/config/index'
 
 const createBlended = (programs: TypesPrograms) => {
   const output: TypesPrograms = programs
-
+  //
   programs.forEach(program => {
     if (
       program.category.type === categories.mini ||
