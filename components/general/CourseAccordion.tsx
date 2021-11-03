@@ -29,8 +29,15 @@ const CourseAccordion = ({
   activeAccordion,
   setActiveAccordion
 }) => {
+  console.log(course)
   const [isShown, setIsShown] = useState(false)
-  const { title, whatWillYouLearn, mbaTypeOfProgram, mbaFormat, url } = course
+  const {
+    title,
+    whatWillYouLearn,
+    category: { type },
+    studyFormat,
+    slug
+  } = course
 
   useEffect(() => setIsShown(true), [])
 
@@ -100,7 +107,7 @@ const CourseAccordion = ({
             <span className={stls.accordionLabel}>Курс MBA</span>
             <ul className={stls.courseMainInfoList}>
               <li className={stls.courseMainInfoItem}>
-                От {<TrainingPeriod type={mbaTypeOfProgram} />}
+                От {<TrainingPeriod type={type} />}
               </li>
               <li className={stls.courseMainInfoItem}>Очно или дистанционно</li>
               <li className={stls.courseMainInfoItem}>
@@ -121,15 +128,15 @@ const CourseAccordion = ({
             <p className={stls.listTitle}>Чему научитесь:</p>
             <ul className={stls.whatWillLearnList}>
               {whatWillYouLearn.map(item => (
-                <li key={item} className={stls.whatWillLearnItem}>
-                  {item}
+                <li key={item.id} className={stls.whatWillLearnItem}>
+                  {item.string}
                 </li>
               ))}
             </ul>
             <ul className={stls.courseAdditionalInfoList}>
               <li className={stls.courseAdditionalInfoItem}>
                 <IconClock fill={'#ff3535'} />
-                От {<TrainingPeriod type={mbaTypeOfProgram} />}
+                От {<TrainingPeriod type={type} />}
               </li>
               <li className={stls.courseAdditionalInfoItem}>
                 <IconScreen fill={'#ff3535'} />
@@ -155,7 +162,7 @@ const CourseAccordion = ({
                   title={'Получите консультацию по программе'}
                   closePopUpForm={close}
                   programTitle={title}
-                  promoCourseLink={`/programs/${mbaTypeOfProgram}/${mbaFormat}/${url}`}
+                  promoCourseLink={`/programs/${type}/${studyFormat}/${slug}`}
                 />
               )}
             </Popup>

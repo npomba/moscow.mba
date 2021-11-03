@@ -1,17 +1,17 @@
 import Webinars from '@/components/pages/Webinars'
-import { backendUrl, apiProgramsReqUrl } from '@/config/index'
+import { fetchPrograms, createBlended } from '@/helpers/index'
 
 const webinars = ({ programs }) => {
   return <Webinars title={'Вебинары'} heading={'Вебинары'} />
 }
 
 export async function getStaticProps() {
-  const res = await fetch(`${backendUrl}${apiProgramsReqUrl}`)
-  const { data } = await res.json()
+  const programs = await fetchPrograms()
+  const programsWithBlended = createBlended(programs)
 
   return {
     props: {
-      programs: data
+      programs: programsWithBlended
     }
   }
 }
