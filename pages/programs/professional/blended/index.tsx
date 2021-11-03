@@ -4,16 +4,11 @@ import { backendUrl, apiProgramsReqUrl } from '@/config/index'
 const programsProfessionalBlended = ({ programs }) => {
   const data = programs.filter(
     program =>
-      program.mbaFormat === 'blended' &&
-      program.mbaTypeOfProgram === 'professional'
+      program.studyFormat === 'blended' && program.category.type === 'mba'
   )
 
   return (
-    <Programs
-      programs={data}
-      mbaTypeOfProgram={'professional'}
-      mbaFormat={'blended'}
-    />
+    <Programs programs={data} mbaTypeOfProgram={'mba'} mbaFormat={'blended'} />
   )
 }
 

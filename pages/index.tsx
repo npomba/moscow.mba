@@ -15,7 +15,6 @@ import ContactUs from '@/components/sections/ContactUs'
 import { fetchPrograms, createBlended } from '@/helpers/index'
 
 const Home = ({ programs }) => {
-  console.log(programs)
   return (
     <>
       <NextSeo

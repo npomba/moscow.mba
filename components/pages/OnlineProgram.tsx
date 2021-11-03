@@ -66,8 +66,8 @@ const PageOnlineProgram = ({ program }) => {
         <CostOfStudy
           programId={data._id}
           programTitle={data.title}
-          programFormat={data.mbaFormat}
-          programType={data.mbaTypeOfProgram}
+          programFormat={data.studyFormat}
+          programType={data.category.type}
         />
         <Qna programId={data._id} programTitle={data.title} />
         <ContactUs

@@ -42,7 +42,7 @@ const courseOptions = {
 const promo = ({ programs }) => {
   const data = programs.filter(
     program =>
-      program.mbaTypeOfProgram === 'mini' && program.mbaFormat === 'online'
+      program.category.type === 'mini' && program.studyFormat === 'online'
   )
 
   return (

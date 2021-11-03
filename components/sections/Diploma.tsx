@@ -70,7 +70,7 @@ const getProgramDiplomaImage = typeOfPage => {
 
 const Diploma = ({ darkBackground = false }) => {
   const at = useAt()
-  const typeOfPage = at.mbl ? 'industry' : at.onWhichPage
+  const typeOfPage = at.mbl ? 'mba' : at.onWhichPage
   const atPrograms = at.mini || at.professional || at.industry || at.mbl
 
   const [currentDiploma, setCurrentDiploma] = useState(0)

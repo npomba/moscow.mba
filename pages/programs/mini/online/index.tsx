@@ -4,7 +4,7 @@ import { backendUrl, apiProgramsReqUrl } from '@/config/index'
 const programsMiniOnline = ({ programs }) => {
   const data = programs.filter(
     program =>
-      program.mbaFormat === 'online' && program.mbaTypeOfProgram === 'mini'
+      program.studyFormat === 'online' && program.category.type === 'mini'
   )
 
   return (

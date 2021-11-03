@@ -12,9 +12,9 @@ export const getStaticProps = async context => {
 
   const programsFiltered = data.filter(
     item =>
-      item.url === context.params.url &&
-      item.mbaFormat === 'online' &&
-      item.mbaTypeOfProgram === 'mini'
+      item.slug === context.params.url &&
+      item.studyFormat === 'online' &&
+      item.category.type === 'mini'
   )
 
   const program = programsFiltered[0]
@@ -34,8 +34,8 @@ export const getStaticPaths = async () => {
   const urls = programs.data
     .map(program => {
       if (
-        program.mbaFormat === 'online' &&
-        program.mbaTypeOfProgram === 'mini'
+        program.studyFormat === 'online' &&
+        program.category.type === 'mini'
       ) {
         return { id: program._id, url: program.url && program.url }
       }
@@ -43,7 +43,7 @@ export const getStaticPaths = async () => {
     .filter(program => program !== undefined)
 
   const paths = urls.map(item => ({
-    params: { url: item.url.toString() }
+    params: { url: item.slug.toString() }
   }))
 
   return {

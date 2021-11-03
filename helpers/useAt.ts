@@ -62,11 +62,11 @@ const useAt = () => {
   }
 
   const professional = () => {
-    return getSplitedPath[1] === 'professional'
+    return getSplitedPath[1] === 'mba'
   }
 
   const industry = () => {
-    return getSplitedPath[1] === 'industry'
+    return getSplitedPath[1] === 'mba'
   }
 
   const profession = () => {

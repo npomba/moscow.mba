@@ -450,10 +450,8 @@ const AskQuestionFormStage = ({
                     : null,
                   programType: at.mini
                     ? 'mini'
-                    : at.professional
-                    ? 'professional'
                     : at.industry
-                    ? 'industry'
+                    ? 'mba'
                     : at.profession
                     ? 'profession'
                     : null

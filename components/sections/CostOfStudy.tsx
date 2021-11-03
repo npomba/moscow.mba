@@ -109,13 +109,13 @@ const CostOfStudy = ({
                 at.mini
                   ? 'mini'
                   : at.professional
-                  ? 'professional'
+                  ? 'mba'
                   : at.industry
-                  ? 'industry'
+                  ? 'mba'
                   : at.executive
                   ? 'executive'
                   : at.mbl
-                  ? 'industry'
+                  ? 'mba'
                   : null
               }
             />
@@ -140,9 +140,9 @@ const CostOfStudy = ({
                 at.mini
                   ? 'mini'
                   : at.professional
-                  ? 'professional'
+                  ? 'mba'
                   : at.industry
-                  ? 'industry'
+                  ? 'mba'
                   : at.executive
                   ? 'executive'
                   : at.mbl
@@ -160,13 +160,13 @@ const CostOfStudy = ({
                   at.mini
                     ? 'mini'
                     : at.professional
-                    ? 'professional'
+                    ? 'mba'
                     : at.industry
-                    ? 'industry'
+                    ? 'mba'
                     : at.executive
                     ? 'executive'
                     : at.mbl
-                    ? 'industry'
+                    ? 'mba'
                     : null
                 }
                 subjects={'specialty'}

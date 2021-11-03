@@ -183,9 +183,9 @@ const Pros = ({ format = 'online' }) => {
                   {at.mini
                     ? 'mini'
                     : at.professional
-                    ? 'professional'
+                    ? 'mba'
                     : at.industry
-                    ? 'industry'
+                    ? 'mba'
                     : at.executive
                     ? 'executive'
                     : null}{' '}

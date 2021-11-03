@@ -23,6 +23,10 @@ const Price = ({
         online: '289 000',
         blended: '299 000'
       },
+      mba: {
+        online: '289 000',
+        blended: '299 000'
+      },
       profession: {
         online: '70 000'
       },
@@ -39,6 +43,9 @@ const Price = ({
         online: '159 000'
       },
       industry: {
+        online: '159 000'
+      },
+      mba: {
         online: '159 000'
       },
       profession: {

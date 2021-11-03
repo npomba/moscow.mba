@@ -8,12 +8,7 @@ const TrainingPeriod = ({ type = null }) => {
       {type === 'mini' && (
         <>9 {SetString(langMenu.months, false, getStringDeclensionNumber(9))}</>
       )}
-      {type === 'professional' && (
-        <>
-          18 {SetString(langMenu.months, false, getStringDeclensionNumber(18))}
-        </>
-      )}
-      {type === 'industry' && (
+      {type === 'mba' && (
         <>
           18 {SetString(langMenu.months, false, getStringDeclensionNumber(18))}
         </>

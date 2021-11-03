@@ -15,19 +15,7 @@ const ProgramSubjects = ({ sum = false, type = '', subjects = '' }) => {
     )
   }
 
-  if (type === 'professional') {
-    return (
-      <span>
-        {subjects === 'base' && sum === false
-          ? '37'
-          : subjects === 'specialty' && sum === false
-          ? '10'
-          : '47'}
-      </span>
-    )
-  }
-
-  if (type === 'industry') {
+  if (type === 'mba') {
     return (
       <span>
         {subjects === 'base' && sum === false
@@ -116,6 +104,8 @@ const ProgramSubjects = ({ sum = false, type = '', subjects = '' }) => {
       </span>
     )
   }
+
+  return <></>
 }
 
 export default ProgramSubjects

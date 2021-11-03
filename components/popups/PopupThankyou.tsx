@@ -26,9 +26,9 @@ const Thankyou = ({ closePopUp = null, programId, programTitle }) => {
                 programType: at.mini
                   ? 'mini'
                   : at.professional
-                  ? 'professional'
+                  ? 'mba'
                   : at.industry
-                  ? 'industry'
+                  ? 'mba'
                   : null
               }
             ]
