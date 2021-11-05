@@ -72,12 +72,6 @@ const ProgramSubjects = ({ sum = false, type = '', subjects = '' }) => {
           ? '5'
           : at.mini && '15'}
 
-        {at.professional && subjects === 'base' && sum === false
-          ? '37'
-          : at.professional && subjects === 'specialty' && sum === false
-          ? '10'
-          : at.professional && '47'}
-
         {at.industry && subjects === 'base' && sum === false
           ? '37'
           : at.industry && subjects === 'specialty' && sum === false

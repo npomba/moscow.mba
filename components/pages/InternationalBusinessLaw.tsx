@@ -21,73 +21,32 @@ import Accreditation from '@/components/sections/Accreditation'
 import Pros from '@/components/sections/Pros'
 import GetStudyPlan from '@/components/sections/GetStudyPlan'
 
-const PageOnlineProgram = () => {
+const PageOnlineProgram = ({ program }) => {
   const router = useRouter()
-
-  const data = {
-    _id: '03067005-fa44-4c28-87bb-3d893fd93fdf',
-    title: 'Магистр Международного Права',
-    goalsOfProgram: (
-      <>
-        Курс подходит как специалистам, желающим после его окончания занять
-        руководящие посты, так и действующим руководителям и владельцам бизнеса
-        <br />
-        <br />
-        Курс является аналогом MBA, с конкурентно более сильным академическим
-        блоком юридических дисциплин. Программа подготовки основана на лучших
-        международных образцах, соответствует зарубежным стандартам обучения для
-        лиц, получивших первый опыт работы. Аббревиатура &quot;MBL&quot;
-        является узнаваемым за рубежом и в России форматом переподготовки в
-        юридической сфере
-        <br />
-        <br />
-        Выпускник должен приобрести академические и неформальные культурные
-        компетенции в области права для достижения новых высот в карьере, более
-        эффективного управления людьми и процессами, защиты бизнеса и
-        формирования новых стратегий развития
-      </>
-    ),
-    goalsOfProgramStr:
-      'Курс подходит как специалистам, желающим после его окончания занять руководящие посты, так и действующим руководителям и владельцам бизнеса. Курс является аналогом MBA, с конкурентно более сильным академическим блоком юридических дисциплин. Программа подготовки основана на лучших международных образцах, соответствует зарубежным стандартам обучения для лиц, получивших первый опыт работы. Аббревиатура "MBL" является узнаваемым за рубежом и в России форматом переподготовки в юридической сфере. Выпускник должен приобрести академические и неформальные культурные компетенции в области права для достижения новых высот в карьере, более эффективного управления людьми и процессами, защиты бизнеса и формирования новых стратегий развития',
-    whatWillYouLearn: [
-      'Изучите международное частное, экономическое, интеграционное, налоговое, инвестиционное и бизнес-право. Поймете как работать с офшорами и трастами',
-      'Узнаете об особенностях рассмотрения трансграничных коммерческих споров в государственных судах',
-      'Изучите международные, национальные стандарты и технологии управления проектами',
-      'Узнаете об особенностях рассмотрения споров в Международном коммерческом арбитраже',
-      'Узнаете международные стандарты финансовой отчетности и особенности трансформации',
-      'Получите навыки soft skills необходимые для профессиональной деятельности юриста'
-    ],
-    mbaFormat: 'online',
-    mbaTypeOfProgram: 'mbl',
-    specializedSubjects: [],
-    picture: 'bg-header-9.jpg'
-  }
-
-  const program = data
 
   return (
     <>
       <NextSeo
-        title={`${data.title} MBA - Moscow Business Academy`}
-        description={truncate(program.goalsOfProgramStr, 120)}
+        title={`${program.title} MBA - Moscow Business Academy`}
+        description={truncate(program.goalStr, 120)}
         canonical={`https://moscow.mba${router.asPath}`}
       />
       <CourseJsonLd
-        courseName={`${data.title} MBA`}
+        courseName={`${program.title} MBA`}
         providerName='Moscow Business Academy'
         providerUrl={`https://moscow.mba${router.asPath}`}
-        description={truncate(program.goalsOfProgramStr, 120)}
+        description={truncate(program.goalStr, 120)}
       />
 
-      <JumbotronProgram data={data} />
+      <JumbotronProgram data={program} />
 
       <div className={stls.generalContainer}>
-        <ProgramGoal data={data} />
-        <WhatWillYouLearn data={data} />
+        <ProgramGoal data={program} />
+        <WhatWillYouLearn data={program} />
         <ProgramDesc />
         <Pros format={'online'} />
         <HowProcessGoes />
-        <ProgramModules data={data} />
+        <ProgramModules data={program} />
         {/* <ContactUs
           programId={data._id}
           programTitle={data.title}
@@ -95,7 +54,7 @@ const PageOnlineProgram = () => {
           titleNewStr={'по программе обучения'}
         /> */}
         <GetStudyPlan />
-        <Teachers programId={data._id} programTitle={data.title} />
+        <Teachers programId={program._id} programTitle={program.title} />
         <UpToDateContent withBottomLine />
         <CorporateClients />
         <Accreditation />
@@ -103,15 +62,15 @@ const PageOnlineProgram = () => {
         <Students />
         <Reviews />
         <CostOfStudy
-          programId={data._id}
-          programTitle={data.title}
-          programFormat={data.studyFormat}
-          programType={data.category.type}
+          programId={program._id}
+          programTitle={program.title}
+          programFormat={program.studyFormat}
+          programType={program.category?.type}
         />
-        <Qna programId={data._id} programTitle={data.title} />
+        <Qna programId={program._id} programTitle={program.title} />
         <ContactUs
-          programId={data._id}
-          programTitle={data.title}
+          programId={program._id}
+          programTitle={program.title}
           title={'Не знаете что выбрать?'}
           titleNewStr={'Получите консультацию по программам MBA'}
         />

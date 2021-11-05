@@ -35,7 +35,7 @@ export const getStaticPaths = async () => {
     .map(program => {
       if (
         program.studyFormat === 'online' &&
-        program.category.type === 'profession'
+        program.category?.type === 'profession'
       ) {
         return { id: program._id, url: program.url && program.url }
       }

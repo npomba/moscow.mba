@@ -32,13 +32,12 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
   }
 
   const generateHeading = () => {
-    const atMBAPrograms = at.mini || at.industry || at.professional
+    if (at.mini) {
+      return `Mini MBA ${mbaFormat}`
+    }
 
-    if (atMBAPrograms) {
-      const programType =
-        at.onWhichPage[0].toUpperCase() + at.onWhichPage.slice(1)
-
-      return `${programType} MBA ${mbaFormat}`
+    if (at.industry) {
+      return `MBA ${mbaFormat}`
     }
 
     if (at.profession) {
@@ -68,21 +67,13 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
     <>
       <NextSeo
         title={`Программы обучения ${
-          at.mini
-            ? 'Mini MBA'
-            : at.professional
-            ? 'Professional MBA'
-            : at.industry
-            ? 'Industry MBA'
-            : ''
+          at.mini ? 'Mini MBA' : at.industry ? 'MBA' : ''
         } ${
           at.online ? 'Online' : at.blended ? 'Blended' : ''
         } - Moscow Business Academy`}
         description={
           at.mini
             ? truncate(SetString(langMenu.categoryDiscMini), 120)
-            : at.professional
-            ? truncate(SetString(langMenu.categoryDiscProfessional), 120)
             : at.industry
             ? truncate(SetString(langMenu.categoryDiscIndustry), 120)
             : ''
@@ -117,8 +108,6 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
               <p className={stls.desc}>
                 {at.mini
                   ? SetString(langMenu.categoryDiscMini)
-                  : at.professional
-                  ? SetString(langMenu.categoryDiscProfessional)
                   : at.industry
                   ? SetString(langMenu.categoryDiscIndustry)
                   : ''}
@@ -126,11 +115,10 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
 
               {at.profession ? (
                 <div className={stls.desc}>
-                  Программа профессиональной переподготовки Mini MBA разработана
-                  для специалистов и руководителей, которые хотят
-                  систематизировать имеющиеся знания или познакомиться с
-                  ключевыми аспектами новой для себя сферы управленческой
-                  деятельности.
+                  Программа профессиональной переподготовки разработана для
+                  специалистов и руководителей, которые хотят систематизировать
+                  имеющиеся знания или познакомиться с ключевыми аспектами новой
+                  для себя сферы управленческой деятельности.
                 </div>
               ) : (
                 <div className={stls.counters}>

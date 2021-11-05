@@ -1,18 +1,23 @@
-import { apiProgramsReqUrl, backendUrl } from '@/config/index'
+import { fetchPrograms, createBlended } from '@/helpers/index'
 
 import InternationalBusinessLaw from '@/components/pages/InternationalBusinessLaw'
 
 const programsInternationalBusinessLaw = ({ program, programs }) => {
-  return <InternationalBusinessLaw />
+  return <InternationalBusinessLaw program={program} />
 }
 
 export async function getStaticProps() {
-  const res = await fetch(`${backendUrl}${apiProgramsReqUrl}`)
-  const { data } = await res.json()
+  const programs = await fetchPrograms()
+  const programsWithBlended = createBlended(programs)
+  const program = programsWithBlended.filter(
+    program =>
+      program.category?.type === 'mbl' && program.studyFormat === 'online'
+  )[0]
 
   return {
     props: {
-      programs: data
+      program,
+      programs: programsWithBlended
     }
   }
 }

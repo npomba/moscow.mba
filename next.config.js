@@ -125,13 +125,8 @@ module.exports = {
         permanent: true
       },
       {
-        source: '/programs/professional',
-        destination: '/programs/professional/online',
-        permanent: true
-      },
-      {
-        source: '/programs/industry',
-        destination: '/programs/industry/online',
+        source: '/programs/mba',
+        destination: '/programs/mba/online',
         permanent: true
       }
     ]

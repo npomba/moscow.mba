@@ -81,7 +81,7 @@ const JumbotronProgram = ({ data }) => {
                     Можно учиться в рассрочку за{' '}
                     <Loan
                       discount={isDiscounted}
-                      type={data.category.type}
+                      type={data.category?.type}
                       format={data.studyFormat}
                       notComparingPrices
                     />
@@ -113,7 +113,7 @@ const JumbotronProgram = ({ data }) => {
             </ul>
           </div>
           <InfoRectangle
-            type={data.category.type ?? 'executive'}
+            type={data.category?.type ?? 'executive'}
             format={data.studyFormat}
           />
         </div>

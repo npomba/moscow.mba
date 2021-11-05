@@ -2,7 +2,7 @@ import { apiProgramsReqUrl, backendUrl } from '@/config/index'
 
 import BlendedProgram from '@/components/pages/BlendedProgram'
 
-const programsProfessionalBlendedProgram = ({ program, programs }) => {
+const programsIndustryBlendedProgram = ({ program, programs }) => {
   return <BlendedProgram program={program} />
 }
 
@@ -35,7 +35,7 @@ export const getStaticPaths = async () => {
     .map(program => {
       if (
         program.studyFormat === 'blended' &&
-        program.category.type === 'mba'
+        program.category?.type === 'mba'
       ) {
         return { id: program._id, url: program.url && program.url }
       }
@@ -52,4 +52,4 @@ export const getStaticPaths = async () => {
   }
 }
 
-export default programsProfessionalBlendedProgram
+export default programsIndustryBlendedProgram

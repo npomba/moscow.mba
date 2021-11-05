@@ -1,10 +1,10 @@
 import Programs from '@/components/pages/Programs'
-import { backendUrl, apiProgramsReqUrl } from '@/config/index'
+import { fetchPrograms, createBlended } from '@/helpers/index'
 
 const programsMiniOnline = ({ programs }) => {
   const data = programs.filter(
     program =>
-      program.studyFormat === 'online' && program.category.type === 'mini'
+      program.studyFormat === 'online' && program.category?.type === 'mini'
   )
 
   return (
@@ -13,12 +13,12 @@ const programsMiniOnline = ({ programs }) => {
 }
 
 export async function getStaticProps() {
-  const res = await fetch(`${backendUrl}${apiProgramsReqUrl}`)
-  const { data } = await res.json()
+  const programs = await fetchPrograms()
+  const programsWithBlended = createBlended(programs)
 
   return {
     props: {
-      programs: data
+      programs: programsWithBlended
     }
   }
 }

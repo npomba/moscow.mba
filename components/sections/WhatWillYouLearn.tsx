@@ -18,7 +18,7 @@ const aboutAcademy = [
 
 const WhatWillYouLearn = ({ data = null }) => {
   const at = useAt()
-  const listContent = data ? data.whatWillYouLearn : aboutAcademy
+  const list = data ? data.whatWillYouLearn : aboutAcademy
 
   return (
     <section className={stls.container}>
@@ -42,13 +42,14 @@ const WhatWillYouLearn = ({ data = null }) => {
         </div>
         <div className={stls.floatRight}>
           <ul className={stls.list}>
-            {listContent.map((item, idx) => {
-              return (
-                <li key={idx} className={stls.item}>
-                  {item}
-                </li>
-              )
-            })}
+            {list &&
+              list.map((item, idx) => {
+                return (
+                  <li key={item.string + idx} className={stls.item}>
+                    {item.string}
+                  </li>
+                )
+              })}
           </ul>
         </div>
         <div className={stls.floatLeft}>

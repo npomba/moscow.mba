@@ -2,7 +2,7 @@ import { apiProgramsReqUrl, backendUrl } from '@/config/index'
 
 import OnlineProgram from '@/components/pages/OnlineProgram'
 
-const programsProfessionalOnlineProgram = ({ program, programs }) => {
+const programsIndustryOnlineProgram = ({ program, programs }) => {
   return <OnlineProgram program={program} />
 }
 
@@ -33,7 +33,10 @@ export const getStaticPaths = async () => {
 
   const urls = programs.data
     .map(program => {
-      if (program.studyFormat === 'online' && program.category.type === 'mba') {
+      if (
+        program.studyFormat === 'online' &&
+        program.category?.type === 'mba'
+      ) {
         return { id: program._id, url: program.url && program.url }
       }
     })
@@ -49,4 +52,4 @@ export const getStaticPaths = async () => {
   }
 }
 
-export default programsProfessionalOnlineProgram
+export default programsIndustryOnlineProgram

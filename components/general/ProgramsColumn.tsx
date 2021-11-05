@@ -125,22 +125,23 @@ const ProgramsColumn = ({ data, id, type }) => {
             </div>
           </div>
           <ul className={stls.list}>
-            {data.map(item => {
-              if (
-                item.category?.type === type &&
-                item.studyFormat === 'online'
-              ) {
-                return (
-                  <li key={item._id} className={stls.listItem}>
-                    <Link
-                      href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
-                      locale='ru'>
-                      <a onClick={handleLinkClick}>{SetString(item, true)}</a>
-                    </Link>
-                  </li>
-                )
-              }
-            })}
+            {data &&
+              data.map(item => {
+                if (
+                  item.category?.type === type &&
+                  item.studyFormat === 'online'
+                ) {
+                  return (
+                    <li key={item._id} className={stls.listItem}>
+                      <Link
+                        href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
+                        locale='ru'>
+                        <a onClick={handleLinkClick}>{SetString(item, true)}</a>
+                      </Link>
+                    </li>
+                  )
+                }
+              })}
           </ul>
         </div>
       </li>
@@ -183,22 +184,23 @@ const ProgramsColumn = ({ data, id, type }) => {
             </div>
           </div>
           <ul className={stls.list}>
-            {data.map(item => {
-              if (
-                item.category?.type === type &&
-                item.studyFormat === 'blended'
-              ) {
-                return (
-                  <li key={item._id} className={stls.listItem}>
-                    <Link
-                      href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
-                      locale='ru'>
-                      <a onClick={handleLinkClick}>{SetString(item, true)}</a>
-                    </Link>
-                  </li>
-                )
-              }
-            })}
+            {data &&
+              data.map(item => {
+                if (
+                  item.category?.type === type &&
+                  item.studyFormat === 'blended'
+                ) {
+                  return (
+                    <li key={item._id} className={stls.listItem}>
+                      <Link
+                        href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
+                        locale='ru'>
+                        <a onClick={handleLinkClick}>{SetString(item, true)}</a>
+                      </Link>
+                    </li>
+                  )
+                }
+              })}
           </ul>
         </div>
       </li>

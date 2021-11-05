@@ -16,7 +16,7 @@ const promo = ({ programs }) => {
   console.log(programs)
   const data = programs.filter(
     program =>
-      program.category.type === 'mini' && program.studyFormat === 'online'
+      program.category?.type === 'mini' && program.studyFormat === 'online'
   )
 
   const courseOptions = {

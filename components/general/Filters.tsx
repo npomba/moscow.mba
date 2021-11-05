@@ -33,25 +33,14 @@ const Filters = ({
             </a>
           </Link>
 
-          <Link href={`/programs/professional/${mbaFormat}`}>
-            <a>
-              <span
-                className={classNames({
-                  [stls.circle]: true,
-                  [stls.active]: at.professional
-                })}></span>{' '}
-              Professional MBA
-            </a>
-          </Link>
-
-          <Link href={`/programs/industry/${mbaFormat}`}>
+          <Link href={`/programs/mba/${mbaFormat}`}>
             <a>
               <span
                 className={classNames({
                   [stls.circle]: true,
                   [stls.active]: at.industry
                 })}></span>{' '}
-              Industry MBA
+              MBA
             </a>
           </Link>
 
