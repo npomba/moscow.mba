@@ -13,10 +13,12 @@ const ProgramsQty = ({
   let ProgramsQty
 
   if (type && format)
-    ProgramsQty = programs.filter(
-      program =>
-        program.category?.type === type && program.studyFormat === format
-    ).length
+    ProgramsQty =
+      programs &&
+      programs.filter(
+        program =>
+          program.category?.type === type && program.studyFormat === format
+      ).length
   else ProgramsQty = programs.length
 
   return (

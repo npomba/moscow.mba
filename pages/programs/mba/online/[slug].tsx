@@ -16,7 +16,7 @@ export const getStaticProps = async context => {
   const programsWithBlended = createBlended(programs)
   const program = getProgram({
     programs: programsWithBlended,
-    url: context.params.url,
+    slug: context.params.slug,
     studyFormat: 'online',
     type: 'mba'
   })

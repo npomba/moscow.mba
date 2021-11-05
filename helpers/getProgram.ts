@@ -1,14 +1,14 @@
 type getProgramType = {
   programs: any[]
-  url: string
+  slug: string
   studyFormat: string
   type: string
 }
 
-const getProgram = ({ programs, url, studyFormat, type }: getProgramType) => {
+const getProgram = ({ programs, slug, studyFormat, type }: getProgramType) => {
   const program = programs.filter(
     item =>
-      item.slug === url &&
+      item.slug === slug &&
       item.studyFormat === studyFormat &&
       item.category.type === type
   )[0]
