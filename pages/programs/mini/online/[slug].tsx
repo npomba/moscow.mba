@@ -7,7 +7,7 @@ import {
 
 import OnlineProgram from '@/components/pages/OnlineProgram'
 
-const programsIndustryOnlineProgram = ({ program, programs }) => {
+const programsMiniOnlineProgram = ({ program, programs }) => {
   return <OnlineProgram program={program} />
 }
 
@@ -18,7 +18,7 @@ export const getStaticProps = async context => {
     programs: programsWithBlended,
     url: context.params.url,
     studyFormat: 'online',
-    type: 'mba'
+    type: 'mini'
   })
 
   return {
@@ -35,7 +35,7 @@ export const getStaticPaths = async () => {
   const paths = getPaths({
     programs: programsWithBlended,
     studyFormat: 'online',
-    type: 'mba'
+    type: 'mini'
   })
 
   return {
@@ -44,4 +44,4 @@ export const getStaticPaths = async () => {
   }
 }
 
-export default programsIndustryOnlineProgram
+export default programsMiniOnlineProgram

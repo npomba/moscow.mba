@@ -1,4 +1,9 @@
-import { apiProgramsReqUrl, backendUrl } from '@/config/index'
+import {
+  fetchPrograms,
+  createBlended,
+  getProgram,
+  getPaths
+} from '@/helpers/index'
 
 import BlendedProgram from '@/components/pages/BlendedProgram'
 
@@ -7,44 +12,31 @@ const programsIndustryBlendedProgram = ({ program, programs }) => {
 }
 
 export const getStaticProps = async context => {
-  const res = await fetch(`${backendUrl}${apiProgramsReqUrl}`)
-  const { data } = await res.json()
-
-  const programsFiltered = data.filter(
-    item =>
-      item.slug === context.params.url &&
-      item.studyFormat === 'blended' &&
-      item.category.type === 'mba'
-  )
-
-  const program = programsFiltered[0]
+  const programs = await fetchPrograms()
+  const programsWithBlended = createBlended(programs)
+  const program = getProgram({
+    programs: programsWithBlended,
+    url: context.params.url,
+    studyFormat: 'blended',
+    type: 'mba'
+  })
 
   return {
     props: {
       program,
-      programs: data
+      programs: programsWithBlended
     }
   }
 }
 
 export const getStaticPaths = async () => {
-  const res = await fetch(`${backendUrl}${apiProgramsReqUrl}`)
-  const programs = await res.json()
-
-  const urls = programs.data
-    .map(program => {
-      if (
-        program.studyFormat === 'blended' &&
-        program.category?.type === 'mba'
-      ) {
-        return { id: program._id, url: program.url && program.url }
-      }
-    })
-    .filter(program => program !== undefined)
-
-  const paths = urls.map(item => ({
-    params: { url: item.slug.toString() }
-  }))
+  const programs = await fetchPrograms()
+  const programsWithBlended = createBlended(programs)
+  const paths = getPaths({
+    programs: programsWithBlended,
+    studyFormat: 'blended',
+    type: 'mba'
+  })
 
   return {
     paths,
