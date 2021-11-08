@@ -3,13 +3,8 @@ import classNames from 'classnames'
 import { useAt } from '@/helpers/index'
 import WhoItIsForItem from '@/components/general/WhoItIsForItem'
 
-const WhoItIsFor = ({ data: { suitsForTitle, suitsForDesc, title } }) => {
+const WhoItIsFor = ({ program }) => {
   const at = useAt()
-  const columnsContent = []
-
-  suitsForTitle.forEach((title, idx) => {
-    columnsContent.push({ title, description: suitsForDesc[idx] })
-  })
 
   return (
     <section className={stls.container}>
@@ -20,14 +15,15 @@ const WhoItIsFor = ({ data: { suitsForTitle, suitsForDesc, title } }) => {
         className={classNames(stls.itemsContainer, {
           [stls.noBottomLine]: at.promo
         })}>
-        {columnsContent.map(({ title, description }, idx) => (
-          <WhoItIsForItem
-            key={title + idx}
-            title={title}
-            description={description}
-            moduleIndex={idx}
-          />
-        ))}
+        {program.whoIsFor &&
+          program.whoIsFor.map(({ name, description }, idx) => (
+            <WhoItIsForItem
+              key={name + idx}
+              name={name}
+              description={description}
+              moduleIndex={idx}
+            />
+          ))}
       </div>
     </section>
   )

@@ -9,6 +9,7 @@ import ProgramsModule from '@/components/general/ProgramsModule'
 import Stickers from '@/components/general/Stickers'
 import Sticker from '@/components/general/Sticker'
 import { IconCheckCircleAltDim } from '@/components/icons'
+import ProgramSubjects from '@/components/general/ProgramSubjects'
 
 const ProgramsModules = ({ program, smallerMb = false }) => {
   const at = useAt()
@@ -23,7 +24,13 @@ const ProgramsModules = ({ program, smallerMb = false }) => {
         <h2>Программа обучения</h2>
         <ul className={stls.redRectangle}>
           <li className={stls.redItem}>
-            <div className={stls.number}>{program.baseSubjects.length}</div>
+            <div className={stls.number}>
+              {at.executive ? (
+                <ProgramSubjects subjects='base' />
+              ) : (
+                program && program.baseSubjects?.length
+              )}
+            </div>
             <p className={stls.p}>
               {program.programModulesCounters?.leftCounter ===
               'specializedlAcademicDisciplines'
@@ -66,11 +73,11 @@ const ProgramsModules = ({ program, smallerMb = false }) => {
             )}
           </li>
         </ul>
-        {program.baseSubjects?.length > 0 && (
+        {program && program.baseSubjects?.length > 0 && !at.executive && (
           <h3 className={stls.h3}>Базовые дисциплины</h3>
         )}
       </div>
-      {program.baseSubjects?.length > 0 && (
+      {program && program.baseSubjects?.length > 0 && !at.executive && (
         <div className={stls.list}>
           {programModulesBase.map((module, idx) => (
             <ProgramsModule

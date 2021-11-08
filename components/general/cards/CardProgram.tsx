@@ -19,10 +19,12 @@ const CardProgram = ({ professionLayout, program, number, type, format }) => {
           {number < 10 ? `0${number}` : number}.
         </div>
         {professionLayout && (
-          <div className={stls.duration}>{`${studyTimeMonths} ${SetString(
+          <div className={stls.duration}>{`${
+            program.duration?.minStudyMonths
+          } ${SetString(
             lang.months,
             false,
-            getStringDeclensionNumber(studyTimeMonths)
+            getStringDeclensionNumber(program.duration?.minStudyMonths)
           )}`}</div>
         )}
         <div className={stls.bottomContainer}>

@@ -30,11 +30,14 @@ const createProgramModules = ({ program, type }: createProgramModulesType) => {
       })
     } else {
       const l = Math.ceil(program[type].length / 5)
-      for (let i = 0; i < l; i++) {
+      for (let i = 0; i < l - 1; i++) {
         output.push({
           id: uuidv4(),
           title: null,
-          subjects: program[type].slice(i * 5, i * 5 + 5)
+          subjects:
+            i + 2 === l
+              ? program[type].slice(i * 5)
+              : program[type].slice(i * 5, i * 5 + 5)
         })
       }
     }

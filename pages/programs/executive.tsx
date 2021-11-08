@@ -17,48 +17,25 @@ import Students from '@/components/sections/Students'
 import Reviews from '@/components/sections/Reviews'
 import CostOfStudy from '@/components/sections/CostOfStudy'
 import Qna from '@/components/sections/Qna'
-import { fetchPrograms, createBlended } from '@/helpers/index'
+import { fetchPrograms, createBlended, getProgram } from '@/helpers/index'
 import { revalidate } from '@/config/index'
 
-const executive = ({ programs }) => {
-  const data = {
-    picture: 'bg-executive.jpg',
-    title: 'Executive MBA',
-    _id: '1acc50fc-ab61-436f-959a-600676a99f17',
-    desc: 'Программа Executive MBA разработана для амбициозных предпринимателей и топ-менеджеров крупных компаний, которые привыкли быть лучшими и не готовы останавливаться на достигнутом',
-    specializedSubjects: [
-      'Принципы командообразования в различных сферах бизнеса',
-      'Навыки лидера',
-      'Нетворкинг',
-      'Основы глобальной экономики',
-      'Маркетинг',
-      'Стратегия продвижения бренда',
-      'Анализ бизнес-процессов и стратегическое мышление',
-      'Финансы',
-      'Инвестиционные стратегии мирового рынка',
-      'HR-стратегии и методы подбора персонала',
-      'Методы управления организацией',
-      'Личный бренд как стратегия лидера',
-      'Современные бизнес-модели',
-      'Управление рисками'
-    ]
-  }
-
+const executive = ({ program, programs }) => {
   return (
     <>
       <NextSeo
-        title={`${data.title} - Moscow Business Academy`}
-        description={truncate(data.desc, 120)}
+        title={`${program.title} - Moscow Business Academy`}
+        description={truncate(program.description, 120)}
         canonical={'https://moscow.mba/programs/executive'}
       />
       <CourseJsonLd
-        courseName={`${data.title} MBA`}
+        courseName={`${program.title} MBA`}
         providerName='Moscow Business Academy'
         providerUrl={'https://moscow.mba/programs/executive'}
-        description={truncate(data.desc, 120)}
+        description={truncate(program.description, 120)}
       />
 
-      <JumbotronProgram program={data} />
+      <JumbotronProgram program={program} />
       <div className={stls.generalContainer}>
         <AboutExecutive />
         <ResultsExecutive />
@@ -66,28 +43,28 @@ const executive = ({ programs }) => {
         <ModulesAbroad />
         <WhoStudies />
 
-        <ProgramsModules program={data} />
+        <ProgramsModules program={program} />
         <ContactUs
-          programId={data._id}
-          programTitle={data.title}
+          programId={program._id}
+          programTitle={program.title}
           title={'Получите консультацию'}
           titleNewStr={'по программе обучения'}
         />
         <Accreditation />
-        <Teachers programId={data._id} programTitle={data.title} />
+        <Teachers programId={program._id} programTitle={program.title} />
         <Rules prices={{ lowerPrice: '600 000', higherPrice: '2 000 000' }} />
         <ExecutiveRequirements />
         <Students />
         <Reviews />
         <CostOfStudy
-          programId={data._id}
-          programTitle={data.title}
+          programId={program._id}
+          programTitle={program.title}
           programType='executive'
         />
-        <Qna programId={data._id} programTitle={data.title} />
+        <Qna programId={program._id} programTitle={program.title} />
         <ContactUs
-          programId={data._id}
-          programTitle={data.title}
+          programId={program._id}
+          programTitle={program.title}
           title={'Не знаете что выбрать?'}
           titleNewStr={'Получите консультацию по программам MBA'}
         />
@@ -99,10 +76,17 @@ const executive = ({ programs }) => {
 export async function getStaticProps() {
   const programs = await fetchPrograms()
   const programsWithBlended = createBlended(programs)
+  const program = getProgram({
+    programs: programsWithBlended,
+    slug: 'executive',
+    studyFormat: 'blended',
+    type: 'executive'
+  })
 
   return {
     props: {
-      programs: programsWithBlended
+      programs: programsWithBlended,
+      program
     },
     revalidate: revalidate.default
   }

@@ -1,8 +1,10 @@
+import { TypeCategories, TypeStudyFormat } from '@/types/index'
+
 type getProgramType = {
   programs: any[]
   slug: string
-  studyFormat: string
-  type: string
+  studyFormat: TypeStudyFormat
+  type: TypeCategories
 }
 
 const getProgram = ({ programs, slug, studyFormat, type }: getProgramType) => {

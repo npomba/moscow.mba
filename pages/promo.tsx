@@ -14,7 +14,6 @@ import WhoItIsFor from '@/components/sections/WhoItIsFor'
 import { revalidate } from '@/config/index'
 
 const promo = ({ programs }) => {
-  console.log(programs)
   const data = programs.filter(
     program =>
       program.category?.type === 'mini' && program.studyFormat === 'online'
@@ -63,7 +62,7 @@ const promo = ({ programs }) => {
         <ProgramDesc />
         <Accreditation />
         <Diploma darkBackground />
-        <WhoItIsFor data={courseOptions} />
+        <WhoItIsFor program={courseOptions} />
         <ContactUs
           title={'Есть вопросы?'}
           titleNewStr={'Получите консультацию по программам MBA'}

@@ -22,7 +22,8 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
 
   if (at.profession) {
     fields = programs.reduce((acc, curr) => {
-      if (!acc.includes(curr.field)) acc.push(curr.field)
+      if (!acc.includes(curr.study_field?.name))
+        acc.push(curr.study_field?.name)
       return acc
     }, [])
 
@@ -50,7 +51,7 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
 
     if (currentField) {
       programsToDisplay = programs.filter(
-        program => program.field === currentField
+        program => program.study_field?.name === currentField
       )
     }
 
@@ -118,16 +119,20 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
                 </div>
               ) : (
                 <div className={stls.counters}>
-                  <p>
+                  <div className={stls.counter}>
                     <IconCheckCircle />
-                    <ProgramSubjects subjects='base' />
-                    &nbsp;дисциплин об управлениии
-                  </p>
-                  <p>
+                    <span>
+                      <ProgramSubjects subjects='base' />
+                      &nbsp;дисциплин об управлениии
+                    </span>
+                  </div>
+                  <div className={stls.counter}>
                     <IconCheckCircle />
-                    <ProgramSubjects subjects='specialty' />
-                    &nbsp;дисциплин специализации
-                  </p>
+                    <span>
+                      <ProgramSubjects subjects='specialty' />
+                      &nbsp;дисциплин специализации
+                    </span>
+                  </div>
                 </div>
               )}
             </div>

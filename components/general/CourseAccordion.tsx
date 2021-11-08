@@ -29,7 +29,6 @@ const CourseAccordion = ({
   activeAccordion,
   setActiveAccordion
 }) => {
-  console.log(course)
   const [isShown, setIsShown] = useState(false)
   const {
     title,

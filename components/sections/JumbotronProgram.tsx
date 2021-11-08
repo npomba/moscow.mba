@@ -24,11 +24,13 @@ const JumbotronProgram = ({ program }) => {
   return (
     <section className={stls.container}>
       <div className={stls.image}>
-        <Image
-          src={program.picture.formats.large.url}
-          alt='Студенты обучаются'
-          layout='fill'
-        />
+        {program.picture?.formats?.large?.url && (
+          <Image
+            src={program.picture.formats.large.url}
+            alt='Студенты обучаются'
+            layout='fill'
+          />
+        )}
       </div>
       <div className={stls.generalContainer}>
         <div className={stls.content}>
@@ -74,18 +76,20 @@ const JumbotronProgram = ({ program }) => {
                     />
                   )}
                 </Popup>
-                <div className={stls.loanContainer}>
-                  <IconCheckCircleAlt />
-                  <p className={stls.loanDesc}>
-                    Можно учиться в рассрочку за{' '}
-                    <Loan
-                      discount={isDiscounted}
-                      type={program.category?.type}
-                      format={program.studyFormat}
-                      notComparingPrices
-                    />
-                  </p>
-                </div>
+                {!at.executive && (
+                  <div className={stls.loanContainer}>
+                    <IconCheckCircleAlt />
+                    <p className={stls.loanDesc}>
+                      Можно учиться в рассрочку за{' '}
+                      <Loan
+                        discount={isDiscounted}
+                        type={program.category?.type}
+                        format={program.studyFormat}
+                        notComparingPrices
+                      />
+                    </p>
+                  </div>
+                )}
               </div>
             </div>
             <ul className={stls.list}>

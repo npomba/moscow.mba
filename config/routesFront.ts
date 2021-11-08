@@ -11,7 +11,17 @@ const routesFront = {
   promo: '/promo',
   webinars: '/webinars',
   webinarsArchive: '/webinars/archive',
-  webinarsUpcoming: '/webinars/upcoming'
+  webinarsUpcoming: '/webinars/upcoming',
+  programsExecutive: '/programs/executive',
+  programsInternationalBusinessLaw: '/programs/international-business-law',
+  programsMba: '/programs/mba',
+  programsMini: '/programs/mini',
+  programsProfession: '/programs/profession',
+  programsMbaOnline: '/programs/mba/online',
+  programsMbaBlended: '/programs/mba/blended',
+  programsMiniOnline: '/programs/mini/online',
+  programsMiniBlended: '/programs/mini/blended',
+  programsProfessionOnline: '/programs/profession/online'
 }
 
 export default routesFront

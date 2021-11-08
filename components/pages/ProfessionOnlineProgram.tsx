@@ -45,7 +45,7 @@ const ProfessionOnlineProgram = ({ program }) => {
       <div className={stls.generalContainer}>
         <WhatWillYouLearn data={data} />
         <ProgramDesc />
-        <WhoItIsFor data={data} />
+        <WhoItIsFor program={program} />
 
         <Pros format={'online'} />
         <HowProcessGoes />
