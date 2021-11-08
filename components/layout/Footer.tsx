@@ -41,31 +41,11 @@ const Footer = () => {
                     <a className={stls.link}>MBA Mini</a>
                   </Link>
                 </li>
-                {/* <li>
-                <Link href='/programs/mini/blended' locale='ru'>
-                  <a>MBA Mini Blended</a>
-                </Link>
-              </li> */}
                 <li className={stls.linkItem}>
-                  <Link href='/programs/professional/online' locale='ru'>
-                    <a className={stls.link}>MBA Professional</a>
+                  <Link href='/programs/mba/online' locale='ru'>
+                    <a className={stls.link}>MBA</a>
                   </Link>
                 </li>
-                {/* <li>
-                <Link href='/programs/professional/blended' locale='ru'>
-                  <a>MBA Professional Blended</a>
-                </Link>
-              </li> */}
-                <li className={stls.linkItem}>
-                  <Link href='/programs/industry/online' locale='ru'>
-                    <a className={stls.link}>MBA Industry</a>
-                  </Link>
-                </li>
-                {/* <li>
-                <Link href='/programs/industry/blended' locale='ru'>
-                  <a>MBA Industry Blended</a>
-                </Link>
-              </li> */}
                 <li className={stls.linkItem}>
                   <Link href='/programs/executive' locale='ru'>
                     <a className={stls.link}>Executive MBA</a>

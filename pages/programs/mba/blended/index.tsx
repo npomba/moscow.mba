@@ -1,7 +1,7 @@
 import Programs from '@/components/pages/Programs'
 import { fetchPrograms, createBlended } from '@/helpers/index'
 
-const programsIndustryBlended = ({ programs }) => {
+const programsMbaBlended = ({ programs }) => {
   const data = programs.filter(
     program =>
       program.studyFormat === 'blended' && program.category?.type === 'mba'
@@ -23,4 +23,4 @@ export async function getStaticProps() {
   }
 }
 
-export default programsIndustryBlended
+export default programsMbaBlended

@@ -1,9 +1,9 @@
 import { routesBack } from '@/config/index'
-import { TypeOfType, TypesPrograms } from '@/types/index'
+import { TypeOfType, TypePrograms } from '@/types/index'
 import qs from 'qs'
 
 const fetchPrograms = async ({ ofType }: TypeOfType = { ofType: null }) => {
-  const programs: TypesPrograms = []
+  const programs: TypePrograms = []
   const limit = 100
   const resCount = await fetch(`${routesBack.root}${routesBack.programs}/count`)
   const count: number = await resCount.json()

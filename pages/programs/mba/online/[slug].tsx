@@ -7,7 +7,7 @@ import {
 
 import OnlineProgram from '@/components/pages/OnlineProgram'
 
-const programsIndustryOnlineProgram = ({ program, programs }) => {
+const programsMbaOnlineProgram = ({ program, programs }) => {
   return <OnlineProgram program={program} />
 }
 
@@ -44,4 +44,4 @@ export const getStaticPaths = async () => {
   }
 }
 
-export default programsIndustryOnlineProgram
+export default programsMbaOnlineProgram

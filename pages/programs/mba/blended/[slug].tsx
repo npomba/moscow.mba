@@ -7,7 +7,7 @@ import {
 
 import BlendedProgram from '@/components/pages/BlendedProgram'
 
-const programsIndustryBlendedProgram = ({ program, programs }) => {
+const programsMbaBlendedProgram = ({ program, programs }) => {
   return <BlendedProgram program={program} />
 }
 
@@ -44,4 +44,4 @@ export const getStaticPaths = async () => {
   }
 }
 
-export default programsIndustryBlendedProgram
+export default programsMbaBlendedProgram

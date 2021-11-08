@@ -38,7 +38,7 @@ const Filters = ({
               <span
                 className={classNames({
                   [stls.circle]: true,
-                  [stls.active]: at.industry
+                  [stls.active]: at.mba
                 })}></span>{' '}
               MBA
             </a>

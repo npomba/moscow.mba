@@ -88,18 +88,16 @@ const CostOfStudy = ({
   const at = useAt()
   const isDiscounted =
     (at.mini && at.online) ||
-    (at.professional && at.online) ||
-    (at.industry && at.online) ||
+    (at.mba && at.online) ||
     (at.profession && at.online) ||
     at.mbl
 
   const canPayInInstalments = at.profession
-  const costWithDescription =
-    at.mini || at.professional || at.industry || at.executive || at.mbl
+  const costWithDescription = at.mini || at.mba || at.executive || at.mbl
 
   let list
 
-  if (at.mini || at.professional || at.industry || at.executive || at.mbl) {
+  if (at.mini || at.mba || at.executive || at.mbl) {
     list = (
       <>
         <ul className={stls.list}>
@@ -108,9 +106,7 @@ const CostOfStudy = ({
               type={
                 at.mini
                   ? 'mini'
-                  : at.professional
-                  ? 'mba'
-                  : at.industry
+                  : at.mba
                   ? 'mba'
                   : at.executive
                   ? 'executive'
@@ -139,9 +135,7 @@ const CostOfStudy = ({
               type={
                 at.mini
                   ? 'mini'
-                  : at.professional
-                  ? 'mba'
-                  : at.industry
+                  : at.mba
                   ? 'mba'
                   : at.executive
                   ? 'executive'
@@ -159,9 +153,7 @@ const CostOfStudy = ({
                 type={
                   at.mini
                     ? 'mini'
-                    : at.professional
-                    ? 'mba'
-                    : at.industry
+                    : at.mba
                     ? 'mba'
                     : at.executive
                     ? 'executive'
@@ -227,14 +219,12 @@ const CostOfStudy = ({
             <div className={stls.programName}>
               {at.mini
                 ? 'MBA Mini'
-                : at.professional
-                ? 'MBA Professional'
-                : at.industry
-                ? 'MBA Industry'
+                : at.mba
+                ? 'MBA'
                 : at.executive
                 ? 'MBA Executive'
                 : at.mbl
-                ? 'MBA Industry'
+                ? 'MBA'
                 : ''}
             </div>
           )}

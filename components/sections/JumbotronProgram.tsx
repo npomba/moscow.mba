@@ -13,27 +13,28 @@ import { useAt } from '@/helpers/index'
 import { IconCheckCircleAlt } from '@/components/icons'
 import Loan from '@/components/costs/Loan'
 
-const JumbotronProgram = ({ data }) => {
+const JumbotronProgram = ({ program }) => {
   const at = useAt()
   const isDiscounted =
     (at.mini && at.online) ||
-    (at.professional && at.online) ||
-    (at.industry && at.online) ||
+    (at.mba && at.online) ||
     (at.profession && at.online) ||
     at.mbl
+
+  console.log(program)
 
   return (
     <section className={stls.container}>
       <div className={stls.image}>
         <Image
-          src={`/assets/images/programs-bgs/${data.picture}`}
+          src={program.picture.formats.large.url}
           alt='Студенты обучаются'
           layout='fill'
         />
       </div>
       <div className={stls.generalContainer}>
         <div className={stls.content}>
-          <Breadcrumbs programChunkData={data} />
+          <Breadcrumbs programChunkData={program} />
           <div className={stls.contentTop}>
             {(at.online || at.mbl) && (
               <div
@@ -54,11 +55,11 @@ const JumbotronProgram = ({ data }) => {
             <div className={stls.descContainer}>
               <h1
                 className={classNames({ [stls.smallerTitle]: at.profession })}>
-                {data.title}
+                {program.title}
               </h1>
               <div className={stls.desc}>
                 {at.profession
-                  ? data.description
+                  ? program.description
                   : 'Оставьте заявку и получите консультацию по программе, а также узнайте возможные варианты скидок и требования к поступлению'}
               </div>
               <div className={stls.btnLoanGroup}>
@@ -68,8 +69,8 @@ const JumbotronProgram = ({ data }) => {
                   nested>
                   {close => (
                     <PopupForm
-                      programId={data._id}
-                      programTitle={data.title}
+                      programId={program._id}
+                      programTitle={program.title}
                       title={'Получите консультацию'}
                       closePopUpForm={close}
                     />
@@ -81,8 +82,8 @@ const JumbotronProgram = ({ data }) => {
                     Можно учиться в рассрочку за{' '}
                     <Loan
                       discount={isDiscounted}
-                      type={data.category?.type}
-                      format={data.studyFormat}
+                      type={program.category?.type}
+                      format={program.studyFormat}
                       notComparingPrices
                     />
                   </p>
@@ -113,8 +114,8 @@ const JumbotronProgram = ({ data }) => {
             </ul>
           </div>
           <InfoRectangle
-            type={data.category?.type ?? 'executive'}
-            format={data.studyFormat}
+            type={program.category?.type ?? 'executive'}
+            format={program.studyFormat}
           />
         </div>
       </div>

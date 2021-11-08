@@ -88,18 +88,12 @@ const JumbotronCta = ({ programTitle = null, programId = null }) => {
           <div className={stls.flexContainer}>
             <div className={stls.descContainer}>
               <ul className={stls.desktopLinksList}>
-                <li className={stls.linkItem}>
-                  {/* <Link href='/programs/industry'>
-                    <a>INDUSTRY MBA</a>
-                  </Link> */}
-                  INDUSTRY MBA
-                </li>
                 <li className={stls.desktopLinkBorder}></li>
                 <li className={stls.linkItem}>
-                  {/* <Link href='/programs/professional'>
-                    <a>PROFESSIONAL MBA</a>
+                  {/* <Link href='/programs/mba'>
+                    <a>MBA</a>
                   </Link> */}
-                  PROFESSIONAL MBA
+                  MBA
                 </li>
                 <li className={stls.desktopLinkBorder}></li>
                 <li className={stls.linkItem}>

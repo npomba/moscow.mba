@@ -26,10 +26,8 @@ const Pros = ({ format = 'online' }) => {
           На{' '}
           {at.mini
             ? 'MBA mini'
-            : at.professional
-            ? 'MBA professional'
-            : at.industry
-            ? 'MBA industry'
+            : at.mba
+            ? 'MBA'
             : at.executive
             ? 'MBA executive'
             : 'курсе'}{' '}
@@ -76,10 +74,8 @@ const Pros = ({ format = 'online' }) => {
                 <p>
                   {at.mini
                     ? 'Дипломы MBA mini online'
-                    : at.professional
-                    ? 'Дипломы MBA professional online'
-                    : at.industry
-                    ? 'Дипломы MBA industry online'
+                    : at.mba
+                    ? 'Дипломы MBA online'
                     : at.executive
                     ? 'Дипломы MBA executive online'
                     : 'Дипломы дистанционных программ'}{' '}
@@ -182,9 +178,7 @@ const Pros = ({ format = 'online' }) => {
                   На MBA{' '}
                   {at.mini
                     ? 'mini'
-                    : at.professional
-                    ? 'mba'
-                    : at.industry
+                    : at.mba
                     ? 'mba'
                     : at.executive
                     ? 'executive'

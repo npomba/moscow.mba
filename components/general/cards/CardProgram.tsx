@@ -10,7 +10,7 @@ const CardProgram = ({ professionLayout, program, number, type, format }) => {
   const studyTimeMonths = program.minStudyTimeM
 
   return (
-    <Link href={`/programs/${type}/${format}/${program.url}`}>
+    <Link href={`/programs/${type}/${format}/${program.slug}`}>
       <a className={stls.program}>
         <div className={stls.arrow}>
           <IconArrowTopRight />

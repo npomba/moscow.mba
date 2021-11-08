@@ -5,16 +5,14 @@ const JumbotronLabel = () => {
 
   const txt = at.mini
     ? 'Mini MBA'
-    : at.professional
-    ? 'Professional MBA'
-    : at.industry
-    ? 'Industry MBA'
+    : at.mba
+    ? 'MBA'
     : at.profession
     ? 'Профессия'
     : at.executive
     ? 'Executive MBA'
     : at.mbl
-    ? 'Industry MBA'
+    ? 'MBA'
     : ''
 
   return (

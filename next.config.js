@@ -16,6 +16,9 @@ module.exports = {
     defaultLocale: 'ru',
     localeDetection: false
   },
+  images: {
+    domains: ['res.cloudinary.com']
+  },
   async headers() {
     return [
       {

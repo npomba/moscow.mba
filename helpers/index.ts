@@ -1,4 +1,7 @@
 import createBlended from '@/helpers/createBlended'
+import createProgramModules from '@/helpers/createProgramModules'
+import createProgramModulesBase from '@/helpers/createProgramModulesBase'
+import createProgramModulesSpecialized from '@/helpers/createProgramModulesSpecialized'
 import fetchPrograms from '@/helpers/fetchPrograms'
 import getClassNames from '@/helpers/getClassNames'
 import getProgram from '@/helpers/getProgram'
@@ -10,6 +13,9 @@ import useAt from '@/helpers/useAt'
 
 export {
   createBlended,
+  createProgramModules,
+  createProgramModulesBase,
+  createProgramModulesSpecialized,
   fetchPrograms,
   getClassNames,
   getProgram,

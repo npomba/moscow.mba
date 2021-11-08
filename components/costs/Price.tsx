@@ -15,14 +15,6 @@ const Price = ({
         online: '162 000',
         blended: '172 000'
       },
-      professional: {
-        online: '289 000',
-        blended: '299 000'
-      },
-      industry: {
-        online: '289 000',
-        blended: '299 000'
-      },
       mba: {
         online: '289 000',
         blended: '299 000'
@@ -38,12 +30,6 @@ const Price = ({
     discounted: {
       mini: {
         online: '89 000'
-      },
-      professional: {
-        online: '159 000'
-      },
-      industry: {
-        online: '159 000'
       },
       mba: {
         online: '159 000'

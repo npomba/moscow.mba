@@ -1,8 +1,8 @@
-import { TypesPrograms } from '@/types/index'
+import { TypePrograms } from '@/types/index'
 import { categories, studyFormats } from '@/config/index'
 import { v4 as uuidv4 } from 'uuid'
 
-const createBlended = (programs: TypesPrograms) => {
+const createBlended = (programs: TypePrograms) => {
   const output = [...programs]
   programs
     .filter(

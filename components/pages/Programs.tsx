@@ -36,7 +36,7 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
       return `Mini MBA ${mbaFormat}`
     }
 
-    if (at.industry) {
+    if (at.mba) {
       return `MBA ${mbaFormat}`
     }
 
@@ -67,18 +67,14 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
     <>
       <NextSeo
         title={`Программы обучения ${
-          at.mini ? 'Mini MBA' : at.industry ? 'MBA' : ''
+          at.mini ? 'Mini MBA' : at.mba ? 'MBA' : ''
         } ${
           at.online ? 'Online' : at.blended ? 'Blended' : ''
         } - Moscow Business Academy`}
         description={
-          at.mini
-            ? truncate(SetString(langMenu.categoryDiscMini), 120)
-            : at.industry
-            ? truncate(SetString(langMenu.categoryDiscIndustry), 120)
-            : ''
+          at.mini ? truncate(SetString(langMenu.categoryDiscMini), 120) : ''
         }
-        canonical={'https://moscow.mba/programs/professional/online'}
+        canonical={'https://moscow.mba/programs/mba/online'}
       />
 
       <section className={stls.jumbotronPrograms}>
@@ -108,8 +104,8 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
               <p className={stls.desc}>
                 {at.mini
                   ? SetString(langMenu.categoryDiscMini)
-                  : at.industry
-                  ? SetString(langMenu.categoryDiscIndustry)
+                  : at.mba
+                  ? SetString(langMenu.categoryDiscMba)
                   : ''}
               </p>
 

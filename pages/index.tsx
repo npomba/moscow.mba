@@ -38,7 +38,6 @@ const Home = ({ programs }) => {
         <Executive />
         <ContactUs />
       </div>
-      test
     </>
   )
 }

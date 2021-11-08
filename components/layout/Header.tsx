@@ -76,11 +76,9 @@ const Header = ({ programs }) => {
   const [mobileSecond, setMobileSecond] = useState(false)
   const [mobileLang, setMobileLang] = useState(false)
   const [mobileThirdMini, setMobileThirdMini] = useState(false)
-  const [mobileThirdProfessional, setMobileThirdProfessional] = useState(false)
-  const [mobileThirdIndustry, setMobileThirdIndustry] = useState(false)
+  const [mobileThirdMba, setMobileThirdMba] = useState(false)
   const [miniOnline, setMiniOnline] = useState(true)
-  const [professionalOnline, setProfessionalOnline] = useState(true)
-  const [industryOnline, setIndustryOnline] = useState(true)
+  const [mbaOnline, setmbaOnline] = useState(true)
 
   const contactInfo = contactData()
 
@@ -620,7 +618,7 @@ const Header = ({ programs }) => {
                 <li>
                   <a
                     className='mobile-third-toggle'
-                    onClick={() => setMobileThirdProfessional(true)}>
+                    onClick={() => setMobileThirdMba(true)}>
                     MBA
                   </a>
 
@@ -628,12 +626,12 @@ const Header = ({ programs }) => {
                   <div
                     className={classNames({
                       'header-mobile-third': true,
-                      opened: mobileThirdProfessional
+                      opened: mobileThirdMba
                     })}>
                     <div className='container'>
                       <div
                         className='menu-back-link'
-                        onClick={() => setMobileThirdProfessional(false)}>
+                        onClick={() => setMobileThirdMba(false)}>
                         <i></i>
                         {SetString(langMenu.toProgramsBtn)}
                       </div>
@@ -643,18 +641,18 @@ const Header = ({ programs }) => {
                           <li>
                             <a
                               className={classNames({
-                                active: professionalOnline
+                                active: mbaOnline
                               })}
-                              onClick={() => setProfessionalOnline(true)}>
+                              onClick={() => setmbaOnline(true)}>
                               ONLINE
                             </a>
                           </li>
                           <li>
                             <a
                               className={classNames({
-                                active: !professionalOnline
+                                active: !mbaOnline
                               })}
-                              onClick={() => setProfessionalOnline(false)}>
+                              onClick={() => setmbaOnline(false)}>
                               BLENDED
                             </a>
                           </li>
@@ -664,7 +662,7 @@ const Header = ({ programs }) => {
                             id='program-mobile-2-1'
                             className={classNames({
                               'program-options-block': true,
-                              show: professionalOnline
+                              show: mbaOnline
                             })}>
                             <div className='name'>
                               {SetString(langMenu.onlineTitle)}
@@ -733,7 +731,7 @@ const Header = ({ programs }) => {
                             id='program-mobile-2-2'
                             className={classNames({
                               'program-options-block': true,
-                              show: !professionalOnline
+                              show: !mbaOnline
                             })}>
                             <div className='name'>
                               {SetString(langMenu.blendedTitle)}
@@ -802,7 +800,7 @@ const Header = ({ programs }) => {
                             <TrainingPeriod type='mba' />
                           </span>
                         </div>
-                        <p>{SetString(langMenu.categoryDiscProfessional)}</p>
+                        <p>{SetString(langMenu.categoryDiscMba)}</p>
                         <div className='info-flex'>
                           <div className='pic'>
                             <IconPaperCorner fill={'#C7C7C7'} />
@@ -824,7 +822,7 @@ const Header = ({ programs }) => {
                       </div>
                       <div
                         className='menu-back-link last'
-                        onClick={() => setMobileThirdProfessional(false)}>
+                        onClick={() => setMobileThirdMba(false)}>
                         <i></i>
                         {SetString(langMenu.toProgramsBtn)}
                       </div>
@@ -832,219 +830,6 @@ const Header = ({ programs }) => {
                   </div>
                   {/* //third */}
                 </li>
-                {/* <li>
-                  <a
-                    className='mobile-third-toggle'
-                    onClick={() => setMobileThirdIndustry(true)}>
-                    Industry MBA
-                  </a>
-
-                  { third }
-                  <div
-                    className={classNames({
-                      'header-mobile-third': true,
-                      opened: mobileThirdIndustry
-                    })}>
-                    <div className='container'>
-                      <div
-                        className='menu-back-link'
-                        onClick={() => setMobileThirdIndustry(false)}>
-                        <i></i>
-                        {SetString(langMenu.toProgramsBtn)}
-                      </div>
-                      <h3>Industry MBA</h3>
-                      <div className='program-tabs-content'>
-                        <ul className='program-options-block-tabs'>
-                          <li>
-                            <a
-                              className={classNames({ active: industryOnline })}
-                              onClick={() => setIndustryOnline(true)}>
-                              ONLINE
-                            </a>
-                          </li>
-                          <li>
-                            <a
-                              className={classNames({
-                                active: !industryOnline
-                              })}
-                              onClick={() => setIndustryOnline(false)}>
-                              BLENDED
-                            </a>
-                          </li>
-                        </ul>
-                        <div className='program-options-detail'>
-                          <div
-                            id='program-mobile-3-1'
-                            className={classNames({
-                              'program-options-block': true,
-                              show: industryOnline
-                            })}>
-                            <div className='name'>
-                              {SetString(langMenu.onlineTitle)}
-                              <div className='discount'>
-                                <div className='size'>
-                                  <Discount />
-                                </div>
-                                <span>
-                                  <Until />
-                                </span>
-                              </div>
-                            </div>
-                            <ProgramsQty
-                              programs={programs}
-                              type={'mba'}
-                              format={'online'}
-                            />
-                            <div className='price'>
-                              {SetString(langMenu.price)}:{' '}
-                              <Price
-                                discount={true}
-                                type={'mba'}
-                                format={'online'}
-                              />{' '}
-                            </div>
-                            <div className='info-list'>
-                              <div className='info-flex'>
-                                <div className='pic'>
-                                  <IconCheckCircle fill={'#C7C7C7'} />
-                                </div>
-                                <span>{SetString(langMenu.formatRemote)}</span>
-                              </div>
-                              <div className='info-flex'>
-                                <div className='pic'>
-                                  <IconScreen fill={'#C7C7C7'} />
-                                </div>
-                                <span>
-                                  <ProgramSubjects type='mba' sum={true} />{' '}
-                                  {SetString(langMenu.qtSubjects)}
-                                </span>
-                              </div>
-                            </div>
-                            { <ul className='program-options-block-list'>
-                              {programs &&
-                                programs.map(item => {
-                                  if (
-                                    item.category.type === 'mba' &&
-                                    item.studyFormat === 'online'
-                                  ) {
-                                    return (
-                                      <li key={item._id}>
-                                        <Link
-                                          href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
-                                          locale='ru'>
-                                          <a onClick={handleMenuClose}>
-                                            {SetString(item, true)}
-                                          </a>
-                                        </Link>
-                                      </li>
-                                    )
-                                  }
-                                })}
-                            </ul> }
-                          </div>
-                          <div
-                            id='program-mobile-3-2'
-                            className={classNames({
-                              'program-options-block': true,
-                              show: !industryOnline
-                            })}>
-                            <div className='name'>
-                              {SetString(langMenu.blendedTitle)}
-                            </div>
-                            <ProgramsQty
-                              programs={programs}
-                              type={'mba'}
-                              format={'blended'}
-                            />
-                            <div className='price'>
-                              {SetString(langMenu.price)}:{' '}
-                              <Price
-                                discount={false}
-                                type={'mba'}
-                                format={'blended'}
-                              />
-                            </div>
-                            <div className='info-list'>
-                              <div className='info-flex'>
-                                <div className='pic'>
-                                  <IconCheckCircle fill={'#C7C7C7'} />
-                                </div>
-                                <span>{SetString(langMenu.formatBlended)}</span>
-                              </div>
-                              <div className='info-flex'>
-                                <div className='pic'>
-                                  <IconScreen fill={'#C7C7C7'} />
-                                </div>
-                                <span>
-                                  <ProgramSubjects type='mba' sum={true} />{' '}
-                                  {SetString(langMenu.qtSubjects)}
-                                </span>
-                              </div>
-                            </div>
-                            { <ul className='program-options-block-list'>
-                              {programs &&
-                                programs.map(item => {
-                                  if (
-                                    item.category.type === 'mba' &&
-                                    item.studyFormat === 'blended'
-                                  ) {
-                                    return (
-                                      <li key={item._id}>
-                                        <Link
-                                          href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
-                                          locale='ru'>
-                                          <a onClick={handleMenuClose}>
-                                            {SetString(item, true)}
-                                          </a>
-                                        </Link>
-                                      </li>
-                                    )
-                                  }
-                                })}
-                            </ul> }
-                          </div>
-                        </div>
-                      </div>
-                      <div className='header-podmenu-info'>
-                        <div className='name'>Industry MBA</div>
-                        <div className='info-flex'>
-                          <div className='pic'>
-                            <IconClock fill={'#C7C7C7'} />
-                          </div>
-                          <span>
-                            <TrainingPeriod type='mba' />
-                          </span>
-                        </div>
-                        <p>{SetString(langMenu.categoryDiscIndustry)}</p>
-                        <div className='info-flex'>
-                          <div className='pic'>
-                            <IconPaperCorner fill={'#C7C7C7'} />
-                          </div>
-                          <span>
-                            <ProgramSubjects type='mba' subjects='base' />{' '}
-                            {SetString(langMenu.categoryAboutManagement)}
-                          </span>
-                        </div>
-                        <div className='info-flex'>
-                          <div className='pic'>
-                            <IconPaperCorner fill={'#C7C7C7'} />
-                          </div>
-                          <span>
-                            <ProgramSubjects type='mba' subjects='specialty' />{' '}
-                            {SetString(langMenu.categorySpecializedSubjects)}
-                          </span>
-                        </div>
-                      </div>
-                      <div
-                        className='menu-back-link last'
-                        onClick={() => setMobileThirdIndustry(false)}>
-                        <i></i>
-                        {SetString(langMenu.toProgramsBtn)}
-                      </div>
-                    </div>
-                  </div>
-                  { //third }
-                </li> */}
                 <li>
                   <Link href='/programs/profession/online' locale='ru'>
                     <a

@@ -23,13 +23,7 @@ const Thankyou = ({ closePopUp = null, programId, programTitle }) => {
                   : at.blended
                   ? 'blended'
                   : null,
-                programType: at.mini
-                  ? 'mini'
-                  : at.professional
-                  ? 'mba'
-                  : at.industry
-                  ? 'mba'
-                  : null
+                programType: at.mini ? 'mini' : at.mba ? 'mba' : null
               }
             ]
           }

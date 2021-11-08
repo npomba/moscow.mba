@@ -12,8 +12,7 @@ const InfoRectangle = ({ programPage = false, type = null, format = null }) => {
   const at = useAt()
   const isDiscounted =
     (at.mini && at.online) ||
-    (at.professional && at.online) ||
-    (at.industry && at.online) ||
+    (at.mba && at.online) ||
     (at.profession && at.online) ||
     at.mbl
 

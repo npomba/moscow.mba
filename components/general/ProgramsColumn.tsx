@@ -74,7 +74,7 @@ const ProgramsColumn = ({ data, id, type }) => {
             {type === 'mini'
               ? SetString(langMenu.categoryDiscMini)
               : type === 'mba'
-              ? SetString(langMenu.categoryDiscProfessional)
+              ? SetString(langMenu.categoryDiscMba)
               : null}
           </p>
         </div>

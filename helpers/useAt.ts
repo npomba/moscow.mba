@@ -61,11 +61,7 @@ const useAt = () => {
     return getSplitedPath[1] === 'mini'
   }
 
-  const professional = () => {
-    return getSplitedPath[1] === 'mba'
-  }
-
-  const industry = () => {
+  const mba = () => {
     return getSplitedPath[1] === 'mba'
   }
 
@@ -99,8 +95,7 @@ const useAt = () => {
   const onWhichPage = () => {
     const typesOfPages = {
       mini: mini(),
-      professional: professional(),
-      industry: industry(),
+      mba: mba(),
       profession: profession(),
       executive: executive(),
       promo: promo(),
@@ -119,8 +114,7 @@ const useAt = () => {
     legal: legal(),
     promo: promo(),
     mini: mini(),
-    professional: professional(),
-    industry: industry(),
+    mba: mba(),
     profession: profession(),
     executive: executive(),
     programs: programs(),
