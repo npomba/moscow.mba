@@ -21,8 +21,6 @@ const JumbotronProgram = ({ program }) => {
     (at.profession && at.online) ||
     at.mbl
 
-  console.log(program)
-
   return (
     <section className={stls.container}>
       <div className={stls.image}>
