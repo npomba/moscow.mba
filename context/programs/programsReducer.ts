@@ -4,22 +4,27 @@ import {
   SET_CUR_PROGRAMS_STUDY_FIELD_SLUG,
   SET_SEARCH_TERM
 } from '@/context/types'
-import { filterProgramsByType, getStudyFields } from '@/helpers/index'
+// import { filterProgramsByType, getStudyFields } from '@/helpers/index'
 
 const programsReducer = (state, action) => {
   switch (action.type) {
     case SET_PROGRAMS:
       const programs = action.payload
 
-      const courses = filterProgramsByType({ programs, type: 'course' })
+      // const courses = filterProgramsByType({ programs, type: 'course' })
+      const courses = []
 
-      const professions = filterProgramsByType({ programs, type: 'profession' })
+      // const professions = filterProgramsByType({ programs, type: 'profession' })
+      const professions = []
 
-      const studyFields = getStudyFields(programs)
+      // const studyFields = getStudyFields(programs)
+      const studyFields = []
 
-      const studyFieldsProfessions = getStudyFields(professions)
+      // const studyFieldsProfessions = getStudyFields(professions)
+      const studyFieldsProfessions = []
 
-      const studyFieldsCourses = getStudyFields(courses)
+      // const studyFieldsCourses = getStudyFields(courses)
+      const studyFieldsCourses = []
 
       return {
         ...state,
