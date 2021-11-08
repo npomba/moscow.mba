@@ -38,7 +38,7 @@ const PageOnlineProgram = ({ program }) => {
         description={truncate(program.goalStr, 120)}
       />
 
-      <JumbotronProgram data={program} />
+      <JumbotronProgram program={program} />
 
       <div className={stls.generalContainer}>
         <ProgramGoal data={program} />
@@ -46,7 +46,7 @@ const PageOnlineProgram = ({ program }) => {
         <ProgramDesc />
         <Pros format={'online'} />
         <HowProcessGoes />
-        <ProgramModules data={program} />
+        <ProgramModules program={program} />
         {/* <ContactUs
           programId={data._id}
           programTitle={data.title}

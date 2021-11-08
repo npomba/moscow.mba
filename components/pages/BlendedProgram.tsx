@@ -23,42 +23,40 @@ import CostOfStudy from '@/components/sections/CostOfStudy'
 import GetStudyPlan from '@/components/sections/GetStudyPlan'
 
 const PageBlendedProgram = ({ program }) => {
-  const data = program
-
   const router = useRouter()
 
   return (
     <>
       <NextSeo
-        title={`${data.title} MBA - Moscow Business Academy`}
+        title={`${program.title} MBA - Moscow Business Academy`}
         description={truncate(program.goal, 120)}
         canonical={`https://moscow.mba${router.asPath}`}
       />
       <CourseJsonLd
-        courseName={`${data.title} MBA`}
+        courseName={`${program.title} MBA`}
         providerName='Moscow Business Academy'
         providerUrl={`https://moscow.mba${router.asPath}`}
         description={truncate(program.goal, 120)}
       />
 
-      <JumbotronProgram data={data} />
+      <JumbotronProgram program={program} />
 
       <div className={stls.generalContainer}>
-        <ProgramGoal data={data} />
-        <WhatWillYouLearn data={data} />
+        <ProgramGoal data={program} />
+        <WhatWillYouLearn data={program} />
         <ProgramDesc />
         <BlendedMetups />
         <Pros format={'blended'} />
         <HowProcessGoes />
-        <ProgramsModules data={data} />
+        <ProgramsModules program={program} />
         {/* <ContactUs
-          programId={data._id}
-          programTitle={data.title}
+          programId={program._id}
+          programTitle={program.title}
           title={'Получите консультацию'}
           titleNewStr={'по программе обучения'}
         /> */}
         <GetStudyPlan />
-        <Teachers programId={data._id} programTitle={data.title} />
+        <Teachers programId={program._id} programTitle={program.title} />
         <UpToDateContent withBottomLine />
         <CorporateClients />
         <Accreditation />
@@ -66,15 +64,15 @@ const PageBlendedProgram = ({ program }) => {
         <Students />
         <Reviews />
         <CostOfStudy
-          programId={data._id}
-          programTitle={data.title}
-          programFormat={data.studyFormat}
-          programType={data.category?.type}
+          programId={program._id}
+          programTitle={program.title}
+          programFormat={program.studyFormat}
+          programType={program.category?.type}
         />
-        <Qna programId={data._id} programTitle={data.title} />
+        <Qna programId={program._id} programTitle={program.title} />
         <ContactUs
-          programId={data._id}
-          programTitle={data.title}
+          programId={program._id}
+          programTitle={program.title}
           title={'Не знаете что выбрать?'}
           titleNewStr={'Получите консультацию по программам MBA'}
         />

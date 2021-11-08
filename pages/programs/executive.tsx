@@ -57,7 +57,7 @@ const executive = ({ programs }) => {
         description={truncate(data.desc, 120)}
       />
 
-      <JumbotronProgram data={data} />
+      <JumbotronProgram program={data} />
       <div className={stls.generalContainer}>
         <AboutExecutive />
         <ResultsExecutive />
@@ -65,7 +65,7 @@ const executive = ({ programs }) => {
         <ModulesAbroad />
         <WhoStudies />
 
-        <ProgramsModules data={data} />
+        <ProgramsModules program={data} />
         <ContactUs
           programId={data._id}
           programTitle={data.title}

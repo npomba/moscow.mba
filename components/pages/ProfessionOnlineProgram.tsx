@@ -40,7 +40,7 @@ const ProfessionOnlineProgram = ({ program }) => {
         description={truncate(program.goal, 120)}
       />
 
-      <JumbotronProgram data={data} />
+      <JumbotronProgram program={data} />
 
       <div className={stls.generalContainer}>
         <WhatWillYouLearn data={data} />
@@ -49,7 +49,7 @@ const ProfessionOnlineProgram = ({ program }) => {
 
         <Pros format={'online'} />
         <HowProcessGoes />
-        <ProgramModules data={data} smallerMb />
+        <ProgramModules program={data} smallerMb />
         <GetStudyPlan />
         <Teachers programId={data._id} programTitle={data.title} />
         <Students />
