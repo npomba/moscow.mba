@@ -105,3 +105,9 @@ function MyApp({ Component, pageProps, router }) {
 }
 
 export default MyApp
+
+// Package               Current   Wanted   Latest  Location
+// Package               Current  Wanted  Latest  Location
+// @maxmind/geoip2-node    2.3.2   2.3.2   3.2.0  mba
+// axios                  0.21.4  0.21.4  0.24.0  mba
+// truncate                2.1.0   2.1.0   3.0.0  mba
