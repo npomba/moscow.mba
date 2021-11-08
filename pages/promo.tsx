@@ -11,6 +11,7 @@ import ContactUs from '@/components/sections/ContactUs'
 import Accreditation from '@/components/sections/Accreditation'
 import Diploma from '@/components/sections/Diploma'
 import WhoItIsFor from '@/components/sections/WhoItIsFor'
+import { revalidate } from '@/config/index'
 
 const promo = ({ programs }) => {
   console.log(programs)
@@ -80,7 +81,8 @@ export async function getStaticProps() {
   return {
     props: {
       programs: programsWithBlended
-    }
+    },
+    revalidate: revalidate.default
   }
 }
 

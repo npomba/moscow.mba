@@ -18,6 +18,7 @@ import Reviews from '@/components/sections/Reviews'
 import CostOfStudy from '@/components/sections/CostOfStudy'
 import Qna from '@/components/sections/Qna'
 import { fetchPrograms, createBlended } from '@/helpers/index'
+import { revalidate } from '@/config/index'
 
 const executive = ({ programs }) => {
   const data = {
@@ -102,7 +103,8 @@ export async function getStaticProps() {
   return {
     props: {
       programs: programsWithBlended
-    }
+    },
+    revalidate: revalidate.default
   }
 }
 

@@ -2,6 +2,7 @@ import base64pixel from '@/config/base64pixel'
 import categories from '@/config/categories'
 import dev from '@/config/dev'
 import gtmId from '@/config/gtmId'
+import revalidate from '@/config/revalidate'
 import routesBack from '@/config/routesBack'
 import routesFront from '@/config/routesFront'
 import studyFormats from '@/config/studyFormats'
@@ -14,6 +15,7 @@ export {
   categories,
   dev,
   gtmId,
+  revalidate,
   routesBack,
   routesFront,
   studyFormats,

@@ -4,6 +4,7 @@ import {
   getProgram,
   getPaths
 } from '@/helpers/index'
+import { revalidate } from '@/config/index'
 
 import ProfessionOnlineProgram from '@/components/pages/ProfessionOnlineProgram'
 
@@ -25,7 +26,8 @@ export const getStaticProps = async context => {
     props: {
       program,
       programs: programsWithBlended
-    }
+    },
+    revalidate: revalidate.default
   }
 }
 

@@ -7,6 +7,7 @@ import ContactCards from '@/components/general/ContactCards'
 import contactData from '@/data/contactData'
 import Breadcrumbs from '@/components/general/Breadcrumbs'
 import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
+import { revalidate } from '@/config/index'
 import { fetchPrograms, createBlended } from '@/helpers/index'
 
 const contact = ({ programs }) => {
@@ -56,7 +57,8 @@ export async function getStaticProps() {
   return {
     props: {
       programs: programsWithBlended
-    }
+    },
+    revalidate: revalidate.default
   }
 }
 

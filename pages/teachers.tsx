@@ -4,6 +4,7 @@ import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import Teachers from '../components/sections/Teachers'
 import { fetchPrograms, createBlended } from '@/helpers/index'
+import { revalidate } from '@/config/index'
 
 import Breadcrumbs from '@/components/general/Breadcrumbs'
 
@@ -37,7 +38,8 @@ export async function getStaticProps() {
   return {
     props: {
       programs: programsWithBlended
-    }
+    },
+    revalidate: revalidate.default
   }
 }
 

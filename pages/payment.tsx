@@ -9,6 +9,7 @@ import PopupForm from '@/components/popups/PopupForm'
 import contactData from '@/data/contactData'
 import Breadcrumbs from '@/components/general/Breadcrumbs'
 import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
+import { revalidate } from '@/config/index'
 
 const payment = ({ programs }) => {
   const contactInfo = contactData()
@@ -138,7 +139,8 @@ export async function getStaticProps() {
   return {
     props: {
       programs: programsWithBlended
-    }
+    },
+    revalidate: revalidate.default
   }
 }
 

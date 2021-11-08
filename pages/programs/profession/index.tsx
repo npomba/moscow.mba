@@ -1,5 +1,6 @@
 import Programs from '@/components/pages/Programs'
 import { fetchPrograms, createBlended } from '@/helpers/index'
+import { revalidate } from '@/config/index'
 
 const programsMini = ({ programs }) => {
   const data = programs.filter(
@@ -24,7 +25,8 @@ export async function getStaticProps() {
   return {
     props: {
       programs: programsWithBlended
-    }
+    },
+    revalidate: revalidate.default
   }
 }
 

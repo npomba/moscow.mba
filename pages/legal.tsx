@@ -9,6 +9,7 @@ import MemberOfAcicel from '@/components/sections/MemberOfAcicel'
 import OurDiplomasAndCertificates from '@/components/sections/OurDiplomasAndCertificates'
 import CompanyCard from '@/components/sections/CompanyCard'
 import LegalDocuments from '@/components/sections/LegalDocuments'
+import { revalidate } from '@/config/index'
 
 const legal = ({ programs }) => {
   return (
@@ -46,7 +47,8 @@ export async function getStaticProps() {
   return {
     props: {
       programs: programsWithBlended
-    }
+    },
+    revalidate: revalidate.default
   }
 }
 

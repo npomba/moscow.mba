@@ -1,5 +1,6 @@
 import Webinars from '@/components/pages/Webinars'
 import { fetchPrograms, createBlended } from '@/helpers/index'
+import { revalidate } from '@/config/index'
 
 const webinars = ({ programs }) => {
   return <Webinars title={'Вебинары'} heading={'Вебинары'} />
@@ -12,7 +13,8 @@ export async function getStaticProps() {
   return {
     props: {
       programs: programsWithBlended
-    }
+    },
+    revalidate: revalidate.default
   }
 }
 

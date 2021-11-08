@@ -14,6 +14,7 @@ import ContactUs from '@/components/sections/ContactUs'
 import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/about'
 import langIndex from '@/data/translation/index'
+import { revalidate } from '@/config/index'
 import { fetchPrograms, createBlended } from '@/helpers/index'
 
 const about = ({ programs }) => {
@@ -49,7 +50,8 @@ export async function getStaticProps() {
   return {
     props: {
       programs: programsWithBlended
-    }
+    },
+    revalidate: revalidate.default
   }
 }
 

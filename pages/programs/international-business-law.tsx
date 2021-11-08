@@ -1,4 +1,5 @@
 import { fetchPrograms, createBlended } from '@/helpers/index'
+import { revalidate } from '@/config/index'
 
 import InternationalBusinessLaw from '@/components/pages/InternationalBusinessLaw'
 
@@ -18,7 +19,8 @@ export async function getStaticProps() {
     props: {
       program,
       programs: programsWithBlended
-    }
+    },
+    revalidate: revalidate.default
   }
 }
 
