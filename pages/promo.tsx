@@ -83,6 +83,7 @@ export async function getStaticProps() {
     data: [
       'id',
       'title',
+      'slug',
       'category.slug',
       'category.type',
       'whatWillYouLearn',
