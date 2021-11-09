@@ -1,8 +1,8 @@
-import stls from '@/styles/components/general/ContactCard.module.sass'
+import stls from '@/styles/components/cards/CardContact.module.sass'
 import { IconLocation } from '@/components/icons'
 import { Fragment } from 'react'
 
-const ContactCard = ({
+const CardContact = ({
   city,
   address,
   numbers,
@@ -64,4 +64,4 @@ const ContactCard = ({
   )
 }
 
-export default ContactCard
+export default CardContact

@@ -2,8 +2,6 @@ import stls from '@/styles/components/sections/Students.module.sass'
 import classNames from 'classnames'
 import { useAt } from '@/helpers/index'
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar'
-
-import circleStls from '@/styles/components/CircularProgressBar.module.sass'
 import Image from 'next/image'
 
 const Students = () => {
@@ -24,16 +22,16 @@ const Students = () => {
             <li className={stls.item}>
               <CircularProgressbarWithChildren
                 value={96}
-                className={circleStls.circle}>
-                <p className={circleStls.text}>96%</p>
+                className={stls.circle}>
+                <p className={stls.text}>96%</p>
               </CircularProgressbarWithChildren>
               <p className={stls.results}>остались довольны обучением</p>
             </li>
             <li className={stls.item}>
               <CircularProgressbarWithChildren
-                className={circleStls.circle}
+                className={stls.circle}
                 value={92}>
-                <p className={circleStls.text}>92%</p>
+                <p className={stls.text}>92%</p>
               </CircularProgressbarWithChildren>
               <p className={stls.results}>
                 {at.profession
@@ -43,9 +41,9 @@ const Students = () => {
             </li>
             <li className={stls.item}>
               <CircularProgressbarWithChildren
-                className={circleStls.circle}
+                className={stls.circle}
                 value={72}>
-                <p className={circleStls.text}>72%</p>
+                <p className={stls.text}>72%</p>
               </CircularProgressbarWithChildren>
               <p className={stls.results}>продвинулись по карьерной лестнице</p>
             </li>

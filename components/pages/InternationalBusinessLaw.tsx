@@ -1,4 +1,4 @@
-import stls from '@/styles/components/pages/OnlineProgram.module.sass'
+import stls from '@/styles/components/pages/InternationalBusinessLaw.module.sass'
 import { NextSeo, CourseJsonLd } from 'next-seo'
 import { useRouter } from 'next/router'
 import truncate from 'truncate'
@@ -40,7 +40,7 @@ const PageOnlineProgram = ({ program }) => {
 
       <JumbotronProgram program={program} />
 
-      <div className={stls.generalContainer}>
+      <div className={stls.container}>
         <ProgramGoal data={program} />
         <WhatWillYouLearn data={program} />
         <ProgramDesc />

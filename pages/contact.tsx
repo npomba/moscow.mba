@@ -8,7 +8,11 @@ import contactData from '@/data/contactData'
 import Breadcrumbs from '@/components/general/Breadcrumbs'
 import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
 import { revalidate } from '@/config/index'
-import { fetchPrograms, createBlended } from '@/helpers/index'
+import {
+  fetchPrograms,
+  createBlended,
+  getProgramsReducedData
+} from '@/helpers/index'
 
 const contact = ({ programs }) => {
   const contactInfo = contactData()
@@ -38,11 +42,11 @@ const contact = ({ programs }) => {
         ]}
       />
       <section className={breadcrumbsStls.jumbotronGeneral}>
-        <div className={stls.generalContainer}>
+        <div className={stls.container}>
           <Breadcrumbs />
         </div>
       </section>
-      <div className={stls.generalContainer}>
+      <div className={stls.container}>
         <h1 className={stls.h1}>{SetString(lang.linkContacts)}</h1>
         <ContactCards />
       </div>
@@ -52,7 +56,18 @@ const contact = ({ programs }) => {
 
 export async function getStaticProps() {
   const programs = await fetchPrograms()
-  const programsWithBlended = createBlended(programs)
+  const programsReducedData = getProgramsReducedData({
+    programs,
+    data: [
+      'id',
+      'title',
+      'slug',
+      'category.slug',
+      'category.type',
+      'studyFormat'
+    ]
+  })
+  const programsWithBlended = createBlended(programsReducedData)
 
   return {
     props: {

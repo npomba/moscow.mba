@@ -128,7 +128,7 @@ const CourseAccordion = ({
             <ul className={stls.whatWillLearnList}>
               {whatWillYouLearn.map(item => (
                 <li key={item.id} className={stls.whatWillLearnItem}>
-                  {item.string}
+                  {item.string || item}
                 </li>
               ))}
             </ul>

@@ -3,7 +3,11 @@ import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import Teachers from '../components/sections/Teachers'
-import { fetchPrograms, createBlended } from '@/helpers/index'
+import {
+  fetchPrograms,
+  createBlended,
+  getProgramsReducedData
+} from '@/helpers/index'
 import { revalidate } from '@/config/index'
 
 import Breadcrumbs from '@/components/general/Breadcrumbs'
@@ -20,11 +24,11 @@ const teachers = ({ programs }) => {
         canonical={'https://moscow.mba/teachers'}
       />
       <section className={breadcrumbsStls.jumbotronGeneral}>
-        <div className={stls.generalContainer}>
+        <div className={stls.container}>
           <Breadcrumbs />
         </div>
       </section>
-      <div className={stls.generalContainer}>
+      <div className={stls.container}>
         <Teachers atStandAlonePage />
       </div>
     </>
@@ -33,7 +37,18 @@ const teachers = ({ programs }) => {
 
 export async function getStaticProps() {
   const programs = await fetchPrograms()
-  const programsWithBlended = createBlended(programs)
+  const programsReducedData = getProgramsReducedData({
+    programs,
+    data: [
+      'id',
+      'title',
+      'slug',
+      'category.slug',
+      'category.type',
+      'studyFormat'
+    ]
+  })
+  const programsWithBlended = createBlended(programsReducedData)
 
   return {
     props: {

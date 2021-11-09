@@ -1,8 +1,8 @@
-import stls from '@/styles/components/general/forms/AskQuestionFormStage.module.sass'
+import stls from '@/styles/components/forms/AskQuestionFormStage.module.sass'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import TagManager from 'react-gtm-module'
-import ContactButton from '@/components/btns/ContactButton'
+import { BtnContact } from '@/components/btns'
 import { v4 as uuidv4 } from 'uuid'
 import { useAt } from '@/helpers/index'
 
@@ -176,7 +176,7 @@ const createButtons = dataToCreateButtons => {
 
   if (selectWay) {
     buttons = waysToContact.map((wayToContact, idx) => (
-      <ContactButton
+      <BtnContact
         key={wayToContact.name + idx}
         wayToContact={wayToContact}
         chooseWayToContact={selectedWayToContact => {

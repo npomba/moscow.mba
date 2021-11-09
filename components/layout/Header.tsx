@@ -7,7 +7,7 @@ import { useRouter } from 'next/router'
 import lang from '@/data/translation/header'
 import langMenu from '@/data/translation/menu'
 import { SetString } from '@/helpers/index'
-import HeaderLangLink from '@/components/btns/HeaderLangLink'
+import { BtnChangeLang } from '@/components/btns'
 import Until from '@/components/costs/Until'
 import Price from '@/components/costs/Price'
 import { useAt } from '@/helpers/index'
@@ -133,7 +133,7 @@ const Header = ({ programs }) => {
                 <IconMobilePhone large fill={'#000'} />
               </a>
             </div>
-            {at.index || at.about || at.contact ? <HeaderLangLink /> : null}
+            {at.index || at.about || at.contact ? <BtnChangeLang /> : null}
             {!at.promo && (
               <div
                 className={classNames({
@@ -498,7 +498,7 @@ const Header = ({ programs }) => {
                                     item.studyFormat === 'online'
                                   ) {
                                     return (
-                                      <li key={item._id}>
+                                      <li key={item.id || item._id}>
                                         <Link
                                           href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
                                           locale='ru'>
@@ -559,7 +559,7 @@ const Header = ({ programs }) => {
                                     item.studyFormat === 'blended'
                                   ) {
                                     return (
-                                      <li key={item._id}>
+                                      <li key={item.id || item._id}>
                                         <Link
                                           href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
                                           locale='ru'>
@@ -713,7 +713,7 @@ const Header = ({ programs }) => {
                                     item.studyFormat === 'online'
                                   ) {
                                     return (
-                                      <li key={item._id}>
+                                      <li key={item.id || item._id}>
                                         <Link
                                           href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
                                           locale='ru'>
@@ -774,7 +774,7 @@ const Header = ({ programs }) => {
                                     item.studyFormat === 'blended'
                                   ) {
                                     return (
-                                      <li key={item._id}>
+                                      <li key={item.id || item._id}>
                                         <Link
                                           href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
                                           locale='ru'>

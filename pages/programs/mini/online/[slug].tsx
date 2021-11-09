@@ -1,6 +1,7 @@
 import {
   fetchPrograms,
   createBlended,
+  getProgramsReducedData,
   getProgram,
   getPaths
 } from '@/helpers/index'
@@ -15,6 +16,18 @@ const programsMiniOnlineProgram = ({ program, programs }) => {
 export const getStaticProps = async context => {
   const programs = await fetchPrograms()
   const programsWithBlended = createBlended(programs)
+  const programsReducedData = getProgramsReducedData({
+    programs: programsWithBlended,
+    data: [
+      'id',
+      'title',
+      'slug',
+      'category.slug',
+      'category.type',
+      'studyFormat'
+    ]
+  })
+
   const program = getProgram({
     programs: programsWithBlended,
     slug: context.params.slug,
@@ -25,7 +38,7 @@ export const getStaticProps = async context => {
   return {
     props: {
       program,
-      programs: programsWithBlended
+      programs: programsReducedData
     },
     revalidate: revalidate.default
   }
@@ -33,9 +46,8 @@ export const getStaticProps = async context => {
 
 export const getStaticPaths = async () => {
   const programs = await fetchPrograms()
-  const programsWithBlended = createBlended(programs)
   const paths = getPaths({
-    programs: programsWithBlended,
+    programs: programs,
     studyFormat: 'online',
     type: 'mini'
   })

@@ -132,7 +132,7 @@ const ProgramsColumn = ({ data, id, type }) => {
                   item.studyFormat === 'online'
                 ) {
                   return (
-                    <li key={item._id} className={stls.listItem}>
+                    <li key={item.id || item._id} className={stls.listItem}>
                       <Link
                         href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
                         locale='ru'>
@@ -191,7 +191,7 @@ const ProgramsColumn = ({ data, id, type }) => {
                   item.studyFormat === 'blended'
                 ) {
                   return (
-                    <li key={item._id} className={stls.listItem}>
+                    <li key={item.id || item._id} className={stls.listItem}>
                       <Link
                         href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
                         locale='ru'>

@@ -1,4 +1,4 @@
-import stls from '@/styles/components/general/cards/CardProgram.module.sass'
+import stls from '@/styles/components/cards/CardProgram.module.sass'
 import Link from 'next/link'
 import Price from '@/components/costs/Price'
 import { IconArrowTopRight } from '@/components/icons'
@@ -7,11 +7,9 @@ import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/months'
 
 const CardProgram = ({ professionLayout, program, number, type, format }) => {
-  const studyTimeMonths = program.minStudyTimeM
-
   return (
     <Link href={`/programs/${type}/${format}/${program.slug}`}>
-      <a className={stls.program}>
+      <a className={stls.container}>
         <div className={stls.arrow}>
           <IconArrowTopRight />
         </div>

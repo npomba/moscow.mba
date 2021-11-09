@@ -1,6 +1,10 @@
-import stls from '@/styles/pages/legal/Index.module.sass'
+import stls from '@/styles/pages/Legal.module.sass'
 import { NextSeo } from 'next-seo'
-import { fetchPrograms, createBlended } from '@/helpers/index'
+import {
+  fetchPrograms,
+  createBlended,
+  getProgramsReducedData
+} from '@/helpers/index'
 import Breadcrumbs from '@/components/general/Breadcrumbs'
 import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
 import CurrentLicenses from '@/components/sections/CurrentLicenses'
@@ -23,12 +27,12 @@ const legal = ({ programs }) => {
       />
 
       <section className={breadcrumbsStls.jumbotronGeneral}>
-        <div className={stls.generalContainer}>
+        <div className={stls.container}>
           <Breadcrumbs />
         </div>
       </section>
-      <div className={stls.generalContainer}>
-        <h1 className={stls.mainHeading}>Сведения об организации</h1>
+      <div className={stls.container}>
+        <h1 className={stls.title}>Сведения об организации</h1>
         <CurrentLicenses />
         <MemberOfRabe />
         <MemberOfAcicel />
@@ -42,7 +46,18 @@ const legal = ({ programs }) => {
 
 export async function getStaticProps() {
   const programs = await fetchPrograms()
-  const programsWithBlended = createBlended(programs)
+  const programsReducedData = getProgramsReducedData({
+    programs,
+    data: [
+      'id',
+      'title',
+      'slug',
+      'category.slug',
+      'category.type',
+      'studyFormat'
+    ]
+  })
+  const programsWithBlended = createBlended(programsReducedData)
 
   return {
     props: {

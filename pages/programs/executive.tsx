@@ -17,7 +17,12 @@ import Students from '@/components/sections/Students'
 import Reviews from '@/components/sections/Reviews'
 import CostOfStudy from '@/components/sections/CostOfStudy'
 import Qna from '@/components/sections/Qna'
-import { fetchPrograms, createBlended, getProgram } from '@/helpers/index'
+import {
+  fetchPrograms,
+  createBlended,
+  getProgram,
+  getProgramsReducedData
+} from '@/helpers/index'
 import { revalidate } from '@/config/index'
 
 const executive = ({ program, programs }) => {
@@ -36,7 +41,7 @@ const executive = ({ program, programs }) => {
       />
 
       <JumbotronProgram program={program} />
-      <div className={stls.generalContainer}>
+      <div className={stls.container}>
         <AboutExecutive />
         <ResultsExecutive />
         <InPersonWithExperts />
@@ -76,6 +81,18 @@ const executive = ({ program, programs }) => {
 export async function getStaticProps() {
   const programs = await fetchPrograms()
   const programsWithBlended = createBlended(programs)
+  const programsReducedData = getProgramsReducedData({
+    programs: programsWithBlended,
+    data: [
+      'id',
+      'title',
+      'slug',
+      'category.slug',
+      'category.type',
+      'studyFormat'
+    ]
+  })
+
   const program = getProgram({
     programs: programsWithBlended,
     slug: 'executive',
@@ -85,8 +102,8 @@ export async function getStaticProps() {
 
   return {
     props: {
-      programs: programsWithBlended,
-      program
+      program,
+      programs: programsReducedData
     },
     revalidate: revalidate.default
   }

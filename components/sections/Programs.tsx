@@ -160,7 +160,7 @@ const Programs = ({ programs }) => {
                         item.studyFormat === 'online'
                       ) {
                         return (
-                          <li key={item._id}>
+                          <li key={item.id || item._id}>
                             <Link
                               href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
                               locale='ru'>
@@ -211,7 +211,7 @@ const Programs = ({ programs }) => {
                         item.studyFormat === 'blended'
                       ) {
                         return (
-                          <li key={item._id}>
+                          <li key={item.id || item._id}>
                             <Link
                               href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
                               locale='ru'>
@@ -308,7 +308,7 @@ const Programs = ({ programs }) => {
                         item.studyFormat === 'online'
                       ) {
                         return (
-                          <li key={item._id}>
+                          <li key={item.id || item._id}>
                             <Link
                               href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
                               locale='ru'>
@@ -359,7 +359,7 @@ const Programs = ({ programs }) => {
                         item.studyFormat === 'blended'
                       ) {
                         return (
-                          <li key={item._id}>
+                          <li key={item.id || item._id}>
                             <Link
                               href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
                               locale='ru'>

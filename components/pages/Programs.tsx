@@ -10,7 +10,7 @@ import InfoRectangle from '@/components/general/InfoRectangle'
 import ProgramSubjects from '@/components/general/ProgramSubjects'
 import ProgramsQty from '@/components/general/ProgramsQty'
 import Filters from '@/components/general/Filters'
-import CardProgram from '@/components/general/cards/CardProgram'
+import { CardProgram } from '@/components/cards'
 import { IconCheckCircle } from '@/components/icons'
 
 const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
@@ -147,7 +147,7 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
               {programsToDisplay.map((program, idx) => {
                 return (
                   <CardProgram
-                    key={program._id}
+                    key={program._id || program.id}
                     professionLayout={at.profession}
                     program={program}
                     number={idx + 1}

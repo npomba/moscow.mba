@@ -41,7 +41,7 @@ const PageBlendedProgram = ({ program }) => {
 
       <JumbotronProgram program={program} />
 
-      <div className={stls.generalContainer}>
+      <div className={stls.container}>
         <ProgramGoal data={program} />
         <WhatWillYouLearn data={program} />
         <ProgramDesc />

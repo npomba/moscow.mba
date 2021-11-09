@@ -1,4 +1,4 @@
-const HeadManifest = () => {
+const MetaManifest = () => {
   return (
     <>
       <meta name='application-name' content='Moscow Business Academy' />
@@ -120,4 +120,4 @@ const HeadManifest = () => {
   )
 }
 
-export default HeadManifest
+export default MetaManifest

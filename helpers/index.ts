@@ -5,8 +5,10 @@ import createProgramModulesSpecialized from '@/helpers/createProgramModulesSpeci
 import fetchPrograms from '@/helpers/fetchPrograms'
 import getClassNames from '@/helpers/getClassNames'
 import getProgram from '@/helpers/getProgram'
+import getProgramsReducedData from '@/helpers/getProgramsReducedData'
 import getPaths from '@/helpers/getPaths'
 import getStringDeclensionNumber from '@/helpers/getStringDeclensionNumber'
+import handlePlaceholder from '@/helpers/handlePlaceholder'
 import onSubmitForm from '@/helpers/onSubmitForm'
 import SetString from '@/helpers/SetString'
 import useAt from '@/helpers/useAt'
@@ -19,8 +21,10 @@ export {
   fetchPrograms,
   getClassNames,
   getProgram,
+  getProgramsReducedData,
   getPaths,
   getStringDeclensionNumber,
+  handlePlaceholder,
   onSubmitForm,
   SetString,
   useAt

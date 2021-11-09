@@ -1,6 +1,6 @@
-import stls from '@/styles/components/general/forms/AskQuestionForm.module.sass'
+import stls from '@/styles/components/forms/AskQuestionForm.module.sass'
 import { useState } from 'react'
-import AskQuestionFormStage from '@/components/general/forms/AskQuestionFormStage'
+import { AskQuestionFormStage } from '@/components/forms'
 import { onSubmitForm } from '@/helpers/index'
 import { IconClose } from '@/components/icons'
 

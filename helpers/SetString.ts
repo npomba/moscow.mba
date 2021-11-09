@@ -13,7 +13,8 @@ const SetString = (str, programTitle = false, stringDeclensionNumber = -1) => {
     }
   } else {
     if (router.locale === 'en-US') {
-      output = str.titleEng
+      const enTitle = str.slug.split('-').join(' ')
+      output = enTitle[0].toUpperCase() + enTitle.slice(1)
     } else {
       output = str.title
     }

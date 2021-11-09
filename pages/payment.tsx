@@ -2,7 +2,11 @@ import stls from '@/styles/pages/Payment.module.sass'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import Image from 'next/image'
-import { fetchPrograms, createBlended } from '@/helpers/index'
+import {
+  fetchPrograms,
+  createBlended,
+  getProgramsReducedData
+} from '@/helpers/index'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import PopupForm from '@/components/popups/PopupForm'
@@ -25,11 +29,11 @@ const payment = ({ programs }) => {
         canonical={'https://moscow.mba/payment'}
       />
       <section className={breadcrumbsStls.jumbotronGeneral}>
-        <div className={stls.generalContainer}>
+        <div className={stls.container}>
           <Breadcrumbs />
         </div>
       </section>
-      <div className={stls.generalContainer}>
+      <div className={stls.container}>
         <div className={stls.content}>
           <h1 className={stls.h1}>Оплата</h1>
           <h2 className={stls.h2}>Банковской картой</h2>
@@ -134,7 +138,18 @@ const payment = ({ programs }) => {
 
 export async function getStaticProps() {
   const programs = await fetchPrograms()
-  const programsWithBlended = createBlended(programs)
+  const programsReducedData = getProgramsReducedData({
+    programs,
+    data: [
+      'id',
+      'title',
+      'slug',
+      'category.slug',
+      'category.type',
+      'studyFormat'
+    ]
+  })
+  const programsWithBlended = createBlended(programsReducedData)
 
   return {
     props: {

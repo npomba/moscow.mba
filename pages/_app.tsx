@@ -72,7 +72,7 @@ function MyApp({ Component, pageProps, router }) {
       Router.events.off('routeChangeComplete', end)
       Router.events.off('routeChangeError', end)
     }
-  }, [])
+  }, [router])
 
   if (!dev) {
     console.log = function () {}

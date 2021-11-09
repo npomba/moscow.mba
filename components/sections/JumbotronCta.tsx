@@ -8,7 +8,7 @@ import lang from '@/data/translation/index'
 import { onSubmitForm } from '@/helpers/index'
 import { useForm } from 'react-hook-form'
 import { useState } from 'react'
-import handlePlaceholder from '@/components/general/forms/handlePlaceholder'
+import { handlePlaceholder } from '@/helpers/index'
 import PopupThankyou from '@/components/popups/PopupThankyou'
 import Popup from 'reactjs-popup'
 import PopupLoader from '@/components/popups/PopupLoader'
@@ -88,7 +88,7 @@ const JumbotronCta = ({ programTitle = null, programId = null }) => {
           <div className={stls.flexContainer}>
             <div className={stls.descContainer}>
               <ul className={stls.desktopLinksList}>
-                <li className={stls.desktopLinkBorder}></li>
+                {/* <li className={stls.desktopLinkBorder}></li> */}
                 <li className={stls.linkItem}>
                   {/* <Link href='/programs/mba'>
                     <a>MBA</a>

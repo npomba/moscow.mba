@@ -12,7 +12,11 @@ import CorporateClients from '@/components/sections/CorporateClients'
 import Programs from '@/components/sections/Programs'
 import Executive from '@/components/sections/Executive'
 import ContactUs from '@/components/sections/ContactUs'
-import { fetchPrograms, createBlended } from '@/helpers/index'
+import {
+  fetchPrograms,
+  createBlended,
+  getProgramsReducedData
+} from '@/helpers/index'
 import { revalidate } from '@/config/index'
 
 const Home = ({ programs }) => {
@@ -29,7 +33,7 @@ const Home = ({ programs }) => {
         canonical={'https://moscow.mba/'}
       />
       <JumbotronCta />
-      <div className={stls.generalContainer}>
+      <div className={stls.container}>
         <About />
         <ConferencesInEurope />
         <ForeignAffiliates />
@@ -45,7 +49,18 @@ const Home = ({ programs }) => {
 
 export async function getStaticProps() {
   const programs = await fetchPrograms()
-  const programsWithBlended = createBlended(programs)
+  const programsReducedData = getProgramsReducedData({
+    programs,
+    data: [
+      'id',
+      'title',
+      'slug',
+      'category.slug',
+      'category.type',
+      'studyFormat'
+    ]
+  })
+  const programsWithBlended = createBlended(programsReducedData)
 
   return {
     props: {

@@ -1,5 +1,5 @@
 import stls from '@/styles/components/general/ContactCards.module.sass'
-import ContactCard from '@/components/general/ContactCard'
+import { CardContact } from '@/components/cards'
 import contactData from '@/data/contactData'
 import { SetString } from '@/helpers/index'
 
@@ -8,38 +8,38 @@ const ContactCards = () => {
   return (
     <div className={stls.locations}>
       <div className={stls.row}>
-        <ContactCard
+        <CardContact
           city={SetString(contactInfo.ru.address.city)}
           address={SetString(contactInfo.ru.address.street)}
           numbers={contactInfo.ru.tels}
           email={contactInfo.ru.email.val}
         />
-        <ContactCard
+        <CardContact
           city={SetString(contactInfo.kz[0].address.city)}
           address={SetString(contactInfo.kz[0].address.street)}
           numbers={contactInfo.kz[0].tels}
           email={contactInfo.kz[0].email.val}
         />
-        <ContactCard
+        <CardContact
           city={SetString(contactInfo.us.address.city)}
           address={SetString(contactInfo.us.address.street)}
           numbers={contactInfo.us.tels}
           email={contactInfo.us.email.val}
           numNonClickable
         />
-        <ContactCard
+        <CardContact
           city={SetString(contactInfo.uz.address.city)}
           address={SetString(contactInfo.uz.address.street)}
           numbers={contactInfo.uz.tels}
           email={contactInfo.uz.email.val}
         />
-        <ContactCard
+        <CardContact
           city={SetString(contactInfo.kz[1].address.city)}
           address={SetString(contactInfo.kz[1].address.street)}
           numbers={contactInfo.kz[1].tels}
           email={contactInfo.kz[1].email.val}
         />
-        <ContactCard
+        <CardContact
           city={SetString(contactInfo.de.address.city)}
           address={SetString(contactInfo.de.address.street)}
           numbers={contactInfo.de.tels}

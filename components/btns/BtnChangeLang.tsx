@@ -1,4 +1,4 @@
-import stls from '@/styles/components/btns/HeaderLangLink.module.sass'
+import stls from '@/styles/components/btns/BtnChangeLang.module.sass'
 import classNames from 'classnames'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -7,7 +7,7 @@ import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/header'
 import { IconTriangleBottom } from '@/components/icons'
 
-const HeaderLangLink = () => {
+const BtnChangeLang = () => {
   const [showMe, setShowMe] = useState(false)
   const showLangMenu = () => setShowMe(!showMe)
   const router = useRouter()
@@ -40,4 +40,4 @@ const HeaderLangLink = () => {
   )
 }
 
-export default HeaderLangLink
+export default BtnChangeLang

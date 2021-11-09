@@ -15,7 +15,11 @@ import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/about'
 import langIndex from '@/data/translation/index'
 import { revalidate } from '@/config/index'
-import { fetchPrograms, createBlended } from '@/helpers/index'
+import {
+  fetchPrograms,
+  createBlended,
+  getProgramsReducedData
+} from '@/helpers/index'
 
 const about = ({ programs }) => {
   return (
@@ -28,7 +32,7 @@ const about = ({ programs }) => {
 
       <JumbotronMain />
 
-      <div className={stls.generalContainer}>
+      <div className={stls.container}>
         <About />
         <ConferencesInEurope />
         <ForeignAffiliates />
@@ -45,8 +49,18 @@ const about = ({ programs }) => {
 
 export async function getStaticProps() {
   const programs = await fetchPrograms()
-  const programsWithBlended = createBlended(programs)
-
+  const programsReducedData = getProgramsReducedData({
+    programs,
+    data: [
+      'id',
+      'title',
+      'slug',
+      'category.slug',
+      'category.type',
+      'studyFormat'
+    ]
+  })
+  const programsWithBlended = createBlended(programsReducedData)
   return {
     props: {
       programs: programsWithBlended

@@ -42,7 +42,7 @@ const ProfessionOnlineProgram = ({ program }) => {
 
       <JumbotronProgram program={data} />
 
-      <div className={stls.generalContainer}>
+      <div className={stls.container}>
         <WhatWillYouLearn data={data} />
         <ProgramDesc />
         <WhoItIsFor program={program} />

@@ -1,4 +1,4 @@
-const HeadFonts = () => {
+const MetaFonts = () => {
   return (
     <>
       <link
@@ -53,4 +53,4 @@ const HeadFonts = () => {
   )
 }
 
-export default HeadFonts
+export default MetaFonts

@@ -1,6 +1,6 @@
 @use '@/styles/utils/mixin' as m
 
-.circle
+@mixin circle
   flex-shrink: 0
   margin-right: 20px
   position: relative
@@ -18,7 +18,7 @@
     stroke: #ff3535
     stroke-width: 3px
 
-p.text
+@mixin text
   position: absolute
   left: 15%
   top: 45%
@@ -26,7 +26,7 @@ p.text
   font-size: 40px
   font-weight: 700
 
-.strong
+@mixin strong
   position: absolute
   top: 0
   left: 0
@@ -42,7 +42,7 @@ p.text
     font-size: 50px
     transform: translateY(-30px)
 
-.circleLg
+@mixin circleLg
   margin: 0 auto 20px
   position: relative
   font-size: 90px
