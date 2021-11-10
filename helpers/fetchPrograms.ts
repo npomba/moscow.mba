@@ -4,13 +4,13 @@ import qs from 'qs'
 
 const fetchPrograms = async ({ ofType }: TypeOfType = { ofType: null }) => {
   const programs: TypePrograms = []
-  const limit = 100
+  const limit = 200
   const resCount = await fetch(`${routesBack.root}${routesBack.programs}/count`)
   const count: number = await resCount.json()
   const reqsQtyRequired = Math.ceil(count / limit)
   for (let i = 0; i < reqsQtyRequired; i++) {
     const query = qs.stringify({
-      _where: ofType && { 'category.type': ofType },
+      _where: ofType ? { 'category.type': ofType } : undefined,
       _start: limit * i,
       _limit: limit
     })
