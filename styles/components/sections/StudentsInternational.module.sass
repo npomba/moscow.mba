@@ -2,7 +2,7 @@
 
 .container
   margin-bottom: 239px
-  @include m.media(laptop, tablet, phone)
+  @include m.media(phone, tablet, laptop, desktop)
     margin-bottom: 60px
     position: relative
     padding-bottom: 120px
@@ -83,17 +83,21 @@
   right: -83px
   bottom: -96px
   font-family: 'mazzardH', Arial, Tahoma, sans-serif
-  @include m.media(desktop)
-    right: -30px
-  @include m.media(laptop, tablet, phone)
-    right: 20px
-    width: 140px
-    min-height: 140px
-    bottom: -70px
   @include m.media(phone)
     font-size: 12px
     min-height: 120px
     width: 120px
+  @include m.media(phone, tablet, laptop)
+    right: 20px
+    width: 140px
+    min-height: 140px
+    bottom: -70px
+  @include m.media(laptop)
+    right: 0
+    bottom: -76px
+  @include m.media(desktop)
+    right: -30px
+    bottom: 0
   strong
     font-size: 62px
     font-family: 'Visuelt', Arial, Tahoma, sans-serif
