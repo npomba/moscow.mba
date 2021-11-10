@@ -1,30 +1,32 @@
 import { routesBack } from '@/config/index'
 import { TypeOfType, TypePrograms } from '@/types/index'
 import qs from 'qs'
+import axios from 'axios'
 
 const fetchPrograms = async ({ ofType }: TypeOfType = { ofType: null }) => {
-  const programs: TypePrograms = []
-  const limit = 200
-  const resCount = await fetch(`${routesBack.root}${routesBack.programs}/count`)
-  const count: number = await resCount.json()
+  const limit = 100
+  const resCount = await axios.get(
+    `${routesBack.root}${routesBack.programs}/count`
+  )
+  const count: number = resCount.data
   const reqsQtyRequired = Math.ceil(count / limit)
-  for (let i = 0; i < reqsQtyRequired; i++) {
+
+  const reqs = Array.from({ length: reqsQtyRequired }, (_, idx) => {
     const query = qs.stringify({
       _where: ofType ? { 'category.type': ofType } : undefined,
-      _start: limit * i,
+      _start: limit * idx,
       _limit: limit
     })
-    const res = await fetch(`${routesBack.root}${routesBack.programs}?${query}`)
-    const data = await res.json()
-    programs.push(...data)
-  }
-  // console.log(programs)
-  // const programs = convertMdToHtml({
-  //   arr: ofType ? filterProgramsByType({ programs: data, type: ofType }) : data,
-  //   params: ['description']
-  // })
+    return `${routesBack.root}${routesBack.programs}?${query}`
+  })
 
-  return programs
+  const res = await axios.all(reqs.map(req => axios.get(req)))
+
+  const output: TypePrograms = res
+    .map(item => item.data)
+    .reduce((a, b) => [...a, ...b], [])
+
+  return output
 }
 
 export default fetchPrograms
