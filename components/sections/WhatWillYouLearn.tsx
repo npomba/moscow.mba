@@ -1,12 +1,9 @@
 import stls from '@/styles/components/sections/WhatWillYouLearn.module.sass'
 import classNames from 'classnames'
-import { useAt } from '@/helpers/index'
 import Image from 'next/image'
 import { base64pixel } from '@/config/index'
 
 const WhatWillYouLearn = ({ data = null }) => {
-  const at = useAt()
-
   const aboutAcademy = [
     'Одна из немногих школ России, которая имеет европейскую аккредитацию Ecicel',
     'Членство в Российской Ассоциации Бизнес-образования (РАБО)',
