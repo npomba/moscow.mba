@@ -69,6 +69,11 @@ const index = {
     en: 'students from all over the world'
   },
 
+  benefitFourDiscAlt: {
+    ru: 'выпускников по всему миру',
+    en: 'graduates around the world'
+  },
+
   jumInfoOne: {
     ru: 'Международные дипломы',
     en: 'International diplomas'

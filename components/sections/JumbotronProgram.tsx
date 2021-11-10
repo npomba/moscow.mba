@@ -110,7 +110,7 @@ const JumbotronProgram = ({ program }) => {
               <li className={stls.separator}></li>
 
               <li className={stls.item}>
-                <div className={stls.number}>2000+</div>
+                <div className={stls.number}>1000+</div>
                 <p>студентов по всему миру</p>
               </li>
             </ul>

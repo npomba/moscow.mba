@@ -17,6 +17,7 @@ import { useRouter } from 'next/router'
 import Breadcrumbs from '@/components/general/Breadcrumbs'
 import { IconArrowTopRight } from '@/components/icons'
 import InfoRectangle from '@/components/general/InfoRectangle'
+import { useAt } from '@/helpers/index'
 
 type FormValues = {
   name: string
@@ -31,6 +32,8 @@ const JumbotronCta = ({ programTitle = null, programId = null }) => {
     reset,
     formState: { errors }
   } = useForm<FormValues>()
+
+  const at = useAt()
 
   const [open, setOpen] = useState(false)
   const [openLoader, setOpenLoader] = useState(false)
@@ -230,8 +233,14 @@ const JumbotronCta = ({ programTitle = null, programId = null }) => {
               <li className={stls.prosSeparator}></li>
 
               <li className={stls.prosItem}>
-                <div className={stls.prosStatsNumber}>2000+</div>
-                <p>{SetString(lang.benefitFourDisc)}</p>
+                <div className={stls.prosStatsNumber}>
+                  {at.index ? '9000+' : '2000+'}
+                </div>
+                <p>
+                  {at.index
+                    ? SetString(lang.benefitFourDiscAlt)
+                    : SetString(lang.benefitFourDisc)}
+                </p>
               </li>
             </ul>
           </div>
