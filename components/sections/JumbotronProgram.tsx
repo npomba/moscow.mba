@@ -29,6 +29,7 @@ const JumbotronProgram = ({ program }) => {
             src={program.picture.formats.large.url}
             alt='Студенты обучаются'
             layout='fill'
+            priority
           />
         )}
       </div>
