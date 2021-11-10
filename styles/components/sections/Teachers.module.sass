@@ -1,24 +1,5 @@
 @use '@/styles/utils/mixin' as m
 
-.generalContainer
-  margin-right: auto
-  margin-left: auto
-  padding-left: 10px
-  padding-right: 10px
-  width: 1310px
-  @include m.media(desktop)
-    width: 1000px
-  @include m.media(laptop, tablet)
-    width: 710px
-  @include m.media(tablet, phone)
-    width: 100%
-  &::before,
-  &::after
-    content: ' '
-    display: table
-  &::after
-    clear: both
-
 .container
   position: relative
   z-index: 3
@@ -47,6 +28,12 @@
     height: 100%
     top: 0
     background: #2d2c2a
+
+.titleProfession
+  @include m.media(phone, tablet)
+    margin-bottom: 30px
+  @include m.media(laptop, desktop, widescreen)
+    margin-bottom: 89px
 
 .standalonePage
   .titlePl
@@ -122,6 +109,13 @@
     @include m.media(phone)
       font-size: 18px
       margin-bottom: 5px
+
+.detailListProfession
+  min-height: auto
+  @include m.media(phone, tablet)
+    margin-bottom: 60px
+  @include m.media(laptop, desktop, widescreen)
+    margin-bottom: 130px
 
 .circle
   width: 57px
