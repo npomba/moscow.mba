@@ -4,29 +4,33 @@ import qs from 'qs'
 import axios from 'axios'
 
 const fetchPrograms = async ({ ofType }: TypeOfType = { ofType: null }) => {
-  const limit = 100
-  const resCount = await axios.get(
-    `${routesBack.root}${routesBack.programs}/count`
-  )
-  const count: number = resCount.data
-  const reqsQtyRequired = Math.ceil(count / limit)
+  try {
+    const limit = 100
+    const resCount = await axios.get(
+      `${routesBack.root}${routesBack.programs}/count`
+    )
+    const count: number = resCount.data
+    const reqsQtyRequired = Math.ceil(count / limit)
 
-  const reqs = Array.from({ length: reqsQtyRequired }, (_, idx) => {
-    const query = qs.stringify({
-      _where: ofType ? { 'category.type': ofType } : undefined,
-      _start: limit * idx,
-      _limit: limit
+    const reqs = Array.from({ length: reqsQtyRequired }, (_, idx) => {
+      const query = qs.stringify({
+        _where: ofType ? { 'category.type': ofType } : undefined,
+        _start: limit * idx,
+        _limit: limit
+      })
+      return `${routesBack.root}${routesBack.programs}?${query}`
     })
-    return `${routesBack.root}${routesBack.programs}?${query}`
-  })
 
-  const res = await axios.all(reqs.map(req => axios.get(req)))
+    const res = await axios.all(reqs.map(req => axios.get(req)))
 
-  const output: TypePrograms = res
-    .map(item => item.data)
-    .reduce((a, b) => [...a, ...b], [])
+    const output: TypePrograms = res
+      .map(item => item.data)
+      .reduce((a, b) => [...a, ...b], [])
 
-  return output
+    return output
+  } catch (err) {
+    console.log(err)
+  }
 }
 
 export default fetchPrograms
