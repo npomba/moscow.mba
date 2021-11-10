@@ -2,18 +2,13 @@ import stls from '@/styles/pages/Payment.module.sass'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import Image from 'next/image'
-import {
-  fetchPrograms,
-  createBlended,
-  getProgramsReducedData
-} from '@/helpers/index'
+import { handleGetStaticProps } from '@/helpers/index'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import PopupForm from '@/components/popups/PopupForm'
 import contactData from '@/data/contactData'
 import Breadcrumbs from '@/components/general/Breadcrumbs'
 import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
-import { revalidate } from '@/config/index'
 
 const payment = ({ programs }) => {
   const contactInfo = contactData()
@@ -136,27 +131,6 @@ const payment = ({ programs }) => {
   )
 }
 
-export async function getStaticProps() {
-  const programs = await fetchPrograms()
-  const programsReducedData = getProgramsReducedData({
-    programs,
-    data: [
-      'id',
-      'title',
-      'slug',
-      'category.slug',
-      'category.type',
-      'studyFormat'
-    ]
-  })
-  const programsWithBlended = createBlended(programsReducedData)
-
-  return {
-    props: {
-      programs: programsWithBlended
-    },
-    revalidate: revalidate.default
-  }
-}
+export const getStaticProps = async () => handleGetStaticProps()
 
 export default payment

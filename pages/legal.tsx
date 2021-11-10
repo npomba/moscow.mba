@@ -1,10 +1,6 @@
 import stls from '@/styles/pages/Legal.module.sass'
 import { NextSeo } from 'next-seo'
-import {
-  fetchPrograms,
-  createBlended,
-  getProgramsReducedData
-} from '@/helpers/index'
+import { handleGetStaticProps } from '@/helpers/index'
 import Breadcrumbs from '@/components/general/Breadcrumbs'
 import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
 import CurrentLicenses from '@/components/sections/CurrentLicenses'
@@ -13,7 +9,6 @@ import MemberOfAcicel from '@/components/sections/MemberOfAcicel'
 import OurDiplomasAndCertificates from '@/components/sections/OurDiplomasAndCertificates'
 import CompanyCard from '@/components/sections/CompanyCard'
 import LegalDocuments from '@/components/sections/LegalDocuments'
-import { revalidate } from '@/config/index'
 
 const legal = ({ programs }) => {
   return (
@@ -44,27 +39,6 @@ const legal = ({ programs }) => {
   )
 }
 
-export async function getStaticProps() {
-  const programs = await fetchPrograms()
-  const programsReducedData = getProgramsReducedData({
-    programs,
-    data: [
-      'id',
-      'title',
-      'slug',
-      'category.slug',
-      'category.type',
-      'studyFormat'
-    ]
-  })
-  const programsWithBlended = createBlended(programsReducedData)
-
-  return {
-    props: {
-      programs: programsWithBlended
-    },
-    revalidate: revalidate.default
-  }
-}
+export const getStaticProps = async () => handleGetStaticProps()
 
 export default legal

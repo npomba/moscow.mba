@@ -7,12 +7,7 @@ import ContactCards from '@/components/general/ContactCards'
 import contactData from '@/data/contactData'
 import Breadcrumbs from '@/components/general/Breadcrumbs'
 import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
-import { revalidate } from '@/config/index'
-import {
-  fetchPrograms,
-  createBlended,
-  getProgramsReducedData
-} from '@/helpers/index'
+import { handleGetStaticProps } from '@/helpers/index'
 
 const contact = ({ programs }) => {
   const contactInfo = contactData()
@@ -54,27 +49,6 @@ const contact = ({ programs }) => {
   )
 }
 
-export async function getStaticProps() {
-  const programs = await fetchPrograms()
-  const programsReducedData = getProgramsReducedData({
-    programs,
-    data: [
-      'id',
-      'title',
-      'slug',
-      'category.slug',
-      'category.type',
-      'studyFormat'
-    ]
-  })
-  const programsWithBlended = createBlended(programsReducedData)
-
-  return {
-    props: {
-      programs: programsWithBlended
-    },
-    revalidate: revalidate.default
-  }
-}
+export const getStaticProps = async () => handleGetStaticProps()
 
 export default contact

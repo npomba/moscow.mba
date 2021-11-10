@@ -2,7 +2,7 @@ import stls from '@/styles/pages/promo/Index.module.sass'
 import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/index'
 import { NextSeo } from 'next-seo'
-import { fetchPrograms, getProgramsReducedData } from '@/helpers/index'
+import { handleGetStaticProps } from '@/helpers/index'
 import JumbotronCta from '@/components/sections/JumbotronCta'
 import WhatWillYouLearn from '@/components/sections/WhatWillYouLearn'
 import CourseOptions from '@/components/sections/CourseOptions'
@@ -11,7 +11,6 @@ import ContactUs from '@/components/sections/ContactUs'
 import Accreditation from '@/components/sections/Accreditation'
 import Diploma from '@/components/sections/Diploma'
 import WhoItIsFor from '@/components/sections/WhoItIsFor'
-import { revalidate } from '@/config/index'
 
 const promo = ({ programs }) => {
   const courseOptions = {
@@ -76,26 +75,7 @@ const promo = ({ programs }) => {
   )
 }
 
-export async function getStaticProps() {
-  const programs = await fetchPrograms({ ofType: 'mini' })
-  const programsReducedData = getProgramsReducedData({
-    programs,
-    data: [
-      'id',
-      'title',
-      'slug',
-      'category.slug',
-      'category.type',
-      'whatWillYouLearn',
-      'studyFormat'
-    ]
-  })
-  return {
-    props: {
-      programs: programsReducedData
-    },
-    revalidate: revalidate.default
-  }
-}
+export const getStaticProps = async () =>
+  handleGetStaticProps({ ofType: 'mini', extraData: ['whatWillYouLearn'] })
 
 export default promo

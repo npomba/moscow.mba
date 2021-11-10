@@ -17,13 +17,7 @@ import Students from '@/components/sections/Students'
 import Reviews from '@/components/sections/Reviews'
 import CostOfStudy from '@/components/sections/CostOfStudy'
 import Qna from '@/components/sections/Qna'
-import {
-  fetchPrograms,
-  createBlended,
-  getProgram,
-  getProgramsReducedData
-} from '@/helpers/index'
-import { revalidate } from '@/config/index'
+import { handleGetStaticProps } from '@/helpers/index'
 
 const executive = ({ program, programs }) => {
   return (
@@ -78,35 +72,11 @@ const executive = ({ program, programs }) => {
   )
 }
 
-export async function getStaticProps() {
-  const programs = await fetchPrograms()
-  const programsWithBlended = createBlended(programs)
-  const programsReducedData = getProgramsReducedData({
-    programs: programsWithBlended,
-    data: [
-      'id',
-      'title',
-      'slug',
-      'category.slug',
-      'category.type',
-      'studyFormat'
-    ]
+export const getStaticProps = async () =>
+  handleGetStaticProps({
+    programSlug: 'executive',
+    programStudyFormat: 'blended',
+    programType: 'executive'
   })
-
-  const program = getProgram({
-    programs: programsWithBlended,
-    slug: 'executive',
-    studyFormat: 'blended',
-    type: 'executive'
-  })
-
-  return {
-    props: {
-      program,
-      programs: programsReducedData
-    },
-    revalidate: revalidate.default
-  }
-}
 
 export default executive

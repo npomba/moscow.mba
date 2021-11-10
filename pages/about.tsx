@@ -14,12 +14,7 @@ import ContactUs from '@/components/sections/ContactUs'
 import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/about'
 import langIndex from '@/data/translation/index'
-import { revalidate } from '@/config/index'
-import {
-  fetchPrograms,
-  createBlended,
-  getProgramsReducedData
-} from '@/helpers/index'
+import { handleGetStaticProps } from '@/helpers/index'
 
 const about = ({ programs }) => {
   return (
@@ -47,26 +42,6 @@ const about = ({ programs }) => {
   )
 }
 
-export async function getStaticProps() {
-  const programs = await fetchPrograms()
-  const programsReducedData = getProgramsReducedData({
-    programs,
-    data: [
-      'id',
-      'title',
-      'slug',
-      'category.slug',
-      'category.type',
-      'studyFormat'
-    ]
-  })
-  const programsWithBlended = createBlended(programsReducedData)
-  return {
-    props: {
-      programs: programsWithBlended
-    },
-    revalidate: revalidate.default
-  }
-}
+export const getStaticProps = async () => handleGetStaticProps()
 
 export default about

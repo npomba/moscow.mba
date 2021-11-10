@@ -12,12 +12,7 @@ import CorporateClients from '@/components/sections/CorporateClients'
 import Programs from '@/components/sections/Programs'
 import Executive from '@/components/sections/Executive'
 import ContactUs from '@/components/sections/ContactUs'
-import {
-  fetchPrograms,
-  createBlended,
-  getProgramsReducedData
-} from '@/helpers/index'
-import { revalidate } from '@/config/index'
+import { handleGetStaticProps } from '@/helpers/index'
 
 const Home = ({ programs }) => {
   return (
@@ -47,27 +42,6 @@ const Home = ({ programs }) => {
   )
 }
 
-export async function getStaticProps() {
-  const programs = await fetchPrograms()
-  const programsReducedData = getProgramsReducedData({
-    programs,
-    data: [
-      'id',
-      'title',
-      'slug',
-      'category.slug',
-      'category.type',
-      'studyFormat'
-    ]
-  })
-  const programsWithBlended = createBlended(programsReducedData)
-
-  return {
-    props: {
-      programs: programsWithBlended
-    },
-    revalidate: revalidate.default
-  }
-}
+export const getStaticProps = async () => handleGetStaticProps()
 
 export default Home
