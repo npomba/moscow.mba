@@ -14,7 +14,7 @@ export const getStaticProps = async context =>
   })
 
 export const getStaticPaths = async () => {
-  const paths = fetchPaths({
+  const paths = await fetchPaths({
     studyFormat: 'online',
     type: 'profession'
   })
