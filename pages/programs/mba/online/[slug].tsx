@@ -1,8 +1,4 @@
-import {
-  fetchPrograms,
-  fetchPaths,
-  handleGetStaticProps
-} from '@/helpers/index'
+import { fetchPaths, handleGetStaticProps } from '@/helpers/index'
 
 import OnlineProgram from '@/components/pages/OnlineProgram'
 

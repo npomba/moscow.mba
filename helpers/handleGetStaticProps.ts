@@ -6,10 +6,7 @@ import {
   TypeStudyFormat
 } from '@/types/index'
 import {
-  fetchPrograms,
   createBlended,
-  getProgramsReducedData,
-  getProgram,
   fetchProgramsGetStaticProps,
   fetchProgramsGetStaticPropsProfession,
   fetchProgramsGetStaticPropsPromo,

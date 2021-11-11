@@ -1,9 +1,4 @@
-import {
-  fetchPrograms,
-  createBlended,
-  fetchPaths,
-  handleGetStaticProps
-} from '@/helpers/index'
+import { fetchPaths, handleGetStaticProps } from '@/helpers/index'
 
 import BlendedProgram from '@/components/pages/BlendedProgram'
 
