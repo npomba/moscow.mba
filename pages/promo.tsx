@@ -76,6 +76,6 @@ const promo = ({ programs }) => {
 }
 
 export const getStaticProps = async () =>
-  handleGetStaticProps({ ofType: 'mini', extraData: ['whatWillYouLearn'] })
+  handleGetStaticProps({ ofType: 'mini', dataFor: 'promo' })
 
 export default promo

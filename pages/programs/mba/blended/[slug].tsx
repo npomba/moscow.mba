@@ -2,7 +2,7 @@ import {
   fetchPrograms,
   createBlended,
   handleGetStaticProps,
-  getPaths
+  fetchPaths
 } from '@/helpers/index'
 
 import BlendedProgram from '@/components/pages/BlendedProgram'
@@ -19,10 +19,7 @@ export const getStaticProps = async context =>
   })
 
 export const getStaticPaths = async () => {
-  const programs = await fetchPrograms()
-  const programsWithBlended = createBlended(programs)
-  const paths = getPaths({
-    programs: programsWithBlended,
+  const paths = await fetchPaths({
     studyFormat: 'blended',
     type: 'mba'
   })

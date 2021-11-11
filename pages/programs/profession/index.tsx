@@ -19,7 +19,7 @@ const programsMini = ({ programs }) => {
 
 export const getStaticProps = async () =>
   handleGetStaticProps({
-    extraData: ['study_field.id', 'study_field.name', 'duration.minStudyMonths']
+    dataFor: 'profession'
   })
 
 export default programsMini

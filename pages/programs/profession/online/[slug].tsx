@@ -1,4 +1,8 @@
-import { fetchPrograms, handleGetStaticProps, getPaths } from '@/helpers/index'
+import {
+  fetchPrograms,
+  handleGetStaticProps,
+  fetchPaths
+} from '@/helpers/index'
 
 import ProfessionOnlineProgram from '@/components/pages/ProfessionOnlineProgram'
 
@@ -14,9 +18,7 @@ export const getStaticProps = async context =>
   })
 
 export const getStaticPaths = async () => {
-  const programs = await fetchPrograms()
-  const paths = getPaths({
-    programs: programs,
+  const paths = fetchPaths({
     studyFormat: 'online',
     type: 'profession'
   })

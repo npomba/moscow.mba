@@ -9,13 +9,17 @@ import {
   fetchPrograms,
   createBlended,
   getProgramsReducedData,
-  getProgram
+  getProgram,
+  fetchProgramsGetStaticProps,
+  fetchProgramsGetStaticPropsProfession,
+  fetchProgramsGetStaticPropsPromo,
+  fetchProgram
 } from '@/helpers/index'
 import { revalidate } from '@/config/index'
 
 type TypeHandleGetStaticProps = {
   ofType?: TypeCategories
-  extraData?: string[]
+  dataFor?: 'default' | 'profession' | 'promo'
   programSlug?: string
   programStudyFormat?: TypeStudyFormat
   programType?: TypeCategories
@@ -24,37 +28,32 @@ type TypeHandleGetStaticProps = {
 const handleGetStaticProps = async (
   {
     ofType = null,
-    extraData = [],
+    dataFor = 'default',
     programSlug = null,
     programStudyFormat = null,
     programType = null
   }: TypeHandleGetStaticProps = {
     ofType: null,
-    extraData: [],
+    dataFor: 'default',
     programSlug: null,
     programStudyFormat: null,
     programType: null
   }
 ) => {
-  const defaultReducedData = [
-    'id',
-    'title',
-    'slug',
-    'category.slug',
-    'category.type',
-    'studyFormat'
-  ]
-  const programs: TypePrograms = await fetchPrograms({ ofType })
-  const programsWithBlended: TypePrograms = createBlended(programs)
-  const programsReducedData = getProgramsReducedData({
-    programs: programsWithBlended,
-    data: [...defaultReducedData, ...extraData]
-  })
+  let programs
 
-  const program: TypeProgram =
+  if (dataFor === 'promo') {
+    programs = await fetchProgramsGetStaticPropsPromo({ ofType })
+  } else if (dataFor === 'profession') {
+    programs = await fetchProgramsGetStaticPropsProfession({ ofType })
+  } else {
+    programs = await fetchProgramsGetStaticProps({ ofType })
+  }
+
+  const programsWithBlended = createBlended(programs)
+  const program =
     programSlug && programStudyFormat && programType
-      ? getProgram({
-          programs: programsWithBlended,
+      ? await fetchProgram({
           slug: programSlug,
           studyFormat: programStudyFormat,
           type: programType
@@ -64,7 +63,7 @@ const handleGetStaticProps = async (
   return {
     props: {
       program,
-      programs: programsReducedData
+      programs: programsWithBlended
     },
     revalidate: revalidate.default
   }
