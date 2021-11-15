@@ -30,6 +30,13 @@ import ProgramsColumn from '@/components/general/ProgramsColumn'
 import Discount from '@/components/costs/Discount'
 import { ImgLogoRabo, ImgLogoMde } from '@/components/images'
 
+
+
+
+
+
+
+
 const Header = ({ programs }) => {
   const { menuIsOpen, openMenu, closeMenu, toggleMenu } =
     useContext(MenuContext)
@@ -121,14 +128,21 @@ const Header = ({ programs }) => {
               {SetString(contactInfo.ru.address.street)}
             </div>
             <div className='header-phones'>
-              <a
-                href={contactInfo.ru.tels[0].href}
-                className='iconMainNumHeader'>
-                {contactInfo.ru.tels[0].val}
-              </a>
-              <a href={contactInfo.ru.tels[1].href}>
-                {contactInfo.ru.tels[1].val}
-              </a>
+              <div className={stls.phoneLink}>
+                <span>{contactInfo.ru.tels[0].discriotion}</span>
+                <a
+                  href={contactInfo.ru.tels[0].href}
+                  className='iconMainNumHeader'>
+                  {contactInfo.ru.tels[0].val}
+                </a>
+              </div>
+              <div className={stls.phoneLink}>
+                <span>{contactInfo.ru.tels[1].discriotion}</span>
+                <a href={contactInfo.ru.tels[1].href}>
+                  {contactInfo.ru.tels[1].val}
+                </a>
+              </div>
+
               <a href={contactInfo.ru.tels[0].href} className='iconPhoneHeader'>
                 <IconMobilePhone large fill={'#000'} />
               </a>
@@ -459,7 +473,7 @@ const Header = ({ programs }) => {
                               {SetString(langMenu.onlineTitle)}
                               <div className='discount'>
                                 <div className='size'>
-                                  <Discount/>
+                                  <Discount />
                                 </div>
                                 <span>
                                   <Until />
@@ -498,24 +512,24 @@ const Header = ({ programs }) => {
                             </div>
                             <ul className='program-options-block-list'>
                               {programs &&
-                                programs.map(item => {
-                                  if (
-                                    item.category?.type === 'mini' &&
-                                    item.studyFormat === 'online'
-                                  ) {
-                                    return (
-                                      <li key={item.id || item._id}>
-                                        <Link
-                                          href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
-                                          locale='ru'>
-                                          <a onClick={handleMenuClose}>
-                                            {SetString(item, true)}
-                                          </a>
-                                        </Link>
-                                      </li>
-                                    )
-                                  }
-                                })}
+                              programs.map(item => {
+                                if (
+                                  item.category?.type === 'mini' &&
+                                  item.studyFormat === 'online'
+                                ) {
+                                  return (
+                                    <li key={item.id || item._id}>
+                                      <Link
+                                        href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
+                                        locale='ru'>
+                                        <a onClick={handleMenuClose}>
+                                          {SetString(item, true)}
+                                        </a>
+                                      </Link>
+                                    </li>
+                                  )
+                                }
+                              })}
                             </ul>
                           </div>
                           <div
@@ -560,24 +574,24 @@ const Header = ({ programs }) => {
                             </div>
                             <ul className='program-options-block-list'>
                               {programs &&
-                                programs.map(item => {
-                                  if (
-                                    item.category?.type === 'mini' &&
-                                    item.studyFormat === 'blended'
-                                  ) {
-                                    return (
-                                      <li key={item.id || item._id}>
-                                        <Link
-                                          href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
-                                          locale='ru'>
-                                          <a onClick={handleMenuClose}>
-                                            {SetString(item, true)}
-                                          </a>
-                                        </Link>
-                                      </li>
-                                    )
-                                  }
-                                })}
+                              programs.map(item => {
+                                if (
+                                  item.category?.type === 'mini' &&
+                                  item.studyFormat === 'blended'
+                                ) {
+                                  return (
+                                    <li key={item.id || item._id}>
+                                      <Link
+                                        href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
+                                        locale='ru'>
+                                        <a onClick={handleMenuClose}>
+                                          {SetString(item, true)}
+                                        </a>
+                                      </Link>
+                                    </li>
+                                  )
+                                }
+                              })}
                             </ul>
                           </div>
                         </div>
@@ -716,24 +730,24 @@ const Header = ({ programs }) => {
                             </div>
                             <ul className='program-options-block-list'>
                               {programs &&
-                                programs.map(item => {
-                                  if (
-                                    item.category?.type === 'mba' &&
-                                    item.studyFormat === 'online'
-                                  ) {
-                                    return (
-                                      <li key={item.id || item._id}>
-                                        <Link
-                                          href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
-                                          locale='ru'>
-                                          <a onClick={handleMenuClose}>
-                                            {SetString(item, true)}
-                                          </a>
-                                        </Link>
-                                      </li>
-                                    )
-                                  }
-                                })}
+                              programs.map(item => {
+                                if (
+                                  item.category?.type === 'mba' &&
+                                  item.studyFormat === 'online'
+                                ) {
+                                  return (
+                                    <li key={item.id || item._id}>
+                                      <Link
+                                        href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
+                                        locale='ru'>
+                                        <a onClick={handleMenuClose}>
+                                          {SetString(item, true)}
+                                        </a>
+                                      </Link>
+                                    </li>
+                                  )
+                                }
+                              })}
                             </ul>
                           </div>
 
@@ -778,24 +792,24 @@ const Header = ({ programs }) => {
                             </div>
                             <ul className='program-options-block-list'>
                               {programs &&
-                                programs.map(item => {
-                                  if (
-                                    item.category?.type === 'mba' &&
-                                    item.studyFormat === 'blended'
-                                  ) {
-                                    return (
-                                      <li key={item.id || item._id}>
-                                        <Link
-                                          href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
-                                          locale='ru'>
-                                          <a onClick={handleMenuClose}>
-                                            {SetString(item, true)}
-                                          </a>
-                                        </Link>
-                                      </li>
-                                    )
-                                  }
-                                })}
+                              programs.map(item => {
+                                if (
+                                  item.category?.type === 'mba' &&
+                                  item.studyFormat === 'blended'
+                                ) {
+                                  return (
+                                    <li key={item.id || item._id}>
+                                      <Link
+                                        href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
+                                        locale='ru'>
+                                        <a onClick={handleMenuClose}>
+                                          {SetString(item, true)}
+                                        </a>
+                                      </Link>
+                                    </li>
+                                  )
+                                }
+                              })}
                             </ul>
                           </div>
                         </div>

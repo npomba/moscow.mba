@@ -38,18 +38,14 @@ const PageOnlineProgram = ({ program }) => {
         description={truncate(program.goal, 120)}
       />
 
-<<<<<<< HEAD
-      <JumbotronProgram data={data} />
-      <div className={stls.generalContainer}>
-        <ProgramGoal data={data} />
-        <WhatWillYouLearn data={data} />
-=======
+
+      <JumbotronProgram program={program} />
+
       <JumbotronProgram program={program} />
 
       <div className={stls.container}>
         <ProgramGoal data={program} />
         <WhatWillYouLearn data={program} />
->>>>>>> 965cc25878e67fb5f42c72a1edc48bce57e055df
         <ProgramDesc />
         <Pros format={'online'} />
         <HowProcessGoes />
@@ -61,12 +57,12 @@ const PageOnlineProgram = ({ program }) => {
           titleNewStr={'по программе обучения'}
         /> */}
         <GetStudyPlan />
-<<<<<<< HEAD
 
-        <Teachers programId={data._id} programTitle={data.title} />
-=======
+
         <Teachers programId={program._id} programTitle={program.title} />
->>>>>>> 965cc25878e67fb5f42c72a1edc48bce57e055df
+
+        <Teachers programId={program._id} programTitle={program.title} />
+
         <UpToDateContent withBottomLine />
         <CorporateClients />
         <Accreditation />
@@ -81,15 +77,9 @@ const PageOnlineProgram = ({ program }) => {
         />
         <Qna programId={program._id} programTitle={program.title} />
         <ContactUs
-<<<<<<< HEAD
-          programId={data._id}
-          programTitle={data.title}
-          title={''}
-=======
           programId={program._id}
           programTitle={program.title}
-          title={'Не знаете что выбрать?'}
->>>>>>> 965cc25878e67fb5f42c72a1edc48bce57e055df
+          title={''}
           titleNewStr={'Получите консультацию по программам MBA'}
         />
       </div>
