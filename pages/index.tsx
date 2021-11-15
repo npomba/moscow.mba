@@ -15,8 +15,6 @@ import ContactUs from '@/components/sections/ContactUs'
 import { handleGetStaticProps } from '@/helpers/index'
 
 const Home = ({ programs }) => {
-  console.log(programs)
-
   return (
     <>
       <NextSeo
