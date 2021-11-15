@@ -75,7 +75,7 @@ const Filters = ({
       <li>
         <h4 className={stls.title}>Формат обучения</h4>
         <div className={stls.content}>
-          {/*<div style={{width: '100px', height: '100px', backgroundColor: 'red'}}/>*/}
+
           <Link href={`/programs/${mbaTypeOfProgram}/blended`}>
             <a
               className={classNames({ [stls.inactiveLink]: fields })}

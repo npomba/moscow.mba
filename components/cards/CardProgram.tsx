@@ -26,7 +26,9 @@ const CardProgram = ({ professionLayout, program, number, type, format }) => {
           )}`}</div>
         )}
         <div className={stls.bottomContainer}>
+
           <h3 className={stls.programTitle}>{program.title}</h3>
+
           {professionLayout && (
             <div>
               <Price
