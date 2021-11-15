@@ -5,15 +5,18 @@
   &.long
     position: relative
     padding: 56px 71px
+
     width: 100%
     @include m.media(tablet, phone)
-      padding: 45px 50px
+      padding: 35px 40px
 
   &.short
     flex: 1
 
+
   &.long
     display: flex
+
     @include m.media(widescreen, desktop)
       & > *:nth-last-child(1)
         display: flex
@@ -21,9 +24,9 @@
         align-items: center
 
       &::before
-        content: '',
+        content: ''
         width: 1px
-        height: 50%
+        height: 60%
         position: absolute
         top: 50%
         right: 50%
@@ -45,6 +48,8 @@
       flex: 1
     & .listItems
       max-width: 432px
+      p
+        margin-bottom: 10px
       @include m.media(laptop, tablet, phone)
         max-width: 100%
 
@@ -86,11 +91,13 @@
       background: linear-gradient(to top right,rgba(0,0,0,0) 0%,rgba(0,0,0,0) calc(50% - 0.8px),rgba(#E3E3E3, 1) 50%,rgba(0,0,0,0) calc(50% + 0.8px),rgba(0,0,0,0) 100%)
 
 .title
+  //text-align: center
   padding-bottom: 24px
   font-style: normal
-  font-weight: bold
-  font-size: 36px
+  font-size: 32px
+  font-weight: 400
   line-height: 120%
+
   @include m.media(tablet, phone)
     font-size: 24px
     padding-bottom: 32px
@@ -98,8 +105,6 @@
 .listItem
   position: relative
   padding-left: 20px
-  &:not(:last-child)
-    margin-bottom: 10px
   &.many
     &::before
       content: ''
@@ -114,10 +119,10 @@
         top: 8px
       & p
         padding-left: 18px
-    & p
-      margin-top: -21px
-      @include m.media(tablet, phone)
-        margin-top: -16px
+    //& p
+    //  //margin-top: -21px
+    //  @include m.media(tablet, phone)
+    //    //margin-top: -16px
 
   &:not(:last-child)
     padding-bottom: 10px
