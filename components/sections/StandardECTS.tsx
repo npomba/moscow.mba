@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/StandardECTS.module.sass'
 import IconECTS from '@/components/icons/IconECTS'
-import SetString from '@/components/hooks/SetString'
+import SetString from '@/helpers/SetString'
 import lang from '@/data/translation/index'
 
 

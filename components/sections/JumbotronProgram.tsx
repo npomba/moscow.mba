@@ -9,31 +9,33 @@ import JumbotronLabel from '@/components/general/JumbotronLabel'
 import PopupForm from '@/components/popups/PopupForm'
 import InfoRectangle from '@/components/general/InfoRectangle'
 import Discount from '@/components/costs/Discount'
-import useAt from '@/components/hooks/useAt'
+import { useAt } from '@/helpers/index'
 import { IconCheckCircleAlt } from '@/components/icons'
 import Loan from '@/components/costs/Loan'
 
-const JumbotronProgram = ({ data }) => {
+const JumbotronProgram = ({ program }) => {
   const at = useAt()
   const isDiscounted =
     (at.mini && at.online) ||
-    (at.professional && at.online) ||
-    (at.industry && at.online) ||
+    (at.mba && at.online) ||
     (at.profession && at.online) ||
     at.mbl
 
   return (
     <section className={stls.container}>
       <div className={stls.image}>
-        <Image
-          src={`/assets/images/programs-bgs/${data.picture}`}
-          alt='Студенты обучаются'
-          layout='fill'
-        />
+        {program.picture?.formats?.large?.url && (
+          <Image
+            src={program.picture.formats.large.url}
+            alt='Студенты обучаются'
+            layout='fill'
+            priority
+          />
+        )}
       </div>
       <div className={stls.generalContainer}>
         <div className={stls.content}>
-          <Breadcrumbs programChunkData={data} />
+          <Breadcrumbs programChunkData={program} />
           <div className={stls.contentTop}>
             {(at.online || at.mbl) && (
               <div
@@ -54,11 +56,11 @@ const JumbotronProgram = ({ data }) => {
             <div className={stls.descContainer}>
               <h1
                 className={classNames({ [stls.smallerTitle]: at.profession })}>
-                {data.title}
+                {program.title}
               </h1>
               <div className={stls.desc}>
                 {at.profession
-                  ? data.description
+                  ? program.description
                   : 'Оставьте заявку и получите консультацию по программе, а также узнайте возможные варианты скидок и требования к поступлению'}
               </div>
               <div className={stls.btnLoanGroup}>
@@ -68,25 +70,27 @@ const JumbotronProgram = ({ data }) => {
                   nested>
                   {close => (
                     <PopupForm
-                      programId={data._id}
-                      programTitle={data.title}
+                      programId={program._id}
+                      programTitle={program.title}
                       title={'Получите консультацию'}
                       closePopUpForm={close}
                     />
                   )}
                 </Popup>
-                <div className={stls.loanContainer}>
-                  <IconCheckCircleAlt />
-                  <p className={stls.loanDesc}>
-                    Можно учиться в рассрочку за{' '}
-                    <Loan
-                      discount={isDiscounted}
-                      type={data.mbaTypeOfProgram}
-                      format={data.mbaFormat}
-                      notComparingPrices
-                    />
-                  </p>
-                </div>
+                {!at.executive && (
+                  <div className={stls.loanContainer}>
+                    <IconCheckCircleAlt />
+                    <p className={stls.loanDesc}>
+                      Можно учиться в рассрочку за{' '}
+                      <Loan
+                        discount={isDiscounted}
+                        type={program.category?.type}
+                        format={program.studyFormat}
+                        notComparingPrices
+                      />
+                    </p>
+                  </div>
+                )}
               </div>
             </div>
             <ul className={stls.list}>
@@ -107,14 +111,14 @@ const JumbotronProgram = ({ data }) => {
               <li className={stls.separator}></li>
 
               <li className={stls.item}>
-                <div className={stls.number}>2000+</div>
+                <div className={stls.number}>1000+</div>
                 <p>студентов по всему миру</p>
               </li>
             </ul>
           </div>
           <InfoRectangle
-            type={data.mbaTypeOfProgram ?? 'executive'}
-            format={data.mbaFormat}
+            type={program.category?.type ?? 'executive'}
+            format={program.studyFormat}
           />
         </div>
       </div>

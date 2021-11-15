@@ -30,8 +30,8 @@ const ProgramsModule = ({
         <ul className={stls.list}>
           {items &&
             items.map((item, idx) => (
-              <li key={idx} className={stls.listItem}>
-                {item}
+              <li key={(item.string || item) + idx} className={stls.listItem}>
+                {item.string || item}
               </li>
             ))}
         </ul>

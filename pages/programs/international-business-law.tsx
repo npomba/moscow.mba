@@ -1,20 +1,16 @@
-import { apiProgramsReqUrl, backendUrl } from '@/config/index'
+import { handleGetStaticProps } from '@/helpers/index'
 
 import InternationalBusinessLaw from '@/components/pages/InternationalBusinessLaw'
 
 const programsInternationalBusinessLaw = ({ program, programs }) => {
-  return <InternationalBusinessLaw />
+  return <InternationalBusinessLaw program={program} />
 }
 
-export async function getStaticProps() {
-  const res = await fetch(`${backendUrl}${apiProgramsReqUrl}`)
-  const { data } = await res.json()
-
-  return {
-    props: {
-      programs: data
-    }
-  }
-}
+export const getStaticProps = async () =>
+  handleGetStaticProps({
+    programSlug: 'international-business-law',
+    programStudyFormat: 'online',
+    programType: 'mbl'
+  })
 
 export default programsInternationalBusinessLaw

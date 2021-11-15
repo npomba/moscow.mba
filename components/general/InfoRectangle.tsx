@@ -2,10 +2,10 @@ import stls from '@/styles/components/general/InfoRectangle.module.sass'
 import classNames from 'classnames'
 import Until from '@/components/costs/Until'
 import TrainingPeriod from '@/components/costs/TrainingPeriod'
-import SetString from '@/components/hooks/SetString'
+import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/index'
 import langMenu from '@/data/translation/menu'
-import useAt from '@/components/hooks/useAt'
+import { useAt } from '@/helpers/index'
 import Price from '@/components/costs/Price'
 
 import PopupInfo from '@/components/popups/PopupInfo'
@@ -14,8 +14,7 @@ const InfoRectangle = ({ programPage = false, type = null, format = null }) => {
   const at = useAt()
   const isDiscounted =
     (at.mini && at.online) ||
-    (at.professional && at.online) ||
-    (at.industry && at.online) ||
+    (at.mba && at.online) ||
     (at.profession && at.online) ||
     at.mbl
 

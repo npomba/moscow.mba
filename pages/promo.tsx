@@ -1,8 +1,8 @@
 import stls from '@/styles/pages/promo/Index.module.sass'
-import SetString from '@/components/hooks/SetString'
+import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/index'
 import { NextSeo } from 'next-seo'
-import { backendUrl, apiProgramsReqUrl } from '@/config/index'
+import { handleGetStaticProps } from '@/helpers/index'
 import JumbotronCta from '@/components/sections/JumbotronCta'
 import WhatWillYouLearn from '@/components/sections/WhatWillYouLearn'
 import CourseOptions from '@/components/sections/CourseOptions'
@@ -12,38 +12,41 @@ import Accreditation from '@/components/sections/Accreditation'
 import Diploma from '@/components/sections/Diploma'
 import WhoItIsFor from '@/components/sections/WhoItIsFor'
 
-const courseOptions = {
-  title: 'Форматы обучения',
-  suitsForTitle: ['Online MBA', 'Blended MBA'],
-  suitsForDesc: [
-    <>
-      <span className={stls.firstPara}>
-        Программа проходит в онлайн-формате. Разработана специально для
-        предпринимателей и руководителей, которые ценят свое время и хотят
-        пройти обучение без отрыва от работы.{' '}
-      </span>{' '}
-      Во время обучения Вы будете получать обратную связь от экспертов по
-      решению кейсов, проектным работам и домашним заданиям. Сможете в любое
-      время задать вопрос и получить полезные советы и рекомендации.
-    </>,
-    <>
-      <span className={stls.firstPara}>
-        Смешанная программа MBA с очными сессиями. Разработана для
-        предпринимателей и руководителей, которые готовы выделять время на
-        посещение наших кампусов в Москве.{' '}
-      </span>{' '}
-      Во время обучения Вы сможете как в онлайн формате, так и очно получать
-      обратную связь от экспертов и коллег по решению кейсов, проектным работам
-      и домашним заданиям.
-    </>
-  ]
-}
-
 const promo = ({ programs }) => {
-  const data = programs.filter(
-    program =>
-      program.mbaTypeOfProgram === 'mini' && program.mbaFormat === 'online'
-  )
+  const courseOptions = {
+    whoIsFor: [
+      {
+        name: 'Online MBA',
+        description: (
+          <>
+            <span className={stls.firstPara}>
+              Программа проходит в онлайн-формате. Разработана специально для
+              предпринимателей и руководителей, которые ценят свое время и хотят
+              пройти обучение без отрыва от работы.{' '}
+            </span>{' '}
+            Во время обучения Вы будете получать обратную связь от экспертов по
+            решению кейсов, проектным работам и домашним заданиям. Сможете в
+            любое время задать вопрос и получить полезные советы и рекомендации.
+          </>
+        )
+      },
+      {
+        name: 'Blended MBA',
+        description: (
+          <>
+            <span className={stls.firstPara}>
+              Смешанная программа MBA с очными сессиями. Разработана для
+              предпринимателей и руководителей, которые готовы выделять время на
+              посещение наших кампусов в Москве.{' '}
+            </span>{' '}
+            Во время обучения Вы сможете как в онлайн формате, так и очно
+            получать обратную связь от экспертов и коллег по решению кейсов,
+            проектным работам и домашним заданиям.
+          </>
+        )
+      }
+    ]
+  }
 
   return (
     <>
@@ -54,14 +57,14 @@ const promo = ({ programs }) => {
       />
 
       <JumbotronCta />
-      <div className={stls.generalContainer}>
-        <CourseOptions data={data} />
+      <div className={stls.container}>
+        <CourseOptions data={programs} />
         <ContactUs title={SetString(lang.receiveConsultation)} />
         <WhatWillYouLearn />
         <ProgramDesc />
         <Accreditation />
         <Diploma darkBackground />
-        <WhoItIsFor data={courseOptions} />
+        <WhoItIsFor program={courseOptions} />
         <ContactUs
           title={'Есть вопросы?'}
           titleNewStr={'Получите консультацию по программам MBA'}
@@ -72,15 +75,7 @@ const promo = ({ programs }) => {
   )
 }
 
-export async function getStaticProps() {
-  const res = await fetch(`${backendUrl}${apiProgramsReqUrl}`)
-  const { data } = await res.json()
-
-  return {
-    props: {
-      programs: data
-    }
-  }
-}
+export const getStaticProps = async () =>
+  handleGetStaticProps({ ofType: 'mini', dataFor: 'promo' })
 
 export default promo

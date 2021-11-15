@@ -3,12 +3,12 @@ import classNames from 'classnames'
 import 'reactjs-popup/dist/index.css'
 import Image from 'next/image'
 import Link from 'next/link'
-import SetString from '@/components/hooks/SetString'
+import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/index'
-import onSubmitForm from '@/components/hooks/onSubmitForm'
+import { onSubmitForm } from '@/helpers/index'
 import { useForm } from 'react-hook-form'
 import { useState } from 'react'
-import handlePlaceholder from '@/components/general/forms/handlePlaceholder'
+import { handlePlaceholder } from '@/helpers/index'
 import PopupThankyou from '@/components/popups/PopupThankyou'
 import Popup from 'reactjs-popup'
 import PopupLoader from '@/components/popups/PopupLoader'
@@ -17,6 +17,7 @@ import { useRouter } from 'next/router'
 import Breadcrumbs from '@/components/general/Breadcrumbs'
 import { IconArrowTopRight } from '@/components/icons'
 import InfoRectangle from '@/components/general/InfoRectangle'
+import { useAt } from '@/helpers/index'
 
 type FormValues = {
   name: string
@@ -31,6 +32,8 @@ const JumbotronCta = ({ programTitle = null, programId = null }) => {
     reset,
     formState: { errors }
   } = useForm<FormValues>()
+
+  const at = useAt()
 
   const [open, setOpen] = useState(false)
   const [openLoader, setOpenLoader] = useState(false)
@@ -88,18 +91,12 @@ const JumbotronCta = ({ programTitle = null, programId = null }) => {
           <div className={stls.flexContainer}>
             <div className={stls.descContainer}>
               <ul className={stls.desktopLinksList}>
+                {/* <li className={stls.desktopLinkBorder}></li> */}
                 <li className={stls.linkItem}>
-                  {/* <Link href='/programs/industry'>
-                    <a>INDUSTRY MBA</a>
+                  {/* <Link href='/programs/mba'>
+                    <a>MBA</a>
                   </Link> */}
-                  INDUSTRY MBA
-                </li>
-                <li className={stls.desktopLinkBorder}></li>
-                <li className={stls.linkItem}>
-                  {/* <Link href='/programs/professional'>
-                    <a>PROFESSIONAL MBA</a>
-                  </Link> */}
-                  PROFESSIONAL MBA
+                  MBA
                 </li>
                 <li className={stls.desktopLinkBorder}></li>
                 <li className={stls.linkItem}>
@@ -236,8 +233,14 @@ const JumbotronCta = ({ programTitle = null, programId = null }) => {
               <li className={stls.prosSeparator}></li>
 
               <li className={stls.prosItem}>
-                <div className={stls.prosStatsNumber}>2000+</div>
-                <p>{SetString(lang.benefitFourDisc)}</p>
+                <div className={stls.prosStatsNumber}>
+                  {at.index ? '9000+' : '2000+'}
+                </div>
+                <p>
+                  {at.index
+                    ? SetString(lang.benefitFourDiscAlt)
+                    : SetString(lang.benefitFourDisc)}
+                </p>
               </li>
             </ul>
           </div>

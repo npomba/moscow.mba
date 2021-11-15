@@ -2,7 +2,7 @@ import stls from '@/styles/pages/Payment.module.sass'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import Image from 'next/image'
-import { backendUrl, apiProgramsReqUrl } from '@/config/index'
+import { handleGetStaticProps } from '@/helpers/index'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import PopupForm from '@/components/popups/PopupForm'
@@ -24,11 +24,11 @@ const payment = ({ programs }) => {
         canonical={'https://moscow.mba/payment'}
       />
       <section className={breadcrumbsStls.jumbotronGeneral}>
-        <div className={stls.generalContainer}>
+        <div className={stls.container}>
           <Breadcrumbs />
         </div>
       </section>
-      <div className={stls.generalContainer}>
+      <div className={stls.container}>
         <div className={stls.content}>
           <h1 className={stls.h1}>Оплата</h1>
           <h2 className={stls.h2}>Банковской картой</h2>
@@ -131,15 +131,6 @@ const payment = ({ programs }) => {
   )
 }
 
-export async function getStaticProps() {
-  const res = await fetch(`${backendUrl}${apiProgramsReqUrl}`)
-  const { data } = await res.json()
-
-  return {
-    props: {
-      programs: data
-    }
-  }
-}
+export const getStaticProps = async () => handleGetStaticProps()
 
 export default payment

@@ -5,10 +5,10 @@ import OverlayContext from '@/context/overlay/overlayContext'
 import classNames from 'classnames'
 import Link from 'next/link'
 import langMenu from '@/data/translation/menu'
-import SetString from '@/components/hooks/SetString'
+import { SetString } from '@/helpers/index'
 import Until from '@/components/costs/Until'
 import Price from '@/components/costs/Price'
-import ProgramSubjects from '@/components/hooks/ProgramSubjects'
+import ProgramSubjects from '@/components/general/ProgramSubjects'
 import ProgramsQty from '@/components/general/ProgramsQty'
 import TrainingPeriod from '@/components/costs/TrainingPeriod'
 import Discount from '@/components/costs/Discount'
@@ -40,13 +40,7 @@ const ProgramsColumn = ({ data, id, type }) => {
       <li className={stls.containerItem}>
         <div className={stls.programInfo}>
           <div className={stls.programTitle}>
-            {type === 'mini'
-              ? 'Mini MBA'
-              : type === 'professional'
-              ? 'Professional MBA'
-              : type === 'industry'
-              ? 'Industry MBA'
-              : null}
+            {type === 'mini' ? 'Mini MBA' : type === 'mba' ? 'MBA' : null}
           </div>
           <div className={stls.infoFlexContainer}>
             <div className={stls.infoItemContainer}>
@@ -79,10 +73,8 @@ const ProgramsColumn = ({ data, id, type }) => {
           <p className={stls.programDesc}>
             {type === 'mini'
               ? SetString(langMenu.categoryDiscMini)
-              : type === 'professional'
-              ? SetString(langMenu.categoryDiscProfessional)
-              : type === 'industry'
-              ? SetString(langMenu.categoryDiscIndustry)
+              : type === 'mba'
+              ? SetString(langMenu.categoryDiscMba)
               : null}
           </p>
         </div>
@@ -133,22 +125,23 @@ const ProgramsColumn = ({ data, id, type }) => {
             </div>
           </div>
           <ul className={stls.list}>
-            {data.map(item => {
-              if (
-                item.mbaTypeOfProgram === type &&
-                item.mbaFormat === 'online'
-              ) {
-                return (
-                  <li key={item._id} className={stls.listItem}>
-                    <Link
-                      href={`/programs/${item.mbaTypeOfProgram}/${item.mbaFormat}/${item.url}`}
-                      locale='ru'>
-                      <a onClick={handleLinkClick}>{SetString(item, true)}</a>
-                    </Link>
-                  </li>
-                )
-              }
-            })}
+            {data &&
+              data.map(item => {
+                if (
+                  item.category?.type === type &&
+                  item.studyFormat === 'online'
+                ) {
+                  return (
+                    <li key={item.id || item._id} className={stls.listItem}>
+                      <Link
+                        href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
+                        locale='ru'>
+                        <a onClick={handleLinkClick}>{SetString(item, true)}</a>
+                      </Link>
+                    </li>
+                  )
+                }
+              })}
           </ul>
         </div>
       </li>
@@ -191,22 +184,23 @@ const ProgramsColumn = ({ data, id, type }) => {
             </div>
           </div>
           <ul className={stls.list}>
-            {data.map(item => {
-              if (
-                item.mbaTypeOfProgram === type &&
-                item.mbaFormat === 'blended'
-              ) {
-                return (
-                  <li key={item._id} className={stls.listItem}>
-                    <Link
-                      href={`/programs/${item.mbaTypeOfProgram}/${item.mbaFormat}/${item.url}`}
-                      locale='ru'>
-                      <a onClick={handleLinkClick}>{SetString(item, true)}</a>
-                    </Link>
-                  </li>
-                )
-              }
-            })}
+            {data &&
+              data.map(item => {
+                if (
+                  item.category?.type === type &&
+                  item.studyFormat === 'blended'
+                ) {
+                  return (
+                    <li key={item.id || item._id} className={stls.listItem}>
+                      <Link
+                        href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
+                        locale='ru'>
+                        <a onClick={handleLinkClick}>{SetString(item, true)}</a>
+                      </Link>
+                    </li>
+                  )
+                }
+              })}
           </ul>
         </div>
       </li>

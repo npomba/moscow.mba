@@ -81,7 +81,7 @@ section.jumbotronPrograms
   margin-bottom: 25px
   display: flex
   align-items: center
-  & p
+  & div
     display: flex
     font-style: normal
     font-weight: bold
@@ -90,19 +90,18 @@ section.jumbotronPrograms
     & > div
       margin-right: 10px
 
-  @media (min-width: 1330px)
-    & p
-      align-items: center
-      &:nth-child(1)
-        margin-right: 30px
-
   @media (max-width: 1330px)
     flex-direction: column
     align-items: start
-    & p
-      &:nth-child(1)
-        margin-right: 0
-        margin-bottom: 10px
+
+.counter
+  @media (max-width: 1330px)
+    &:nth-child(1)
+      margin-bottom: 20px
+  @media (min-width: 1330px)
+    align-items: center
+    margin-right: 30px
+  
 
 .container
   display: flex

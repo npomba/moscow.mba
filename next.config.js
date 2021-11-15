@@ -16,6 +16,9 @@ module.exports = {
     defaultLocale: 'ru',
     localeDetection: false
   },
+  images: {
+    domains: ['res.cloudinary.com']
+  },
   async headers() {
     return [
       {
@@ -125,13 +128,8 @@ module.exports = {
         permanent: true
       },
       {
-        source: '/programs/professional',
-        destination: '/programs/professional/online',
-        permanent: true
-      },
-      {
-        source: '/programs/industry',
-        destination: '/programs/industry/online',
+        source: '/programs/mba',
+        destination: '/programs/mba/online',
         permanent: true
       }
     ]

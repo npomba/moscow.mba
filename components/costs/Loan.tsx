@@ -1,5 +1,5 @@
 import stls from '@/styles/components/costs/Loan.module.sass'
-import useAt from '@/components/hooks/useAt'
+import { useAt } from '@/helpers/index'
 
 const Loan = ({
   discount = false,
@@ -16,11 +16,7 @@ const Loan = ({
         online: '13 500',
         blended: '14 500'
       },
-      professional: {
-        online: '24 000',
-        blended: '25 000'
-      },
-      industry: {
+      mba: {
         online: '24 000',
         blended: '25 000'
       },
@@ -35,10 +31,7 @@ const Loan = ({
       mini: {
         online: '7 400'
       },
-      professional: {
-        online: '13 250'
-      },
-      industry: {
+      mba: {
         online: '13 250'
       },
       profession: {

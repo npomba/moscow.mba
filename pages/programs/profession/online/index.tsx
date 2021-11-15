@@ -1,11 +1,11 @@
 import Programs from '@/components/pages/Programs'
-import { backendUrl, apiProgramsReqUrl } from '@/config/index'
+import { handleGetStaticProps } from '@/helpers/index'
 
 const programsMiniOnline = ({ programs }) => {
   const data = programs.filter(
     program =>
-      program.mbaFormat === 'online' &&
-      program.mbaTypeOfProgram === 'profession'
+      program.studyFormat === 'online' &&
+      program.category?.type === 'profession'
   )
 
   return (
@@ -17,15 +17,9 @@ const programsMiniOnline = ({ programs }) => {
   )
 }
 
-export async function getStaticProps() {
-  const res = await fetch(`${backendUrl}${apiProgramsReqUrl}`)
-  const { data } = await res.json()
-
-  return {
-    props: {
-      programs: data
-    }
-  }
-}
+export const getStaticProps = async () =>
+  handleGetStaticProps({
+    dataFor: 'profession'
+  })
 
 export default programsMiniOnline

@@ -1,7 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-import HeadFonts from '@/components/general/HeadFonts'
-import HeadManifest from '@/components/general/HeadManifest'
-
+import { MetaFonts, MetaManifest } from '@/components/meta'
 class MyDocument extends Document {
   // static async getInitialProps(ctx) {
   //   const initialProps = await Document.getInitialProps(ctx)
@@ -13,9 +11,8 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <meta charSet='UTF-8' />
-          <meta name='theme-color' content='#ff3535' />
-          <HeadFonts />
-          <HeadManifest />
+          <MetaFonts />
+          <MetaManifest />
         </Head>
         <body>
           <Main />

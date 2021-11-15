@@ -1,6 +1,6 @@
-import SetString from '@/components/hooks/SetString'
+import { SetString } from '@/helpers/index'
 import langMenu from '@/data/translation/months'
-import { getStringDeclensionNumber } from '@/components/utils'
+import { getStringDeclensionNumber } from '@/helpers/index'
 
 const TrainingPeriod = ({ type = null }) => {
   return (
@@ -8,12 +8,7 @@ const TrainingPeriod = ({ type = null }) => {
       {type === 'mini' && (
         <>9 {SetString(langMenu.months, false, getStringDeclensionNumber(9))}</>
       )}
-      {type === 'professional' && (
-        <>
-          18 {SetString(langMenu.months, false, getStringDeclensionNumber(18))}
-        </>
-      )}
-      {type === 'industry' && (
+      {type === 'mba' && (
         <>
           18 {SetString(langMenu.months, false, getStringDeclensionNumber(18))}
         </>

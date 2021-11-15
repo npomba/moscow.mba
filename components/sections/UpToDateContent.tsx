@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/UpToDateContent.module.sass'
 import classNames from 'classnames'
-import SetString from '@/components/hooks/SetString'
+import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/about'
 import Image from 'next/image'
 

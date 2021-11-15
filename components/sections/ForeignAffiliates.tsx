@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/ForeignAffiliates.module.sass'
 import Image from 'next/image'
-import SetString from '@/components/hooks/SetString'
+import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/index'
 import imageData from '@/data/images/foreignAffiliates'
 import { base64pixel } from '@/config/index'

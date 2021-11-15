@@ -1,8 +1,8 @@
 import stls from '@/styles/components/general/ProgramsQty.module.sass'
 import classNames from 'classnames'
-import setString from '@/components/hooks/SetString'
+import { SetString } from '@/helpers/index'
 import langMenu from '@/data/translation/menu'
-import { getStringDeclensionNumber } from '@/components/utils/'
+import { getStringDeclensionNumber } from '@/helpers/index'
 
 const ProgramsQty = ({
   programs,
@@ -13,10 +13,12 @@ const ProgramsQty = ({
   let ProgramsQty
 
   if (type && format)
-    ProgramsQty = programs.filter(
-      program =>
-        program.mbaTypeOfProgram === type && program.mbaFormat === format
-    ).length
+    ProgramsQty =
+      programs &&
+      programs.filter(
+        program =>
+          program.category?.type === type && program.studyFormat === format
+      ).length
   else ProgramsQty = programs.length
 
   return (
@@ -25,7 +27,7 @@ const ProgramsQty = ({
         [stls.headerContainer]: isInsideHeader
       })}>
       <span>{ProgramsQty} </span>
-      {setString(
+      {SetString(
         langMenu.qtPrograms,
         false,
         getStringDeclensionNumber(ProgramsQty)

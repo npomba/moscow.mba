@@ -1,6 +1,6 @@
 import langMenu from '@/data/translation/menu'
 import langMonths from '@/data/translation/months'
-import SetString from '@/components/hooks/SetString'
+import { SetString } from '@/helpers/index'
 
 const Until = ({ preposition = true, executive = false }) => {
   const currentDate = new Date()

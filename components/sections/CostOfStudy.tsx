@@ -4,12 +4,12 @@ import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import Until from '@/components/costs/Until'
 import PopupForm from '@/components/popups/PopupForm'
-import useAt from '@/components/hooks/useAt'
+import { useAt } from '@/helpers/index'
 import Price from '@/components/costs/Price'
 import Loan from '@/components/costs/Loan'
 import Discount from '@/components/costs/Discount'
-import TrainingPeriod from '../costs/TrainingPeriod'
-import ProgramSubjects from '../hooks/ProgramSubjects'
+import TrainingPeriod from '@/components/costs/TrainingPeriod'
+import ProgramSubjects from '@/components/general/ProgramSubjects'
 
 const PriceBlock = ({
   isDiscounted,
@@ -88,18 +88,16 @@ const CostOfStudy = ({
   const at = useAt()
   const isDiscounted =
     (at.mini && at.online) ||
-    (at.professional && at.online) ||
-    (at.industry && at.online) ||
+    (at.mba && at.online) ||
     (at.profession && at.online) ||
     at.mbl
 
   const canPayInInstalments = at.profession
-  const costWithDescription =
-    at.mini || at.professional || at.industry || at.executive || at.mbl
+  const costWithDescription = at.mini || at.mba || at.executive || at.mbl
 
   let list
 
-  if (at.mini || at.professional || at.industry || at.executive || at.mbl) {
+  if (at.mini || at.mba || at.executive || at.mbl) {
     list = (
       <>
         <ul className={stls.list}>
@@ -108,14 +106,12 @@ const CostOfStudy = ({
               type={
                 at.mini
                   ? 'mini'
-                  : at.professional
-                  ? 'professional'
-                  : at.industry
-                  ? 'industry'
+                  : at.mba
+                  ? 'mba'
                   : at.executive
                   ? 'executive'
                   : at.mbl
-                  ? 'industry'
+                  ? 'mba'
                   : null
               }
             />
@@ -139,10 +135,8 @@ const CostOfStudy = ({
               type={
                 at.mini
                   ? 'mini'
-                  : at.professional
-                  ? 'professional'
-                  : at.industry
-                  ? 'industry'
+                  : at.mba
+                  ? 'mba'
                   : at.executive
                   ? 'executive'
                   : at.mbl
@@ -159,14 +153,12 @@ const CostOfStudy = ({
                 type={
                   at.mini
                     ? 'mini'
-                    : at.professional
-                    ? 'professional'
-                    : at.industry
-                    ? 'industry'
+                    : at.mba
+                    ? 'mba'
                     : at.executive
                     ? 'executive'
                     : at.mbl
-                    ? 'industry'
+                    ? 'mba'
                     : null
                 }
                 subjects={'specialty'}
@@ -227,14 +219,12 @@ const CostOfStudy = ({
             <div className={stls.programName}>
               {at.mini
                 ? 'MBA Mini'
-                : at.professional
-                ? 'MBA Professional'
-                : at.industry
-                ? 'MBA Industry'
+                : at.mba
+                ? 'MBA'
                 : at.executive
                 ? 'MBA Executive'
                 : at.mbl
-                ? 'MBA Industry'
+                ? 'MBA'
                 : ''}
             </div>
           )}

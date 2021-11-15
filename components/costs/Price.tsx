@@ -1,5 +1,5 @@
 import stls from '@/styles/components/costs/Price.module.sass'
-import useAt from '@/components/hooks/useAt'
+import { useAt } from '@/helpers/index'
 
 const Price = ({
   discount = false,
@@ -15,11 +15,7 @@ const Price = ({
         online: '162 000',
         blended: '172 000'
       },
-      professional: {
-        online: '289 000',
-        blended: '299 000'
-      },
-      industry: {
+      mba: {
         online: '289 000',
         blended: '299 000'
       },
@@ -35,10 +31,7 @@ const Price = ({
       mini: {
         online: '89 000'
       },
-      professional: {
-        online: '159 000'
-      },
-      industry: {
+      mba: {
         online: '159 000'
       },
       profession: {

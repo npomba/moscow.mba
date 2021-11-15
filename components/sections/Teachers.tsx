@@ -1,15 +1,16 @@
 import stls from '@/styles/components/sections/Teachers.module.sass'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
-import useAt from '@/components/hooks/useAt'
+import { useAt } from '@/helpers/index'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 import PopupForm from '@/components/popups/PopupForm'
-import SetString from '@/components/hooks/SetString'
+import { SetString } from '@/helpers/index'
 import lang from 'data/translation/about'
 import imagesData from '@/data/images/teachers'
 import { IconCheck } from '@/components/icons'
 import { base64pixel } from '@/config/index'
+import classNames from 'classnames'
 
 const splitParaText = (string, splitBy) => {
   const indexOfWordToSplitBy = string.indexOf(splitBy)
@@ -29,12 +30,9 @@ const Teachers = ({
 }) => {
   const at = useAt()
   const router = useRouter()
-  const detailSectionClasses = [stls.container]
-
-  if (atStandAlonePage) detailSectionClasses.push(stls.standalonePage)
 
   const title = at.profession ? (
-    <h2>
+    <h2 className={stls.titleProfession}>
       {SetString(lang.teachersTitleFirstSecondary)}{' '}
       <span className='red'>{SetString(lang.teachersTitleRedSecondary)} </span>
       {SetString(lang.teachersTitleSecondSecondary)}
@@ -87,7 +85,11 @@ const Teachers = ({
 
   return (
     <>
-      <section className={detailSectionClasses.join(' ')}>
+      <section
+        className={classNames({
+          [stls.container]: true,
+          [stls.standalonePage]: atStandAlonePage
+        })}>
         <div className={stls.sectionPl}>
           <div className={stls.titlePl}>
             {SetString(lang.teachersTitleLabel)}
@@ -121,7 +123,11 @@ const Teachers = ({
                 />
               </div>
             </div>
-            <ul className={stls.detailList}>
+            <ul
+              className={classNames({
+                [stls.detailList]: true,
+                [stls.detailListProfession]: at.profession
+              })}>
               <li>
                 <div className={stls.circle}>
                   <IconCheck />

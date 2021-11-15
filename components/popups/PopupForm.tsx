@@ -1,10 +1,10 @@
 import stls from '@/styles/components/popups/PopupForm.module.sass'
-import SetString from '@/components/hooks/SetString'
+import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/index'
-import onSubmitForm from '@/components/hooks/onSubmitForm'
+import { onSubmitForm } from '@/helpers/index'
 import { useForm } from 'react-hook-form'
 import { useState } from 'react'
-import handlePlaceholder from '@/components/general/forms/handlePlaceholder'
+import { handlePlaceholder } from '@/helpers/index'
 import Popup from 'reactjs-popup'
 import PopupThankyou from '@/components/popups/PopupThankyou'
 import PopupLoader from '@/components/popups/PopupLoader'
@@ -68,7 +68,7 @@ const Form = ({
   }
 
   return (
-    <div id='teachersModal' className='popup-modal mfp-hide mfp-with-anim'>
+    <div id='teachersModal' className='popup-modal'>
       <Popup open={openLoader} onClose={closeLoadingModal}>
         <PopupLoader closePopUp={closeLoadingModal} />
       </Popup>

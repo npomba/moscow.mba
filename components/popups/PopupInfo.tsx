@@ -2,7 +2,7 @@ import stls from '@/styles/components/popups/PopupInfo.module.scss'
 import Popup from 'reactjs-popup'
 import IconInfoFRDO from '@/components/icons/IconInfoFRDO'
 import { useEffect, useState } from 'react'
-import useWindowWidth from '@/components/hooks/useWindowWidth'
+import useWindowWidth from '@/helpers/useWindowWidth'
 
 
 type PopupInfoPropsType = {

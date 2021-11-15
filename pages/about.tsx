@@ -10,12 +10,11 @@ import CorporateClients from '@/components/sections/CorporateClients'
 import Teachers from '@/components/sections/Teachers'
 import UpToDateContent from '@/components/sections/UpToDateContent'
 import Accreditation from '@/components/sections/Accreditation'
-import ContactUs from '@/components/sections/ContactUs'
-import SetString from '@/components/hooks/SetString'
+import { handleGetStaticProps, SetString } from '@/helpers/index'
 import lang from '@/data/translation/about'
 import langIndex from '@/data/translation/index'
-import { apiProgramsReqUrl, backendUrl } from '@/config/index'
 import StandardECTS from '@/components/sections/StandardECTS'
+
 
 const about = ({ programs }) => {
   return (
@@ -28,7 +27,7 @@ const about = ({ programs }) => {
 
       <JumbotronMain />
 
-      <div className={stls.generalContainer}>
+      <div className={stls.container}>
         <About />
         <ConferencesInEurope />
         <ForeignAffiliates />
@@ -44,15 +43,6 @@ const about = ({ programs }) => {
   )
 }
 
-export async function getStaticProps() {
-  const res = await fetch(`${backendUrl}${apiProgramsReqUrl}`)
-  const { data } = await res.json()
-
-  return {
-    props: {
-      programs: data
-    }
-  }
-}
+export const getStaticProps = async () => handleGetStaticProps()
 
 export default about

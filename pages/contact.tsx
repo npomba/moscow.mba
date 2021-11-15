@@ -1,13 +1,13 @@
 import stls from '@/styles/pages/Contact.module.sass'
 import { NextSeo, CorporateContactJsonLd } from 'next-seo'
 import truncate from 'truncate'
-import SetString from '@/components/hooks/SetString'
+import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/header'
 import ContactCards from '@/components/general/ContactCards'
 import contactData from '@/data/contactData'
-import { apiProgramsReqUrl, backendUrl } from '@/config/index'
 import Breadcrumbs from '@/components/general/Breadcrumbs'
 import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
+import { handleGetStaticProps } from '@/helpers/index'
 
 const contact = ({ programs }) => {
   const contactInfo = contactData()
@@ -37,11 +37,11 @@ const contact = ({ programs }) => {
         ]}
       />
       <section className={breadcrumbsStls.jumbotronGeneral}>
-        <div className={stls.generalContainer}>
+        <div className={stls.container}>
           <Breadcrumbs />
         </div>
       </section>
-      <div className={stls.generalContainer}>
+      <div className={stls.container}>
         <h1 className={stls.h1}>{SetString(lang.linkContacts)}</h1>
         <ContactCards />
       </div>
@@ -49,15 +49,6 @@ const contact = ({ programs }) => {
   )
 }
 
-export async function getStaticProps() {
-  const res = await fetch(`${backendUrl}${apiProgramsReqUrl}`)
-  const { data } = await res.json()
-
-  return {
-    props: {
-      programs: data
-    }
-  }
-}
+export const getStaticProps = async () => handleGetStaticProps()
 
 export default contact

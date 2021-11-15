@@ -1,20 +1,18 @@
-import useAt from '@/components/hooks/useAt'
+import { useAt } from '@/helpers/index'
 
 const JumbotronLabel = () => {
   const at = useAt()
 
   const txt = at.mini
     ? 'Mini MBA'
-    : at.professional
-    ? 'Professional MBA'
-    : at.industry
-    ? 'Industry MBA'
+    : at.mba
+    ? 'MBA'
     : at.profession
     ? 'Профессия'
     : at.executive
     ? 'Executive MBA'
     : at.mbl
-    ? 'Industry MBA'
+    ? 'MBA'
     : ''
 
   return (

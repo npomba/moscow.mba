@@ -2,8 +2,9 @@ import stls from '@/styles/pages/Teachers.module.sass'
 import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import Teachers from '../components/sections/Teachers'
-import { apiProgramsReqUrl, backendUrl } from '@/config/index'
+import Teachers from '@/components/sections/Teachers'
+import { handleGetStaticProps } from '@/helpers/index'
+
 import Breadcrumbs from '@/components/general/Breadcrumbs'
 
 const teachers = ({ programs }) => {
@@ -18,26 +19,17 @@ const teachers = ({ programs }) => {
         canonical={'https://moscow.mba/teachers'}
       />
       <section className={breadcrumbsStls.jumbotronGeneral}>
-        <div className={stls.generalContainer}>
+        <div className={stls.container}>
           <Breadcrumbs />
         </div>
       </section>
-      <div className={stls.generalContainer}>
+      <div className={stls.container}>
         <Teachers atStandAlonePage />
       </div>
     </>
   )
 }
 
-export async function getStaticProps() {
-  const res = await fetch(`${backendUrl}${apiProgramsReqUrl}`)
-  const { data } = await res.json()
-
-  return {
-    props: {
-      programs: data
-    }
-  }
-}
+export const getStaticProps = async () => handleGetStaticProps()
 
 export default teachers

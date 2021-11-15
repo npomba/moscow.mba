@@ -3,7 +3,7 @@ import { useState } from 'react'
 import Overlay from '@/components/layout/Overlay'
 import StickyBottom from '@/components/layout/StickyBottom'
 import AskQuestion from '@/components/general/AskQuestion'
-import AskQuestionForm from '@/components/general/forms/AskQuestionForm'
+import { AskQuestionForm } from '@/components/forms'
 
 const StickyBottomContainer = () => {
   const [clickedAsk, setClickedAsk] = useState(false)

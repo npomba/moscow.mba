@@ -1,6 +1,6 @@
-import stls from '@/styles/pages/legal/Index.module.sass'
+import stls from '@/styles/pages/Legal.module.sass'
 import { NextSeo } from 'next-seo'
-import { backendUrl, apiProgramsReqUrl } from '@/config/index'
+import { handleGetStaticProps } from '@/helpers/index'
 import Breadcrumbs from '@/components/general/Breadcrumbs'
 import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
 import CurrentLicenses from '@/components/sections/CurrentLicenses'
@@ -22,12 +22,12 @@ const legal = ({ programs }) => {
       />
 
       <section className={breadcrumbsStls.jumbotronGeneral}>
-        <div className={stls.generalContainer}>
+        <div className={stls.container}>
           <Breadcrumbs />
         </div>
       </section>
-      <div className={stls.generalContainer}>
-        <h1 className={stls.mainHeading}>Сведения об организации</h1>
+      <div className={stls.container}>
+        <h1 className={stls.title}>Сведения об организации</h1>
         <CurrentLicenses />
         <MemberOfRabe />
         <MemberOfAcicel />
@@ -39,15 +39,6 @@ const legal = ({ programs }) => {
   )
 }
 
-export async function getStaticProps() {
-  const res = await fetch(`${backendUrl}${apiProgramsReqUrl}`)
-  const { data } = await res.json()
-
-  return {
-    props: {
-      programs: data
-    }
-  }
-}
+export const getStaticProps = async () => handleGetStaticProps()
 
 export default legal

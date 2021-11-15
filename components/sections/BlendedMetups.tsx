@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/BlendedMetups.module.sass'
 import Image from 'next/image'
-import useAt from '@/components/hooks/useAt'
+import { useAt } from '@/helpers/index'
 
 const BlendedMetups = () => {
   const at = useAt()
@@ -9,14 +9,8 @@ const BlendedMetups = () => {
     <section className={stls.container}>
       <div className={stls.titleContainer}>3 очных модуля</div>
       <h2 className={stls.title}>
-        {at.mini
-          ? 'MBA mini'
-          : at.professional
-          ? 'MBA professional'
-          : at.industry
-          ? 'MBA industry'
-          : null}{' '}
-        blended - это очные встречи с экспертами в Москве
+        {at.mini ? 'MBA mini' : at.mba ? 'MBA' : null} blended - это очные
+        встречи с экспертами в Москве
       </h2>
       <div className={stls.flexContainer}>
         <div className={stls.content}>

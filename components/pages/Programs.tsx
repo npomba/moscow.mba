@@ -2,15 +2,15 @@ import stls from '@/styles/components/pages/Programs.module.sass'
 import { useState } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import useAt from '@/components/hooks/useAt'
+import { useAt } from '@/helpers/index'
 import langMenu from '@/data/translation/menu'
-import SetString from '@/components/hooks/SetString'
+import { SetString } from '@/helpers/index'
 import Breadcrumbs from '@/components/general/Breadcrumbs'
 import InfoRectangle from '@/components/general/InfoRectangle'
-import ProgramSubjects from '@/components/hooks/ProgramSubjects'
+import ProgramSubjects from '@/components/general/ProgramSubjects'
 import ProgramsQty from '@/components/general/ProgramsQty'
 import Filters from '@/components/general/Filters'
-import CardProgram from '@/components/general/cards/CardProgram'
+import { CardProgram } from '@/components/cards'
 import { IconCheckCircle } from '@/components/icons'
 
 const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
@@ -22,7 +22,8 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
 
   if (at.profession) {
     fields = programs.reduce((acc, curr) => {
-      if (!acc.includes(curr.field)) acc.push(curr.field)
+      if (!acc.includes(curr.study_field?.name))
+        acc.push(curr.study_field?.name)
       return acc
     }, [])
 
@@ -32,13 +33,12 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
   }
 
   const generateHeading = () => {
-    const atMBAPrograms = at.mini || at.industry || at.professional
+    if (at.mini) {
+      return `Mini MBA ${mbaFormat}`
+    }
 
-    if (atMBAPrograms) {
-      const programType =
-        at.onWhichPage[0].toUpperCase() + at.onWhichPage.slice(1)
-
-      return `${programType} MBA ${mbaFormat}`
+    if (at.mba) {
+      return `MBA ${mbaFormat}`
     }
 
     if (at.profession) {
@@ -51,7 +51,7 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
 
     if (currentField) {
       programsToDisplay = programs.filter(
-        program => program.field === currentField
+        program => program.study_field?.name === currentField
       )
     }
 
@@ -68,26 +68,14 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
     <>
       <NextSeo
         title={`Программы обучения ${
-          at.mini
-            ? 'Mini MBA'
-            : at.professional
-            ? 'Professional MBA'
-            : at.industry
-            ? 'Industry MBA'
-            : ''
+          at.mini ? 'Mini MBA' : at.mba ? 'MBA' : ''
         } ${
           at.online ? 'Online' : at.blended ? 'Blended' : ''
         } - Moscow Business Academy`}
         description={
-          at.mini
-            ? truncate(SetString(langMenu.categoryDiscMini), 120)
-            : at.professional
-            ? truncate(SetString(langMenu.categoryDiscProfessional), 120)
-            : at.industry
-            ? truncate(SetString(langMenu.categoryDiscIndustry), 120)
-            : ''
+          at.mini ? truncate(SetString(langMenu.categoryDiscMini), 120) : ''
         }
-        canonical={'https://moscow.mba/programs/professional/online'}
+        canonical={'https://moscow.mba/programs/mba/online'}
       />
 
       <section className={stls.jumbotronPrograms}>
@@ -117,33 +105,34 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
               <p className={stls.desc}>
                 {at.mini
                   ? SetString(langMenu.categoryDiscMini)
-                  : at.professional
-                  ? SetString(langMenu.categoryDiscProfessional)
-                  : at.industry
-                  ? SetString(langMenu.categoryDiscIndustry)
+                  : at.mba
+                  ? SetString(langMenu.categoryDiscMba)
                   : ''}
               </p>
 
               {at.profession ? (
                 <div className={stls.desc}>
-                  Программа профессиональной переподготовки Mini MBA разработана
-                  для специалистов и руководителей, которые хотят
-                  систематизировать имеющиеся знания или познакомиться с
-                  ключевыми аспектами новой для себя сферы управленческой
-                  деятельности.
+                  Программа профессиональной переподготовки разработана для
+                  специалистов и руководителей, которые хотят систематизировать
+                  имеющиеся знания или познакомиться с ключевыми аспектами новой
+                  для себя сферы управленческой деятельности.
                 </div>
               ) : (
                 <div className={stls.counters}>
-                  <p>
+                  <div className={stls.counter}>
                     <IconCheckCircle />
-                    <ProgramSubjects subjects='base' />
-                    &nbsp;дисциплин об управлениии
-                  </p>
-                  <p>
+                    <span>
+                      <ProgramSubjects subjects='base' />
+                      &nbsp;дисциплин об управлениии
+                    </span>
+                  </div>
+                  <div className={stls.counter}>
                     <IconCheckCircle />
-                    <ProgramSubjects subjects='specialty' />
-                    &nbsp;дисциплин специализации
-                  </p>
+                    <span>
+                      <ProgramSubjects subjects='specialty' />
+                      &nbsp;дисциплин специализации
+                    </span>
+                  </div>
                 </div>
               )}
             </div>
@@ -158,7 +147,7 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
               {programsToDisplay.map((program, idx) => {
                 return (
                   <CardProgram
-                    key={program._id}
+                    key={program._id || program.id}
                     professionLayout={at.profession}
                     program={program}
                     number={idx + 1}

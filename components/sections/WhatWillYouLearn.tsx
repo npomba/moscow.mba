@@ -1,24 +1,22 @@
 import stls from '@/styles/components/sections/WhatWillYouLearn.module.sass'
 import classNames from 'classnames'
-import useAt from '@/components/hooks/useAt'
 import Image from 'next/image'
 import { base64pixel } from '@/config/index'
 
-const aboutAcademy = [
-  'Одна из немногих школ России, которая имеет европейскую аккредитацию Ecicel',
-  'Членство в Российской Ассоциации Бизнес-образования (РАБО)',
-  '11 лет на рынке образования',
-  '0% рассрочка без переплат',
-  '6 филиалов за рубежом',
-  '2000+ выпускников',
-  'Программы, соответствующие международным требованиям',
-  'Спикеры - практикующие специалисты, имеющие международный опыт преподавания',
-  'Корпоративные клиенты'
-]
-
 const WhatWillYouLearn = ({ data = null }) => {
-  const at = useAt()
-  const listContent = data ? data.whatWillYouLearn : aboutAcademy
+  const aboutAcademy = [
+    'Одна из немногих школ России, которая имеет европейскую аккредитацию Ecicel',
+    'Членство в Российской Ассоциации Бизнес-образования (РАБО)',
+    '11 лет на рынке образования',
+    '0% рассрочка без переплат',
+    '6 филиалов за рубежом',
+    '2000+ выпускников',
+    'Программы, соответствующие международным требованиям',
+    'Спикеры - практикующие специалисты, имеющие международный опыт преподавания',
+    'Корпоративные клиенты'
+  ]
+
+  const list = data ? data.whatWillYouLearn : aboutAcademy
 
   return (
     <section className={stls.container}>
@@ -42,13 +40,14 @@ const WhatWillYouLearn = ({ data = null }) => {
         </div>
         <div className={stls.floatRight}>
           <ul className={stls.list}>
-            {listContent.map((item, idx) => {
-              return (
-                <li key={idx} className={stls.item}>
-                  {item}
-                </li>
-              )
-            })}
+            {list &&
+              list.map((item, idx) => {
+                return (
+                  <li key={(item.string || item) + idx} className={stls.item}>
+                    {item.string || item}
+                  </li>
+                )
+              })}
           </ul>
         </div>
         <div className={stls.floatLeft}>

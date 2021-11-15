@@ -1,7 +1,7 @@
 import stls from '@/styles/components/general/Filters.module.sass'
 import classNames from 'classnames'
 import Link from 'next/link'
-import useAt from '@/components/hooks/useAt'
+import { useAt } from '@/helpers/index'
 import Discount from '@/components/costs/Discount'
 
 const Filters = ({
@@ -33,25 +33,14 @@ const Filters = ({
             </a>
           </Link>
 
-          <Link href={`/programs/professional/${mbaFormat}`}>
+          <Link href={`/programs/mba/${mbaFormat}`}>
             <a>
               <span
                 className={classNames({
                   [stls.circle]: true,
-                  [stls.active]: at.professional
+                  [stls.active]: at.mba
                 })}></span>{' '}
-              Professional MBA
-            </a>
-          </Link>
-
-          <Link href={`/programs/industry/${mbaFormat}`}>
-            <a>
-              <span
-                className={classNames({
-                  [stls.circle]: true,
-                  [stls.active]: at.industry
-                })}></span>{' '}
-              Industry MBA
+              MBA
             </a>
           </Link>
 
@@ -67,6 +56,7 @@ const Filters = ({
           </Link>
 
           <Link href='/programs/international-business-law' locale='ru'>
+
             <a
               className={classNames({
                 [stls.highlight]: true,
@@ -85,6 +75,7 @@ const Filters = ({
       <li>
         <h4 className={stls.title}>Формат обучения</h4>
         <div className={stls.content}>
+          {/*<div style={{width: '100px', height: '100px', backgroundColor: 'red'}}/>*/}
           <Link href={`/programs/${mbaTypeOfProgram}/blended`}>
             <a
               className={classNames({ [stls.inactiveLink]: fields })}

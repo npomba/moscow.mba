@@ -133,7 +133,7 @@ const coursesDocuments = [
 
 const documentsBasedOnProgram = [
   {
-    title: 'MBA Professional / Industry',
+    title: 'MBA',
     content: profIndDocuments,
     isImage: true
   },

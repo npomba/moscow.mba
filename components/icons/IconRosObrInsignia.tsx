@@ -1,13 +1,10 @@
-import stls from '@/styles/components/general/MoreInfo.module.sass'
-import stls1 from '@/styles/components/icons/IconRosObrInsignia.module.sass'
+import stls from '@/styles/components/icons/IconRosObrInsignia.module.sass'
 
 const IconRosObrInsignia = () => {
   return (
-    <div className={stls1.container}>
+    <div className={stls.container}>
       <svg
         className={stls.insignia}
-        width='197'
-        height='200'
         viewBox='0 0 197 200'
         fill='none'
         xmlns='http://www.w3.org/2000/svg'>

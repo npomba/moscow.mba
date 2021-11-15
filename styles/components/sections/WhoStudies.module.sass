@@ -1,4 +1,5 @@
 @use '@/styles/utils/mixin' as m
+@use '@/styles/layout/general/circularProgressBar' as cpb
 
 .container
   background: #2d2c2a
@@ -56,3 +57,9 @@
   z-index: -1
   top: 0
   left: 0
+
+.strong
+  @include cpb.strong
+
+.circleLg
+  @include cpb.circleLg

@@ -22,32 +22,38 @@ import Pros from '@/components/sections/Pros'
 import GetStudyPlan from '@/components/sections/GetStudyPlan'
 
 const PageOnlineProgram = ({ program }) => {
-  const data = program
-
   const router = useRouter()
 
   return (
     <>
       <NextSeo
-        title={`${data.title} MBA - Moscow Business Academy`}
-        description={truncate(program.goalsOfProgram, 120)}
+        title={`${program.title} MBA - Moscow Business Academy`}
+        description={truncate(program.goal, 120)}
         canonical={`https://moscow.mba${router.asPath}`}
       />
       <CourseJsonLd
-        courseName={`${data.title} MBA`}
+        courseName={`${program.title} MBA`}
         providerName='Moscow Business Academy'
         providerUrl={`https://moscow.mba${router.asPath}`}
-        description={truncate(program.goalsOfProgram, 120)}
+        description={truncate(program.goal, 120)}
       />
 
+<<<<<<< HEAD
       <JumbotronProgram data={data} />
       <div className={stls.generalContainer}>
         <ProgramGoal data={data} />
         <WhatWillYouLearn data={data} />
+=======
+      <JumbotronProgram program={program} />
+
+      <div className={stls.container}>
+        <ProgramGoal data={program} />
+        <WhatWillYouLearn data={program} />
+>>>>>>> 965cc25878e67fb5f42c72a1edc48bce57e055df
         <ProgramDesc />
         <Pros format={'online'} />
         <HowProcessGoes />
-        <ProgramModules data={data} />
+        <ProgramModules program={program} />
         {/* <ContactUs
           programId={data._id}
           programTitle={data.title}
@@ -55,8 +61,12 @@ const PageOnlineProgram = ({ program }) => {
           titleNewStr={'по программе обучения'}
         /> */}
         <GetStudyPlan />
+<<<<<<< HEAD
 
         <Teachers programId={data._id} programTitle={data.title} />
+=======
+        <Teachers programId={program._id} programTitle={program.title} />
+>>>>>>> 965cc25878e67fb5f42c72a1edc48bce57e055df
         <UpToDateContent withBottomLine />
         <CorporateClients />
         <Accreditation />
@@ -64,16 +74,22 @@ const PageOnlineProgram = ({ program }) => {
         <Students />
         <Reviews />
         <CostOfStudy
-          programId={data._id}
-          programTitle={data.title}
-          programFormat={data.mbaFormat}
-          programType={data.mbaTypeOfProgram}
+          programId={program._id}
+          programTitle={program.title}
+          programFormat={program.studyFormat}
+          programType={program.category?.type}
         />
-        <Qna programId={data._id} programTitle={data.title} />
+        <Qna programId={program._id} programTitle={program.title} />
         <ContactUs
+<<<<<<< HEAD
           programId={data._id}
           programTitle={data.title}
           title={''}
+=======
+          programId={program._id}
+          programTitle={program.title}
+          title={'Не знаете что выбрать?'}
+>>>>>>> 965cc25878e67fb5f42c72a1edc48bce57e055df
           titleNewStr={'Получите консультацию по программам MBA'}
         />
       </div>

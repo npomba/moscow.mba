@@ -30,26 +30,26 @@ const ProfessionOnlineProgram = ({ program }) => {
     <>
       <NextSeo
         title={`${data.title} MBA - Moscow Business Academy`}
-        description={truncate(program.goalsOfProgram, 120)}
+        description={truncate(program.goal, 120)}
         canonical={`https://moscow.mba${router.asPath}`}
       />
       <CourseJsonLd
         courseName={`${data.title} MBA`}
         providerName='Moscow Business Academy'
         providerUrl={`https://moscow.mba${router.asPath}`}
-        description={truncate(program.goalsOfProgram, 120)}
+        description={truncate(program.goal, 120)}
       />
 
-      <JumbotronProgram data={data} />
+      <JumbotronProgram program={data} />
 
-      <div className={stls.generalContainer}>
+      <div className={stls.container}>
         <WhatWillYouLearn data={data} />
         <ProgramDesc />
-        <WhoItIsFor data={data} />
+        <WhoItIsFor program={program} />
 
         <Pros format={'online'} />
         <HowProcessGoes />
-        <ProgramModules data={data} smallerMb />
+        <ProgramModules program={data} smallerMb />
         <GetStudyPlan />
         <Teachers programId={data._id} programTitle={data.title} />
         <Students />
@@ -62,8 +62,8 @@ const ProfessionOnlineProgram = ({ program }) => {
         <CostOfStudy
           programId={data._id}
           programTitle={data.title}
-          programFormat={data.mbaFormat}
-          programType={data.mbaTypeOfProgram}
+          programFormat={data.studyFormat}
+          programType={data.category?.type}
         />
         <Qna programId={data._id} programTitle={data.title} />
         <ContactUs

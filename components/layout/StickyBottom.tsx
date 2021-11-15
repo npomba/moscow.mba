@@ -25,8 +25,8 @@ const StickyBottom = ({
           pathArr[0] === 'promo' ||
           (pathArr[0] === 'programs' &&
             (pathArr[1] === 'mini' ||
-              pathArr[1] === 'professional' ||
-              pathArr[1] === 'industry') &&
+              pathArr[1] === 'mba' ||
+              pathArr[1] === 'mba') &&
             (pathArr[2] === 'online' || pathArr[2] === 'blended') &&
             !pathArr[3])
         )

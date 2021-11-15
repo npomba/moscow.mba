@@ -1,4 +1,5 @@
 @use '@/styles/utils/mixin' as m
+@use '@/styles/layout/general/circularProgressBar' as cpb
 
 .container
   position: relative
@@ -135,3 +136,15 @@
     width: 170px
     border-width: 5px
     margin-top: -76px
+
+.circle
+  @include cpb.circle
+
+.text
+  @include cpb.text
+
+.strong
+  @include cpb.strong
+
+.circleLg
+  @include cpb.circleLg
