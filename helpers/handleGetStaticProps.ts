@@ -1,10 +1,4 @@
-import {
-  TypeOfType,
-  TypePrograms,
-  TypeCategories,
-  TypeProgram,
-  TypeStudyFormat
-} from '@/types/index'
+import { TypeCategories, TypeStudyFormat } from '@/types/index'
 import {
   createBlended,
   fetchProgramsGetStaticProps,
