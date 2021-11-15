@@ -1,0 +1,68 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+
+.container
+  position: relative
+  @include m.flex($jc: space-between, $ai: center)
+  margin-top: 130px
+  margin-bottom: 110px
+  padding: 113px 105px
+  @include m.media(phone, tablet)
+    margin-top: 60px
+    padding: 40px 25px
+    background-color: #262626
+  @include m.media(phone, tablet, laptop, desktop)
+    margin-bottom: 60px
+    padding: 40px
+  background-color: #F7F7F7
+
+.icon
+  padding-right: 95px
+  @include m.media(phone, tablet)
+    position: absolute
+    background-color: #2300FA
+    padding: 0
+    top: -30px
+    right: 50px
+  @include m.media(laptop)
+    padding-right: 35px
+  @include m.media(desktop)
+    padding-right: 50px
+
+.content
+  padding-left: 100px
+  border-left: 3px solid #eaeaea
+  @include m.media(phone, tablet, laptop)
+    padding-left: 30px
+  @include m.media(phone, tablet)
+    border-left: none
+    padding: 0
+
+.title
+  font-weight: 700
+  color: #2D2C2A
+  line-height: 1.2
+  font-size: f.px(48)
+  margin-bottom: 23px
+  @include m.media(laptop, tablet, phone)
+    font-size: f.px(38)
+  @include m.media(tablet, phone)
+    padding-right: 70px
+    color: #fff
+  @include m.media(phone)
+    font-size: f.px(28)
+    font-weight: 400
+    padding: 0
+    margin-bottom: 10px
+
+.desc
+  font-size: f.px(25)
+  line-height: 1.2
+  @include m.media(laptop, tablet, phone)
+    font-size: f.px(18)
+  @include m.media(tablet, phone)
+    padding-right: 70px
+    color: #fff
+    font-size: f.px(13)
+  @include m.media(phone)
+    padding: 0
