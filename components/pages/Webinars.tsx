@@ -43,23 +43,25 @@ const Webinars = ({ title, heading, timeframe = 'all' }) => {
         </div>
       </section>
       <div className={stls.generalContainer}>
+
         <section className={stls.container}>
           <h1 className={stls.title}>{heading}</h1>
-          <ul className={stls.list}>
-            {webinarsLinks.map((link, idx) => (
-              <li key={idx + link.ref} className={stls.listItem}>
-                <Link href={link.ref} locale='ru'>
-                  <a
-                    className={classNames(stls.link, {
-                      [stls.active]: link.isActive
-                    })}>
-                    {link.title}
-                  </a>
-                </Link>
-              </li>
-            ))}
-          </ul>
+            {/*<ul className={stls.list}>*/}
+            {/*  {webinarsLinks.map((link, idx) => (*/}
+            {/*    <li key={idx + link.ref} className={stls.listItem}>*/}
+            {/*      <Link href={link.ref} locale='ru'>*/}
+            {/*        <a*/}
+            {/*          className={classNames(stls.link, {*/}
+            {/*            [stls.active]: link.isActive*/}
+            {/*          })}>*/}
+            {/*          {link.title}*/}
+            {/*        </a>*/}
+            {/*      </Link>*/}
+            {/*    </li>*/}
+            {/*  ))}*/}
+            {/*</ul>*/}
           <WebinarCards timeframe={timeframe} />
+
         </section>
       </div>
     </>
