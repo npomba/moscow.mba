@@ -54,7 +54,7 @@ const ProfessionOnlineProgram = ({ program }) => {
         <Teachers programId={data._id} programTitle={data.title} />
         <Students />
         {/* <Reviews /> */}
-        <Accreditation />
+        {/* <Accreditation /> */}
         <HelpWithEmployment />
         <CorporateClients partnershipTitle />
         <Diploma />
