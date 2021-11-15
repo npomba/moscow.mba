@@ -1,16 +1,18 @@
 import stls from '@/styles/components/popups/PopupInfo.module.scss'
 import Popup from 'reactjs-popup'
 import IconInfoFRDO from '@/components/icons/IconInfoFRDO'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
+import useWindowWidth from '@/components/hooks/useWindowWidth'
+
 
 type PopupInfoPropsType = {
+  title: string
+  content: {
     title: string
-    content: {
-        title: string
-        subtitle: string
-        discription: string
-        items: string[]
-    }
+    subtitle: string
+    discription: string
+    items: string[]
+  }
 }
 
 
@@ -22,68 +24,67 @@ const stylesPopup = {
 }
 
 
-const PopupInfo: React.FC<PopupInfoPropsType> = ({title, content }) => {
+const PopupInfo: React.FC<PopupInfoPropsType> = ({ title, content }) => {
+  const widthWindow = useWindowWidth()
 
-    const testRef: any = useRef()
+  const [size, setSize] = useState(448)
+  const [modal, setModal] = useState(false)
 
-    const [size, setSize] = useState(448)
-    const [sizeWindow, setSizeWindow] = useState(0)
-    const [modal, setModal] = useState(false)
+  useEffect(() => {
+    if (widthWindow <= 480) {
+      setSize(345)
+      setModal(true)
+    } else {
+      setSize(448)
+      setModal(false)
+    }
+  }, [widthWindow])
 
-    useEffect(() => {
-        setSizeWindow(testRef.current.offsetParent.clientWidth)
-    }, [])
+  return (
+    <div className={stls.content}>
+      <p>{title}</p>
 
+      <Popup
+        trigger={() => <div className={stls.icon}><IconInfoFRDO /></div>}
+        position={'top right'}
+        offsetX={0}
+        offsetY={35}
+        modal={modal}
+        arrow={false}
+        contentStyle={{ ...stylesPopup, width: `${size}px` }}
+      >
 
-    useEffect(() => {
-        if (sizeWindow <= 460) {
-            setSize(345)
-            setModal(true)
-        } else {
-            setSize(448)
-            setModal(false)
-        }
-    }, [sizeWindow])
+        <div className={stls.content__popup}>
+          <div className={stls.content__icon}>
+            <IconInfoFRDO color={'#000'} />
+          </div>
+          <div className={stls.content__inner}>
+            <p>
+              {content.title}<span>{content.subtitle}</span>
+            </p>
+            <p>
+              {content.discription}
+            </p>
 
-    return (
-        <div className={stls.content} ref={testRef}>
-            <p>{title}</p>
-
-            <Popup
-                trigger={() => <div className={stls.icon}><IconInfoFRDO/></div>}
-                position={'top right'}
-                offsetX={0}
-                offsetY={35}
-                modal={modal}
-                arrow={false}
-                contentStyle={{ ...stylesPopup, width: `${size}px` }}
-            >
-
-                <div className={stls.content__popup}>
-                    <div className={stls.content__icon}>
-                        <IconInfoFRDO color={'#000'} />
-                    </div>
-                    <div className={stls.content__inner}>
-                        <p>
-                            {content.title}<span>{content.subtitle}</span>
-                        </p>
-                        <p>
-                            {content.discription}
-                        </p>
-
-                        <ul className={stls.content__list}>
-                            {
-                                content.items.map((item, i) => {
-                                    return (
-                                        <li key={i}>{item}</li>
-                                    )
-                                })
-                            }
-                        </ul>
-                    </div>
-                </div>
-            </Popup>
+            <ul className={stls.content__list}>
+              {
+                content.items.map((item, i) => {
+                  return (
+                    <li key={i}>{item}</li>
+                  )
+                })
+              }
+            </ul>
+          </div>
         </div>
-    )}
+      </Popup>
+    </div>
+  )
+}
 
 export default PopupInfo
+
+
+
+
+
