@@ -12,6 +12,7 @@ import getProgram from '@/helpers/getProgram'
 import getProgramsReducedData from '@/helpers/getProgramsReducedData'
 import fetchPaths from '@/helpers/fetchPaths'
 import getStringDeclensionNumber from '@/helpers/getStringDeclensionNumber'
+import handleGetStaticPaths from '@/helpers/handleGetStaticPaths'
 import handleGetStaticProps from '@/helpers/handleGetStaticProps'
 import handlePlaceholder from '@/helpers/handlePlaceholder'
 import onSubmitForm from '@/helpers/onSubmitForm'
@@ -33,6 +34,7 @@ export {
   getProgramsReducedData,
   fetchPaths,
   getStringDeclensionNumber,
+  handleGetStaticPaths,
   handleGetStaticProps,
   handlePlaceholder,
   onSubmitForm,
