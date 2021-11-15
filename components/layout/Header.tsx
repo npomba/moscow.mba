@@ -148,6 +148,7 @@ const Header = ({ programs }) => {
             )}
           </div>
           {!at.promo && (
+
             <div className='header-bottom'>
               <div className='header-podmenu-outer'>
                 <div
@@ -215,6 +216,7 @@ const Header = ({ programs }) => {
             </div>
           )}
         </div>
+
         <div
           className={classNames({
             'header-podmenu': true,
@@ -284,6 +286,7 @@ const Header = ({ programs }) => {
                   id={'header-podmenu-1'}
                   type={'mini'}
                 />
+
                 <ProgramsColumn
                   data={programs}
                   id={'header-podmenu-2'}
@@ -305,6 +308,7 @@ const Header = ({ programs }) => {
           <div className='header-mobile-first'>
             <div className='container'>
               <ul className='header-mobile-menu'>
+
                 <li>
                   <a
                     className='mobile-second-toggle'
@@ -312,6 +316,7 @@ const Header = ({ programs }) => {
                     <strong>{SetString(lang.programsBtn)}</strong>
                   </a>
                 </li>
+
                 <li>
                   <Link href='/about'>
                     <a
@@ -395,6 +400,7 @@ const Header = ({ programs }) => {
               'header-mobile-second': true,
               opened: mobileSecond
             })}>
+
             <div className='container'>
               <div
                 className='menu-back-link'
@@ -453,7 +459,7 @@ const Header = ({ programs }) => {
                               {SetString(langMenu.onlineTitle)}
                               <div className='discount'>
                                 <div className='size'>
-                                  <Discount />
+                                  <Discount/>
                                 </div>
                                 <span>
                                   <Until />
@@ -537,6 +543,7 @@ const Header = ({ programs }) => {
                             <div className='info-list'>
                               <div className='info-flex'>
                                 <div className='pic'>
+
                                   <IconCheckCircle fill={'#C7C7C7'} />
                                 </div>
                                 <span>{SetString(langMenu.formatBlended)}</span>
@@ -576,6 +583,7 @@ const Header = ({ programs }) => {
                         </div>
                       </div>
                       <div className='header-podmenu-info'>
+
                         <div className='name'>Mini MBA</div>
                         <div className='info-flex'>
                           <div className='pic'>
@@ -675,6 +683,7 @@ const Header = ({ programs }) => {
                                 </span>
                               </div>
                             </div>
+
                             <ProgramsQty
                               programs={programs}
                               type={'mba'}
@@ -727,6 +736,7 @@ const Header = ({ programs }) => {
                                 })}
                             </ul>
                           </div>
+
                           <div
                             id='program-mobile-2-2'
                             className={classNames({
@@ -859,6 +869,7 @@ const Header = ({ programs }) => {
               'header-mobile-lang': true,
               opened: mobileLang
             })}>
+
             <div className='container'>
               <div
                 className='menu-back-link'
