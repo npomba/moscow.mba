@@ -13,6 +13,7 @@ import Programs from '@/components/sections/Programs'
 import Executive from '@/components/sections/Executive'
 import ContactUs from '@/components/sections/ContactUs'
 import { handleGetStaticProps } from '@/helpers/index'
+import StandardECTS from '@/components/sections/StandardECTS'
 
 const Home = ({ programs }) => {
   return (
@@ -36,7 +37,8 @@ const Home = ({ programs }) => {
         <CorporateClients />
         <Programs programs={programs} />
         <Executive />
-        <ContactUs />
+        {/*<ContactUs />*/}
+        <StandardECTS/>
       </div>
     </>
   )

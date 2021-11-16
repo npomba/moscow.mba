@@ -71,7 +71,7 @@ const PageOnlineProgram = ({ program }) => {
         <ContactUs
           programId={program._id}
           programTitle={program.title}
-          title={'Не знаете что выбрать?'}
+          title={''}
           titleNewStr={'Получите консультацию по программам MBA'}
         />
       </div>
