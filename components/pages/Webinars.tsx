@@ -64,6 +64,6 @@ const Webinars = ({ title, heading, timeframe = 'all' }) => {
       </div>
     </>
   )
-}
+}N
 
 export default Webinars
