@@ -225,10 +225,10 @@ header {
   display: flex;
   align-items: center;
   font-weight: 500;
-  & a:nth-child(1) {
+  & div:nth-child(1) {
     margin-right: 20px;
   }
-  a {
+  div {
     display: inline-block;
     // margin-left: 60px;
     flex-shrink: 0;
@@ -1138,8 +1138,8 @@ h2 {
     font-size: 14px;
     display: flex;
     flex-direction: column;
-    & a:nth-child(1) {
-      margin-bottom: 7px;
+    & div:nth-child(1) {
+      margin-bottom: 15px;
       margin-right: 0;
     }
   }
@@ -1292,10 +1292,10 @@ h2 {
   .header-phones {
     flex-direction: row;
     font-size: 16px;
-    & a:nth-child(1) {
+    & div:nth-child(1) {
       margin-bottom: 0;
     }
-    a {
+    div {
       margin-left: 30px;
     }
   }
@@ -1580,7 +1580,7 @@ h2 {
     margin-bottom: 60px;
   }
   .header-phones {
-    a {
+    div {
       &:nth-child(2) {
         display: none;
       }
@@ -1743,7 +1743,7 @@ a.iconPhoneHeader {
   // }
   .header-phones {
     font-size: 15px;
-    a {
+    div {
       margin-left: 0;
     }
   }

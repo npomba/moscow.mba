@@ -19,6 +19,20 @@
   &::after
     clear: both
 
+  .phoneLink
+    position: relative
+    span
+      font-size: 9px
+      position: absolute
+      right: 0
+      top: -15px
+      color: #B2B2B2
+      font-weight: 400
+      @include m.media(desktop)
+        top: -10px
+      @media (max-width: 360px)
+        display: none
+
 .hidden
   display: none
 

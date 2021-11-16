@@ -121,14 +121,22 @@ const Header = ({ programs }) => {
               {SetString(contactInfo.ru.address.street)}
             </div>
             <div className='header-phones'>
-              <a
-                href={contactInfo.ru.tels[0].href}
-                className='iconMainNumHeader'>
-                {contactInfo.ru.tels[0].val}
-              </a>
-              <a href={contactInfo.ru.tels[1].href}>
-                {contactInfo.ru.tels[1].val}
-              </a>
+
+              <div className={stls.phoneLink}>
+                <span>{contactInfo.ru.tels[0].discriotion}</span>
+                <a
+                  href={contactInfo.ru.tels[0].href}
+                  className='iconMainNumHeader'>
+                  {contactInfo.ru.tels[0].val}
+                </a>
+              </div>
+              <div className={stls.phoneLink}>
+                <span>{contactInfo.ru.tels[1].discriotion}</span>
+                <a href={contactInfo.ru.tels[1].href}>
+                  {contactInfo.ru.tels[1].val}
+                </a>
+              </div>
+
               <a href={contactInfo.ru.tels[0].href} className='iconPhoneHeader'>
                 <IconMobilePhone large fill={'#000'} />
               </a>
