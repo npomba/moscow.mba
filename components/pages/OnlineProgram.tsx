@@ -20,6 +20,7 @@ import CostOfStudy from '@/components/sections/CostOfStudy'
 import Accreditation from '@/components/sections/Accreditation'
 import Pros from '@/components/sections/Pros'
 import GetStudyPlan from '@/components/sections/GetStudyPlan'
+import ProgramDevelopedStandard from '@/components/sections/ProgramDevelopedStandard'
 
 const PageOnlineProgram = ({ program }) => {
   const router = useRouter()
@@ -44,6 +45,7 @@ const PageOnlineProgram = ({ program }) => {
         <ProgramGoal data={program} />
         <WhatWillYouLearn data={program} />
         <ProgramDesc />
+        <ProgramDevelopedStandard/>
         <Pros format={'online'} />
         <HowProcessGoes />
         <ProgramModules program={program} />
