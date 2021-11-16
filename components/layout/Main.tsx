@@ -3,7 +3,7 @@ import OverlayContext from '@/context/overlay/overlayContext'
 import MenuContext from '@/context/menu/menuContext'
 import classNames from 'classnames'
 
-const Content = ({ children }) => {
+const Main = ({ children }) => {
   const { overlayIsShown, showOverlay, hideOverlay, toggleOverlay } =
     useContext(OverlayContext)
 
@@ -26,4 +26,4 @@ const Content = ({ children }) => {
   )
 }
 
-export default Content
+export default Main
