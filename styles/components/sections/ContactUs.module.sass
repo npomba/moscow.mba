@@ -17,11 +17,14 @@
     margin-bottom: 60px
   @include m.media(tablet, phone)
     padding: 40px 25px
-  h3
+  h2
     font-size: 36px
-    font-weight: bold
+    font-weight: 800
     line-height: 1.2
     margin-bottom: 20px
+    @include m.media(phone)
+      font-weight: 400
+      font-size: 28px
 
 .desc
   line-height: 1.2
