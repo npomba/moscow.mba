@@ -13,6 +13,38 @@ const HeaderNav = ({ handleMenu, handleMenuClose }) => {
 
   const at = useAt()
 
+  const links = [
+    {
+      href: '/about',
+      val: SetString(lang.linkAbout),
+      red: at.about
+    },
+    {
+      href: '/teachers',
+      val: SetString(lang.linkTeachers),
+      red: at.teachers,
+      locale: 'ru'
+    },
+    {
+      href: '/webinars',
+      val: SetString(lang.linkWebinars),
+      red: at.webinars,
+      locale: 'ru'
+    },
+    {
+      href: '/contact',
+      val: SetString(lang.linkContacts),
+      red: at.contact,
+      locale: 'ru'
+    },
+    {
+      href: '/legal',
+      val: SetString(lang.linkLegal),
+      red: at.legal,
+      locale: 'ru'
+    }
+  ]
+
   return (
     <div className='header-bottom'>
       <div className='header-podmenu-outer'>
@@ -30,43 +62,20 @@ const HeaderNav = ({ handleMenu, handleMenuClose }) => {
         </div>
       </div>
       <ul className='header-menu'>
-        <li>
-          <Link href='/about'>
-            <a onClick={handleMenuClose} className={at.about ? 'red' : ''}>
-              {SetString(lang.linkAbout)}
-            </a>
-          </Link>
-        </li>
-        <li>
-          <Link href='/teachers' locale='ru'>
-            <a onClick={handleMenuClose} className={at.teachers ? 'red' : ''}>
-              {SetString(lang.linkTeachers)}
-            </a>
-          </Link>
-        </li>
-        <li>
-          <Link href='/webinars' locale='ru'>
-            <a onClick={handleMenuClose} className={at.webinars ? 'red' : ''}>
-              {SetString(lang.linkWebinars)}
-            </a>
-          </Link>
-        </li>
-
-        <li>
-          <Link href='/contact'>
-            <a onClick={handleMenuClose} className={at.contact ? 'red' : ''}>
-              {SetString(lang.linkContacts)}
-            </a>
-          </Link>
-        </li>
-
-        <li className='widescreen-only'>
-          <Link href='/legal' locale='ru'>
-            <a onClick={handleMenuClose} className={at.legal ? 'red' : ''}>
-              {SetString(lang.linkLegal)}
-            </a>
-          </Link>
-        </li>
+        {links.map((item, idx) => (
+          <li key={item.val + idx}>
+            <Link href={item.href} locale={item.locale}>
+              <a
+                onClick={handleMenuClose}
+                className={classNames({
+                  ['widescreen-only']: idx + 1 === links.length,
+                  ['red']: item.red
+                })}>
+                {item.val}
+              </a>
+            </Link>
+          </li>
+        ))}
       </ul>
     </div>
   )
