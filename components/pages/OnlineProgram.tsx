@@ -39,9 +39,6 @@ const PageOnlineProgram = ({ program }) => {
         description={truncate(program.goal, 120)}
       />
 
-
-      <JumbotronProgram program={program} />
-
       <JumbotronProgram program={program} />
 
       <div className={stls.container}>
@@ -91,3 +88,6 @@ const PageOnlineProgram = ({ program }) => {
 }
 
 export default PageOnlineProgram
+
+
+//test
