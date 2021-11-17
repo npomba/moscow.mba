@@ -1,28 +1,80 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
 
-.input
-  padding: 5px
-  border: none
-  border-bottom: 1px solid #000
+
+.popup
+
+
+.trigger
+  display: flex
+  align-items: center
   margin-bottom: 30px
+  border-bottom: 1px solid #000
+  max-width: 296px
+  .icon
+    width: 20px
+    height: 20px
+  .input
+    cursor: pointer
+    border: none
+    padding: 5px 0 5px 12px
+    font-size: 20px
+
+    &::placeholder
+      color: #000
+      opacity: 1
+
+
+
 
 .container
   width: 1285px
   max-height: 80vh
   overflow: auto
   background-color: #fff
+  @include m.media(desktop, laptop, tablet, phone)
+    width: 100vw
+    margin: -15px
+  //@include m.media(tablet, phone)
+
+
+  &::-webkit-scrollbar
+    -webkit-appearance: none
+    width: 3px
+  &::-webkit-scrollbar-thumb
+    border-radius: 2px
+    background-color: #FF3535
+    &:hover
+      background-color: #cccc
+
   .search
 
     display: flex
     align-items: center
     padding: 42px 47px 35px 42px
+    .icon
+      width: 29px
+      height: 29px
+
+
+
+    .cross
+      cursor: pointer
+      svg
+        width: 24px
+        height: 24px
     .input
       width: 100%
       margin-bottom: 0
-      border-bottom: none
+      border: none
       font-weight: normal
       font-size: 20px
       line-height: 120%
       color: #000
+      margin-left: 20px
+      &::placeholder
+        color: #000
+        opacity: 1
 
   .list
     border: 1px solid #F7F7F7
@@ -36,3 +88,8 @@
       line-height: 120%
       a
         color: #000
+
+
+
+
+

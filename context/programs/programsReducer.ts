@@ -75,7 +75,7 @@ const programsReducer = (state, action) => {
 
       return {
         ...state,
-        searchRes: res
+        filteredPrograms: res
       }
     default:
       return state

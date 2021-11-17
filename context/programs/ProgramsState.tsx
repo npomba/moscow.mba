@@ -21,7 +21,6 @@ const ProgramsState = props => {
     curProgramsStudyFieldSlug: null,
     searchTerm: null,
     filteredPrograms: [],
-    searchRes: []
   }
 
   const [state, dispatch] = useReducer(programsReducer, initialState)
@@ -73,7 +72,6 @@ const ProgramsState = props => {
         curProgramsStudyFieldSlug: state.curProgramsStudyFieldSlug,
         searchTerm: state.searchTerm,
         filteredPrograms: state.filteredPrograms,
-        searchRes: state.searchRes,
         setSearchTerm,
         setPrograms,
         setCurProgramsType,

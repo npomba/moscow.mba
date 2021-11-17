@@ -3,12 +3,17 @@ import programsContext from '@/context/programs/programsContext'
 import { useContext, useState } from 'react'
 import Popup from 'reactjs-popup'
 import Link from 'next/link'
+import IconSearch from '@/components/icons/IconSearch'
+import IconClose from '../icons/IconClose'
+
+
+
 
 const SearchField = () => {
   const [value, setValue] = useState('')
-  const {searchRes, setSearchProgram} = useContext(programsContext)
-  console.log('value', value)
-  const hendleSearch = () => {
+  const {filteredPrograms, setSearchProgram} = useContext(programsContext)
+  console.log('value', filteredPrograms)
+  const handleSearch = () => {
     setSearchProgram(value.toLowerCase())
   }
 
@@ -20,45 +25,59 @@ const SearchField = () => {
 
       <Popup
         modal
+        className={stls.popup}
+        onClose={() => close}
         trigger={() => <div>
-          <input
-            className={stls.input}
-            type='text' placeholder={'ckick'}
-            value={value}
-
-          />
+          <div className={stls.trigger}>
+            <div className={stls.icon}>
+              <IconSearch color={'#000'}/>
+            </div>
+            <input
+              className={stls.input}
+              type='text' placeholder={'Поиск'}
+              value={value}
+            />
+          </div>
         </div>}
         >
-        <div className={stls.container}>
-          <div>
-            <div className={stls.search}>
-              <input
-                className={stls.input}
-                type='text'
-                value={value}
-                onChange={e => setValue(e.target.value)}
-                placeholder={'search'}
-                onKeyUp={hendleSearch}
-              />
-              <span className={stls.cross}>X</span>
+        {close => (
+          <div className={stls.container}>
+            <div>
+              <div className={stls.search}>
+                <div className={stls.icon}>
+                  <IconSearch color={'#C4C4C4'}/>
+                </div>
+                <input
+                  className={stls.input}
+                  type='text'
+                  value={value}
+                  onChange={e => setValue(e.target.value)}
+                  placeholder={'Поиск'}
+                  onKeyUp={handleSearch}
+                />
+                <span className={stls.cross} onClick={() => close()}>
+                  <IconClose/>
+                </span>
+              </div>
+
+              <ul className={stls.list}>
+                {
+                  filteredPrograms.map(el => {
+                    return (
+                      <li key={el.id} className={stls.item}>
+                        <Link href={`/programs/mini/online/${el.slug}`}>
+                          <a>{el.title}</a>
+                        </Link>
+                      </li>
+                    )
+                  })
+                }
+              </ul>
+
             </div>
-
-            <ul className={stls.list}>
-              {
-                searchRes.map(el => {
-                  return (
-                    <li key={el.id} className={stls.item}>
-                      <Link href={`/programs/mini/online/${el.slug}`}>
-                        <a>{el.title}</a>
-                      </Link>
-                    </li>
-                  )
-                })
-              }
-            </ul>
-
           </div>
-        </div>
+        )}
+
       </Popup>
   )
 }
