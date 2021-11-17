@@ -1,7 +1,7 @@
 import { TypeImg } from '@/types/index'
 import { ImgTemplate } from '@/components/images'
 import { useAt } from '@/helpers/index'
-import src from '@/public/assets/images/sections/students-during-conference.jpg'
+import src from '@/public/assets/images/sections/students-during-conference.png'
 
 const ImgStudentsDuringConference = ({
   classNames = [],
