@@ -5,7 +5,8 @@ const categories: { [key in TypeCategories]: TypeCategories } = {
   mba: 'mba',
   profession: 'profession',
   mbl: 'mbl',
-  executive: 'executive'
+  executive: 'executive',
+  course: 'course'
 }
 
 export default categories
