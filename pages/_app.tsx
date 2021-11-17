@@ -6,7 +6,7 @@ import SEO from '../seo.config'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import Wrapper from '@/components/layout/Wrapper'
-import Content from '@/components/layout/Content'
+import Main from '@/components/layout/Main'
 import '@/styles/app.sass'
 import { dev, gtmId } from '@/config/index'
 
@@ -93,9 +93,9 @@ function MyApp({ Component, pageProps, router }) {
         <MenuState>
           <Wrapper>
             <Header programs={programs} />
-            <Content>
+            <Main>
               <Component {...pageProps} />
-            </Content>
+            </Main>
             <Footer />
           </Wrapper>
         </MenuState>

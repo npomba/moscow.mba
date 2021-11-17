@@ -13,13 +13,15 @@ import { base64pixel } from '@/config/index'
 import classNames from 'classnames'
 
 const splitParaText = (string, splitBy) => {
-  const indexOfWordToSplitBy = string.indexOf(splitBy)
+  let firstPartOfString, secondPartOfString
+  if (string) {
+    const indexOfWordToSplitBy = string.indexOf(splitBy)
 
-  if (indexOfWordToSplitBy === -1) return [string, '']
+    if (indexOfWordToSplitBy === -1) return [string, '']
 
-  const firstPartOfString = string.slice(0, indexOfWordToSplitBy)
-  const secondPartOfString = string.slice(indexOfWordToSplitBy)
-
+    firstPartOfString = string.slice(0, indexOfWordToSplitBy)
+    secondPartOfString = string.slice(indexOfWordToSplitBy)
+  }
   return [firstPartOfString, secondPartOfString]
 }
 
@@ -52,7 +54,7 @@ const Teachers = ({
   )
   const secondParaText = SetString(lang.teachersListItemDiscSecond)
   const teachersProsTitle = SetString(
-    at.profession ? lang.teachersProsTitleSecondary : lang.teachersProsTitleMain
+    !at.profession && lang.teachersProsTitleMain
   )
 
   const wordToSplitBy = {
@@ -99,24 +101,39 @@ const Teachers = ({
             {!at.profession && (
               <div className={stls.text}>{SetString(lang.teachersDics)}</div>
             )}
-            <div className={`${stls.twoImages} ${stls.detailImage}`}>
-              <div className={`${stls.image} ${stls.pic1}`}>
+            <div
+              className={classNames({
+                [stls.twoImages]: true,
+                [stls.detailImage]: true,
+                [stls.detailImageAtProfession]: at.profession
+              })}>
+              <div
+                className={classNames({
+                  [stls.image]: true,
+                  [stls.pic1]: true,
+                  [stls.pic1AtProfession]: at.profession
+                })}>
                 <Image
                   src={imagesData.circleSpeakerOne.src}
                   alt={SetString(imagesData.circleSpeakerOne.alt)}
-                  width={425}
-                  height={422}
+                  width={!at.profession ? 425 : 344}
+                  height={!at.profession ? 422 : 342}
                   layout='responsive'
                   placeholder='blur'
                   blurDataURL={base64pixel}
                 />
               </div>
-              <div className={`${stls.image} ${stls.pic2}`}>
+              <div
+                className={classNames({
+                  [stls.image]: true,
+                  [stls.pic2]: true,
+                  [stls.pic2AtProfession]: at.profession
+                })}>
                 <Image
                   src={imagesData.circleSpeakerTwo.src}
                   alt={SetString(imagesData.circleSpeakerTwo.alt)}
-                  width={236}
-                  height={236}
+                  width={!at.profession ? 236 : 199}
+                  height={!at.profession ? 236 : 199}
                   layout='responsive'
                   placeholder='blur'
                   blurDataURL={base64pixel}
@@ -163,7 +180,11 @@ const Teachers = ({
                   <IconCheck />
                 </div>
                 <div>
-                  <h5>{SetString(lang.teachersListItemTitleThird)}</h5>
+                  <h5>
+                    {at.profession
+                      ? SetString(lang.teachersListItemTitleThirdAlt)
+                      : SetString(lang.teachersListItemTitleThird)}
+                  </h5>
                   <p>
                     {SetString(
                       at.profession
@@ -175,12 +196,18 @@ const Teachers = ({
               </li>
             </ul>
           </div>
-          <h3 className={stls.teachersPros}>
-            {teachersProsPartOne}
-            <span className={stls.breakLine}>{teachersProsPartTwo}</span>
-          </h3>
+          {!at.profession && (
+            <h3 className={stls.teachersPros}>
+              {teachersProsPartOne}
+              <span className={stls.breakLine}>{teachersProsPartTwo}</span>
+            </h3>
+          )}
         </div>
-        <ul className={stls.teachersList}>
+        <ul
+          className={classNames({
+            [stls.teachersList]: true,
+            [stls.teachersListProfession]: at.profession
+          })}>
           <li>
             <div className={stls.teachersItem}>
               <div className={stls.image}>

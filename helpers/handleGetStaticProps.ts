@@ -1,9 +1,7 @@
 import {
-  TypeOfType,
-  TypePrograms,
   TypeCategories,
-  TypeProgram,
-  TypeStudyFormat
+  TypeStudyFormat,
+  TypeProgramDefault
 } from '@/types/index'
 import {
   createBlended,
@@ -40,7 +38,9 @@ const handleGetStaticProps = async (
   let programs
 
   if (dataFor === 'promo') {
-    programs = await fetchProgramsGetStaticPropsPromo({ ofType })
+    programs = await fetchProgramsGetStaticPropsPromo({
+      ofType
+    })
   } else if (dataFor === 'profession') {
     programs = await fetchProgramsGetStaticPropsProfession({ ofType })
   } else {

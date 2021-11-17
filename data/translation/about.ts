@@ -84,6 +84,11 @@ const about = {
     en: 'International teaching experience'
   },
 
+  teachersListItemTitleThirdAlt: {
+    ru: 'Большой опыт преподавания',
+    en: 'Rich teaching experience'
+  },
+
   teachersListItemDiscThirdMain: {
     ru: 'Преподают в ведущих бизнес-школах мира',
     en: 'They work in the leading world-class business schools'

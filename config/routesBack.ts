@@ -7,7 +7,7 @@ const routesBack = {
   programsGetStaticProps: '/products/getStaticProps',
   programsGetStaticPropsProfession: '/products/getStaticProps/profession',
   programsGetStaticPropsPromo: '/products/getStaticProps/promo',
-  // programsProgramTypeSlug: '/products/program/:typeSlug',
+  // programsProgramTypeSlug: '/products/program/:type.slug',
   programsProgram: '/products/program',
   // programsProgramTypeSlug: '/products/paths/:type',
   programsPaths: '/products/paths',
