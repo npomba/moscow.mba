@@ -8,8 +8,10 @@ import contactData from '@/data/contactData'
 import Breadcrumbs from '@/components/general/Breadcrumbs'
 import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
 import { handleGetStaticProps } from '@/helpers/index'
+import HengeleGetPrograms from '@/helpers/hengeleGetPrograms'
 
 const contact = ({ programs }) => {
+  HengeleGetPrograms(programs)
   const contactInfo = contactData()
   return (
     <>

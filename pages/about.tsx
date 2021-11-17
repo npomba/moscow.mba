@@ -15,8 +15,10 @@ import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/about'
 import langIndex from '@/data/translation/index'
 import { handleGetStaticProps } from '@/helpers/index'
+import HengeleGetPrograms from '@/helpers/hengeleGetPrograms'
 
 const about = ({ programs }) => {
+  HengeleGetPrograms(programs)
   return (
     <>
       <NextSeo

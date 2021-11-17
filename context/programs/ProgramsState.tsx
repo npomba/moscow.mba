@@ -5,7 +5,8 @@ import {
   SET_PROGRAMS,
   SET_CUR_PROGRAMS_TYPE,
   SET_CUR_PROGRAMS_STUDY_FIELD_SLUG,
-  SET_SEARCH_TERM
+  SET_SEARCH_TERM,
+  SEARCH_PROGRAM
 } from '@/context/types'
 
 const ProgramsState = props => {
@@ -19,12 +20,14 @@ const ProgramsState = props => {
     curProgramsType: null,
     curProgramsStudyFieldSlug: null,
     searchTerm: null,
-    filteredPrograms: []
+    filteredPrograms: [],
+    searchRes: []
   }
 
   const [state, dispatch] = useReducer(programsReducer, initialState)
 
   const setPrograms = (programs = []) => {
+    // console.log('212', programs)
     dispatch({ type: SET_PROGRAMS, payload: programs })
   }
 
@@ -46,6 +49,17 @@ const ProgramsState = props => {
     })
   }
 
+  const setSearchProgram = (value: string) => {
+    console.log(value)
+    dispatch({
+      type: SEARCH_PROGRAM,
+      payload: value
+    })
+  }
+
+
+
+
   return (
     <ProgramsContext.Provider
       value={{
@@ -59,10 +73,12 @@ const ProgramsState = props => {
         curProgramsStudyFieldSlug: state.curProgramsStudyFieldSlug,
         searchTerm: state.searchTerm,
         filteredPrograms: state.filteredPrograms,
+        searchRes: state.searchRes,
         setSearchTerm,
         setPrograms,
         setCurProgramsType,
-        setCurProgramsStudyFieldSlug
+        setCurProgramsStudyFieldSlug,
+        setSearchProgram
       }}>
       {props.children}
     </ProgramsContext.Provider>

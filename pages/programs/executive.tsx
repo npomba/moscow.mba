@@ -18,8 +18,10 @@ import Reviews from '@/components/sections/Reviews'
 import CostOfStudy from '@/components/sections/CostOfStudy'
 import Qna from '@/components/sections/Qna'
 import { handleGetStaticProps } from '@/helpers/index'
+import HengeleGetPrograms from '@/helpers/hengeleGetPrograms'
 
 const executive = ({ program, programs }) => {
+  HengeleGetPrograms(programs)
   return (
     <>
       <NextSeo

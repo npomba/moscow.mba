@@ -9,8 +9,10 @@ import PopupForm from '@/components/popups/PopupForm'
 import contactData from '@/data/contactData'
 import Breadcrumbs from '@/components/general/Breadcrumbs'
 import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
+import HengeleGetPrograms from '@/helpers/hengeleGetPrograms'
 
 const payment = ({ programs }) => {
+  HengeleGetPrograms(programs)
   const contactInfo = contactData()
 
   return (
