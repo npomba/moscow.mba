@@ -5,7 +5,7 @@ import MenuContext from '@/context/menu/menuContext'
 import { SetString } from '@/helpers/index'
 import { BtnChangeLang } from '@/components/btns'
 import { useAt } from '@/helpers/index'
-import contactData from '@/data/contactData'
+import { contactData } from '@/config/index'
 import classNames from 'classnames'
 import {
   IconLocation,

@@ -8,7 +8,7 @@ const ImgLogoEcicel = ({ classNames = [], width, height }: TypeImg) => {
       src={src}
       width={width}
       height={height}
-      alt='Accreditation Service for E-Learning Providers'
+      alt={'Accreditation Service for E-Learning Providers'}
       classNames={classNames}
     />
   )

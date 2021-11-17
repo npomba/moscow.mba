@@ -6,7 +6,8 @@ import { handleGetStaticProps } from '@/helpers/index'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import PopupForm from '@/components/popups/PopupForm'
-import contactData from '@/data/contactData'
+import { contactData } from '@/config/index'
+
 import Breadcrumbs from '@/components/general/Breadcrumbs'
 import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
 
