@@ -7,7 +7,7 @@
     padding: 56px 71px
     width: 100%
     @include m.media(tablet, phone)
-      padding: 45px 50px
+      padding: 35px 40px
 
   &.short
     flex: 1
@@ -21,9 +21,9 @@
         align-items: center
 
       &::before
-        content: '',
+        content: ''
         width: 1px
-        height: 50%
+        height: 60%
         position: absolute
         top: 50%
         right: 50%
@@ -47,6 +47,8 @@
       max-width: 432px
       @include m.media(laptop, tablet, phone)
         max-width: 100%
+        p
+          margin-bottom: 10px
 
   &.red,
   &.dark
@@ -92,7 +94,8 @@
   font-size: 36px
   line-height: 120%
   @include m.media(tablet, phone)
-    font-size: 24px
+    font-size: 32px
+    font-weight: 400
     padding-bottom: 32px
 
 .listItem
@@ -114,10 +117,10 @@
         top: 8px
       & p
         padding-left: 18px
-    & p
-      margin-top: -21px
-      @include m.media(tablet, phone)
-        margin-top: -16px
+    //& p
+    //  margin-top: -21px
+    //  @include m.media(tablet, phone)
+    //    margin-top: -16px
 
   &:not(:last-child)
     padding-bottom: 10px
