@@ -10,7 +10,6 @@ import HowProcessGoes from '@/components/sections/HowProcessGoes'
 import ProgramModules from '@/components/sections/ProgramsModules'
 import ContactUs from '@/components/sections/ContactUs'
 import Qna from '@/components/sections/Qna'
-import Students from '@/components/sections/Students'
 import Teachers from '@/components/sections/Teachers'
 import Diploma from '@/components/sections/Diploma'
 import CorporateClients from '@/components/sections/CorporateClients'
@@ -50,7 +49,6 @@ const CourseOnlineProgram = ({ program }) => {
         <ProgramModules program={data} smallerMb />
         <GetStudyPlan />
         <Teachers programId={data._id} programTitle={data.title} />
-        <Students />
         <HelpWithEmployment />
         <CorporateClients partnershipTitle />
         <Diploma />

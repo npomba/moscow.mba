@@ -22,7 +22,6 @@ const JumbotronProgram = ({ program }) => {
     (at.course && at.online) ||
     at.mbl
 
-  console.log(program)
   return (
     <section className={stls.container}>
       <div className={stls.image}>
@@ -50,11 +49,9 @@ const JumbotronProgram = ({ program }) => {
                 </span>
               </div>
             )}
-            {!at.profession && !at.course && (
-              <div className={stls.label}>
-                <JumbotronLabel />
-              </div>
-            )}
+            <div className={stls.label}>
+              <JumbotronLabel />
+            </div>
           </div>
           <div className={stls.flexContainer}>
             <div className={stls.descContainer}>

@@ -1,10 +1,12 @@
 import stls from '@/styles/components/sections/Diploma.module.sass'
 import classNames from 'classnames'
+import Popup from 'reactjs-popup'
 import { useState } from 'react'
 import { useAt } from '@/helpers/index'
 import Pagination from '@/components/general/Pagination'
 import Image from 'next/image'
 import { base64pixel } from '@/config/index'
+import PopupImage from '@/components/popups/PopupImage'
 
 const Diploma = ({ darkBackground = false }) => {
   const at = useAt()
@@ -16,33 +18,71 @@ const Diploma = ({ darkBackground = false }) => {
         {
           title: 'Сертификат академии',
           image: (
-            <Image
-              key={`diplomaImage-${1}`}
-              src={'/assets/diplomas/courses/certificate-courses.jpg'}
-              alt='Ваш сертификат'
-              width={532}
-              height={376}
-              layout={'responsive'}
-              placeholder='blur'
-              blurDataURL={base64pixel}
-            />
+            <Popup
+              trigger={
+                <a>
+                  <Image
+                    key={`diplomaImage-${1}`}
+                    src={'/assets/diplomas/courses/certificate-courses.jpg'}
+                    alt='Сертификат академии'
+                    width={532}
+                    height={376}
+                    layout={'responsive'}
+                    placeholder='blur'
+                    blurDataURL={base64pixel}
+                  />
+                </a>
+              }
+              className='image-popup'
+              modal>
+              {close => (
+                <PopupImage
+                  closePopupImage={close}
+                  image={{
+                    path: '/assets/diplomas/courses/certificate-courses.jpg',
+                    fullWidth: 1485,
+                    FullHeight: 1050,
+                    name: 'Сертификат академии'
+                  }}
+                />
+              )}
+            </Popup>
           )
         },
         {
           title: 'Удостоверение установленного образца',
           image: (
-            <Image
-              key={`diplomaImage-${2}`}
-              src={
-                '/assets/diplomas/courses/qualification-certificate-courses.jpg'
+            <Popup
+              trigger={
+                <a>
+                  <Image
+                    key={`diplomaImage-${2}`}
+                    src={
+                      '/assets/diplomas/courses/qualification-certificate-courses.jpg'
+                    }
+                    alt='Удостоверение установленного образца'
+                    width={532}
+                    height={376}
+                    layout={'responsive'}
+                    placeholder='blur'
+                    blurDataURL={base64pixel}
+                  />
+                </a>
               }
-              alt='Ваше удостоверение'
-              width={532}
-              height={376}
-              layout={'responsive'}
-              placeholder='blur'
-              blurDataURL={base64pixel}
-            />
+              className='image-popup'
+              modal>
+              {close => (
+                <PopupImage
+                  closePopupImage={close}
+                  image={{
+                    path: '/assets/diplomas/courses/qualification-certificate-courses.jpg',
+                    fullWidth: 1480,
+                    FullHeight: 1047,
+                    name: 'Удостоверение установленного образца'
+                  }}
+                />
+              )}
+            </Popup>
           )
         }
       ]
@@ -50,33 +90,73 @@ const Diploma = ({ darkBackground = false }) => {
         {
           title: 'Сертификат академии',
           image: (
-            <Image
-              key={`diplomaImage-${1}`}
-              src={'/assets/diplomas/profession/certificate-profession.jpg'}
-              alt='Сертификат академии'
-              width={532}
-              height={376}
-              layout={'responsive'}
-              placeholder='blur'
-              blurDataURL={base64pixel}
-            />
+            <Popup
+              trigger={
+                <a>
+                  <Image
+                    key={`diplomaImage-${1}`}
+                    src={
+                      '/assets/diplomas/profession/certificate-profession.jpg'
+                    }
+                    alt='Сертификат академии'
+                    width={532}
+                    height={376}
+                    layout={'responsive'}
+                    placeholder='blur'
+                    blurDataURL={base64pixel}
+                  />
+                </a>
+              }
+              className='image-popup'
+              modal>
+              {close => (
+                <PopupImage
+                  closePopupImage={close}
+                  image={{
+                    path: '/assets/diplomas/profession/certificate-profession.jpg',
+                    fullWidth: 1485,
+                    FullHeight: 1050,
+                    name: 'Сертификат академии'
+                  }}
+                />
+              )}
+            </Popup>
           )
         },
         {
           title: 'Диплом установленного образца',
           image: (
-            <Image
-              key={`diplomaImage-${2}`}
-              src={
-                '/assets/diplomas/profession/qualification-diploma-profession.jpg'
+            <Popup
+              trigger={
+                <a>
+                  <Image
+                    key={`diplomaImage-${2}`}
+                    src={
+                      '/assets/diplomas/profession/qualification-diploma-profession.jpg'
+                    }
+                    alt='Диплом установленного образца'
+                    width={532}
+                    height={376}
+                    layout={'responsive'}
+                    placeholder='blur'
+                    blurDataURL={base64pixel}
+                  />
+                </a>
               }
-              alt='Диплом установленного образца'
-              width={532}
-              height={376}
-              layout={'responsive'}
-              placeholder='blur'
-              blurDataURL={base64pixel}
-            />
+              className='image-popup'
+              modal>
+              {close => (
+                <PopupImage
+                  closePopupImage={close}
+                  image={{
+                    path: '/assets/diplomas/profession/qualification-diploma-profession.jpg',
+                    fullWidth: 1485,
+                    FullHeight: 1050,
+                    name: 'Диплом установленного образца'
+                  }}
+                />
+              )}
+            </Popup>
           )
         }
       ]
