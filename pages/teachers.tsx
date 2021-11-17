@@ -7,7 +7,7 @@ import { handleGetStaticProps } from '@/helpers/index'
 
 import Breadcrumbs from '@/components/general/Breadcrumbs'
 
-const pageTeachers = ({ programs }) => {
+const PageTeachers = ({ programs }) => {
   return (
     <>
       <NextSeo
@@ -32,4 +32,4 @@ const pageTeachers = ({ programs }) => {
 
 export const getStaticProps = async () => handleGetStaticProps()
 
-export default pageTeachers
+export default PageTeachers

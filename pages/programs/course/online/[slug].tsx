@@ -1,7 +1,7 @@
 import { handleGetStaticProps, handleGetStaticPaths } from '@/helpers/index'
 import CourseOnlineProgram from '@/components/pages/CourseOnlineProgram'
 
-const pageProgramsCourseOnlineProgram = ({ program, programs }) => {
+const PageProgramsCourseOnlineProgram = ({ program, programs }) => {
   return <CourseOnlineProgram program={program} />
 }
 
@@ -15,4 +15,4 @@ export const getStaticProps = async context =>
 export const getStaticPaths = async () =>
   handleGetStaticPaths({ studyFormat: 'online', type: 'course' })
 
-export default pageProgramsCourseOnlineProgram
+export default PageProgramsCourseOnlineProgram

@@ -12,7 +12,7 @@ import Accreditation from '@/components/sections/Accreditation'
 import Diploma from '@/components/sections/Diploma'
 import WhoItIsFor from '@/components/sections/WhoItIsFor'
 
-const pagePromo = ({ programs }) => {
+const PagePromo = ({ programs }) => {
   const courseOptions = {
     whoIsFor: [
       {
@@ -78,4 +78,4 @@ const pagePromo = ({ programs }) => {
 export const getStaticProps = async () =>
   handleGetStaticProps({ ofType: 'mini', dataFor: 'promo' })
 
-export default pagePromo
+export default PagePromo

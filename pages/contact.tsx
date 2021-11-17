@@ -9,7 +9,7 @@ import Breadcrumbs from '@/components/general/Breadcrumbs'
 import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
 import { handleGetStaticProps } from '@/helpers/index'
 
-const pageContact = ({ programs }) => {
+const PageContact = ({ programs }) => {
   const contactInfo = contactData()
   return (
     <>
@@ -51,4 +51,4 @@ const pageContact = ({ programs }) => {
 
 export const getStaticProps = async () => handleGetStaticProps()
 
-export default pageContact
+export default PageContact

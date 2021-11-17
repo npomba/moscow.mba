@@ -1,13 +1,8 @@
+import { TypeImg } from '@/types/index'
 import { ImgTemplate } from '@/components/images'
 import src from '@/public/assets/images/general/logo-department.png'
 
-type ImgLogoMdeType = {
-  classNames?: string[]
-  width?: number
-  height?: number
-}
-
-const ImgLogoMde = ({ classNames = [], width, height }: ImgLogoMdeType) => {
+const ImgLogoMde = ({ classNames = [], width, height }: TypeImg) => {
   // 105x31
   return (
     <ImgTemplate

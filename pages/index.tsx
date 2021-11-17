@@ -14,7 +14,7 @@ import Executive from '@/components/sections/Executive'
 import ContactUs from '@/components/sections/ContactUs'
 import { handleGetStaticProps } from '@/helpers/index'
 
-const pageHome = ({ programs }) => {
+const PageHome = ({ programs }) => {
   return (
     <>
       <NextSeo
@@ -44,4 +44,4 @@ const pageHome = ({ programs }) => {
 
 export const getStaticProps = async () => handleGetStaticProps()
 
-export default pageHome
+export default PageHome

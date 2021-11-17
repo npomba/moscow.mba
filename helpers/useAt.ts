@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 
 const useAt = () => {
-  const { pathname, asPath } = useRouter()
+  const { pathname, asPath, locale } = useRouter()
 
   const getSplitedPath = pathname
     .split('/')
@@ -96,6 +96,14 @@ const useAt = () => {
     return getProgramTitle ? true : false
   }
 
+  const ru = () => {
+    return locale === 'ru'
+  }
+
+  const en = () => {
+    return locale === 'en-US'
+  }
+
   const onWhichPage = () => {
     const typesOfPages = {
       mini: mini(),
@@ -133,6 +141,8 @@ const useAt = () => {
     articles: articles(),
     contact: contact(),
     mbl: mbl(),
+    ru: ru(),
+    en: en(),
     programChunk: programChunk(),
     getSplitedPath,
     onWhichPage: onWhichPage()

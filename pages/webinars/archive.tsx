@@ -1,7 +1,7 @@
 import Webinars from '@/components/pages/Webinars'
 import { handleGetStaticProps } from '@/helpers/index'
 
-const pageWebinarsArchive = ({ programs }) => {
+const PageWebinarsArchive = ({ programs }) => {
   return (
     <Webinars
       title={'Прошедшие вебинары'}
@@ -13,4 +13,4 @@ const pageWebinarsArchive = ({ programs }) => {
 
 export const getStaticProps = async () => handleGetStaticProps()
 
-export default pageWebinarsArchive
+export default PageWebinarsArchive

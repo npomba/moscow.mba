@@ -10,7 +10,7 @@ import OurDiplomasAndCertificates from '@/components/sections/OurDiplomasAndCert
 import CompanyCard from '@/components/sections/CompanyCard'
 import LegalDocuments from '@/components/sections/LegalDocuments'
 
-const pageLegal = ({ programs }) => {
+const PageLegal = ({ programs }) => {
   return (
     <>
       <NextSeo
@@ -41,4 +41,4 @@ const pageLegal = ({ programs }) => {
 
 export const getStaticProps = async () => handleGetStaticProps()
 
-export default pageLegal
+export default PageLegal
