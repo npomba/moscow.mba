@@ -5,43 +5,69 @@
   position: relative
   background-color: #F7F7F7
   margin-bottom: 110px
-  padding: 113px 105px
+  //padding: 113px 105px
   margin-top: 130px
+
+
   @include m.flex($jc: space-between, $ai: center)
 
   @include m.media(desktop, laptop, tablet, phone)
-    padding: 40px
+    //padding: 40px
     margin-bottom: 60px
 
   @include m.media(tablet, phone)
-    padding: 40px 25px
+    //padding: 40px 25px
     margin-top: 60px
     background-color: #262626
 
   @include m.media(phone)
-    padding: 42px 25px
+    //padding: 42px 25px
 
   .icon
-    padding-right: 95px
+    background-color: #2300FA
+    width: 448px
+    height: 100%
+    padding: 170px 0
+    margin: 0 100px 0 0
+    position: relative
+    svg
+      transform: translate(35%, 0%)
     @include m.media(desktop)
-      padding-right: 50px
+      margin: 0 40px 0 0
+      width: 370px
+      svg
+        transform: translate(25%, 0%)
+
     @include m.media(laptop)
+      width: 270px
+      margin: 0 40px 0 0
+      svg
+        transform: translate(22%, 0%)
       padding-right: 35px
     @include m.media(tablet, phone)
+      svg
+        width: 100%
+      width: 76px
+      height: 76px
       position: absolute
-      background-color: #2300FA
       padding: 0
       top: -30px
       right: 50px
 
+
+
   .content
-    padding-left: 100px
-    border-left: 3px solid #eaeaea
+    //padding-left: 100px
+    //padding: 113px 105px
+    //border-left: 3px solid #eaeaea
+    padding: 10px 100px 10px 0
     @include m.media(laptop, tablet, phone)
       padding-left: 30px
+      padding: 10px 40px 10px 0
     @include m.media(tablet, phone)
       border-left: none
       padding: 0
+      padding: 42px 25px
 
     h3
       font-weight: 700
@@ -55,6 +81,7 @@
         padding-right: 70px
         color: #fff
       @include m.media(phone)
+
         font-size: f.px(28)
         font-weight: 400
         padding: 0

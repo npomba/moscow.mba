@@ -7,6 +7,8 @@ const programsMiniOnline = ({ programs }) => {
       program.studyFormat === 'online' && program.category?.type === 'mini'
   )
 
+  console.log(data)
+
   return (
     <Programs programs={data} mbaTypeOfProgram={'mini'} mbaFormat={'online'} />
   )
