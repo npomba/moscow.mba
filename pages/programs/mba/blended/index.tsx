@@ -1,7 +1,7 @@
 import Programs from '@/components/pages/Programs'
 import { handleGetStaticProps } from '@/helpers/index'
 
-const programsMbaBlended = ({ programs }) => {
+const pageProgramsMbaBlended = ({ programs }) => {
   const data = programs.filter(
     program =>
       program.studyFormat === 'blended' && program.category?.type === 'mba'
@@ -14,4 +14,4 @@ const programsMbaBlended = ({ programs }) => {
 
 export const getStaticProps = async () => handleGetStaticProps()
 
-export default programsMbaBlended
+export default pageProgramsMbaBlended

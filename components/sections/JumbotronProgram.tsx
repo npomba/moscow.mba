@@ -19,8 +19,10 @@ const JumbotronProgram = ({ program }) => {
     (at.mini && at.online) ||
     (at.mba && at.online) ||
     (at.profession && at.online) ||
+    (at.course && at.online) ||
     at.mbl
 
+  console.log(program)
   return (
     <section className={stls.container}>
       <div className={stls.image}>
@@ -48,18 +50,22 @@ const JumbotronProgram = ({ program }) => {
                 </span>
               </div>
             )}
-            <div className={stls.label}>
-              <JumbotronLabel />
-            </div>
+            {!at.profession && !at.course && (
+              <div className={stls.label}>
+                <JumbotronLabel />
+              </div>
+            )}
           </div>
           <div className={stls.flexContainer}>
             <div className={stls.descContainer}>
               <h1
-                className={classNames({ [stls.smallerTitle]: at.profession })}>
+                className={classNames({
+                  [stls.smallerTitle]: at.profession || at.course
+                })}>
                 {program.title}
               </h1>
               <div className={stls.desc}>
-                {at.profession
+                {at.profession || at.course
                   ? program.description
                   : 'Оставьте заявку и получите консультацию по программе, а также узнайте возможные варианты скидок и требования к поступлению'}
               </div>
@@ -103,7 +109,7 @@ const JumbotronProgram = ({ program }) => {
               <li className={stls.item}>
                 <div className={stls.number}>150+</div>
                 <p>
-                  {at.profession
+                  {at.profession || at.course
                     ? 'экспертов формируют программы'
                     : 'международных экспертов'}
                 </p>
@@ -119,6 +125,7 @@ const JumbotronProgram = ({ program }) => {
           <InfoRectangle
             type={program.category?.type ?? 'executive'}
             format={program.studyFormat}
+            studyDurationMonths={program.duration?.minStudyMonths}
           />
         </div>
       </div>

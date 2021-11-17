@@ -6,72 +6,80 @@ import Pagination from '@/components/general/Pagination'
 import Image from 'next/image'
 import { base64pixel } from '@/config/index'
 
-const diplomaPaginationImages = [
-  {
-    title: 'Сертификат академии',
-    image: (
-      <Image
-        key={`diplomaImage-${1}`}
-        src={'/assets/diplomas/general/certificate.jpg'}
-        alt='Ваш будущий сертификат'
-        width={532}
-        height={376}
-        layout={'responsive'}
-        placeholder='blur'
-        blurDataURL={base64pixel}
-      />
-    )
-  },
-  {
-    title: 'Диплом установленного образца',
-    image: (
-      <Image
-        key={`diplomaImage-${2}`}
-        src={'/assets/diplomas/general/diploma.jpg'}
-        alt='Ваш будущий диплом'
-        width={532}
-        height={376}
-        layout={'responsive'}
-        placeholder='blur'
-        blurDataURL={base64pixel}
-      />
-    )
-  },
-  {
-    title: 'Приложение к диплому',
-    image: (
-      <Image
-        key={`diplomaImage-${3}`}
-        src={'/assets/diplomas/general/addendum.jpg'}
-        alt='Ваше будущее приложение к диплому'
-        width={532}
-        height={376}
-        layout={'responsive'}
-        placeholder='blur'
-        blurDataURL={base64pixel}
-      />
-    )
-  }
-]
-
-const getProgramDiplomaImage = typeOfPage => {
-  return (
-    <Image
-      src={`/assets/images/diplomas/mba-${typeOfPage}-diploma.jpg`}
-      alt='Ваш будущий диплом'
-      width={532}
-      height={376}
-      layout={'responsive'}
-      placeholder='blur'
-      blurDataURL={base64pixel}
-    />
-  )
-}
-
 const Diploma = ({ darkBackground = false }) => {
   const at = useAt()
   const typeOfPage = at.mbl ? 'mba' : at.onWhichPage
   const atPrograms = at.mini || at.mba || at.mbl
+
+  const diplomaPaginationImages = at.course
+    ? [
+        {
+          title: 'Сертификат академии',
+          image: (
+            <Image
+              key={`diplomaImage-${1}`}
+              src={'/assets/diplomas/courses/certificate-courses.jpg'}
+              alt='Ваш сертификат'
+              width={532}
+              height={376}
+              layout={'responsive'}
+              placeholder='blur'
+              blurDataURL={base64pixel}
+            />
+          )
+        },
+        {
+          title: 'Удостоверение установленного образца',
+          image: (
+            <Image
+              key={`diplomaImage-${2}`}
+              src={
+                '/assets/diplomas/courses/qualification-certificate-courses.jpg'
+              }
+              alt='Ваше удостоверение'
+              width={532}
+              height={376}
+              layout={'responsive'}
+              placeholder='blur'
+              blurDataURL={base64pixel}
+            />
+          )
+        }
+      ]
+    : [
+        {
+          title: 'Сертификат академии',
+          image: (
+            <Image
+              key={`diplomaImage-${1}`}
+              src={'/assets/diplomas/profession/certificate-profession.jpg'}
+              alt='Сертификат академии'
+              width={532}
+              height={376}
+              layout={'responsive'}
+              placeholder='blur'
+              blurDataURL={base64pixel}
+            />
+          )
+        },
+        {
+          title: 'Диплом установленного образца',
+          image: (
+            <Image
+              key={`diplomaImage-${2}`}
+              src={
+                '/assets/diplomas/profession/qualification-diploma-profession.jpg'
+              }
+              alt='Диплом установленного образца'
+              width={532}
+              height={376}
+              layout={'responsive'}
+              placeholder='blur'
+              blurDataURL={base64pixel}
+            />
+          )
+        }
+      ]
 
   const [currentDiploma, setCurrentDiploma] = useState(0)
 
@@ -102,16 +110,25 @@ const Diploma = ({ darkBackground = false }) => {
     ) : null
   }
 
-  const renderDiplomaImage = () => {
-    return atPrograms || at.promo
-      ? getProgramDiplomaImage(typeOfPage)
-      : diplomaPaginationImages[currentDiploma].image
-  }
+  const renderDiplomaImage = () =>
+    atPrograms || at.promo ? (
+      <Image
+        src={`/assets/images/diplomas/mba-${typeOfPage}-diploma.jpg`}
+        alt='Ваш будущий диплом'
+        width={532}
+        height={376}
+        layout={'responsive'}
+        placeholder='blur'
+        blurDataURL={base64pixel}
+      />
+    ) : (
+      diplomaPaginationImages[currentDiploma].image
+    )
 
   return (
     <section
       className={classNames(stls.container, {
-        [stls.noMobileMb]: at.profession,
+        [stls.noMobileMb]: at.profession || at.course,
         [stls.darkBg]: darkBackground
       })}>
       <div className={stls.imageContainer}>
@@ -119,11 +136,25 @@ const Diploma = ({ darkBackground = false }) => {
         <div className={stls.image}>{renderDiplomaImage()}</div>
       </div>
       <div className={stls.content}>
-        <h2>{at.profession ? 'Ваши будущие дипломы' : 'Ваш будущий диплом'}</h2>
+        <h2>
+          {at.profession || at.course
+            ? 'Ваши будущие дипломы'
+            : 'Ваш будущий диплом'}
+        </h2>
         <div className={stls.desc}>
-          {at.mini || at.mba || at.promo || at.mbl
-            ? 'Международный диплом установленного образца с присвоением степени «Мастер делового администрирования» с европейским приложением'
-            : 'Мы производим обучение на основании государственной лицензии №041221. Вы получите диплом о профессиональной переподготовке и сертификат академии, которые можно добавить в портфолио и показать работодателю.'}
+          {at.mini || at.mba || at.promo || at.mbl ? (
+            'Международный диплом установленного образца с присвоением степени «Мастер делового администрирования» с европейским приложением'
+          ) : (
+            <>
+              Мы производим обучение на основании государственной лицензии
+              №041221. Вы получите{' '}
+              {at.course
+                ? 'удостоверение установленного образца'
+                : 'диплом о профессиональной переподготовке'}{' '}
+              и сертификат академии, которые можно добавить в портфолио и
+              показать работодателю
+            </>
+          )}
         </div>
         {(at.online || at.promo || at.mbl) && (
           <div className={stls.note}>

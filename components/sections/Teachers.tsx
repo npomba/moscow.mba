@@ -33,28 +33,31 @@ const Teachers = ({
   const at = useAt()
   const router = useRouter()
 
-  const title = at.profession ? (
-    <h2 className={stls.titleProfession}>
-      {SetString(lang.teachersTitleFirstSecondary)}{' '}
-      <span className='red'>{SetString(lang.teachersTitleRedSecondary)} </span>
-      {SetString(lang.teachersTitleSecondSecondary)}
-    </h2>
-  ) : (
-    <h2>
-      {SetString(lang.teachersTitleFirstMain)}{' '}
-      <span className='red'>{SetString(lang.teachersTitleRedMain)} </span>
-      {SetString(lang.teachersTitleSecondMain)}
-    </h2>
-  )
+  const title =
+    at.profession || at.course ? (
+      <h2 className={stls.titleProfession}>
+        {SetString(lang.teachersTitleFirstSecondary)}{' '}
+        <span className='red'>
+          {SetString(lang.teachersTitleRedSecondary)}{' '}
+        </span>
+        {SetString(lang.teachersTitleSecondSecondary)}
+      </h2>
+    ) : (
+      <h2>
+        {SetString(lang.teachersTitleFirstMain)}{' '}
+        <span className='red'>{SetString(lang.teachersTitleRedMain)} </span>
+        {SetString(lang.teachersTitleSecondMain)}
+      </h2>
+    )
 
   const firstParaText = SetString(
-    at.profession
+    at.profession || at.course
       ? lang.teachersListItemDiscSecondary
       : lang.teachersListItemDiscMain
   )
   const secondParaText = SetString(lang.teachersListItemDiscSecond)
   const teachersProsTitle = SetString(
-    !at.profession && lang.teachersProsTitleMain
+    !at.profession && !at.course && lang.teachersProsTitleMain
   )
 
   const wordToSplitBy = {
@@ -98,26 +101,26 @@ const Teachers = ({
           </div>
           <div className={stls.content}>
             {title}
-            {!at.profession && (
+            {!at.profession && !at.course && (
               <div className={stls.text}>{SetString(lang.teachersDics)}</div>
             )}
             <div
               className={classNames({
                 [stls.twoImages]: true,
                 [stls.detailImage]: true,
-                [stls.detailImageAtProfession]: at.profession
+                [stls.detailImageAtProfession]: at.profession || at.course
               })}>
               <div
                 className={classNames({
                   [stls.image]: true,
                   [stls.pic1]: true,
-                  [stls.pic1AtProfession]: at.profession
+                  [stls.pic1AtProfession]: at.profession || at.course
                 })}>
                 <Image
                   src={imagesData.circleSpeakerOne.src}
                   alt={SetString(imagesData.circleSpeakerOne.alt)}
-                  width={!at.profession ? 425 : 344}
-                  height={!at.profession ? 422 : 342}
+                  width={!at.profession && !at.course ? 425 : 344}
+                  height={!at.profession && !at.course ? 422 : 342}
                   layout='responsive'
                   placeholder='blur'
                   blurDataURL={base64pixel}
@@ -127,13 +130,13 @@ const Teachers = ({
                 className={classNames({
                   [stls.image]: true,
                   [stls.pic2]: true,
-                  [stls.pic2AtProfession]: at.profession
+                  [stls.pic2AtProfession]: at.profession || at.course
                 })}>
                 <Image
                   src={imagesData.circleSpeakerTwo.src}
                   alt={SetString(imagesData.circleSpeakerTwo.alt)}
-                  width={!at.profession ? 236 : 199}
-                  height={!at.profession ? 236 : 199}
+                  width={!at.profession && !at.course ? 236 : 199}
+                  height={!at.profession && !at.course ? 236 : 199}
                   layout='responsive'
                   placeholder='blur'
                   blurDataURL={base64pixel}
@@ -143,7 +146,7 @@ const Teachers = ({
             <ul
               className={classNames({
                 [stls.detailList]: true,
-                [stls.detailListProfession]: at.profession
+                [stls.detailListProfession]: at.profession || at.course
               })}>
               <li>
                 <div className={stls.circle}>
@@ -152,7 +155,7 @@ const Teachers = ({
                 <div>
                   <h5>
                     {SetString(
-                      at.profession
+                      at.profession || at.course
                         ? lang.teachersListItemTitleSecondary
                         : lang.teachersListItemTitleMain
                     )}
@@ -181,13 +184,13 @@ const Teachers = ({
                 </div>
                 <div>
                   <h5>
-                    {at.profession
+                    {at.profession || at.course
                       ? SetString(lang.teachersListItemTitleThirdAlt)
                       : SetString(lang.teachersListItemTitleThird)}
                   </h5>
                   <p>
                     {SetString(
-                      at.profession
+                      at.profession || at.course
                         ? lang.teachersListItemDiscThirdSecondary
                         : lang.teachersListItemDiscThirdMain
                     )}
@@ -196,7 +199,7 @@ const Teachers = ({
               </li>
             </ul>
           </div>
-          {!at.profession && (
+          {!at.profession && !at.course && (
             <h3 className={stls.teachersPros}>
               {teachersProsPartOne}
               <span className={stls.breakLine}>{teachersProsPartTwo}</span>
@@ -206,7 +209,7 @@ const Teachers = ({
         <ul
           className={classNames({
             [stls.teachersList]: true,
-            [stls.teachersListProfession]: at.profession
+            [stls.teachersListProfession]: at.profession || at.course
           })}>
           <li>
             <div className={stls.teachersItem}>

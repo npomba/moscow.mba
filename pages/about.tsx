@@ -16,7 +16,7 @@ import langIndex from '@/data/translation/index'
 import { handleGetStaticProps } from '@/helpers/index'
 import ContactUs from '@/components/sections/ContactUs'
 
-const about = ({ programs }) => {
+const pageAbout = ({ programs }) => {
   return (
     <>
       <NextSeo
@@ -44,4 +44,4 @@ const about = ({ programs }) => {
 
 export const getStaticProps = async () => handleGetStaticProps()
 
-export default about
+export default pageAbout

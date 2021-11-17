@@ -55,6 +55,17 @@ const Filters = ({
             </a>
           </Link>
 
+          <Link href={`/programs/course/online`}>
+            <a>
+              <span
+                className={classNames({
+                  [stls.circle]: true,
+                  [stls.active]: at.course
+                })}></span>{' '}
+              Курсы
+            </a>
+          </Link>
+
           <Link href='/programs/international-business-law' locale='ru'>
             <a
               className={classNames({

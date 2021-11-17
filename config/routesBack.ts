@@ -6,6 +6,7 @@ const routesBack = {
   programs: '/products',
   programsGetStaticProps: '/products/getStaticProps',
   programsGetStaticPropsProfession: '/products/getStaticProps/profession',
+  programsGetStaticPropsCourse: '/products/getStaticProps/course',
   programsGetStaticPropsPromo: '/products/getStaticProps/promo',
   // programsProgramTypeSlug: '/products/program/:type.slug',
   programsProgram: '/products/program',

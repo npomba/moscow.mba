@@ -19,7 +19,7 @@ import CostOfStudy from '@/components/sections/CostOfStudy'
 import Qna from '@/components/sections/Qna'
 import { handleGetStaticProps } from '@/helpers/index'
 
-const executive = ({ program, programs }) => {
+const pageProgramsExecutive = ({ program, programs }) => {
   return (
     <>
       <NextSeo
@@ -79,4 +79,4 @@ export const getStaticProps = async () =>
     programType: 'executive'
   })
 
-export default executive
+export default pageProgramsExecutive

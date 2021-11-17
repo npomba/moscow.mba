@@ -10,7 +10,7 @@ import contactData from '@/data/contactData'
 import Breadcrumbs from '@/components/general/Breadcrumbs'
 import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
 
-const payment = ({ programs }) => {
+const pagePayment = ({ programs }) => {
   const contactInfo = contactData()
 
   return (
@@ -133,4 +133,4 @@ const payment = ({ programs }) => {
 
 export const getStaticProps = async () => handleGetStaticProps()
 
-export default payment
+export default pagePayment

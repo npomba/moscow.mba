@@ -14,6 +14,11 @@ const menu = {
     en: 'Professions'
   },
 
+  courses: {
+    ru: 'Курсы',
+    en: 'Courses'
+  },
+
   onlineTitle: {
     ru: 'Формат ONLINE',
     en: 'ONLINE'

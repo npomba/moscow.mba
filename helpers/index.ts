@@ -5,6 +5,7 @@ import createProgramModulesSpecialized from '@/helpers/createProgramModulesSpeci
 import fetchProgram from '@/helpers/fetchProgram'
 import fetchPrograms from '@/helpers/fetchPrograms'
 import fetchProgramsGetStaticProps from '@/helpers/fetchProgramsGetStaticProps'
+import fetchProgramsGetStaticPropsCourse from '@/helpers/fetchProgramsGetStaticPropsCourse'
 import fetchProgramsGetStaticPropsProfession from '@/helpers/fetchProgramsGetStaticPropsProfession'
 import fetchProgramsGetStaticPropsPromo from '@/helpers/fetchProgramsGetStaticPropsPromo'
 import getClassNames from '@/helpers/getClassNames'
@@ -27,6 +28,7 @@ export {
   fetchProgram,
   fetchPrograms,
   fetchProgramsGetStaticProps,
+  fetchProgramsGetStaticPropsCourse,
   fetchProgramsGetStaticPropsProfession,
   fetchProgramsGetStaticPropsPromo,
   getClassNames,

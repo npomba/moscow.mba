@@ -1,17 +1,16 @@
 import Programs from '@/components/pages/Programs'
 import { handleGetStaticProps } from '@/helpers/index'
 
-const pageProgramsProfessionOnline = ({ programs }) => {
+const pageProgramsCourseOnline = ({ programs }) => {
   const data = programs.filter(
     program =>
-      program.studyFormat === 'online' &&
-      program.category?.type === 'profession'
+      program.studyFormat === 'online' && program.category?.type === 'course'
   )
 
   return (
     <Programs
       programs={data}
-      mbaTypeOfProgram={'profession'}
+      mbaTypeOfProgram={'course'}
       mbaFormat={'online'}
     />
   )
@@ -19,7 +18,7 @@ const pageProgramsProfessionOnline = ({ programs }) => {
 
 export const getStaticProps = async () =>
   handleGetStaticProps({
-    dataFor: 'profession'
+    dataFor: 'course'
   })
 
-export default pageProgramsProfessionOnline
+export default pageProgramsCourseOnline

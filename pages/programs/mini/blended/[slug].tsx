@@ -1,7 +1,7 @@
 import { handleGetStaticProps, handleGetStaticPaths } from '@/helpers/index'
 import BlendedProgram from '@/components/pages/BlendedProgram'
 
-const programsMiniBlendedProgram = ({ program, programs }) => {
+const pageProgramsMiniBlendedProgram = ({ program, programs }) => {
   return <BlendedProgram program={program} />
 }
 
@@ -15,4 +15,4 @@ export const getStaticProps = async context =>
 export const getStaticPaths = async () =>
   handleGetStaticPaths({ studyFormat: 'blended', type: 'mini' })
 
-export default programsMiniBlendedProgram
+export default pageProgramsMiniBlendedProgram

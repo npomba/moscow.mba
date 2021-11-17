@@ -565,7 +565,14 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
             <li>
               <Link href='/programs/profession/online' locale='ru'>
                 <a className='mobileAllProgramsLink' onClick={handleMenuClose}>
-                  Профессии
+                  {SetString(langMenu.professions)}
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href='/programs/course/online' locale='ru'>
+                <a className='mobileAllProgramsLink' onClick={handleMenuClose}>
+                  {SetString(langMenu.courses)}
                 </a>
               </Link>
             </li>

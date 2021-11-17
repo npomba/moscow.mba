@@ -69,6 +69,10 @@ const useAt = () => {
     return getSplitedPath[1] === 'profession'
   }
 
+  const course = () => {
+    return getSplitedPath[1] === 'course'
+  }
+
   const executive = () => {
     return getSplitedPath[1] === 'executive'
   }
@@ -97,6 +101,7 @@ const useAt = () => {
       mini: mini(),
       mba: mba(),
       profession: profession(),
+      course: course(),
       executive: executive(),
       promo: promo(),
       mbl: mbl()
@@ -115,6 +120,7 @@ const useAt = () => {
     promo: promo(),
     mini: mini(),
     mba: mba(),
+    course: course(),
     profession: profession(),
     executive: executive(),
     programs: programs(),

@@ -249,6 +249,11 @@ const index = {
     en: 'Leave your request for a consultation on the MBA programs, their fees, available discounts and admission requirements'
   },
 
+  helpToChooseDicsProfessionCourse: {
+    ru: 'Оставьте заявку и получите консультацию по программам, узнайте их точную стоимость, возможные варианты скидок и требования к поступлению',
+    en: 'Leave your request for a consultation on the MBA programs, their fees, available discounts and admission requirements'
+  },
+
   inputName: {
     ru: 'Имя',
     en: 'Name'

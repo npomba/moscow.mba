@@ -2,7 +2,7 @@ import { handleGetStaticProps } from '@/helpers/index'
 
 import InternationalBusinessLaw from '@/components/pages/InternationalBusinessLaw'
 
-const programsInternationalBusinessLaw = ({ program, programs }) => {
+const pageProgramsInternationalBusinessLaw = ({ program, programs }) => {
   return <InternationalBusinessLaw program={program} />
 }
 
@@ -13,4 +13,4 @@ export const getStaticProps = async () =>
     programType: 'mbl'
   })
 
-export default programsInternationalBusinessLaw
+export default pageProgramsInternationalBusinessLaw

@@ -7,6 +7,7 @@ import {
   createBlended,
   fetchProgramsGetStaticProps,
   fetchProgramsGetStaticPropsProfession,
+  fetchProgramsGetStaticPropsCourse,
   fetchProgramsGetStaticPropsPromo,
   fetchProgram
 } from '@/helpers/index'
@@ -14,7 +15,7 @@ import { revalidate } from '@/config/index'
 
 type TypeHandleGetStaticProps = {
   ofType?: TypeCategories
-  dataFor?: 'default' | 'profession' | 'promo'
+  dataFor?: 'default' | 'profession' | 'course' | 'promo'
   programSlug?: string
   programStudyFormat?: TypeStudyFormat
   programType?: TypeCategories
@@ -43,6 +44,8 @@ const handleGetStaticProps = async (
     })
   } else if (dataFor === 'profession') {
     programs = await fetchProgramsGetStaticPropsProfession({ ofType })
+  } else if (dataFor === 'course') {
+    programs = await fetchProgramsGetStaticPropsCourse({ ofType })
   } else {
     programs = await fetchProgramsGetStaticProps({ ofType })
   }
