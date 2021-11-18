@@ -9,13 +9,12 @@ const ContactInfo = () => {
         {
           href: 'tel:+7-800-500-27-47',
           val: '+7 (800) 500-27-47',
-          valDashes: '+7-800-500-27-47',
-          discriotion: 'Бесплатно по Москве'
+          discription: 'Бесплатно по Москве'
         },
         {
           href: 'tel:+7-495-149-00-20',
           val: '+7 (495) 149-00-20',
-          discriotion: 'Бесплатно по России'
+          discription: 'Бесплатно по России'
         }
       ],
       address: {
