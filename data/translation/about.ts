@@ -75,13 +75,18 @@ const about = {
   },
 
   teachersListItemDiscSecond: {
-    ru: 'Прошли многоэтапную проверку Moscow Academy и имеют аккредитацию на преподавание',
+    ru: 'Прошли многоэтапную проверку специалистов академии и имеют аккредитацию на преподавание',
     en: 'They have passed Moscow Academy’s multi-stage verification and have teaching accreditation'
   },
 
   teachersListItemTitleThird: {
     ru: 'Международный опыт преподавания',
     en: 'International teaching experience'
+  },
+
+  teachersListItemTitleThirdAlt: {
+    ru: 'Большой опыт преподавания',
+    en: 'Rich teaching experience'
   },
 
   teachersListItemDiscThirdMain: {

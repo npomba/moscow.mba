@@ -454,6 +454,8 @@ const AskQuestionFormStage = ({
                     ? 'mba'
                     : at.profession
                     ? 'profession'
+                    : at.course
+                    ? 'course'
                     : null
                 }
               ]

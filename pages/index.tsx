@@ -15,7 +15,7 @@ import ContactUs from '@/components/sections/ContactUs'
 import { handleGetStaticProps } from '@/helpers/index'
 import StandardECTS from '@/components/sections/StandardECTS'
 
-const Home = ({ programs }) => {
+const PageHome = ({ programs }) => {
   return (
     <>
       <NextSeo
@@ -46,4 +46,4 @@ const Home = ({ programs }) => {
 
 export const getStaticProps = async () => handleGetStaticProps()
 
-export default Home
+export default PageHome
