@@ -8,9 +8,9 @@ An official website
 
 ## Project Structure
 
-1. [components](#@/components)
-   1. [btns](#@/components/btns)
-      * [BtnName.tsx](#@/components/btns/BtnName.tsx)
+1. [components](#components)
+   1. [btns](#componentsBtns)
+      * [BtnName.tsx](#BtnName.tsx)
       * [index.ts](#index.ts)
    2. [cards](#componentsCards)
       * [CardName.tsx](#CardName.tsx)
