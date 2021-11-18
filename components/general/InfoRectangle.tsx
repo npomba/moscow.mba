@@ -8,19 +8,25 @@ import langMenu from '@/data/translation/menu'
 import { useAt } from '@/helpers/index'
 import Price from '@/components/costs/Price'
 
-const InfoRectangle = ({ programPage = false, type = null, format = null }) => {
+const InfoRectangle = ({
+  programPage = false,
+  type = null,
+  format = null,
+  studyDurationMonths = null
+}) => {
   const at = useAt()
   const isDiscounted =
     (at.mini && at.online) ||
     (at.mba && at.online) ||
     (at.profession && at.online) ||
+    (at.course && at.online) ||
     at.mbl
 
   const infoRectangleContent = {
     programInfo: [
       {
         itemTitle: 'Срок обучения:',
-        itemDetail: <TrainingPeriod type={type} />
+        itemDetail: <TrainingPeriod period={studyDurationMonths} type={type} />
       },
       {
         itemTitle: 'Форма обучения:',

@@ -1,8 +1,7 @@
-import { handleGetStaticProps, fetchPaths } from '@/helpers/index'
-
+import { handleGetStaticProps, handleGetStaticPaths } from '@/helpers/index'
 import BlendedProgram from '@/components/pages/BlendedProgram'
 
-const programsMbaBlendedProgram = ({ program, programs }) => {
+const PageProgramsMbaBlendedProgram = ({ program, programs }) => {
   return <BlendedProgram program={program} />
 }
 
@@ -13,16 +12,7 @@ export const getStaticProps = async context =>
     programType: 'mba'
   })
 
-export const getStaticPaths = async () => {
-  const paths = await fetchPaths({
-    studyFormat: 'blended',
-    type: 'mba'
-  })
+export const getStaticPaths = async () =>
+  handleGetStaticPaths({ studyFormat: 'blended', type: 'mba' })
 
-  return {
-    paths,
-    fallback: 'blocking'
-  }
-}
-
-export default programsMbaBlendedProgram
+export default PageProgramsMbaBlendedProgram

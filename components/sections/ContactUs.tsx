@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/ContactUs.module.sass'
 import classNames from 'classnames'
-import { SetString } from '@/helpers/index'
+import { SetString, useAt } from '@/helpers/index'
 import lang from '@/data/translation/index'
 import { onSubmitForm } from '@/helpers/index'
 import { useForm } from 'react-hook-form'
@@ -38,6 +38,8 @@ const ContactUs = ({
   const closeLoadingModal = () => setOpenLoader(false)
 
   const { asPath } = useRouter()
+
+  const at = useAt()
 
   const onSubmitFormThis = async values => {
     setOpenLoader(o => !o)
@@ -78,7 +80,7 @@ const ContactUs = ({
           programTitle={programTitle}
         />
       </Popup>
-      <h2>
+      <h2 className={stls.title}>
         {title}
         {titleNewStr && (
           <>
@@ -86,7 +88,11 @@ const ContactUs = ({
           </>
         )}
       </h2>
-      <div className={stls.desc}>{disc}</div>
+      <div className={stls.desc}>
+        {at.course || at.profession
+          ? SetString(lang.helpToChooseDicsProfessionCourse)
+          : disc}
+      </div>
       <form
         method='post'
         className='simple-form support-form embedded-form'

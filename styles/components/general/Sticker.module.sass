@@ -23,7 +23,7 @@
       &::before
         content: ''
         width: 1px
-        height: 50%
+        height: 60%
         position: absolute
         top: 50%
         right: 50%
@@ -47,6 +47,8 @@
       max-width: 432px
       @include m.media(laptop, tablet, phone)
         max-width: 100%
+        p
+          margin-bottom: 10px
 
   &.red,
   &.dark
@@ -92,7 +94,8 @@
   font-size: 36px
   line-height: 120%
   @include m.media(tablet, phone)
-    font-size: 24px
+    font-size: 32px
+    font-weight: 400
     padding-bottom: 32px
 
 
@@ -116,10 +119,11 @@
         top: 8px
       & p
         padding-left: 18px
+  &:not(:last-child)
+    padding-bottom: 10px
   & p
-    font-style: normal
-    font-weight: normal
-    font-size: 20px
     line-height: 130%
-    @include m.media(tablet, phone)
+    @include m.media(laptop, desktop, widescreen)
+      font-size: 20px
+    @include m.media(phone, tablet)
       font-size: 14px

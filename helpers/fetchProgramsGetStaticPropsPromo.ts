@@ -15,7 +15,7 @@ const fetchProgramsGetStaticPropsPromo = async (
     `${routesBack.root}${routesBack.programsGetStaticPropsPromo}?${query}`
   )
 
-  return programs.data
+  return programs.data.filter(item => item.category?.type === 'mini')
 }
 
 export default fetchProgramsGetStaticPropsPromo

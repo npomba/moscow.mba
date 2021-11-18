@@ -10,13 +10,13 @@ const Pros = ({ format = 'online' }) => {
     return (
       <section className={stls.container}>
         <div className={stls.title}>
-          {!at.profession && (
+          {!at.profession && !at.course && (
             <>
               online
               <br /> модули
             </>
           )}
-          {at.profession && (
+          {at.profession && !at.course && (
             <>
               online <br /> обучение
             </>
@@ -60,8 +60,9 @@ const Pros = ({ format = 'online' }) => {
                 <p>
                   Благодаря онлайн-формату Вы можете пройти программу с
                   экспертами сразу из нескольких топовых бизнес-школ{' '}
-                  {at.profession ? 'России' : 'мира'}. Мы хотим, чтобы ценные
-                  знания были доступны Вам при любых обстоятельствах
+                  {at.profession || at.course ? 'России' : 'мира'}. Мы хотим,
+                  чтобы ценные знания были доступны Вам при любых
+                  обстоятельствах
                 </p>
               </div>
             </li>
@@ -90,14 +91,20 @@ const Pros = ({ format = 'online' }) => {
               </div>
               <div>
                 <h5 className={stls.itemTitle}>
-                  Общайтесь с {at.profession ? 'преподавателями' : 'экспертами'}{' '}
+                  Общайтесь с{' '}
+                  {at.profession || at.course
+                    ? 'преподавателями'
+                    : 'экспертами'}{' '}
                   online
                 </h5>
                 <p>
-                  На {at.profession ? 'курсе' : 'MBA mini online'} у Вас есть
-                  возможность задавать вопросы
-                  {at.profession ? ' преподавателям' : ' экспертам'} во время
-                  видео-встреч, а также через нашу образовательную платформу
+                  На {at.profession || at.course ? 'курсе' : 'MBA mini online'}{' '}
+                  у Вас есть возможность задавать вопросы
+                  {at.profession || at.course
+                    ? ' преподавателям'
+                    : ' экспертам'}{' '}
+                  во время видео-встреч, а также через нашу образовательную
+                  платформу
                 </p>
               </div>
             </li>
