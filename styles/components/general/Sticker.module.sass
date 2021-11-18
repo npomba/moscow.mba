@@ -95,12 +95,14 @@
     font-size: 24px
     padding-bottom: 32px
 
-.listItem
+
+
+.item
   position: relative
-  padding-left: 20px
-  &:not(:last-child)
-    margin-bottom: 10px
   &.many
+    padding-left: 20px
+    &:last-child
+      margin-top: 10px
     &::before
       content: ''
       position: absolute
@@ -114,13 +116,6 @@
         top: 8px
       & p
         padding-left: 18px
-    & p
-      margin-top: -21px
-      @include m.media(tablet, phone)
-        margin-top: -16px
-
-  &:not(:last-child)
-    padding-bottom: 10px
   & p
     font-style: normal
     font-weight: normal
