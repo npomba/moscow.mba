@@ -1,10 +1,16 @@
 # Moscow Business Academy() {
 
+An official website
+
+## License
+
+[Attribution 3.0 Unported](https://creativecommons.org/licenses/by/3.0/legalcode)
+
 ## Project Structure
 
-1. [components](#components)
-   1. [btns](#componentsBtns)
-      * [BtnName.tsx](#BtnName.tsx)
+1. [components](#@/components)
+   1. [btns](#@/components/btns)
+      * [BtnName.tsx](#@/components/btns/BtnName.tsx)
       * [index.ts](#index.ts)
    2. [cards](#componentsCards)
       * [CardName.tsx](#CardName.tsx)
@@ -26,9 +32,9 @@
       * [index.ts](#index.ts)
    8. [images](#componentsImages)
       1. [general](#componentsImagesGeneral)
-         * [ImgName](#ImgName.tsx)
+         * [ImgName.tsx](#ImgName.tsx)
       2. [sections](#componentsImagesSections)
-         * [ImgName](#ImgName.tsx)
+         * [ImgName.tsx](#ImgName.tsx)
       3. ...
       * [ImgTemplate.tsx](#ImgTemplate.tsx)
       * [index.ts](#index.ts)
@@ -76,44 +82,165 @@
          * ...
     * ...
 7. [public](#public)
+   1. [assets](#assets)
+      1. [images](#images)
+         1. [folder](#folder)
+         * [img.jpg](#img.jpg)
+      2. [fonts](#fonts)
+         1. [font](#font)
+            * [font](#font)
+   2. ...
+   * [favicon.ico](#favicon.ico)
+   * [manifest.json](#manifest.json)
+   * ...
 8. [styles](#styles)
+   1. [base](#base)
+      * [_animations.sass](#_animations.sass)
+      * [_globals.sass](#_globals.sass)
+      * [_reset.sass](#_reset.sass)
+      * [_typo.sass](#_typo.sass)
+      * [_index.sass](#_index.sass)
+   2. [components](#components)
+      1. [btns](#componentsBtns)
+         * [BtnName.module.sass](#BtnName.module.sass)
+      2. [cards](#componentsCards)
+         * [CardName.module.sass](#CardName.module.sass)
+      3. [costs](#componentsCosts)
+         * [CostName.module.sass](#CostName.module.sass)
+      4. [forms](#componentsForms)
+         * [FormName.module.sass](#FormName.module.sass)
+      5. [general](#componentsGeneral)
+         * [Name.module.sass](#Name.module.sass)
+      6. [header](#componentsHeader)
+         * [HeaderName.module.sass](#HeaderName.module.sass)
+      7. [icons](#componentsIcons)
+         * [IconName.module.sass](#IconName.module.sass)
+      8. [images](#componentsImages)
+         1. [general](#componentsImagesGeneral)
+            * [ImgName.module.ass](#ImgName.module.sass)
+         2. [sections](#componentsImagesSections)
+            * [ImgName.module.ass](#ImgName.module.sass)
+         3. ...
+         * [ImgTemplate.module.sass](#ImgTemplate.module.sass)
+      9. [layout](#layout)
+         * [LayoutName.module.sass](#LayoutName.module.sass)
+      10. [meta](#meta)
+            * [MetaName.module.sass](#MetaName.module.sass)
+      11. [pages](#pages)
+            * [PagesName.module.sass](#PagesName.module.sass)
+      12. [popups](#popups)
+            * [PopupName.module.sass](#PopupName.module.sass)
+      13. [program](#program)
+            * [ProgramName.module.sass](#ProgramName.module.sass)
+      14. [programs](#programs)
+            * [ProgramsName.module.sass](#ProgramsName.module.sass)
+      15. [sections](#sections)
+            * [SectionName.module.sass](#SectionName.module.sass)
+   3. [layout](#layout)
+      1. ...
+         * ...
+       * ...
+   4. [pages](#pages)
+      1. ...
+         * ...
+       * ...
+   5. [themes](#themes)
+      1. ...
+         * ...
+       * ...
+   6. [utils](#utils)
+      1. ...
+         * ...
+       * ...
+   7. [vendors](#vendors)
+      1. ...
+         * ...
+       * ...
+   * [app.sass](#app.sass)
 9. [types](#types)
+   * [TypeName.ts](#TypeName.ts)
+   * [index.ts](#index.ts)
 
-## Original MD
+## @/components
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+hey
 
-## Getting Started
+## Tech Stack
 
-First, run the development server:
+**Client:** Next.js
 
-```bash
-npm run dev
-# or
-yarn dev
+**Server:** Strapi
+
+## Run Locally
+
+Clone the project
+
+```zsh
+  git clone git@github.com:npomba/moscow.mba.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Go to the project directory
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```zsh
+  cd moscow.mba
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Install dependencies
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```zsh
+  npm i
+```
 
-## Learn More
+Start the server
 
-To learn more about Next.js, take a look at the following resources:
+```zsh
+  npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Roadmap
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Contact us at orloff@moscow.mba for [Notion](https://www.notion.so/) invite link
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+To deploy the project push to main repo
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Demo
+
+* [Production](https://moscow.mba)
+
+## Badges
+
+[![Attribution-NonCommercial 3.0 Unported](https://img.shields.io/badge/license-Attribution--NonCommercial%203.0%20Unported-orange)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
+
+## Color Reference
+
+| Color | Hex |
+| - | - |
+| Alpha | ![#ff3535](https://via.placeholder.com/10/ff3535?text=+) #ff3535 |
+| Beta | ![#262626](https://via.placeholder.com/10/262626?text=+) #262626 |
+| Gamma | ![#fff](https://via.placeholder.com/10/fff?text=+) #fff |
+
+## Authors
+
+* [@novailoveyou](https://github.com/Novailoveyou)
+* [@AlexGert42](https://github.com/AlexGert42)
+* [@DrunkestManEvar](https://github.com/DrunkestManEvar)
+
+## Feedback
+
+If you have any feedback, please reach out to us at orloff@moscow.mba
+
+## Related
+
+Here are some related projects
+
+[mip.institute](https://github.com/npomip/mip.institute)
+
+## Acknowledgements
+
+* [Next.js Documentation](https://nextjs.org/docs)
+* [Next.js Interactive tutorial](https://nextjs.org/learn)
+* [Next.js GitGub Repository](https://github.com/vercel/next.js)
 
 }
