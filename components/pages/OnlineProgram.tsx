@@ -20,6 +20,7 @@ import CostOfStudy from '@/components/sections/CostOfStudy'
 import Accreditation from '@/components/sections/Accreditation'
 import Pros from '@/components/sections/Pros'
 import GetStudyPlan from '@/components/sections/GetStudyPlan'
+import ECTSStandard from '@/components/sections/ECTSStandard'
 
 const PageOnlineProgram = ({ program }) => {
   const router = useRouter()
@@ -53,7 +54,8 @@ const PageOnlineProgram = ({ program }) => {
           title={'Получите консультацию'}
           titleNewStr={'по программе обучения'}
         /> */}
-        <GetStudyPlan />
+        <ECTSStandard />
+        {/* <GetStudyPlan /> */}
         <Teachers programId={program._id} programTitle={program.title} />
         <UpToDateContent withBottomLine />
         <CorporateClients />

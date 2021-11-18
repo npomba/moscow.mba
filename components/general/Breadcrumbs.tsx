@@ -86,10 +86,19 @@ const professionRoute = {
   path: '/programs/profession/online'
 }
 
+const courseRoute = {
+  label: {
+    ru: 'Курс',
+    'en-US': 'Course'
+  },
+  path: '/programs/course/online'
+}
+
 const Breadcrumbs = ({ programChunkData = {} }) => {
   const at = useAt()
   const router = useRouter()
   const userViewingProfession = at.profession
+  const userViewingCourse = at.course
   const userViewingPrograms = at.programs
   const userViewingProgramChunk = at.programChunk
 
@@ -113,6 +122,7 @@ const Breadcrumbs = ({ programChunkData = {} }) => {
     const programsRoute = excludingMainProgramsRoute.reduce(
       (acc, curr, idx) => {
         if (userViewingProfession) return professionRoute
+        if (userViewingCourse) return courseRoute
 
         idx === 0
           ? (acc.label[router.locale] +=

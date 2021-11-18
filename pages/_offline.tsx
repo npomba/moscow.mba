@@ -1,4 +1,4 @@
-import contactData from '@/data/contactData'
+import { contactData } from '@/config/index'
 
 const _offline = () => {
   const contact = contactData()
