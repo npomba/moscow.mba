@@ -304,7 +304,7 @@ const index = {
     en: 'Program is developed according to international standard'
   },
 
-  standartECTSTDiscriotion: {
+  standartECTSTDiscription: {
     ru: 'Программа разработана в соответствии с ECTS  — Европейская система перевода и накопления баллов. В связи с этим, выдаваемый диплом признается за рубежом.',
     en: 'Program is developed according to ECTS  — European Credit Transfer and Accumulation System. Thanks to it our certificate is international.'
   },

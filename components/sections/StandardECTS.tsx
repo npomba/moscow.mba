@@ -11,8 +11,8 @@ export const StandardECTS = () => {
         <IconECTS/>
       </div>
       <div className={stls.content}>
-        <h3>{SetString(lang.standartECTSTitle)}</h3>
-        <p>{SetString(lang.standartECTSTDiscriotion)}</p>
+        <h3 className={stls.title}>{SetString(lang.standartECTSTitle)}</h3>
+        <p className={stls.text}>{SetString(lang.standartECTSTDiscription)}</p>
       </div>
     </section>
   )

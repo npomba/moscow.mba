@@ -1,6 +1,6 @@
 import stls from '@/styles/components/icons/IconECTS.module.sass'
 
-const IconECTS = ({ color = '#000' }) => {
+const IconECTS = ({ color = '#fff' }) => {
   return (
     <div className={stls.container}>
       <svg viewBox='0 0 258 259' fill='none' xmlns='http://www.w3.org/2000/svg'>
