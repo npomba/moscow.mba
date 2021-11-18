@@ -1,5 +1,3 @@
-import stls from '@/styles/components/icons/IconECTS.module.sass'
-
 const IconECTS = () => {
   return (
     <div className={stls.container}>
