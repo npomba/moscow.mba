@@ -6,7 +6,6 @@
   margin: 220px 0 110px 0
   display: flex
   justify-content: flex-end
-
   @include m.media(laptop, tablet, phone)
     display: block
     margin: 550px 0 110px 0
@@ -24,25 +23,16 @@
   @include m.media(desktop)
     width: 266px
     height: 266px
-    left: 30px
+    left: 5%
     top: -130px
     padding: 60px
-  @include m.media(laptop)
-    width: 176px
-    height: 176px
-    right: 50px
-    left: auto
-    padding: 10px
-
-  @include m.media(tablet, phone)
-    right: 15px
+  @include m.media(laptop, tablet, phone)
+    right: 5%
     top: -38px
     width: 76px
     height: 76px
     left: auto
     padding: 5px
-
-
 
 .content
   padding: 116px 135px 117px 342px
@@ -62,9 +52,6 @@
     font-weight: 300
     font-size: f.px(15)
     line-height: 130%
-  @include m.media(tablet)
-    margin-right: 100px
-
 
 .title
   font-size: f.px(48)
@@ -74,5 +61,3 @@
   @include m.media(laptop, tablet, phone)
     font-weight: 700
     font-size: f.px(32)
-  @include m.media(tablet)
-    margin-right: 100px
