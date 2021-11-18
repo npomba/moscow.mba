@@ -83,7 +83,7 @@ const Filters = ({
                   [stls.circle]: true,
                   [stls.active]: at.blended
                 })}></span>{' '}
-              BLENDED <br/> (с очными модулями)
+              BLENDED (с очными модулями)
             </a>
           </Link>
 
@@ -94,7 +94,7 @@ const Filters = ({
                   [stls.circle]: true,
                   [stls.active]: at.online
                 })}></span>{' '}
-              ONLINE <br/> (дистанционно){' '}
+              ONLINE (дистанционно){' '}
               <span className={stls.discount50}>
                 <Discount />
               </span>
