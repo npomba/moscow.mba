@@ -1,4 +1,4 @@
-import stls from '@/components/header/HeaderTop.module.sass'
+import stls from '@/styles/components/header/HeaderTop.module.sass'
 import Link from 'next/link'
 import { useContext } from 'react'
 import MenuContext from '@/context/menu/menuContext'
