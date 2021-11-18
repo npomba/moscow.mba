@@ -1374,6 +1374,9 @@ h2 {
       font-weight: 400;
       &:hover {
         color: $red;
+        @include m.media(tablet, phone) {
+          color: $text_color;
+        }
       }
       &:after {
         content: '';
