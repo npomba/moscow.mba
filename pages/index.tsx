@@ -13,7 +13,6 @@ import Programs from '@/components/sections/Programs'
 import Executive from '@/components/sections/Executive'
 import ContactUs from '@/components/sections/ContactUs'
 import { handleGetStaticProps } from '@/helpers/index'
-import ECTSStandard from '@/components/sections/ECTSStandard'
 
 const PageHome = ({ programs }) => {
   return (
@@ -38,7 +37,6 @@ const PageHome = ({ programs }) => {
         <Programs programs={programs} />
         <Executive />
         <ContactUs />
-        <ECTSStandard />
       </div>
     </>
   )
