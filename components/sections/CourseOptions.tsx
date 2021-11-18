@@ -32,8 +32,8 @@ const CourseOptions = ({ data }) => {
   const shownCourses = swappedData.slice(firstCourseOnPage, lastCourseOnPage)
 
   const scrollToCoursesContainer = () => {
-    const coursesContainerTop =
-      coursesContainerRef.current.getBoundingClientRect().top
+    const coursesContainerTop = coursesContainerRef.current.getBoundingClientRect()
+      .top
     const offsetY = 100
 
     window.scrollTo({
