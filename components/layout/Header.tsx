@@ -9,11 +9,16 @@ import HeaderMenuMobile from '@/components/header/HeaderMenuMobile'
 import HeaderDesktopMenu from '@/components/header/HeaderDesktopMenu'
 
 const Header = ({ programs }) => {
-  const { menuIsOpen, openMenu, closeMenu, toggleMenu } =
-    useContext(MenuContext)
+  const { menuIsOpen, openMenu, closeMenu, toggleMenu } = useContext(
+    MenuContext
+  )
 
-  const { overlayIsShown, showOverlay, hideOverlay, toggleOverlay } =
-    useContext(OverlayContext)
+  const {
+    overlayIsShown,
+    showOverlay,
+    hideOverlay,
+    toggleOverlay
+  } = useContext(OverlayContext)
 
   const handleMenu = () => {
     toggleMenu()

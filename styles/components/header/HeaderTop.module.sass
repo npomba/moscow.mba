@@ -1,2 +1,19 @@
-
 @use '@/styles/utils/mixin' as m
+
+.phoneLink
+  position: relative
+  @include m.media(desktop)
+    margin-bottom: 7px
+    margin-top: 7px
+  @media (max-width: 360px)
+    display: none
+
+.discription
+  font-size: 9px
+  position: absolute
+  right: 0
+  top: -15px
+  color: #B2B2B2
+  font-weight: 400
+  @include m.media(desktop)
+    top: -10px

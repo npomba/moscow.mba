@@ -53,10 +53,18 @@ const HeaderTop = ({ handleMenuClose }) => {
         {SetString(contactInfo.ru.address.street)}
       </div>
       <div className='header-phones'>
-        <a href={contactInfo.ru.tels[0].href} className='iconMainNumHeader'>
-          {contactInfo.ru.tels[0].val}
+        <a className={stls.phoneLink} href={contactInfo.ru.tels[0].href}>
+          <span className={stls.discription}>
+            {contactInfo.ru.tels[0].discription}
+          </span>
+          <span>{contactInfo.ru.tels[0].val}</span>
         </a>
-        <a href={contactInfo.ru.tels[1].href}>{contactInfo.ru.tels[1].val}</a>
+        <a className={stls.phoneLink} href={contactInfo.ru.tels[1].href}>
+          <span className={stls.discription}>
+            {contactInfo.ru.tels[1].discription}
+          </span>
+          <span>{contactInfo.ru.tels[1].val}</span>
+        </a>
         <a href={contactInfo.ru.tels[0].href} className='iconPhoneHeader'>
           <IconMobilePhone large fill={'#000'} />
         </a>
