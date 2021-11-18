@@ -5,6 +5,7 @@ import Popup from 'reactjs-popup'
 import Link from 'next/link'
 import IconSearch from '@/components/icons/IconSearch'
 import IconClose from '../icons/IconClose'
+import { spans } from 'next/dist/build/webpack/plugins/profiling-plugin'
 
 
 
@@ -21,8 +22,6 @@ const SearchField = () => {
 
 
   return (
-
-
       <Popup
         modal
         className={stls.popup}
@@ -65,8 +64,23 @@ const SearchField = () => {
                   filteredPrograms.map(el => {
                     return (
                       <li key={el.id} className={stls.item}>
-                        <Link href={`/programs/mini/online/${el.slug}`}>
-                          <a>{el.title}</a>
+                        <Link href={`/programs/${el.category?.slug}/${el.studyFormat}/${el.slug}`}>
+                          <a>
+                            {
+                                Array.from(el?.title).map((str: any) => {
+
+                                  if (value.toLowerCase().indexOf(str.toLowerCase()) !== -1) {
+                                    return (
+                                      <span className={stls.strong}>{str}</span>
+                                    )
+                                  } else {
+                                    return (
+                                      <span>{str}</span>
+                                    )
+                                  }
+                              })
+                            }
+                          </a>
                         </Link>
                       </li>
                     )

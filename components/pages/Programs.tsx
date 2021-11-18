@@ -85,7 +85,7 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
         </div>
       </section>
       <div className={stls.generalContainer}>
-        <h1 className={stls.title}>ПРОГРАММЫ ОБУЧЕНИЯ</h1>
+        <h1 className={stls.title}>ПРОГРАММЫ <span>ОБУЧЕНИЯ</span></h1>
         <div className={stls.container}>
           <Filters
             mbaTypeOfProgram={mbaTypeOfProgram}
