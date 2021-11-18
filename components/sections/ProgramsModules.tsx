@@ -73,9 +73,9 @@ const ProgramsModules = ({ program, smallerMb = false }) => {
             )}
           </li>
         </ul>
-        {program && program.baseSubjects?.length > 0 && !at.executive && (
-          <h3 className={stls.h3}>Базовые дисциплины</h3>
-        )}
+        {/*{program && program.baseSubjects?.length > 0 && !at.executive && (*/}
+        {/*  <h3 className={stls.h3}>Базовые дисциплины</h3>*/}
+        {/*)}*/}
       </div>
       {program && program.baseSubjects?.length > 0 && !at.executive && (
         <div className={stls.list}>
@@ -96,11 +96,11 @@ const ProgramsModules = ({ program, smallerMb = false }) => {
         </div>
       )}
 
-      {program.specializedSubjects?.length > 0 && (
-        <div className={stls.pl}>
-          <h3 className={stls.h3}>Специализированные дисциплины</h3>
-        </div>
-      )}
+      {/*{program.specializedSubjects?.length > 0 && (*/}
+      {/*  <div className={stls.pl}>*/}
+      {/*    <h3 className={stls.h3}>Специализированные дисциплины</h3>*/}
+      {/*  </div>*/}
+      {/*)}*/}
 
       <div className={stls.list}>
         {program.specializedSubjects?.length > 0 && (
