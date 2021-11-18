@@ -4,39 +4,35 @@
 .container
   position: relative
   @include m.flex($jc: space-between, $ai: center)
-  margin-top: 130px
-  margin-bottom: 110px
-  padding: 113px 105px
-  @include m.media(phone, tablet)
-    margin-top: 60px
-    padding: 40px 25px
+  @include m.media(desktop, widescreen)
+    margin-top: 100px
+    margin-bottom: 100px
+  @include m.media(phone, tablet, laptop)
+    margin-top: 80px
+    margin-bottom: 80px
     background-color: #262626
-  @include m.media(phone, tablet, laptop, desktop)
-    margin-bottom: 60px
-    padding: 40px
   background-color: #F7F7F7
 
 .icon
-  padding-right: 95px
-  @include m.media(phone, tablet)
-    position: absolute
-    background-color: #2300FA
-    padding: 0
-    top: -30px
-    right: 50px
-  @include m.media(laptop)
-    padding-right: 35px
+  background-color: #2300FA
+  padding: 170px 95px
+  display: flex
+  align-items: center
+  justify-content: center
   @include m.media(desktop)
-    padding-right: 50px
+    padding: 170px 65px
+  @include m.media(laptop, tablet, phone)
+    position: absolute
+    padding: 0
+    right: 5%
+    top: -38px
 
 .content
-  padding-left: 100px
-  border-left: 3px solid #eaeaea
-  @include m.media(phone, tablet, laptop)
-    padding-left: 30px
-  @include m.media(phone, tablet)
-    border-left: none
-    padding: 0
+  padding: 0 97px
+  @include m.media(desktop)
+    padding: 0 65px
+  @include m.media(laptop, tablet, phone)
+    padding: 42px 25px
 
 .title
   font-weight: 700
@@ -46,8 +42,7 @@
   margin-bottom: 23px
   @include m.media(laptop, tablet, phone)
     font-size: f.px(38)
-  @include m.media(tablet, phone)
-    padding-right: 70px
+  @include m.media(laptop, tablet, phone)
     color: #fff
   @include m.media(phone)
     font-size: f.px(28)
@@ -60,8 +55,7 @@
   line-height: 1.2
   @include m.media(laptop, tablet, phone)
     font-size: f.px(18)
-  @include m.media(tablet, phone)
-    padding-right: 70px
+  @include m.media(laptop, tablet, phone)
     color: #fff
     font-size: f.px(13)
   @include m.media(phone)
