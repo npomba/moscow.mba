@@ -1,61 +1,65 @@
-.content
-    display: flex
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
 
-.icon
-  position: relative
-
-  svg
-    cursor: pointer
-    position: absolute
-    top: -13px
-    right: -13px
-
-.content__popup
+.container
   display: flex
-  padding: 20px
-  @media (max-width: 480px)
-    padding: 10px
-    display: block
-    .content__icon
-      margin: 0 0 15px 0
+.trigger
+  position: relative
+  svg
+    position: absolute
+    top: -15px
+    right: -15px
 
 
-.content__icon
+
+.content
+  display: flex
+  background-color: #fff
+  width: 448px
+  padding: 40px
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1)
+  @include m.media(tablet, phone)
+    width: 100%
+    padding: 30px
+    flex-direction: column
+.icon
+  top: 20px
   margin-right: 19px
   width: 25px
-
+  @include m.media(tablet, phone)
+  margin-bottom: 15px
   svg
     width: 25px
     height: 25px
 
 
-.content__inner
+.title
   p
     font-size: 16px
-    line-height: 19px
     font-weight: 500
-
-  @media (max-width: 480px)
-    font-size: 13px
-    line-height: 15px
-
+    line-height: 120%
+    @include m.media(tablet, phone)
+      font-size: f.px(13)
     &:nth-child(1)
-     margin-bottom: 33px
-
+      margin-bottom: 33px
+      @include m.media(tablet, phone)
+        margin-bottom: 15px
     &:nth-child(2)
      margin-bottom: 9px
 
-  span
-    font-weight: 300
+    span
+      font-weight: 300
 
 
-.content__list
-
+.list
   li
     padding: 0 0 0 15px
     margin: 10px 0 0 0
     position: relative
-  &:before
+    line-height: 120%
+    @include m.media(tablet, phone)
+      font-size: f.px(13)
+    &:before
      content: ''
      position: absolute
      width: 5px

@@ -15,62 +15,45 @@ type PopupInfoPropsType = {
   }
 }
 
-
-const stylesPopup = {
-  backgroundColor: '#fff',
-  padding: '20px',
-  borderRadius: 0,
-  boxShadow: '0px 0px 15px rgba(0, 0, 0, 0.1)'
-}
-
-
 const PopupInfo: React.FC<PopupInfoPropsType> = ({ title, content }) => {
   const widthWindow = useWindowWidth()
-
-  const [size, setSize] = useState(448)
   const [modal, setModal] = useState(false)
 
   useEffect(() => {
-    if (widthWindow <= 480) {
-      setSize(345)
+    if (widthWindow <= 767) {
       setModal(true)
     } else {
-      setSize(448)
       setModal(false)
     }
   }, [widthWindow])
 
   return (
-    <div className={stls.content}>
+    <div className={stls.container}>
       <p>{title}</p>
-
       <Popup
-        trigger={() => <div className={stls.icon}><IconInfoFRDO/></div>}
+        trigger={() => <div className={stls.trigger}><IconInfoFRDO/></div>}
         position={'top right'}
-        offsetX={0}
+        offsetX={-180}
         offsetY={35}
         modal={modal}
         arrow={false}
-        contentStyle={{ ...stylesPopup, width: `${size}px` }}
       >
-
-        <div className={stls.content__popup}>
-          <div className={stls.content__icon}>
+        <div className={stls.content}>
+          <div className={stls.icon}>
             <IconInfoFRDO color={'#000'} />
           </div>
-          <div className={stls.content__inner}>
+          <div className={stls.title}>
             <p>
               {content.title}<span>{content.subtitle}</span>
             </p>
             <p>
               {content.discription}
             </p>
-
-            <ul className={stls.content__list}>
+            <ul className={stls.list}>
               {
                 content.items.map((item, i) => {
                   return (
-                    <li key={i}>{item}</li>
+                    <li className={stls.item} key={i}>{item}</li>
                   )
                 })
               }
