@@ -80,7 +80,7 @@ const ContactUs = ({
           programTitle={programTitle}
         />
       </Popup>
-      <h2>
+      <h2 className={stls.title}>
         {title}
         {titleNewStr && (
           <>
