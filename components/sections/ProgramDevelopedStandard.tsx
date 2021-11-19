@@ -7,9 +7,7 @@ const ProgramDevelopedStandard: React.FC = () => {
 
   return (
     <div className={stls.container}>
-      <div className={stls.icon}>
-        <IconEmblem/>
-      </div>
+        <IconEmblem classNames={stls.icon}/>
       <div className={stls.content}>
         <div className={stls.title}>
           <p>Программа разработана по профстандарту</p>
