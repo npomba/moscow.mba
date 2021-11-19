@@ -16,6 +16,7 @@ import getStringDeclensionNumber from '@/helpers/getStringDeclensionNumber'
 import handleGetStaticPaths from '@/helpers/handleGetStaticPaths'
 import handleGetStaticProps from '@/helpers/handleGetStaticProps'
 import handlePlaceholder from '@/helpers/handlePlaceholder'
+import hitContactRoute from '@/helpers/hitContactRoute'
 import onSubmitForm from '@/helpers/onSubmitForm'
 import SetString from '@/helpers/SetString'
 import useAt from '@/helpers/useAt'
@@ -39,6 +40,7 @@ export {
   handleGetStaticPaths,
   handleGetStaticProps,
   handlePlaceholder,
+  hitContactRoute,
   onSubmitForm,
   SetString,
   useAt

@@ -1,7 +1,7 @@
 import stls from '@/styles/components/forms/AskQuestionForm.module.sass'
 import { useState } from 'react'
 import { AskQuestionFormStage } from '@/components/forms'
-import { onSubmitForm } from '@/helpers/index'
+import { hitContactRoute } from '@/helpers/index'
 import { IconClose } from '@/components/icons'
 
 const AskQuestionForm = ({ handleAskQuestionFormClose }) => {
@@ -25,7 +25,7 @@ const AskQuestionForm = ({ handleAskQuestionFormClose }) => {
   const enterContactData = data => {
     setFormStage(prevState => prevState + 1)
     setHowToContact(prevState => ({ ...prevState, contactData: data }))
-    onSubmitForm(data)
+    hitContactRoute(data)
   }
 
   const goToPrevStage = stageStep =>
