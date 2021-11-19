@@ -50,27 +50,27 @@ const index = {
   },
 
   benefitOneDisc: {
-    ru: 'программ MBA и курсов',
+    ru: 'Программ MBA и курсов',
     en: 'MBA Programs and courses'
   },
 
   benefitTwoDisc: {
-    ru: 'новейшие программы 2021 года',
+    ru: 'Новейшие программы 2021 года',
     en: 'newest programs of 2021'
   },
 
   benefitThreeDisc: {
-    ru: 'международных экспертов',
+    ru: 'Международных экспертов',
     en: 'international experts'
   },
 
   benefitFourDisc: {
-    ru: 'студентов по всему миру',
+    ru: 'Студентов по всему миру',
     en: 'students from all over the world'
   },
 
   benefitFourDiscAlt: {
-    ru: 'выпускников по всему миру',
+    ru: 'Выпускников по всему миру',
     en: 'graduates around the world'
   },
 
@@ -249,6 +249,11 @@ const index = {
     en: 'Leave your request for a consultation on the MBA programs, their fees, available discounts and admission requirements'
   },
 
+  helpToChooseDicsProfessionCourse: {
+    ru: 'Оставьте заявку и получите консультацию по программам, узнайте их точную стоимость, возможные варианты скидок и требования к поступлению',
+    en: 'Leave your request for a consultation on the MBA programs, their fees, available discounts and admission requirements'
+  },
+
   inputName: {
     ru: 'Имя',
     en: 'Name'
@@ -299,9 +304,27 @@ const index = {
     en: 'Phone number is too short'
   },
 
+  standartECTSTitle: {
+    ru: 'Программа разработана по международному стандарту',
+    en: 'Program is developed according to international standard'
+  },
+
+  standartECTSTDiscription: {
+    ru: 'Программа разработана в соответствии с ECTS  — Европейская система перевода и накопления баллов. В связи с этим, выдаваемый диплом признается за рубежом.',
+    en: 'Program is developed according to ECTS  — European Credit Transfer and Accumulation System. Thanks to it our certificate is international.'
+  },
+
   formErrInvalidEmail: {
     ru: 'Адрес почты введен неверно',
     en: 'Email address invalid'
+  },
+  standartECTSTitle: {
+    ru: 'Программа разработана по международному стандарту',
+    en: 'Program is developed according to international standard'
+  },
+  standartECTSTDesc: {
+    ru: 'Программа разработана в соответствии с ECTS  — Европейская система перевода и накопления баллов. В связи с этим, выдаваемый диплом признается за рубежом.',
+    en: 'Program is developed according to ECTS  — European Credit Transfer and Accumulation System. Thanks to it our certificate is international.'
   }
 }
 

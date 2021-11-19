@@ -21,6 +21,7 @@ import Pros from '@/components/sections/Pros'
 import BlendedMetups from '@/components/sections/BlendedMetups'
 import CostOfStudy from '@/components/sections/CostOfStudy'
 import GetStudyPlan from '@/components/sections/GetStudyPlan'
+import ECTSStandard from '@/components/sections/ECTSStandard'
 
 const PageBlendedProgram = ({ program }) => {
   const router = useRouter()
@@ -55,7 +56,8 @@ const PageBlendedProgram = ({ program }) => {
           title={'Получите консультацию'}
           titleNewStr={'по программе обучения'}
         /> */}
-        <GetStudyPlan />
+        <ECTSStandard />
+        {/* <GetStudyPlan /> */}
         <Teachers programId={program._id} programTitle={program.title} />
         <UpToDateContent withBottomLine />
         <CorporateClients />

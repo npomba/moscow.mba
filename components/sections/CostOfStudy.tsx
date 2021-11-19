@@ -90,9 +90,10 @@ const CostOfStudy = ({
     (at.mini && at.online) ||
     (at.mba && at.online) ||
     (at.profession && at.online) ||
+    (at.course && at.online) ||
     at.mbl
 
-  const canPayInInstalments = at.profession
+  const canPayInInstalments = at.profession || at.course
   const costWithDescription = at.mini || at.mba || at.executive || at.mbl
 
   let list
@@ -206,16 +207,16 @@ const CostOfStudy = ({
           </span>
         </div>
       )}
-      <h2 className={classNames({ [stls.bigMb]: at.profession })}>
+      <h2 className={classNames({ [stls.bigMb]: at.profession || at.course })}>
         Стоимость обучения
       </h2>
       <div className={stls.content}>
         <div
           className={classNames({
             [stls.contentBlock]: true,
-            [stls.flexBlock]: at.profession
+            [stls.flexBlock]: at.profession || at.course
           })}>
-          {!at.profession && (
+          {!at.profession && !at.course && (
             <div className={stls.programName}>
               {at.mini
                 ? 'MBA Mini'
@@ -232,7 +233,7 @@ const CostOfStudy = ({
         </div>
         <div
           className={classNames(stls.contentBlock, {
-            [stls.verticalSeparatorLine]: at.profession
+            [stls.verticalSeparatorLine]: at.profession || at.course
           })}>
           <PriceBlock
             isDiscounted={isDiscounted}
@@ -240,11 +241,11 @@ const CostOfStudy = ({
             programType={programType}
             programFormat={programFormat}
             withDesc={costWithDescription}
-            withPriceTitles={at.profession}
+            withPriceTitles={at.profession || at.course}
           />
           <div
             className={classNames(stls.buttonBlock, {
-              [stls.noMb]: at.profession
+              [stls.noMb]: at.profession || at.course
             })}>
             <Popup
               trigger={<a className={stls.button}>Оставить заявку</a>}

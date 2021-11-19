@@ -1,0 +1,62 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+
+.container
+  position: relative
+  @include m.flex($jc: space-between, $ai: center)
+  @include m.media(desktop, widescreen)
+    margin-top: 100px
+    margin-bottom: 100px
+  @include m.media(phone, tablet, laptop)
+    margin-top: 80px
+    margin-bottom: 80px
+    background-color: #262626
+  background-color: #F7F7F7
+
+.icon
+  background-color: #2300FA
+  padding: 170px 95px
+  display: flex
+  align-items: center
+  justify-content: center
+  @include m.media(desktop)
+    padding: 170px 65px
+  @include m.media(laptop, tablet, phone)
+    position: absolute
+    padding: 0
+    right: 5%
+    top: -38px
+
+.content
+  padding: 0 97px
+  @include m.media(desktop)
+    padding: 0 65px
+  @include m.media(laptop, tablet, phone)
+    padding: 42px 25px
+
+.title
+  font-weight: 700
+  color: #2D2C2A
+  line-height: 1.2
+  font-size: f.px(48)
+  margin-bottom: 23px
+  @include m.media(laptop, tablet, phone)
+    font-size: f.px(38)
+  @include m.media(laptop, tablet, phone)
+    color: #fff
+  @include m.media(phone)
+    font-size: f.px(28)
+    font-weight: 400
+    padding: 0
+    margin-bottom: 10px
+
+.desc
+  font-size: f.px(25)
+  line-height: 1.2
+  @include m.media(laptop, tablet, phone)
+    font-size: f.px(18)
+  @include m.media(laptop, tablet, phone)
+    color: #fff
+    font-size: f.px(13)
+  @include m.media(phone)
+    padding: 0

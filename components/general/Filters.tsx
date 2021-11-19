@@ -3,6 +3,7 @@ import classNames from 'classnames'
 import Link from 'next/link'
 import { useAt } from '@/helpers/index'
 import Discount from '@/components/costs/Discount'
+import SearchField from '@/components/general/SearchField'
 
 const Filters = ({
   mbaTypeOfProgram,
@@ -19,6 +20,7 @@ const Filters = ({
 
   return (
     <ul className={stls.filters}>
+      <SearchField/>
       <li>
         <h4 className={stls.title}>Тип программы</h4>
         <div className={stls.content}>
@@ -52,6 +54,17 @@ const Filters = ({
                   [stls.active]: at.profession
                 })}></span>{' '}
               Профессии
+            </a>
+          </Link>
+
+          <Link href={`/programs/course/online`}>
+            <a>
+              <span
+                className={classNames({
+                  [stls.circle]: true,
+                  [stls.active]: at.course
+                })}></span>{' '}
+              Курсы
             </a>
           </Link>
 

@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/CompanyCard.module.sass'
-import contactData from '@/data/contactData'
+import { contactData } from '@/config/index'
 
 const CompanyCard = () => {
   const contactInfo = contactData()

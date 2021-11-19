@@ -1,7 +1,7 @@
 import Programs from '@/components/pages/Programs'
 import { handleGetStaticProps } from '@/helpers/index'
 
-const programsMini = ({ programs }) => {
+const PageProgramsProfession = ({ programs }) => {
   const data = programs.filter(
     program =>
       program.studyFormat === 'online' &&
@@ -22,4 +22,4 @@ export const getStaticProps = async () =>
     dataFor: 'profession'
   })
 
-export default programsMini
+export default PageProgramsProfession

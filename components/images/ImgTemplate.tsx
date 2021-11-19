@@ -7,7 +7,7 @@ type ImgTemplateType = {
   classNames?: string[]
   width?: number
   height?: number
-  src: any
+  src: StaticImageData | string
   alt: string
 }
 
