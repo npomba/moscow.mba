@@ -1,0 +1,70 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+
+.container
+  display: flex
+.trigger
+  position: relative
+  svg
+    position: absolute
+    top: -15px
+    right: -15px
+
+
+
+.content
+  display: flex
+  background-color: #fff
+  width: 448px
+  padding: 40px
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1)
+  @include m.media(tablet, phone)
+    width: 100%
+    padding: 30px
+    flex-direction: column
+.icon
+  top: 20px
+  margin-right: 19px
+  width: 25px
+  @include m.media(tablet, phone)
+  margin-bottom: 15px
+  svg
+    width: 25px
+    height: 25px
+
+
+.title
+  .text
+    font-size: 16px
+    font-weight: 500
+    line-height: 120%
+    @include m.media(tablet, phone)
+      font-size: f.px(13)
+    &:nth-child(1)
+      margin-bottom: 33px
+      @include m.media(tablet, phone)
+        margin-bottom: 15px
+    &:nth-child(2)
+     margin-bottom: 9px
+
+    .text__strong
+      font-weight: 300
+
+
+.list
+  li
+    padding: 0 0 0 15px
+    margin: 10px 0 0 0
+    position: relative
+    line-height: 120%
+    @include m.media(tablet, phone)
+      font-size: f.px(13)
+    &:before
+     content: ''
+     position: absolute
+     width: 5px
+     height: 5px
+     background-color: red
+     border-radius: 50%
+     left: 0
+     top: 5px

@@ -1737,6 +1737,12 @@ h2 {
   cursor: not-allowed;
 }
 
+.popup-content[role=tooltip]{
+  border: 0;
+  padding: 0;
+
+}
+
 div.popup-content {
   padding-left: 16px;
   padding-right: 16px;
