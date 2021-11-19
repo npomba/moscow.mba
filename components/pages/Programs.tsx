@@ -13,6 +13,7 @@ import Filters from '@/components/general/Filters'
 import { CardProgram } from '@/components/cards'
 import { IconCheckCircle } from '@/components/icons'
 
+
 const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
   const at = useAt()
 
@@ -154,7 +155,7 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
                 format={mbaFormat}
               />
             )}
-            <div className={`mini-programs-slider ${stls.programs}`}>
+            <div className={stls.programs}>
               {programsToDisplay.map((program, idx) => {
                 return (
                   <CardProgram
