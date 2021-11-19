@@ -10,19 +10,22 @@ import { useEffect, useState } from 'react'
 
 const CardProgram = ({ professionLayout, program, number, type, format }) => {
   const [category, setCategory] = useState('')
-  console.log(program)
   useEffect(() => {
-    switch (type) {
+    switch (program.category.type) {
       case 'mini':
-        setCategory('')
+        setCategory('mini MBA')
+        break
       case 'mba':
-        setCategory('')
+        setCategory('MBA')
+        break
       case 'profession':
-        setCategory('')
-
+        setCategory('Профессии')
+        break
+      case 'course':
+        setCategory('Курсы')
+        break
     }
-
-  }, [type])
+  }, [program.category.type])
 
   return (
     <Link href={`/programs/${type}/${format}/${program.slug}`}>
@@ -34,7 +37,7 @@ const CardProgram = ({ professionLayout, program, number, type, format }) => {
 
         <div>
           <span className={stls.category}>
-             {/*{category}*/}
+             {category}
           </span>
         </div>
 
@@ -63,12 +66,8 @@ const CardProgram = ({ professionLayout, program, number, type, format }) => {
                 :
                 <TrainingPeriod type={type} />
             }
-
           </div>
-
         </div>
-
-
       </a>
     </Link>
   )
