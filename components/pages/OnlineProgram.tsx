@@ -21,6 +21,7 @@ import Accreditation from '@/components/sections/Accreditation'
 import Pros from '@/components/sections/Pros'
 import GetStudyPlan from '@/components/sections/GetStudyPlan'
 import ProgramDevelopedStandard from '@/components/sections/ProgramDevelopedStandard'
+import ECTSStandard from '@/components/sections/ECTSStandard'
 
 const PageOnlineProgram = ({ program }) => {
   const router = useRouter()
@@ -55,7 +56,8 @@ const PageOnlineProgram = ({ program }) => {
           title={'Получите консультацию'}
           titleNewStr={'по программе обучения'}
         /> */}
-        <GetStudyPlan />
+        <ECTSStandard />
+        {/* <GetStudyPlan /> */}
         <Teachers programId={program._id} programTitle={program.title} />
         <UpToDateContent withBottomLine />
         <CorporateClients />
@@ -73,7 +75,7 @@ const PageOnlineProgram = ({ program }) => {
         <ContactUs
           programId={program._id}
           programTitle={program.title}
-          title={'Не знаете что выбрать?'}
+          title={''}
           titleNewStr={'Получите консультацию по программам MBA'}
         />
       </div>

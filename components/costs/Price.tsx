@@ -22,6 +22,9 @@ const Price = ({
       profession: {
         online: '70 000'
       },
+      course: {
+        online: '70 000'
+      },
       mbl: {
         online: '289 000'
       },
@@ -35,6 +38,9 @@ const Price = ({
         online: '159 000'
       },
       profession: {
+        online: '39 000'
+      },
+      course: {
         online: '39 000'
       },
       mbl: {

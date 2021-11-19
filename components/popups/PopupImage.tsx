@@ -1,14 +1,28 @@
+import stls from '@/styles/components/popups/PopupImage.module.sass'
 import Image from 'next/image'
 import { IconClose } from '@/components/icons'
+import classNames from 'classnames'
 
 const PopupImage = ({ closePopupImage, image }) => {
   return (
-    <div className='popup-modal mfp-with-anim'>
-      <div className='popup-content pdf-popup-content image-popup'>
+    <div
+      className={classNames({
+        'popup-modal': true,
+        'mfp-with-anim': true,
+        [stls.container]: true
+      })}>
+      <div
+        className={classNames({
+          'popup-content': true,
+          'pdf-popup-content': true,
+          'image-popup': true,
+          [stls.image]: true
+        })}>
         <Image
           src={image.path}
           width={image.fullWidth}
           height={image.FullHeight}
+          layout={image.fu}
           alt={image.name}
         />
       </div>

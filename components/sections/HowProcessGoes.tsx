@@ -34,7 +34,7 @@ const HowProcessGoes = () => {
       listItems: [
         'Вы будете получать обратную связь по решению кейсов, проектным работам и домашним заданиям',
         'Вы сможете задать любой вопрос и получить советы и рекомендации',
-        ...(!at.profession
+        ...(!at.profession && !at.course
           ? [
               'В конце каждого модуля студенты принимают участие во внедренческих вебинарах, где разбираются итоги модуля и вопросы слушателей программы'
             ]
@@ -54,7 +54,7 @@ const HowProcessGoes = () => {
       stepTitle: 'Завершение обучения',
       listItems: [
         'Вы сдаете финальный экзамен по всей программе, готовитесь и защищаете выпускной проект перед аттестационной комиссией',
-        at.profession
+        at.profession || at.course
           ? 'По окончании обучения вы получаете престижный диплом установленного образца'
           : 'По окончании обучения вы получаете 2 престижных диплома'
       ]
@@ -67,16 +67,17 @@ const HowProcessGoes = () => {
         <div className={stls.content}>
           <div>
             <h2 className={stls.title}>Как проходит процесс обучения</h2>
-            {at.profession && (
-              <div className={stls.studentPhoto}>
-                <Image
-                  src={studentPhoto}
-                  height={337}
-                  width={506}
-                  alt={'Студент академии сидит перед ноутбуком'}
-                />
-              </div>
-            )}
+            {at.profession ||
+              (at.course && (
+                <div className={stls.studentPhoto}>
+                  <Image
+                    src={studentPhoto}
+                    height={337}
+                    width={506}
+                    alt={'Студент академии сидит перед ноутбуком'}
+                  />
+                </div>
+              ))}
           </div>
           <div className={stls.infoContainer}>
             <ul className={stls.tabsList}>

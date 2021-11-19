@@ -221,20 +221,6 @@ header {
   }
 }
 
-.header-phones {
-  display: flex;
-  align-items: center;
-  font-weight: 500;
-  & a:nth-child(1) {
-    margin-right: 20px;
-  }
-  a {
-    display: inline-block;
-    // margin-left: 60px;
-    flex-shrink: 0;
-  }
-}
-
 .header-place {
   font-weight: 400;
   font-size: 14px;
@@ -1134,15 +1120,6 @@ h2 {
       display: none;
     }
   }
-  .header-phones {
-    font-size: 14px;
-    display: flex;
-    flex-direction: column;
-    & a:nth-child(1) {
-      margin-bottom: 7px;
-      margin-right: 0;
-    }
-  }
   .main-logo {
     margin-right: 40px;
   }
@@ -1289,16 +1266,7 @@ h2 {
       }
     }
   }
-  .header-phones {
-    flex-direction: row;
-    font-size: 16px;
-    & a:nth-child(1) {
-      margin-bottom: 0;
-    }
-    a {
-      margin-left: 30px;
-    }
-  }
+
   .header-top {
     padding: 0;
     height: 74px;
@@ -1579,13 +1547,6 @@ h2 {
   .program-options-section {
     margin-bottom: 60px;
   }
-  .header-phones {
-    a {
-      &:nth-child(2) {
-        display: none;
-      }
-    }
-  }
   .header-buter {
     margin-left: 25px;
   }
@@ -1691,19 +1652,6 @@ h2 {
   }
 }
 
-a.iconPhoneHeader {
-  display: none;
-}
-
-@media (max-width: 360px) {
-  a.iconMainNumHeader {
-    display: none;
-  }
-  a.iconPhoneHeader {
-    display: block;
-  }
-}
-
 @media (max-width: 480px) {
   h1 {
     font-size: 31px;
@@ -1741,12 +1689,6 @@ a.iconPhoneHeader {
   // .main-content {
   //   padding-top: 62px;
   // }
-  .header-phones {
-    font-size: 15px;
-    a {
-      margin-left: 0;
-    }
-  }
   .header-buter {
     margin-left: 22px;
   }
@@ -1793,6 +1735,11 @@ a.iconPhoneHeader {
 
 .button.btn-disabled {
   cursor: not-allowed;
+}
+
+.popup-content[role='tooltip'] {
+  border: 0;
+  padding: 0;
 }
 
 div.popup-content {
