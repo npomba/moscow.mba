@@ -43,10 +43,10 @@ const PopupInfo: React.FC<PopupInfoPropsType> = ({ title, content }) => {
             <IconInfoFRDO color={'#000'} />
           </div>
           <div className={stls.title}>
-            <p>
-              {content.title}<span>{content.subtitle}</span>
+            <p className={stls.text}>
+              {content.title}<span className={stls.text__strong}>{content.subtitle}</span>
             </p>
-            <p>
+            <p className={stls.text}>
               {content.discription}
             </p>
             <ul className={stls.list}>
