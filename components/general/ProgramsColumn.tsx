@@ -20,11 +20,16 @@ import {
 } from '@/components/icons'
 
 const ProgramsColumn = ({ data, id, type }) => {
-  const { menuIsOpen, openMenu, closeMenu, toggleMenu } =
-    useContext(MenuContext)
+  const { menuIsOpen, openMenu, closeMenu, toggleMenu } = useContext(
+    MenuContext
+  )
 
-  const { overlayIsShown, showOverlay, hideOverlay, toggleOverlay } =
-    useContext(OverlayContext)
+  const {
+    overlayIsShown,
+    showOverlay,
+    hideOverlay,
+    toggleOverlay
+  } = useContext(OverlayContext)
 
   const handleLinkClick = () => {
     closeMenu()

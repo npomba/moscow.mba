@@ -4,7 +4,6 @@ import IconInfoFRDO from '@/components/icons/IconInfoFRDO'
 import { useEffect, useState } from 'react'
 import useWindowWidth from '@/helpers/useWindowWidth'
 
-
 type PopupInfoPropsType = {
   title: string
   content: {
@@ -31,32 +30,34 @@ const PopupInfo: React.FC<PopupInfoPropsType> = ({ title, content }) => {
     <div className={stls.container}>
       <p>{title}</p>
       <Popup
-        trigger={() => <div className={stls.trigger}><IconInfoFRDO/></div>}
+        trigger={() => (
+          <a className={stls.trigger}>
+            <IconInfoFRDO />
+          </a>
+        )}
         position={'top right'}
         offsetX={-180}
         offsetY={35}
         modal={modal}
-        arrow={false}
-      >
+        arrow={false}>
         <div className={stls.content}>
           <div className={stls.icon}>
             <IconInfoFRDO color={'#000'} />
           </div>
           <div className={stls.title}>
             <p className={stls.text}>
-              {content.title}<span className={stls.text__strong}>{content.subtitle}</span>
+              {content.title}
+              <span className={stls.strong}>{content.subtitle}</span>
             </p>
-            <p className={stls.text}>
-              {content.discription}
-            </p>
+            <p className={stls.text}>{content.discription}</p>
             <ul className={stls.list}>
-              {
-                content.items.map((item, i) => {
-                  return (
-                    <li className={stls.item} key={i}>{item}</li>
-                  )
-                })
-              }
+              {content.items.map((item, i) => {
+                return (
+                  <li className={stls.item} key={i}>
+                    {item}
+                  </li>
+                )
+              })}
             </ul>
           </div>
         </div>
