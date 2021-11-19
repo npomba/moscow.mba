@@ -20,6 +20,7 @@ import CostOfStudy from '@/components/sections/CostOfStudy'
 import Accreditation from '@/components/sections/Accreditation'
 import Pros from '@/components/sections/Pros'
 import GetStudyPlan from '@/components/sections/GetStudyPlan'
+import ProgramDevelopedStandard from '@/components/sections/ProgramDevelopedStandard'
 import ECTSStandard from '@/components/sections/ECTSStandard'
 
 const PageOnlineProgram = ({ program }) => {
@@ -45,6 +46,7 @@ const PageOnlineProgram = ({ program }) => {
         <ProgramGoal data={program} />
         <WhatWillYouLearn data={program} />
         <ProgramDesc />
+        <ProgramDevelopedStandard/>
         <Pros format={'online'} />
         <HowProcessGoes />
         <ProgramModules program={program} />
