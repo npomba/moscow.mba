@@ -4,27 +4,16 @@
   display: flex
   align-items: center
   font-weight: 500
-  & .phoneLink:nth-child(1)
-    margin-right: 20px
-  & .phoneLink
-    flex-shrink: 0
-  @media (max-width: 1329px)
-    font-size: 14px
-    display: flex
+  @include m.media(laptop, widescreen)
+    & .phoneLink
+      &:nth-child(1)
+        margin-right: 25px
+  @include m.media(desktop)
     flex-direction: column
-    & .phoneLink:nth-child(1)
-      margin-right: 0
-  @media (max-width: 1019px)
-    flex-direction: row
-    font-size: 16px
-    & div:nth-child(1)
-      margin-bottom: 0
     & .phoneLink
-      margin-left: 30px
-  @media (max-width: 767px)
-    font-size: 15px
+      margin-bottom: 7px
+  @include m.media(phone, tablet)
     & .phoneLink
-      margin-left: 0
       &:nth-child(2)
         display: none
 
@@ -33,7 +22,7 @@
   display: flex
   flex-direction: column
   align-items: flex-end
-  @media (max-width: 360px)
+  @media (max-width: 370px)
     display: none
 
 .discription
@@ -45,6 +34,6 @@
 .phoneIcon
   display: none
 
-@media (max-width: 360px)
+@media (max-width: 370px)
   .phoneIcon
     display: block
