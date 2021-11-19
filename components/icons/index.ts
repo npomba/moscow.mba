@@ -9,7 +9,10 @@ import IconClock from '@/components/icons/IconClock'
 import IconClose from '@/components/icons/IconClose'
 import IconCross from '@/components/icons/IconCross'
 import IconDecorativeLines from '@/components/icons/IconDecorativeLines'
+import IconECTS from '@/components/icons/IconECTS'
 import IconEmail from '@/components/icons/IconEmail'
+import IconEmblem from '@/components/icons/IconEmblem'
+import IconInfoFRDO from '@/components/icons/IconInfoFRDO'
 import IconLoader from '@/components/icons/IconLoader'
 import IconLocation from '@/components/icons/IconLocation'
 import IconLogo from '@/components/icons/IconLogo'
@@ -41,7 +44,10 @@ export {
   IconClose,
   IconCross,
   IconDecorativeLines,
+  IconECTS,
   IconEmail,
+  IconEmblem,
+  IconInfoFRDO,
   IconLoader,
   IconLocation,
   IconLogo,

@@ -1,5 +1,5 @@
 import stls from '@/styles/components/general/AskQuestion.module.sass'
-import { IconMessages } from '@/components/icons/'
+import { IconMessages } from '@/components/icons'
 
 const AskQuestion = ({ handleClickedAskQuestion, stickyShown = false }) => {
   return (
