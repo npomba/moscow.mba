@@ -3,66 +3,61 @@
 
 .container
   position: relative
-  @include m.flex($jc: space-between, $ai: center)
-  margin-top: 130px
-  margin-bottom: 110px
-  padding: 113px 105px
-  @include m.media(phone, tablet)
-    margin-top: 60px
-    padding: 40px 25px
-    background-color: #262626
-  @include m.media(phone, tablet, laptop, desktop)
-    margin-bottom: 60px
-    padding: 40px
   background-color: #F7F7F7
+  margin-bottom: 110px
+  margin-top: 130px
+  @include m.flex($jc: space-between, $ai: center)
+  @include m.media(desktop, tablet, phone)
+    margin-bottom: 60px
+  @include m.media(laptop, tablet, phone)
+    margin-top: 60px
+    background-color: #262626
 
 .icon
-  padding-right: 95px
-  @include m.media(phone, tablet)
+  background-color: #2300FA
+  padding: 52px 95px
+  display: flex
+  align-items: center
+  justify-content: center
+  svg
+    max-width: 258px
+  @include m.media(laptop, tablet, phone)
     position: absolute
-    background-color: #2300FA
     padding: 0
-    top: -30px
-    right: 50px
-  @include m.media(laptop)
-    padding-right: 35px
-  @include m.media(desktop)
-    padding-right: 50px
+    right: 5%
+    top: -38px
 
 .content
-  padding-left: 100px
-  border-left: 3px solid #eaeaea
-  @include m.media(phone, tablet, laptop)
-    padding-left: 30px
-  @include m.media(phone, tablet)
-    border-left: none
+  padding: 0 97px
+  @include m.media(desktop)
+    padding: 0 40px
+  @include m.media(laptop, tablet, phone)
+    padding: 42px 25px
+
+.desc
+  font-size: f.px(20)
+  line-height: 1.2
+  @include m.media(laptop, tablet, phone)
+    font-size: f.px(18)
+  @include m.media(laptop, tablet, phone)
+    color: #fff
+    font-size: f.px(13)
+  @include m.media(phone)
     padding: 0
 
 .title
   font-weight: 700
   color: #2D2C2A
   line-height: 1.2
-  font-size: f.px(48)
+  font-size: f.px(36)
   margin-bottom: 23px
   @include m.media(laptop, tablet, phone)
     font-size: f.px(38)
-  @include m.media(tablet, phone)
-    padding-right: 70px
+  @include m.media(laptop, tablet, phone)
     color: #fff
   @include m.media(phone)
+
     font-size: f.px(28)
     font-weight: 400
     padding: 0
     margin-bottom: 10px
-
-.desc
-  font-size: f.px(25)
-  line-height: 1.2
-  @include m.media(laptop, tablet, phone)
-    font-size: f.px(18)
-  @include m.media(tablet, phone)
-    padding-right: 70px
-    color: #fff
-    font-size: f.px(13)
-  @include m.media(phone)
-    padding: 0

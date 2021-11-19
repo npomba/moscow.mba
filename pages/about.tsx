@@ -14,7 +14,6 @@ import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/about'
 import langIndex from '@/data/translation/index'
 import { handleGetStaticProps } from '@/helpers/index'
-import StandardECTS from '@/components/sections/StandardECTS'
 import ContactUs from '@/components/sections/ContactUs'
 
 const PageAbout = ({ programs }) => {
@@ -37,7 +36,6 @@ const PageAbout = ({ programs }) => {
         <Teachers />
         <UpToDateContent />
         <Accreditation />
-        <StandardECTS/>
         <ContactUs />
       </div>
     </>
