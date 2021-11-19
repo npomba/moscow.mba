@@ -1,4 +1,4 @@
-import stls from '@/styles/components/sections/ContactUs.module.sass'
+import stls from '@/styles/components/inputs/InputName.module.sass'
 import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/index'
 import { handlePlaceholder } from '@/helpers/index'

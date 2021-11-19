@@ -2,23 +2,9 @@ import stls from '@/styles/components/sections/ContactUs.module.sass'
 import classNames from 'classnames'
 import { SetString, useAt } from '@/helpers/index'
 import lang from '@/data/translation/index'
-import { onSubmitForm } from '@/helpers/index'
-import { useForm } from 'react-hook-form'
 import { useState } from 'react'
-import { useRouter } from 'next/router'
 import LeadLoaderThankyou from '@/components/general/LeadLoaderThankyou'
-import {
-  InputEmail,
-  InputName,
-  InputPhone,
-  InputSubmit
-} from '@/components/inputs'
-
-type FormValues = {
-  name: string
-  phone: string
-  email: string
-}
+import { FormAlpha } from '@/components/forms'
 
 const ContactUs = ({
   programTitle = null,
@@ -28,17 +14,8 @@ const ContactUs = ({
   disc = SetString(lang.helpToChooseDics),
   overlapsFooter = false
 }) => {
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors }
-  } = useForm<FormValues>()
-
   const [open, setOpen] = useState(false)
   const [openLoader, setOpenLoader] = useState(false)
-
-  const { asPath } = useRouter()
 
   const at = useAt()
 
@@ -69,31 +46,11 @@ const ContactUs = ({
           : disc}
       </div>
 
-      <form
-        method='post'
-        className='simple-form support-form embedded-form'
-        onSubmit={handleSubmit(values =>
-          onSubmitForm({
-            values,
-            programTitle,
-            setOpenLoader,
-            asPath,
-            setOpen,
-            reset
-          })
-        )}>
-        <div className='inputs-flex'>
-          <InputName register={register} errors={errors} />
-          <InputPhone register={register} errors={errors} />
-          <InputEmail register={register} errors={errors} />
-          <InputSubmit errors={errors} />
-        </div>
-        <div className='personal-data'>
-          {SetString(lang.privacyPolicyFirst)}{' '}
-          {/* <a href=''>{SetString(lang.privacyPolicySecond)}</a> */}
-          {SetString(lang.privacyPolicySecond)}
-        </div>
-      </form>
+      <FormAlpha
+        programTitle={programTitle}
+        setOpenLoader={setOpenLoader}
+        setOpen={setOpen}
+      />
     </section>
   )
 }
