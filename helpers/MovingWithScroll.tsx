@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from 'react'
+import stls from '@/styles/utils/MovingWithScroll.module.sass'
+import { useEffect, useState } from 'react'
 
 
 type MovingWithScrollType = {
@@ -6,34 +7,23 @@ type MovingWithScrollType = {
   end: number
 }
 
-const MovingWithScroll:React.FC<MovingWithScrollType> = ({children, start, end}) => {
-  const elem = useRef(null)
-  const [scrollY, setScrollY] = useState(0)
-  const [top, setTop] = useState(0)
+const MovingWithScroll:React.FC<MovingWithScrollType> = ({children, start , end}) => {
+  const [fixed, setFixed] = useState(false)
 
   useEffect(() => {
-    window.addEventListener('scroll', () => {
-      // console.log(window.scrollY)
-      setScrollY(window.scrollY)
-    })
-
+      document.addEventListener('scroll', () => {
+        const scrollHeight = document.body.scrollHeight
+        const pageYOffset = window.scrollY
+        pageYOffset > (scrollHeight * start) / 100 &&
+        pageYOffset + window.innerHeight < (scrollHeight * end) / 100 ? setFixed(true) : setFixed(false)
+      })
   }, [])
 
-  useEffect(() => {
-    if (scrollY - start >= 0) {
-      setTop(scrollY - start)
-    }
-    if (scrollY > end) {
-      setTop(top)
-    }
-  }, [scrollY])
 
 
   return (
   <div
-    // className={`${stls.pos} ${scrollY >= start && scrollY <= end && stls.stick}`}
-    ref={elem}
-    style={{ transform: `translateY(${top}px)` }}
+    className={`${stls.position} ${fixed && stls.fixed}`}
   >
    {children}
 </div>

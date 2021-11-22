@@ -53,7 +53,7 @@ const WhatWillYouLearn = ({ data = null }) => {
         </div>
         <div className={stls.floatLeft}>
           <div className={stls.image}>
-            <MovingWithScroll start={0} end={200}>
+            <MovingWithScroll start={10} end={15}>
               <Image
                 src='/assets/images/learning_pic_1.jpg'
                 width='651'
