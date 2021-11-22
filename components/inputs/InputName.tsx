@@ -8,6 +8,7 @@ const InputName = ({ register, errors, width = '25' }) => {
     <div className={`input-block width-${width}`}>
       <input
         type='text'
+        className={stls.input}
         aria-label={SetString(lang.inputName)}
         {...register('name', {
           maxLength: {
