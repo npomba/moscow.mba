@@ -21,10 +21,10 @@ const HeaderTabs = ({ handleMenuClose, handleMouseEnter }) => {
       href: '/programs/course/online',
       val: SetString(langMenu.courses)
     },
-    {
-      href: '/programs/international-business-law',
-      val: SetString(langMenu.internationalBusinessLaw)
-    },
+    // {
+    //   href: '/programs/international-business-law',
+    //   val: SetString(langMenu.internationalBusinessLaw)
+    // },
     {
       href: '/programs/mini/online',
       val: SetString(langMenu.allPrograms)
