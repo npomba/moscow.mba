@@ -58,7 +58,9 @@ const promo = ({ programs }) => {
 
       <JumbotronCta />
       <div className={stls.container}>
-        <CourseOptions data={programs} />
+        <CourseOptions
+          data={programs.filter(program => program.studyFormat === 'online')}
+        />
         <ContactUs title={SetString(lang.receiveConsultation)} />
         <WhatWillYouLearn />
         <ProgramDesc />
