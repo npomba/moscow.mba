@@ -133,8 +133,9 @@ const ProgramsColumn = ({ data, id, type }) => {
             {data &&
               data.map(item => {
                 if (
-                  item.category?.type === type &&
-                  item.studyFormat === 'online'
+                  (item.category?.type === type &&
+                  item.studyFormat === 'online')
+                  || (item.slug === 'international-business-law' && item.category.type === 'mbl' && type === 'mba')
                 ) {
                   return (
                     <li key={item.id || item._id} className={stls.listItem}>
@@ -148,6 +149,9 @@ const ProgramsColumn = ({ data, id, type }) => {
                 }
               })}
           </ul>
+
+
+
         </div>
       </li>
       <li className={stls.containerItem}>

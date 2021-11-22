@@ -37,7 +37,7 @@ const FormAlpha = ({
   return (
     <form
       method='post'
-      className={stls.container}
+      className='simple-form'
       onSubmit={handleSubmit(values =>
         onSubmitForm({
           values,

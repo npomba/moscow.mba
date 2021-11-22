@@ -5,22 +5,14 @@ import Popup from 'reactjs-popup'
 import Link from 'next/link'
 import IconSearch from '@/components/icons/IconSearch'
 import IconClose from '../icons/IconClose'
-import { spans } from 'next/dist/build/webpack/plugins/profiling-plugin'
-
-
 
 
 const SearchField = () => {
   const [value, setValue] = useState('')
   const {filteredPrograms, setSearchProgram} = useContext(programsContext)
-  console.log('value', filteredPrograms)
   const handleSearch = () => {
     setSearchProgram(value.toLowerCase())
   }
-
-
-
-
   return (
       <Popup
         modal
