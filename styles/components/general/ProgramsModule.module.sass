@@ -1,7 +1,7 @@
 @use '@/styles/utils/mixin' as m
 
 .container
-  margin: 0 15px 59px 15px
+  margin: 0 0 59px 0
   width: calc(50% - 30px)
   border-top: 1px solid rgba(0, 0, 0, 0.11)
   padding-top: 30px
@@ -9,6 +9,8 @@
   position: relative
   display: flex
   align-items: flex-start
+  &:nth-child(odd)
+    margin-right: 30px
   @include m.media(laptop, tablet, phone)
     display: block
   @include m.media(tablet, phone)
