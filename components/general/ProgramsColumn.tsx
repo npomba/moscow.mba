@@ -130,7 +130,7 @@ const ProgramsColumn = ({ data, id, type }) => {
                 if (
                   (item.category?.type === type &&
                   item.studyFormat === 'online')
-                  || (item.slug === 'international-business-law' && item.category.type === 'mbl')
+                  || (item.slug === 'international-business-law' && item.category.type === 'mbl' && type === 'mba')
                 ) {
                   return (
                     <li key={item.id || item._id} className={stls.listItem}>
