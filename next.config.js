@@ -47,6 +47,7 @@ module.exports = {
                 'https://connect.facebook.net/signals/config/1845052109010998',
                 'https://www.facebook.com/tr/',
                 "'sha256-Uz0yn00PqpvyPuK+MptaAirzRCPwuCU4Vhj/iAbfJxk='"
+                // ^https?:\/\/([^\/]+\.)?(yourdomain\.com|webvisor\.com|metri[ck]a\.yandex\.(com|ru|com\.tr))\/
               ],
               scriptSrc: [
                 "'self'",
@@ -87,7 +88,7 @@ module.exports = {
           },
           referrerPolicy: 'no-referrer-when-downgrade',
           // frameGuard: ['allow-from', { uri: 'http://webvisor.com' }]
-          frameGuard: 'sameorigin'
+          frameGuard: false
         })
         // headers: createSecureHeaders({
         //   forceHTTPSRedirect: [
