@@ -2,6 +2,7 @@ import stls from '@/styles/components/inputs/InputPhone.module.sass'
 import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/index'
 import { handlePlaceholder } from '@/helpers/index'
+import classNames from 'classnames'
 
 const InputPhone = ({ register, errors, width = '25' }) => {
   return (
@@ -18,7 +19,12 @@ const InputPhone = ({ register, errors, width = '25' }) => {
         })}
         onKeyUp={e => handlePlaceholder(e)}
       />
-      <div className='input-placeholder'>{SetString(lang.inputPhone)}</div>
+      <div
+        className={classNames({
+          'input-placeholder': true
+        })}>
+        {SetString(lang.inputPhone)}
+      </div>
       <p className='inpt-err-msg'>{errors.phone && errors.phone.message}</p>
     </div>
   )

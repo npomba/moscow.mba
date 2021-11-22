@@ -3,5 +3,32 @@
 @use '@/styles/themes/default/colors' as c
 @use '@/styles/utils/mixin/media' as bp
 
+$styrene: 'Styrene', Arial, Tahoma, sans-serif
+$transition: all 0.3s ease-out
+
 @mixin input
-  
+  display: block
+  width: 100%
+  transition: $transition
+  height: 56px
+  padding: 0
+  color: #fff
+  font-weight: 300
+  font-size: 16px
+  font-family: $styrene
+  background: transparent
+  border-radius: 0
+  border: none
+  border-bottom: 1px solid rgba(255, 255, 255, 0.7)
+
+@mixin placeholder
+  position: absolute
+  z-index: 3
+  transition: $transition
+  left: 0
+  width: 100%
+  top: 18px
+  color: #fff
+  font-size: 16px
+  pointer-events: none
+  opacity: 0.7
