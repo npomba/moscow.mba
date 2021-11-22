@@ -1,7 +1,7 @@
 import Webinars from '@/components/pages/Webinars'
 import { handleGetStaticProps } from '@/helpers/index'
 
-const upcoming = ({ programs }) => {
+const PageWebinarsUpcoming = ({ programs }) => {
   return (
     <Webinars
       title={'Ближайшие вебинары'}
@@ -13,4 +13,4 @@ const upcoming = ({ programs }) => {
 
 export const getStaticProps = async () => handleGetStaticProps()
 
-export default upcoming
+export default PageWebinarsUpcoming

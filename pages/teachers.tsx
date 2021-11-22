@@ -8,9 +8,9 @@ import { handleGetStaticProps } from '@/helpers/index'
 import Breadcrumbs from '@/components/general/Breadcrumbs'
 import HengeleGetPrograms from '@/helpers/hengeleGetPrograms'
 
-const teachers = ({ programs }) => {
-  HengeleGetPrograms(programs)
 
+const PageTeachers = ({ programs }) => {
+  HengeleGetPrograms(programs)
   return (
     <>
       <NextSeo
@@ -35,4 +35,4 @@ const teachers = ({ programs }) => {
 
 export const getStaticProps = async () => handleGetStaticProps()
 
-export default teachers
+export default PageTeachers

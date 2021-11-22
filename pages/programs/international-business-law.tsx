@@ -3,8 +3,10 @@ import { handleGetStaticProps } from '@/helpers/index'
 import InternationalBusinessLaw from '@/components/pages/InternationalBusinessLaw'
 import HengeleGetPrograms from '@/helpers/hengeleGetPrograms'
 
-const programsInternationalBusinessLaw = ({ program, programs }) => {
+
+const PageProgramsInternationalBusinessLaw = ({ program, programs }) => {
   HengeleGetPrograms(programs)
+
   return <InternationalBusinessLaw program={program} />
 }
 
@@ -15,4 +17,4 @@ export const getStaticProps = async () =>
     programType: 'mbl'
   })
 
-export default programsInternationalBusinessLaw
+export default PageProgramsInternationalBusinessLaw

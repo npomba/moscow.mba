@@ -2,7 +2,8 @@ import Programs from '@/components/pages/Programs'
 import HengeleGetPrograms from '@/helpers/hengeleGetPrograms'
 import { handleGetStaticProps } from '@/helpers/index'
 
-const programsMbaOnline = ({ programs }) => {
+
+const PageProgramsMbaOnline = ({ programs }) => {
   HengeleGetPrograms(programs)
   const data = programs.filter(
     program =>
@@ -16,4 +17,4 @@ const programsMbaOnline = ({ programs }) => {
 
 export const getStaticProps = async () => handleGetStaticProps()
 
-export default programsMbaOnline
+export default PageProgramsMbaOnline

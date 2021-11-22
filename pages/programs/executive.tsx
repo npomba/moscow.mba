@@ -20,7 +20,11 @@ import Qna from '@/components/sections/Qna'
 import { handleGetStaticProps } from '@/helpers/index'
 import HengeleGetPrograms from '@/helpers/hengeleGetPrograms'
 
-const executive = ({ program, programs }) => {
+
+
+
+
+const PageProgramsExecutive = ({ program, programs }) => {
   HengeleGetPrograms(programs)
   return (
     <>
@@ -81,4 +85,4 @@ export const getStaticProps = async () =>
     programType: 'executive'
   })
 
-export default executive
+export default PageProgramsExecutive

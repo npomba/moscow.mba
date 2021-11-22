@@ -11,7 +11,8 @@ import CompanyCard from '@/components/sections/CompanyCard'
 import LegalDocuments from '@/components/sections/LegalDocuments'
 import HengeleGetPrograms from '@/helpers/hengeleGetPrograms'
 
-const legal = ({ programs }) => {
+
+const PageLegal = ({ programs }) => {
   HengeleGetPrograms(programs)
   return (
     <>
@@ -43,4 +44,4 @@ const legal = ({ programs }) => {
 
 export const getStaticProps = async () => handleGetStaticProps()
 
-export default legal
+export default PageLegal

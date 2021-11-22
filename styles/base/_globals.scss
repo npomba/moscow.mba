@@ -221,20 +221,6 @@ header {
   }
 }
 
-.header-phones {
-  display: flex;
-  align-items: center;
-  font-weight: 500;
-  & a:nth-child(1) {
-    margin-right: 20px;
-  }
-  a {
-    display: inline-block;
-    // margin-left: 60px;
-    flex-shrink: 0;
-  }
-}
-
 .header-place {
   font-weight: 400;
   font-size: 14px;
@@ -807,90 +793,6 @@ h2 {
   }
 }
 
-.simple-form {
-  input,
-  textarea {
-    display: block;
-    width: 100%;
-    transition: $transition;
-    height: 56px;
-    padding: 0;
-    color: #fff;
-    font-weight: 300;
-    font-size: 16px;
-    font-family: $styrene;
-    background: transparent;
-    border-radius: 0;
-    border: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.7);
-    &:focus,
-    &.texted {
-      & ~ .input-placeholder {
-        top: 0;
-        font-size: 13px;
-        color: #fff;
-        font-weight: 400;
-      }
-    }
-  }
-  .input-placeholder {
-    position: absolute;
-    z-index: 3;
-    transition: $transition;
-    left: 0;
-    width: 100%;
-    top: 18px;
-    color: #fff;
-    font-size: 16px;
-    pointer-events: none;
-    opacity: 0.7;
-  }
-  .inputs-flex {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin: 0 -15px;
-    .input-block {
-      margin-left: 15px;
-      margin-right: 15px;
-      width: calc(100% - 30px);
-    }
-    .width-50 {
-      width: calc(50% - 30px);
-    }
-    .width-33 {
-      width: calc(33.333% - 30px);
-    }
-    .width-25 {
-      width: calc(25% - 30px);
-    }
-  }
-  .input-block {
-    position: relative;
-    margin-bottom: 25px;
-  }
-  .button {
-    height: 56px;
-    padding: 5px 20px;
-    max-width: 260px;
-    width: 100%;
-  }
-  .personal-datas {
-    margin-top: 6px;
-    font-size: 13px;
-    font-weight: 400;
-    line-height: 1.2;
-    color: #b30000;
-    a {
-      color: #fff;
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
-}
-
 .reviews-text-block {
   &.modal-review {
     margin: 0;
@@ -1134,15 +1036,6 @@ h2 {
       display: none;
     }
   }
-  .header-phones {
-    font-size: 14px;
-    display: flex;
-    flex-direction: column;
-    & a:nth-child(1) {
-      margin-bottom: 7px;
-      margin-right: 0;
-    }
-  }
   .main-logo {
     margin-right: 40px;
   }
@@ -1289,16 +1182,7 @@ h2 {
       }
     }
   }
-  .header-phones {
-    flex-direction: row;
-    font-size: 16px;
-    & a:nth-child(1) {
-      margin-bottom: 0;
-    }
-    a {
-      margin-left: 30px;
-    }
-  }
+
   .header-top {
     padding: 0;
     height: 74px;
@@ -1542,15 +1426,6 @@ h2 {
   .program-options-section {
     margin-bottom: 80px;
   }
-  .simple-form {
-    .inputs-flex .width-33,
-    .inputs-flex .width-25 {
-      width: calc(50% - 30px);
-    }
-    .button {
-      max-width: 100%;
-    }
-  }
   .popup-content-origin {
     padding: 60px 50px;
   }
@@ -1578,13 +1453,6 @@ h2 {
   }
   .program-options-section {
     margin-bottom: 60px;
-  }
-  .header-phones {
-    a {
-      &:nth-child(2) {
-        display: none;
-      }
-    }
   }
   .header-buter {
     margin-left: 25px;
@@ -1640,15 +1508,6 @@ h2 {
       padding: 0 12px;
     }
   }
-  .simple-form {
-    .inputs-flex {
-      .width-50,
-      .width-33,
-      .width-25 {
-        width: calc(100% - 30px);
-      }
-    }
-  }
   .reviews-text-block {
     margin-bottom: 30px;
     &.modal-review {
@@ -1682,25 +1541,12 @@ h2 {
     .desc {
       margin-bottom: 25px;
     }
-    .personal-datas {
+    .personal-data {
       margin-top: 0;
     }
   }
   .thanks-popup-content {
     margin-bottom: 0;
-  }
-}
-
-a.iconPhoneHeader {
-  display: none;
-}
-
-@media (max-width: 360px) {
-  a.iconMainNumHeader {
-    display: none;
-  }
-  a.iconPhoneHeader {
-    display: block;
   }
 }
 
@@ -1741,12 +1587,6 @@ a.iconPhoneHeader {
   // .main-content {
   //   padding-top: 62px;
   // }
-  .header-phones {
-    font-size: 15px;
-    a {
-      margin-left: 0;
-    }
-  }
   .header-buter {
     margin-left: 22px;
   }
@@ -1793,6 +1633,11 @@ a.iconPhoneHeader {
 
 .button.btn-disabled {
   cursor: not-allowed;
+}
+
+.popup-content[role='tooltip'] {
+  border: 0;
+  padding: 0;
 }
 
 div.popup-content {

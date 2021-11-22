@@ -1,12 +1,12 @@
 import App from 'next/app'
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import TagManager from 'react-gtm-module'
 import { DefaultSeo, LogoJsonLd } from 'next-seo'
 import SEO from '../seo.config'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import Wrapper from '@/components/layout/Wrapper'
-import Content from '@/components/layout/Content'
+import Main from '@/components/layout/Main'
 import '@/styles/app.sass'
 import { dev, gtmId } from '@/config/index'
 
@@ -92,27 +92,36 @@ function MyApp({ Component, pageProps, router }) {
         logo='https://moscow.mba/logo.jpg'
         url='https://moscow.mba/'
       />
+
       <ProgramsState>
         <OverlayState>
           <MenuState>
             <Wrapper>
               <Header programs={programs} />
-              <Content>
+              <Main>
                 <Component {...pageProps} />
-              </Content>
+              </Main>
               <Footer />
             </Wrapper>
           </MenuState>
         </OverlayState>
       </ProgramsState>
+
+      <OverlayState>
+        <MenuState>
+          <Wrapper>
+            <Header programs={programs} />
+            <Main>
+              <Component {...pageProps} />
+            </Main>
+            <Footer />
+          </Wrapper>
+        </MenuState>
+      </OverlayState>
     </>
   )
 }
 
 export default MyApp
 
-// Package               Current   Wanted   Latest  Location
-// Package               Current  Wanted  Latest  Location
-// @maxmind/geoip2-node    2.3.2   2.3.2   3.2.0  mba
-// axios                  0.21.4  0.21.4  0.24.0  mba
-// truncate                2.1.0   2.1.0   3.0.0  mba
+

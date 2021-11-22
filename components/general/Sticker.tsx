@@ -15,11 +15,11 @@ const Sticker = ({
         }`}>
         <h4 className={stls.title}>{title}</h4>
         <div>
-          <ul className={stls.listItems}>
+          <ul className={stls.list}>
             {listItems.map((item, idx) => (
               <li
                 key={idx}
-                className={`${stls.listItem} ${
+                className={`${stls.item} ${
                   listItems.length > 1 ? stls.many : ''
                 }`}>
                 <p>{item}</p>

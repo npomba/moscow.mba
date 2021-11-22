@@ -2,7 +2,14 @@ import { SetString } from '@/helpers/index'
 import langMenu from '@/data/translation/months'
 import { getStringDeclensionNumber } from '@/helpers/index'
 
-const TrainingPeriod = ({ type = null }) => {
+const TrainingPeriod = ({ period = null, type = null }) => {
+  if (period)
+    return (
+      <>
+        {period}{' '}
+        {SetString(langMenu.months, false, getStringDeclensionNumber(period))}
+      </>
+    )
   return (
     <>
       {type === 'mini' && (
@@ -14,6 +21,9 @@ const TrainingPeriod = ({ type = null }) => {
         </>
       )}
       {type === 'profession' && (
+        <>4 {SetString(langMenu.months, false, getStringDeclensionNumber(4))}</>
+      )}
+      {type === 'course' && (
         <>4 {SetString(langMenu.months, false, getStringDeclensionNumber(4))}</>
       )}
       {type === 'executive' && (

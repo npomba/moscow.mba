@@ -14,10 +14,10 @@ import Executive from '@/components/sections/Executive'
 import ContactUs from '@/components/sections/ContactUs'
 import HengeleGetPrograms from '@/helpers/hengeleGetPrograms'
 
-const Home = ({ programs }) => {
+
+const PageHome = ({ programs }) => {
+
   HengeleGetPrograms(programs)
-
-
   return (
     <>
 
@@ -49,4 +49,4 @@ const Home = ({ programs }) => {
 
 export const getStaticProps = async () => handleGetStaticProps()
 
-export default Home
+export default PageHome

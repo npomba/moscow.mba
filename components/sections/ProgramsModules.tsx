@@ -86,10 +86,11 @@ const ProgramsModules = ({ program, smallerMb = false }) => {
               subTitle={module.title && module.title}
               items={module.subjects}
               fadeOutEffect={
-                at.profession &&
-                (idx === programModulesBase.length - 1 ||
-                  (idx === programModulesBase.length - 2 &&
-                    programModulesBase.length % 2 === 0))
+                at.profession ||
+                (at.course &&
+                  (idx === programModulesBase.length - 1 ||
+                    (idx === programModulesBase.length - 2 &&
+                      programModulesBase.length % 2 === 0)))
               }
             />
           ))}

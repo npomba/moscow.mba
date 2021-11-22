@@ -13,9 +13,10 @@ import Diploma from '@/components/sections/Diploma'
 import WhoItIsFor from '@/components/sections/WhoItIsFor'
 import HengeleGetPrograms from '@/helpers/hengeleGetPrograms'
 
-const promo = ({ programs }) => {
-  HengeleGetPrograms(programs)
 
+const PagePromo = ({ programs }) => {
+
+  HengeleGetPrograms(programs)
   const courseOptions = {
     whoIsFor: [
       {
@@ -81,4 +82,4 @@ const promo = ({ programs }) => {
 export const getStaticProps = async () =>
   handleGetStaticProps({ ofType: 'mini', dataFor: 'promo' })
 
-export default promo
+export default PagePromo

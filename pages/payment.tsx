@@ -6,12 +6,14 @@ import { handleGetStaticProps } from '@/helpers/index'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import PopupForm from '@/components/popups/PopupForm'
-import contactData from '@/data/contactData'
+import { contactData } from '@/config/index'
+
 import Breadcrumbs from '@/components/general/Breadcrumbs'
 import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
 import HengeleGetPrograms from '@/helpers/hengeleGetPrograms'
 
-const payment = ({ programs }) => {
+
+const PagePayment = ({ programs }) => {
   HengeleGetPrograms(programs)
   const contactInfo = contactData()
 
@@ -135,4 +137,4 @@ const payment = ({ programs }) => {
 
 export const getStaticProps = async () => handleGetStaticProps()
 
-export default payment
+export default PagePayment

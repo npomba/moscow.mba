@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/AboutExecutive.module.sass'
 import classNames from 'classnames'
-import Image from 'next/image'
+import { ImgStudentsDuringConference } from '@/components/images'
 
 const AboutExecutive = () => {
   return (
@@ -27,12 +27,7 @@ const AboutExecutive = () => {
         </div>
         <div className={stls.imagesContainer}>
           <div className={classNames(stls.image, stls.imageOne)}>
-            <Image
-              src='/assets/images/executive_about_1.jpg'
-              alt='Слушатели на конференции'
-              width={466}
-              height={466}
-            />
+            <ImgStudentsDuringConference />
           </div>
           <div className={classNames(stls.image, stls.imageTwo)}>
             <div className={stls.number}>
