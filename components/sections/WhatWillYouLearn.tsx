@@ -2,6 +2,7 @@ import stls from '@/styles/components/sections/WhatWillYouLearn.module.sass'
 import classNames from 'classnames'
 import Image from 'next/image'
 import { base64pixel } from '@/config/index'
+import MovingWithScroll from '@/helpers/MovingWithScroll'
 
 const WhatWillYouLearn = ({ data = null }) => {
   const aboutAcademy = [
@@ -52,14 +53,16 @@ const WhatWillYouLearn = ({ data = null }) => {
         </div>
         <div className={stls.floatLeft}>
           <div className={stls.image}>
-            <Image
-              src='/assets/images/learning_pic_1.jpg'
-              width='651'
-              height='389'
-              alt='Слушатели во время конференции'
-              placeholder='blur'
-              blurDataURL={base64pixel}
-            />
+            <MovingWithScroll start={0} end={200}>
+              <Image
+                src='/assets/images/learning_pic_1.jpg'
+                width='651'
+                height='389'
+                alt='Слушатели во время конференции'
+                placeholder='blur'
+                blurDataURL={base64pixel}
+              />
+            </MovingWithScroll>
           </div>
         </div>
       </div>
