@@ -7,9 +7,7 @@
     "build": "next build",
     "postbuild": "next-sitemap --config next-sitemap.config.js",
     "start": "next start",
-    "generateicons": "npx pwa-asset-generator ./public/assets/images/icon.png ./public/assets/images/icons -p \"0\" -b \"#ff3535\"",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "generateicons": "npx pwa-asset-generator ./public/assets/images/icon.png ./public/assets/images/icons -p \"0\" -b \"#ff3535\""
   },
   "dependencies": {
     "@maxmind/geoip2-node": "^2.3.2",
@@ -36,13 +34,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
-    "@storybook/addon-actions": "^6.3.12",
-    "@storybook/addon-essentials": "^6.3.12",
-    "@storybook/addon-links": "^6.3.12",
-    "@storybook/react": "^6.3.12",
     "@types/node": "^16.11.7",
     "@types/react": "^17.0.34",
-    "babel-loader": "^8.2.3",
     "eslint": "^7.32.0",
     "eslint-config-next": "^12.0.3",
     "next-sitemap": "^1.6.203",
