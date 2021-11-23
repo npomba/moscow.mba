@@ -17,6 +17,10 @@ const ProgramsModules = ({ program, smallerMb = false }) => {
   const programModulesBase = createProgramModulesBase(program)
   const programModulesSpecialty = createProgramModulesSpecialized(program)
 
+
+  // console.log(program.specializedSubjects)
+  // console.log(programbaseSubjects)
+
   return (
     <section
       className={classNames(stls.container, { [stls.smallMb]: smallerMb })}>
@@ -76,6 +80,9 @@ const ProgramsModules = ({ program, smallerMb = false }) => {
       </div>
       {program && program.baseSubjects?.length > 0 && !at.executive && (
         <div className={stls.list}>
+          {program && program.baseSubjects?.length > 0 && !at.executive && !at.profession && !at.course &&
+          <h3 className={stls.h3}>Базовые дисциплины</h3>
+            }
           {programModulesBase.map((module, idx) => (
             <ProgramsModule
               key={module.id}
@@ -94,6 +101,11 @@ const ProgramsModules = ({ program, smallerMb = false }) => {
       )}
 
       <div className={stls.list}>
+        {program && program.specializedSubjects?.length > 0 && !at.profession && !at.course &&  (
+          <div className={stls.pl}>
+            <h3 className={stls.h3}>Специализированные дисциплины</h3>
+          </div>
+        )}
         {program.specializedSubjects?.length > 0 && (
           <>
             {programModulesSpecialty.map((module, idx) => (
