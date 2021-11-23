@@ -9,11 +9,11 @@ import MemberOfAcicel from '@/components/sections/MemberOfAcicel'
 import OurDiplomasAndCertificates from '@/components/sections/OurDiplomasAndCertificates'
 import CompanyCard from '@/components/sections/CompanyCard'
 import LegalDocuments from '@/components/sections/LegalDocuments'
-import HengeleGetPrograms from '@/helpers/hengeleGetPrograms'
+import HandleGetPrograms from '@/helpers/HandleGetPrograms'
 
 
 const PageLegal = ({ programs }) => {
-  HengeleGetPrograms(programs)
+  HandleGetPrograms(programs)
   return (
     <>
       <NextSeo

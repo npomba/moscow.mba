@@ -6,11 +6,11 @@ import Teachers from '@/components/sections/Teachers'
 import { handleGetStaticProps } from '@/helpers/index'
 
 import Breadcrumbs from '@/components/general/Breadcrumbs'
-import HengeleGetPrograms from '@/helpers/hengeleGetPrograms'
+import HandleGetPrograms from '@/helpers/HandleGetPrograms'
 
 
 const PageTeachers = ({ programs }) => {
-  HengeleGetPrograms(programs)
+  HandleGetPrograms(programs)
   return (
     <>
       <NextSeo

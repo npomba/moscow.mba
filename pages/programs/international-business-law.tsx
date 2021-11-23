@@ -1,11 +1,11 @@
 import { handleGetStaticProps } from '@/helpers/index'
 
 import InternationalBusinessLaw from '@/components/pages/InternationalBusinessLaw'
-import HengeleGetPrograms from '@/helpers/hengeleGetPrograms'
+import HandleGetPrograms from '@/helpers/HandleGetPrograms'
 
 
 const PageProgramsInternationalBusinessLaw = ({ program, programs }) => {
-  HengeleGetPrograms(programs)
+  HandleGetPrograms(programs)
 
   return <InternationalBusinessLaw program={program} />
 }

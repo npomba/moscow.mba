@@ -1,13 +1,11 @@
 import Webinars from '@/components/pages/Webinars'
-import HengeleGetPrograms from '@/helpers/hengeleGetPrograms'
+import HandleGetPrograms from '@/helpers/HandleGetPrograms'
 import { handleGetStaticProps } from '@/helpers/index'
 
-<<<<<<< HEAD
-const webinars = ({ programs }) => {
-  HengeleGetPrograms(programs)
-=======
+
+
 const PageWebinars = ({ programs }) => {
->>>>>>> bbab6c952f81983dac0226f26db7aa0eb88a147c
+  HandleGetPrograms(programs)
   return <Webinars title={'Вебинары'} heading={'Вебинары'} />
 }
 

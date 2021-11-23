@@ -11,12 +11,12 @@ import ContactUs from '@/components/sections/ContactUs'
 import Accreditation from '@/components/sections/Accreditation'
 import Diploma from '@/components/sections/Diploma'
 import WhoItIsFor from '@/components/sections/WhoItIsFor'
-import HengeleGetPrograms from '@/helpers/hengeleGetPrograms'
+import HandleGetPrograms from '@/helpers/HandleGetPrograms'
 
 
 const PagePromo = ({ programs }) => {
 
-  HengeleGetPrograms(programs)
+  HandleGetPrograms(programs)
   const courseOptions = {
     whoIsFor: [
       {

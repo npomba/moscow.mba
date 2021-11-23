@@ -1,5 +1,5 @@
 import Programs from '@/components/pages/Programs'
-import HengeleGetPrograms from '@/helpers/hengeleGetPrograms'
+import HandleGetPrograms from '@/helpers/HandleGetPrograms'
 import { handleGetStaticProps } from '@/helpers/index'
 
 
@@ -7,7 +7,7 @@ import { handleGetStaticProps } from '@/helpers/index'
 
 
 const PageProgramsMiniOnline = ({ programs }) => {
-  HengeleGetPrograms(programs)
+  HandleGetPrograms(programs)
 
 
   const data = programs.filter(

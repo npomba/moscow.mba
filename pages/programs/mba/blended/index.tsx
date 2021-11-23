@@ -1,10 +1,10 @@
 import Programs from '@/components/pages/Programs'
-import HengeleGetPrograms from '@/helpers/hengeleGetPrograms'
+import HandleGetPrograms from '@/helpers/HandleGetPrograms'
 import { handleGetStaticProps } from '@/helpers/index'
 
 
 const PageProgramsMbaBlended = ({ programs }) => {
-  HengeleGetPrograms(programs)
+  HandleGetPrograms(programs)
 
   const data = programs.filter(
     program =>

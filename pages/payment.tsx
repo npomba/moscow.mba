@@ -10,11 +10,11 @@ import { contactData } from '@/config/index'
 
 import Breadcrumbs from '@/components/general/Breadcrumbs'
 import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
-import HengeleGetPrograms from '@/helpers/hengeleGetPrograms'
+import HandleGetPrograms from '@/helpers/HandleGetPrograms'
 
 
 const PagePayment = ({ programs }) => {
-  HengeleGetPrograms(programs)
+  HandleGetPrograms(programs)
   const contactInfo = contactData()
 
   return (

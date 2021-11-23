@@ -2,7 +2,7 @@ import { useContext, useEffect } from 'react'
 import programsContext from '@/context/programs/programsContext'
 
 
-const HengeleGetPrograms = (data) => {
+const HandleGetPrograms = (data) => {
   const { setPrograms } = useContext(programsContext)
 
   useEffect(() => {
@@ -11,4 +11,4 @@ const HengeleGetPrograms = (data) => {
 
 }
 
-export default HengeleGetPrograms
+export default HandleGetPrograms

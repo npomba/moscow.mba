@@ -12,12 +12,12 @@ import CorporateClients from '@/components/sections/CorporateClients'
 import Programs from '@/components/sections/Programs'
 import Executive from '@/components/sections/Executive'
 import ContactUs from '@/components/sections/ContactUs'
-import HengeleGetPrograms from '@/helpers/hengeleGetPrograms'
+import HandleGetPrograms from '@/helpers/HandleGetPrograms'
 
 
 const PageHome = ({ programs }) => {
 
-  HengeleGetPrograms(programs)
+  HandleGetPrograms(programs)
   return (
     <>
 

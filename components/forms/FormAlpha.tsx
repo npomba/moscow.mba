@@ -10,6 +10,7 @@ import {
   InputPhone,
   InputSubmit
 } from '@/components/inputs'
+import getClassNames from '@/helpers/getClassNames'
 
 type TypeFormValues = {
   name: string
@@ -23,7 +24,8 @@ const FormAlpha = ({
   setOpen,
   policyPrivacy = true,
   alpha = false,
-  width = '25'
+  width = '25',
+  cs = null
 }) => {
   const {
     register,
@@ -33,6 +35,8 @@ const FormAlpha = ({
   } = useForm<TypeFormValues>()
 
   const { asPath } = useRouter()
+
+
 
   return (
     <form
@@ -49,17 +53,19 @@ const FormAlpha = ({
         })
       )}>
       <div
-        className={classNames({
+        className={classNames(cs?.content, {
           'inputs-flex': true,
-          'inputs-flex--alt': alpha
+          'inputs-flex--alt': alpha,
         })}>
-        <InputName register={register} errors={errors} width={width} />
-        <InputPhone register={register} errors={errors} width={width} />
-        <InputEmail register={register} errors={errors} width={width} />
-        <InputSubmit errors={errors} alpha={alpha} width={width} />
+        <InputName className={cs?.input} register={register} errors={errors} width={width} />
+        <InputPhone className={cs?.input} register={register} errors={errors} width={width} />
+        <InputEmail className={cs?.input} register={register} errors={errors} width={width} />
+        <InputSubmit className={cs?.btn} errors={errors} alpha={alpha} width={width} />
       </div>
       {policyPrivacy && (
-        <div className='personal-data'>
+        <div className={classNames(cs?.order, {
+          'personal-data': true
+        })}>
           {SetString(lang.privacyPolicyFirst)}{' '}
           {/* <a href=''>{SetString(lang.privacyPolicySecond)}</a> */}
           {SetString(lang.privacyPolicySecond)}
