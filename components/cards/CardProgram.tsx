@@ -2,48 +2,27 @@ import stls from '@/styles/components/cards/CardProgram.module.sass'
 import Link from 'next/link'
 import Price from '@/components/costs/Price'
 import { IconArrowTopRight } from '@/components/icons'
-import { getStringDeclensionNumber } from '@/helpers/index'
-import { SetString } from '@/helpers/index'
+import { getStringDeclensionNumber, SetString } from '@/helpers/index'
 import lang from '@/data/translation/months'
 import TrainingPeriod from '@/components/costs/TrainingPeriod'
-import { useEffect, useState } from 'react'
+import useAt from '@/helpers/useAt'
 
 const CardProgram = ({ professionLayout, program, number, type, format }) => {
-  const [category, setCategory] = useState('')
-  useEffect(() => {
-    switch (program.category.type) {
-      case 'mini':
-        setCategory('mini MBA')
-        break
-      case 'mba':
-        setCategory('MBA')
-        break
-      case 'profession':
-        setCategory('Профессии')
-        break
-      case 'course':
-        setCategory('Курсы')
-        break
-    }
-  }, [program.category.type])
+  const at = useAt()
 
   return (
     <Link href={`/programs/${type}/${format}/${program.slug}`}>
       <a className={stls.container}>
-
         <div className={stls.arrow}>
           <IconArrowTopRight />
         </div>
-
         <div>
           <span className={stls.category}>
-             {category}
+              {at.mini ? 'mini MBA' : at.mba ? 'MBA' : at.profession ? 'Профессии' : at.course ? 'Курсы' : ''}
           </span>
         </div>
-
         <h3 className={stls.programTitle}>{program.title}</h3>
         <div className={stls.bottomContainer}>
-
           <div>
             <Price
               discount
@@ -52,7 +31,6 @@ const CardProgram = ({ professionLayout, program, number, type, format }) => {
               renderedByComponent='CardProgram'
             />
           </div>
-
           <div className={stls.duration}>
             {
               program.duration ?
