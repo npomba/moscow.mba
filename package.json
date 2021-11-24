@@ -29,6 +29,7 @@
     "react-pdf": "^5.5.0",
     "react-transition-group": "^4.4.2",
     "reactjs-popup": "^2.0.4",
+    "swiper": "^7.3.0",
     "truncate": "^2.1.0",
     "uuid": "^8.3.2"
   },
