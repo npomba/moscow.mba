@@ -73,7 +73,7 @@ const ProgramsModules = ({ program, smallerMb = false }) => {
             )}
           </li>
         </ul>
-        {program && program.baseSubjects?.length > 0 && !at.executive && (
+        {program && program.baseSubjects?.length > 0 && !at.executive && !at.course && !at.profession && (
           <h3 className={stls.h3}>Базовые дисциплины</h3>
         )}
       </div>
@@ -97,7 +97,7 @@ const ProgramsModules = ({ program, smallerMb = false }) => {
         </div>
       )}
 
-      {program.specializedSubjects?.length > 0 && (
+      {program.specializedSubjects?.length > 0 && !at.course && !at.profession &&  (
         <div className={stls.pl}>
           <h3 className={stls.h3}>Специализированные дисциплины</h3>
         </div>

@@ -12,7 +12,6 @@ const Header = ({ programs }) => {
   const { menuIsOpen, openMenu, closeMenu, toggleMenu } = useContext(
     MenuContext
   )
-
   const {
     overlayIsShown,
     showOverlay,
