@@ -17,6 +17,7 @@ import CostOfStudy from '@/components/sections/CostOfStudy'
 import HelpWithEmployment from '@/components/sections/HelpWithEmployment'
 import Pros from '@/components/sections/Pros'
 import GetStudyPlan from '@/components/sections/GetStudyPlan'
+import ProgramDevelopedStandard from '@/components/sections/ProgramDevelopedStandard'
 
 const ProfessionOnlineProgram = ({ program }) => {
   const data = program
@@ -42,6 +43,7 @@ const ProfessionOnlineProgram = ({ program }) => {
       <div className={stls.container}>
         <WhatWillYouLearn data={data} />
         <ProgramDesc />
+        <ProgramDevelopedStandard/>
         <WhoItIsFor program={program} />
 
         <Pros format={'online'} />

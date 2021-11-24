@@ -39,14 +39,11 @@ const PageOnlineProgram = ({ program }) => {
         providerUrl={`https://moscow.mba${router.asPath}`}
         description={truncate(program.goal, 120)}
       />
-
       <JumbotronProgram program={program} />
-
       <div className={stls.container}>
         <ProgramGoal data={program} />
         <WhatWillYouLearn data={program} />
         <ProgramDesc />
-        <ProgramDevelopedStandard/>
         <Pros format={'online'} />
         <HowProcessGoes />
         <ProgramModules program={program} />
