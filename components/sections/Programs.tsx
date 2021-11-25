@@ -16,21 +16,12 @@ import classNames from 'classnames'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
-import 'swiper/css/pagination'
-import SwiperCore, {
-  Pagination, FreeMode, Virtual
-} from 'swiper'
+import SwiperCore, { Virtual } from 'swiper'
 import useWindowWidth from '@/helpers/useWindowWidth'
+import ProgramsMini from './ProgramsMini'
+import ProgramsMba from '@/components/sections/ProgramsMba'
 
-SwiperCore.use([FreeMode, Pagination, Virtual])
-
-
-const pagination = {
-  'clickable': true,
-  'renderBullet': function(index, className) {
-    return '<span class=\"' + className + '\">' + (index + 1) + '</span>'
-  }
-}
+SwiperCore.use([Virtual])
 
 
 const Programs = ({ programs }) => {
@@ -40,33 +31,29 @@ const Programs = ({ programs }) => {
 
   const [swiperRef, setSwiperRef] = useState(null)
 
-
-  console.log(index)
-
   useEffect(() => {
-    // if (index === 0) {
-    //   handleSetMini()
-    // } else {
-    //   handleSetMba()
-    // }
+    if (index === 0) {
+      handleSetMini()
+    } else {
+      handleSetMba()
+    }
   }, [index])
 
 
-  const data = programs
-
-
   const [isMini, setIsMini] = useState(true)
-  const [isMba, setIsMba] = useState(false)
+  const [isMba, setIsMba] = useState(true)
 
   const [isMiniOnline, setIsMiniOnline] = useState(true)
   const [isMbaOnline, setIsMbaOnline] = useState(true)
 
+
   const slideTo = (index) => {
+    if (!swiperRef) {
+      return
+    }
     swiperRef?.slideTo(index - 1, 500)
   }
 
-  // console.log('isMini', isMini)
-  // console.log('isMba', isMba)
 
 
   const handleSetMini = () => {
@@ -126,327 +113,32 @@ const Programs = ({ programs }) => {
           </div>
           <div className='program-options-right'>
 
+            {swiperWinth ?
+              <Swiper
+                slidesPerView={1}
+                pagination={{
+                  type: 'fraction'
+                }}
+                onSwiper={setSwiperRef}
+                onSlideChange={e => {
+                  setIndex(e.activeIndex)
+                }}
+                virtual
+              >
+                <SwiperSlide>
+                  <ProgramsMini data={programs} isMini={isMini} isMiniOnline={isMiniOnline} setIsMiniOnline={setIsMiniOnline} />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <ProgramsMba data={programs} isMba={isMba} isMbaOnline={isMbaOnline} setIsMbaOnline={setIsMbaOnline} />
+                </SwiperSlide>
+              </Swiper>
+              :
+              <>
+                 <ProgramsMini data={programs} isMini={isMini} isMiniOnline={isMiniOnline} setIsMiniOnline={setIsMiniOnline} />
+                 <ProgramsMba data={programs} isMba={isMba} isMbaOnline={isMbaOnline} setIsMbaOnline={setIsMbaOnline} />
+               </>
+             }
 
-            {/*<Swiper slidesPerView={1}*/}
-            {/*        enabled={swiperWinth}*/}
-            {/*        pagination={{*/}
-            {/*          type: 'fraction'*/}
-            {/*        }}*/}
-            {/*        onSwiper={setSwiperRef}*/}
-            {/*        onSlideChange={e => {*/}
-            {/*          // slideTo(e.activeIndex)*/}
-            {/*          console.log(e)*/}
-            {/*          setIndex(e.activeIndex)*/}
-            {/*        }}*/}
-            {/*        virtual*/}
-            {/*>*/}
-              <SwiperSlide>
-                <div
-                  className={classNames({
-                    'program-tabs-content': true,
-                    visible: isMini
-                  })}>
-                  <div className='top-info'>
-                    <div className='prog-time'>
-                      <i>
-                        <TrainingPeriod type='mini'/>
-                      </i>
-                      <span>
-                    <ProgramSubjects type='mini' sum={true} />{' '}
-                        {SetString(langMenu.qtSubjects)}{' '}
-                  </span>
-                    </div>
-                    <div className='prog-status'>
-                      {SetString(langMenu.newestPrograms)} 2021{' '}
-                      {SetString(langMenu.newestProgramsYear)}
-                    </div>
-                  </div>
-                  <div className='desc'>{SetString(langMenu.categoryDiscMini)}</div>
-                  <ul className='program-options-block-tabs--sctn-programs'>
-                    <li>
-                      <a
-                        className={classNames({ active: isMiniOnline })}
-                        onClick={() => setIsMiniOnline(true)}>
-                        ONLINE
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className={classNames({ active: !isMiniOnline })}
-                        onClick={() => setIsMiniOnline(false)}>
-                        BLENDED
-                      </a>
-                    </li>
-                  </ul>
-                  <div className='program-options-detail'>
-                    <div
-                      className={classNames({
-                        'program-options-block': true,
-                        show: isMiniOnline
-                      })}>
-                      <div className='name'>
-                        {SetString(langMenu.onlineTitle)}
-                        <div className='discount'>
-                          <div className='size'>
-                            <Discount />
-                          </div>
-                          <span>
-                        <Until />
-                      </span>
-                        </div>
-                      </div>
-                      <ProgramsQty
-                        programs={data}
-                        type={'mini'}
-                        format={'online'}
-                      />
-                      <div className='price'>
-                        {SetString(langMenu.price)}:{' '}
-                        <Price discount={true} type={'mini'} format={'online'} />{' '}
-                      </div>
-                      <div className='info-list'>
-                        <div className='info-flex'>
-                          <div className='pic'>
-                            <IconCheckCircle fill={'#C7C7C7'} />
-                          </div>
-                          <span>{SetString(langMenu.formatRemote)}</span>
-                        </div>
-                        <div className='info-flex'>
-                          <div className='pic'>
-                            <IconScreen fill={'#C7C7C7'} />
-                          </div>
-                          <span>
-                        <ProgramSubjects type='mini' sum={true} />{' '}
-                            {SetString(langMenu.qtSubjects)}
-                      </span>
-                        </div>
-                      </div>
-                      <ul className='program-options-block-list'>
-                        {data.map(item => {
-                          if (
-                            item.category?.type === 'mini' &&
-                            item.studyFormat === 'online'
-                          ) {
-                            return (
-                              <li key={item.id || item._id}>
-                                <Link
-                                  href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
-                                  locale='ru'>
-                                  <a>{SetString(item, true)}</a>
-                                </Link>
-                              </li>
-                            )
-                          }
-                        })}
-                      </ul>
-                    </div>
-                    <div
-                      className={classNames({
-                        'program-options-block': true,
-                        show: !isMiniOnline
-                      })}>
-                      <div className='name'>{SetString(langMenu.blendedTitle)}</div>
-                      <ProgramsQty
-                        programs={data}
-                        type={'mini'}
-                        format={'blended'}
-                      />
-                      <div className='price'>
-                        {SetString(langMenu.price)}:{' '}
-                        <Price discount={false} type={'mini'} format={'blended'} />{' '}
-                      </div>
-                      <div className='info-list'>
-                        <div className='info-flex'>
-                          <div className='pic'>
-                            <IconCheckCircle fill={'#C7C7C7'} />
-                          </div>
-                          <span>{SetString(langMenu.formatBlended)}</span>
-                        </div>
-                        <div className='info-flex'>
-                          <div className='pic'>
-                            <IconScreen fill={'#C7C7C7'} />
-                          </div>
-                          <span>
-                        <ProgramSubjects type='mini' sum={true} />{' '}
-                            {SetString(langMenu.qtSubjects)}
-                      </span>
-                        </div>
-                      </div>
-                      <ul className='program-options-block-list'>
-                        {data.map(item => {
-                          if (
-                            item.category?.type === 'mini' &&
-                            item.studyFormat === 'blended'
-                          ) {
-                            return (
-                              <li key={item.id || item._id}>
-                                <Link
-                                  href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
-                                  locale='ru'>
-                                  <a>{SetString(item, true)}</a>
-                                </Link>
-                              </li>
-                            )
-                          }
-                        })}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </SwiperSlide>
-
-
-              <SwiperSlide>
-                <div
-                  className={classNames({
-                    'program-tabs-content': true,
-                    visible: isMba
-                  })}>
-                  <div className='top-info'>
-                    <div className='prog-time'>
-                      <i>
-                        <TrainingPeriod type='mba' />
-                      </i>
-                      <span>
-                    <ProgramSubjects type='mba' sum={true} />{' '}
-                        {SetString(langMenu.qtSubjects)}{' '}
-                  </span>
-                    </div>
-                    <div className='prog-status'>
-                      {SetString(langMenu.newestPrograms)} 2021{' '}
-                      {SetString(langMenu.newestProgramsYear)}
-                    </div>
-                  </div>
-                  <div className='desc'>{SetString(langMenu.categoryDiscMba)}</div>
-                  <ul className='program-options-block-tabs--sctn-programs'>
-                    <li>
-                      <a
-                        className={classNames({ active: isMbaOnline })}
-                        onClick={() => setIsMbaOnline(true)}>
-                        ONLINE
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        className={classNames({ active: !isMbaOnline })}
-                        onClick={() => setIsMbaOnline(false)}>
-                        BLENDED
-                      </a>
-                    </li>
-                  </ul>
-                  <div className='program-options-detail'>
-                    <div
-                      className={classNames({
-                        'program-options-block': true,
-                        show: isMbaOnline
-                      })}>
-                      <div className='name'>
-                        {SetString(langMenu.onlineTitle)}
-                        <div className='discount'>
-                          <div className='size'>
-                            <Discount />
-                          </div>
-                          <span>
-                        <Until />
-                      </span>
-                        </div>
-                      </div>
-                      <ProgramsQty programs={data} type={'mba'} format={'online'} />
-                      <div className='price'>
-                        {SetString(langMenu.price)}:{' '}
-                        <Price discount={true} type={'mba'} format={'online'} />{' '}
-                      </div>
-                      <div className='info-list'>
-                        <div className='info-flex'>
-                          <div className='pic'>
-                            <IconCheckCircle fill={'#C7C7C7'} />
-                          </div>
-                          <span>{SetString(langMenu.formatRemote)}</span>
-                        </div>
-                        <div className='info-flex'>
-                          <div className='pic'>
-                            <IconScreen fill={'#C7C7C7'} />
-                          </div>
-                          <span>
-                        <ProgramSubjects type='mba' sum={true} />{' '}
-                            {SetString(langMenu.qtSubjects)}
-                      </span>
-                        </div>
-                      </div>
-                      <ul className='program-options-block-list'>
-                        {data.map(item => {
-                          if (
-                            item.category?.type === 'mba' &&
-                            item.studyFormat === 'online'
-                          ) {
-                            return (
-                              <li key={item.id || item._id}>
-                                <Link
-                                  href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
-                                  locale='ru'>
-                                  <a>{SetString(item, true)}</a>
-                                </Link>
-                              </li>
-                            )
-                          }
-                        })}
-                      </ul>
-                    </div>
-                    <div
-                      className={classNames({
-                        'program-options-block': true,
-                        show: !isMbaOnline
-                      })}>
-                      <div className='name'>{SetString(langMenu.blendedTitle)}</div>
-                      <ProgramsQty
-                        programs={data}
-                        type={'mba'}
-                        format={'blended'}
-                      />
-                      <div className='price'>
-                        {SetString(langMenu.price)}:{' '}
-                        <Price discount={false} type={'mba'} format={'blended'} />{' '}
-                      </div>
-                      <div className='info-list'>
-                        <div className='info-flex'>
-                          <div className='pic'>
-                            <IconCheckCircle fill={'#C7C7C7'} />
-                          </div>
-                          <span>{SetString(langMenu.formatBlended)}</span>
-                        </div>
-                        <div className='info-flex'>
-                          <div className='pic'>
-                            <IconScreen fill={'#C7C7C7'} />
-                          </div>
-                          <span>
-                        <ProgramSubjects type='mba' sum={true} />{' '}
-                            {SetString(langMenu.qtSubjects)}
-                      </span>
-                        </div>
-                      </div>
-                      <ul className='program-options-block-list'>
-                        {data.map(item => {
-                          if (
-                            item.category?.type === 'mba' &&
-                            item.studyFormat === 'blended'
-                          ) {
-                            return (
-                              <li key={item.id || item._id}>
-                                <Link
-                                  href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
-                                  locale='ru'>
-                                  <a>{SetString(item, true)}</a>
-                                </Link>
-                              </li>
-                            )
-                          }
-                        })}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </SwiperSlide>
-            {/*</Swiper>*/}
           </div>
         </div>
       </section>
