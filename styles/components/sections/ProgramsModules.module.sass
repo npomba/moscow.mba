@@ -1,9 +1,9 @@
 @use '@/styles/utils/mixin' as m
 
 .container
-  margin-bottom: 110px
-  @include m.media(laptop, tablet, phone)
-    margin-bottom: 50px
+  margin: 0 0 110px 0
+  @include m.media(laptop,tablet, phone)
+    margin: 0 0 50px 0
   .h3
     font-weight: bold
     font-size: 36px
@@ -42,7 +42,6 @@
   @include m.media(tablet, phone)
     display: block
     margin: 0
-  // margin: 0 -15px;
 
 .number
   font-size: 52px

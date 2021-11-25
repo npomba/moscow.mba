@@ -2,7 +2,7 @@ import lang from '@/data/translation/header'
 import langContact from '@/data/translation/contact'
 import langCities from '@/data/translation/cities'
 
-const ContactInfo = () => {
+const contactInfo = () => {
   return {
     ru: {
       tels: [
@@ -140,4 +140,4 @@ const ContactInfo = () => {
   }
 }
 
-export default ContactInfo
+export default contactInfo
