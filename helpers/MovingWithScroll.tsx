@@ -1,19 +1,12 @@
-import stls from '@/styles/utils/MovingWithScroll.module.sass'
+import stls from '@/styles/utils/movingWithScroll/MovingWithScroll.module.sass'
 import { useEffect, useRef, useState } from 'react'
-import { log } from 'util'
 
 
-type MovingWithScrollType = {
-  start: number
-  end: number
-}
-
-const MovingWithScroll:React.FC<MovingWithScrollType> = ({children, start , end}) => {
+const MovingWithScroll: React.FC = ({ children }) => {
   const ref: any = useRef()
   const [move, setMove] = useState(0)
   const [scrollY, setScrollY] = useState(0)
   const [posTop, setPosTop] = useState<any>(0)
-
   const [scroll, setScroll] = useState('')
 
   useEffect(() => {
@@ -25,12 +18,11 @@ const MovingWithScroll:React.FC<MovingWithScrollType> = ({children, start , end}
 
 
   useEffect(() => {
-    let elem = document.getElementById('__movingWithScroll');
-    let elemPosTop = elem.getBoundingClientRect();
+    let elem = document.getElementById('_moving_with_scroll')
+    let elemPosTop = elem.getBoundingClientRect()
     setPosTop(elemPosTop.top)
     setMove(ref.current.offsetParent.offsetHeight - ref.current.offsetHeight)
   }, [])
-
 
 
   const positionElem = () => {
@@ -43,13 +35,14 @@ const MovingWithScroll:React.FC<MovingWithScrollType> = ({children, start , end}
   }
 
   return (
-  <div
-    id={"__movingWithScroll"}
-    ref={ref}
-    style={{position: 'absolute', top: scroll }}
-  >
-   {children}
-</div>
+    <div
+      id={'_moving_with_scroll'}
+      ref={ref}
+      className={stls.container}
+      style={{ top: scroll }}
+    >
+      {children}
+    </div>
   )
 }
 
