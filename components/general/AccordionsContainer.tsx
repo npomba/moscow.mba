@@ -10,6 +10,7 @@ const AccordionsContainer = ({
   setCloseAll,
   isCoursesContainer = false
 }) => {
+
   const [activeAccordionIndex, setActiveAccordionIndex] = useState(
     firstAccordionActive ? 0 : -1
   )
