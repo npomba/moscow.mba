@@ -2,11 +2,12 @@
 
 .phoneLinks
   display: flex
+  flex-direction: row-reverse
   align-items: center
   font-weight: 500
   @include m.media(laptop, widescreen)
     & .phoneLink
-      &:nth-child(1)
+      &:nth-child(2)
         margin-right: 25px
   @include m.media(desktop)
     flex-direction: column
@@ -14,7 +15,7 @@
       margin-bottom: 7px
   @include m.media(phone, tablet)
     & .phoneLink
-      &:nth-child(1)
+      &:nth-child(2)
         display: none
 
 .phoneLink
