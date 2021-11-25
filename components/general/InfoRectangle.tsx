@@ -34,12 +34,12 @@ const InfoRectangle = ({
         itemDetail: at.online
           ? SetString(langMenu.formatRemote)
           : at.blended
-            ? SetString(langMenu.formatBlended)
-            : at.executive
-              ? SetString(langMenu.formatExecutive)
-              : at.mbl
-                ? SetString(langMenu.formatRemote)
-                : ''
+          ? SetString(langMenu.formatBlended)
+          : at.executive
+          ? SetString(langMenu.formatExecutive)
+          : at.mbl
+          ? SetString(langMenu.formatRemote)
+          : ''
       },
       {
         itemTitle: 'Ближайшее зачисление:',
@@ -50,34 +50,31 @@ const InfoRectangle = ({
       {
         // itemTitle: 'Стоимость:',
         itemTitle: 'Диплом:',
-        itemDetail:
-        // <Price
-        //   discount={isDiscounted}
-        //   type={type}
-        //   format={format}
-        //   renderedByComponent='InfoRectangle'
-        // />
+        itemDetail: (
+          // <Price
+          //   discount={isDiscounted}
+          //   type={type}
+          //   format={format}
+          //   renderedByComponent='InfoRectangle'
+          // />
 
-        // 'Заносится в ФРДО'
+          // 'Заносится в ФРДО'
           <PopupInfo
             title={'Заносится в ФРДО'}
-            content={
-              {
-                title: 'ФРДО — ',
-                subtitle: 'Федеральный реестр сведений документов об образовании',
-                discription: 'Цели Федерального реестра:',
-                items: [
-                  'Ликвидация оборота поддельных документов государственного образца об образовании',
-                  'Обеспечение ведомств и работодателей достоверной информацией о квалификации претендентов на\n' +
+            content={{
+              title: 'ФРДО — ',
+              subtitle: 'Федеральный реестр сведений документов об образовании',
+              description: 'Цели Федерального реестра:',
+              items: [
+                'Ликвидация оборота поддельных документов государственного образца об образовании',
+                'Обеспечение ведомств и работодателей достоверной информацией о квалификации претендентов на\n' +
                   'трудоустройство',
-                  'Сокращение числа нарушений и коррупции в образовательных учреждениях',
-                  'Повышение качества образования за счет обеспечения общественности достоверной информацией о выпускниках'
-                ]
-              }
-            }
+                'Сокращение числа нарушений и коррупции в образовательных учреждениях',
+                'Повышение качества образования за счет обеспечения общественности достоверной информацией о выпускниках'
+              ]
+            }}
           />
-
-
+        )
       }
     ],
     academyInfo: [
@@ -101,7 +98,6 @@ const InfoRectangle = ({
         [stls.programsPageContainer]: programPage,
         [stls.academyInfoContainer]: at.index || at.promo
       })}>
-
       {infoRectangleContent[typeOfContent].map((item, idx) => (
         <li
           key={idx + item.itemDetail}

@@ -54,14 +54,14 @@ const HeaderTop = ({ handleMenuClose }) => {
       </div>
       <div className={stls.phoneLinks}>
         <a className={stls.phoneLink} href={contactInfo.ru.tels[0].href}>
-          <span className={stls.discription}>
-            {contactInfo.ru.tels[0].discription}
+          <span className={stls.description}>
+            {contactInfo.ru.tels[0].description}
           </span>
           <span>{contactInfo.ru.tels[0].val}</span>
         </a>
         <a className={stls.phoneLink} href={contactInfo.ru.tels[1].href}>
-          <span className={stls.discription}>
-            {contactInfo.ru.tels[1].discription}
+          <span className={stls.description}>
+            {contactInfo.ru.tels[1].description}
           </span>
           <span>{contactInfo.ru.tels[1].val}</span>
         </a>
