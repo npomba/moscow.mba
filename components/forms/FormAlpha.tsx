@@ -1,8 +1,8 @@
 import stls from '@/styles/components/forms/FormAlpha.module.sass'
 import { useRouter } from 'next/router'
-import classNames from 'classnames'
+import classnames from 'classnames'
 import { useForm } from 'react-hook-form'
-import { SetString, onSubmitForm } from '@/helpers/index'
+import { SetString, onSubmitForm, getClassNames } from '@/helpers/index'
 import lang from '@/data/translation/index'
 import {
   InputEmail,
@@ -10,7 +10,6 @@ import {
   InputPhone,
   InputSubmit
 } from '@/components/inputs'
-import getClassNames from '@/helpers/getClassNames'
 
 type TypeFormValues = {
   name: string
@@ -19,14 +18,16 @@ type TypeFormValues = {
 }
 
 const FormAlpha = ({
-  programTitle,
-  setOpenLoader,
-  setOpen,
-  policyPrivacy = true,
-  alpha = false,
-  width = '25',
-  cs = null
-}) => {
+                     programTitle,
+                     setOpenLoader,
+                     setOpen,
+                     policyPrivacy = true,
+                     alpha = false,
+                     width = '25',
+                     classNames = [],
+                     globalStyle = true,
+                   }) => {
+  const container = getClassNames({ classNames })
   const {
     register,
     handleSubmit,
@@ -35,7 +36,6 @@ const FormAlpha = ({
   } = useForm<TypeFormValues>()
 
   const { asPath } = useRouter()
-
 
 
   return (
@@ -53,22 +53,22 @@ const FormAlpha = ({
         })
       )}>
       <div
-        className={classNames(cs?.content, {
-          'inputs-flex': true,
-          'inputs-flex--alt': alpha,
+        className={classnames(container, {
+          'inputs-flex': globalStyle,
+          'inputs-flex--alt': alpha
         })}>
-        <InputName className={cs?.input} register={register} errors={errors} width={width} />
-        <InputPhone className={cs?.input} register={register} errors={errors} width={width} />
-        <InputEmail className={cs?.input} register={register} errors={errors} width={width} />
-        <InputSubmit className={cs?.btn} errors={errors} alpha={alpha} width={width} />
+        <InputName register={register} errors={errors} width={width} />
+        <InputPhone register={register} errors={errors} width={width} />
+        <InputEmail register={register} errors={errors} width={width} />
+        <InputSubmit errors={errors} alpha={alpha} width={width} />
       </div>
       {policyPrivacy && (
-        <div className={classNames(cs?.order, {
-          'personal-data': true
+        <div className={classnames({
+          'personal-data': globalStyle
         })}>
           {SetString(lang.privacyPolicyFirst)}{' '}
           {/* <a href=''>{SetString(lang.privacyPolicySecond)}</a> */}
-          {SetString(lang.privacyPolicySecond)}
+          <span>{SetString(lang.privacyPolicySecond)}</span>
         </div>
       )}
     </form>

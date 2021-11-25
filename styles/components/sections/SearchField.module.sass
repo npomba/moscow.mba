@@ -148,22 +148,25 @@
     margin-bottom: 52px
 
 .content
-  width: 100%
-  margin: 0 -15px
+  display: flex
   @include m.media(tablet, phone)
-    margin: 0
-
-  .f_input
+    flex-wrap: nowrap
+    flex-direction: column
+  @include m.media(widescreen, desktop, laptop)
+    flex-wrap: wrap
+    align-items: flex-start
+    justify-content: space-between
+  input
+    width: calc(100% - 30px)
+    min-width: 260px
     border-color: #262626
-    width: 100%
-
+    color: #1f1f1f
+    margin: 0 20px 0 0
     &::placeholder
-      color: #B2B2B2 !important
-
-  .btn
+      color: #B2B2B2
+  button
+    min-width: 260px
     width: 100%
-    background-color: #FF3535
-    color: #fff
+    background-color: #FF3535!important
+    color: #fff!important
 
-  .order
-    color: #B2B2B2 !important

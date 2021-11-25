@@ -810,14 +810,14 @@ h2 {
     border: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.7);
 
-    //&.texted {
-    //  & ~ .input-placeholder {
-    //    top: 0;
-    //    font-size: 13px;
-    //    color: #fff;
-    //    font-weight: 400;
-    //  }
-    //}
+    &.texted {
+      & ~ .input-placeholder {
+        top: 0;
+        font-size: 13px;
+        color: #fff;
+        font-weight: 400;
+      }
+    }
   }
   .input-placeholder {
     position: absolute;
@@ -836,7 +836,7 @@ h2 {
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: space-between;
-    //margin: 0 -15px;
+    margin: 0 -15px;
     .input-block {
       margin-left: 15px;
       margin-right: 15px;
@@ -1852,7 +1852,7 @@ html #nprogress .spinner-icon {
 
 
 
-.SearchField_popup-content {
+.searchField_popup-content{
   @include m.media(tablet, phone) {
     top: 0px!important;
     margin: 0!important;

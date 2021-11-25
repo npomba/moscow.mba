@@ -1,13 +1,14 @@
 import stls from '@/styles/components/sections/SearchField.module.sass'
 import programsContext from '@/context/programs/programsContext'
-import { useContext, useEffect, useState } from 'react'
+import useAt from '@/helpers/useAt'
+import { useContext, useState } from 'react'
 import Popup from 'reactjs-popup'
 import Link from 'next/link'
 import IconSearch from '@/components/icons/IconSearch'
 import IconClose from '@/components/icons/IconClose'
 import { FormAlpha } from '@/components/forms'
 import LeadLoaderThankyou from '@/components/general/LeadLoaderThankyou'
-import useAt from '@/helpers/useAt'
+
 
 
 const SearchField = () => {
@@ -18,18 +19,12 @@ const SearchField = () => {
   const [value, setValue] = useState('')
   const {filteredPrograms, setSearchProgram} = useContext(programsContext)
 
-  const handleSearch = () => {
-    setSearchProgram(value.toLowerCase())
-  }
-
-
-
-
+  const handleSearch = () => setSearchProgram(value.toLowerCase())
 
   return (
     <Popup
       modal
-      className={'SearchField_popup'}
+      className={'searchField_popup'}
       onClose={() => close}
       trigger={() => <div>
         <div className={stls.trigger}>
@@ -103,7 +98,6 @@ const SearchField = () => {
                     programId={null}
                     programTitle={null}
                   />
-
                   <div className={stls.form}>
                     <p className={stls.title}>
                       По вашему запросу ничего не найдено
@@ -115,12 +109,8 @@ const SearchField = () => {
                       programTitle={null}
                       setOpenLoader={setOpenLoader}
                       setOpen={open}
-                      cs={{
-                        content: stls.content,
-                        input: stls.f_input,
-                        btn: stls.btn,
-                        order: stls.order
-                      }}
+                      classNames={[stls.content]}
+                      globalStyle={false}
                     />
                   </div>
                 </>

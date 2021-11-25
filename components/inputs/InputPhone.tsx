@@ -4,11 +4,10 @@ import lang from '@/data/translation/index'
 import { handlePlaceholder } from '@/helpers/index'
 import classNames from 'classnames'
 
-const InputPhone = ({ register, errors, width = '25', ...props }) => {
+const InputPhone = ({ register, errors, width = '25'}) => {
   return (
     <div className={`input-block width-${width}`}>
       <input
-        {...props}
         type='tel'
         aria-label={SetString(lang.inputPhone)}
         {...register('phone', {
