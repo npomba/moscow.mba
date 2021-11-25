@@ -2,10 +2,11 @@ import stls from '@/styles/components/cards/CardProgram.module.sass'
 import Link from 'next/link'
 import Price from '@/components/costs/Price'
 import { IconArrowTopRight } from '@/components/icons'
+import useAt from '@/helpers/useAt'
 import { getStringDeclensionNumber, SetString } from '@/helpers/index'
 import lang from '@/data/translation/months'
 import TrainingPeriod from '@/components/costs/TrainingPeriod'
-import useAt from '@/helpers/useAt'
+
 
 const CardProgram = ({ professionLayout, program, number, type, format }) => {
   const at = useAt()
@@ -18,7 +19,7 @@ const CardProgram = ({ professionLayout, program, number, type, format }) => {
         </div>
         <div>
           <span className={stls.category}>
-              {at.mini ? 'mini MBA' : at.mba ? 'MBA' : at.profession ? 'Профессии' : at.course ? 'Курсы' : ''}
+              {at.mini ? 'Mini MBA' : at.mba ? 'MBA' : at.profession ? 'Профессия' : at.course ? 'Курс' : ''}
           </span>
         </div>
         <h3 className={stls.programTitle}>{program.title}</h3>
