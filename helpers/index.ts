@@ -1,4 +1,5 @@
 import createBlended from '@/helpers/createBlended'
+import createLeadBackApi from '@/helpers/createLeadBackApi'
 import createProgramModules from '@/helpers/createProgramModules'
 import createProgramModulesBase from '@/helpers/createProgramModulesBase'
 import createProgramModulesSpecialized from '@/helpers/createProgramModulesSpecialized'
@@ -17,12 +18,14 @@ import handleGetStaticPaths from '@/helpers/handleGetStaticPaths'
 import handleGetStaticProps from '@/helpers/handleGetStaticProps'
 import handlePlaceholder from '@/helpers/handlePlaceholder'
 import hitContactRoute from '@/helpers/hitContactRoute'
+import getBackJWTToken from '@/helpers/getBackJWTToken'
 import onSubmitForm from '@/helpers/onSubmitForm'
 import SetString from '@/helpers/SetString'
 import useAt from '@/helpers/useAt'
 
 export {
   createBlended,
+  createLeadBackApi,
   createProgramModules,
   createProgramModulesBase,
   createProgramModulesSpecialized,
@@ -41,6 +44,7 @@ export {
   handleGetStaticProps,
   handlePlaceholder,
   hitContactRoute,
+  getBackJWTToken,
   onSubmitForm,
   SetString,
   useAt
