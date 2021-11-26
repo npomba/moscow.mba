@@ -1,4 +1,4 @@
-import stls from '@/styles/components/sections/SearchField.module.sass'
+import stls from '@/styles/components/general/SearchField.module.sass'
 import programsContext from '@/context/programs/programsContext'
 import useAt from '@/helpers/useAt'
 import { useContext, useState } from 'react'

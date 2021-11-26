@@ -1,5 +1,4 @@
 import { createContext } from 'react'
-import { string } from 'prop-types'
 
 const programsContext = createContext({
   programs: [],

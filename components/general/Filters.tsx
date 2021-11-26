@@ -24,7 +24,7 @@ const Filters = ({
     <ul className={stls.filters}>
       <li>
           <SearchField/>
-        <h4 className={stls.title}>Формат обучения</h4>
+        <h4 className={stls.title}>Тип обучения</h4>
 
         <div className={stls.content}>
           <Link href={`/programs/mini/${mbaFormat}`}>
