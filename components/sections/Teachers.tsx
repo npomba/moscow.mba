@@ -279,7 +279,7 @@ const Teachers = ({
             [stls.teachersList]: true,
             [stls.teachersListProfession]: at.profession || at.course
           })}>
-          {(at.profession || at.course) &&
+          {/* {(at.profession || at.course) &&
             teachers &&
             teachers.length > 0 &&
             teachers.map((teacher, idx) => (
@@ -298,18 +298,16 @@ const Teachers = ({
                   </div>
                   <div>
                     <div className={stls.name}>
-                      {/* {SetString(lang.teachersTeacherOneTitle)} */}
                       {teacher.name}
                     </div>
                     <p>
-                      {/* {SetString(lang.teachersTeacherOneDics)} */}
                       {teacher.description}
                     </p>
                   </div>
                 </div>
               </li>
-            ))}
-          {(at.profession || at.course) && teachers && teachers.length === 0 && (
+            ))} */}
+          {(at.profession || at.course) && teachers && teachers.length > 0 && (
             <div className={stls.getAllTeachers}>
               <h3 className={stls.getAllTeachersTitle}>
                 Получите полный список преподавателей
@@ -373,7 +371,7 @@ const Teachers = ({
               </li>
             ))}
         </ul>
-        {(((at.profession || at.course) && teachers && teachers.length > 0) ||
+        {(((at.profession || at.course) && teachers && teachers.length === 0) ||
           (!at.profession && !at.course)) && (
           <div className={stls.btn}>
             <Popup
