@@ -1,5 +1,5 @@
 import App from 'next/app'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import TagManager from 'react-gtm-module'
 import { DefaultSeo, LogoJsonLd } from 'next-seo'
 import SEO from '../seo.config'

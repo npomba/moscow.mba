@@ -1750,12 +1750,6 @@ div.popup-content {
   background-color: transparent;
 }
 
-div.popup-content[key="12"] {
-  position: absolute!important;
-  top: 0!important;
-  margin: 0!important;
-}
-
 div.popup-content.pdf-popup-content {
   padding: 0;
 }
@@ -1857,5 +1851,4 @@ html #nprogress .spinner-icon {
     top: 0px!important;
     margin: 0!important;
   }
-
 }
