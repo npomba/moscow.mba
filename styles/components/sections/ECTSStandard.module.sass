@@ -4,23 +4,24 @@
 .container
   position: relative
   @include m.flex($jc: space-between, $ai: center)
-  @include m.media(desktop, widescreen)
-    margin-top: 100px
-    margin-bottom: 100px
-  @include m.media(phone, tablet, laptop)
-    margin-top: 80px
-    margin-bottom: 80px
-    background-color: #262626
+  margin-bottom: 110px
+  margin-top: 130px
   background-color: #F7F7F7
+  @include m.media(desktop, tablet, phone)
+    margin-bottom: 60px
+  @include m.media(laptop, tablet, phone)
+    margin-top: 60px
+    background-color: #262626
 
 .icon
   background-color: #2300FA
-  padding: 170px 95px
+  padding: 52px 112px
   display: flex
   align-items: center
   justify-content: center
-  @include m.media(desktop)
-    padding: 170px 65px
+  svg
+    width: 222px
+    height: 222px
   @include m.media(laptop, tablet, phone)
     position: absolute
     padding: 0
@@ -28,30 +29,14 @@
     top: -38px
 
 .content
-  padding: 0 97px
+  padding: 0 67px
   @include m.media(desktop)
-    padding: 0 65px
+    padding: 0 40px
   @include m.media(laptop, tablet, phone)
     padding: 42px 25px
 
-.title
-  font-weight: 700
-  color: #2D2C2A
-  line-height: 1.2
-  font-size: f.px(48)
-  margin-bottom: 23px
-  @include m.media(laptop, tablet, phone)
-    font-size: f.px(38)
-  @include m.media(laptop, tablet, phone)
-    color: #fff
-  @include m.media(phone)
-    font-size: f.px(28)
-    font-weight: 400
-    padding: 0
-    margin-bottom: 10px
-
 .desc
-  font-size: f.px(25)
+  font-size: f.px(20)
   line-height: 1.2
   @include m.media(laptop, tablet, phone)
     font-size: f.px(18)
@@ -60,3 +45,19 @@
     font-size: f.px(13)
   @include m.media(phone)
     padding: 0
+
+.title
+  font-weight: 700
+  color: #2D2C2A
+  line-height: 1.2
+  font-size: f.px(36)
+  margin-bottom: 23px
+  @include m.media(laptop, tablet, phone)
+    font-size: f.px(36)
+  @include m.media(laptop, tablet, phone)
+    color: #fff
+  @include m.media(phone)
+    font-size: f.px(28)
+    font-weight: 400
+    padding: 0
+    margin-bottom: 10px
