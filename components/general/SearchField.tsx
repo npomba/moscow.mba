@@ -1,12 +1,4 @@
-
-
-
-
 const SearchField = () => {
-
-
-
-
   return (
     <div>
       <input type='text' />

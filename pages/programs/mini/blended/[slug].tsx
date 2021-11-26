@@ -1,8 +1,8 @@
 import { handleGetStaticProps, handleGetStaticPaths } from '@/helpers/index'
 import BlendedProgram from '@/components/pages/BlendedProgram'
 
-const PageProgramsMiniBlendedProgram = ({ program, programs }) => {
-  return <BlendedProgram program={program} />
+const PageProgramsMiniBlendedProgram = ({ program, programs, teachers }) => {
+  return <BlendedProgram program={program} teachers={teachers} />
 }
 
 export const getStaticProps = async context =>

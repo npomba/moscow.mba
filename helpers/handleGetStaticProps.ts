@@ -36,19 +36,21 @@ const handleGetStaticProps = async (
     programType: null
   }
 ) => {
-  let programs
+  let res
 
   if (dataFor === 'promo') {
-    programs = await fetchProgramsGetStaticPropsPromo({
+    res = await fetchProgramsGetStaticPropsPromo({
       ofType
     })
   } else if (dataFor === 'profession') {
-    programs = await fetchProgramsGetStaticPropsProfession({ ofType })
+    res = await fetchProgramsGetStaticPropsProfession({ ofType })
   } else if (dataFor === 'course') {
-    programs = await fetchProgramsGetStaticPropsCourse({ ofType })
+    res = await fetchProgramsGetStaticPropsCourse({ ofType })
   } else {
-    programs = await fetchProgramsGetStaticProps({ ofType })
+    res = await fetchProgramsGetStaticProps({ ofType })
   }
+
+  const { programs, teachers } = res
 
   const programsWithBlended = createBlended(programs)
   const program =
@@ -63,7 +65,8 @@ const handleGetStaticProps = async (
   return {
     props: {
       program,
-      programs: programsWithBlended
+      programs: programsWithBlended,
+      teachers
     },
     revalidate: revalidate.default
   }
