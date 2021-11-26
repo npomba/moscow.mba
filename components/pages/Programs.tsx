@@ -17,8 +17,7 @@ import programsContext from '@/context/programs/programsContext'
 
 const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
   const at = useAt()
-
-  const [currentField, setCurrentField] = useState(null)
+  const {setCurrentFilter, currentFilter} = useContext(programsContext)
 
   let fields
 
@@ -31,8 +30,13 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
 
     const [firstField] = fields
 
-    if (!currentField) setCurrentField(firstField)
+    if (!currentFilter) setCurrentFilter(firstField)
   }
+
+
+
+
+
 
   const generateHeading = () => {
     if (at.mini) {
@@ -55,13 +59,13 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
   const generatePrograms = () => {
     let programsToDisplay
 
-    if (currentField) {
+    if (currentFilter) {
       programsToDisplay = programs.filter(
-        program => program.study_field?.name === currentField
+        program => program.study_field?.name === currentFilter
       )
     }
 
-    if (!currentField) {
+    if (!currentFilter) {
       programsToDisplay = programs
     }
 
@@ -96,8 +100,8 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
             mbaTypeOfProgram={mbaTypeOfProgram}
             mbaFormat={mbaFormat}
             fields={fields}
-            currentField={currentField}
-            updateCurrentField={setCurrentField}
+            currentField={currentFilter}
+            updateCurrentField={setCurrentFilter}
           />
           <div className={stls.content}>
             <div className={stls.programMainInfo}>

@@ -4,7 +4,6 @@ import programsContext from '@/context/programs/programsContext'
 
 const HandleGetPrograms = (data) => {
   const { setPrograms } = useContext(programsContext)
-
   useEffect(() => {
     setPrograms(data)
   }, [])

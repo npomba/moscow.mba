@@ -6,7 +6,7 @@ import {
   SET_CUR_PROGRAMS_TYPE,
   SET_CUR_PROGRAMS_STUDY_FIELD_SLUG,
   SET_SEARCH_TERM,
-  SEARCH_PROGRAM
+  SEARCH_PROGRAM, CURRENT_FILTER
 } from '@/context/types'
 
 const ProgramsState = props => {
@@ -21,6 +21,7 @@ const ProgramsState = props => {
     curProgramsStudyFieldSlug: null,
     searchTerm: null,
     filteredPrograms: [],
+    currentFilter: '',
   }
 
   const [state, dispatch] = useReducer(programsReducer, initialState)
@@ -55,6 +56,15 @@ const ProgramsState = props => {
   }
 
 
+  const setCurrentFilter = (filter: string) => {
+    dispatch({
+      type: CURRENT_FILTER,
+      payload: filter
+    })
+  }
+
+
+
 
 
   return (
@@ -70,11 +80,13 @@ const ProgramsState = props => {
         curProgramsStudyFieldSlug: state.curProgramsStudyFieldSlug,
         searchTerm: state.searchTerm,
         filteredPrograms: state.filteredPrograms,
+        currentFilter: state.currentFilter,
         setSearchTerm,
         setPrograms,
         setCurProgramsType,
         setCurProgramsStudyFieldSlug,
-        setSearchProgram
+        setSearchProgram,
+        setCurrentFilter,
       }}>
       {props.children}
     </ProgramsContext.Provider>

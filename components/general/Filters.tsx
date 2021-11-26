@@ -4,8 +4,6 @@ import Link from 'next/link'
 import { useAt } from '@/helpers/index'
 import Discount from '@/components/costs/Discount'
 
-import SearchField from '@/components/general/SearchField'
-
 
 const Filters = ({
   mbaTypeOfProgram,
@@ -23,7 +21,6 @@ const Filters = ({
   return (
     <ul className={stls.filters}>
       <li>
-          <SearchField/>
         <h4 className={stls.title}>Формат обучения</h4>
 
         <div className={stls.content}>

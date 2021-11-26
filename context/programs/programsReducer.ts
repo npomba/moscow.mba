@@ -3,7 +3,7 @@ import {
   SET_CUR_PROGRAMS_TYPE,
   SET_CUR_PROGRAMS_STUDY_FIELD_SLUG,
   SET_SEARCH_TERM,
-  SEARCH_PROGRAM
+  SEARCH_PROGRAM, CURRENT_FILTER
 } from '@/context/types'
 // import { filterProgramsByType, getStudyFields } from '@/helpers/index'
 
@@ -60,7 +60,6 @@ const programsReducer = (state, action) => {
       }
     case SEARCH_PROGRAM:
       let value = action.payload
-
       let res = state.programs.filter(item => {
         if (!value) {
           return
@@ -72,11 +71,16 @@ const programsReducer = (state, action) => {
           return item.title
         }
       })
-
       return {
         ...state,
         filteredPrograms: res
       }
+    case CURRENT_FILTER:
+      return {
+        ...state,
+        currentFilter: action.payload
+      }
+
     default:
       return state
   }
