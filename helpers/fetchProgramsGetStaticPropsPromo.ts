@@ -11,11 +11,11 @@ const fetchProgramsGetStaticPropsPromo = async (
     _limit: -1
   })
 
-  const programs = await axios.get(
+  const res = await axios.get(
     `${routesBack.root}${routesBack.programsGetStaticPropsPromo}?${query}`
   )
 
-  return programs.data.filter(item => item.category?.type === 'mini')
+  return res.data.programs.filter(item => item.category?.type === 'mini')
 }
 
 export default fetchProgramsGetStaticPropsPromo
