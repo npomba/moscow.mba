@@ -6,7 +6,7 @@ type OutputType = {
   [key: string]: boolean
 }
 
-const getClassNames = ({ classNames }: getClassNamesType) => {
+const getClassNames = ({ classNames = [] }: getClassNamesType) => {
   const output: OutputType = {}
 
   classNames.forEach(className => {

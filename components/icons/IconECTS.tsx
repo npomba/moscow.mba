@@ -2,8 +2,7 @@ import stls from '@/styles/components/icons/IconECTS.module.sass'
 import { getClassNames } from '@/helpers/index'
 import classnames from 'classnames'
 
-
-const IconECTS = ({classNames = []}) => {
+const IconECTS = ({ classNames = [] }) => {
   const container = getClassNames({ classNames })
 
   return (
