@@ -55,6 +55,13 @@
       background: linear-gradient(0deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 30.09%)
       pointer-events: none
 
+.sticker
+  display: flex
+  flex-wrap: wrap
+  @include m.media(tablet, phone)
+    display: block
+    margin: 0
+
 .number
   font-size: 52px
   flex-shrink: 0
