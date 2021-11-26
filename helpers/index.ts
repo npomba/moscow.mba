@@ -17,6 +17,7 @@ import handlePlaceholder from '@/helpers/handlePlaceholder'
 import onSubmitForm from '@/helpers/onSubmitForm'
 import SetString from '@/helpers/SetString'
 import useAt from '@/helpers/useAt'
+import MovingWithScroll from '@/helpers/MovingWithScroll'
 
 export {
   createBlended,
@@ -37,5 +38,6 @@ export {
   handlePlaceholder,
   onSubmitForm,
   SetString,
-  useAt
+  useAt,
+  MovingWithScroll
 }
