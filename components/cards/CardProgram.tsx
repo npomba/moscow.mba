@@ -6,7 +6,6 @@ import { getStringDeclensionNumber, SetString, useAt } from '@/helpers/index'
 import lang from '@/data/translation/months'
 import TrainingPeriod from '@/components/costs/TrainingPeriod'
 
-
 const CardProgram = ({ professionLayout, program, number, type, format }) => {
   const at = useAt()
 
@@ -18,7 +17,15 @@ const CardProgram = ({ professionLayout, program, number, type, format }) => {
         </div>
         <div>
           <span className={stls.category}>
-              {at.mini ? 'Mini MBA' : at.mba ? 'MBA' : at.profession ? 'Профессия' : at.course ? 'Курс' : ''}
+            {at.mini
+              ? 'Mini MBA'
+              : at.mba
+              ? 'MBA'
+              : at.profession
+              ? 'Профессия'
+              : at.course
+              ? 'Курс'
+              : ''}
           </span>
         </div>
         <h3 className={stls.programTitle}>{program.title}</h3>
@@ -28,22 +35,20 @@ const CardProgram = ({ professionLayout, program, number, type, format }) => {
               discount
               type={type}
               format={format}
+              programPrice={(at.profession || at.course) && program.price}
               renderedByComponent='CardProgram'
             />
           </div>
           <div className={stls.duration}>
-            {
-              program.duration ?
-                `${
-                  program.duration?.minStudyMonths
-                } ${SetString(
-                  lang.months,
-                  false,
-                  getStringDeclensionNumber(program.duration?.minStudyMonths)
-                )}`
-                :
-                <TrainingPeriod type={type} />
-            }
+            {program.duration ? (
+              `${program.duration?.minStudyMonths} ${SetString(
+                lang.months,
+                false,
+                getStringDeclensionNumber(program.duration?.minStudyMonths)
+              )}`
+            ) : (
+              <TrainingPeriod type={type} />
+            )}
           </div>
         </div>
       </a>

@@ -279,8 +279,7 @@ const Teachers = ({
             [stls.teachersList]: true,
             [stls.teachersListProfession]: at.profession || at.course
           })}>
-          {/* {(at.profession || at.course) &&
-            teachers &&
+          {teachers &&
             teachers.length > 0 &&
             teachers.map((teacher, idx) => (
               <li key={teacher.name + idx}>
@@ -297,82 +296,48 @@ const Teachers = ({
                     />
                   </div>
                   <div>
-                    <div className={stls.name}>
-                      {teacher.name}
-                    </div>
-                    <p>
-                      {teacher.description}
-                    </p>
-                  </div>
-                </div>
-              </li>
-            ))} */}
-          {(at.profession || at.course) && teachers && teachers.length > 0 && (
-            <div className={stls.getAllTeachers}>
-              <h3 className={stls.getAllTeachersTitle}>
-                Получите полный список преподавателей
-              </h3>
-              <div
-                className={classNames({
-                  [stls.btn]: true,
-                  [stls.getAllTeachersBtn]: true
-                })}>
-                <Popup
-                  trigger={
-                    <button
-                      className={classNames({
-                        button: true
-                      })}>
-                      {SetString(lang.getAllTeachersBtn)}
-                    </button>
-                  }
-                  modal
-                  nested>
-                  {close => (
-                    <PopupForm
-                      programId={programId}
-                      programTitle={programTitle}
-                      closePopUpForm={close}
-                      title={SetString(lang.getAllTeachersPopupTitle)}
-                      disc={SetString(lang.teachersPopupFormDics)}
-                    />
-                  )}
-                </Popup>
-              </div>
-            </div>
-          )}
-          {!at.profession &&
-            !at.course &&
-            defaultTeachers.map((teacher, idx) => (
-              <li key={teacher.name + idx}>
-                <div className={stls.teachersItem}>
-                  <div className={stls.image}>
-                    <Image
-                      src={teacher.img.src}
-                      alt={teacher.name}
-                      width={269}
-                      height={322}
-                      layout='responsive'
-                      placeholder='blur'
-                      blurDataURL={base64pixel}
-                    />
-                  </div>
-                  <div>
-                    <div className={stls.name}>
-                      {/* {SetString(lang.teachersTeacherOneTitle)} */}
-                      {teacher.name}
-                    </div>
-                    <p>
-                      {/* {SetString(lang.teachersTeacherOneDics)} */}
-                      {teacher.desc}
-                    </p>
+                    <div className={stls.name}>{teacher.name}</div>
+                    <p>{teacher.description}</p>
                   </div>
                 </div>
               </li>
             ))}
         </ul>
-        {(((at.profession || at.course) && teachers && teachers.length === 0) ||
-          (!at.profession && !at.course)) && (
+        {teachers && teachers.length === 0 && (
+          <div className={stls.getAllTeachers}>
+            <h3 className={stls.getAllTeachersTitle}>
+              Получите полный список преподавателей
+            </h3>
+            <div
+              className={classNames({
+                [stls.btn]: true,
+                [stls.getAllTeachersBtn]: true
+              })}>
+              <Popup
+                trigger={
+                  <button
+                    className={classNames({
+                      button: true
+                    })}>
+                    {SetString(lang.getAllTeachersBtn)}
+                  </button>
+                }
+                modal
+                nested>
+                {close => (
+                  <PopupForm
+                    programId={programId}
+                    programTitle={programTitle}
+                    closePopUpForm={close}
+                    title={SetString(lang.getAllTeachersPopupTitle)}
+                    disc={SetString(lang.teachersPopupFormDics)}
+                  />
+                )}
+              </Popup>
+            </div>
+          </div>
+        )}
+        {teachers && teachers.length > 0 && (
           <div className={stls.btn}>
             <Popup
               trigger={

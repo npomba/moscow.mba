@@ -21,6 +21,7 @@ import hitContactRoute from '@/helpers/hitContactRoute'
 import getBackJWTToken from '@/helpers/getBackJWTToken'
 import onSubmitForm from '@/helpers/onSubmitForm'
 import SetString from '@/helpers/SetString'
+import toNumberWithSpaces from '@/helpers/toNumberWithSpaces'
 import useAt from '@/helpers/useAt'
 
 export {
@@ -47,5 +48,6 @@ export {
   getBackJWTToken,
   onSubmitForm,
   SetString,
+  toNumberWithSpaces,
   useAt
 }

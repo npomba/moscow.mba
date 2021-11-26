@@ -64,6 +64,7 @@ const ProfessionOnlineProgram = ({ program, teachers }) => {
           programTitle={data.title}
           programFormat={data.studyFormat}
           programType={data.category?.type}
+          programPrice={data.price}
         />
         <Qna programId={data._id} programTitle={data.title} />
         <ContactUs
