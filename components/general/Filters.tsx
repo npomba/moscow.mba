@@ -18,6 +18,8 @@ const Filters = ({
     if (fields) e.preventDefault()
   }
 
+
+
   return (
     <ul className={stls.filters}>
       <SearchField/>
