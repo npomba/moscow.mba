@@ -6,9 +6,7 @@ import lang from '@/data/translation/index'
 const ECTSStandard = () => {
   return (
     <section className={stls.container}>
-      <div className={stls.icon}>
-        <IconECTS />
-      </div>
+      <IconECTS classNames={stls.icon} />
       <div className={stls.content}>
         <h3 className={stls.title}>{SetString(lang.standartECTSTitle)}</h3>
         <p className={stls.desc}>{SetString(lang.standartECTSTDesc)}</p>
