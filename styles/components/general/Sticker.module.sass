@@ -14,6 +14,12 @@
 
   &.long
     display: flex
+    @include m.media(desktop, widescreen)
+      justify-content: space-between
+      & .title
+        max-width: 40%
+      & .right
+        max-width: 40%
     @include m.media(widescreen, desktop)
       & > *:nth-last-child(1)
         display: flex
@@ -97,8 +103,6 @@
     font-size: 32px
     font-weight: 400
     padding-bottom: 32px
-
-
 
 .item
   position: relative

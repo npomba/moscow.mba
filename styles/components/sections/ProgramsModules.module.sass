@@ -1,9 +1,10 @@
 @use '@/styles/utils/mixin' as m
 
 .container
-  margin: 0 0 110px 0
-  @include m.media(laptop,tablet, phone)
-    margin: 0 0 50px 0
+  @include m.media(phone, tablet ,laptop)
+    margin: 0 0 78px 0
+  @include m.media(desktop, widescreen)
+    margin: 0 0 73px 0
   .h3
     font-weight: bold
     font-size: 36px
