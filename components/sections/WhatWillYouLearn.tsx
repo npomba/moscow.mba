@@ -2,7 +2,6 @@ import stls from '@/styles/components/sections/WhatWillYouLearn.module.sass'
 import classNames from 'classnames'
 import Image from 'next/image'
 import { base64pixel } from '@/config/index'
-import MovingWithScroll from '@/components/general/MovingWithScroll'
 
 const WhatWillYouLearn = ({ data = null }) => {
   const aboutAcademy = [
