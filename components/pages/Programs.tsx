@@ -13,11 +13,29 @@ import Filters from '@/components/general/Filters'
 import { CardProgram } from '@/components/cards'
 import { IconCheckCircle } from '@/components/icons'
 import programsContext from '@/context/programs/programsContext'
+import { useRouter } from 'next/router'
 
 
 const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
-  const at = useAt()
   const {setCurrentFilter, currentFilter} = useContext(programsContext)
+  const router = useRouter()
+
+  useEffect(() => {
+    if (!router.query?.filter) {
+      router.push({query: {
+          'filter': `${currentFilter}`
+        }
+      })
+    }
+
+  }, [currentFilter])
+
+
+
+
+
+  const at = useAt()
+
 
   let fields
 
@@ -32,10 +50,6 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
 
     if (!currentFilter) setCurrentFilter(firstField)
   }
-
-
-
-
 
 
   const generateHeading = () => {
