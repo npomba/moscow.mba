@@ -4,12 +4,13 @@ import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/index'
 import { IconArrowTopRight } from '@/components/icons'
 
-const InputSubmit = ({ errors, alpha = false, width = '25' }) => {
+const InputSubmit = ({ errors, alpha = false, width = '25', ...props }) => {
   return (
     <div className={`input-block width-${width}`}>
       <button
+        {...props}
         type='submit'
-        className={classNames({
+        className={classNames( props.className, {
           button: !alpha,
           [stls.button]: alpha,
           'white-button': !alpha,

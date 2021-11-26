@@ -1,3 +1,4 @@
+
 import stls from '@/styles/pages/About.module.sass'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
@@ -45,3 +46,4 @@ const PageAbout = ({ programs }) => {
 export const getStaticProps = async () => handleGetStaticProps()
 
 export default PageAbout
+

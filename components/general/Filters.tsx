@@ -3,7 +3,9 @@ import classNames from 'classnames'
 import Link from 'next/link'
 import { useAt } from '@/helpers/index'
 import Discount from '@/components/costs/Discount'
+
 import SearchField from '@/components/general/SearchField'
+
 
 const Filters = ({
   mbaTypeOfProgram,
@@ -20,9 +22,10 @@ const Filters = ({
 
   return (
     <ul className={stls.filters}>
-      <SearchField/>
       <li>
-        <h4 className={stls.title}>Тип программы</h4>
+          <SearchField/>
+        <h4 className={stls.title}>Формат обучения</h4>
+
         <div className={stls.content}>
           <Link href={`/programs/mini/${mbaFormat}`}>
             <a>
@@ -85,7 +88,7 @@ const Filters = ({
         </div>
       </li>
       <li>
-        <h4 className={stls.title}>Формат обучения</h4>
+        <h4 className={stls.title}>Форма обучения</h4>
         <div className={stls.content}>
           <Link href={`/programs/${mbaTypeOfProgram}/blended`}>
             <a

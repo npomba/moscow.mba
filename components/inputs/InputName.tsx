@@ -5,6 +5,7 @@ import { handlePlaceholder } from '@/helpers/index'
 import classNames from 'classnames'
 
 const InputName = ({ register, errors, width = '25' }) => {
+
   return (
     <div className={`input-block width-${width}`}>
       <input

@@ -7,6 +7,7 @@ const PageProgramsMba = ({ programs }) => {
       program.studyFormat === 'online' && program.category?.type === 'mba'
   )
 
+
   return (
     <Programs programs={data} mbaTypeOfProgram={'mba'} mbaFormat={'online'} />
   )

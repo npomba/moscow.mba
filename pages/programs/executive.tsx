@@ -18,8 +18,14 @@ import Reviews from '@/components/sections/Reviews'
 import CostOfStudy from '@/components/sections/CostOfStudy'
 import Qna from '@/components/sections/Qna'
 import { handleGetStaticProps } from '@/helpers/index'
+import HandleGetPrograms from '@/helpers/HandleGetPrograms'
+
+
+
+
 
 const PageProgramsExecutive = ({ program, programs }) => {
+  HandleGetPrograms(programs)
   return (
     <>
       <NextSeo

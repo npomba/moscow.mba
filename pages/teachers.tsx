@@ -6,8 +6,11 @@ import Teachers from '@/components/sections/Teachers'
 import { handleGetStaticProps } from '@/helpers/index'
 
 import Breadcrumbs from '@/components/general/Breadcrumbs'
+import HandleGetPrograms from '@/helpers/HandleGetPrograms'
+
 
 const PageTeachers = ({ programs }) => {
+  HandleGetPrograms(programs)
   return (
     <>
       <NextSeo

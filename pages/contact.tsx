@@ -9,8 +9,11 @@ import { contactData } from '@/config/index'
 import Breadcrumbs from '@/components/general/Breadcrumbs'
 import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
 import { handleGetStaticProps } from '@/helpers/index'
+import HandleGetPrograms from '@/helpers/HandleGetPrograms'
 
 const PageContact = ({ programs }) => {
+
+  HandleGetPrograms(programs)
   const contactInfo = contactData()
   return (
     <>
