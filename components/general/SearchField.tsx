@@ -4,8 +4,7 @@ import useAt from '@/helpers/useAt'
 import { useContext, useState } from 'react'
 import Popup from 'reactjs-popup'
 import Link from 'next/link'
-import IconSearch from '@/components/icons/IconSearch'
-import IconClose from '@/components/icons/IconClose'
+import { IconSearch, IconClose } from '@/components/icons'
 import { FormAlpha } from '@/components/forms'
 import LeadLoaderThankyou from '@/components/general/LeadLoaderThankyou'
 
@@ -117,7 +116,6 @@ const SearchField = () => {
           </div>
         </div>
       )}
-
     </Popup>
   )
 }

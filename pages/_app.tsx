@@ -106,18 +106,6 @@ function MyApp({ Component, pageProps, router }) {
           </MenuState>
         </OverlayState>
       </ProgramsState>
-
-      <OverlayState>
-        <MenuState>
-          <Wrapper>
-            <Header programs={programs} />
-            <Main>
-              <Component {...pageProps} />
-            </Main>
-            <Footer />
-          </Wrapper>
-        </MenuState>
-      </OverlayState>
     </>
   )
 }
