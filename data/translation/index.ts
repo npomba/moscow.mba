@@ -50,27 +50,27 @@ const index = {
   },
 
   benefitOneDisc: {
-    ru: 'программ MBA и курсов',
+    ru: 'Программ MBA и курсов',
     en: 'MBA Programs and courses'
   },
 
   benefitTwoDisc: {
-    ru: 'новейшие программы 2021 года',
+    ru: 'Новейшие программы 2021 года',
     en: 'newest programs of 2021'
   },
 
   benefitThreeDisc: {
-    ru: 'международных экспертов',
+    ru: 'Международных экспертов',
     en: 'international experts'
   },
 
   benefitFourDisc: {
-    ru: 'студентов по всему миру',
+    ru: 'Студентов по всему миру',
     en: 'students from all over the world'
   },
 
   benefitFourDiscAlt: {
-    ru: 'выпускников по всему миру',
+    ru: 'Выпускников по всему миру',
     en: 'graduates around the world'
   },
 
@@ -246,6 +246,11 @@ const index = {
 
   helpToChooseDics: {
     ru: 'Оставьте заявку и получите консультацию по программам MBA, узнайте их точную стоимость, возможные варианты скидок и требования к поступлению',
+    en: 'Leave your request for a consultation on the MBA programs, their fees, available discounts and admission requirements'
+  },
+
+  helpToChooseDicsProfessionCourse: {
+    ru: 'Оставьте заявку и получите консультацию по программам, узнайте их точную стоимость, возможные варианты скидок и требования к поступлению',
     en: 'Leave your request for a consultation on the MBA programs, their fees, available discounts and admission requirements'
   },
 

@@ -1,6 +1,6 @@
 import stls from '@/styles/components/general/ContactCards.module.sass'
 import { CardContact } from '@/components/cards'
-import contactData from '@/data/contactData'
+import { contactData } from '@/config/index'
 import { SetString } from '@/helpers/index'
 
 const ContactCards = () => {

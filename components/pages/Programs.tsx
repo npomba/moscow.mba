@@ -13,6 +13,7 @@ import Filters from '@/components/general/Filters'
 import { CardProgram } from '@/components/cards'
 import { IconCheckCircle } from '@/components/icons'
 
+
 const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
   const at = useAt()
 
@@ -20,7 +21,7 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
 
   let fields
 
-  if (at.profession) {
+  if (at.profession || at.course) {
     fields = programs.reduce((acc, curr) => {
       if (!acc.includes(curr.study_field?.name))
         acc.push(curr.study_field?.name)
@@ -43,6 +44,10 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
 
     if (at.profession) {
       return 'Профессии'
+    }
+
+    if (at.course) {
+      return 'Курсы'
     }
   }
 
@@ -117,6 +122,13 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
                   имеющиеся знания или познакомиться с ключевыми аспектами новой
                   для себя сферы управленческой деятельности.
                 </div>
+              ) : at.course ? (
+                <div className={stls.desc}>
+                  Программа повышения квалификации разработана для специалистов
+                  и руководителей, которые хотят систематизировать имеющиеся
+                  знания или познакомиться с ключевыми аспектами новой для себя
+                  сферы управленческой деятельности.
+                </div>
               ) : (
                 <div className={stls.counters}>
                   <div className={stls.counter}>
@@ -136,19 +148,19 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
                 </div>
               )}
             </div>
-            {!at.profession && (
+            {!at.profession && !at.course && (
               <InfoRectangle
                 programPage={true}
                 type={mbaTypeOfProgram}
                 format={mbaFormat}
               />
             )}
-            <div className={`mini-programs-slider ${stls.programs}`}>
+            <div className={stls.programs}>
               {programsToDisplay.map((program, idx) => {
                 return (
                   <CardProgram
                     key={program._id || program.id}
-                    professionLayout={at.profession}
+                    professionLayout={at.profession || at.course}
                     program={program}
                     number={idx + 1}
                     type={mbaTypeOfProgram}

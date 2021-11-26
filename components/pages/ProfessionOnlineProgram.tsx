@@ -3,7 +3,6 @@ import { NextSeo, CourseJsonLd } from 'next-seo'
 import { useRouter } from 'next/router'
 import truncate from 'truncate'
 import JumbotronProgram from '@/components/sections/JumbotronProgram'
-import Reviews from '@/components/sections/Reviews'
 import WhoItIsFor from '@/components/sections/WhoItIsFor'
 import WhatWillYouLearn from '@/components/sections/WhatWillYouLearn'
 import ProgramDesc from '@/components/sections/ProgramDesc'
@@ -11,17 +10,16 @@ import HowProcessGoes from '@/components/sections/HowProcessGoes'
 import ProgramModules from '@/components/sections/ProgramsModules'
 import ContactUs from '@/components/sections/ContactUs'
 import Qna from '@/components/sections/Qna'
-import Students from '@/components/sections/Students'
 import Teachers from '@/components/sections/Teachers'
 import Diploma from '@/components/sections/Diploma'
 import CorporateClients from '@/components/sections/CorporateClients'
 import CostOfStudy from '@/components/sections/CostOfStudy'
 import HelpWithEmployment from '@/components/sections/HelpWithEmployment'
-import Accreditation from '@/components/sections/Accreditation'
 import Pros from '@/components/sections/Pros'
 import GetStudyPlan from '@/components/sections/GetStudyPlan'
+import ProgramDevelopedStandard from '@/components/sections/ProgramDevelopedStandard'
 
-const ProfessionOnlineProgram = ({ program }) => {
+const ProfessionOnlineProgram = ({ program, teachers }) => {
   const data = program
 
   const router = useRouter()
@@ -45,16 +43,18 @@ const ProfessionOnlineProgram = ({ program }) => {
       <div className={stls.container}>
         <WhatWillYouLearn data={data} />
         <ProgramDesc />
+        <ProgramDevelopedStandard />
         <WhoItIsFor program={program} />
 
         <Pros format={'online'} />
         <HowProcessGoes />
         <ProgramModules program={data} smallerMb />
         <GetStudyPlan />
-        <Teachers programId={data._id} programTitle={data.title} />
-        <Students />
-        <Reviews />
-        <Accreditation />
+        <Teachers
+          programId={data._id}
+          programTitle={data.title}
+          teachers={program.teachers}
+        />
         <HelpWithEmployment />
         <CorporateClients partnershipTitle />
         <Diploma />
@@ -64,6 +64,7 @@ const ProfessionOnlineProgram = ({ program }) => {
           programTitle={data.title}
           programFormat={data.studyFormat}
           programType={data.category?.type}
+          programPrice={data.price}
         />
         <Qna programId={data._id} programTitle={data.title} />
         <ContactUs

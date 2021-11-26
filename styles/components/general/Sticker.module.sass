@@ -4,16 +4,22 @@
   &.short,
   &.long
     position: relative
-    padding: 56px 71px
+    padding: 56px 51px
     width: 100%
     @include m.media(tablet, phone)
-      padding: 45px 50px
+      padding: 45px 40px
 
   &.short
     flex: 1
 
   &.long
     display: flex
+    @include m.media(desktop, widescreen)
+      justify-content: space-between
+      & .title
+        max-width: 40%
+      & .right
+        max-width: 40%
     @include m.media(widescreen, desktop)
       & > *:nth-last-child(1)
         display: flex
@@ -21,9 +27,9 @@
         align-items: center
 
       &::before
-        content: '',
+        content: ''
         width: 1px
-        height: 50%
+        height: 60%
         position: absolute
         top: 50%
         right: 50%
@@ -47,6 +53,8 @@
       max-width: 432px
       @include m.media(laptop, tablet, phone)
         max-width: 100%
+        p
+          margin-bottom: 10px
 
   &.red,
   &.dark
@@ -92,15 +100,16 @@
   font-size: 36px
   line-height: 120%
   @include m.media(tablet, phone)
-    font-size: 24px
+    font-size: 32px
+    font-weight: 400
     padding-bottom: 32px
 
-.listItem
+.item
   position: relative
-  padding-left: 20px
-  &:not(:last-child)
-    margin-bottom: 10px
   &.many
+    padding-left: 20px
+    &:last-child
+      margin-top: 10px
     &::before
       content: ''
       position: absolute
@@ -114,17 +123,11 @@
         top: 8px
       & p
         padding-left: 18px
-    & p
-      margin-top: -21px
-      @include m.media(tablet, phone)
-        margin-top: -16px
-
   &:not(:last-child)
     padding-bottom: 10px
   & p
-    font-style: normal
-    font-weight: normal
-    font-size: 20px
     line-height: 130%
-    @include m.media(tablet, phone)
+    @include m.media(laptop, desktop, widescreen)
+      font-size: 20px
+    @include m.media(phone, tablet)
       font-size: 14px

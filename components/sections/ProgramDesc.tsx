@@ -9,9 +9,9 @@ const ProgramDesc = () => {
     <section className={stls.container}>
       <div
         className={classNames(stls.content, {
-          [stls.smallPl]: at.profession || at.promo
+          [stls.smallPl]: at.profession || at.course || at.promo
         })}>
-        {!at.profession && !at.promo && (
+        {!at.profession && !at.course && !at.promo && (
           <div className={stls.title}>О&nbsp;программе</div>
         )}
         <h2>
@@ -20,10 +20,12 @@ const ProgramDesc = () => {
           {at.mini && at.blended && 'MBA Mini BLENDED'}
           {at.mba && at.blended && 'MBA BLENDED'}
           {!at.profession &&
+            !at.course &&
             !at.promo &&
             !at.mbl &&
             ' — путь руководителя к росту'}
-          {at.profession && 'Компетенции, востребованные на рынке'}
+          {at.profession && 'Вы получите востребованные на рынке компетенции'}
+          {at.course && 'Вы получите востребованные на рынке компетенции'}
           {at.promo && 'Вы получите востребованные на рынке компетенции'}
           {at.mbl && 'MBA ONLINE'}
         </h2>
@@ -42,6 +44,8 @@ const ProgramDesc = () => {
             'MBA Blended — смешанная программа MBA: дистанционный формат плюс очные сессии. Разработана для предпринимателей и руководителей компаний, которые ценят свое время и хотят пройти обучение без сильного отрыва от работы'}
           {at.profession &&
             'Мы проводим более 100 исследований ежегодно и добавляем в программу то, что требуют топовые работодатели. После обучения вы будете на 100% готовы к новым профессиональным вызовам'}
+          {at.course &&
+            'Мы проводим более 100 исследований ежегодно и добавляем в программу то, что требуют топовые работодатели. После обучения вы будете на 100% готовы к новым профессиональным вызовам'}
           {at.promo &&
             'Мы проводим более 100 исследований ежегодно и постоянно добавляем в программу самые современные инструменты для построения высокодоходных бизнес-систем.  После обучения вы будете на 100% готовы к новым профессиональным вызовам.'}
           {at.mbl &&
@@ -49,7 +53,7 @@ const ProgramDesc = () => {
         </div>
       </div>
       <div className={stls.imageContainer}>
-        {!at.profession && !at.promo && (
+        {!at.profession && !at.course && !at.promo && (
           <Image
             src='/assets/images/top_path_pic_1.jpg'
             alt='Слушатели на конференции'
@@ -57,7 +61,7 @@ const ProgramDesc = () => {
             height={503}
           />
         )}
-        {(at.profession || at.promo) && (
+        {(at.profession || at.course || at.promo) && (
           <Image
             src='/assets/images/handsome-business-man.jpg'
             alt='Слушатели на конференции'

@@ -7,20 +7,27 @@ import lang from '@/data/translation/index'
 import langMenu from '@/data/translation/menu'
 import { useAt } from '@/helpers/index'
 import Price from '@/components/costs/Price'
+import PopupInfo from '@/components/popups/PopupInfo'
 
-const InfoRectangle = ({ programPage = false, type = null, format = null }) => {
+const InfoRectangle = ({
+  programPage = false,
+  type = null,
+  format = null,
+  studyDurationMonths = null
+}) => {
   const at = useAt()
   const isDiscounted =
     (at.mini && at.online) ||
     (at.mba && at.online) ||
     (at.profession && at.online) ||
+    (at.course && at.online) ||
     at.mbl
 
   const infoRectangleContent = {
     programInfo: [
       {
         itemTitle: 'Срок обучения:',
-        itemDetail: <TrainingPeriod type={type} />
+        itemDetail: <TrainingPeriod period={studyDurationMonths} type={type} />
       },
       {
         itemTitle: 'Форма обучения:',
@@ -43,14 +50,31 @@ const InfoRectangle = ({ programPage = false, type = null, format = null }) => {
       {
         // itemTitle: 'Стоимость:',
         itemTitle: 'Диплом:',
-        itemDetail:
+        itemDetail: (
           // <Price
           //   discount={isDiscounted}
           //   type={type}
           //   format={format}
           //   renderedByComponent='InfoRectangle'
           // />
-          'Заносится в ФРДО'
+
+          // 'Заносится в ФРДО'
+          <PopupInfo
+            title={'Заносится в ФРДО'}
+            content={{
+              title: 'ФРДО — ',
+              subtitle: 'Федеральный реестр сведений документов об образовании',
+              description: 'Цели Федерального реестра:',
+              items: [
+                'Ликвидация оборота поддельных документов государственного образца об образовании',
+                'Обеспечение ведомств и работодателей достоверной информацией о квалификации претендентов на\n' +
+                  'трудоустройство',
+                'Сокращение числа нарушений и коррупции в образовательных учреждениях',
+                'Повышение качества образования за счет обеспечения общественности достоверной информацией о выпускниках'
+              ]
+            }}
+          />
+        )
       }
     ],
     academyInfo: [

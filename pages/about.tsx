@@ -10,13 +10,13 @@ import CorporateClients from '@/components/sections/CorporateClients'
 import Teachers from '@/components/sections/Teachers'
 import UpToDateContent from '@/components/sections/UpToDateContent'
 import Accreditation from '@/components/sections/Accreditation'
-import ContactUs from '@/components/sections/ContactUs'
 import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/about'
 import langIndex from '@/data/translation/index'
 import { handleGetStaticProps } from '@/helpers/index'
+import ContactUs from '@/components/sections/ContactUs'
 
-const about = ({ programs }) => {
+const PageAbout = ({ programs, teachers }) => {
   return (
     <>
       <NextSeo
@@ -33,7 +33,7 @@ const about = ({ programs }) => {
         <ForeignAffiliates />
         <StudentsInternational />
         <CorporateClients />
-        <Teachers />
+        <Teachers teachers={teachers} />
         <UpToDateContent />
         <Accreditation />
         <ContactUs />
@@ -44,4 +44,4 @@ const about = ({ programs }) => {
 
 export const getStaticProps = async () => handleGetStaticProps()
 
-export default about
+export default PageAbout

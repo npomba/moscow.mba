@@ -13,46 +13,119 @@ import { base64pixel } from '@/config/index'
 import classNames from 'classnames'
 
 const splitParaText = (string, splitBy) => {
-  const indexOfWordToSplitBy = string.indexOf(splitBy)
+  let firstPartOfString, secondPartOfString
+  if (string) {
+    const indexOfWordToSplitBy = string.indexOf(splitBy)
 
-  if (indexOfWordToSplitBy === -1) return [string, '']
+    if (indexOfWordToSplitBy === -1) return [string, '']
 
-  const firstPartOfString = string.slice(0, indexOfWordToSplitBy)
-  const secondPartOfString = string.slice(indexOfWordToSplitBy)
-
+    firstPartOfString = string.slice(0, indexOfWordToSplitBy)
+    secondPartOfString = string.slice(indexOfWordToSplitBy)
+  }
   return [firstPartOfString, secondPartOfString]
 }
 
 const Teachers = ({
   programTitle = null,
   programId = null,
-  atStandAlonePage = false
+  atStandAlonePage = false,
+  teachers = null
 }) => {
   const at = useAt()
   const router = useRouter()
 
-  const title = at.profession ? (
-    <h2 className={stls.titleProfession}>
-      {SetString(lang.teachersTitleFirstSecondary)}{' '}
-      <span className='red'>{SetString(lang.teachersTitleRedSecondary)} </span>
-      {SetString(lang.teachersTitleSecondSecondary)}
-    </h2>
-  ) : (
-    <h2>
-      {SetString(lang.teachersTitleFirstMain)}{' '}
-      <span className='red'>{SetString(lang.teachersTitleRedMain)} </span>
-      {SetString(lang.teachersTitleSecondMain)}
-    </h2>
-  )
+  const defaultTeachers = [
+    {
+      name: SetString(lang.teachersTeacherOneTitle),
+      desc: SetString(lang.teachersTeacherOneDics),
+      img: {
+        src: '/assets/images/teachers/teacher-1.jpg',
+        alt: SetString(lang.teachersTeacherOneTitle)
+      }
+    },
+    {
+      name: SetString(lang.teachersTeacherTwoTitle),
+      desc: SetString(lang.teachersTeacherTwoDics),
+      img: {
+        src: '/assets/images/teachers/teacher-2.jpg',
+        alt: SetString(lang.teachersTeacherTwoTitle)
+      }
+    },
+    {
+      name: SetString(lang.teachersTeacherThreeTitle),
+      desc: SetString(lang.teachersTeacherThreeDics),
+      img: {
+        src: '/assets/images/teachers/teacher-3.jpg',
+        alt: SetString(lang.teachersTeacherThreeTitle)
+      }
+    },
+    {
+      name: SetString(lang.teachersTeacherFourTitle),
+      desc: SetString(lang.teachersTeacherFourDics),
+      img: {
+        src: '/assets/images/teachers/teacher-4.jpg',
+        alt: SetString(lang.teachersTeacherOneTitle)
+      }
+    },
+    {
+      name: SetString(lang.teachersTeacherFiveTitle),
+      desc: SetString(lang.teachersTeacherFiveDics),
+      img: {
+        src: '/assets/images/teachers/teacher-5.jpg',
+        alt: SetString(lang.teachersTeacherFiveTitle)
+      }
+    },
+    {
+      name: SetString(lang.teachersTeacherSixTitle),
+      desc: SetString(lang.teachersTeacherSixDics),
+      img: {
+        src: '/assets/images/teachers/teacher-6.jpg',
+        alt: SetString(lang.teachersTeacherSixTitle)
+      }
+    },
+    {
+      name: SetString(lang.teachersTeacherSevenTitle),
+      desc: SetString(lang.teachersTeacherSevenDics),
+      img: {
+        src: '/assets/images/teachers/teacher-7.jpg',
+        alt: SetString(lang.teachersTeacherSevenTitle)
+      }
+    },
+    {
+      name: SetString(lang.teachersTeacherEightTitle),
+      desc: SetString(lang.teachersTeacherEightDics),
+      img: {
+        src: '/assets/images/teachers/teacher-8.jpg',
+        alt: SetString(lang.teachersTeacherEightTitle)
+      }
+    }
+  ]
+
+  const title =
+    at.profession || at.course ? (
+      <h2 className={stls.titleProfession}>
+        {SetString(lang.teachersTitleFirstSecondary)}{' '}
+        <span className='red'>
+          {SetString(lang.teachersTitleRedSecondary)}{' '}
+        </span>
+        {SetString(lang.teachersTitleSecondSecondary)}
+      </h2>
+    ) : (
+      <h2>
+        {SetString(lang.teachersTitleFirstMain)}{' '}
+        <span className='red'>{SetString(lang.teachersTitleRedMain)} </span>
+        {SetString(lang.teachersTitleSecondMain)}
+      </h2>
+    )
 
   const firstParaText = SetString(
-    at.profession
+    at.profession || at.course
       ? lang.teachersListItemDiscSecondary
       : lang.teachersListItemDiscMain
   )
   const secondParaText = SetString(lang.teachersListItemDiscSecond)
   const teachersProsTitle = SetString(
-    at.profession ? lang.teachersProsTitleSecondary : lang.teachersProsTitleMain
+    !at.profession && !at.course && lang.teachersProsTitleMain
   )
 
   const wordToSplitBy = {
@@ -96,27 +169,42 @@ const Teachers = ({
           </div>
           <div className={stls.content}>
             {title}
-            {!at.profession && (
+            {!at.profession && !at.course && (
               <div className={stls.text}>{SetString(lang.teachersDics)}</div>
             )}
-            <div className={`${stls.twoImages} ${stls.detailImage}`}>
-              <div className={`${stls.image} ${stls.pic1}`}>
+            <div
+              className={classNames({
+                [stls.twoImages]: true,
+                [stls.detailImage]: true,
+                [stls.detailImageAtProfession]: at.profession || at.course
+              })}>
+              <div
+                className={classNames({
+                  [stls.image]: true,
+                  [stls.pic1]: true,
+                  [stls.pic1AtProfession]: at.profession || at.course
+                })}>
                 <Image
                   src={imagesData.circleSpeakerOne.src}
                   alt={SetString(imagesData.circleSpeakerOne.alt)}
-                  width={425}
-                  height={422}
+                  width={!at.profession && !at.course ? 425 : 344}
+                  height={!at.profession && !at.course ? 422 : 342}
                   layout='responsive'
                   placeholder='blur'
                   blurDataURL={base64pixel}
                 />
               </div>
-              <div className={`${stls.image} ${stls.pic2}`}>
+              <div
+                className={classNames({
+                  [stls.image]: true,
+                  [stls.pic2]: true,
+                  [stls.pic2AtProfession]: at.profession || at.course
+                })}>
                 <Image
                   src={imagesData.circleSpeakerTwo.src}
                   alt={SetString(imagesData.circleSpeakerTwo.alt)}
-                  width={236}
-                  height={236}
+                  width={!at.profession && !at.course ? 236 : 199}
+                  height={!at.profession && !at.course ? 236 : 199}
                   layout='responsive'
                   placeholder='blur'
                   blurDataURL={base64pixel}
@@ -126,7 +214,7 @@ const Teachers = ({
             <ul
               className={classNames({
                 [stls.detailList]: true,
-                [stls.detailListProfession]: at.profession
+                [stls.detailListProfession]: at.profession || at.course
               })}>
               <li>
                 <div className={stls.circle}>
@@ -135,7 +223,7 @@ const Teachers = ({
                 <div>
                   <h5>
                     {SetString(
-                      at.profession
+                      at.profession || at.course
                         ? lang.teachersListItemTitleSecondary
                         : lang.teachersListItemTitleMain
                     )}
@@ -163,10 +251,14 @@ const Teachers = ({
                   <IconCheck />
                 </div>
                 <div>
-                  <h5>{SetString(lang.teachersListItemTitleThird)}</h5>
+                  <h5>
+                    {at.profession || at.course
+                      ? SetString(lang.teachersListItemTitleThirdAlt)
+                      : SetString(lang.teachersListItemTitleThird)}
+                  </h5>
                   <p>
                     {SetString(
-                      at.profession
+                      at.profession || at.course
                         ? lang.teachersListItemDiscThirdSecondary
                         : lang.teachersListItemDiscThirdMain
                     )}
@@ -175,201 +267,98 @@ const Teachers = ({
               </li>
             </ul>
           </div>
-          <h3 className={stls.teachersPros}>
-            {teachersProsPartOne}
-            <span className={stls.breakLine}>{teachersProsPartTwo}</span>
-          </h3>
+          {!at.profession && !at.course && (
+            <h3 className={stls.teachersPros}>
+              {teachersProsPartOne}
+              <span className={stls.breakLine}>{teachersProsPartTwo}</span>
+            </h3>
+          )}
         </div>
-        <ul className={stls.teachersList}>
-          <li>
-            <div className={stls.teachersItem}>
-              <div className={stls.image}>
-                <Image
-                  src='/assets/images/teachers/teacher-1.jpg'
-                  alt={SetString(lang.teachersTeacherOneTitle)}
-                  width={269}
-                  height={322}
-                  layout='responsive'
-                  placeholder='blur'
-                  blurDataURL={base64pixel}
-                />
-              </div>
-              <div>
-                <div className={stls.name}>
-                  {SetString(lang.teachersTeacherOneTitle)}
+        <ul
+          className={classNames({
+            [stls.teachersList]: true,
+            [stls.teachersListProfession]: at.profession || at.course
+          })}>
+          {teachers &&
+            teachers.length > 0 &&
+            teachers.map((teacher, idx) => (
+              <li key={teacher.name + idx}>
+                <div className={stls.teachersItem}>
+                  <div className={stls.image}>
+                    <Image
+                      src={teacher.portrait?.url}
+                      alt={teacher.name}
+                      width={teacher.portrait?.width}
+                      height={teacher.portrait?.height}
+                      layout='responsive'
+                      placeholder='blur'
+                      blurDataURL={base64pixel}
+                    />
+                  </div>
+                  <div>
+                    <div className={stls.name}>{teacher.name}</div>
+                    <p>{teacher.description}</p>
+                  </div>
                 </div>
-                <p>{SetString(lang.teachersTeacherOneDics)}</p>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div className={stls.teachersItem}>
-              <div className={stls.image}>
-                <Image
-                  src='/assets/images/teachers/teacher-2.jpg'
-                  alt={SetString(lang.teachersTeacherTwoTitle)}
-                  width={269}
-                  height={322}
-                  layout='responsive'
-                  placeholder='blur'
-                  blurDataURL={base64pixel}
-                />
-              </div>
-              <div>
-                <div className={stls.name}>
-                  {SetString(lang.teachersTeacherTwoTitle)}
-                </div>
-                <p>{SetString(lang.teachersTeacherTwoDics)}</p>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div className={stls.teachersItem}>
-              <div className={stls.image}>
-                <Image
-                  src='/assets/images/teachers/teacher-3.jpg'
-                  alt={SetString(lang.teachersTeacherThreeTitle)}
-                  width={269}
-                  height={322}
-                  layout='responsive'
-                  placeholder='blur'
-                  blurDataURL={base64pixel}
-                />
-              </div>
-              <div>
-                <div className={stls.name}>
-                  {SetString(lang.teachersTeacherThreeTitle)}
-                </div>
-                <p>{SetString(lang.teachersTeacherThreeDics)}</p>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div className={stls.teachersItem}>
-              <div className={stls.image}>
-                <Image
-                  src='/assets/images/teachers/teacher-4.jpg'
-                  alt={SetString(lang.teachersTeacherFourTitle)}
-                  width={269}
-                  height={322}
-                  layout='responsive'
-                  placeholder='blur'
-                  blurDataURL={base64pixel}
-                />
-              </div>
-              <div>
-                <div className={stls.name}>
-                  {SetString(lang.teachersTeacherFourTitle)}
-                </div>
-                <p>{SetString(lang.teachersTeacherFourDics)}</p>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div className={stls.teachersItem}>
-              <div className={stls.image}>
-                <Image
-                  src='/assets/images/teachers/teacher-5.jpg'
-                  alt={SetString(lang.teachersTeacherFiveTitle)}
-                  width={269}
-                  height={322}
-                  layout='responsive'
-                  placeholder='blur'
-                  blurDataURL={base64pixel}
-                />
-              </div>
-              <div>
-                <div className={stls.name}>
-                  {SetString(lang.teachersTeacherFiveTitle)}
-                </div>
-                <p>{SetString(lang.teachersTeacherFiveDics)}</p>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div className={stls.teachersItem}>
-              <div className={stls.image}>
-                <Image
-                  src='/assets/images/teachers/teacher-6.jpg'
-                  alt={SetString(lang.teachersTeacherSixTitle)}
-                  width={269}
-                  height={322}
-                  layout='responsive'
-                  placeholder='blur'
-                  blurDataURL={base64pixel}
-                />
-              </div>
-              <div>
-                <div className={stls.name}>
-                  {SetString(lang.teachersTeacherSixTitle)}
-                </div>
-                <p>{SetString(lang.teachersTeacherSixDics)}</p>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div className={stls.teachersItem}>
-              <div className={stls.image}>
-                <Image
-                  src='/assets/images/teachers/teacher-7.jpg'
-                  alt={SetString(lang.teachersTeacherSevenTitle)}
-                  width={269}
-                  height={322}
-                  layout='responsive'
-                  placeholder='blur'
-                  blurDataURL={base64pixel}
-                />
-              </div>
-              <div>
-                <div className={stls.name}>
-                  {SetString(lang.teachersTeacherSevenTitle)}
-                </div>
-                <p>{SetString(lang.teachersTeacherSevenDics)}</p>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div className={stls.teachersItem}>
-              <div className={stls.image}>
-                <Image
-                  src='/assets/images/teachers/teacher-8.jpg'
-                  alt={SetString(lang.teachersTeacherEightTitle)}
-                  width={269}
-                  height={322}
-                  layout='responsive'
-                  placeholder='blur'
-                  blurDataURL={base64pixel}
-                />
-              </div>
-              <div>
-                <div className={stls.name}>
-                  {SetString(lang.teachersTeacherEightTitle)}
-                </div>
-                <p>{SetString(lang.teachersTeacherEightDics)}</p>
-              </div>
-            </div>
-          </li>
+              </li>
+            ))}
         </ul>
-        <div className={stls.btn}>
-          <Popup
-            trigger={
-              <button className='button'>
-                {SetString(lang.teachersCtaBtn)}
-              </button>
-            }
-            modal
-            nested>
-            {close => (
-              <PopupForm
-                programId={programId}
-                programTitle={programTitle}
-                closePopUpForm={close}
-                title={SetString(lang.teachersPopupFormTitle)}
-                disc={SetString(lang.teachersPopupFormDics)}
-              />
-            )}
-          </Popup>
-        </div>
+        {teachers && teachers.length === 0 && (
+          <div className={stls.getAllTeachers}>
+            <h3 className={stls.getAllTeachersTitle}>
+              Получите полный список преподавателей
+            </h3>
+            <div
+              className={classNames({
+                [stls.btn]: true,
+                [stls.getAllTeachersBtn]: true
+              })}>
+              <Popup
+                trigger={
+                  <button
+                    className={classNames({
+                      button: true
+                    })}>
+                    {SetString(lang.getAllTeachersBtn)}
+                  </button>
+                }
+                modal
+                nested>
+                {close => (
+                  <PopupForm
+                    programId={programId}
+                    programTitle={programTitle}
+                    closePopUpForm={close}
+                    title={SetString(lang.getAllTeachersPopupTitle)}
+                    disc={SetString(lang.teachersPopupFormDics)}
+                  />
+                )}
+              </Popup>
+            </div>
+          </div>
+        )}
+        {teachers && teachers.length > 0 && (
+          <div className={stls.btn}>
+            <Popup
+              trigger={
+                <button className='button'>
+                  {SetString(lang.teachersCtaBtn)}
+                </button>
+              }
+              modal
+              nested>
+              {close => (
+                <PopupForm
+                  programId={programId}
+                  programTitle={programTitle}
+                  closePopUpForm={close}
+                  title={SetString(lang.teachersPopupFormTitle)}
+                  disc={SetString(lang.teachersPopupFormDics)}
+                />
+              )}
+            </Popup>
+          </div>
+        )}
       </section>
     </>
   )

@@ -1,14 +1,13 @@
 import {
-  TypeOfType,
-  TypePrograms,
   TypeCategories,
-  TypeProgram,
-  TypeStudyFormat
+  TypeStudyFormat,
+  TypeProgramDefault
 } from '@/types/index'
 import {
   createBlended,
   fetchProgramsGetStaticProps,
   fetchProgramsGetStaticPropsProfession,
+  fetchProgramsGetStaticPropsCourse,
   fetchProgramsGetStaticPropsPromo,
   fetchProgram
 } from '@/helpers/index'
@@ -16,7 +15,7 @@ import { revalidate } from '@/config/index'
 
 type TypeHandleGetStaticProps = {
   ofType?: TypeCategories
-  dataFor?: 'default' | 'profession' | 'promo'
+  dataFor?: 'default' | 'profession' | 'course' | 'promo'
   programSlug?: string
   programStudyFormat?: TypeStudyFormat
   programType?: TypeCategories
@@ -37,15 +36,21 @@ const handleGetStaticProps = async (
     programType: null
   }
 ) => {
-  let programs
+  let res
 
   if (dataFor === 'promo') {
-    programs = await fetchProgramsGetStaticPropsPromo({ ofType })
+    res = await fetchProgramsGetStaticPropsPromo({
+      ofType
+    })
   } else if (dataFor === 'profession') {
-    programs = await fetchProgramsGetStaticPropsProfession({ ofType })
+    res = await fetchProgramsGetStaticPropsProfession({ ofType })
+  } else if (dataFor === 'course') {
+    res = await fetchProgramsGetStaticPropsCourse({ ofType })
   } else {
-    programs = await fetchProgramsGetStaticProps({ ofType })
+    res = await fetchProgramsGetStaticProps({ ofType })
   }
+
+  const { programs, teachers } = res
 
   const programsWithBlended = createBlended(programs)
   const program =
@@ -60,7 +65,8 @@ const handleGetStaticProps = async (
   return {
     props: {
       program,
-      programs: programsWithBlended
+      programs: programsWithBlended,
+      teachers
     },
     revalidate: revalidate.default
   }

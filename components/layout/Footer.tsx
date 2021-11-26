@@ -4,7 +4,8 @@ import Link from 'next/link'
 import { SetString } from '@/helpers/index'
 import langHeader from '@/data/translation/header'
 import lang from '@/data/translation/footer'
-import contactData from '@/data/contactData'
+import { contactData } from '@/config/index'
+
 import { useAt } from '@/helpers/index'
 import {
   IconLocation,

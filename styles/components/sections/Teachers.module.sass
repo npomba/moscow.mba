@@ -179,6 +179,9 @@
       &:nth-of-type(n + 5)
         display: none
 
+.teachersListProfession
+  margin-top: 63px
+
 .twoImages
   position: relative
   max-width: 500px
@@ -228,6 +231,14 @@
       width: 160px
       margin-top: -100px
       border-width: 5px
+  .pic1AtProfession
+    width: 344px
+  .pic2AtProfession
+    width: 199px
+
+.detailImageAtProfession
+  width: 385px
+  right: -80px
 
 .teachersItem
   line-height: 1.2
@@ -310,3 +321,33 @@
     margin-top: 0 !important
   @include m.media(laptop, tablet, phone)
     display: none
+
+.getAllTeachers
+  @include m.media(phone, tablet, laptop)
+    @include m.flex($jc: center, $ai: center, $fd: column)
+  @include m.media(desktop, widescreen)
+    @include m.flex($jc: center, $ai: center)
+  width: calc(100% - 70px)
+  margin-left: 35px
+  padding: 78px 15px
+  background-color: #383838
+  color: #fff
+
+.getAllTeachersTitle
+  line-height: 120%
+  @include m.media(phone, tablet, laptop)
+    margin-bottom: 20px
+    font-size: 24px
+    font-weight: 500
+  @include m.media(desktop, widescreen)
+    max-width: 20ch
+    margin-right: 71px
+    font-size: 36px
+    font-weight: 700
+
+.getAllTeachersBtn
+  margin-bottom: 0
+  @include m.media(phone)
+    width: 100%
+    & button
+      width: 100%

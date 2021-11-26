@@ -1,6 +1,6 @@
 {
   "name": "mba",
-  "version": "2.0.0",
+  "version": "2.1.5",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -33,6 +33,7 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.16.0",
     "@types/node": "^16.11.7",
     "@types/react": "^17.0.34",
     "eslint": "^7.32.0",

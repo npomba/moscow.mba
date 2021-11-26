@@ -15,7 +15,7 @@ const Students = () => {
           <h2>Наши студенты</h2>
           <div className={stls.desc}>
             Вы станете частью эффективного нетворкинга{' '}
-            {!at.profession && 'по всему миру'}
+            {!at.profession && !at.course && 'по всему миру'}
           </div>
           <h4 className={stls.stats}>Согласно опросу 2000 наших студентов:</h4>
           <ul className={stls.list}>
@@ -34,7 +34,7 @@ const Students = () => {
                 <p className={stls.text}>92%</p>
               </CircularProgressbarWithChildren>
               <p className={stls.results}>
-                {at.profession
+                {at.profession || at.course
                   ? 'применили полученные знания в работе'
                   : 'повысили показатели своих проектов'}
               </p>

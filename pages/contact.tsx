@@ -4,12 +4,13 @@ import truncate from 'truncate'
 import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/header'
 import ContactCards from '@/components/general/ContactCards'
-import contactData from '@/data/contactData'
+import { contactData } from '@/config/index'
+
 import Breadcrumbs from '@/components/general/Breadcrumbs'
 import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
 import { handleGetStaticProps } from '@/helpers/index'
 
-const contact = ({ programs }) => {
+const PageContact = ({ programs }) => {
   const contactInfo = contactData()
   return (
     <>
@@ -29,7 +30,7 @@ const contact = ({ programs }) => {
         logo='https://moscow.mba/logo.jpg'
         contactPoint={[
           {
-            telephone: contactInfo.ru.tels[0].valDashes,
+            telephone: contactInfo.ru.tels[0].val,
             contactType: 'customer service',
             areaServed: 'RU',
             availableLanguage: ['Russian']
@@ -51,4 +52,4 @@ const contact = ({ programs }) => {
 
 export const getStaticProps = async () => handleGetStaticProps()
 
-export default contact
+export default PageContact

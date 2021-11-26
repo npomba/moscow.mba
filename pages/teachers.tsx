@@ -7,7 +7,7 @@ import { handleGetStaticProps } from '@/helpers/index'
 
 import Breadcrumbs from '@/components/general/Breadcrumbs'
 
-const teachers = ({ programs }) => {
+const PageTeachers = ({ programs, teachers }) => {
   return (
     <>
       <NextSeo
@@ -24,7 +24,7 @@ const teachers = ({ programs }) => {
         </div>
       </section>
       <div className={stls.container}>
-        <Teachers atStandAlonePage />
+        <Teachers atStandAlonePage teachers={teachers} />
       </div>
     </>
   )
@@ -32,4 +32,4 @@ const teachers = ({ programs }) => {
 
 export const getStaticProps = async () => handleGetStaticProps()
 
-export default teachers
+export default PageTeachers

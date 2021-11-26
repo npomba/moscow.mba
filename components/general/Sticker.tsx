@@ -14,12 +14,12 @@ const Sticker = ({
           type === 'short' ? stls.short : stls.long
         }`}>
         <h4 className={stls.title}>{title}</h4>
-        <div>
-          <ul className={stls.listItems}>
+        <div className={stls.right}>
+          <ul className={stls.list}>
             {listItems.map((item, idx) => (
               <li
                 key={idx}
-                className={`${stls.listItem} ${
+                className={`${stls.item} ${
                   listItems.length > 1 ? stls.many : ''
                 }`}>
                 <p>{item}</p>

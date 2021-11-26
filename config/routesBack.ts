@@ -6,12 +6,16 @@ const routesBack = {
   programs: '/products',
   programsGetStaticProps: '/products/getStaticProps',
   programsGetStaticPropsProfession: '/products/getStaticProps/profession',
+  programsGetStaticPropsCourse: '/products/getStaticProps/course',
   programsGetStaticPropsPromo: '/products/getStaticProps/promo',
-  // programsProgramTypeSlug: '/products/program/:typeSlug',
+  // programsProgramTypeSlug: '/products/program/:type.slug',
   programsProgram: '/products/program',
   // programsProgramTypeSlug: '/products/paths/:type',
   programsPaths: '/products/paths',
-  categories: '/categories'
+  categories: '/categories',
+  auth: '/auth',
+  authLocal: '/auth/local',
+  leads: '/leads'
 }
 
 export default routesBack

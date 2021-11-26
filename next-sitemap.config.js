@@ -1,5 +1,5 @@
 module.exports = {
-  siteUrl: process.env.SITE_URL || 'https://moscow.mba',
+  siteUrl: 'https://moscow.mba',
   changefreq: 'daily',
   priority: 0.7,
   sitemapSize: 5000,

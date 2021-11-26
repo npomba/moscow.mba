@@ -7,6 +7,7 @@ import http from 'http'
 import { v4 as uuidv4 } from 'uuid'
 import moment from 'moment'
 import { WebServiceClient } from '@maxmind/geoip2-node'
+import { createLeadBackApi } from '@/helpers/index'
 
 const contact = async (req, res) => {
   process.env.TZ = 'Europe/Moscow'
@@ -134,6 +135,10 @@ const contact = async (req, res) => {
     utmContent: (utms && utms.utm_content) || null,
     utmTerm: (utms && utms.utm_term) || null
   }
+
+  // const createLeadBackApiRes = await createLeadBackApi({ data })
+
+  // console.log(createLeadBackApiRes)
 
   const subject = 'Новая заявка с moscow.mba'
 
@@ -418,7 +423,7 @@ const contact = async (req, res) => {
       html
     })
 
-    console.log('Message sent: %s', emailRes.messageId)
+    // console.log('Message sent: %s', emailRes.messageId)
     res.status(200).json({ status: 200, msg: 'Email is sent' })
   } catch (err) {
     res.status(500).json({ status: 500, err, msg: 'Unexpected server error' })
