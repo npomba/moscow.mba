@@ -15,7 +15,10 @@ const fetchProgramsGetStaticPropsPromo = async (
     `${routesBack.root}${routesBack.programsGetStaticPropsPromo}?${query}`
   )
 
-  return res.data.programs.filter(item => item.category?.type === 'mini')
+  return {
+    programs: res.data.programs.filter(item => item.category?.type === 'mini'),
+    teachers: []
+  }
 }
 
 export default fetchProgramsGetStaticPropsPromo
