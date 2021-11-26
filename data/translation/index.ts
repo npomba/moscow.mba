@@ -304,19 +304,9 @@ const index = {
     en: 'Phone number is too short'
   },
 
-  standartECTSTitle: {
-    ru: 'Программа разработана по международному стандарту',
-    en: 'Program is developed according to international standard'
-  },
-
   formErrInvalidEmail: {
     ru: 'Адрес почты введен неверно',
     en: 'Email address invalid'
-  },
-
-  standartECTSTDesc: {
-    ru: 'Программа разработана в соответствии с ECTS  — Европейская система перевода и накопления баллов. В связи с этим, выдаваемый диплом признается за рубежом',
-    en: 'Program is developed according to ECTS  — European Credit Transfer and Accumulation System, because of it our certificate is international'
   }
 }
 

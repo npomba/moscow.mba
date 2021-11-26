@@ -22,7 +22,7 @@
     padding: 52px 112px
 
 .right
-  @include m.flex($fd: column, $jc: center, $ai: center)
+  @include m.flex($fd: column, $jc: center)
   width: 100%
   @include m.media(phone)
     padding: 50px 30px
@@ -54,8 +54,10 @@
     font-size: 13px
     color: #fff
   @include m.media(desktop, widescreen)
+    max-width: 50ch
     font-size: 20px
     color: #2D2C2A
+  
 
 .icon
   width: 100%
@@ -65,3 +67,11 @@
   @include m.media(desktop, widescreen)
     min-width: 222px
     max-width: 222px
+
+.desktop
+  @include m.media(phone, tablet, laptop, widescreen)
+    display: none
+
+.widescreen
+  @include m.media(phone, tablet, laptop, desktop)
+    display: none
