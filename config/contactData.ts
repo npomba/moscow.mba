@@ -2,19 +2,19 @@ import lang from '@/data/translation/header'
 import langContact from '@/data/translation/contact'
 import langCities from '@/data/translation/cities'
 
-const ContactInfo = () => {
+const contactInfo = () => {
   return {
     ru: {
       tels: [
         {
           href: 'tel:+7-800-500-27-47',
           val: '+7 (800) 500-27-47',
-          discription: 'Бесплатно по Москве'
+          description: 'Бесплатно по России'
         },
         {
           href: 'tel:+7-495-149-00-20',
           val: '+7 (495) 149-00-20',
-          discription: 'Бесплатно по России'
+          description: 'Бесплатно по Москве'
         }
       ],
       address: {
@@ -140,4 +140,4 @@ const ContactInfo = () => {
   }
 }
 
-export default ContactInfo
+export default contactInfo

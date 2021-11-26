@@ -20,6 +20,7 @@ import CostOfStudy from '@/components/sections/CostOfStudy'
 import Accreditation from '@/components/sections/Accreditation'
 import Pros from '@/components/sections/Pros'
 import GetStudyPlan from '@/components/sections/GetStudyPlan'
+import ProgramDevelopedStandard from '@/components/sections/ProgramDevelopedStandard'
 import ECTSStandard from '@/components/sections/ECTSStandard'
 
 const PageOnlineProgram = ({ program }) => {
@@ -38,9 +39,7 @@ const PageOnlineProgram = ({ program }) => {
         providerUrl={`https://moscow.mba${router.asPath}`}
         description={truncate(program.goal, 120)}
       />
-
       <JumbotronProgram program={program} />
-
       <div className={stls.container}>
         <ProgramGoal data={program} />
         <WhatWillYouLearn data={program} />

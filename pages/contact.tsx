@@ -30,7 +30,7 @@ const PageContact = ({ programs }) => {
         logo='https://moscow.mba/logo.jpg'
         contactPoint={[
           {
-            telephone: contactInfo.ru.tels[0].valDashes,
+            telephone: contactInfo.ru.tels[0].val,
             contactType: 'customer service',
             areaServed: 'RU',
             availableLanguage: ['Russian']

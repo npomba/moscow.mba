@@ -4,38 +4,40 @@
   display: flex
   flex-direction: column
   margin: 0 15px 30px
-  width: calc(33.333% - 30px)
+  width: calc(50% - 30px)
   min-height: 239px
   background: #f7f7f7
   transition: all 0.3s ease-out
   position: relative
-  padding: 80px 27px 30px
+  padding: 40px 27px 30px
   line-height: 1.2
+  @include m.media(tablet, phone)
+    width: calc(100% - 30px)
   @include m.media(widescreen, desktop, laptop)
+    width: calc(50% - 30px)
     &:hover
       background: #ffffff
       box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.09)
+
       & .arrow
         background: #ff3535
+
         svg
           filter: none
           opacity: 1
 
-  @media (max-width: 1329px)
-    margin: 0 10px 20px
-    width: calc(50% - 20px)
-    min-height: 1px
-    padding-bottom: 35px
+  //@media (max-width: 1329px)
+  //  margin: 0 10px 20px
+  //  width: calc(50% - 20px)
+  //  min-height: 1px
+  //  padding-bottom: 35px
+  //
+  //@media (max-width: 1019px)
+  //  margin: 0 10px 20px
+  //  width: calc(50% - 20px)
+  //  min-height: 1px
+  //  padding-bottom: 35px
 
-  @media (max-width: 1019px)
-    margin: 0 10px 20px
-    width: calc(50% - 20px)
-    min-height: 1px
-    padding-bottom: 35px
-
-  @media (max-width: 767px)
-    width: calc(50% - 20px)
-    min-height: 1px
 
   @media (max-width: 480px)
     margin: 0 0 10px
@@ -44,7 +46,6 @@
     padding-right: 90px
     min-height: 100px
     display: flex !important
-    align-items: center
     border: 2px solid #f7f7f7
     @media (max-width: 411px)
       padding-right: 24px
@@ -52,6 +53,7 @@
       box-shadow: none
 
 .programTitle
+  margin-top: 40px
   margin-bottom: 42px
   font-weight: 500
   font-size: 16px
@@ -70,6 +72,7 @@
   width: 70px
   z-index: 3
   transition: all 0.3s ease-out
+
   svg
     display: inline-block
     vertical-align: middle
@@ -77,6 +80,7 @@
     filter: brightness(0)
     opacity: 0.4
     transition: all 0.3s ease-out
+
   @media (max-width: 480px)
     top: 50%
     margin-top: -35px
@@ -96,16 +100,26 @@
     display: none
 
 .duration
-  align-self: flex-start
-  margin-bottom: 8px
-  padding: 6px
-  border: solid 1px #262626
-  font-size: 10px
+  //align-self: flex-start
+  //margin-bottom: 8px
+  //padding: 6px
+  //border: solid 1px #262626
+  font-size: 14px
   border-radius: 80px
-  font-weight: 400
+  font-weight: 300
+  color: #808080
 
 .bottomContainer
   flex: 1
   display: flex
-  flex-direction: column
+  flex-direction: row-reverse
+  align-items: flex-end
   justify-content: space-between
+
+
+.category
+  font-size: 14px
+  padding: 7px 18px
+  border-radius: 80px
+  color: #808080
+  background-color: #E4E4E4

@@ -1,19 +1,39 @@
 @use '@/styles/utils/mixin' as m
 
+.phoneLinks
+  display: flex
+  align-items: center
+  font-weight: 500
+  @include m.media(laptop, widescreen)
+    & .phoneLink
+      &:nth-child(1)
+        margin-right: 25px
+  @include m.media(desktop)
+    flex-direction: column
+    & .phoneLink
+      margin-bottom: 7px
+  @include m.media(phone, tablet)
+    & .phoneLink
+      &:nth-child(2)
+        display: none
+
 .phoneLink
   position: relative
-  @include m.media(desktop)
-    margin-bottom: 7px
-    margin-top: 7px
-  @media (max-width: 360px)
-    display: none !important
+  display: flex
+  flex-direction: column
+  align-items: flex-end
+  @media (max-width: 370px)
+    display: none
 
-.discription
-  font-size: 9px
-  position: absolute
-  right: 0
-  top: -15px
-  color: #B2B2B2
-  font-weight: 400
-  @include m.media(desktop)
-    top: -10px
+.description
+  margin-bottom: 5px
+  font-size: 10px
+  font-weight: 300
+  color: #B5B5B5
+
+.phoneIcon
+  display: none
+
+@media (max-width: 370px)
+  .phoneIcon
+    display: block

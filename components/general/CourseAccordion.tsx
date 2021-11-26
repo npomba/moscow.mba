@@ -106,7 +106,8 @@ const CourseAccordion = ({
             <span className={stls.accordionLabel}>Курс MBA</span>
             <ul className={stls.courseMainInfoList}>
               <li className={stls.courseMainInfoItem}>
-                От {<TrainingPeriod type={type} />}
+                {/* От {<TrainingPeriod type={type} />} */}
+                От 4 месяцев
               </li>
               <li className={stls.courseMainInfoItem}>Очно или дистанционно</li>
               <li className={stls.courseMainInfoItem}>

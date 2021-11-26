@@ -5,6 +5,7 @@ import classnames from 'classnames'
 
 const IconECTS = ({classNames = []}) => {
   const container = getClassNames({ classNames })
+
   return (
     <div className={classnames([stls.container], container)}>
       <svg viewBox='0 0 258 259' fill='none' xmlns='http://www.w3.org/2000/svg'>

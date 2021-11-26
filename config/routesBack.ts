@@ -12,7 +12,10 @@ const routesBack = {
   programsProgram: '/products/program',
   // programsProgramTypeSlug: '/products/paths/:type',
   programsPaths: '/products/paths',
-  categories: '/categories'
+  categories: '/categories',
+  auth: '/auth',
+  authLocal: '/auth/local',
+  leads: '/leads'
 }
 
 export default routesBack

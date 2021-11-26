@@ -36,7 +36,7 @@ const PageHome = ({ programs }) => {
         <CorporateClients />
         <Programs programs={programs} />
         <Executive />
-        {/*<ContactUs />*/}
+        <ContactUs />
       </div>
     </>
   )
