@@ -247,6 +247,7 @@ const CostOfStudy = ({
             programFormat={programFormat}
             withDesc={costWithDescription}
             withPriceTitles={at.profession || at.course}
+            programPrice={(at.profession || at.course) && programPrice}
           />
           <div
             className={classNames(stls.buttonBlock, {
