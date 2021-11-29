@@ -14,7 +14,7 @@ const SearchField = () => {
   const [openLoader, setOpenLoader] = useState(false)
 
   const [value, setValue] = useState('')
-  const {filteredPrograms, setSearchProgram} = useContext(programsContext)
+  const { filteredPrograms, setSearchProgram } = useContext(programsContext)
 
   const handleSearch = () => setSearchProgram(value.toLowerCase())
 
@@ -23,25 +23,27 @@ const SearchField = () => {
       modal
       className={'searchField_popup'}
       onClose={() => close}
-      trigger={() => <div>
-        <div className={stls.trigger}>
-          <div className={stls.icon}>
-            <IconSearch color={'#000'}/>
+      trigger={() => (
+        <div>
+          <div className={stls.trigger}>
+            <div className={stls.icon}>
+              <IconSearch color={'#000'} />
+            </div>
+            <input
+              className={stls.input}
+              type='text'
+              placeholder={'Поиск'}
+              defaultValue={value}
+            />
           </div>
-          <input
-            className={stls.input}
-            type='text' placeholder={'Поиск'}
-            value={value}
-          />
         </div>
-      </div>}
-    >
+      )}>
       {close => (
         <div className={stls.container}>
           <div>
             <div className={stls.search}>
               <div className={stls.icon}>
-                <IconSearch color={'#C4C4C4'}/>
+                <IconSearch color={'#C4C4C4'} />
               </div>
               <input
                 className={stls.input}
@@ -52,65 +54,75 @@ const SearchField = () => {
                 onKeyUp={handleSearch}
               />
               <span className={stls.cross} onClick={() => close()}>
-                  <IconClose/>
-                </span>
+                <IconClose />
+              </span>
             </div>
 
             <ul className={stls.list}>
-              {
-                filteredPrograms.map(el => {
-                  return (
-                    <li key={el.id} className={stls.item}>
-                      <Link href={`/programs/${el.category?.slug}/${el.studyFormat}/${el.slug}`}>
-                        <a className={stls.link}>
-                          <span>
-                            {
-                              Array.from(el?.title).map((str: string) => {
-                                if (value.toLowerCase().indexOf(str.toLowerCase()) !== -1) {
-                                  return (
-                                    <span className={stls.strong}>{str}</span>
-                                  )
-                                } else {
-                                  return (
-                                    <span>{str}</span>
-                                  )
-                                }
-                              })
+              {filteredPrograms.map(el => {
+                return (
+                  <li key={el.id} className={stls.item}>
+                    <Link
+                      href={`/programs/${el.category?.slug}/${el.studyFormat}/${el.slug}`}>
+                      <a className={stls.link}>
+                        <span>
+                          {Array.from(el?.title).map((str: string) => {
+                            if (
+                              value.toLowerCase().indexOf(str.toLowerCase()) !==
+                              -1
+                            ) {
+                              return <span className={stls.strong}>{str}</span>
+                            } else {
+                              return <span>{str}</span>
                             }
-                          </span>
-                          <span className={stls.format}>{at.mini ? 'mini MBA' : at.mba ? 'MBA' : at.profession ? 'Профессии' : at.course ? 'Курсы' : ''}</span>
-                        </a>
-                      </Link>
-                    </li>
-                  )
-                })
-              }
+                          })}
+                        </span>
+                        <span className={stls.format}>
+                          {at.mini
+                            ? 'mini MBA'
+                            : at.mba
+                            ? 'MBA'
+                            : at.profession
+                            ? 'Профессии'
+                            : at.course
+                            ? 'Курсы'
+                            : ''}
+                        </span>
+                      </a>
+                    </Link>
+                  </li>
+                )
+              })}
             </ul>
-                <>
-                  <LeadLoaderThankyou
-                    open={open}
-                    setOpen={setOpen}
-                    openLoader={openLoader}
-                    setOpenLoader={setOpenLoader}
-                    programId={null}
+            {filteredPrograms.length === 0 && value !== '' && (
+              <>
+                <LeadLoaderThankyou
+                  open={open}
+                  setOpen={setOpen}
+                  openLoader={openLoader}
+                  setOpenLoader={setOpenLoader}
+                  programId={null}
+                  programTitle={null}
+                />
+                <div className={stls.form}>
+                  <p className={stls.title}>
+                    По вашему запросу ничего не найдено
+                  </p>
+                  <p className={stls.text}>
+                    Попробуйте ввести запрос по-другому или свяжитесь со
+                    специалистом. Вам помогут подобрать нужное направление и
+                    ответят на вопросы.
+                  </p>
+                  <FormAlpha
                     programTitle={null}
+                    setOpenLoader={setOpenLoader}
+                    setOpen={open}
+                    classNames={[stls.content]}
+                    globalStyle={false}
                   />
-                  <div className={stls.form}>
-                    <p className={stls.title}>
-                      По вашему запросу ничего не найдено
-                    </p>
-                    <p className={stls.text}>
-                      Попробуйте ввести запрос по-другому или свяжитесь со специалистом. Вам помогут подобрать нужное направление и ответят на вопросы.
-                    </p>
-                    <FormAlpha
-                      programTitle={null}
-                      setOpenLoader={setOpenLoader}
-                      setOpen={open}
-                      classNames={[stls.content]}
-                      globalStyle={false}
-                    />
-                  </div>
-                </>
+                </div>
+              </>
+            )}
           </div>
         </div>
       )}
