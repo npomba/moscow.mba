@@ -20,14 +20,16 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
   const { setCurrentFilter, currentFilter } = useContext(programsContext)
   const router = useRouter()
 
+
   useEffect(() => {
-    if (!router.query?.filter) {
+      let slug = programs.find(item => {
+        return item.study_field?.name === currentFilter
+      })
       router.push({
         query: {
-          'filter': `${currentFilter}`
+          'filter': `${slug?.study_field.slug || 'accounting-analysis-and-audit' }`
         }
       })
-    }
   }, [currentFilter])
 
   const at = useAt()
