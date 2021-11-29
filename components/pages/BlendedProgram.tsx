@@ -23,7 +23,7 @@ import CostOfStudy from '@/components/sections/CostOfStudy'
 import GetStudyPlan from '@/components/sections/GetStudyPlan'
 import ECTSStandard from '@/components/sections/ECTSStandard'
 
-const PageBlendedProgram = ({ program }) => {
+const PageBlendedProgram = ({ program, teachers }) => {
   const router = useRouter()
 
   return (
@@ -58,7 +58,11 @@ const PageBlendedProgram = ({ program }) => {
         /> */}
         <ECTSStandard />
         {/* <GetStudyPlan /> */}
-        <Teachers programId={program._id} programTitle={program.title} />
+        <Teachers
+          programId={program._id}
+          programTitle={program.title}
+          teachers={teachers}
+        />
         <UpToDateContent withBottomLine />
         <CorporateClients />
         <Accreditation />

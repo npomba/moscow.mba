@@ -569,13 +569,13 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
                 </a>
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link href='/programs/course/online' locale='ru'>
                 <a className='mobileAllProgramsLink' onClick={handleMenuClose}>
                   {SetString(langMenu.courses)}
                 </a>
               </Link>
-            </li>
+            </li> */}
             <li>
               <Link href='/programs/mini/online' locale='ru'>
                 <a className='mobileAllProgramsLink' onClick={handleMenuClose}>

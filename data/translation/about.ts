@@ -297,6 +297,16 @@ const about = {
   accreditationLicenseLink: {
     ru: 'Лицензия Министерства Образования',
     en: 'License of the Ministry of Education'
+  },
+
+  getAllTeachersBtn: {
+    ru: 'Запросить список',
+    en: 'Get teachers list'
+  },
+
+  getAllTeachersPopupTitle: {
+    ru: 'Получить полный список преподавателей',
+    en: 'Get teachers list'
   }
 }
 

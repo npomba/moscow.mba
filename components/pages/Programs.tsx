@@ -1,5 +1,5 @@
 import stls from '@/styles/components/pages/Programs.module.sass'
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import { useAt } from '@/helpers/index'
@@ -17,25 +17,20 @@ import { useRouter } from 'next/router'
 
 
 const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
-  const {setCurrentFilter, currentFilter} = useContext(programsContext)
+  const { setCurrentFilter, currentFilter } = useContext(programsContext)
   const router = useRouter()
 
   useEffect(() => {
     if (!router.query?.filter) {
-      router.push({query: {
+      router.push({
+        query: {
           'filter': `${currentFilter}`
         }
       })
     }
-
   }, [currentFilter])
 
-
-
-
-
   const at = useAt()
-
 
   let fields
 
@@ -130,8 +125,8 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
                 {at.mini
                   ? SetString(langMenu.categoryDiscMini)
                   : at.mba
-                  ? SetString(langMenu.categoryDiscMba)
-                  : ''}
+                    ? SetString(langMenu.categoryDiscMba)
+                    : ''}
               </p>
 
               {at.profession ? (

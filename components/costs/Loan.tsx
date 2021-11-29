@@ -1,12 +1,14 @@
 import stls from '@/styles/components/costs/Loan.module.sass'
 import { useAt } from '@/helpers/index'
+import { toNumberWithSpaces } from '@/helpers/index'
 
 const Loan = ({
   discount = false,
   type = null,
   format = null,
   notComparingPrices = false,
-  renderedByComponent = null
+  renderedByComponent = null,
+  programPrice = null
 }) => {
   const at = useAt()
 
@@ -75,6 +77,9 @@ const Loan = ({
     return componentSpecificClass ? componentSpecificClass : generalClass
   }
 
+  const regularPrice =
+    programPrice && Math.ceil(((programPrice / 55) * 100) / 1000) * 1000
+
   return (
     <>
       <i
@@ -83,12 +88,18 @@ const Loan = ({
             ? getPriceClass('new', renderedByComponent)
             : getPriceClass('simple', renderedByComponent)
         }>
-        {price[regularOrDiscounted]?.[type]?.[format]} Р. / мес
+        {programPrice
+          ? toNumberWithSpaces(Math.floor(programPrice / 12))
+          : price[regularOrDiscounted]?.[type]?.[format]}{' '}
+        Р. / мес
       </i>
       {discount && !at.blended && !notComparingPrices && (
         <>
           <i className={getPriceClass('old', renderedByComponent)}>
-            {price.loanRegular[type]?.[format]} Р. / мес
+            {programPrice
+              ? toNumberWithSpaces(Math.floor(regularPrice / 12))
+              : price.loanRegular[type]?.[format]}{' '}
+            Р. / мес
           </i>
         </>
       )}

@@ -165,7 +165,7 @@ const ProgramsModules = ({ program, smallerMb = false }) => {
       </div>
 
       {program.subjectsStickerType && (
-        <div className={stls.list}>
+        <div className={stls.sticker}>
           {program.subjectsStickerType === 'finalAttestation' ? (
             <Sticker
               type={'long'}
