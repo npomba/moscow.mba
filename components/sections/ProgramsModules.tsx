@@ -107,7 +107,6 @@ const ProgramsModules = ({ program, smallerMb = false }) => {
           </div>
         </>
       )}
-
       <div className={stls.list}>
         {program &&
           program.specializedSubjects?.length > 0 &&
