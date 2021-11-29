@@ -29,12 +29,9 @@ const SearchField = () => {
             <div className={stls.icon}>
               <IconSearch color={'#000'} />
             </div>
-            <input
-              className={stls.input}
-              type='text'
-              placeholder={'Поиск'}
-              defaultValue={value}
-            />
+            <button
+              className={stls.btn}
+            >{value ? value : 'Поиск'}</button>
           </div>
         </div>
       )}>
@@ -67,10 +64,7 @@ const SearchField = () => {
                       <a className={stls.link}>
                         <span>
                           {Array.from(el?.title).map((str: string) => {
-                            if (
-                              value.toLowerCase().indexOf(str.toLowerCase()) !==
-                              -1
-                            ) {
+                            if (value.toLowerCase().includes(str.toLowerCase())) {
                               return <span className={stls.strong}>{str}</span>
                             } else {
                               return <span>{str}</span>
