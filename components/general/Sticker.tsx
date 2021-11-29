@@ -14,7 +14,7 @@ const Sticker = ({
           type === 'short' ? stls.short : stls.long
         }`}>
         <h4 className={stls.title}>{title}</h4>
-        <div>
+        <div className={stls.right}>
           <ul className={stls.list}>
             {listItems.map((item, idx) => (
               <li

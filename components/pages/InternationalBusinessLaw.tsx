@@ -21,7 +21,7 @@ import Accreditation from '@/components/sections/Accreditation'
 import Pros from '@/components/sections/Pros'
 import GetStudyPlan from '@/components/sections/GetStudyPlan'
 
-const PageOnlineProgram = ({ program }) => {
+const PageOnlineProgram = ({ program, teachers }) => {
   const router = useRouter()
 
   return (
@@ -54,7 +54,11 @@ const PageOnlineProgram = ({ program }) => {
           titleNewStr={'по программе обучения'}
         /> */}
         <GetStudyPlan />
-        <Teachers programId={program._id} programTitle={program.title} />
+        <Teachers
+          programId={program._id}
+          programTitle={program.title}
+          teachers={teachers}
+        />
         <UpToDateContent withBottomLine />
         <CorporateClients />
         <Accreditation />

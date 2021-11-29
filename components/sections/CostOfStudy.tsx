@@ -17,7 +17,8 @@ const PriceBlock = ({
   programType,
   programFormat,
   withDesc,
-  withPriceTitles
+  withPriceTitles,
+  programPrice = null
 }) => {
   let topContentPart
 
@@ -46,6 +47,7 @@ const PriceBlock = ({
           discount={isDiscounted}
           type={programType}
           format={programFormat}
+          programPrice={(at.profession || at.course) && programPrice}
           renderedByComponent='CostOfStudy'
         />{' '}
       </div>
@@ -64,6 +66,7 @@ const PriceBlock = ({
             discount={isDiscounted}
             type={programType}
             format={programFormat}
+            programPrice={(at.profession || at.course) && programPrice}
             renderedByComponent='CostOfStudy'
           />
         ) : (
@@ -71,6 +74,7 @@ const PriceBlock = ({
             discount={isDiscounted}
             type={programType}
             format={programFormat}
+            programPrice={(at.profession || at.course) && programPrice}
             renderedByComponent={'CostOfStudy'}
           />
         )}
@@ -83,7 +87,8 @@ const CostOfStudy = ({
   programTitle = null,
   programId = null,
   programFormat = null,
-  programType = null
+  programType = null,
+  programPrice = null
 }) => {
   const at = useAt()
   const isDiscounted =
@@ -242,6 +247,7 @@ const CostOfStudy = ({
             programFormat={programFormat}
             withDesc={costWithDescription}
             withPriceTitles={at.profession || at.course}
+            programPrice={(at.profession || at.course) && programPrice}
           />
           <div
             className={classNames(stls.buttonBlock, {

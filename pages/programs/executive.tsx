@@ -18,8 +18,9 @@ import Reviews from '@/components/sections/Reviews'
 import CostOfStudy from '@/components/sections/CostOfStudy'
 import Qna from '@/components/sections/Qna'
 import { handleGetStaticProps } from '@/helpers/index'
+import teachers from '@/data/images/teachers'
 
-const PageProgramsExecutive = ({ program, programs }) => {
+const PageProgramsExecutive = ({ program, programs, teachers }) => {
   return (
     <>
       <NextSeo
@@ -50,7 +51,11 @@ const PageProgramsExecutive = ({ program, programs }) => {
           titleNewStr={'по программе обучения'}
         />
         <Accreditation />
-        <Teachers programId={program._id} programTitle={program.title} />
+        <Teachers
+          programId={program._id}
+          programTitle={program.title}
+          teachers={teachers}
+        />
         <Rules prices={{ lowerPrice: '600 000', higherPrice: '2 000 000' }} />
         <ExecutiveRequirements />
         <Students />

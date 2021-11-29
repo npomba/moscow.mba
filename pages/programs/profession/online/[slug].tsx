@@ -1,8 +1,12 @@
 import { handleGetStaticProps, handleGetStaticPaths } from '@/helpers/index'
 import ProfessionOnlineProgram from '@/components/pages/ProfessionOnlineProgram'
 
-const PageProgramsProfessionOnlineProgram = ({ program, programs }) => {
-  return <ProfessionOnlineProgram program={program} />
+const PageProgramsProfessionOnlineProgram = ({
+  program,
+  programs,
+  teachers
+}) => {
+  return <ProfessionOnlineProgram program={program} teachers={teachers} />
 }
 
 export const getStaticProps = async context =>

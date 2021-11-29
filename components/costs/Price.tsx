@@ -1,10 +1,11 @@
 import stls from '@/styles/components/costs/Price.module.sass'
-import { useAt } from '@/helpers/index'
+import { useAt, toNumberWithSpaces } from '@/helpers/index'
 
 const Price = ({
   discount = false,
   type = null,
   format = null,
+  programPrice = null,
   renderedByComponent = null
 }) => {
   const at = useAt()
@@ -96,11 +97,19 @@ const Price = ({
             ? getPriceClass('new', renderedByComponent)
             : getPriceClass('simple', renderedByComponent)
         }>
-        {price[regularOrDiscounted]?.[type]?.[format]} Р.
+        {programPrice
+          ? toNumberWithSpaces(programPrice)
+          : price[regularOrDiscounted]?.[type]?.[format]}{' '}
+        Р.
       </i>
       {discount && (
         <i className={getPriceClass('old', renderedByComponent)}>
-          {price.regular[type]?.[format]} Р.
+          {programPrice
+            ? toNumberWithSpaces(
+                Math.ceil(((programPrice / 55) * 100) / 1000) * 1000
+              )
+            : price.regular[type]?.[format]}{' '}
+          Р.
         </i>
       )}
     </>

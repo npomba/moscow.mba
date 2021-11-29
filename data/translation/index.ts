@@ -1,9 +1,7 @@
 const index = {
   headerSubtitle: {
-    ru:
-      'Международное бизнес-образование. У нас есть всё для раскрытия вашего потенциала!',
-    en:
-      "International Business Education. We've everything to help you reach your full potential!"
+    ru: 'Международное бизнес-образование. У нас есть всё для раскрытия вашего потенциала!',
+    en: "International Business Education. We've everything to help you reach your full potential!"
   },
 
   redCubeLink: {
@@ -47,10 +45,8 @@ const index = {
   },
 
   headerDescription: {
-    ru:
-      'Оставьте заявку и получите консультацию по программам, а также узнайте возможные варианты скидок и требования к поступлению',
-    en:
-      'Get a consultation, discounts information, and requirements by submitting a form'
+    ru: 'Оставьте заявку и получите консультацию по программам, а также узнайте возможные варианты скидок и требования к поступлению',
+    en: 'Get a consultation, discounts information, and requirements by submitting a form'
   },
 
   benefitOneDisc: {
@@ -99,17 +95,13 @@ const index = {
   },
 
   aboutTxtFirst: {
-    ru:
-      'Moscow Business Academy является одной из ведущих бизнес-школ на территории СНГ и одной из немногих бизнес-школ, которая экспортирует отечественные MBA на Запад и работает на глобальном рынке',
-    en:
-      'Moscow Business Academy is one of the leading business schools in CIS countries. It is also among the few of them who export our domestic MBA to the West and work in the global market'
+    ru: 'Moscow Business Academy является одной из ведущих бизнес-школ на территории СНГ и одной из немногих бизнес-школ, которая экспортирует отечественные MBA на Запад и работает на глобальном рынке',
+    en: 'Moscow Business Academy is one of the leading business schools in CIS countries. It is also among the few of them who export our domestic MBA to the West and work in the global market'
   },
 
   aboutTxtSecond: {
-    ru:
-      'Ежегодно сотни топ-менеджеров и владельцев компаний получают здесь образование международного уровня и завязывают новые знакомства',
-    en:
-      'Each year hundreds of top managers and company owners get a world-class education and make new acquaintances'
+    ru: 'Ежегодно сотни топ-менеджеров и владельцев компаний получают здесь образование международного уровня и завязывают новые знакомства',
+    en: 'Each year hundreds of top managers and company owners get a world-class education and make new acquaintances'
   },
 
   aboutBenefitTitleFirst: {
@@ -158,8 +150,7 @@ const index = {
   },
 
   foreignAffiliatesDisc: {
-    ru:
-      'У Moscow Business Academy работают филиалы в Москве, Берлине, Нью-Йорке, Ташкенте и Алматы',
+    ru: 'У Moscow Business Academy работают филиалы в Москве, Берлине, Нью-Йорке, Ташкенте и Алматы',
     en: 'MBA affiliates work in Moscow, Berlin, New-York, Tashkent, and Almaty'
   },
 
@@ -174,10 +165,8 @@ const index = {
   },
 
   mbaWorldDics: {
-    ru:
-      'В Moscow Business Academy обучаются студенты из более чем 15 стран мира, среди которых Россия, Великобритания, США, Германия, Бельгия, Франция, Китай, Греция, Швейцария, Италия, Южная Африка и многие другие!',
-    en:
-      'Students from more than 15 countries get their education in Moscow Business Academy, such as Russia, Great Britain, USA, Germany, Belgium, France, China, Greece, Switzerland, Italy, South Africa, and many others!'
+    ru: 'В Moscow Business Academy обучаются студенты из более чем 15 стран мира, среди которых Россия, Великобритания, США, Германия, Бельгия, Франция, Китай, Греция, Швейцария, Италия, Южная Африка и многие другие!',
+    en: 'Students from more than 15 countries get their education in Moscow Business Academy, such as Russia, Great Britain, USA, Germany, Belgium, France, China, Greece, Switzerland, Italy, South Africa, and many others!'
   },
 
   mbaWorldMoreThan: {
@@ -206,24 +195,18 @@ const index = {
   },
 
   corporateClientsDics: {
-    ru:
-      'Опыт наших экспертов используют многие ведущие компании России и стран СНГ. Наш опыт будет полезен не только гигантам промышленной, добывающей индустрии, крупным сетевикам, но и среднему и малому бизнесу',
-    en:
-      "Our experts' experience is used by many leading companies in Russia and CIS. Nevertheless it's valuable not only for large-scale, but also for startups and medium-scale companies"
+    ru: 'Опыт наших экспертов используют многие ведущие компании России и стран СНГ. Наш опыт будет полезен не только гигантам промышленной, добывающей индустрии, крупным сетевикам, но и среднему и малому бизнесу',
+    en: "Our experts' experience is used by many leading companies in Russia and CIS. Nevertheless it's valuable not only for large-scale, but also for startups and medium-scale companies"
   },
 
   executiveMBADicsFirst: {
-    ru:
-      'Программа Executive MBA разработана для амбициозных предпринимателей и топ-менеджеров крупных компаний, которые привыкли быть лучшими и не готовы останавливаться на достигнутом',
-    en:
-      'Executive MBA was developed for persistent entrepreneurs and top managers of the large enterprises, who got accustomed to being the best and are not ready to quit now'
+    ru: 'Программа Executive MBA разработана для амбициозных предпринимателей и топ-менеджеров крупных компаний, которые привыкли быть лучшими и не готовы останавливаться на достигнутом',
+    en: 'Executive MBA was developed for persistent entrepreneurs and top managers of the large enterprises, who got accustomed to being the best and are not ready to quit now'
   },
 
   executiveMBADicsSecond: {
-    ru:
-      'Курс, объединивший лучшие отечественные бизнес-практики с глобальным мировым опытом, поможет Вам совершить настоящий прорыв в управлении компанией. Вы построите пошаговую стратегию развития, которая позволит взглянуть на бизнес по-новому',
-    en:
-      'This course combines the best homeland business models with the global experience. It will provide you with knowledge needed to achieve a breakthrough in company management. You will make a new step-by-step development strategy which will help you to get a fresh look on your business'
+    ru: 'Курс, объединивший лучшие отечественные бизнес-практики с глобальным мировым опытом, поможет Вам совершить настоящий прорыв в управлении компанией. Вы построите пошаговую стратегию развития, которая позволит взглянуть на бизнес по-новому',
+    en: 'This course combines the best homeland business models with the global experience. It will provide you with knowledge needed to achieve a breakthrough in company management. You will make a new step-by-step development strategy which will help you to get a fresh look on your business'
   },
 
   executiveMBAYear: {
@@ -262,17 +245,13 @@ const index = {
   },
 
   helpToChooseDics: {
-    ru:
-      'Оставьте заявку и получите консультацию по программам MBA, узнайте их точную стоимость, возможные варианты скидок и требования к поступлению',
-    en:
-      'Leave your request for a consultation on the MBA programs, their fees, available discounts and admission requirements'
+    ru: 'Оставьте заявку и получите консультацию по программам MBA, узнайте их точную стоимость, возможные варианты скидок и требования к поступлению',
+    en: 'Leave your request for a consultation on the MBA programs, their fees, available discounts and admission requirements'
   },
 
   helpToChooseDicsProfessionCourse: {
-    ru:
-      'Оставьте заявку и получите консультацию по программам, узнайте их точную стоимость, возможные варианты скидок и требования к поступлению',
-    en:
-      'Leave your request for a consultation on the MBA programs, their fees, available discounts and admission requirements'
+    ru: 'Оставьте заявку и получите консультацию по программам, узнайте их точную стоимость, возможные варианты скидок и требования к поступлению',
+    en: 'Leave your request for a consultation on the MBA programs, their fees, available discounts and admission requirements'
   },
 
   inputName: {
@@ -325,21 +304,9 @@ const index = {
     en: 'Phone number is too short'
   },
 
-  standartECTSTitle: {
-    ru: 'Программа разработана по международному стандарту',
-    en: 'Program is developed according to international standard'
-  },
-
   formErrInvalidEmail: {
     ru: 'Адрес почты введен неверно',
     en: 'Email address invalid'
-  },
-
-  standartECTSTDesc: {
-    ru:
-      'Программа разработана в соответствии с ECTS  — Европейская система перевода и накопления баллов. В связи с этим, выдаваемый диплом признается за рубежом',
-    en:
-      'Program is developed according to ECTS  — European Credit Transfer and Accumulation System. Thanks to it our certificate is international'
   }
 }
 
