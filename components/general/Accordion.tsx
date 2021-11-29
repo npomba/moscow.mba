@@ -1,6 +1,7 @@
 import stls from '@/styles/components/general/Accordion.module.sass'
 import classNames from 'classnames'
 import ImageContainer from '@/components/general/ImageContainer'
+import { useEffect } from 'react'
 
 const Accordion = ({
   accordionItem,
@@ -11,6 +12,10 @@ const Accordion = ({
   const { title, content, isList, isImage } = accordionItem
 
   let accordionContent
+
+  useEffect(() => {
+    document.getElementById('view_accordion').scrollIntoView()
+  })
 
   if (typeof content === 'string') {
     accordionContent = <p className={stls.mb}>{content}</p>
@@ -56,6 +61,7 @@ const Accordion = ({
 
   return (
     <div
+      id={'view_accordion'}
       className={classNames(stls.container, {
         [stls.equalPadding]: isImage,
         [stls.opened]: activeAccordion
