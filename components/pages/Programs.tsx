@@ -1,5 +1,5 @@
 import stls from '@/styles/components/pages/Programs.module.sass'
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useMemo, useState } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import { useAt } from '@/helpers/index'
@@ -20,21 +20,25 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
   const { setCurrentFilter, currentFilter } = useContext(programsContext)
   const router = useRouter()
 
-
   useEffect(() => {
-      let slug = programs.find(item => {
-        return item.study_field?.name === currentFilter
-      })
+    let slug = programs.find(item => {
+      return item.study_field?.name === currentFilter
+    })
       router.push({
         query: {
-          'filter': `${slug?.study_field.slug || 'accounting-analysis-and-audit' }`
+          'filter': `${slug?.study_field.slug}`
         }
-      })
+      }, undefined, { shallow: true })
+
+    setCurrentFilter(currentFilter)
+
+
   }, [currentFilter])
 
   const at = useAt()
 
   let fields
+
 
   if (at.profession || at.course) {
     fields = programs.reduce((acc, curr) => {
@@ -45,7 +49,7 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
 
     const [firstField] = fields
 
-    if (!currentFilter) setCurrentFilter(firstField)
+    // if (!currentFilter) setCurrentFilter(firstField)
   }
 
 
