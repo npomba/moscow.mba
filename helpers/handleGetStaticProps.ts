@@ -62,6 +62,7 @@ const handleGetStaticProps = async (
         })
       : null
 
+
   return {
     props: {
       program,

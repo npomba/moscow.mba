@@ -19,6 +19,8 @@ import MenuState from '@/context/menu/MenuState'
 
 import OverlayState from '@/context/overlay/OverlayState'
 
+import ProgramsState from '@/context/programs/ProgramsState'
+
 function MyApp({ Component, pageProps, router }) {
   const [loading, setLoading] = useState(false)
   useEffect(() => {
@@ -38,9 +40,9 @@ function MyApp({ Component, pageProps, router }) {
       const urlUtmsArr = router.asPath.split('?')[1]
 
       urlUtmsArr &&
-        urlUtmsArr.split('&').forEach(utm => {
-          utms[utm.split('=')[0]] = utm.split('=')[1]
-        })
+      urlUtmsArr.split('&').forEach(utm => {
+        utms[utm.split('=')[0]] = utm.split('=')[1]
+      })
       sessionStorage.setItem('utms', JSON.stringify(utms))
     }
 
@@ -75,7 +77,8 @@ function MyApp({ Component, pageProps, router }) {
   }, [router])
 
   if (!dev) {
-    console.log = function () {}
+    console.log = function() {
+    }
   }
   let programs = []
   if (pageProps) {
@@ -89,25 +92,24 @@ function MyApp({ Component, pageProps, router }) {
         logo='https://moscow.mba/logo.jpg'
         url='https://moscow.mba/'
       />
-      <OverlayState>
-        <MenuState>
-          <Wrapper>
-            <Header programs={programs} />
-            <Main>
-              <Component {...pageProps} />
-            </Main>
-            <Footer />
-          </Wrapper>
-        </MenuState>
-      </OverlayState>
+
+      <ProgramsState>
+        <OverlayState>
+          <MenuState>
+            <Wrapper>
+              <Header programs={programs} />
+              <Main>
+                <Component {...pageProps} />
+              </Main>
+              <Footer />
+            </Wrapper>
+          </MenuState>
+        </OverlayState>
+      </ProgramsState>
     </>
   )
 }
 
 export default MyApp
 
-// Package               Current   Wanted   Latest  Location
-// Package               Current  Wanted  Latest  Location
-// @maxmind/geoip2-node    2.3.2   2.3.2   3.2.0  mba
-// axios                  0.21.4  0.21.4  0.24.0  mba
-// truncate                2.1.0   2.1.0   3.0.0  mba
+

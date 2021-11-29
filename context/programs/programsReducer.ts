@@ -2,7 +2,8 @@ import {
   SET_PROGRAMS,
   SET_CUR_PROGRAMS_TYPE,
   SET_CUR_PROGRAMS_STUDY_FIELD_SLUG,
-  SET_SEARCH_TERM
+  SET_SEARCH_TERM,
+  SEARCH_PROGRAM
 } from '@/context/types'
 // import { filterProgramsByType, getStudyFields } from '@/helpers/index'
 
@@ -49,13 +50,32 @@ const programsReducer = (state, action) => {
       const searchTerm = action.payload.term === '' ? null : action.payload.term
       const filteredPrograms = searchTerm
         ? action.payload.programs.filter(item =>
-            item.title.toLowerCase().includes(searchTerm.toLowerCase())
-          )
+          item.title.toLowerCase().includes(searchTerm.toLowerCase())
+        )
         : []
       return {
         ...state,
         searchTerm,
         filteredPrograms
+      }
+    case SEARCH_PROGRAM:
+      let value = action.payload
+
+      let res = state.programs.filter(item => {
+        if (!value) {
+          return
+        }
+        if (
+          item.title.toLowerCase().indexOf(value) !== -1 ||
+          item.slug.toLowerCase().indexOf(value) !== -1
+        ) {
+          return item.title
+        }
+      })
+
+      return {
+        ...state,
+        filteredPrograms: res
       }
     default:
       return state

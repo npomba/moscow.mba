@@ -4,10 +4,11 @@ import lang from '@/data/translation/index'
 import { handlePlaceholder } from '@/helpers/index'
 import classNames from 'classnames'
 
-const InputEmail = ({ register, errors, width = '25' }) => {
+const InputEmail = ({ register, errors, width = '25', ...props }) => {
   return (
-    <div className={`input-block width-${width}`}>
+    <div className={`input-block width-${width} ${props.className}`} >
       <input
+        {...props}
         type='email'
         aria-label={SetString(lang.inputEmail)}
         {...register('email', {

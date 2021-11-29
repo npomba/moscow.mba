@@ -3,7 +3,9 @@ import classNames from 'classnames'
 import Link from 'next/link'
 import { useAt } from '@/helpers/index'
 import Discount from '@/components/costs/Discount'
+
 import SearchField from '@/components/general/SearchField'
+
 
 const Filters = ({
   mbaTypeOfProgram,
@@ -22,8 +24,10 @@ const Filters = ({
 
   return (
     <>
-      {/* <SearchField /> */}
       <ul className={stls.filters}>
+        <li>
+          <SearchField/>
+        </li>
         <li>
           <h4 className={stls.title}>Тип программы</h4>
           <div className={stls.content}>
@@ -71,8 +75,30 @@ const Filters = ({
             </a>
           </Link> */}
 
-            <Link href='/programs/international-business-law' locale='ru'>
-              <a
+          <Link href='/programs/international-business-law' locale='ru'>
+            <a
+              className={classNames({
+                [stls.highlight]: true,
+                [stls.mbl]: true
+              })}>
+              MBL
+            </a>
+          </Link>
+          <Link href='/programs/executive' locale='ru'>
+            <a className={stls.highlight}>
+              Executive MBA <span className={stls.premium}>Premium</span>
+            </a>
+          </Link>
+        </div>
+      </li>
+      <li>
+        <h4 className={stls.title}>Форма обучения</h4>
+        <div className={stls.content}>
+          <Link href={`/programs/${mbaTypeOfProgram}/blended`}>
+            <a
+              className={classNames({ [stls.inactiveLink]: fields })}
+              onClick={e => handleLinkClick(e)}>
+              <span
                 className={classNames({
                   [stls.highlight]: true,
                   [stls.mbl]: true

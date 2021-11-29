@@ -10,8 +10,11 @@ import { contactData } from '@/config/index'
 
 import Breadcrumbs from '@/components/general/Breadcrumbs'
 import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
+import HandleGetPrograms from '@/helpers/HandleGetPrograms'
+
 
 const PagePayment = ({ programs }) => {
+  HandleGetPrograms(programs)
   const contactInfo = contactData()
 
   return (

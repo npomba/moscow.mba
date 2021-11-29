@@ -1,8 +1,8 @@
 import stls from '@/styles/components/forms/FormAlpha.module.sass'
 import { useRouter } from 'next/router'
-import classNames from 'classnames'
+import classnames from 'classnames'
 import { useForm } from 'react-hook-form'
-import { SetString, onSubmitForm } from '@/helpers/index'
+import { SetString, onSubmitForm, getClassNames } from '@/helpers/index'
 import lang from '@/data/translation/index'
 import {
   InputEmail,
@@ -18,13 +18,16 @@ type TypeFormValues = {
 }
 
 const FormAlpha = ({
-  programTitle,
-  setOpenLoader,
-  setOpen,
-  policyPrivacy = true,
-  alpha = false,
-  width = '25'
-}) => {
+                     programTitle,
+                     setOpenLoader,
+                     setOpen,
+                     policyPrivacy = true,
+                     alpha = false,
+                     width = '25',
+                     classNames = [],
+                     globalStyle = true,
+                   }) => {
+  const container = getClassNames({ classNames })
   const {
     register,
     handleSubmit,
@@ -33,6 +36,7 @@ const FormAlpha = ({
   } = useForm<TypeFormValues>()
 
   const { asPath } = useRouter()
+
 
   return (
     <form
@@ -49,8 +53,8 @@ const FormAlpha = ({
         })
       )}>
       <div
-        className={classNames({
-          'inputs-flex': true,
+        className={classnames(container, {
+          'inputs-flex': globalStyle,
           'inputs-flex--alt': alpha
         })}>
         <InputName register={register} errors={errors} width={width} />
@@ -59,10 +63,12 @@ const FormAlpha = ({
         <InputSubmit errors={errors} alpha={alpha} width={width} />
       </div>
       {policyPrivacy && (
-        <div className='personal-data'>
+        <div className={classnames({
+          'personal-data': globalStyle
+        })}>
           {SetString(lang.privacyPolicyFirst)}{' '}
           {/* <a href=''>{SetString(lang.privacyPolicySecond)}</a> */}
-          {SetString(lang.privacyPolicySecond)}
+          <span>{SetString(lang.privacyPolicySecond)}</span>
         </div>
       )}
     </form>
