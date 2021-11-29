@@ -50,8 +50,8 @@ const programsReducer = (state, action) => {
       const searchTerm = action.payload.term === '' ? null : action.payload.term
       const filteredPrograms = searchTerm
         ? action.payload.programs.filter(item =>
-          item.title.toLowerCase().includes(searchTerm.toLowerCase())
-        )
+            item.title.toLowerCase().includes(searchTerm.toLowerCase())
+          )
         : []
       return {
         ...state,
