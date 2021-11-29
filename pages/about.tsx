@@ -17,7 +17,7 @@ import langIndex from '@/data/translation/index'
 import { handleGetStaticProps } from '@/helpers/index'
 import ContactUs from '@/components/sections/ContactUs'
 
-const PageAbout = ({ programs }) => {
+const PageAbout = ({ programs, teachers }) => {
   return (
     <>
       <NextSeo
@@ -34,7 +34,7 @@ const PageAbout = ({ programs }) => {
         <ForeignAffiliates />
         <StudentsInternational />
         <CorporateClients />
-        <Teachers />
+        <Teachers teachers={teachers} />
         <UpToDateContent />
         <Accreditation />
         <ContactUs />

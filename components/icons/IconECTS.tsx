@@ -1,8 +1,12 @@
 import stls from '@/styles/components/icons/IconECTS.module.sass'
+import { getClassNames } from '@/helpers/index'
+import classnames from 'classnames'
 
-const IconECTS = () => {
+const IconECTS = ({ classNames = [] }) => {
+  const container = getClassNames({ classNames })
+
   return (
-    <div className={stls.container}>
+    <div className={classnames([stls.container], container)}>
       <svg viewBox='0 0 258 259' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <title>ECTS</title>
         <path

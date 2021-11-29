@@ -8,8 +8,6 @@ import { IconSearch, IconClose } from '@/components/icons'
 import { FormAlpha } from '@/components/forms'
 import LeadLoaderThankyou from '@/components/general/LeadLoaderThankyou'
 
-
-
 const SearchField = () => {
   const at = useAt()
   const [open, setOpen] = useState(false)

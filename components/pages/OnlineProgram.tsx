@@ -23,7 +23,7 @@ import GetStudyPlan from '@/components/sections/GetStudyPlan'
 import ProgramDevelopedStandard from '@/components/sections/ProgramDevelopedStandard'
 import ECTSStandard from '@/components/sections/ECTSStandard'
 
-const PageOnlineProgram = ({ program }) => {
+const PageOnlineProgram = ({ program, teachers }) => {
   const router = useRouter()
 
   return (
@@ -39,14 +39,11 @@ const PageOnlineProgram = ({ program }) => {
         providerUrl={`https://moscow.mba${router.asPath}`}
         description={truncate(program.goal, 120)}
       />
-
       <JumbotronProgram program={program} />
-
       <div className={stls.container}>
         <ProgramGoal data={program} />
         <WhatWillYouLearn data={program} />
         <ProgramDesc />
-        <ProgramDevelopedStandard/>
         <Pros format={'online'} />
         <HowProcessGoes />
         <ProgramModules program={program} />
@@ -58,7 +55,11 @@ const PageOnlineProgram = ({ program }) => {
         /> */}
         <ECTSStandard />
         {/* <GetStudyPlan /> */}
-        <Teachers programId={program._id} programTitle={program.title} />
+        <Teachers
+          programId={program._id}
+          programTitle={program.title}
+          teachers={teachers}
+        />
         <UpToDateContent withBottomLine />
         <CorporateClients />
         <Accreditation />

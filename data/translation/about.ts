@@ -250,8 +250,8 @@ const about = {
   },
 
   uptodateBenefitTwoDics: {
-    ru: 'международных экспертов',
-    en: 'international experts'
+    ru: 'Международных экспертов',
+    en: 'International experts'
   },
 
   uptodateBenefitThreeTitle: {
@@ -260,8 +260,8 @@ const about = {
   },
 
   uptodateBenefitThreeDics: {
-    ru: 'входим в топ 3 бизнес-школ РФ по актуальности контента',
-    en: "we're in TOP 3 relevance of Russian business schools"
+    ru: 'Входим в топ 3 бизнес-школ РФ по актуальности контента',
+    en: "We're in TOP 3 relevance of Russian business schools"
   },
 
   accreditationTitle: {
@@ -297,6 +297,16 @@ const about = {
   accreditationLicenseLink: {
     ru: 'Лицензия Министерства Образования',
     en: 'License of the Ministry of Education'
+  },
+
+  getAllTeachersBtn: {
+    ru: 'Запросить список',
+    en: 'Get teachers list'
+  },
+
+  getAllTeachersPopupTitle: {
+    ru: 'Получить полный список преподавателей',
+    en: 'Get teachers list'
   }
 }
 

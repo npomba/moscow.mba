@@ -8,8 +8,7 @@ import { handleGetStaticProps } from '@/helpers/index'
 import Breadcrumbs from '@/components/general/Breadcrumbs'
 import HandleGetPrograms from '@/helpers/HandleGetPrograms'
 
-
-const PageTeachers = ({ programs }) => {
+const PageTeachers = ({ programs, teachers }) => {
   HandleGetPrograms(programs)
   return (
     <>
@@ -27,7 +26,7 @@ const PageTeachers = ({ programs }) => {
         </div>
       </section>
       <div className={stls.container}>
-        <Teachers atStandAlonePage />
+        <Teachers atStandAlonePage teachers={teachers} />
       </div>
     </>
   )

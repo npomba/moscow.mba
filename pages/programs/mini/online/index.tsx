@@ -2,10 +2,6 @@ import Programs from '@/components/pages/Programs'
 import HandleGetPrograms from '@/helpers/HandleGetPrograms'
 import { handleGetStaticProps } from '@/helpers/index'
 
-
-
-
-
 const PageProgramsMiniOnline = ({ programs }) => {
   HandleGetPrograms(programs)
 
@@ -14,7 +10,6 @@ const PageProgramsMiniOnline = ({ programs }) => {
     program =>
       program.studyFormat === 'online' && program.category?.type === 'mini'
   )
-
 
   return (
     <Programs programs={data} mbaTypeOfProgram={'mini'} mbaFormat={'online'} />
