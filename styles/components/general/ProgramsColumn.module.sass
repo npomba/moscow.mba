@@ -107,10 +107,12 @@
 .listItem
   &:not(:last-child)
     margin-bottom: 10px
-  a
-    transition: all .3s ease-out
-    &:hover
-      color: #ff3535
+    @include m.media(desktop, widescreen)
+      a
+        transition: all .3s ease-out
+        &:hover
+          color: #ff3535
+
 
 .programInfo
   @include m.media(laptop, tablet, phone)
