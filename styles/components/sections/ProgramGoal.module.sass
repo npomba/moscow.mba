@@ -14,12 +14,15 @@
     content: ''
     height: 1px
     background: #e6e6e6
-    width: 100vw
     left: 50%
     margin-left: -50vw
     position: absolute
     z-index: 2
     bottom: 0
+    @include m.media(desktop, widescreen)
+      width: calc(100vw - 9px)
+    @include m.media(laptop, tablet, phone)
+      width: 100vw
 
   &::before
     content: ''

@@ -1,5 +1,7 @@
+@use '@/styles/utils/mixin' as m
 .page
-  overflow: hidden
   display: flex
   min-height: 100vh
   flex-direction: column
+  @include m.media(laptop, tablet, phone)
+    overflow: hidden

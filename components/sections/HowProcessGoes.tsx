@@ -65,7 +65,6 @@ const HowProcessGoes = () => {
     <>
       <section className={stls.container}>
         <div className={stls.content}>
-          <div>
             <h2 className={stls.title}>Как проходит процесс обучения</h2>
             {at.profession ||
               (at.course && (
@@ -78,7 +77,6 @@ const HowProcessGoes = () => {
                   />
                 </div>
               ))}
-          </div>
           <div className={stls.infoContainer}>
             <ul className={stls.tabsList}>
               {processSteps.map((step, idx) => (

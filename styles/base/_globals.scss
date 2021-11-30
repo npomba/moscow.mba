@@ -183,6 +183,7 @@ button.button {
 
 /* header =================================================*/
 header {
+  max-width: 100%;
   position: relative;
   z-index: 30;
   background: #fff;
@@ -201,7 +202,12 @@ header {
     left: 50%;
     height: 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    width: 100vw;
+    @include m.media(desktop, widescreen) {
+      width: calc(100vw - 9px);
+    }
+    @include m.media(laptop, tablet, phone) {
+      width: 100vw;
+    }
     margin-left: -50vw;
   }
 }
@@ -257,6 +263,7 @@ header {
 }
 
 .header-menu {
+  overflow: hidden;
   width: calc(100% - 101px);
   height: 85px;
   display: flex;
