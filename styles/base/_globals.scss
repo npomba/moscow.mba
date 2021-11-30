@@ -379,9 +379,6 @@ header {
   margin-bottom: 42px;
   li {
     border-bottom: 1px solid rgba(0, 0, 0, 0.11);
-    &:last-child {
-      border-bottom: none;
-    }
   }
   a {
     display: flex;

@@ -2,7 +2,7 @@ import stls from '@/styles/components/general/ProgramsColumn.module.sass'
 import { useContext } from 'react'
 import MenuContext from '@/context/menu/menuContext'
 import OverlayContext from '@/context/overlay/overlayContext'
-import classNames from 'classnames'
+import classnames from 'classnames'
 import Link from 'next/link'
 import langMenu from '@/data/translation/menu'
 import { SetString } from '@/helpers/index'
@@ -18,11 +18,16 @@ import {
   IconPaperCorner,
   IconClock
 } from '@/components/icons'
+import menu from '@/data/translation/menu'
+import IconArrowLeft from '../icons/IconArrowLeft'
 
 const ProgramsColumn = ({ data, id, type }) => {
   const { menuIsOpen, openMenu, closeMenu, toggleMenu } = useContext(
     MenuContext
   )
+
+  let inxOnline = 0
+  let inxBlended = 0
 
   const {
     overlayIsShown,
@@ -39,7 +44,7 @@ const ProgramsColumn = ({ data, id, type }) => {
   return (
     <ul
       id={id}
-      className={classNames(stls.container, 'header-podmenu-content', {
+      className={classnames(stls.container, 'header-podmenu-content', {
         [stls.visible]: id === 'header-podmenu-1'
       })}>
       <li className={stls.containerItem}>
@@ -79,8 +84,8 @@ const ProgramsColumn = ({ data, id, type }) => {
             {type === 'mini'
               ? SetString(langMenu.categoryDiscMini)
               : type === 'mba'
-              ? SetString(langMenu.categoryDiscMba)
-              : null}
+                ? SetString(langMenu.categoryDiscMba)
+                : null}
           </p>
         </div>
       </li>
@@ -131,27 +136,35 @@ const ProgramsColumn = ({ data, id, type }) => {
           </div>
           <ul className={stls.list}>
             {data &&
-              data.map(item => {
-                if (
-                  (item.category?.type === type &&
+            data.map(item => {
+              if (
+                (item.category?.type === type &&
                   item.studyFormat === 'online')
-                  || (item.slug === 'international-business-law' && item.category.type === 'mbl' && type === 'mba')
-                ) {
-                  return (
-                    <li key={item.id || item._id} className={stls.listItem}>
-                      <Link
-                        href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
-                        locale='ru'>
-                        <a onClick={handleLinkClick}>{SetString(item, true)}</a>
-                      </Link>
-                    </li>
-                  )
+                || (item.slug === 'international-business-law' && item.category.type === 'mbl' && type === 'mba')
+              ) {
+                inxOnline += 1
+                if (inxOnline > 16) {
+                  return
                 }
-              })}
+                return (
+                  <li key={item.id || item._id} className={stls.listItem}>
+                    <Link
+                      href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
+                      locale='ru'>
+                      <a onClick={handleLinkClick}>{SetString(item, true)}</a>
+                    </Link>
+                  </li>
+                )
+              }
+            })}
+            <li className={stls.listItem}>
+              <Link
+                href={`/programs/mini/online`}
+                locale='ru'>
+                <a className={stls.link} onClick={handleLinkClick}>{SetString(menu.linkAllPrograms)}<IconArrowLeft classNames={[stls.arrow]}/></a>
+              </Link>
+            </li>
           </ul>
-
-
-
         </div>
       </li>
       <li className={stls.containerItem}>
@@ -194,22 +207,33 @@ const ProgramsColumn = ({ data, id, type }) => {
           </div>
           <ul className={stls.list}>
             {data &&
-              data.map(item => {
-                if (
-                  item.category?.type === type &&
-                  item.studyFormat === 'blended'
-                ) {
-                  return (
-                    <li key={item.id || item._id} className={stls.listItem}>
-                      <Link
-                        href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
-                        locale='ru'>
-                        <a onClick={handleLinkClick}>{SetString(item, true)}</a>
-                      </Link>
-                    </li>
-                  )
+            data.map(item => {
+              if (
+                item.category?.type === type &&
+                item.studyFormat === 'blended'
+              ) {
+                inxBlended += 1
+                if (inxBlended > 16) {
+                  return
                 }
-              })}
+                return (
+                  <li key={item.id || item._id} className={stls.listItem}>
+                    <Link
+                      href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
+                      locale='ru'>
+                      <a onClick={handleLinkClick}>{SetString(item, true)}</a>
+                    </Link>
+                  </li>
+                )
+              }
+            })}
+            <li className={stls.listItem}>
+              <Link
+                href={`/programs/mini/blended`}
+                locale='ru'>
+                <a className={stls.link} onClick={handleLinkClick}>{SetString(menu.linkAllPrograms)}<IconArrowLeft classNames={[stls.arrow]}/></a>
+              </Link>
+            </li>
           </ul>
         </div>
       </li>

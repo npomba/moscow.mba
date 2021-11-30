@@ -123,6 +123,11 @@ const menu = {
   newestProgramsYear: {
     ru: 'года',
     en: ''
+  },
+
+  linkAllPrograms: {
+    ru: 'Посмотреть все',
+    en: 'lookeverything'
   }
 }
 
