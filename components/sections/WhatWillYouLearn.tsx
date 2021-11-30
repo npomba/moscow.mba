@@ -20,24 +20,36 @@ const WhatWillYouLearn = ({ data = null }) => {
 
   return (
     <section className={stls.container}>
-      <div className={stls.content}>
         <div
           className={classNames(stls.titleContainer, stls.floatLeft, {
             [stls.smallPl]: !data
           })}>
-          <h2 className={stls.title}>
-            {data ? (
-              <>
-                Чему <br />
-                Вы научитесь?
-              </>
-            ) : (
-              <>
-                Moscow Business <br /> Academy это:
-              </>
-            )}
-          </h2>
+          <div className={stls.floatLeft}>
+            <h2 className={stls.title}>
+              {data ? (
+                <>
+                  Чему <br />
+                  Вы научитесь?
+                </>
+              ) : (
+                <>
+                  Moscow Business <br /> Academy это:
+                </>
+              )}
+            </h2>
+            <div className={stls.image}>
+              <Image
+                src='/assets/images/learning_pic_1.jpg'
+                width='651'
+                height='389'
+                alt='Слушатели во время конференции'
+                placeholder='blur'
+                blurDataURL={base64pixel}
+              />
+            </div>
+          </div>
         </div>
+
         <div className={stls.floatRight}>
           <ul className={stls.list}>
             {list &&
@@ -50,19 +62,8 @@ const WhatWillYouLearn = ({ data = null }) => {
               })}
           </ul>
         </div>
-        <div className={stls.floatLeft}>
-          <div className={stls.image}>
-            <Image
-              src='/assets/images/learning_pic_1.jpg'
-              width='651'
-              height='389'
-              alt='Слушатели во время конференции'
-              placeholder='blur'
-              blurDataURL={base64pixel}
-            />
-          </div>
-        </div>
-      </div>
+
+
     </section>
   )
 }
