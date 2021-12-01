@@ -29,8 +29,6 @@ const createProgramModules = ({ program, type }: createProgramModulesType) => {
         subject.string && output[i].subjects.push(subject.string)
       })
     } else {
-
-      // console.log(program[type])
       let l = Math.ceil(program[type].length / 5)
 
       const remainder = Math.ceil(program[type].length % 5)
@@ -38,26 +36,15 @@ const createProgramModules = ({ program, type }: createProgramModulesType) => {
 
       const chunk = (arr, size) => arr.reduce((carry, _, index, orig) => !(index % size) ? carry.concat([orig.slice(index, index+size)]) : carry, [])
 
-      let arr = chunk(program[type], 5)
-      console.log('arr', arr)
+      const sep = separationArray(program[type], remainder)
 
-      if (remainder) {
-        let n = arr[arr.length - 2].push(...arr[arr.length - 1])
-        let a = arr[arr.length - 2].concat(...arr[arr.length - 3])
-        console.log(a)
+      for (let i = 0; i < l - 1; i++) {
+        output.push({
+          id: uuidv4(),
+          title: null,
+          subjects: sep[i]
+        })
       }
-
-      console.log('res', arr)
-
-
-      // for (let i = 0; i < l; i++) {
-      //   output.push({
-      //     id: uuidv4(),
-      //     title: null,
-      //     // subjects: remainder === 1 ? program[type].slice(i * 4, i * 4 + 4) : program[type].slice(i * 5, i * 5 + 5)
-      //     subjects: program[type].slice(i * 5, i * 5 + 5)
-      //   })
-      // }
 
     }
   }
@@ -69,3 +56,39 @@ const createProgramModules = ({ program, type }: createProgramModulesType) => {
 }
 
 export default createProgramModules
+
+
+// const chunk = (arr, size) => arr.reduce((carry, _, index, orig) => !(index % size) ? carry.concat([orig.slice(index, index+size)]) : carry, [])
+
+const separationArray = (array, remainder ) => {
+  const chunk = array.reduce((carry, _, index, orig) => {
+    !(index % 5) ? carry.concat([orig.slice(index, index+5)]) : carry
+  })
+
+
+
+  let sepArr = chunk(array, 5)
+  console.log(sepArr)
+
+  if (remainder) {
+    let finalEl = sepArr[sepArr.length -1]
+    sepArr.pop()
+    sepArr.map((currentValue, index) => {
+      if (index === sepArr.length - 2) {
+        currentValue.push(...finalEl.filter((el, idx) => {
+          if (!(idx % 2)) {
+            return el
+          }
+        }))
+      }
+      if (index === sepArr.length - 1) {
+        currentValue.push(...finalEl.filter((el, idx) => {
+          if (idx % 2) {
+            return el
+          }
+        }))
+      }
+    })
+  }
+  return sepArr
+}
