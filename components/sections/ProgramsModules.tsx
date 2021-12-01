@@ -17,6 +17,7 @@ const ProgramsModules = ({ program, smallerMb = false }) => {
   const programModulesBase = createProgramModulesBase(program)
   const programModulesSpecialty = createProgramModulesSpecialized(program)
 
+
   // console.log(program.specializedSubjects)
   // console.log(programbaseSubjects)
 
