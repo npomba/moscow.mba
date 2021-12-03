@@ -4,12 +4,13 @@ import Accordion from '@/components/general/Accordion'
 import CourseAccordion from '@/components/general/CourseAccordion'
 
 const AccordionsContainer = ({
-  accordionsItems,
-  firstAccordionActive,
-  closeAll,
-  setCloseAll,
-  isCoursesContainer = false
-}) => {
+                               accordionsItems,
+                               firstAccordionActive,
+                               closeAll,
+                               setCloseAll,
+                               isCoursesContainer = false,
+                               scrollableIntoView = false
+                             }) => {
   const [activeAccordionIndex, setActiveAccordionIndex] = useState(
     firstAccordionActive ? 0 : -1
   )
@@ -31,6 +32,7 @@ const AccordionsContainer = ({
             accordionIndex={idx}
             activeAccordion={idx === activeAccordionIndex}
             setActiveAccordion={setActiveAccordionIndex}
+            scrollableIntoView={scrollableIntoView}
           />
         ))}
       </>
