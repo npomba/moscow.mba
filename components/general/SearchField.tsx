@@ -31,7 +31,7 @@ const SearchField = () => {
             </div>
             <button
               className={stls.btn}
-            >{value ? value : 'Поиск'}</button>
+            >{value || 'Поиск'}</button>
           </div>
         </div>
       )}>

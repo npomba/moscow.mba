@@ -62,8 +62,8 @@ const programsReducer = (state, action) => {
       }
     case SEARCH_PROGRAM:
       let value = action.payload
-      let res = state.programs.filter((item, inx) => {
-        if (!value || inx >= 10) {
+      let res = state.programs.filter((item, idx) => {
+        if (!value || idx >= 10) {
           return
         }
         if (
