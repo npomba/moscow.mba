@@ -21,9 +21,7 @@ const createProgramModules = ({ program, type }: createProgramModulesType) => {
             subjects: []
           })
       )
-
       let i = -1
-
       program[type].forEach(subject => {
         subject.title && i++
         subject.string && output[i].subjects.push(subject.string)
@@ -33,43 +31,26 @@ const createProgramModules = ({ program, type }: createProgramModulesType) => {
 
       const remainder = Math.ceil(program[type].length % 5)
 
-
-      const chunk = (arr, size) => arr.reduce((carry, _, index, orig) => !(index % size) ? carry.concat([orig.slice(index, index+size)]) : carry, [])
-
-      const sep = separationArray(program[type], remainder)
+      const separation = separationArray(program[type], remainder)
 
       for (let i = 0; i < l - 1; i++) {
         output.push({
           id: uuidv4(),
           title: null,
-          subjects: sep[i]
+          subjects: separation[i]
         })
       }
 
     }
   }
-
-
-
-
   return output
 }
 
 export default createProgramModules
 
-
-// const chunk = (arr, size) => arr.reduce((carry, _, index, orig) => !(index % size) ? carry.concat([orig.slice(index, index+size)]) : carry, [])
-
 const separationArray = (array, remainder ) => {
-  const chunk = array.reduce((carry, _, index, orig) => {
-    !(index % 5) ? carry.concat([orig.slice(index, index+5)]) : carry
-  })
-
-
-
+  const chunk = (arr, size) => arr.reduce((carry, _, index, orig) => !(index % size) ? carry.concat([orig.slice(index, index+size)]) : carry, [])
   let sepArr = chunk(array, 5)
-  console.log(sepArr)
-
   if (remainder) {
     let finalEl = sepArr[sepArr.length -1]
     sepArr.pop()
