@@ -137,20 +137,38 @@ const ProgramsColumn = ({ data, id, type }) => {
 
           <ul className={stls.list}>
             {
-              allFilters && allFilters.map(itemF => {
-
-                return <>
-                  {
-                    type === 'profession' && <strong>{itemF.name}</strong>
-                  }
+              type === 'profession' ?
+                allFilters.map(itemF => {
+                  return <>
+                    <strong>{itemF.name}</strong>
+                    {
+                      data.map(item => {
+                        if (
+                          (item.category?.type === type &&
+                            item.studyFormat === 'online' &&
+                            itemF.slug === item?.study_field?.slug)
+                        ) {
+                          return (
+                            <li key={item.id || item._id} className={stls.listItem}>
+                              <Link
+                                href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
+                                locale='ru'>
+                                <a onClick={handleLinkClick}>{SetString(item, true)}</a>
+                              </Link>
+                            </li>
+                          )
+                        }
+                      })
+                    }</>
+                })
+                :
+                <>
                   {
                     data.map(item => {
                       if (
-                        (item.category?.type === type &&
-                          item.studyFormat === 'online' &&
-                        itemF.slug === item?.study_field?.slug)
+                        item.category?.type === type &&
+                        item.studyFormat === 'online'
                       ) {
-                        console.log(item?.study_field?.slug)
                         return (
                           <li key={item.id || item._id} className={stls.listItem}>
                             <Link
@@ -162,32 +180,11 @@ const ProgramsColumn = ({ data, id, type }) => {
                         )
                       }
                     })
-                  }</>
-              })
+                  }
+                </>
             }
 
-          </ul>
 
-
-          <ul className={stls.list}>
-            {data &&
-            data.map(item => {
-              if (
-                (item.category?.type === type &&
-                  item.studyFormat === 'online')
-                || (item.slug === 'international-business-law' && item.category.type === 'mbl' && type === 'mba')
-              ) {
-                return (
-                  <li key={item.id || item._id} className={stls.listItem}>
-                    <Link
-                      href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
-                      locale='ru'>
-                      <a onClick={handleLinkClick}>{SetString(item, true)}</a>
-                    </Link>
-                  </li>
-                )
-              }
-            })}
           </ul>
 
         </div>

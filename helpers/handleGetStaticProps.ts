@@ -47,7 +47,9 @@ const handleGetStaticProps = async (
   } else if (dataFor === 'course') {
     res = await fetchProgramsGetStaticPropsCourse({ ofType })
   } else {
-    res = await fetchProgramsGetStaticProps({ ofType })
+    // res = await fetchProgramsGetStaticProps({ ofType })
+    res = await fetchProgramsGetStaticPropsProfession({ ofType })
+
   }
 
   const { programs, teachers } = res

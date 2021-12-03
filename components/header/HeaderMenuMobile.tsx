@@ -36,6 +36,7 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
   const [mobileLang, setMobileLang] = useState(false)
   const [mobileThirdMini, setMobileThirdMini] = useState(false)
   const [mobileThirdMba, setMobileThirdMba] = useState(false)
+  const [mobileThirdProfession, setMobileThirdProfession] = useState(false)
   const [miniOnline, setMiniOnline] = useState(true)
   const [mbaOnline, setmbaOnline] = useState(true)
 
@@ -142,8 +143,6 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
           <h3>{SetString(lang.programsBtn)}</h3>
           <ul className='header-mobile-menu'>
 
-
-
             <li>
               <a
                 className='mobile-third-toggle'
@@ -164,11 +163,10 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
                     <i></i>
                     {SetString(langMenu.toProgramsBtn)}
                   </div>
+
                   <h3>Mini MBA</h3>
                   <div className='program-tabs-content'>
                     <ul className='program-options-block-tabs'>
-
-
                       <li>
                         <a
                           className={classNames({ active: miniOnline })}
@@ -584,13 +582,10 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
 
 
 
-
-
-
             <li>
               <a
                 className='mobile-third-toggle'
-                onClick={() => setMobileThirdMini(true)}>
+                onClick={() => setMobileThirdProfession(true)}>
                 {SetString(langMenu.professions)}
               </a>
 
@@ -598,12 +593,12 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
               <div
                 className={classNames({
                   'header-mobile-third': true,
-                  opened: mobileThirdMini
+                  opened: mobileThirdProfession
                 })}>
                 <div className='container'>
                   <div
                     className='menu-back-link'
-                    onClick={() => setMobileThirdMini(false)}>
+                    onClick={() => setMobileThirdProfession(false)}>
                     <i></i>
                     {SetString(langMenu.toProgramsBtn)}
                   </div>
@@ -647,38 +642,8 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
                             </div>
                             <span>{SetString(langMenu.formatRemote)}</span>
                           </div>
-                          {/*<div className='info-flex'>*/}
-                          {/*  <div className='pic'>*/}
-                          {/*    <IconScreen fill={'#C7C7C7'} />*/}
-                          {/*  </div>*/}
-                          {/*  <span>*/}
-                          {/*    <ProgramSubjects type='profession' sum={true} />{' '}*/}
-                          {/*    {SetString(langMenu.qtSubjects)}*/}
-                          {/*  </span>*/}
-                          {/*</div>*/}
                         </div>
                         <ul className='program-options-block-list'>
-
-                          {/*{programs &&*/}
-                          {/*programs.map(item => {*/}
-                          {/*  if (*/}
-                          {/*    item.category?.type === 'profession' &&*/}
-                          {/*    item.studyFormat === 'online'*/}
-                          {/*  ) {*/}
-                          {/*    return (*/}
-                          {/*      <li key={item.id || item._id}>*/}
-                          {/*        <Link*/}
-                          {/*          href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}*/}
-                          {/*          locale='ru'>*/}
-                          {/*          <a onClick={handleMenuClose}>*/}
-                          {/*            {SetString(item, true)}*/}
-                          {/*          </a>*/}
-                          {/*        </Link>*/}
-                          {/*      </li>*/}
-                          {/*    )*/}
-                          {/*  }*/}
-                          {/*})}*/}
-
 
                           {
                             allFilters && allFilters.map(itemF => {
@@ -707,16 +672,13 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
                                 }</>
                             })
                           }
-
-
-
                         </ul>
                       </div>
                     </div>
                   </div>
                   <div
                     className='menu-back-link last'
-                    onClick={() => setMobileThirdMini(false)}>
+                    onClick={() => setMobileThirdProfession(false)}>
                     <i></i>
                     {SetString(langMenu.toProgramsBtn)}
                   </div>
