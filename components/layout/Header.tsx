@@ -7,11 +7,13 @@ import HeaderTop from '@/components/header/HeaderTop'
 import HeaderNav from '@/components/header/HeaderNav'
 import HeaderMenuMobile from '@/components/header/HeaderMenuMobile'
 import HeaderDesktopMenu from '@/components/header/HeaderDesktopMenu'
+import programsContext from '@/context/programs/programsContext'
 
-const Header = ({ programs }) => {
+const Header = () => {
   const { menuIsOpen, openMenu, closeMenu, toggleMenu } = useContext(
     MenuContext
   )
+  const { programs } = useContext(programsContext)
 
   const {
     overlayIsShown,
@@ -41,7 +43,6 @@ const Header = ({ programs }) => {
     ).slice(0, -1)
     list.forEach(item => item.classList.remove('active-tab'))
     e.currentTarget.classList.add('active-tab')
-
     const contentList = Array.from(
       document.querySelectorAll('.header-podmenu-content')
     )

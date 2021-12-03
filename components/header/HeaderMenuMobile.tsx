@@ -22,10 +22,15 @@ import {
 } from '@/components/icons'
 import Discount from '@/components/costs/Discount'
 import { ImgLogoRabo, ImgLogoMde } from '@/components/images'
+import programsContext from '@/context/programs/programsContext'
 
 const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
   const { menuIsOpen, openMenu, closeMenu, toggleMenu } =
     useContext(MenuContext)
+
+  const { allFilters } = useContext(programsContext)
+
+
 
   const [mobileSecond, setMobileSecond] = useState(false)
   const [mobileLang, setMobileLang] = useState(false)
@@ -136,6 +141,9 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
           </div>
           <h3>{SetString(lang.programsBtn)}</h3>
           <ul className='header-mobile-menu'>
+
+
+
             <li>
               <a
                 className='mobile-third-toggle'
@@ -159,6 +167,8 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
                   <h3>Mini MBA</h3>
                   <div className='program-tabs-content'>
                     <ul className='program-options-block-tabs'>
+
+
                       <li>
                         <a
                           className={classNames({ active: miniOnline })}
@@ -307,6 +317,7 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
                       </div>
                     </div>
                   </div>
+
                   <div className='header-podmenu-info'>
                     <div className='name'>Mini MBA</div>
                     <div className='info-flex'>
@@ -337,6 +348,7 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
                       </span>
                     </div>
                   </div>
+
                   <div
                     className='menu-back-link last'
                     onClick={() => setMobileThirdMini(false)}>
@@ -347,6 +359,10 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
               </div>
               {/* //third */}
             </li>
+
+
+
+
             <li>
               <a
                 className='mobile-third-toggle'
@@ -520,6 +536,9 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
                             })}
                         </ul>
                       </div>
+
+
+
                     </div>
                   </div>
                   <div className='header-podmenu-info'>
@@ -562,13 +581,163 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
               </div>
               {/* //third */}
             </li>
+
+
+
+
+
+
             <li>
-              <Link href='/programs/profession/online' locale='ru'>
-                <a className='mobileAllProgramsLink' onClick={handleMenuClose}>
-                  {SetString(langMenu.professions)}
-                </a>
-              </Link>
+              <a
+                className='mobile-third-toggle'
+                onClick={() => setMobileThirdMini(true)}>
+                {SetString(langMenu.professions)}
+              </a>
+
+              {/* third */}
+              <div
+                className={classNames({
+                  'header-mobile-third': true,
+                  opened: mobileThirdMini
+                })}>
+                <div className='container'>
+                  <div
+                    className='menu-back-link'
+                    onClick={() => setMobileThirdMini(false)}>
+                    <i></i>
+                    {SetString(langMenu.toProgramsBtn)}
+                  </div>
+                  <h3>{SetString(langMenu.professions)}</h3>
+                  <div className='program-tabs-content'>
+                    <div className='program-options-detail'>
+                      <div
+                        id='program-mobile-1-1'
+                        className={classNames({
+                          'program-options-block': true,
+                          show: miniOnline
+                        })}>
+                        <div className='name'>
+                          {SetString(langMenu.onlineTitle)}
+                          <div className='discount'>
+                            <div className='size'>
+                              <Discount />
+                            </div>
+                            <span>
+                              <Until />
+                            </span>
+                          </div>
+                        </div>
+                        <ProgramsQty
+                          programs={programs}
+                          type={'profession'}
+                          format={'online'}
+                        />
+                        <div className='price'>
+                          {SetString(langMenu.price)}:{' '}
+                          <Price
+                            discount={true}
+                            type={'profession'}
+                            format={'online'}
+                          />{' '}
+                        </div>
+                        <div className='info-list'>
+                          <div className='info-flex'>
+                            <div className='pic'>
+                              <IconCheckCircle fill={'#C7C7C7'} />
+                            </div>
+                            <span>{SetString(langMenu.formatRemote)}</span>
+                          </div>
+                          {/*<div className='info-flex'>*/}
+                          {/*  <div className='pic'>*/}
+                          {/*    <IconScreen fill={'#C7C7C7'} />*/}
+                          {/*  </div>*/}
+                          {/*  <span>*/}
+                          {/*    <ProgramSubjects type='profession' sum={true} />{' '}*/}
+                          {/*    {SetString(langMenu.qtSubjects)}*/}
+                          {/*  </span>*/}
+                          {/*</div>*/}
+                        </div>
+                        <ul className='program-options-block-list'>
+
+                          {/*{programs &&*/}
+                          {/*programs.map(item => {*/}
+                          {/*  if (*/}
+                          {/*    item.category?.type === 'profession' &&*/}
+                          {/*    item.studyFormat === 'online'*/}
+                          {/*  ) {*/}
+                          {/*    return (*/}
+                          {/*      <li key={item.id || item._id}>*/}
+                          {/*        <Link*/}
+                          {/*          href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}*/}
+                          {/*          locale='ru'>*/}
+                          {/*          <a onClick={handleMenuClose}>*/}
+                          {/*            {SetString(item, true)}*/}
+                          {/*          </a>*/}
+                          {/*        </Link>*/}
+                          {/*      </li>*/}
+                          {/*    )*/}
+                          {/*  }*/}
+                          {/*})}*/}
+
+
+                          {
+                            allFilters && allFilters.map(itemF => {
+                              return <>
+                                  <strong>{itemF.name}</strong>
+                                {
+                                  programs.map(item => {
+                                    if (
+                                        item.category?.type === 'profession' &&
+                                        item.studyFormat === 'online' &&
+                                        itemF.slug === item?.study_field?.slug
+                                    ) {
+                                      return (
+                                        <li key={item.id || item._id}>
+                                          <Link
+                                            href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
+                                            locale='ru'>
+                                            <a onClick={handleMenuClose}>
+                                              {SetString(item, true)}
+                                            </a>
+                                          </Link>
+                                        </li>
+                                      )
+                                    }
+                                  })
+                                }</>
+                            })
+                          }
+
+
+
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    className='menu-back-link last'
+                    onClick={() => setMobileThirdMini(false)}>
+                    <i></i>
+                    {SetString(langMenu.toProgramsBtn)}
+                  </div>
+                </div>
+              </div>
+              {/* //third */}
             </li>
+
+
+
+
+
+
+
+            {/*<li>*/}
+            {/*  <Link href='/programs/profession/online' locale='ru'>*/}
+            {/*    <a className='mobileAllProgramsLink' onClick={handleMenuClose}>*/}
+            {/*      {SetString(langMenu.professions)}*/}
+            {/*    </a>*/}
+            {/*  </Link>*/}
+            {/*</li>*/}
             {/* <li>
               <Link href='/programs/course/online' locale='ru'>
                 <a className='mobileAllProgramsLink' onClick={handleMenuClose}>

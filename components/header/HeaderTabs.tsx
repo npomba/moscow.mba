@@ -26,9 +26,11 @@ const HeaderTabs = ({ handleMenuClose, handleMouseEnter }) => {
     //   val: SetString(langMenu.internationalBusinessLaw)
     // },
     {
+      name: 'allPrograms',
       href: '/programs/mini/online',
       val: SetString(langMenu.allPrograms)
-    }
+    },
+
   ]
 
   return (
@@ -45,13 +47,14 @@ const HeaderTabs = ({ handleMenuClose, handleMouseEnter }) => {
                   : undefined
               }
               data-tab={
-                idx === 0 || idx === 1
+                idx === 0 || idx === 1 || idx === 2
                   ? `#header-podmenu-${idx + 1}`
                   : undefined
               }
               onClick={handleMenuClose}
               onMouseEnter={
-                idx === 0 || idx === 1 ? e => handleMouseEnter(e) : undefined
+                // idx === 0 || idx === 1 ? e => handleMouseEnter(e) : undefined
+               e => !item.name ? handleMouseEnter(e) : undefined
               }>
               {item.val}
             </a>

@@ -11,6 +11,7 @@ const programsContext = createContext({
   curProgramsStudyFieldSlug: null,
   searchTerm: null,
   filteredPrograms: [],
+  allFilters: [],
   setSearchTerm: (programs, term) => {},
   setPrograms: programs => {},
   setCurProgramsType: programType => {},
