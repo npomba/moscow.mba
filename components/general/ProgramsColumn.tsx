@@ -12,10 +12,13 @@ import ProgramSubjects from '@/components/general/ProgramSubjects'
 import ProgramsQty from '@/components/general/ProgramsQty'
 import TrainingPeriod from '@/components/costs/TrainingPeriod'
 import Discount from '@/components/costs/Discount'
-import { IconCheckCircle, IconClock, IconPaperCorner, IconScreen } from '@/components/icons'
+import { IconArrowLeft, IconCheckCircle, IconClock, IconPaperCorner, IconScreen } from '@/components/icons'
 import programsContext from '@/context/programs/programsContext'
+import menu from '@/data/translation/menu'
 
 const ProgramsColumn = ({ data, id, type }) => {
+  let idxOnline = 0
+  let idxBlended = 0
   const { menuIsOpen, openMenu, closeMenu, toggleMenu } = useContext(
     MenuContext
   )
@@ -101,7 +104,7 @@ const ProgramsColumn = ({ data, id, type }) => {
                       <Discount />
                     </div>
                     <span>
-                <Until />
+                <Until/>
               </span>
                   </div>
                 </div>
@@ -145,6 +148,10 @@ const ProgramsColumn = ({ data, id, type }) => {
                         item.category?.type === type &&
                         item.studyFormat === 'online'
                       ) {
+                        idxOnline += 1
+                        if (idxOnline > 14) {
+                          return
+                        }
                         return (
                           <li key={item.id || item._id} className={stls.listItem}>
                             <Link
@@ -155,8 +162,15 @@ const ProgramsColumn = ({ data, id, type }) => {
                           </li>
                         )
                       }
-                    })
-                  }
+                    })}
+                  <li className={stls.listItem}>
+                    <Link
+                      href={`/programs/${type}/online`}
+                      locale='ru'>
+                      <a className={stls.link} onClick={handleLinkClick}>{SetString(menu.linkAllPrograms)}<IconArrowLeft
+                        classNames={[stls.arrow]} /></a>
+                    </Link>
+                  </li>
                 </ul>
               </div>
             </li>
@@ -206,6 +220,10 @@ const ProgramsColumn = ({ data, id, type }) => {
                       item.category?.type === type &&
                       item.studyFormat === 'blended'
                     ) {
+                      idxBlended += 1
+                      if (idxBlended > 14) {
+                        return
+                      }
                       return (
                         <li key={item.id || item._id} className={stls.listItem}>
                           <Link
@@ -217,6 +235,14 @@ const ProgramsColumn = ({ data, id, type }) => {
                       )
                     }
                   })}
+                  <li className={stls.listItem}>
+                    <Link
+                      href={`/programs/${type}/blended`}
+                      locale='ru'>
+                      <a className={stls.link} onClick={handleLinkClick}>{SetString(menu.linkAllPrograms)}<IconArrowLeft
+                        classNames={[stls.arrow]} /></a>
+                    </Link>
+                  </li>
                 </ul>
               </div>
             </li>
@@ -226,117 +252,103 @@ const ProgramsColumn = ({ data, id, type }) => {
 
           <>
             <li className={classNames(stls.containerItem, stls.professionItem)}>
-              <div className={stls.programInfo}>
                 <div className={stls.programTitle}>{SetString(langMenu.professions)}
-                </div>
-                <div className={stls.infoFlexContainer}>
-                  <div className={stls.infoItemContainer}>
-                    <div className={stls.iconContainer}>
-                      <IconClock fill={'#C7C7C7'} />
+                  <div className={stls.itemDiscount}>
+                    <div className={stls.itemDiscountAmount}>
+                      <Discount />
                     </div>
                     <span>
-                <TrainingPeriod type={type} />
-              </span>
-                  </div>
-                  <div className={stls.infoItemContainer}>
-                    <div className={stls.iconContainer}>
-                      <IconPaperCorner fill={'#C7C7C7'} />
-                    </div>
-                    <span>
-                <ProgramSubjects type={type} subjects='base' />{' '}
-                      {SetString(langMenu.categoryAboutManagement)}
+                <Until />
               </span>
                   </div>
                 </div>
-                <p className={stls.programDesc}>
-                  {type === 'mini'
-                    ? SetString(langMenu.categoryDiscMini)
-                    : type === 'mba'
-                      ? SetString(langMenu.categoryDiscMba)
-                      : null}
-                </p>
-              </div>
-
-
               <div className={stls.content}>
-              <ul className={classNames(stls.list, stls.listProfession)}>
-                {
-                  allFilters.map((itemF, idx) => {
-                    if (idx < allFilters.length / 2) {
-                      return (
-                       <>
-                          <li key={itemF.id} className={stls.listItem}>
-                            <strong>{itemF.name}</strong>
-                          </li>
-                          {
-                            data.map(item => {
-                              if (
-                                (item.category?.type === type &&
-                                  item.studyFormat === 'online' &&
-                                  itemF.slug === item?.study_field?.slug)
-                              ) {
-                                return (
-                                  <li key={item.id || item._id} className={stls.listItem}><Link
-                                    href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
-                                    locale='ru'>
-                                    <a onClick={handleLinkClick}>{SetString(item, true)}</a>
-                                  </Link>
-                                  </li>
-                                )
-                              }
-                            })
-                          }
-                       </>
-                      )
-                    }})
-                }
-              </ul>
+                <ul className={classNames(stls.list, stls.listProfession)}>
+                  {
+                    allFilters.map((itemF, idx) => {
+                      let i = 0
+                      if (idx < allFilters.length / 2) {
+                        return (
+                          <>
+                            <li key={itemF.id} className={stls.listTitle}>
+                              <p>{itemF.name}</p>
+                            </li>
+                            {
+                              data.map(item => {
+                                if (
+                                  (item.category?.type === type &&
+                                    item.studyFormat === 'online' &&
+                                    itemF.slug === item?.study_field?.slug)
+                                ) {
+                                  i++
+                                  if (i <= 5) {
+                                    return (
+                                      <li key={item.id || item._id} className={stls.listItem}><Link
+                                        href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
+                                        locale='ru'>
+                                        <a onClick={handleLinkClick}>{SetString(item, true)}</a>
+                                      </Link>
+                                      </li>
+                                    )
+                                  }
 
-              <ul className={stls.list}>
-                {
-                  allFilters.map((itemF, idx) => {
-                    if (idx >= allFilters.length / 2) {
-                      return (
-                        <>
-                          <li key={itemF.id} className={stls.listItem}>
-                            <strong>{itemF.name}</strong>
-                          </li>
-                          {
-                            data.map(item => {
-                              if (
-                                (item.category?.type === type &&
-                                  item.studyFormat === 'online' &&
-                                  itemF.slug === item?.study_field?.slug)
-                              ) {
-                                return (
-                                  <li key={item.id || item._id} className={stls.listItem}><Link
-                                    href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
-                                    locale='ru'>
-                                    <a onClick={handleLinkClick}>{SetString(item, true)}</a>
-                                  </Link>
-                                  </li>
-                                )
-                              }
-                            })
-                          }
-                        </>
-                      )
-                    }})
-                }
-              </ul>
-
+                                }
+                              })
+                            }
+                            {i > 5 &&
+                            <li className={stls.listItem}>
+                              <Link
+                                href={`/programs/profession/online  `}
+                                locale='ru'>
+                                <a className={stls.link}
+                                   onClick={handleLinkClick}>{SetString(menu.linkAllPrograms)}<IconArrowLeft
+                                  classNames={[stls.arrow]} /></a>
+                              </Link>
+                            </li>
+                            }
+                          </>
+                        )
+                      }
+                    })
+                  }
+                </ul>
+                <ul className={stls.list}>
+                  {
+                    allFilters.map((itemF, idx) => {
+                      if (idx >= allFilters.length / 2) {
+                        return (
+                          <>
+                            <li key={itemF.id} className={stls.listTitle}>
+                              <p>{itemF.name}</p>
+                            </li>
+                            {
+                              data.map((item) => {
+                                if (
+                                  (item.category?.type === type &&
+                                    item.studyFormat === 'online' &&
+                                    itemF.slug === item?.study_field?.slug)
+                                ) {
+                                  return (
+                                    <li key={item.id || item._id} className={stls.listItem}><Link
+                                      href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
+                                      locale='ru'>
+                                      <a onClick={handleLinkClick}>{SetString(item, true)}</a>
+                                    </Link>
+                                    </li>
+                                  )
+                                }
+                              })
+                            }
+                          </>
+                        )
+                      }
+                    })
+                  }
+                </ul>
               </div>
-
-
             </li>
-
-
           </>
-
-
       }
-
-
     </ul>
   )
 }

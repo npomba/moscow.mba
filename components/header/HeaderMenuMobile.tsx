@@ -18,11 +18,12 @@ import {
   IconCheckCircle,
   IconScreen,
   IconPaperCorner,
-  IconClock
+  IconClock, IconArrowLeft
 } from '@/components/icons'
 import Discount from '@/components/costs/Discount'
 import { ImgLogoRabo, ImgLogoMde } from '@/components/images'
 import programsContext from '@/context/programs/programsContext'
+import menu from '@/data/translation/menu'
 
 const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
   const { menuIsOpen, openMenu, closeMenu, toggleMenu } =
@@ -30,6 +31,10 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
 
   const { allFilters } = useContext(programsContext)
 
+  let indexOnlineMini = 0
+  let indexBlendedMini = 0
+  let indexOnlineMBA = 0
+  let indexBlendedMBA = 0
 
 
   const [mobileSecond, setMobileSecond] = useState(false)
@@ -237,6 +242,10 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
                                 item.category?.type === 'mini' &&
                                 item.studyFormat === 'online'
                               ) {
+                                if (indexOnlineMini > 14) {
+                                  return
+                                }
+                                indexOnlineMini++
                                 return (
                                   <li key={item.id || item._id}>
                                     <Link
@@ -250,6 +259,17 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
                                 )
                               }
                             })}
+                          { indexOnlineMini > 14 &&
+                            <li>
+                              <Link
+                                href={`/programs/mini/online`}
+                                locale='ru'>
+                                <a className={stls.link} onClick={handleMenuClose}>
+                                  {SetString(menu.linkAllPrograms)}<IconArrowLeft classNames={[stls.arrow]}/>
+                                </a>
+                              </Link>
+                            </li>
+                          }
                         </ul>
                       </div>
                       <div
@@ -298,6 +318,10 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
                                 item.category?.type === 'mini' &&
                                 item.studyFormat === 'blended'
                               ) {
+                                if (indexBlendedMini > 14) {
+                                  return
+                                }
+                                indexBlendedMini++
                                 return (
                                   <li key={item.id || item._id}>
                                     <Link
@@ -311,6 +335,17 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
                                 )
                               }
                             })}
+                          { indexBlendedMini > 14 &&
+                          <li>
+                            <Link
+                              href={`/programs/mini/blended`}
+                              locale='ru'>
+                              <a className={stls.link} onClick={handleMenuClose}>
+                                {SetString(menu.linkAllPrograms)}<IconArrowLeft classNames={[stls.arrow]}/>
+                              </a>
+                            </Link>
+                          </li>
+                          }
                         </ul>
                       </div>
                     </div>
@@ -458,6 +493,10 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
                                 item.category?.type === 'mba' &&
                                 item.studyFormat === 'online'
                               ) {
+                                if (indexOnlineMBA > 14) {
+                                  return
+                                }
+                                indexOnlineMBA++
                                 return (
                                   <li key={item.id || item._id}>
                                     <Link
@@ -471,6 +510,17 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
                                 )
                               }
                             })}
+                          { indexOnlineMBA > 14 &&
+                          <li>
+                            <Link
+                              href={`/programs/mba/online`}
+                              locale='ru'>
+                              <a className={stls.link} onClick={handleMenuClose}>
+                                {SetString(menu.linkAllPrograms)}<IconArrowLeft classNames={[stls.arrow]}/>
+                              </a>
+                            </Link>
+                          </li>
+                          }
                         </ul>
                       </div>
                       <div
@@ -519,19 +569,34 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
                                 item.category?.type === 'mba' &&
                                 item.studyFormat === 'blended'
                               ) {
+                                if (indexBlendedMBA > 14) {
+                                  return
+                                }
+                                indexBlendedMBA++
                                 return (
                                   <li key={item.id || item._id}>
                                     <Link
                                       href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
                                       locale='ru'>
-                                      <a onClick={handleMenuClose}>
-                                        {SetString(item, true)}
+                                      <a className={stls.link} onClick={handleMenuClose}>
+                                        {SetString(menu.linkAllPrograms)}<IconArrowLeft classNames={[stls.arrow]}/>
                                       </a>
                                     </Link>
                                   </li>
                                 )
                               }
                             })}
+                          { indexBlendedMBA > 14 &&
+                          <li>
+                            <Link
+                              href={`/programs/mba/blended`}
+                              locale='ru'>
+                              <a onClick={handleMenuClose}>
+                                {SetString(menu.linkAllPrograms)}
+                              </a>
+                            </Link>
+                          </li>
+                          }
                         </ul>
                       </div>
 
@@ -602,7 +667,7 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
                     <i></i>
                     {SetString(langMenu.toProgramsBtn)}
                   </div>
-                  <h3>{SetString(langMenu.professions)}</h3>
+                  <h3 className={stls.title}>{SetString(langMenu.professions)}</h3>
                   <div className='program-tabs-content'>
                     <div className='program-options-detail'>
                       <div
@@ -611,44 +676,15 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
                           'program-options-block': true,
                           show: miniOnline
                         })}>
-                        <div className='name'>
-                          {SetString(langMenu.onlineTitle)}
-                          <div className='discount'>
-                            <div className='size'>
-                              <Discount />
-                            </div>
-                            <span>
-                              <Until />
-                            </span>
-                          </div>
-                        </div>
-                        <ProgramsQty
-                          programs={programs}
-                          type={'profession'}
-                          format={'online'}
-                        />
-                        <div className='price'>
-                          {SetString(langMenu.price)}:{' '}
-                          <Price
-                            discount={true}
-                            type={'profession'}
-                            format={'online'}
-                          />{' '}
-                        </div>
-                        <div className='info-list'>
-                          <div className='info-flex'>
-                            <div className='pic'>
-                              <IconCheckCircle fill={'#C7C7C7'} />
-                            </div>
-                            <span>{SetString(langMenu.formatRemote)}</span>
-                          </div>
-                        </div>
-                        <ul className='program-options-block-list'>
+                        <ul className={stls.programOptionsBlockList}>
 
                           {
                             allFilters && allFilters.map(itemF => {
+                              let indexProfession = 0
                               return <>
-                                  <strong>{itemF.name}</strong>
+                                <li key={itemF.id} className={stls.listTitle}>
+                                  <p>{itemF.name}</p>
+                                </li>
                                 {
                                   programs.map(item => {
                                     if (
@@ -656,6 +692,10 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
                                         item.studyFormat === 'online' &&
                                         itemF.slug === item?.study_field?.slug
                                     ) {
+                                      if (indexProfession > 5) {
+                                        return
+                                      }
+                                      indexProfession++
                                       return (
                                         <li key={item.id || item._id}>
                                           <Link
@@ -668,8 +708,19 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
                                         </li>
                                       )
                                     }
-                                  })
-                                }</>
+                                  })}
+                                { indexProfession > 5 &&
+                                <li>
+                                  <Link
+                                    href={`/programs/profession/online/`}
+                                    locale='ru'>
+                                    <a className={stls.link} onClick={handleMenuClose}>
+                                      {SetString(menu.linkAllPrograms)}<IconArrowLeft classNames={[stls.arrow]}/>
+                                    </a>
+                                  </Link>
+                                </li>
+                                }
+                              </>
                             })
                           }
                         </ul>
@@ -686,13 +737,6 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
               </div>
               {/* //third */}
             </li>
-
-
-
-
-
-
-
             {/*<li>*/}
             {/*  <Link href='/programs/profession/online' locale='ru'>*/}
             {/*    <a className='mobileAllProgramsLink' onClick={handleMenuClose}>*/}
