@@ -762,8 +762,10 @@ h2 {
   }
   a {
     transition: $transition;
-    &:hover {
-      color: $red;
+    @include m.media(laptop, desktop, widescreen) {
+      &:hover {
+        color: $red;
+      }
     }
   }
 }
@@ -1830,8 +1832,6 @@ html #nprogress .spinner-icon {
   border-left-color: $red;
 }
 
-
-
 .dflex {
   display: flex !important;
 }
@@ -1844,13 +1844,9 @@ html #nprogress .spinner-icon {
   display: block;
 }
 
-
-
-
-
-.searchField_popup-content{
+.searchField_popup-content {
   @include m.media(tablet, phone) {
-    top: 0px!important;
-    margin: 0!important;
+    top: 0px !important;
+    margin: 0 !important;
   }
 }
