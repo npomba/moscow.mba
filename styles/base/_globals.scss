@@ -1340,9 +1340,11 @@ h2 {
       font-size: 18px;
       text-transform: uppercase;
       font-weight: 400;
-      &:hover {
-        color: $red;
-      }
+
+      //&:hover {
+      //  color: $red;
+      //}
+
       &:after {
         content: '';
         position: absolute;
