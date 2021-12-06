@@ -47,6 +47,11 @@ const HeaderDesktopMenu = ({ handleMenuClose, handleMouseEnter, programs }) => {
               id={'header-podmenu-2'}
               type={'mba'}
             />
+            <ProgramsColumn
+              data={programs}
+              id={'header-podmenu-3'}
+              type={'profession'}
+            />
           </div>
         </div>
       </div>

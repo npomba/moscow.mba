@@ -8,6 +8,7 @@ import {
   SET_SEARCH_TERM,
   SEARCH_PROGRAM
 } from '@/context/types'
+import { loadGetInitialProps } from 'next/dist/shared/lib/utils'
 
 const ProgramsState = props => {
   const initialState = {
@@ -21,12 +22,16 @@ const ProgramsState = props => {
     curProgramsStudyFieldSlug: null,
     searchTerm: null,
     filteredPrograms: [],
+    allFilters: []
   }
 
   const [state, dispatch] = useReducer(programsReducer, initialState)
 
   const setPrograms = (programs = []) => {
-    dispatch({ type: SET_PROGRAMS, payload: programs })
+    const studyFieldArr = [...new Set(programs.filter(item => item !== undefined && item?.study_field))]
+    const arrayKey = [...new Map(studyFieldArr.map(item => [item.study_field['slug'], item.study_field])).values()]
+    console.log('arrayKey', programs)
+    dispatch({ type: SET_PROGRAMS, payload: { programs, filters: arrayKey } })
   }
 
   const setCurProgramsType = (programType: string | null) => {
@@ -55,8 +60,6 @@ const ProgramsState = props => {
   }
 
 
-
-
   return (
     <ProgramsContext.Provider
       value={{
@@ -70,6 +73,7 @@ const ProgramsState = props => {
         curProgramsStudyFieldSlug: state.curProgramsStudyFieldSlug,
         searchTerm: state.searchTerm,
         filteredPrograms: state.filteredPrograms,
+        allFilters: state.allFilters,
         setSearchTerm,
         setPrograms,
         setCurProgramsType,

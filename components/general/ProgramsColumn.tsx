@@ -2,7 +2,7 @@ import stls from '@/styles/components/general/ProgramsColumn.module.sass'
 import { useContext } from 'react'
 import MenuContext from '@/context/menu/menuContext'
 import OverlayContext from '@/context/overlay/overlayContext'
-import classnames from 'classnames'
+import classNames from 'classnames'
 import Link from 'next/link'
 import langMenu from '@/data/translation/menu'
 import { SetString } from '@/helpers/index'
@@ -12,22 +12,15 @@ import ProgramSubjects from '@/components/general/ProgramSubjects'
 import ProgramsQty from '@/components/general/ProgramsQty'
 import TrainingPeriod from '@/components/costs/TrainingPeriod'
 import Discount from '@/components/costs/Discount'
-import {
-  IconCheckCircle,
-  IconScreen,
-  IconPaperCorner,
-  IconClock
-} from '@/components/icons'
-import menu from '@/data/translation/menu'
-import IconArrowLeft from '../icons/IconArrowLeft'
+import { IconCheckCircle, IconClock, IconPaperCorner, IconScreen } from '@/components/icons'
+import programsContext from '@/context/programs/programsContext'
 
 const ProgramsColumn = ({ data, id, type }) => {
   const { menuIsOpen, openMenu, closeMenu, toggleMenu } = useContext(
     MenuContext
   )
 
-  let inxOnline = 0
-  let inxBlended = 0
+  const { allFilters } = useContext(programsContext)
 
   const {
     overlayIsShown,
@@ -44,13 +37,13 @@ const ProgramsColumn = ({ data, id, type }) => {
   return (
     <ul
       id={id}
-      className={classnames(stls.container, 'header-podmenu-content', {
+      className={classNames(stls.container, 'header-podmenu-content', {
         [stls.visible]: id === 'header-podmenu-1'
       })}>
       <li className={stls.containerItem}>
         <div className={stls.programInfo}>
           <div className={stls.programTitle}>
-            {type === 'mini' ? 'Mini MBA' : type === 'mba' ? 'MBA' : null}
+            {type === 'mini' ? 'Mini MBA' : type === 'mba' ? 'MBA' : type === 'profession' ? SetString(langMenu.professions) : null}
           </div>
           <div className={stls.infoFlexContainer}>
             <div className={stls.infoItemContainer}>
@@ -70,15 +63,19 @@ const ProgramsColumn = ({ data, id, type }) => {
                 {SetString(langMenu.categoryAboutManagement)}
               </span>
             </div>
-            <div className={stls.infoItemContainer}>
-              <div className={stls.iconContainer}>
-                <IconPaperCorner fill={'#C7C7C7'} />
-              </div>
-              <span>
+            {
+              type !== 'profession' &&
+              <div className={stls.infoItemContainer}>
+                <div className={stls.iconContainer}>
+                  <IconPaperCorner fill={'#C7C7C7'} />
+                </div>
+                <span>
                 <ProgramSubjects type={type} subjects='specialty' />{' '}
-                {SetString(langMenu.categorySpecializedSubjects)}
+                  {SetString(langMenu.categorySpecializedSubjects)}
               </span>
-            </div>
+              </div>
+            }
+
           </div>
           <p className={stls.programDesc}>
             {type === 'mini'
@@ -124,119 +121,138 @@ const ProgramsColumn = ({ data, id, type }) => {
               </div>
               <span>{SetString(langMenu.formatRemote)}</span>
             </div>
-            <div className={stls.infoFlexContainer}>
-              <div className={stls.iconContainer}>
-                <IconScreen fill={'#C7C7C7'} />
-              </div>
-              <span>
+            {
+              type !== 'profession' &&
+              <div className={stls.infoFlexContainer}>
+                <div className={stls.iconContainer}>
+                  <IconScreen fill={'#C7C7C7'} />
+                </div>
+                <span>
                 <ProgramSubjects type={type} sum={true} />{' '}
-                {SetString(langMenu.qtSubjects)}
+                  {SetString(langMenu.qtSubjects)}
               </span>
-            </div>
-          </div>
-          <ul className={stls.list}>
-            {data &&
-            data.map(item => {
-              if (
-                (item.category?.type === type &&
-                  item.studyFormat === 'online')
-                || (item.slug === 'international-business-law' && item.category.type === 'mbl' && type === 'mba')
-              ) {
-                inxOnline += 1
-                if (inxOnline > 16) {
-                  return
-                }
-                return (
-                  <li key={item.id || item._id} className={stls.listItem}>
-                    <Link
-                      href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
-                      locale='ru'>
-                      <a onClick={handleLinkClick}>{SetString(item, true)}</a>
-                    </Link>
-                  </li>
-                )
-              }
-            })}
-            <li className={stls.listItem}>
-              <Link
-                href={`/programs/mini/online`}
-                locale='ru'>
-                <a className={stls.link} onClick={handleLinkClick}>{SetString(menu.linkAllPrograms)}<IconArrowLeft classNames={[stls.arrow]}/></a>
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </li>
-      <li className={stls.containerItem}>
-        <div className={stls.itemDetails}>
-          <div className={stls.itemTitle}>
-            {SetString(langMenu.blendedTitle)}
+              </div>
+            }
           </div>
 
-          <ProgramsQty
-            programs={data}
-            type={type}
-            format={'blended'}
-            isInsideHeader
-          />
-          <div className={stls.itemPrice}>
-            {SetString(langMenu.price)}:{' '}
-            <Price
-              discount={false}
-              type={type}
-              format={'blended'}
-              renderedByComponent='ProgramsColumn'
-            />
-          </div>
-          <div className={stls.itemInfo}>
-            <div className={stls.infoFlexContainer}>
-              <div className={stls.iconContainer}>
-                <IconCheckCircle fill={'#C7C7C7'} />
-              </div>
-              <span>{SetString(langMenu.formatBlended)}</span>
-            </div>
-            <div className={stls.infoFlexContainer}>
-              <div className={stls.iconContainer}>
-                <IconScreen fill={'#C7C7C7'} />
-              </div>
-              <span>
-                <ProgramSubjects type={type} sum={true} />{' '}
-                {SetString(langMenu.qtSubjects)}
-              </span>
-            </div>
-          </div>
           <ul className={stls.list}>
-            {data &&
-            data.map(item => {
-              if (
-                item.category?.type === type &&
-                item.studyFormat === 'blended'
-              ) {
-                inxBlended += 1
-                if (inxBlended > 16) {
-                  return
-                }
-                return (
-                  <li key={item.id || item._id} className={stls.listItem}>
-                    <Link
-                      href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
-                      locale='ru'>
-                      <a onClick={handleLinkClick}>{SetString(item, true)}</a>
-                    </Link>
+            {
+              type === 'profession' ?
+                allFilters.map(itemF => {
+                  return <>
+                  <li key={itemF.id} className={stls.listItem}>
+                    <strong>{itemF.name}</strong>
                   </li>
-                )
-              }
-            })}
-            <li className={stls.listItem}>
-              <Link
-                href={`/programs/mini/blended`}
-                locale='ru'>
-                <a className={stls.link} onClick={handleLinkClick}>{SetString(menu.linkAllPrograms)}<IconArrowLeft classNames={[stls.arrow]}/></a>
-              </Link>
-            </li>
+                    {
+                      data.map(item => {
+                        if (
+                          (item.category?.type === type &&
+                            item.studyFormat === 'online' &&
+                            itemF.slug === item?.study_field?.slug)
+                        ) {
+                          return (
+                            <li key={item.id || item._id} className={stls.listItem}>
+                              <Link
+                                href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
+                                locale='ru'>
+                                <a onClick={handleLinkClick}>{SetString(item, true)}</a>
+                              </Link>
+                            </li>
+                          )
+                        }
+                      })
+                    }</>
+                })
+                :
+                <>
+                  {
+                    data.map(item => {
+                      if (
+                        item.category?.type === type &&
+                        item.studyFormat === 'online'
+                      ) {
+                        return (
+                          <li key={item.id || item._id} className={stls.listItem}>
+                            <Link
+                              href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
+                              locale='ru'>
+                              <a onClick={handleLinkClick}>{SetString(item, true)}</a>
+                            </Link>
+                          </li>
+                        )
+                      }
+                    })
+                  }
+                </>
+            }
+
+
           </ul>
+
         </div>
       </li>
+      {
+        type !== 'profession' &&
+        <li className={stls.containerItem}>
+          <div className={stls.itemDetails}>
+            <div className={stls.itemTitle}>
+              {SetString(langMenu.blendedTitle)}
+            </div>
+
+            <ProgramsQty
+              programs={data}
+              type={type}
+              format={'blended'}
+              isInsideHeader
+            />
+            <div className={stls.itemPrice}>
+              {SetString(langMenu.price)}:{' '}
+              <Price
+                discount={false}
+                type={type}
+                format={'blended'}
+                renderedByComponent='ProgramsColumn'
+              />
+            </div>
+            <div className={stls.itemInfo}>
+              <div className={stls.infoFlexContainer}>
+                <div className={stls.iconContainer}>
+                  <IconCheckCircle fill={'#C7C7C7'} />
+                </div>
+                <span>{SetString(langMenu.formatBlended)}</span>
+              </div>
+              <div className={stls.infoFlexContainer}>
+                <div className={stls.iconContainer}>
+                  <IconScreen fill={'#C7C7C7'} />
+                </div>
+                <span>
+                <ProgramSubjects type={type} sum={true} />{' '}
+                  {SetString(langMenu.qtSubjects)}
+              </span>
+              </div>
+            </div>
+            <ul className={stls.list}>
+              {data &&
+              data.map(item => {
+                if (
+                  item.category?.type === type &&
+                  item.studyFormat === 'blended'
+                ) {
+                  return (
+                    <li key={item.id || item._id} className={stls.listItem}>
+                      <Link
+                        href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
+                        locale='ru'>
+                        <a onClick={handleLinkClick}>{SetString(item, true)}</a>
+                      </Link>
+                    </li>
+                  )
+                }
+              })}
+            </ul>
+          </div>
+        </li>
+      }
     </ul>
   )
 }
