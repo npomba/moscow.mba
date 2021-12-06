@@ -5,12 +5,13 @@
   flex-wrap: wrap
   height: 100%
   padding-left: 30px
+
   &.visible
     display: flex
 
 .containerItem
   flex: 0 0 50%
-  padding: 0 28px 50px
+  padding: 0 28px 50px 30px
   @include m.media(desktop, laptop, tablet, phone)
     padding-left: 20px
     padding-right: 20px
@@ -104,6 +105,8 @@
   line-height: 1.2
   color: #000000
 
+
+
 .listItem
   &:not(:last-child)
     margin-bottom: 10px
@@ -160,3 +163,16 @@
   fill: #000
   transition: all .3s ease-out
 
+
+
+.professionItem
+  &:last-child
+    border-left: none
+
+.content
+  display: flex
+  padding-bottom: 30px
+
+.listProfession
+  &:last-child
+  margin-right: 50px
