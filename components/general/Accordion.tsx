@@ -13,9 +13,10 @@ const Accordion = ({
 
   let accordionContent
 
-  useEffect(() => {
-    document.getElementById('view_accordion').scrollIntoView()
-  })
+  // the page is being scroll into view on initial load, this is not wanted behavior
+  // useEffect(() => {
+  //   document.getElementById('view_accordion').scrollIntoView()
+  // })
 
   if (typeof content === 'string') {
     accordionContent = <p className={stls.mb}>{content}</p>

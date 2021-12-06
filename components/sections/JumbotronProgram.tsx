@@ -92,6 +92,7 @@ const JumbotronProgram = ({ program }) => {
                         type={program.category?.type}
                         format={program.studyFormat}
                         notComparingPrices
+                        programPrice={program.price}
                       />
                     </p>
                   </div>
