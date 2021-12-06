@@ -1,21 +1,17 @@
 import stls from '@/styles/components/general/Accordion.module.sass'
 import classNames from 'classnames'
 import ImageContainer from '@/components/general/ImageContainer'
-import { useEffect } from 'react'
 
 const Accordion = ({
-  accordionItem,
-  accordionIndex = null,
-  activeAccordion = null,
-  setActiveAccordion = null
-}) => {
+                     accordionItem,
+                     accordionIndex = null,
+                     activeAccordion = null,
+                     setActiveAccordion = null,
+                     scrollableIntoView
+                   }) => {
   const { title, content, isList, isImage } = accordionItem
 
   let accordionContent
-
-  useEffect(() => {
-    document.getElementById('view_accordion').scrollIntoView()
-  })
 
   if (typeof content === 'string') {
     accordionContent = <p className={stls.mb}>{content}</p>
@@ -53,10 +49,14 @@ const Accordion = ({
   }
 
   const handleAccordionClick = () => {
+    document.getElementById('view_accordion').scrollIntoView()
+
     if (activeAccordion) setActiveAccordion(-1)
 
     if (!activeAccordion && setActiveAccordion)
       setActiveAccordion(accordionIndex)
+
+
   }
 
   return (
