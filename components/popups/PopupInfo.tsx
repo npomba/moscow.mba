@@ -9,7 +9,7 @@ type PopupInfoPropsType = {
   content: {
     title: string
     subtitle: string
-    discription: string
+    description: string
     items: string[]
   }
 }
@@ -49,7 +49,7 @@ const PopupInfo: React.FC<PopupInfoPropsType> = ({ title, content }) => {
               {content.title}
               <span className={stls.strong}>{content.subtitle}</span>
             </p>
-            <p className={stls.text}>{content.discription}</p>
+            <p className={stls.text}>{content.description}</p>
             <ul className={stls.list}>
               {content.items.map((item, i) => {
                 return (

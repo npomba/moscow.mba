@@ -1,5 +1,5 @@
 import stls from '@/styles/components/pages/Programs.module.sass'
-import { useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import { useAt } from '@/helpers/index'
@@ -12,6 +12,8 @@ import ProgramsQty from '@/components/general/ProgramsQty'
 import Filters from '@/components/general/Filters'
 import { CardProgram } from '@/components/cards'
 import { IconCheckCircle } from '@/components/icons'
+import programsContext from '@/context/programs/programsContext'
+
 
 const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
   const at = useAt()
@@ -88,7 +90,7 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
         </div>
       </section>
       <div className={stls.generalContainer}>
-        <h1 className={stls.title}>ПРОГРАММЫ ОБУЧЕНИЯ</h1>
+        <h1 className={stls.title}>ПРОГРАММЫ <span>ОБУЧЕНИЯ</span></h1>
         <div className={stls.container}>
           <Filters
             mbaTypeOfProgram={mbaTypeOfProgram}
@@ -154,7 +156,7 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
                 format={mbaFormat}
               />
             )}
-            <div className={`mini-programs-slider ${stls.programs}`}>
+            <div className={stls.programs}>
               {programsToDisplay.map((program, idx) => {
                 return (
                   <CardProgram

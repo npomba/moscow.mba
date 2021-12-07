@@ -1,3 +1,4 @@
+
 import stls from '@/styles/pages/About.module.sass'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
@@ -16,7 +17,7 @@ import langIndex from '@/data/translation/index'
 import { handleGetStaticProps } from '@/helpers/index'
 import ContactUs from '@/components/sections/ContactUs'
 
-const PageAbout = ({ programs }) => {
+const PageAbout = ({ programs, teachers }) => {
   return (
     <>
       <NextSeo
@@ -33,7 +34,7 @@ const PageAbout = ({ programs }) => {
         <ForeignAffiliates />
         <StudentsInternational />
         <CorporateClients />
-        <Teachers />
+        <Teachers teachers={teachers} />
         <UpToDateContent />
         <Accreditation />
         <ContactUs />
@@ -45,3 +46,4 @@ const PageAbout = ({ programs }) => {
 export const getStaticProps = async () => handleGetStaticProps()
 
 export default PageAbout
+

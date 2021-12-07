@@ -17,8 +17,9 @@ import CostOfStudy from '@/components/sections/CostOfStudy'
 import HelpWithEmployment from '@/components/sections/HelpWithEmployment'
 import Pros from '@/components/sections/Pros'
 import GetStudyPlan from '@/components/sections/GetStudyPlan'
+import ProgramDevelopedStandard from '@/components/sections/ProgramDevelopedStandard'
 
-const ProfessionOnlineProgram = ({ program }) => {
+const ProfessionOnlineProgram = ({ program, teachers }) => {
   const data = program
 
   const router = useRouter()
@@ -42,13 +43,18 @@ const ProfessionOnlineProgram = ({ program }) => {
       <div className={stls.container}>
         <WhatWillYouLearn data={data} />
         <ProgramDesc />
+        <ProgramDevelopedStandard />
         <WhoItIsFor program={program} />
 
         <Pros format={'online'} />
         <HowProcessGoes />
         <ProgramModules program={data} smallerMb />
         <GetStudyPlan />
-        <Teachers programId={data._id} programTitle={data.title} />
+        <Teachers
+          programId={data._id}
+          programTitle={data.title}
+          teachers={program.teachers}
+        />
         <HelpWithEmployment />
         <CorporateClients partnershipTitle />
         <Diploma />
@@ -58,6 +64,7 @@ const ProfessionOnlineProgram = ({ program }) => {
           programTitle={data.title}
           programFormat={data.studyFormat}
           programType={data.category?.type}
+          programPrice={data.price}
         />
         <Qna programId={data._id} programTitle={data.title} />
         <ContactUs

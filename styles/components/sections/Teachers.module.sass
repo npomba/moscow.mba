@@ -4,7 +4,7 @@
   position: relative
   z-index: 3
   color: #b3b3b3
-  padding: 136px 0 100px
+  padding: 126px 0 100px
   margin-bottom: 140px
   &.standalonePage
     color: #333
@@ -53,7 +53,6 @@
 .content
   position: relative
   z-index: 2
-  padding-right: 20px
   padding-right: 500px
   @include m.media(desktop)
     padding-right: 435px
@@ -88,6 +87,7 @@
   line-height: 1.2
   min-height: 380px
   margin-bottom: 29px
+
   @include m.media(laptop, tablet, phone)
     min-height: 1px
     margin-bottom: 70px
@@ -97,6 +97,8 @@
     display: flex
     align-items: flex-start
     margin-bottom: 30px
+    &:nth-child(3)
+      margin-right: 30px
     @include m.media(phone)
       margin-bottom: 20px
   h5
@@ -109,6 +111,7 @@
     @include m.media(phone)
       font-size: 18px
       margin-bottom: 5px
+
 
 .detailListProfession
   min-height: auto
@@ -148,6 +151,7 @@
   display: flex
   flex-wrap: wrap
   margin: 0 -35px
+
   @include m.media(desktop, laptop)
     margin: 0 -15px
   @include m.media(tablet, phone)
@@ -159,6 +163,7 @@
     margin-bottom: 60px
     padding: 0 35px
     width: 25%
+
     @include m.media(desktop, laptop)
       padding: 0 15px
     @include m.media(tablet, phone)
@@ -170,7 +175,7 @@
     @include m.media(phone)
       width: 100%
       padding-bottom: 15px
-      border-bottom: 1px solid #3d3c39
+      border-bottom: 1px solid #F7F7F7
       margin-bottom: 15px
       &:nth-of-type(4)
         padding-bottom: 0
@@ -298,7 +303,7 @@
 .sectionPl
   position: relative
   z-index: 2
-  padding-left: 220px
+  padding-left: 200px
   @include m.media(desktop, laptop, tablet, phone)
     padding-left: 0
 
@@ -306,7 +311,7 @@
   position: absolute
   left: 0
   width: 220px
-  padding-right: 20px
+  //padding-right: 20px
   text-transform: uppercase
   font-weight: bold
   font-size: 20px
@@ -321,3 +326,33 @@
     margin-top: 0 !important
   @include m.media(laptop, tablet, phone)
     display: none
+
+.getAllTeachers
+  @include m.media(phone, tablet, laptop)
+    @include m.flex($jc: center, $ai: center, $fd: column)
+  @include m.media(desktop, widescreen)
+    @include m.flex($jc: center, $ai: center)
+  width: calc(100% - 70px)
+  margin-left: 35px
+  padding: 78px 15px
+  background-color: #383838
+  color: #fff
+
+.getAllTeachersTitle
+  line-height: 120%
+  @include m.media(phone, tablet, laptop)
+    margin-bottom: 20px
+    font-size: 24px
+    font-weight: 500
+  @include m.media(desktop, widescreen)
+    max-width: 20ch
+    margin-right: 71px
+    font-size: 36px
+    font-weight: 700
+
+.getAllTeachersBtn
+  margin-bottom: 0
+  @include m.media(phone)
+    width: 100%
+    & button
+      width: 100%

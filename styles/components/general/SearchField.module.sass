@@ -1,0 +1,172 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+
+
+.popup
+
+.trigger
+  display: flex
+  align-items: center
+  margin-bottom: 30px
+  border-bottom: 1px solid #000
+  max-width: 296px
+
+.icon
+  width: 20px
+  height: 20px
+
+
+.btn
+  background-color: #00000000
+  cursor: pointer
+  border: none
+  padding: 5px 0 5px 12px
+  font-size: 20px
+
+  &::placeholder
+    color: #000
+    opacity: 1
+
+
+.container
+  width: 1285px
+  max-height: 80vh
+  overflow: auto
+  background-color: #fff
+  @include m.media( tablet, phone)
+    max-height: 100vh
+  @include m.media(desktop, laptop, tablet, phone)
+    width: 100vw
+    margin: -15px
+
+  &::-webkit-scrollbar
+    -webkit-appearance: none
+    width: 3px
+
+  &::-webkit-scrollbar-thumb
+    border-radius: 2px
+    background-color: #FF3535
+
+    &:hover
+      background-color: #cccc
+
+.search
+  display: flex
+  align-items: center
+
+  .icon
+    width: 29px
+    height: 29px
+
+  @include m.media(tablet, phone)
+    padding: 30px 15px
+  @include m.media(widescreen, desktop, laptop)
+    padding: 42px 47px 35px 42px
+
+
+.cross
+  cursor: pointer
+  width: 24px
+  height: 24px
+
+  svg
+    width: 24px
+    height: 24px
+
+.input
+  width: 100%
+  margin-bottom: 0
+  border: none
+  font-weight: normal
+  font-size: 20px
+  line-height: 120%
+  color: #000
+  margin-left: 20px
+
+  &::placeholder
+    color: #000
+    opacity: 1
+
+.list
+  border: 1px solid #F7F7F7
+  padding: 0px 44px
+  @include m.media(tablet, phone)
+    padding: 0px 15px
+
+.item
+  padding: 20px 0
+  border-bottom: 1px solid #F7F7F7
+  font-weight: 300
+  font-size: 20px
+  line-height: 120%
+
+
+.link
+  display: flex
+  justify-content: space-between
+  align-items: center
+  color: #000
+  &:hover
+    transition: color .3s ease-in-out
+    color: #FF3535
+    .format
+      border-color: #FF3535
+
+
+.strong
+  font-weight: 800
+
+.format
+  padding: 10px 20px
+  border: 1px solid #000
+  border-radius: 80px
+
+.form
+  width: 100%
+
+  @include m.media(tablet, phone)
+    padding: 30px 15px
+  @include m.media(widescreen, desktop, laptop)
+    padding: 40px
+
+.title
+  margin-bottom: 20px
+  font-weight: 500
+  font-size: 24px
+  line-height: 120%
+  color: #262626
+
+.text
+  font-weight: 300
+  font-size: 20px
+  line-height: 120%
+  @include m.media(tablet, phone)
+    font-size: 16px
+    margin-bottom: 40px
+  @include m.media(widescreen, desktop, laptop)
+    font-size: 20px
+    margin-bottom: 52px
+
+.content
+  display: flex
+  @include m.media(tablet, phone)
+    flex-wrap: nowrap
+    flex-direction: column
+  @include m.media(widescreen, desktop, laptop)
+    flex-wrap: wrap
+    align-items: flex-start
+    justify-content: space-between
+  input
+    width: calc(100% - 30px)
+    min-width: 260px
+    border-color: #262626
+    color: #1f1f1f
+    margin: 0 20px 0 0
+    &::placeholder
+      color: #B2B2B2
+  button
+    min-width: 260px
+    width: 100%
+    background-color: #FF3535!important
+    color: #fff!important
+

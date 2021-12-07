@@ -2,11 +2,14 @@ import {
   SET_PROGRAMS,
   SET_CUR_PROGRAMS_TYPE,
   SET_CUR_PROGRAMS_STUDY_FIELD_SLUG,
-  SET_SEARCH_TERM
+  SET_SEARCH_TERM,
+  SEARCH_PROGRAM
 } from '@/context/types'
+import useAt from '@/helpers/useAt'
 // import { filterProgramsByType, getStudyFields } from '@/helpers/index'
 
 const programsReducer = (state, action) => {
+  const at = useAt()
   switch (action.type) {
     case SET_PROGRAMS:
       const programs = action.payload
@@ -56,6 +59,23 @@ const programsReducer = (state, action) => {
         ...state,
         searchTerm,
         filteredPrograms
+      }
+    case SEARCH_PROGRAM:
+      let value = action.payload
+      let res = state.programs.filter((item, idx) => {
+        if (!value || idx >= 10) {
+          return
+        }
+        if (
+          (at.ru && item.title.toLowerCase().includes(value)) ||
+          (at.en && item.slug.replace('-', ' ').toLowerCase().includes(value))
+        ) {
+          return item.title
+        }
+      })
+      return {
+        ...state,
+        filteredPrograms: res
       }
     default:
       return state

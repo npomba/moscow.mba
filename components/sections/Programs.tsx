@@ -25,10 +25,7 @@ SwiperCore.use([Virtual])
 
 
 const Programs = ({ programs }) => {
-  const swiperWinth = useWindowWidth() <= 1020 ? true : false
-
   const [index, setIndex] = useState(0)
-
   const [swiperRef, setSwiperRef] = useState(null)
 
   useEffect(() => {
@@ -53,8 +50,6 @@ const Programs = ({ programs }) => {
     }
     swiperRef?.slideTo(index - 1, 500)
   }
-
-
 
   const handleSetMini = () => {
     setIsMini(true)
@@ -113,12 +108,9 @@ const Programs = ({ programs }) => {
           </div>
           <div className='program-options-right'>
 
-            {swiperWinth ?
+            <div className={stls.swiper}>
               <Swiper
                 slidesPerView={1}
-                pagination={{
-                  type: 'fraction'
-                }}
                 onSwiper={setSwiperRef}
                 onSlideChange={e => {
                   setIndex(e.activeIndex)
@@ -126,18 +118,21 @@ const Programs = ({ programs }) => {
                 virtual
               >
                 <SwiperSlide>
-                  <ProgramsMini data={programs} isMini={isMini} isMiniOnline={isMiniOnline} setIsMiniOnline={setIsMiniOnline} />
+                  <ProgramsMini data={programs} isMini={isMini} isMiniOnline={isMiniOnline}
+                                setIsMiniOnline={setIsMiniOnline} />
                 </SwiperSlide>
                 <SwiperSlide>
-                  <ProgramsMba data={programs} isMba={isMba} isMbaOnline={isMbaOnline} setIsMbaOnline={setIsMbaOnline} />
+                  <ProgramsMba data={programs} isMba={isMba} isMbaOnline={isMbaOnline}
+                               setIsMbaOnline={setIsMbaOnline} />
                 </SwiperSlide>
               </Swiper>
-              :
-              <>
-                 <ProgramsMini data={programs} isMini={isMini} isMiniOnline={isMiniOnline} setIsMiniOnline={setIsMiniOnline} />
-                 <ProgramsMba data={programs} isMba={isMba} isMbaOnline={isMbaOnline} setIsMbaOnline={setIsMbaOnline} />
-               </>
-             }
+            </div>
+
+            <div className={stls.desktop}>
+              <ProgramsMini data={programs} isMini={isMini} isMiniOnline={isMiniOnline}
+                            setIsMiniOnline={setIsMiniOnline} />
+              <ProgramsMba data={programs} isMba={isMba} isMbaOnline={isMbaOnline} setIsMbaOnline={setIsMbaOnline} />
+            </div>
 
           </div>
         </div>

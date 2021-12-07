@@ -3,11 +3,12 @@ import classNames from 'classnames'
 import ImageContainer from '@/components/general/ImageContainer'
 
 const Accordion = ({
-  accordionItem,
-  accordionIndex = null,
-  activeAccordion = null,
-  setActiveAccordion = null
-}) => {
+                     accordionItem,
+                     accordionIndex = null,
+                     activeAccordion = null,
+                     setActiveAccordion = null,
+                     scrollableIntoView
+                   }) => {
   const { title, content, isList, isImage } = accordionItem
 
   let accordionContent
@@ -48,14 +49,19 @@ const Accordion = ({
   }
 
   const handleAccordionClick = () => {
+    document.getElementById('view_accordion').scrollIntoView()
+
     if (activeAccordion) setActiveAccordion(-1)
 
     if (!activeAccordion && setActiveAccordion)
       setActiveAccordion(accordionIndex)
+
+
   }
 
   return (
     <div
+      id={'view_accordion'}
       className={classNames(stls.container, {
         [stls.equalPadding]: isImage,
         [stls.opened]: activeAccordion

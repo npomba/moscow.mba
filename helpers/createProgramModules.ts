@@ -34,11 +34,14 @@ const createProgramModules = ({ program, type }: createProgramModulesType) => {
         output.push({
           id: uuidv4(),
           title: null,
-          subjects:
-            i + 2 === l && l > 2
-              ? program[type].slice(i * 5)
-              : program[type].slice(i * 5, i * 5 + 5)
+          subjects: program[type].slice(i * 5, i * 5 + 5)
         })
+      }
+      if (output.at(-1) && output.at(-1).subjects.length < 3) {
+        const lastModule = output.pop()
+        lastModule.subjects.forEach(subject =>
+          output.at(-1).subjects.push(subject)
+        )
       }
     }
   }

@@ -7,12 +7,15 @@
   @include m.media(desktop)
     margin-right: 33px
   @include m.media(laptop)
-    display: flex
+    // display: flex
     margin-right: 0
     & > *:nth-child(1)
       margin-right: 33px
   @include m.media(tablet, phone)
     flex-direction: column
+    background-color: #F7F7F7
+    padding: 25px
+    margin-bottom: 30px
 
 .title
   margin-bottom: 26px
@@ -23,11 +26,11 @@
 .content
   display: flex
   flex-direction: column
-  margin-bottom: 41px
   & a
     display: flex
     align-items: center
     margin-bottom: 20px
+    white-space: nowrap
     &.inactiveLink
       opacity: .4
       cursor: not-allowed

@@ -574,8 +574,10 @@ h2 {
     transition: $transition;
     padding-right: 10px;
     position: relative;
-    &:hover {
-      color: $red;
+    @include m.media(widescreen, desktop) {
+      &:hover {
+        color: $red;
+      }
     }
     &:before {
       content: '';
@@ -762,8 +764,10 @@ h2 {
   }
   a {
     transition: $transition;
-    &:hover {
-      color: $red;
+    @include m.media(laptop, desktop, widescreen) {
+      &:hover {
+        color: $red;
+      }
     }
   }
 }
@@ -809,7 +813,7 @@ h2 {
     border-radius: 0;
     border: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.7);
-    &:focus,
+
     &.texted {
       & ~ .input-placeholder {
         top: 0;
@@ -826,7 +830,7 @@ h2 {
     left: 0;
     width: 100%;
     top: 18px;
-    color: #fff;
+    //color: #fff;
     font-size: 16px;
     pointer-events: none;
     opacity: 0.7;
@@ -1340,9 +1344,11 @@ h2 {
       font-size: 18px;
       text-transform: uppercase;
       font-weight: 400;
-      &:hover {
-        color: $red;
-      }
+
+      //&:hover {
+      //  color: $red;
+      //}
+
       &:after {
         content: '';
         position: absolute;
@@ -1483,6 +1489,7 @@ h2 {
       border-bottom: none;
     }
     a {
+      color: #808080;
       text-align: center;
       justify-content: center;
       height: 66px;
@@ -1828,10 +1835,6 @@ html #nprogress .spinner-icon {
   border-left-color: $red;
 }
 
-input:focus {
-  font-size: 16px;
-}
-
 .dflex {
   display: flex !important;
 }
@@ -1842,4 +1845,11 @@ input:focus {
 
 .dblock {
   display: block;
+}
+
+.searchField_popup-content {
+  @include m.media(tablet, phone) {
+    top: 0px !important;
+    margin: 0 !important;
+  }
 }

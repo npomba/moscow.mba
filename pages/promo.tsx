@@ -11,8 +11,12 @@ import ContactUs from '@/components/sections/ContactUs'
 import Accreditation from '@/components/sections/Accreditation'
 import Diploma from '@/components/sections/Diploma'
 import WhoItIsFor from '@/components/sections/WhoItIsFor'
+import HandleGetPrograms from '@/helpers/HandleGetPrograms'
+
 
 const PagePromo = ({ programs }) => {
+
+  HandleGetPrograms(programs)
   const courseOptions = {
     whoIsFor: [
       {

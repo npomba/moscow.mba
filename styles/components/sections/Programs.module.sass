@@ -1,0 +1,15 @@
+@use '@/styles/utils/mixin' as m
+.swiper
+  @include m.media(widescreen, desktop)
+    display: none
+  @include m.media(tablet, phone, laptop)
+    display: block
+
+.desktop
+  @include m.media(widescreen, desktop)
+    display: block
+  @include m.media(tablet, phone, laptop)
+    display: none
+
+
+
