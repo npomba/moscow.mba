@@ -87,7 +87,7 @@ const Price = ({
   const regularOrDiscounted = discount ? 'discounted' : 'regular'
 
   if ((!format && at.executive) || (!format && type === 'executive'))
-    return <>{price[regularOrDiscounted].executive} Р.</>
+    return <span className={stls.executive}>{price[regularOrDiscounted].executive} Р.</span>
 
   return (
     <>
