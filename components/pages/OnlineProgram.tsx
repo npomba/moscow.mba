@@ -78,6 +78,7 @@ const PageOnlineProgram = ({ program, teachers }) => {
           programTitle={program.title}
           title={''}
           titleNewStr={'Получите консультацию по программам MBA'}
+          overlapsFooter
         />
       </div>
     </>
