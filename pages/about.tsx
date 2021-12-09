@@ -37,7 +37,7 @@ const PageAbout = ({ programs, teachers }) => {
         <Teachers teachers={teachers} />
         <UpToDateContent />
         <Accreditation />
-        <ContactUs />
+        <ContactUs overlapsFooter />
       </div>
     </>
   )
