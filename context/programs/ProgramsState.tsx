@@ -8,8 +8,11 @@ import {
   SET_SEARCH_TERM,
   SEARCH_PROGRAM
 } from '@/context/types'
+import useAt from '@/helpers/useAt'
 
 const ProgramsState = props => {
+  const at = useAt()
+
   const initialState = {
     programs: [],
     courses: [],
@@ -20,7 +23,7 @@ const ProgramsState = props => {
     curProgramsType: null,
     curProgramsStudyFieldSlug: null,
     searchTerm: null,
-    filteredPrograms: [],
+    filteredPrograms: []
   }
 
   const [state, dispatch] = useReducer(programsReducer, initialState)
@@ -50,12 +53,9 @@ const ProgramsState = props => {
   const setSearchProgram = (value: string) => {
     dispatch({
       type: SEARCH_PROGRAM,
-      payload: value
+      payload: { value, at }
     })
   }
-
-
-
 
   return (
     <ProgramsContext.Provider
