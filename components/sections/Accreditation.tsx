@@ -57,7 +57,7 @@ const Accreditation = () => {
           rel='noopener noreferrer'
           className={stls.link}>
           <div className={stls.iconContainer}>
-            <IconPaperCorner fill={'#C7C7C7'} />
+            <IconPaperCorner/>
           </div>
           <span>{SetString(lang.accreditationLicenseLink)}</span>
         </a>
