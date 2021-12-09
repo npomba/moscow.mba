@@ -10,10 +10,10 @@ const ResultsExecutive = () => {
           </h2>
         </div>
         <div className={stls.floatRight}>
-          <h4 className={stls.listTitle}>На практике Вы и ваша команда:</h4>
+          <h4 className={stls.listTitle}>На практике Вы и Ваша команда:</h4>
           <ul className={stls.list}>
             <li className={stls.item}>
-              Построите авторскую модель глобальной ниши для вашего бизнеса
+              Построите авторскую модель глобальной ниши для Вашего бизнеса
             </li>
             <li className={stls.item}>
               Научитесь схватывать сущность проблем, создавать инструменты
