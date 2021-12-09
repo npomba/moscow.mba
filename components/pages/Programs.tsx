@@ -1,5 +1,5 @@
 import stls from '@/styles/components/pages/Programs.module.sass'
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useMemo, useState } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import { useAt } from '@/helpers/index'
@@ -13,26 +13,47 @@ import Filters from '@/components/general/Filters'
 import { CardProgram } from '@/components/cards'
 import { IconCheckCircle } from '@/components/icons'
 import programsContext from '@/context/programs/programsContext'
+import { useRouter } from 'next/router'
 
 
-const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
+const PagePrograms = ({programs, mbaTypeOfProgram, mbaFormat }) => {
+  const router = useRouter()
   const at = useAt()
 
-  const [currentField, setCurrentField] = useState(null)
+  let {currentFilter, setCurrentFilter} = useContext(programsContext)
+
 
   let fields
 
   if (at.profession || at.course) {
-    fields = programs.reduce((acc, curr) => {
-      if (!acc.includes(curr.study_field?.name))
-        acc.push(curr.study_field?.name)
-      return acc
-    }, [])
-
+    const studyFieldArr = [...new Set(programs.filter(item => item !== undefined && item?.study_field))]
+    fields = [...new Map(studyFieldArr.map(item => [item.study_field['slug'], item.study_field])).values()]
     const [firstField] = fields
-
-    if (!currentField) setCurrentField(firstField)
+    if (!currentFilter) setCurrentFilter(firstField)
   }
+
+  useEffect(() => {
+    router.push(router.asPath)
+    let filter = router.asPath.split('?filter=')[1]
+    let currFilter = fields.find(el => filter === el.slug)
+    setCurrentFilter(currFilter)
+  }, [])
+
+
+  useEffect(() => {
+    // let url = new URL(window.location.href)
+    // url.searchParams.set('filter', `${currentFilter?.slug}`)
+    router.push({
+      query: {
+        'filter': `${currentFilter?.slug}`
+      }
+    }, undefined, { shallow: true })
+  }, [currentFilter])
+
+
+ 
+  
+  
 
   const generateHeading = () => {
     if (at.mini) {
@@ -55,13 +76,13 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
   const generatePrograms = () => {
     let programsToDisplay
 
-    if (currentField) {
+    if (currentFilter) {
       programsToDisplay = programs.filter(
-        program => program.study_field?.name === currentField
+        program => program.study_field?.name === currentFilter?.name
       )
     }
 
-    if (!currentField) {
+    if (!currentFilter?.name) {
       programsToDisplay = programs
     }
 
@@ -96,8 +117,8 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
             mbaTypeOfProgram={mbaTypeOfProgram}
             mbaFormat={mbaFormat}
             fields={fields}
-            currentField={currentField}
-            updateCurrentField={setCurrentField}
+            currentField={currentFilter}
+            updateCurrentField={setCurrentFilter}
           />
           <div className={stls.content}>
             <div className={stls.programMainInfo}>

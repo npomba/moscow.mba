@@ -6,7 +6,8 @@ import {
   SET_CUR_PROGRAMS_TYPE,
   SET_CUR_PROGRAMS_STUDY_FIELD_SLUG,
   SET_SEARCH_TERM,
-  SEARCH_PROGRAM
+  SEARCH_PROGRAM,
+  SET_CURRENT_FILTER
 } from '@/context/types'
 import useAt from '@/helpers/useAt'
 
@@ -23,7 +24,8 @@ const ProgramsState = props => {
     curProgramsType: null,
     curProgramsStudyFieldSlug: null,
     searchTerm: null,
-    filteredPrograms: []
+    filteredPrograms: [],
+    currentFilter: null
   }
 
   const [state, dispatch] = useReducer(programsReducer, initialState)
@@ -57,6 +59,13 @@ const ProgramsState = props => {
     })
   }
 
+  const setCurrentFilter = (value: {name: string, slug: string}) => {
+    dispatch({
+      type: SET_CURRENT_FILTER,
+      payload: value
+    })
+  }
+
   return (
     <ProgramsContext.Provider
       value={{
@@ -70,11 +79,13 @@ const ProgramsState = props => {
         curProgramsStudyFieldSlug: state.curProgramsStudyFieldSlug,
         searchTerm: state.searchTerm,
         filteredPrograms: state.filteredPrograms,
+        currentFilter: state.currentFilter,
         setSearchTerm,
         setPrograms,
         setCurProgramsType,
         setCurProgramsStudyFieldSlug,
-        setSearchProgram
+        setSearchProgram,
+        setCurrentFilter
       }}>
       {props.children}
     </ProgramsContext.Provider>
