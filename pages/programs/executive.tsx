@@ -17,10 +17,18 @@ import Students from '@/components/sections/Students'
 import Reviews from '@/components/sections/Reviews'
 import CostOfStudy from '@/components/sections/CostOfStudy'
 import Qna from '@/components/sections/Qna'
+<<<<<<< HEAD
 import { handleGetStaticProps } from '@/helpers/index'
 import teachers from '@/data/images/teachers'
 
 const PageProgramsExecutive = ({ program, programs, teachers }) => {
+=======
+import { handleGetStaticProps, HandleGetPrograms } from '@/helpers/index'
+import teachers from '@/data/images/teachers'
+
+const PageProgramsExecutive = ({ program, programs, teachers }) => {
+   HandleGetPrograms(programs)
+>>>>>>> 750b45b309c38a568f1dafe62d1f9c664a1457d2
   return (
     <>
       <NextSeo

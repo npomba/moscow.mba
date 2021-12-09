@@ -94,11 +94,12 @@
   .infoFlexContainer
     align-items: flex-start
 
-.iconContainer
+.iconContainer  
   width: 20px
   text-align: center
   flex-shrink: 0
   margin-right: 8px
+ 
 
 .list
   line-height: 1.2
@@ -109,8 +110,9 @@
     margin-bottom: 10px
   a
     transition: all .3s ease-out
-    &:hover
-      color: #ff3535
+    @include m.media(laptop, desktop, widescreen)
+      &:hover
+        color: #ff3535
 
 .programInfo
   @include m.media(laptop, tablet, phone)

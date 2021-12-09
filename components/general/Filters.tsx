@@ -20,8 +20,10 @@ const Filters = ({
 
   return (
     <>
-      {/* <SearchField /> */}
       <ul className={stls.filters}>
+        <li>
+          <SearchField />
+        </li>
         <li>
           <h4 className={stls.title}>Тип программы</h4>
           <div className={stls.content}>

@@ -1,5 +1,4 @@
 import { createContext } from 'react'
-import { string } from 'prop-types'
 
 const programsContext = createContext({
   programs: [],
@@ -12,7 +11,7 @@ const programsContext = createContext({
   curProgramsStudyFieldSlug: null,
   searchTerm: null,
   filteredPrograms: [],
-  currentFilter: string,
+  currentFilter: null,
   setSearchTerm: (programs, term) => {},
   setPrograms: programs => {},
   setCurProgramsType: programType => {},

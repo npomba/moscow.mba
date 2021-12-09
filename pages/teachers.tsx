@@ -8,6 +8,10 @@ import { handleGetStaticProps } from '@/helpers/index'
 import Breadcrumbs from '@/components/general/Breadcrumbs'
 
 const PageTeachers = ({ programs, teachers }) => {
+<<<<<<< HEAD
+=======
+  HandleGetPrograms(programs)
+>>>>>>> 750b45b309c38a568f1dafe62d1f9c664a1457d2
   return (
     <>
       <NextSeo

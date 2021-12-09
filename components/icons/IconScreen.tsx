@@ -1,6 +1,6 @@
 import stls from '@/styles/components/icons/IconScreen.module.sass'
 
-const IconScreen = ({ fill = '#FF3535' }) => {
+const IconScreen = ({ fill = '#D9D9D9' }) => {
   return (
     <div className={stls.container}>
       <svg viewBox='0 0 20 19' fill='none' xmlns='http://www.w3.org/2000/svg'>

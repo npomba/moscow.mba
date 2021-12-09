@@ -8,8 +8,11 @@ import {
   SET_SEARCH_TERM,
   SEARCH_PROGRAM, CURRENT_FILTER
 } from '@/context/types'
+import useAt from '@/helpers/useAt'
 
 const ProgramsState = props => {
+  const at = useAt()
+
   const initialState = {
     programs: [],
     courses: [],
@@ -23,7 +26,7 @@ const ProgramsState = props => {
     filteredPrograms: [],
     currentFilter: '',
   }
-
+  
   const [state, dispatch] = useReducer(programsReducer, initialState)
 
   const setPrograms = (programs = []) => {
@@ -51,10 +54,9 @@ const ProgramsState = props => {
   const setSearchProgram = (value: string) => {
     dispatch({
       type: SEARCH_PROGRAM,
-      payload: value
+      payload: { value, at }
     })
   }
-
 
   const setCurrentFilter = (filter: string) => {
     dispatch({
@@ -62,10 +64,6 @@ const ProgramsState = props => {
       payload: filter
     })
   }
-
-
-
-
 
   return (
     <ProgramsContext.Provider

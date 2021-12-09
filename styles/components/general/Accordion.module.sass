@@ -26,6 +26,10 @@
     color: #ff3535
   .content
     display: block
+    @include m.media(desktop, widescreen, laptop)
+      padding-bottom: 40px
+    @include m.media(tablet, phone)
+      padding-bottom: 20px
   .imageContent
     display: grid
   .plus

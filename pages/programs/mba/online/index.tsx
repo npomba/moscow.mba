@@ -2,7 +2,6 @@ import Programs from '@/components/pages/Programs'
 import HandleGetPrograms from '@/helpers/HandleGetPrograms'
 import { handleGetStaticProps } from '@/helpers/index'
 
-
 const PageProgramsMbaOnline = ({ programs }) => {
   HandleGetPrograms(programs)
   const data = programs.filter(

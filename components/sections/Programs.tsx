@@ -139,13 +139,13 @@ const Programs = ({ programs }) => {
                   <div className='info-list'>
                     <div className='info-flex'>
                       <div className='pic'>
-                        <IconCheckCircle fill={'#C7C7C7'} />
+                        <IconCheckCircle/>
                       </div>
                       <span>{SetString(langMenu.formatRemote)}</span>
                     </div>
                     <div className='info-flex'>
                       <div className='pic'>
-                        <IconScreen fill={'#C7C7C7'} />
+                        <IconScreen/>
                       </div>
                       <span>
                         <ProgramSubjects type='mini' sum={true} />{' '}
@@ -190,13 +190,13 @@ const Programs = ({ programs }) => {
                   <div className='info-list'>
                     <div className='info-flex'>
                       <div className='pic'>
-                        <IconCheckCircle fill={'#C7C7C7'} />
+                        <IconCheckCircle />
                       </div>
                       <span>{SetString(langMenu.formatBlended)}</span>
                     </div>
                     <div className='info-flex'>
                       <div className='pic'>
-                        <IconScreen fill={'#C7C7C7'} />
+                        <IconScreen />
                       </div>
                       <span>
                         <ProgramSubjects type='mini' sum={true} />{' '}
@@ -287,13 +287,13 @@ const Programs = ({ programs }) => {
                   <div className='info-list'>
                     <div className='info-flex'>
                       <div className='pic'>
-                        <IconCheckCircle fill={'#C7C7C7'} />
+                        <IconCheckCircle />
                       </div>
                       <span>{SetString(langMenu.formatRemote)}</span>
                     </div>
                     <div className='info-flex'>
                       <div className='pic'>
-                        <IconScreen fill={'#C7C7C7'} />
+                        <IconScreen />
                       </div>
                       <span>
                         <ProgramSubjects type='mba' sum={true} />{' '}
@@ -338,13 +338,13 @@ const Programs = ({ programs }) => {
                   <div className='info-list'>
                     <div className='info-flex'>
                       <div className='pic'>
-                        <IconCheckCircle fill={'#C7C7C7'} />
+                        <IconCheckCircle />
                       </div>
                       <span>{SetString(langMenu.formatBlended)}</span>
                     </div>
                     <div className='info-flex'>
                       <div className='pic'>
-                        <IconScreen fill={'#C7C7C7'} />
+                        <IconScreen />
                       </div>
                       <span>
                         <ProgramSubjects type='mba' sum={true} />{' '}

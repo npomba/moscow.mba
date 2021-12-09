@@ -81,6 +81,7 @@ const PageBlendedProgram = ({ program, teachers }) => {
           programTitle={program.title}
           title={'Не знаете что выбрать?'}
           titleNewStr={'Получите консультацию по программам MBA'}
+          overlapsFooter
         />
       </div>
     </>

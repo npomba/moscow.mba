@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+const SearchField = () => {
+  return (
+    <div>
+      <input type='text' />
+    </div>
+=======
 import stls from '@/styles/components/general/SearchField.module.sass'
 import programsContext from '@/context/programs/programsContext'
 import useAt from '@/helpers/useAt'
@@ -121,6 +128,7 @@ const SearchField = () => {
         </div>
       )}
     </Popup>
+>>>>>>> 750b45b309c38a568f1dafe62d1f9c664a1457d2
   )
 }
 

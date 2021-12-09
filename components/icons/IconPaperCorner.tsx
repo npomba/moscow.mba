@@ -1,6 +1,6 @@
 import stls from '@/styles/components/icons/IconPaperCorner.module.sass'
 
-const IconPaperCorner = ({ fill = '#FF3535' }) => {
+const IconPaperCorner = ({ fill = '#D9D9D9' }) => {
   return (
     <div className={stls.container}>
       <svg viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'>

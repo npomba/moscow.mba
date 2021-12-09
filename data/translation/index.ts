@@ -1,6 +1,6 @@
 const index = {
   headerSubtitle: {
-    ru: 'Международное бизнес-образование. У нас есть всё для раскрытия вашего потенциала!',
+    ru: 'Международное бизнес-образование. У нас есть всё для раскрытия Вашего потенциала!',
     en: "International Business Education. We've everything to help you reach your full potential!"
   },
 

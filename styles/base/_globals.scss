@@ -724,18 +724,20 @@ h2 {
     font-size: 16px;
     font-weight: 400;
     display: inline-block;
+    margin-left: 8px;
   }
   .new-price {
     font-weight: bold;
     font-size: 20px;
     display: inline-block;
+    margin-left: 8px;
   }
   .old-price {
     color: #808080;
     font-size: 16px;
     font-weight: 700;
     text-decoration: line-through;
-    margin-left: 5px;
+    margin-left: 18px;
     display: inline-block;
   }
 }
@@ -762,8 +764,10 @@ h2 {
   }
   a {
     transition: $transition;
-    &:hover {
-      color: $red;
+    @include m.media(laptop, desktop, widescreen) {
+      &:hover {
+        color: $red;
+      }
     }
   }
 }
@@ -1340,9 +1344,11 @@ h2 {
       font-size: 18px;
       text-transform: uppercase;
       font-weight: 400;
-      &:hover {
-        color: $red;
-      }
+
+      //&:hover {
+      //  color: $red;
+      //}
+
       &:after {
         content: '';
         position: absolute;
@@ -1750,12 +1756,6 @@ div.popup-content {
   background-color: transparent;
 }
 
-div.popup-content[key="12"] {
-  position: absolute!important;
-  top: 0!important;
-  margin: 0!important;
-}
-
 div.popup-content.pdf-popup-content {
   padding: 0;
 }
@@ -1834,8 +1834,6 @@ html #nprogress .spinner-icon {
   border-left-color: $red;
 }
 
-
-
 .dflex {
   display: flex !important;
 }
@@ -1848,14 +1846,9 @@ html #nprogress .spinner-icon {
   display: block;
 }
 
-
-
-
-
-.searchField_popup-content{
+.searchField_popup-content {
   @include m.media(tablet, phone) {
-    top: 0px!important;
-    margin: 0!important;
+    top: 0px !important;
+    margin: 0 !important;
   }
-
 }

@@ -171,6 +171,7 @@ const OurDiplomasAndCertificates = () => {
         firstAccordionActive={true}
         closeAll={false}
         setCloseAll={() => {}}
+        scrollableIntoView={true}
       />
     </section>
   )
