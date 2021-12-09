@@ -135,18 +135,18 @@ const CourseAccordion = ({
             </ul>
             <ul className={stls.courseAdditionalInfoList}>
               <li className={stls.courseAdditionalInfoItem}>
-                <IconClock fill={'#ff3535'} />
+                <IconClock />
                 От {<TrainingPeriod type={type} />}
               </li>
               <li className={stls.courseAdditionalInfoItem}>
-                <IconScreen fill={'#ff3535'} />
+                <IconScreen />
                 Дистанционное или очное обучение
               </li>
             </ul>
             <ul className={stls.courseProsList}>
               {coursePros.map((pro, idx) => (
                 <li key={idx} className={stls.courseProsItem}>
-                  <IconCheckCircle fill={'#ff3535'} />
+                  <IconCheckCircle />
                   <p className={stls.courseProDesc}>{pro}</p>
                 </li>
               ))}
