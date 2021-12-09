@@ -5,11 +5,12 @@
   flex-direction: column
   align-items: center
   min-width: 190px
-  a, svg
-    transition: all .3s ease-out
-  &:hover
+  @include m.media(widescreen, desktop, laptop)
     a, svg
-      color: #ff3535
+      transition: all .3s ease-out
+    &:hover
+      a, svg
+        color: #ff3535
   div
     cursor: pointer
   @include m.media(desktop)
@@ -42,9 +43,10 @@
     @include m.media(widescreen, desktop, laptop)
       padding-bottom: 5px
       border-bottom: dashed 1px currentColor
+      &:hover
+        color: #ff3535
+      a
+        color: currentColor
     @include m.media(tablet, phone)
       font-weight: 500
-  &:hover
-    color: #ff3535
-    a
-      color: currentColor
+ 
