@@ -10,6 +10,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import ProgramsMini from './ProgramsMini'
 import ProgramsMba from '@/components/sections/ProgramsMba'
+import breakpoints from '@/config/Breakpoints'
 
 
 const Programs = ({ programs }) => {
