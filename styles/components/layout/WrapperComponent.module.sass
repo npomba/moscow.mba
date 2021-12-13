@@ -1,0 +1,23 @@
+@use '@/styles/utils/mixin' as m
+    
+    
+.page
+    margin: 0 auto
+    width: 1310px
+
+    padding-left: 10px
+    padding-right: 10px
+
+
+    box-sizing: border-box
+    display: flex
+    justify-content: space-between
+    align-items: center
+    @include m.media(desktop)
+        width: 1000px
+    @include m.media(laptop, tablet)
+        width: 710px
+    @include m.media(tablet, phone)
+        width: 100%
+        
+   
