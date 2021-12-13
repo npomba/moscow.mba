@@ -9,7 +9,7 @@ const AboutExecutive = () => {
         <div className={stls.titleContainer}>
           <h2 className={stls.title}>
             <span>Executive MBA </span>Международная программа, в которой есть
-            всё для раскрытия вашего потенциала
+            всё для раскрытия Вашего потенциала
           </h2>
           <div className={stls.titleDesc}>
             <p className={stls.desc}>

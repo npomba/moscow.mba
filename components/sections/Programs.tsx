@@ -3,25 +3,13 @@ import Link from 'next/link'
 import { SetString } from '@/helpers/index'
 import langMenu from '@/data/translation/menu'
 import langHeader from '@/data/translation/header'
-import Until from '@/components/costs/Until'
-import ProgramSubjects from '@/components/general/ProgramSubjects'
-import ProgramsQty from '@/components/general/ProgramsQty'
-import Price from '@/components/costs/Price'
-import TrainingPeriod from '@/components/costs/TrainingPeriod'
-import Script from 'next/script'
-import Discount from '@/components/costs/Discount'
-import { IconCheckCircle, IconScreen } from '@/components/icons'
 import { useEffect, useState } from 'react'
 import classNames from 'classnames'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
-import SwiperCore, { Virtual } from 'swiper'
-import useWindowWidth from '@/helpers/useWindowWidth'
 import ProgramsMini from './ProgramsMini'
 import ProgramsMba from '@/components/sections/ProgramsMba'
-
-SwiperCore.use([Virtual])
 
 
 const Programs = ({ programs }) => {
@@ -44,23 +32,23 @@ const Programs = ({ programs }) => {
   const [isMbaOnline, setIsMbaOnline] = useState(true)
 
 
-  const slideTo = (index) => {
-    if (!swiperRef) {
-      return
-    }
-    swiperRef?.slideTo(index - 1, 500)
-  }
+  // const slideTo = (index) => {
+    // if (!swiperRef) {
+      // return
+    // }
+    // swiperRef?.slideTo(index - 1, 500)
+  // }
 
   const handleSetMini = () => {
     setIsMini(true)
     setIsMba(false)
-    slideTo(1)
+    // slideTo(1)
   }
 
   const handleSetMba = () => {
     setIsMini(false)
     setIsMba(true)
-    slideTo(2)
+    // slideTo(2)
 
   }
 
@@ -107,7 +95,6 @@ const Programs = ({ programs }) => {
             </ul>
           </div>
           <div className='program-options-right'>
-
             <div className={stls.swiper}>
               <Swiper
                 slidesPerView={1}
@@ -115,7 +102,6 @@ const Programs = ({ programs }) => {
                 onSlideChange={e => {
                   setIndex(e.activeIndex)
                 }}
-                virtual
               >
                 <SwiperSlide>
                   <ProgramsMini data={programs} isMini={isMini} isMiniOnline={isMiniOnline}
@@ -128,11 +114,10 @@ const Programs = ({ programs }) => {
               </Swiper>
             </div>
 
-            <div className={stls.desktop}>
-              <ProgramsMini data={programs} isMini={isMini} isMiniOnline={isMiniOnline}
-                            setIsMiniOnline={setIsMiniOnline} />
-              <ProgramsMba data={programs} isMba={isMba} isMbaOnline={isMbaOnline} setIsMbaOnline={setIsMbaOnline} />
-            </div>
+            {/* <div className={stls.desktop}> */}
+              {/* <ProgramsMini data={programs} isMini={isMini} isMiniOnline={isMiniOnline} setIsMiniOnline={setIsMiniOnline} /> */}
+              {/* <ProgramsMba data={programs} isMba={isMba} isMbaOnline={isMbaOnline} setIsMbaOnline={setIsMbaOnline} /> */}
+            {/* </div> */}
 
           </div>
         </div>

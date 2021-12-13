@@ -12,7 +12,8 @@ const ContactUs = ({
   title = SetString(lang.helpToChooseTitle),
   titleNewStr = null,
   disc = SetString(lang.helpToChooseDics),
-  overlapsFooter = false
+  overlapsFooter = false,
+
 }) => {
   const [open, setOpen] = useState(false)
   const [openLoader, setOpenLoader] = useState(false)

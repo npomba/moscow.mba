@@ -726,18 +726,20 @@ h2 {
     font-size: 16px;
     font-weight: 400;
     display: inline-block;
+    margin-left: 8px;
   }
   .new-price {
     font-weight: bold;
     font-size: 20px;
     display: inline-block;
+    margin-left: 8px;
   }
   .old-price {
     color: #808080;
     font-size: 16px;
     font-weight: 700;
     text-decoration: line-through;
-    margin-left: 5px;
+    margin-left: 18px;
     display: inline-block;
   }
 }

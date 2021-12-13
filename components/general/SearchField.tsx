@@ -100,7 +100,7 @@ const SearchField = () => {
                 />
                 <div className={stls.form}>
                   <p className={stls.title}>
-                    По вашему запросу ничего не найдено
+                    По Вашему запросу ничего не найдено
                   </p>
                   <p className={stls.text}>
                     Попробуйте ввести запрос по-другому или свяжитесь со

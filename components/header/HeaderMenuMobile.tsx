@@ -208,13 +208,13 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
                         <div className='info-list'>
                           <div className='info-flex'>
                             <div className='pic'>
-                              <IconCheckCircle fill={'#C7C7C7'} />
+                              <IconCheckCircle/>
                             </div>
                             <span>{SetString(langMenu.formatRemote)}</span>
                           </div>
                           <div className='info-flex'>
                             <div className='pic'>
-                              <IconScreen fill={'#C7C7C7'} />
+                              <IconScreen/>
                             </div>
                             <span>
                               <ProgramSubjects type='mini' sum={true} />{' '}
@@ -269,13 +269,13 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
                         <div className='info-list'>
                           <div className='info-flex'>
                             <div className='pic'>
-                              <IconCheckCircle fill={'#C7C7C7'} />
+                              <IconCheckCircle/>
                             </div>
                             <span>{SetString(langMenu.formatBlended)}</span>
                           </div>
                           <div className='info-flex'>
                             <div className='pic'>
-                              <IconScreen fill={'#C7C7C7'} />
+                              <IconScreen/>
                             </div>
                             <span>
                               <ProgramSubjects type='mini' sum={true} />{' '}
@@ -311,7 +311,7 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
                     <div className='name'>Mini MBA</div>
                     <div className='info-flex'>
                       <div className='pic'>
-                        <IconClock fill={'#C7C7C7'} />
+                        <IconClock/>
                       </div>
                       <span>
                         <TrainingPeriod type='mini' />
@@ -320,7 +320,7 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
                     <p>{SetString(langMenu.categoryDiscMini)}</p>
                     <div className='info-flex'>
                       <div className='pic'>
-                        <IconPaperCorner fill={'#C7C7C7'} />
+                        <IconPaperCorner/>
                       </div>
                       <span>
                         <ProgramSubjects type='mini' subjects='base' />{' '}
@@ -329,7 +329,7 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
                     </div>
                     <div className='info-flex'>
                       <div className='pic'>
-                        <IconPaperCorner fill={'#C7C7C7'} />
+                        <IconPaperCorner/>
                       </div>
                       <span>
                         <ProgramSubjects type='mini' subjects='specialty' />{' '}
@@ -423,13 +423,13 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
                         <div className='info-list'>
                           <div className='info-flex'>
                             <div className='pic'>
-                              <IconCheckCircle fill={'#C7C7C7'} />
+                              <IconCheckCircle />
                             </div>
                             <span>{SetString(langMenu.formatRemote)}</span>
                           </div>
                           <div className='info-flex'>
                             <div className='pic'>
-                              <IconScreen fill={'#C7C7C7'} />
+                              <IconScreen/>
                             </div>
                             <span>
                               <ProgramSubjects type='mba' sum={true} />{' '}
@@ -484,13 +484,13 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
                         <div className='info-list'>
                           <div className='info-flex'>
                             <div className='pic'>
-                              <IconCheckCircle fill={'#C7C7C7'} />
+                              <IconCheckCircle/>
                             </div>
                             <span>{SetString(langMenu.formatBlended)}</span>
                           </div>
                           <div className='info-flex'>
                             <div className='pic'>
-                              <IconScreen fill={'#C7C7C7'} />
+                              <IconScreen/>
                             </div>
                             <span>
                               <ProgramSubjects type='mba' sum={true} />{' '}
@@ -526,7 +526,7 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
                     <div className='name'>MBA</div>
                     <div className='info-flex'>
                       <div className='pic'>
-                        <IconClock fill={'#C7C7C7'} />
+                        <IconClock/>
                       </div>
                       <span>
                         <TrainingPeriod type='mba' />
@@ -535,7 +535,7 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
                     <p>{SetString(langMenu.categoryDiscMba)}</p>
                     <div className='info-flex'>
                       <div className='pic'>
-                        <IconPaperCorner fill={'#C7C7C7'} />
+                        <IconPaperCorner/>
                       </div>
                       <span>
                         <ProgramSubjects type='mba' subjects='base' />{' '}
@@ -544,7 +544,7 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
                     </div>
                     <div className='info-flex'>
                       <div className='pic'>
-                        <IconPaperCorner fill={'#C7C7C7'} />
+                        <IconPaperCorner/>
                       </div>
                       <span>
                         <ProgramSubjects type='mba' subjects='specialty' />{' '}

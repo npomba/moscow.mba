@@ -17,17 +17,14 @@
   z-index: -1
   width: 780px
   height: 780px
-  top: -64px
-  right: 100%
-  margin-right: -474px
   border: 1px solid #e6e6e6
   border-radius: 50%
+  @include m.media(desktop, widescreen)
+    top: -64px
+    right: 100%
+    margin-right: -504px
   @include m.media(laptop, tablet, phone)
-    margin-right: 0
-    right: -20px
-    top: -40px
-    width: 700px
-    height: 700px
+    display: none
 
 .flexContainer
   display: flex

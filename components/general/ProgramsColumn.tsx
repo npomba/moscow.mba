@@ -50,7 +50,7 @@ const ProgramsColumn = ({ data, id, type }) => {
           <div className={stls.infoFlexContainer}>
             <div className={stls.infoItemContainer}>
               <div className={stls.iconContainer}>
-                <IconClock fill={'#C7C7C7'} />
+                <IconClock/>
               </div>
               <span>
                 <TrainingPeriod type={type} />
@@ -58,7 +58,7 @@ const ProgramsColumn = ({ data, id, type }) => {
             </div>
             <div className={stls.infoItemContainer}>
               <div className={stls.iconContainer}>
-                <IconPaperCorner fill={'#C7C7C7'} />
+                <IconPaperCorner/>
               </div>
               <span>
                 <ProgramSubjects type={type} subjects='base' />{' '}
@@ -67,7 +67,7 @@ const ProgramsColumn = ({ data, id, type }) => {
             </div>
             <div className={stls.infoItemContainer}>
               <div className={stls.iconContainer}>
-                <IconPaperCorner fill={'#C7C7C7'} />
+                <IconPaperCorner/>
               </div>
               <span>
                 <ProgramSubjects type={type} subjects='specialty' />{' '}
@@ -115,13 +115,13 @@ const ProgramsColumn = ({ data, id, type }) => {
           <div className={stls.itemInfo}>
             <div className={stls.infoFlexContainer}>
               <div className={stls.iconContainer}>
-                <IconCheckCircle fill={'#C7C7C7'} />
+                <IconCheckCircle/>
               </div>
               <span>{SetString(langMenu.formatRemote)}</span>
             </div>
             <div className={stls.infoFlexContainer}>
               <div className={stls.iconContainer}>
-                <IconScreen fill={'#C7C7C7'} />
+                <IconScreen/>
               </div>
               <span>
                 <ProgramSubjects type={type} sum={true} />{' '}
@@ -178,13 +178,13 @@ const ProgramsColumn = ({ data, id, type }) => {
           <div className={stls.itemInfo}>
             <div className={stls.infoFlexContainer}>
               <div className={stls.iconContainer}>
-                <IconCheckCircle fill={'#C7C7C7'} />
+                <IconCheckCircle/>
               </div>
               <span>{SetString(langMenu.formatBlended)}</span>
             </div>
             <div className={stls.infoFlexContainer}>
               <div className={stls.iconContainer}>
-                <IconScreen fill={'#C7C7C7'} />
+                <IconScreen/>
               </div>
               <span>
                 <ProgramSubjects type={type} sum={true} />{' '}

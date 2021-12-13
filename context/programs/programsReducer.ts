@@ -5,11 +5,9 @@ import {
   SET_SEARCH_TERM,
   SEARCH_PROGRAM
 } from '@/context/types'
-import useAt from '@/helpers/useAt'
 // import { filterProgramsByType, getStudyFields } from '@/helpers/index'
 
-const programsReducer = (state, action) => {
-  const at = useAt()
+const programsReducer = (state, action, at = null) => {
   switch (action.type) {
     case SET_PROGRAMS:
       const programs = action.payload
@@ -61,8 +59,8 @@ const programsReducer = (state, action) => {
         filteredPrograms
       }
     case SEARCH_PROGRAM:
-      let value = action.payload
-      let res = state.programs.filter((item, idx) => {
+      const { value, at } = action.payload
+      const res = state.programs.filter((item, idx) => {
         if (!value || idx >= 10) {
           return
         }
