@@ -1,0 +1,16 @@
+@use '@/styles/utils/mixin' as m
+
+
+.container
+    display: flex
+    position: absolute
+    z-index: 999
+    background-color: #fff
+    width: 100%
+    
+   
+.content
+    display: flex
+    margin: 0 auto
+    @include m.media(desktop)
+        max-width: 1000px

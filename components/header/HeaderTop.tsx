@@ -6,9 +6,7 @@ import HeaderInformation from "./HeaderInformation"
 import HeaderNav from "./HeaderNav"
 
 
-
 const HeaderTop = () => {
-
 
     const at = useAt()
     const links = [
@@ -42,7 +40,6 @@ const HeaderTop = () => {
             locale: 'ru'
         }
     ]
-
 
     return (
         <>
