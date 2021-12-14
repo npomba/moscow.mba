@@ -1,89 +1,41 @@
+import stls from "@/styles/components/header/HeaderNav.module.sass"
 import SetString from "@/helpers/SetString"
-import useAt from "@/helpers/useAt"
 import lang from '@/data/translation/header'
-import classNames from "classnames"
-import React from "react"
+import classnames from "classnames"
 import Link from "next/link"
-import WrapperComponent from "../layout/WrapperComponent"
+import WrapperComponent from "@/components/layout/WrapperComponent"
+import getClassNames from "@/helpers/getClassNames"
 
-
-
-
-
-
-
-
-
-
-
-
-
-const HeaderNav = () => {
-
-
-    const at = useAt()
-    const links = [
-        {
-            href: '/about',
-            val: SetString(lang.linkAbout),
-            red: at.about
-        },
-        {
-            href: '/teachers',
-            val: SetString(lang.linkTeachers),
-            red: at.teachers,
-            locale: 'ru'
-        },
-        {
-            href: '/webinars',
-            val: SetString(lang.linkWebinars),
-            red: at.webinars,
-            locale: 'ru'
-        },
-        {
-            href: '/contact',
-            val: SetString(lang.linkContacts),
-            red: at.contact,
-            locale: 'ru'
-        },
-        {
-            href: '/legal',
-            val: SetString(lang.linkLegal),
-            red: at.legal,
-            locale: 'ru'
-        }
-    ]
-
-
-
+const HeaderNav = ({links, classNames = []}) => {
+    const container = getClassNames({ classNames })
+    let menuIsOpen = false
 
     return (
-        <div className='header-bottom'>
+        <div className={classnames([stls.container], container)}>
             <WrapperComponent>
-                <div className='header-podmenu-outer'>
+                <div className={stls.menu}>
                     <div
-                        className={classNames({
-                            'header-podmenu-toggle': true,
-                            // opened: menuIsOpen
+                        className={classnames( stls.toggle, {
+                            [stls.opened]: menuIsOpen
                         })}
                     //   onClick={handleMenu}
                     >
-                        <div className='pic'>
-                            <i></i>
-                            <i></i>
+                        <div className={stls.icon}>
+                            <i className={stls.line}/>
+                            <i className={stls.line}/>
                         </div>
                         <span>{SetString(lang.programsBtn)}</span>
                     </div>
                 </div>
-                <ul className='header-menu'>
+                <ul className={stls.list}>
                     {links.map((item, idx) => (
                         <li key={item.val + idx}>
                             <Link href={item.href} locale={item.locale}>
                                 <a
                                     // onClick={handleMenuClose}
-                                    className={classNames({
-                                        ['widescreen-only']: idx + 1 === links.length,
-                                        ['red']: item.red
+                                    className={classnames(stls.link, {
+                                        [stls.last]: idx + 1 === links.length,
+                                        [stls.active]: item.red
                                     })}>
                                     {item.val}
                                 </a>

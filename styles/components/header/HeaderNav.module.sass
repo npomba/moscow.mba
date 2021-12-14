@@ -1,1 +1,89 @@
 @use '@/styles/utils/mixin' as m
+
+$transition: all 0.3s ease-out
+$red: #ff3535
+
+
+.container
+    position: relative
+    @include m.media(phone, tablet, laptop)
+        display: none
+
+.menu
+  height: 85px
+  display: flex
+  align-items: center
+  position: relative
+  padding-right: 101px
+  border-right: 1px solid rgba(0, 0, 0, 0.1)
+  z-index: 32
+
+.toggle 
+  display: flex
+  align-items: center
+  cursor: pointer
+  font-weight: bold
+  text-transform: uppercase
+  transition: $transition
+  &.opened 
+    color: #000
+    .line 
+      background: #000
+    .line 
+      transform: rotate(45deg)
+      top: 4px
+      &:last-child 
+        width: 30px
+        transform: rotate(-45deg)
+        top: -4px
+  &:hover 
+    color: $red
+    .line 
+      background: $red  
+  
+.icon 
+    margin-right: 27px
+    .line 
+        display: block
+        height: 2px
+        width: 30px
+        background: #000
+        margin-bottom: 6px
+        height: 2px
+        transition: $transition
+        position: relative
+        &:last-child 
+            margin-bottom: 0
+            width: 18px
+    
+.list 
+    width: calc(100% - 101px)
+    display: flex
+    align-items: center
+    justify-content: space-between
+    font-weight: 400
+    text-transform: uppercase
+    padding-left: 101px
+    .active
+        color: $red
+    .last
+        @include m.media(desktop) 
+            display: none
+
+.link 
+    transition: $transition
+    @include m.media(desktop)
+        font-size: 14px
+    &:hover 
+        color: $red
+        
+
+
+    
+  
+
+    
+  
+
+
+

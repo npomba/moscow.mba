@@ -10,17 +10,19 @@ import {
 import { ImgLogoRabo, ImgLogoMde } from '@/components/images'
 import useAt from '@/helpers/useAt'
 import { BtnChangeLang } from '@/components/btns'
-import classNames from 'classnames'
+import classnames from 'classnames'
 import contactData from '@/config/contactData'
 import WrapperComponent from '@/components/layout/WrapperComponent'
-
+import getClassNames from '@/helpers/getClassNames'
 
 
 import React, { useState } from "react"
 
 
 
-const HeaderInformation = () => {
+
+const HeaderInformation = ({classNames = []}) => {
+    const container = getClassNames({ classNames })
     const contactInfo = contactData()
     const at = useAt()
 
@@ -32,11 +34,11 @@ const HeaderInformation = () => {
     }
 
     return (
-        <div className={stls.container}>
+        <div className={classnames([stls.container], container)}>
             <WrapperComponent>
                 <Link href='/'>
                     <a
-                        className={classNames(stls.logo, {
+                        className={classnames(stls.logo, {
                             [stls.logoDisabled]: at.promo
                         })}
                         // onClick={e => handleMenuClose(e)}
@@ -83,7 +85,7 @@ const HeaderInformation = () => {
                 <BtnChangeLang />
                 {!at.promo && (
                     <div
-                        className={classNames(stls.burger, {
+                        className={classnames(stls.burger, {
                             [stls.opened]: open
                         })}
                         onClick={toggleMenu}
