@@ -23,12 +23,8 @@ const ProgramsColumn = ({ data, id, type }) => {
   const { menuIsOpen, openMenu, closeMenu, toggleMenu } = useContext(
     MenuContext
   )
-
   const {
-    overlayIsShown,
-    showOverlay,
     hideOverlay,
-    toggleOverlay
   } = useContext(OverlayContext)
 
   const handleLinkClick = () => {
@@ -39,9 +35,7 @@ const ProgramsColumn = ({ data, id, type }) => {
   return (
     <ul
       id={id}
-      className={classNames(stls.container, 'header-podmenu-content', {
-        [stls.visible]: id === 'header-podmenu-1'
-      })}>
+      className={classNames(stls.container)}>
       <li className={stls.containerItem}>
         <div className={stls.programInfo}>
           <div className={stls.programTitle}>

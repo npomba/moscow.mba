@@ -2,6 +2,7 @@
 $transition: all 0.3s ease-out
 $red: #ff3535
 $visuelt: 'Visuelt', Arial, Tahoma, sans-serif
+$mazzardH: 'mazzardH', Arial, Tahoma, sans-serif
 
 .container
     @include m.media(desktop)
@@ -73,7 +74,24 @@ $visuelt: 'Visuelt', Arial, Tahoma, sans-serif
             transition: $transition
             opacity: 0
             
+.executive
+    margin: 40px 0 40px 10px
 
+.label 
+    color: #fff
+    font-size: 13px
+    margin-bottom: 16px
+    font-family: $mazzardH
+
+.text 
+    display: inline-block
+    background: $red
+    padding: 13px
+.link 
+    font-family: $visuelt
+    font-weight: 500
+    transition: $transition
+    &:hover 
+        color: $red
     
-  
   

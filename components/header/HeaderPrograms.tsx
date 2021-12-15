@@ -1,7 +1,7 @@
 import stls from "@/styles/components/header/HeaderPrograms.module.sass"
-import Link from "next/link"
 import React from "react"
 import ProgramsColumn from "../general/ProgramsColumn"
+import ProgramsList from "../general/ProgramsList"
 
 const HeaderPrograms = ({ programs, visible }) => {
 
@@ -14,7 +14,7 @@ const HeaderPrograms = ({ programs, visible }) => {
                     type={'mba'}
                 />
             case '#header-podmenu-3':
-                return <ProgramsColumn
+                return <ProgramsList
                     data={programs}
                     id={'header-podmenu-3'}
                     type={'profession'}

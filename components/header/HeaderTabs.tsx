@@ -27,6 +27,16 @@ const HeaderTabs = ({ tabs, handleMouseEnter, handleMenu, visible }) => {
                     </Link>
                 </li>
             ))}
+
+
+            <div className={stls.executive}>
+                <div className={stls.label}>
+                    <span className={stls.text}>Premium</span>
+                </div>
+                <Link href='/programs/executive' locale='ru'>
+                    <a className={stls.link} onClick={() => handleMenu(false)}>Executive MBA</a>
+                </Link>
+            </div>
         </ul>
     )
 }

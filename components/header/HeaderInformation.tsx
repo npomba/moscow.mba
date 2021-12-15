@@ -82,7 +82,6 @@ const HeaderInformation = ({classNames = []}) => {
                     </a>
                 </div>
                 {at.index || at.about || at.contact ? <BtnChangeLang /> : null}
-                <BtnChangeLang />
                 {!at.promo && (
                     <div
                         className={classnames(stls.burger, {
