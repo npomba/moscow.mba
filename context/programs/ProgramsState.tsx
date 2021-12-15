@@ -59,7 +59,7 @@ const ProgramsState = props => {
     })
   }
 
-  const setCurrentFilter = (value: {name: string, slug: string}) => {
+  const setCurrentFilter = (value: {title: string, slug: string}) => {
     dispatch({
       type: SET_CURRENT_FILTER,
       payload: value

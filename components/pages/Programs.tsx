@@ -16,33 +16,30 @@ import programsContext from '@/context/programs/programsContext'
 import { useRouter } from 'next/router'
 
 
-const PagePrograms = ({programs, mbaTypeOfProgram, mbaFormat }) => {
+const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
   const router = useRouter()
   const at = useAt()
-
-  let {currentFilter, setCurrentFilter} = useContext(programsContext)
-
+  const { currentFilter, setCurrentFilter } = useContext(programsContext)
 
   let fields
 
   if (at.profession || at.course) {
     const studyFieldArr = [...new Set(programs.filter(item => item !== undefined && item?.study_field))]
-    fields = [...new Map(studyFieldArr.map(item => [item.study_field['slug'], item.study_field])).values()]
+    fields = [...new Map(studyFieldArr.map(item => [item.study_field.slug, item.study_field])).values()].map(item => {return {title: item.name, slug: item.slug}})
     const [firstField] = fields
     if (!currentFilter) setCurrentFilter(firstField)
   }
 
+
   useEffect(() => {
     router.push(router.asPath)
-    let filter = router.asPath.split('?filter=')[1]
-    let currFilter = fields.find(el => filter === el.slug)
+    const filter = router.asPath.split('?filter=')[1]
+    const currFilter = fields.find(el => filter === el.slug)
     setCurrentFilter(currFilter)
   }, [])
 
 
   useEffect(() => {
-    // let url = new URL(window.location.href)
-    // url.searchParams.set('filter', `${currentFilter?.slug}`)
     router.push({
       query: {
         'filter': `${currentFilter?.slug}`
@@ -50,10 +47,6 @@ const PagePrograms = ({programs, mbaTypeOfProgram, mbaFormat }) => {
     }, undefined, { shallow: true })
   }, [currentFilter])
 
-
- 
-  
-  
 
   const generateHeading = () => {
     if (at.mini) {
@@ -76,13 +69,13 @@ const PagePrograms = ({programs, mbaTypeOfProgram, mbaFormat }) => {
   const generatePrograms = () => {
     let programsToDisplay
 
-    if (currentFilter) {
+    if (currentFilter?.title) {
       programsToDisplay = programs.filter(
-        program => program.study_field?.name === currentFilter?.name
+        program => program.study_field?.name === currentFilter?.title
       )
     }
 
-    if (!currentFilter?.name) {
+    if (!currentFilter?.title) {
       programsToDisplay = programs
     }
 
@@ -94,11 +87,9 @@ const PagePrograms = ({programs, mbaTypeOfProgram, mbaFormat }) => {
   return (
     <>
       <NextSeo
-        title={`Программы обучения ${
-          at.mini ? 'Mini MBA' : at.mba ? 'MBA' : ''
-        } ${
-          at.online ? 'Online' : at.blended ? 'Blended' : ''
-        } - Moscow Business Academy`}
+        title={`Программы обучения ${at.mini ? 'Mini MBA' : at.mba ? 'MBA' : ''
+          } ${at.online ? 'Online' : at.blended ? 'Blended' : ''
+          } - Moscow Business Academy`}
         description={
           at.mini ? truncate(SetString(langMenu.categoryDiscMini), 120) : ''
         }
@@ -133,8 +124,8 @@ const PagePrograms = ({programs, mbaTypeOfProgram, mbaFormat }) => {
                 {at.mini
                   ? SetString(langMenu.categoryDiscMini)
                   : at.mba
-                  ? SetString(langMenu.categoryDiscMba)
-                  : ''}
+                    ? SetString(langMenu.categoryDiscMba)
+                    : ''}
               </p>
 
               {at.profession ? (
