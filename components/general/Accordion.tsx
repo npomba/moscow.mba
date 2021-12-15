@@ -3,12 +3,12 @@ import classNames from 'classnames'
 import ImageContainer from '@/components/general/ImageContainer'
 
 const Accordion = ({
-                     accordionItem,
-                     accordionIndex = null,
-                     activeAccordion = null,
-                     setActiveAccordion = null,
-                     scrollableIntoView
-                   }) => {
+  accordionItem,
+  accordionIndex = null,
+  activeAccordion = null,
+  setActiveAccordion = null,
+  scrollableIntoView
+}) => {
   const { title, content, isList, isImage } = accordionItem
 
   let accordionContent
@@ -55,8 +55,6 @@ const Accordion = ({
 
     if (!activeAccordion && setActiveAccordion)
       setActiveAccordion(accordionIndex)
-
-
   }
 
   return (
