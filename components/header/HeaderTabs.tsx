@@ -3,18 +3,8 @@ import SetString from "@/helpers/SetString"
 import Link from "next/link"
 import langMenu from '@/data/translation/menu'
 
-
-
-
-
-
-
-
-const HeaderTabs = ({ tabs }) => {
-
-
-
-
+const HeaderTabs = ({ tabs, handleMouseEnter, handleMenu, visible }) => {
+    const currentTab = visible ? visible.slice(-1) - 1 : 0
     return (
         <ul className={stls.container}>
             {tabs.map((item, idx) => (
@@ -22,21 +12,15 @@ const HeaderTabs = ({ tabs }) => {
                     <Link href={item.href} locale='ru'>
                         <a
                             className={
-                                idx === 0
+                                idx === currentTab
                                     ? stls.active
                                     : item.val === SetString(langMenu.allPrograms)
                                         ? stls.all
                                         : undefined
                             }
-                            data-tab={
-                                idx === 0 || idx === 1
-                                    ? `#header-podmenu-${idx + 1}`
-                                    : undefined
-                            }
-                        //   onClick={handleMenuClose}
-                        //   onMouseEnter={
-                        //     idx === 0 || idx === 1 ? e => handleMouseEnter(e) : undefined
-                        //   }
+                            data-tab={item.val !== SetString(langMenu.allPrograms) && `#header-podmenu-${idx + 1}`}
+                            onClick={() => handleMenu(false)}
+                            onMouseEnter={e => handleMouseEnter(e)}
                         >
                             {item.val}
                         </a>

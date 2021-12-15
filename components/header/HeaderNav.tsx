@@ -6,23 +6,22 @@ import Link from "next/link"
 import WrapperComponent from "@/components/layout/WrapperComponent"
 import getClassNames from "@/helpers/getClassNames"
 
-const HeaderNav = ({links, classNames = []}) => {
+const HeaderNav = ({ links, handleMenu, openMenu, classNames = [] }) => {
     const container = getClassNames({ classNames })
-    let menuIsOpen = false
 
     return (
         <div className={classnames([stls.container], container)}>
             <WrapperComponent>
                 <div className={stls.menu}>
                     <div
-                        className={classnames( stls.toggle, {
-                            [stls.opened]: menuIsOpen
+                        className={classnames(stls.toggle, {
+                            [stls.opened]: openMenu
                         })}
-                    //   onClick={handleMenu}
+                        onClick={() => handleMenu(!openMenu)}
                     >
                         <div className={stls.icon}>
-                            <i className={stls.line}/>
-                            <i className={stls.line}/>
+                            <i className={stls.line} />
+                            <i className={stls.line} />
                         </div>
                         <span>{SetString(lang.programsBtn)}</span>
                     </div>
@@ -32,7 +31,7 @@ const HeaderNav = ({links, classNames = []}) => {
                         <li key={item.val + idx}>
                             <Link href={item.href} locale={item.locale}>
                                 <a
-                                    // onClick={handleMenuClose}
+                                    onClick={() => handleMenu(false)}
                                     className={classnames(stls.link, {
                                         [stls.last]: idx + 1 === links.length,
                                         [stls.active]: item.red

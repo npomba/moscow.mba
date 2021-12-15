@@ -6,7 +6,7 @@ import HeaderInformation from "./HeaderInformation"
 import HeaderNav from "./HeaderNav"
 
 
-const HeaderTop = () => {
+const HeaderTop = ({ handleMenu, openMenu }) => {
 
     const at = useAt()
     const links = [
@@ -43,8 +43,8 @@ const HeaderTop = () => {
 
     return (
         <>
-            <HeaderInformation classNames={[stls.border]}/>
-            <HeaderNav links={links} classNames={[stls.border]}/>
+            <HeaderInformation classNames={[stls.border]} />
+            <HeaderNav links={links} classNames={[stls.border]} handleMenu={handleMenu} openMenu={openMenu} />
         </>
     )
 }

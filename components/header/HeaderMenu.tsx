@@ -3,10 +3,11 @@ import SetString from "@/helpers/SetString"
 import HeaderPrograms from "./HeaderPrograms"
 import HeaderTabs from "./HeaderTabs"
 import langMenu from '@/data/translation/menu'
+import { useState } from "react"
 
 
 
-const HeaderMenu = ({ programs }) => {
+const HeaderMenu = ({ programs, handleMenu }) => {
 
 
   const tabs = [
@@ -36,13 +37,19 @@ const HeaderMenu = ({ programs }) => {
     }
   ]
 
+  const [visible, setVisible] = useState('')
+
+  const handleMouseEnter = e => {
+    setVisible(e.target.dataset.tab)
+  }
+
 
 
   return (
     <div className={stls.container}>
       <div className={stls.content}>
-        <HeaderTabs tabs={tabs} />
-        <HeaderPrograms programs={programs} />
+        <HeaderTabs tabs={tabs} handleMouseEnter={handleMouseEnter} handleMenu={handleMenu} visible={visible} />
+        <HeaderPrograms programs={programs} visible={visible} />
       </div>
     </div>
   )
