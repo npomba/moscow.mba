@@ -1,5 +1,5 @@
 import stls from '@/styles/components/general/ProgramsList.module.sass'
-import { useContext, useMemo } from 'react'
+import { useContext } from 'react'
 import MenuContext from '@/context/menu/menuContext'
 import OverlayContext from '@/context/overlay/overlayContext'
 import classNames from 'classnames'
@@ -10,6 +10,7 @@ import Until from '@/components/costs/Until'
 import Discount from '@/components/costs/Discount'
 import menu from '@/data/translation/menu'
 import programsContext from '@/context/programs/programsContext'
+import { IconArrowLeft } from '../icons'
 
 const ProgramsList = ({ data, id, type }) => {
     const { menuIsOpen, openMenu, closeMenu, toggleMenu } = useContext(
@@ -20,47 +21,40 @@ const ProgramsList = ({ data, id, type }) => {
     } = useContext(OverlayContext)
 
     const { studyFields } = useContext(programsContext)
-
     const handleLinkClick = () => {
         closeMenu()
         hideOverlay()
     }
-
     const at = useAt()
 
-    const programs = []
 
+    const programs = []
     studyFields.map(itemFilter => {
-        programs[itemFilter.title] = []
+        let filter = {}
+        let fields = []
         data.map(item => {
             if (
                 item.category?.type === type &&
                 item.studyFormat === 'online' &&
                 itemFilter.slug === item?.study_field?.slug
             ) {
-                programs[itemFilter.title].push(item)
+                fields.push(item)
+                filter.title = itemFilter.title
+                filter.fields = fields
             }
         })
+        programs.push(filter)
     })
 
-    console.log(Object.entries(programs) );
-    
-    
-    
-
-
-
-    const list = (array) => {
-        return Object.keys(array).map((key, i) => {
+    const columnPrograms = (array) => {
+        return array.map((key, i) => {
             return (
                 <>
                     <div key={i} className={stls.listTitle}>
-                        <br />
-                        <strong>{Object.keys(array)[i]}</strong>
-                        <br />
+                        <p>{key.title}</p>
                     </div>
                     {
-                        array[key].map((item, idx) => {
+                        key.fields.map((item, idx) => {
                             if (idx < 5) {
                                 return (
                                     <div key={item.id} className={stls.listItem}>
@@ -77,8 +71,9 @@ const ProgramsList = ({ data, id, type }) => {
                                         <Link
                                             href={`/programs/profession/online  `}
                                             locale='ru'>
-                                            <a className={stls.link}
-                                                onClick={handleLinkClick}>More
+                                            <a className={stls.link} onClick={handleLinkClick}>
+                                                {SetString(menu.linkAllPrograms)}
+                                                <IconArrowLeft classNames={[stls.arrow]} />
                                             </a>
                                         </Link>
                                     </div>
@@ -94,49 +89,48 @@ const ProgramsList = ({ data, id, type }) => {
     }
 
     return (
-        <ul
+        <div
             id={id}
             className={classNames(stls.container)}>
-            <li className={stls.containerItem}>
-                <div className={stls.programInfo}>
-                    <div className={stls.programTitle}>
-                        {type === 'profession' ? SetString(menu.professions) : type === 'courses' ? SetString(menu.courses) : null}
-                        <div className={stls.itemTitle}>
-
-
-                            <div className={stls.itemDiscount}>
-                                <div className={stls.itemDiscountAmount}>
-                                    <Discount />
-                                </div>
-                                <span>
-                                    <Until />
-                                </span>
-                            </div>
-
+            <div className={stls.programInfo}>
+                <div className={stls.programTitle}>
+                    {type === 'profession' ? SetString(menu.professions) : type === 'courses' ? SetString(menu.courses) : null}
+                    <div className={stls.itemDiscount}>
+                        <div className={stls.itemDiscountAmount}>
+                            <Discount />
                         </div>
+                        <span>
+                            <Until />
+                        </span>
                     </div>
                 </div>
-            </li>
-            <li className={stls.containerItem}>
-                <div className={stls.itemDetails}>
-                    <ul className={stls.list}>
-
-
-
-                        {
-                            programs && Object.keys(programs).length > 3 ? <div>
-                                {list(programs.slice(0, 3))}
-                            </div>
-                            : 
-                            <div>
-                                ggfrgfg
-                            </div>
-
-                        }
-                    </ul>
-                </div>
-            </li>
-        </ul>
+                <p className={stls.programDesc}>
+                    {type === 'profession'
+                        ? SetString(langMenu.categoryDiscProfession)
+                        : type === 'courses'
+                            ? SetString(langMenu.categoryDiscMba)
+                            : null}
+                </p>
+            </div>
+            <div className={stls.itemDetails}>
+                <ul className={stls.list}>
+                    {programs && programs.length > 3 ?
+                        <>
+                            <li className={stls.column}>
+                                {columnPrograms(programs.slice(0, Math.ceil(programs.length / 2)))}
+                            </li>
+                            <li className={stls.column}>
+                                {columnPrograms(programs.slice(Math.ceil(programs.length / 2), programs.length))}
+                            </li>
+                        </>
+                        :
+                        <>
+                            {columnPrograms(programs)}
+                        </>
+                    }
+                </ul>
+            </div>
+        </div>
     )
 }
 
