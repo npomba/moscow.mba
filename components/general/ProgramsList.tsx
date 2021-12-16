@@ -27,7 +27,6 @@ const ProgramsList = ({ data, id, type }) => {
     }
     const at = useAt()
 
-
     const programs = []
     studyFields.map(itemFilter => {
         let filter = {}
@@ -78,8 +77,6 @@ const ProgramsList = ({ data, id, type }) => {
                                         </Link>
                                     </div>
                                 )
-                            } else {
-                                return
                             }
                         })
                     }
@@ -87,7 +84,6 @@ const ProgramsList = ({ data, id, type }) => {
             )
         })
     }
-
     return (
         <div
             id={id}
