@@ -43,6 +43,56 @@ const ProgramsList = ({ data, id, type }) => {
         })
     })
 
+    console.log(Object.entries(programs) );
+    
+    
+    
+
+
+
+    const list = (array) => {
+        return Object.keys(array).map((key, i) => {
+            return (
+                <>
+                    <div key={i} className={stls.listTitle}>
+                        <br />
+                        <strong>{Object.keys(array)[i]}</strong>
+                        <br />
+                    </div>
+                    {
+                        array[key].map((item, idx) => {
+                            if (idx < 5) {
+                                return (
+                                    <div key={item.id} className={stls.listItem}>
+                                        <Link
+                                            href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
+                                            locale='ru'>
+                                            <a onClick={handleLinkClick}>{SetString(item, true)}</a>
+                                        </Link>
+                                    </div>
+                                )
+                            } else if (idx === 5) {
+                                return (
+                                    <div className={stls.listItem}>
+                                        <Link
+                                            href={`/programs/profession/online  `}
+                                            locale='ru'>
+                                            <a className={stls.link}
+                                                onClick={handleLinkClick}>More
+                                            </a>
+                                        </Link>
+                                    </div>
+                                )
+                            } else {
+                                return
+                            }
+                        })
+                    }
+                </>
+            )
+        })
+    }
+
     return (
         <ul
             id={id}
@@ -70,47 +120,18 @@ const ProgramsList = ({ data, id, type }) => {
             <li className={stls.containerItem}>
                 <div className={stls.itemDetails}>
                     <ul className={stls.list}>
+
+
+
                         {
-                            Object.keys(programs).map((key, i) => {
-                                return (
-                                    <>
-                                        <li key={key} className={stls.listTitle}>
-                                            <br />
-                                            <strong>{Object.keys(programs)[i]}</strong>
-                                            <br />
-                                        </li>
-                                        {
-                                            programs[key].map((item, idx) => {
-                                               if (idx < 5) {
-                                                return (
-                                                    <li key={99} className={stls.listItem}>
-                                                        <Link
-                                                            href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
-                                                            locale='ru'>
-                                                            <a onClick={handleLinkClick}>{SetString(item, true)}</a>
-                                                        </Link>
-                                                    </li>
-                                                )
-                                               } else if (idx === 5) {
-                                                    return (
-                                                        <li className={stls.listItem}>
-                                                            <Link
-                                                                href={`/programs/profession/online  `}
-                                                                locale='ru'>
-                                                                <a className={stls.link}
-                                                                    onClick={handleLinkClick}>More
-                                                                </a>
-                                                            </Link>
-                                                        </li>
-                                                    )
-                                                } else {
-                                                    return
-                                                }
-                                            })
-                                        }
-                                    </>
-                                )
-                            })
+                            programs && Object.keys(programs).length > 3 ? <div>
+                                {list(programs.slice(0, 3))}
+                            </div>
+                            : 
+                            <div>
+                                ggfrgfg
+                            </div>
+
                         }
                     </ul>
                 </div>
