@@ -10,7 +10,7 @@ import {
 const programsReducer = (state, action, at = null) => {
   switch (action.type) {
     case SET_PROGRAMS:
-      const programs = action.payload
+      const programs = action.payload.programs
 
       // const courses = filterProgramsByType({ programs, type: 'course' })
       const courses = []
@@ -19,7 +19,7 @@ const programsReducer = (state, action, at = null) => {
       const professions = []
 
       // const studyFields = getStudyFields(programs)
-      const studyFields = []
+      const studyFields = action.payload.fields
 
       // const studyFieldsProfessions = getStudyFields(professions)
       const studyFieldsProfessions = []
