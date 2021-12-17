@@ -16,22 +16,12 @@ import WrapperComponent from '@/components/layout/WrapperComponent'
 import getClassNames from '@/helpers/getClassNames'
 
 
-import React, { useState } from "react"
 
 
-
-
-const HeaderInformation = ({classNames = []}) => {
+const HeaderInformation = ({classNames = [], handleMenu, openMenu}) => {
     const container = getClassNames({ classNames })
     const contactInfo = contactData()
     const at = useAt()
-
-
-    ///////
-    const [open, setOpen] = useState(false)
-    const toggleMenu = () => {
-        setOpen(!open)
-    }
 
     return (
         <div className={classnames([stls.container], container)}>
@@ -41,7 +31,7 @@ const HeaderInformation = ({classNames = []}) => {
                         className={classnames(stls.logo, {
                             [stls.logoDisabled]: at.promo
                         })}
-                        // onClick={e => handleMenuClose(e)}
+                        onClick={() => handleMenu(false)}
                         aria-label='Moscow Business Academy'>
                         <span className={stls.picture}>
                             <IconLogo />
@@ -85,9 +75,9 @@ const HeaderInformation = ({classNames = []}) => {
                 {!at.promo && (
                     <div
                         className={classnames(stls.burger, {
-                            [stls.opened]: open
+                            [stls.opened]: openMenu
                         })}
-                        onClick={toggleMenu}
+                        onClick={() => handleMenu(!openMenu)}
                     >
                         <i className={stls.line} />
                         <i className={stls.line} />

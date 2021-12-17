@@ -43,7 +43,7 @@ const HeaderTop = ({ handleMenu, openMenu }) => {
 
     return (
         <>
-            <HeaderInformation classNames={[stls.border]} />
+            <HeaderInformation classNames={[stls.border]} handleMenu={handleMenu} openMenu={openMenu} />
             <HeaderNav links={links} classNames={[stls.border]} handleMenu={handleMenu} openMenu={openMenu} />
         </>
     )
