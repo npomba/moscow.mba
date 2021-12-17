@@ -12,13 +12,6 @@ const Header = ({ programs }) => {
     setOpenMenu(value)
   }
 
-  
-
-
-
-
-
-
   return (
     <header>
       <div>

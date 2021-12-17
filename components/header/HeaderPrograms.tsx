@@ -27,7 +27,6 @@ const HeaderPrograms = ({ programs, visible }) => {
                 />
         }
     }
-
     return (
         <div className={stls.container}>
             {program()}

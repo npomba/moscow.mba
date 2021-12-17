@@ -25,7 +25,6 @@ const ProgramsList = ({ data, id, type }) => {
         closeMenu()
         hideOverlay()
     }
-    const at = useAt()
 
     const programs = []
     studyFields.map(itemFilter => {
