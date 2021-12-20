@@ -574,8 +574,10 @@ h2 {
     transition: $transition;
     padding-right: 10px;
     position: relative;
-    &:hover {
-      color: $red;
+    @include m.media(widescreen, desktop) {
+      &:hover {
+        color: $red;
+      }
     }
     &:before {
       content: '';
@@ -1490,6 +1492,7 @@ h2 {
       border-bottom: none;
     }
     a {
+      color: #808080;
       text-align: center;
       justify-content: center;
       height: 66px;
