@@ -48,21 +48,6 @@ const HeaderNav = ({ links, handleMenu, openMenu, classNames = [] }) => {
                             </li>
                         ))}
                 </ul>
-                    {/* <>
-                        <div className={stls.logos}>
-                            <span className={stls.rabo}>
-                                <ImgLogoRabo />
-                            </span>
-                            <span className={stls.mde}>
-                                <ImgLogoMde />
-                            </span>
-                        </div>
-                        <div className={stls.address}>
-                            <IconLocation />
-                            {SetString(contactInfo.ru.address.city)},{' '}
-                            {SetString(contactInfo.ru.address.street)}
-                        </div>
-                    </> */}
             </WrapperComponent>
         </div>
     )

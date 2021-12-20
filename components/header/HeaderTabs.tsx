@@ -28,7 +28,6 @@ const HeaderTabs = ({ tabs, handleMouseEnter, handleMenu, visible }) => {
                 </li>
             ))}
 
-
             <div className={stls.executive}>
                 <div className={stls.label}>
                     <span className={stls.text}>Premium</span>

@@ -3,11 +3,12 @@ import SetString from "@/helpers/SetString"
 import HeaderPrograms from "./HeaderPrograms"
 import HeaderTabs from "./HeaderTabs"
 import langMenu from '@/data/translation/menu'
-import { useState } from "react"
+import React, { useState } from "react"
 import HeaderTabsModile from "./HeaderMobileTabs"
 import useAt from "@/helpers/useAt"
 import lang from '@/data/translation/header'
 import useWindowWidth from "@/helpers/useWindowWidth"
+import WrapperComponent from "../layout/WrapperComponent"
 
 
 
@@ -78,6 +79,8 @@ const HeaderMenu = ({ programs, handleMenu }) => {
   const [visible, setVisible] = useState('')
 
   const handleMouseEnter = e => {
+    console.log(e.target);
+    
     setVisible(e.target.dataset.tab)
   }
 
@@ -88,11 +91,11 @@ const HeaderMenu = ({ programs, handleMenu }) => {
       <div className={stls.content}>
         {
           widthWindowMobile ? 
-          <HeaderTabsModile tabs={tabs} links={links}/>
+          <HeaderTabsModile tabs={tabs} links={links} programs={programs} handleMouseEnter={handleMouseEnter} visible={visible}/>
           :
           <>
             <HeaderTabs tabs={tabs} handleMouseEnter={handleMouseEnter} handleMenu={handleMenu} visible={visible} />
-            <HeaderPrograms programs={programs} visible={visible} />
+              <HeaderPrograms programs={programs} visible={visible} />
           </>
         }
       </div>

@@ -1,8 +1,11 @@
+import getClassNames from '@/helpers/getClassNames'
 import stls from '@/styles/components/icons/IconPaperCorner.module.sass'
+import classnames from 'classnames'
 
-const IconPaperCorner = ({ fill = '#D9D9D9' }) => {
+const IconPaperCorner = ({ fill = '#D9D9D9', classNames = [] }) => {
+  const container = getClassNames({ classNames })
   return (
-    <div className={stls.container}>
+    <div className={classnames(stls.container, container)}>
       <svg viewBox='0 0 18 18' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <title>Файл</title>
         <path
