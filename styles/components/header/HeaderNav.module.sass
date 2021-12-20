@@ -1,1 +1,230 @@
 @use '@/styles/utils/mixin' as m
+
+$transition: all 0.3s ease-out
+$red: #ff3535
+
+
+.container
+  position: relative
+  @include m.media(phone, tablet, laptop)
+    display: none
+
+// .wrapper
+//   position: relative
+//   overflow: hidden
+//   background-color: #fff
+//   display: flex
+//   flex-direction: column
+//   justify-content: space-between
+//   left: 0
+//   z-index: 5
+//   min-height: calc(100vh - 150px)
+
+.menu
+  @include m.media(desktop, widescreen)
+  height: 85px
+  display: flex
+  align-items: center
+  position: relative
+  padding-right: 101px
+  border-right: 1px solid rgba(0, 0, 0, 0.1)
+  @include m.media(phone, tablet, laptop)
+    display: none
+
+.toggle 
+  display: flex
+  align-items: center
+  cursor: pointer
+  font-weight: bold
+  text-transform: uppercase
+  transition: $transition
+  &.opened 
+    color: #000
+    .line 
+      background: #000
+    .line 
+      transform: rotate(45deg)
+      top: 4px
+      &:last-child 
+        width: 30px
+        transform: rotate(-45deg)
+        top: -4px
+  &:hover 
+    color: $red
+    .line 
+      background: $red  
+  
+.icon 
+    margin-right: 27px
+    .line 
+        display: block
+        height: 2px
+        width: 30px
+        background: #000
+        margin-bottom: 6px
+        height: 2px
+        transition: $transition
+        position: relative
+        &:last-child 
+            margin-bottom: 0
+            width: 18px
+    
+.list 
+    width: calc(100% - 101px)
+    display: flex
+    align-items: center
+    justify-content: space-between
+    font-weight: 400
+    text-transform: uppercase
+    padding-left: 101px
+    
+    @include m.media(phone, tablet, laptop)
+      padding: 50px 0
+      width: 100%
+      max-width: 1000px
+      flex-direction: column
+      align-items: stretch
+.active
+  color: $red
+
+.link 
+  &.last
+    @include m.media(desktop) 
+      display: none
+    @include m.media(phone, tablet, laptop)
+      border-bottom: none
+
+.item
+  @include m.media(phone, tablet, laptop)
+    
+
+.link 
+    transition: $transition
+    @include m.media(desktop)
+        font-size: 14px
+    &:hover 
+        color: $red
+    @include m.media(phone, tablet, laptop)
+      border-bottom: 1px solid #b3b3b3
+      position: relative
+      display: block
+      padding: 20px 0
+      font-size: 18px
+      &::after
+        content: ""
+        position: absolute
+        top: 50%
+        margin-top: -5px
+        right: 2px
+        width: 10px
+        height: 10px
+        display: inline-block
+        -webkit-backface-visibility: hidden
+        backface-visibility: hidden
+        border-top: 1px solid #b3b3b3
+        border-right: 1px solid #b3b3b3
+        transform: rotate(45deg)
+
+.logos
+  @include m.media(phone, tablet, laptop)
+    display: flex
+    margin-bottom: 30px
+    margin-top: auto
+    position: relative
+    bottom: 0
+
+.rabo
+  @include m.media(phone, tablet, laptop)
+    width: 117px
+    margin-right: 15px
+.mde
+  @include m.media(phone, tablet, laptop)
+    width: 105px
+.address
+  font-size: 14px
+  display: flex
+  margin: 0
+  max-width: 100%
+  padding-bottom: 30px
+
+
+
+
+.tabs
+  height: 100%
+  padding: 0 10px
+  position: absolute
+  z-index: 2
+  width: 100%
+  right: -100%
+  background: #fff
+  transition: all 1s ease-out
+  &.opened
+    right: 0
+
+
+
+
+
+.title
+  font-weight: 500
+  font-size: 28px
+  line-height: 1.2
+  margin-bottom: 10px
+  text-transform: capitalize
+  
+.btn
+  display: none
+  @include m.media(phone, tablet, laptop)
+    right: -100%
+    z-index: 2
+    transition: all 1s ease-out
+    &.visible
+      right: 0
+      width: 100%
+      background-color: #f7f7f7
+      border: none
+      text-transform: uppercase  
+      font-size: 13px
+      line-height: 1.2
+      display: flex
+      margin-top: 0
+      align-items: center
+      font-weight: 400
+      padding: 20px 0
+      position: relative
+      z-index: 10
+      color: #b3b3b3
+      cursor: pointer
+      &::after
+        content: ""
+        top: 0
+        left: 50%
+        height: 100%
+        min-width: 100vw
+        margin-left: -50vw
+        position: absolute
+        z-index: -1
+        background: #f7f7f7
+      span
+        flex-shrink: 0
+        margin-right: 10px
+        display: block
+        width: 0
+        height: 0
+        border: 4px solid transparent
+        border-right-color: #b3b3b3
+
+    
+
+
+
+
+    
+  
+
+    
+  
+
+
+

@@ -1,65 +1,44 @@
-import stls from '@/styles/components/header/HeaderTabs.module.sass'
-import Link from 'next/link'
+import stls from "@/styles/components/header/HeaderTabs.module.sass"
+import SetString from "@/helpers/SetString"
+import Link from "next/link"
 import langMenu from '@/data/translation/menu'
-import { SetString } from '@/helpers/index'
 
-const HeaderTabs = ({ handleMenuClose, handleMouseEnter }) => {
-  const tabs = [
-    {
-      href: '/programs/mini/online',
-      val: 'Mini MBA'
-    },
-    {
-      href: '/programs/mba/online',
-      val: 'MBA'
-    },
-    {
-      href: '/programs/profession/online',
-      val: SetString(langMenu.professions)
-    },
-    // {
-    //   href: '/programs/course/online',
-    //   val: SetString(langMenu.courses)
-    // },
-    // {
-    //   href: '/programs/international-business-law',
-    //   val: SetString(langMenu.internationalBusinessLaw)
-    // },
-    {
-      href: '/programs/mini/online',
-      val: SetString(langMenu.allPrograms)
-    }
-  ]
+const HeaderTabs = ({ tabs, handleMouseEnter, handleMenu, visible }) => {
+    const currentTab = visible ? visible.slice(-1) - 1 : 0
+    return (
+        <ul className={stls.container}>
+            {tabs.map((item, idx) => (
+                <li key={item.val + idx} className={stls.item}>
+                    <Link href={item.href} locale='ru'>
+                        <a
+                            className={
+                                idx === currentTab
+                                    ? stls.active
+                                    : item.val === SetString(langMenu.allPrograms)
+                                        ? stls.all
+                                        : undefined
+                            }
+                            data-tab={item.val !== SetString(langMenu.allPrograms) && `#header-podmenu-${idx + 1}`}
+                            onClick={() => handleMenu(false)}
+                            onMouseEnter={e => handleMouseEnter(e)}
+                        >
+                            {item.val}
+                        </a>
+                    </Link>
+                </li>
+            ))}
 
-  return (
-    <ul className='header-podmenu-tabs'>
-      {tabs.map((item, idx) => (
-        <li key={item.val + idx}>
-          <Link href={item.href} locale='ru'>
-            <a
-              className={
-                idx === 0
-                  ? 'active-tab'
-                  : item.val === SetString(langMenu.allPrograms)
-                  ? 'allPrograms'
-                  : undefined
-              }
-              data-tab={
-                idx === 0 || idx === 1
-                  ? `#header-podmenu-${idx + 1}`
-                  : undefined
-              }
-              onClick={handleMenuClose}
-              onMouseEnter={
-                idx === 0 || idx === 1 ? e => handleMouseEnter(e) : undefined
-              }>
-              {item.val}
-            </a>
-          </Link>
-        </li>
-      ))}
-    </ul>
-  )
+
+            <div className={stls.executive}>
+                <div className={stls.label}>
+                    <span className={stls.text}>Premium</span>
+                </div>
+                <Link href='/programs/executive' locale='ru'>
+                    <a className={stls.link} onClick={() => handleMenu(false)}>Executive MBA</a>
+                </Link>
+            </div>
+        </ul>
+    )
 }
 
 export default HeaderTabs

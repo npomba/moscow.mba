@@ -96,13 +96,13 @@ function MyApp({ Component, pageProps, router }) {
       <ProgramsState>
         <OverlayState>
           <MenuState>
-            <Wrapper>
-              <Header programs={programs} />
+            {/* <Wrapper> */}
+              <Header programs={programs}/>
               <Main>
                 <Component {...pageProps} />
               </Main>
               <Footer />
-            </Wrapper>
+            {/* </Wrapper> */}
           </MenuState>
         </OverlayState>
       </ProgramsState>

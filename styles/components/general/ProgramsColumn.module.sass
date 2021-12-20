@@ -1,29 +1,20 @@
 @use '@/styles/utils/mixin' as m
 
 .container
-  display: none
+  display: flex
   flex-wrap: wrap
   height: 100%
-  padding-left: 30px
-  &.visible
-    display: flex
-
-.containerItem
-  flex: 0 0 50%
-  padding: 0 28px 50px
+  padding: 40px 48px 0 58px
   @include m.media(desktop, laptop, tablet, phone)
-    padding-left: 20px
+    padding-left: 48px
     padding-right: 20px
-  &:first-child
-    flex: 0 0 100%
-    padding-top: 40px
-    padding-bottom: 0
-  &:last-child
-    border-left: solid 1px #e6e6e6
 
 .itemDetails
   line-height: 1.2
-  padding-top: 8px
+  padding: 8px 30px 50px 0
+  &:last-child
+    padding: 8px 0 50px 30px
+    border-left: solid 1px #e6e6e6
 
 .itemTitle
   font-weight: 500
@@ -79,6 +70,7 @@
 
 .infoItemContainer
   display: flex
+  white-space: nowrap
   &:not(:last-child)
     margin-right: 37px
 
@@ -94,12 +86,11 @@
   .infoFlexContainer
     align-items: flex-start
 
-.iconContainer  
+.iconContainer
   width: 20px
   text-align: center
   flex-shrink: 0
   margin-right: 8px
- 
 
 .list
   line-height: 1.2
@@ -110,9 +101,10 @@
     margin-bottom: 10px
   a
     transition: all .3s ease-out
-    @include m.media(laptop, desktop, widescreen)
-      &:hover
-        color: #ff3535
+    &:hover
+      .arrow
+        fill: #ff3535
+      color: #ff3535
 
 .programInfo
   @include m.media(laptop, tablet, phone)
@@ -135,6 +127,8 @@
   line-height: 1.2
   font-weight: 700
   margin-bottom: 12px
+  position: relative
+  display: inline-block
   @include m.media(desktop, laptop, tablet, phone)
     font-size: 28px
 
@@ -143,3 +137,40 @@
   margin-bottom: 38px
   font-size: 20px
   font-weight: 400
+
+.link
+  font-weight: 400
+  position: relative
+
+.arrow
+  position: absolute
+  right: -10px
+  top: 3px
+  width: 7px
+  display: inline-block
+  transform: rotate(-180deg)
+  margin-left: 5px
+  fill: #000
+  transition: all .3s ease-out
+
+.professionItem
+  &:last-child
+    border-left: none
+  &:first-child
+
+.content
+  display: flex
+  padding-bottom: 30px
+
+.listProfession
+  padding-right: 20px
+  margin-right: 30px
+  border-right: solid 1px #e6e6e6
+
+.listTitle
+  &:first-child
+    margin: 0px 0 18px 0
+  font-weight: 500
+  font-size: 24px
+  line-height: 120%
+  margin: 28px 0 18px 0

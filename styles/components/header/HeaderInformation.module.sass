@@ -1,0 +1,123 @@
+@use '@/styles/utils/mixin' as m
+
+
+.container 
+  position: relative
+  @include m.media(phone, tablet, laptop)
+    padding: 7px 0px
+  @include m.media(desktop, widescreen)
+    padding: 16px 0 12px 0
+  
+.logo 
+  display: inline-flex
+  align-items: center
+  @include m.media(phone, tablet, laptop)
+    margin-right: auto
+  @include m.media(desktop, widescreen)
+    margin-right: 40px
+  @include m.media(widescreen)
+    margin-right: 0
+
+.picture 
+    margin-right: 11px
+    &.logoDisabled 
+      cursor: default
+
+.burger 
+    display: block
+    cursor: pointer
+    @include m.media(laptop)
+      margin-left: 40px
+    @include m.media(phone, tablet)
+      margin-left: 25px
+    &.opened 
+      .line 
+        &:nth-of-type(1) 
+          transform: rotate(45deg)
+          top: 8px
+        
+        &:nth-of-type(2) 
+          opacity: 0
+          transition: none
+        
+        &:nth-of-type(3) 
+          top: -8px
+          transform: rotate(-45deg)
+    .line 
+      display: block
+      width: 34px
+      height: 2px
+      background: #000
+      margin: 6px 0
+      position: relative
+      transform-origin: center
+      transition:  all 0.3s ease-out
+    @include m.media(desktop, widescreen)
+      display: none
+    
+.logos 
+  display: flex
+  @include m.media(desktop, widescreen)
+    .rabo 
+      width: 117px
+      margin-right: 15px
+      flex-shrink: 0
+    .mde 
+      width: 105px
+  @include m.media(phone, tablet, laptop)
+    display: none
+  
+.address 
+  font-weight: 400
+  display: flex
+  align-items: center
+  line-height: 1.2
+  @include m.media(widescreen)
+    font-size: 14px
+    max-width: 100%
+  @include m.media(desktop)
+    font-size: 13px
+    max-width: 210px
+  @include m.media(phone, tablet, laptop)
+    display: none
+  svg 
+    flex-shrink: 0
+    margin-right: 8px
+  
+.phoneLinks
+  display: flex
+  align-items: center
+  font-weight: 500
+  @include m.media(laptop, widescreen)
+    & .phoneLink
+      &:nth-child(1)
+        margin-right: 25px
+  @include m.media(desktop)
+    flex-direction: column
+    & .phoneLink
+      margin-bottom: 7px
+  @include m.media(phone, tablet)
+    & .phoneLink
+      &:nth-child(2)
+        display: none
+
+.phoneLink
+  position: relative
+  display: flex
+  flex-direction: column
+  align-items: flex-end
+  @media (max-width: 370px)
+    display: none
+
+.description
+  margin-bottom: 5px
+  font-size: 10px
+  font-weight: 300
+  color: #B5B5B5
+
+.phoneIcon
+  display: none
+
+@media (max-width: 370px)
+  .phoneIcon
+    display: block

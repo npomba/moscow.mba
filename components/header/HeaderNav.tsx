@@ -1,84 +1,73 @@
-import stls from '@/styles/components/header/HeaderNav.module.sass'
-import Link from 'next/link'
-import { useContext } from 'react'
-import MenuContext from '@/context/menu/menuContext'
+import stls from "@/styles/components/header/HeaderNav.module.sass"
+import SetString from "@/helpers/SetString"
 import lang from '@/data/translation/header'
-import { SetString } from '@/helpers/index'
-import { useAt } from '@/helpers/index'
-import classNames from 'classnames'
+import classnames from "classnames"
+import Link from "next/link"
+import WrapperComponent from "@/components/layout/WrapperComponent"
+import getClassNames from "@/helpers/getClassNames"
+import useWindowWidth from "@/helpers/useWindowWidth"
+import contactData from "@/config/contactData"
 
-const HeaderNav = ({ handleMenu, handleMenuClose }) => {
-  const { menuIsOpen, openMenu, closeMenu, toggleMenu } =
-    useContext(MenuContext)
 
-  const at = useAt()
 
-  const links = [
-    {
-      href: '/about',
-      val: SetString(lang.linkAbout),
-      red: at.about
-    },
-    {
-      href: '/teachers',
-      val: SetString(lang.linkTeachers),
-      red: at.teachers,
-      locale: 'ru'
-    },
-    {
-      href: '/webinars',
-      val: SetString(lang.linkWebinars),
-      red: at.webinars,
-      locale: 'ru'
-    },
-    {
-      href: '/contact',
-      val: SetString(lang.linkContacts),
-      red: at.contact,
-      locale: 'ru'
-    },
-    {
-      href: '/legal',
-      val: SetString(lang.linkLegal),
-      red: at.legal,
-      locale: 'ru'
-    }
-  ]
+const HeaderNav = ({ links, handleMenu, openMenu, classNames = [] }) => {
+    const container = getClassNames({ classNames })
+    const contactInfo = contactData()
+    const widthWindowMobile = useWindowWidth() < 1020
 
-  return (
-    <div className='header-bottom'>
-      <div className='header-podmenu-outer'>
-        <div
-          className={classNames({
-            'header-podmenu-toggle': true,
-            opened: menuIsOpen
-          })}
-          onClick={handleMenu}>
-          <div className='pic'>
-            <i></i>
-            <i></i>
-          </div>
-          <span>{SetString(lang.programsBtn)}</span>
+    return (
+        <div className={classnames([stls.container], container)}>
+            <WrapperComponent classNames={widthWindowMobile ? [stls.wrapper] : []} row={!widthWindowMobile}>
+                <div className={stls.menu}>
+                    <div
+                        className={classnames(stls.toggle, {
+                            [stls.opened]: openMenu
+                        })}
+                        onClick={() => handleMenu(!openMenu)}
+                    >
+                        <div className={stls.icon}>
+                            <i className={stls.line} />
+                            <i className={stls.line} />
+                        </div>
+                        <span>{SetString(lang.programsBtn)}</span>
+                    </div>
+                </div>
+                <ul className={stls.list}>
+                        {links.map((item, idx) => (
+                            <li key={item.val + idx} className={stls.item}>
+                                <Link href={item.href} locale={item.locale}>
+                                    <a
+                                        onClick={() => handleMenu(false)}
+                                        className={classnames(stls.link, {
+                                            [stls.last]: idx + 1 === links.length,
+                                            [stls.active]: item.red
+                                        })}>
+                                        {item.val}
+                                    </a>
+                                </Link>
+                            </li>
+                        ))}
+                </ul>
+                    {/* <>
+                        <div className={stls.logos}>
+                            <span className={stls.rabo}>
+                                <ImgLogoRabo />
+                            </span>
+                            <span className={stls.mde}>
+                                <ImgLogoMde />
+                            </span>
+                        </div>
+                        <div className={stls.address}>
+                            <IconLocation />
+                            {SetString(contactInfo.ru.address.city)},{' '}
+                            {SetString(contactInfo.ru.address.street)}
+                        </div>
+                    </> */}
+            </WrapperComponent>
         </div>
-      </div>
-      <ul className='header-menu'>
-        {links.map((item, idx) => (
-          <li key={item.val + idx}>
-            <Link href={item.href} locale={item.locale}>
-              <a
-                onClick={handleMenuClose}
-                className={classNames({
-                  ['widescreen-only']: idx + 1 === links.length,
-                  ['red']: item.red
-                })}>
-                {item.val}
-              </a>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
-  )
+    )
 }
 
 export default HeaderNav
+
+

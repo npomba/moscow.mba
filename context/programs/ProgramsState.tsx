@@ -29,7 +29,10 @@ const ProgramsState = props => {
   const [state, dispatch] = useReducer(programsReducer, initialState)
 
   const setPrograms = (programs = []) => {
-    dispatch({ type: SET_PROGRAMS, payload: programs })
+    const studyFieldArr = [...new Set(programs.filter(item => item !== undefined && item?.study_field))]
+    const fields = [...new Map(studyFieldArr.map(item => [item.study_field.slug, item.study_field])).values()].map(item => {return {title: item.name, slug: item.slug}})
+
+    dispatch({ type: SET_PROGRAMS, payload: {programs, fields}})
   }
 
   const setCurProgramsType = (programType: string | null) => {
