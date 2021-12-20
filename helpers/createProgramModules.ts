@@ -37,10 +37,13 @@ const createProgramModules = ({ program, type }: createProgramModulesType) => {
           subjects: program[type].slice(i * 5, i * 5 + 5)
         })
       }
-      if (output.at(-1) && output.at(-1).subjects.length < 3) {
+      if (
+        output[output.length - 1] &&
+        output[output.length - 1].subjects.length < 3
+      ) {
         const lastModule = output.pop()
         lastModule.subjects.forEach(subject =>
-          output.at(-1).subjects.push(subject)
+          output[output.length - 1].subjects.push(subject)
         )
       }
     }
