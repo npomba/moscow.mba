@@ -9,6 +9,8 @@
     @include m.media(desktop, laptop, tablet, phone)
         padding-left: 48px
         padding-right: 20px
+    @include m.media(laptop, tablet, phone)
+        padding: 0
 
 .itemDetails
   line-height: 1.2
@@ -18,12 +20,19 @@
     line-height: 1.2
     color: #000000
     display: flex
+    @include m.media(laptop, tablet, phone)
+      display: block
     .column
         padding: 0 30px 50px 0
+        @include m.media(laptop, tablet, phone)
+            padding: 0
         &:last-child
             padding-left: 30px
             padding-right: 0
             border-left: solid 1px #e6e6e6
+            @include m.media(laptop, tablet, phone)
+                padding: 0
+                border-left: none
 
 .listItem
   &:not(:last-child)
