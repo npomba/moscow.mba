@@ -14,6 +14,7 @@ import getProgram from '@/helpers/getProgram'
 import getProgramsReducedData from '@/helpers/getProgramsReducedData'
 import fetchPaths from '@/helpers/fetchPaths'
 import getStringDeclensionNumber from '@/helpers/getStringDeclensionNumber'
+import HandleGetPrograms from '@/helpers/HandleGetPrograms'
 import handleGetStaticPaths from '@/helpers/handleGetStaticPaths'
 import handleGetStaticProps from '@/helpers/handleGetStaticProps'
 import handlePlaceholder from '@/helpers/handlePlaceholder'
@@ -41,6 +42,7 @@ export {
   getProgramsReducedData,
   fetchPaths,
   getStringDeclensionNumber,
+  HandleGetPrograms,
   handleGetStaticPaths,
   handleGetStaticProps,
   handlePlaceholder,
