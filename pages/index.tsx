@@ -14,13 +14,10 @@ import Executive from '@/components/sections/Executive'
 import ContactUs from '@/components/sections/ContactUs'
 import HandleGetPrograms from '@/helpers/HandleGetPrograms'
 
-
 const PageHome = ({ programs }) => {
-
   HandleGetPrograms(programs)
   return (
     <>
-
       <NextSeo
         title={'Moscow Business Academy'}
         description={truncate(
@@ -40,9 +37,8 @@ const PageHome = ({ programs }) => {
         <CorporateClients />
         <Programs programs={programs} />
         <Executive />
-        <ContactUs overlapsFooter/>
+        <ContactUs overlapsFooter />
       </div>
-
     </>
   )
 }
