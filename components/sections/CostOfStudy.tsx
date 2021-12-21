@@ -10,6 +10,7 @@ import Loan from '@/components/costs/Loan'
 import Discount from '@/components/costs/Discount'
 import TrainingPeriod from '@/components/costs/TrainingPeriod'
 import ProgramSubjects from '@/components/general/ProgramSubjects'
+import { ImgDiscountDecoration } from '@/components/images'
 
 const PriceBlock = ({
   isDiscounted,
@@ -204,6 +205,7 @@ const CostOfStudy = ({
     <section className={stls.container}>
       {isDiscounted && (
         <div className={stls.discountSticker}>
+          <ImgDiscountDecoration classNames={[stls.decoration]} />
           <div className={stls.discountSize}>
             <Discount />
           </div>

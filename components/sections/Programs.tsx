@@ -8,11 +8,11 @@ import ProgramSubjects from '@/components/general/ProgramSubjects'
 import ProgramsQty from '@/components/general/ProgramsQty'
 import Price from '@/components/costs/Price'
 import TrainingPeriod from '@/components/costs/TrainingPeriod'
-import Script from 'next/script'
 import Discount from '@/components/costs/Discount'
 import { IconCheckCircle, IconScreen } from '@/components/icons'
 import { useState } from 'react'
 import classNames from 'classnames'
+import { ImgDiscountDecoration } from '@/components/images'
 
 const Programs = ({ programs }) => {
   const data = programs
@@ -119,6 +119,7 @@ const Programs = ({ programs }) => {
                   <div className='name'>
                     {SetString(langMenu.onlineTitle)}
                     <div className='discount'>
+                      <ImgDiscountDecoration classNames={[stls.decoration]} />
                       <div className='size'>
                         <Discount />
                       </div>
@@ -271,6 +272,7 @@ const Programs = ({ programs }) => {
                   <div className='name'>
                     {SetString(langMenu.onlineTitle)}
                     <div className='discount'>
+                      <ImgDiscountDecoration classNames={[stls.decoration]} />
                       <div className='size'>
                         <Discount />
                       </div>

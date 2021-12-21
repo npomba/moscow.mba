@@ -424,6 +424,7 @@ const contact = async (req, res) => {
     })
 
     // console.log('Message sent: %s', emailRes.messageId)
+    // res.setHeader('Cache-Control', 'max-age=0, s-maxage=86400')
     res.status(200).json({ status: 200, msg: 'Email is sent' })
   } catch (err) {
     res.status(500).json({ status: 500, err, msg: 'Unexpected server error' })
