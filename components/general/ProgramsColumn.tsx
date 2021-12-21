@@ -9,6 +9,8 @@ import ProgramSubjects from '@/components/general/ProgramSubjects'
 import ProgramsQty from '@/components/general/ProgramsQty'
 import TrainingPeriod from '@/components/costs/TrainingPeriod'
 import Discount from '@/components/costs/Discount'
+import MenuContext from '@/context/menu/menuContext'
+import OverlayContext from '@/context/overlay/overlayContext'
 import {
   IconCheckCircle,
   IconScreen,
@@ -17,11 +19,17 @@ import {
   IconArrowLeft
 } from '@/components/icons'
 import menu from '@/data/translation/menu'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import classnames from 'classnames'
 
 
 const ProgramsColumn = ({ data, id, type }) => {
+  const { closeMenu } = useContext(MenuContext)
+  const { hideOverlay } = useContext(OverlayContext)
+  const handleLinkClick = () => {
+      closeMenu()
+      hideOverlay()
+  }
   const programsOnline = []
   const programsBlended = []
   const [onlineOrBlended, setOnlineOrBlended] = useState('online')
@@ -44,7 +52,7 @@ const ProgramsColumn = ({ data, id, type }) => {
             <Link
               href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
               locale='ru'>
-              <a>{SetString(item, true)}</a>
+              <a onClick={handleLinkClick}>{SetString(item, true)}</a>
             </Link>
           </li>
         )
@@ -54,7 +62,7 @@ const ProgramsColumn = ({ data, id, type }) => {
             <Link
               href={`/programs/${type}/${format}`}
               locale='ru'>
-              <a className={stls.link}>
+              <a className={stls.link} onClick={handleLinkClick}>
                 {SetString(menu.linkAllPrograms)}
                 <IconArrowLeft classNames={[stls.arrow]} />
               </a>

@@ -14,7 +14,10 @@
 
 .itemDetails
   line-height: 1.2
-  padding-top: 8px
+  @include m.media(desktop, widescreen)
+    padding-top: 8px
+  @include m.media(laptop, tablet, phone)
+    padding: 0
 
 .list
     line-height: 1.2
@@ -35,33 +38,37 @@
                 border-left: none
 
 .listItem
-  &:not(:last-child)
-    margin-bottom: 10px
-  a
-    transition: all .3s ease-out
-    @include m.media(laptop, desktop, widescreen)
+  @include m.media(laptop, tablet, phone)
+      padding: 12px 0
+      margin: 0
+      border-bottom: 1px solid #d9d9d9
+      &:first-child
+          border-top: 1px solid #d9d9d9
+  @include m.media(desktop, widescreen)
+    &:not(:last-child)
+      margin-bottom: 10px
+    a
+      transition: all .3s ease-out
       &:hover
         .arrow
-            fill: #ff3535
+          fill: #ff3535
         color: #ff3535
-
+    
 .listTitle
-    &:first-child
-        margin: 0px 0 18px 0
     font-weight: 500
-    font-size: 24px
-    line-height: 120%
-    margin: 28px 0 18px 0
-
-.itemTitle
-  font-weight: 500
-  font-size: 24px
-  margin-bottom: 4px
-  display: flex
-  position: relative
-  display: inline-block
-  @include m.media(desktop, laptop, tablet, phone)
-    font-size: 19px
+    margin-bottom: 4px
+    display: flex
+    position: relative
+    display: inline-block
+    
+    @include m.media(tablet, phone, laptop)
+      font-size: 19px
+      margin-top: 20px
+      &:first-child
+        margin-top: 10px
+    @include m.media(desktop, widescreen)
+      font-size: 24px
+      margin: 20px 0
 
 .link
   font-weight: 400
@@ -104,12 +111,16 @@
     margin-bottom: 4px
     @include m.media(desktop, laptop, tablet, phone)
         font-size: 28px
+    @include m.media(laptop, tablet, phone)
+        margin-bottom: 22px
 
 .programDesc
   line-height: 1.2
   margin: 20px 0 38px 0
   font-size: 20px
   font-weight: 400
+  @include m.media(laptop, tablet, phone)
+      display: none
 
 .itemDiscount
     display: flex
@@ -140,6 +151,30 @@
   font-weight: bold
   font-size: 20px
   font-family: 'Visuelt', Arial, Tahoma, sans-serif
+
+.bottomInfo
+  @include m.media(desktop, widescreen)
+    display: none
+  padding: 30px 0
+
+.bottomTitle
+  line-height: 1.2
+  font-weight: 700
+  margin-bottom: 12px
+  font-size: 28px
+
+.textBottom
+  padding-bottom: 15px
+
+.itemBottom
+  display: flex
+  align-items: center
+  margin-bottom: 10px
+  font-weight: 700
+  padding-left: 2px
+
+.iconBottom
+  margin-right: 10px
 
 
  

@@ -1,24 +1,32 @@
 import stls from "@/styles/components/layout/Header.module.sass"
-import {useState } from "react"
+import { useContext, useState } from "react"
 import HeaderMenu from '../header/HeaderMenu'
 import HeaderTop from '../header/HeaderTop'
+import MenuContext from '@/context/menu/menuContext'
+import OverlayContext from '@/context/overlay/overlayContext'
 
 
 const Header = ({ programs }) => {
-
-  const [openMenu, setOpenMenu] = useState(false)
+  const { menuIsOpen, openMenu, closeMenu } = useContext(MenuContext)
+  const { hideOverlay, showOverlay } = useContext(OverlayContext)
 
   const handleMenu = (value: boolean) => {
-    setOpenMenu(value)
+    if (value) {
+      openMenu()
+      showOverlay()
+    } else {
+      closeMenu()
+      hideOverlay()
+    }
   }
 
   return (
     <header>
       <div>
-        <HeaderTop handleMenu={handleMenu} openMenu={openMenu}/>
+        <HeaderTop handleMenu={handleMenu} openMenu={menuIsOpen} />
       </div>
       {
-        openMenu && <div className={stls.menu}>
+        menuIsOpen && <div className={stls.menu}>
           <HeaderMenu programs={programs} handleMenu={handleMenu} />
         </div>
       }

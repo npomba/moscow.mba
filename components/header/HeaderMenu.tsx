@@ -8,9 +8,6 @@ import HeaderTabsModile from "./HeaderMobileTabs"
 import useAt from "@/helpers/useAt"
 import lang from '@/data/translation/header'
 import useWindowWidth from "@/helpers/useWindowWidth"
-import WrapperComponent from "../layout/WrapperComponent"
-
-
 
 const HeaderMenu = ({ programs, handleMenu }) => {
   const widthWindowMobile = useWindowWidth() < 1020
@@ -77,21 +74,14 @@ const HeaderMenu = ({ programs, handleMenu }) => {
   ]
 
   const [visible, setVisible] = useState('')
-
-  const handleMouseEnter = e => {
-    console.log(e.target);
-    
-    setVisible(e.target.dataset.tab)
-  }
-
-
-
+  const handleMouseEnter = e => setVisible(e.target.dataset.tab)
+  
   return (
     <div className={stls.container}>
       <div className={stls.content}>
         {
           widthWindowMobile ? 
-          <HeaderTabsModile tabs={tabs} links={links} programs={programs} handleMouseEnter={handleMouseEnter} visible={visible}/>
+          <HeaderTabsModile tabs={tabs} links={links} programs={programs} handleMenu={handleMenu} handleMouseEnter={handleMouseEnter} visible={visible}/>
           :
           <>
             <HeaderTabs tabs={tabs} handleMouseEnter={handleMouseEnter} handleMenu={handleMenu} visible={visible} />

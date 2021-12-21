@@ -5,19 +5,13 @@ import classnames from "classnames"
 import Link from "next/link"
 import WrapperComponent from "@/components/layout/WrapperComponent"
 import getClassNames from "@/helpers/getClassNames"
-import useWindowWidth from "@/helpers/useWindowWidth"
-import contactData from "@/config/contactData"
-
 
 
 const HeaderNav = ({ links, handleMenu, openMenu, classNames = [] }) => {
     const container = getClassNames({ classNames })
-    const contactInfo = contactData()
-    const widthWindowMobile = useWindowWidth() < 1020
-
     return (
         <div className={classnames([stls.container], container)}>
-            <WrapperComponent classNames={widthWindowMobile ? [stls.wrapper] : []} row={!widthWindowMobile}>
+            <WrapperComponent>
                 <div className={stls.menu}>
                     <div
                         className={classnames(stls.toggle, {

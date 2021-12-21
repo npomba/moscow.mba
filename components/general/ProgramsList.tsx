@@ -1,5 +1,5 @@
 import stls from '@/styles/components/general/ProgramsList.module.sass'
-import { useContext } from 'react'
+import React, { useContext } from 'react'
 import MenuContext from '@/context/menu/menuContext'
 import OverlayContext from '@/context/overlay/overlayContext'
 import classNames from 'classnames'
@@ -10,16 +10,13 @@ import Until from '@/components/costs/Until'
 import Discount from '@/components/costs/Discount'
 import menu from '@/data/translation/menu'
 import programsContext from '@/context/programs/programsContext'
-import { IconArrowLeft } from '../icons'
+import { IconArrowLeft, IconClock, IconPaperCorner } from '../icons'
+import TrainingPeriod from '../costs/TrainingPeriod'
+import ProgramSubjects from './ProgramSubjects'
 
 const ProgramsList = ({ data, id, type }) => {
-    const { menuIsOpen, openMenu, closeMenu, toggleMenu } = useContext(
-        MenuContext
-    )
-    const {
-        hideOverlay,
-    } = useContext(OverlayContext)
-
+    const { closeMenu } = useContext(MenuContext)
+    const { hideOverlay } = useContext(OverlayContext)
     const { studyFields } = useContext(programsContext)
     const handleLinkClick = () => {
         closeMenu()
@@ -49,7 +46,7 @@ const ProgramsList = ({ data, id, type }) => {
             return (
                 <>
                     <div key={i} className={stls.listTitle}>
-                        <p>{key.title}</p>
+                        {key.title}
                     </div>
                     {
                         key.fields.map((item, idx) => {
@@ -67,7 +64,7 @@ const ProgramsList = ({ data, id, type }) => {
                                 return (
                                     <div className={stls.listItem}>
                                         <Link
-                                            href={`/programs/profession/online  `}
+                                            href={`/programs/${type}/online`}
                                             locale='ru'>
                                             <a className={stls.link} onClick={handleLinkClick}>
                                                 {SetString(menu.linkAllPrograms)}
@@ -124,6 +121,29 @@ const ProgramsList = ({ data, id, type }) => {
                         </>
                     }
                 </ul>
+            </div>
+            <div className={stls.bottomInfo}>
+                <div className={stls.bottomTitle}>
+                    {type === 'profession' ? SetString(menu.professions) : type === 'courses' ? SetString(menu.courses) : null}
+                </div>
+                <div className={stls.itemBottom}>
+                    <IconClock classNames={[stls.iconBottom]} />
+                    <TrainingPeriod type={type} />
+                </div>
+                <p className={stls.textBottom}>
+                    {type === 'profession'
+                        ? SetString(langMenu.categoryDiscProfession)
+                        : type === 'courses'
+                            ? SetString(langMenu.categoryDiscMba)
+                            : null}
+                </p>
+                <div className={stls.itemBottom}>
+                    <IconPaperCorner classNames={[stls.iconBottom]} />
+                    <span>
+                        <ProgramSubjects type={type} subjects='base' />{' '}
+                        {SetString(langMenu.categoryAboutManagement)}
+                    </span>
+                </div>
             </div>
         </div>
     )

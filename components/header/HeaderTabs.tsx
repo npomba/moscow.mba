@@ -4,7 +4,7 @@ import Link from "next/link"
 import langMenu from '@/data/translation/menu'
 
 const HeaderTabs = ({ tabs, handleMouseEnter, handleMenu, visible }) => {
-    const currentTab = visible ? visible.slice(-1) - 1 : 0
+    const currentTab = visible && visible.slice(-1) - 1 || 0
     return (
         <ul className={stls.container}>
             {tabs.map((item, idx) => (
