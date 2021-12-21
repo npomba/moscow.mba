@@ -46,7 +46,7 @@ const ProgramsColumn = ({ data, id, type }) => {
           <div className={stls.infoFlexContainer}>
             <div className={stls.infoItemContainer}>
               <div className={stls.iconContainer}>
-                <IconClock/>
+                <IconClock />
               </div>
               <span>
                 <TrainingPeriod type={type} />
@@ -54,7 +54,7 @@ const ProgramsColumn = ({ data, id, type }) => {
             </div>
             <div className={stls.infoItemContainer}>
               <div className={stls.iconContainer}>
-                <IconPaperCorner/>
+                <IconPaperCorner />
               </div>
               <span>
                 <ProgramSubjects type={type} subjects='base' />{' '}
@@ -63,7 +63,7 @@ const ProgramsColumn = ({ data, id, type }) => {
             </div>
             <div className={stls.infoItemContainer}>
               <div className={stls.iconContainer}>
-                <IconPaperCorner/>
+                <IconPaperCorner />
               </div>
               <span>
                 <ProgramSubjects type={type} subjects='specialty' />{' '}
@@ -112,13 +112,13 @@ const ProgramsColumn = ({ data, id, type }) => {
           <div className={stls.itemInfo}>
             <div className={stls.infoFlexContainer}>
               <div className={stls.iconContainer}>
-                <IconCheckCircle/>
+                <IconCheckCircle />
               </div>
               <span>{SetString(langMenu.formatRemote)}</span>
             </div>
             <div className={stls.infoFlexContainer}>
               <div className={stls.iconContainer}>
-                <IconScreen/>
+                <IconScreen />
               </div>
               <span>
                 <ProgramSubjects type={type} sum={true} />{' '}
@@ -130,11 +130,8 @@ const ProgramsColumn = ({ data, id, type }) => {
             {data &&
               data.map(item => {
                 if (
-                  (item.category?.type === type &&
-                    item.studyFormat === 'online') ||
-                  (item.slug === 'international-business-law' &&
-                    item.category.type === 'mbl' &&
-                    type === 'mba')
+                  item.category?.type === type &&
+                  item.studyFormat === 'online'
                 ) {
                   return (
                     <li key={item.id || item._id} className={stls.listItem}>
@@ -147,6 +144,13 @@ const ProgramsColumn = ({ data, id, type }) => {
                   )
                 }
               })}
+            {type === 'mba' && (
+              <li className={stls.listItem}>
+                <Link href={`/programs/international-business-law`} locale='ru'>
+                  <a onClick={handleLinkClick}>MBL</a>
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
       </li>
@@ -174,13 +178,13 @@ const ProgramsColumn = ({ data, id, type }) => {
           <div className={stls.itemInfo}>
             <div className={stls.infoFlexContainer}>
               <div className={stls.iconContainer}>
-                <IconCheckCircle/>
+                <IconCheckCircle />
               </div>
               <span>{SetString(langMenu.formatBlended)}</span>
             </div>
             <div className={stls.infoFlexContainer}>
               <div className={stls.iconContainer}>
-                <IconScreen/>
+                <IconScreen />
               </div>
               <span>
                 <ProgramSubjects type={type} sum={true} />{' '}
