@@ -52,7 +52,6 @@ const handleGetStaticProps = async (
 
   const { programs, teachers } = res
 
-  const programsWithBlended = createBlended(programs)
   const program =
     programSlug && programStudyFormat && programType
       ? await fetchProgram({
@@ -62,11 +61,10 @@ const handleGetStaticProps = async (
         })
       : null
 
-
   return {
     props: {
       program,
-      programs: programsWithBlended,
+      programs,
       teachers
     },
     revalidate: revalidate.default

@@ -16,7 +16,7 @@ const fetchProgramsGetStaticPropsPromo = async (
   )
 
   return {
-    programs: res.data.programs.filter(item => item.category?.type === 'mini'),
+    programs: res.data.programs,
     teachers: []
   }
 }

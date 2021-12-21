@@ -12,15 +12,11 @@ const fetchPaths = async ({ studyFormat, type }: TypefetchPaths) => {
   //   _limit: -1
   // })
 
-  const slugs = await axios.get(
+  const paths = await axios.get(
     `${routesBack.root}${routesBack.programsPaths}/${type}`
   )
 
-  const paths = slugs.data.map(({ slug }) => ({
-    params: { slug }
-  }))
-
-  return paths
+  return paths.data
 }
 
 export default fetchPaths
