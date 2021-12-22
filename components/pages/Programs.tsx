@@ -15,7 +15,6 @@ import { IconCheckCircle } from '@/components/icons'
 import programsContext from '@/context/programs/programsContext'
 import { useRouter } from 'next/router'
 
-
 const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
   const router = useRouter()
   const at = useAt()
@@ -24,12 +23,21 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
   let fields
 
   if (at.profession || at.course) {
-    const studyFieldArr = [...new Set(programs.filter(item => item !== undefined && item?.study_field))]
-    fields = [...new Map(studyFieldArr.map(item => [item.study_field.slug, item.study_field])).values()].map(item => {return {title: item.name, slug: item.slug}})
+    const studyFieldArr = [
+      ...new Set(
+        programs.filter(item => item !== undefined && item?.study_field)
+      )
+    ]
+    fields = [
+      ...new Map(
+        studyFieldArr.map(item => [item.study_field.slug, item.study_field])
+      ).values()
+    ].map(item => {
+      return { title: item.name, slug: item.slug }
+    })
     const [firstField] = fields
     if (!currentFilter) setCurrentFilter(firstField)
   }
-
 
   useEffect(() => {
     router.push(router.asPath)
@@ -38,15 +46,17 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
     setCurrentFilter(currFilter)
   }, [])
 
-
   useEffect(() => {
-    router.push({
-      query: {
-        'filter': `${currentFilter?.slug}`
-      }
-    }, undefined, { shallow: true })
+    router.push(
+      {
+        query: {
+          filter: `${currentFilter?.slug}`
+        }
+      },
+      undefined,
+      { shallow: true }
+    )
   }, [currentFilter])
-
 
   const generateHeading = () => {
     if (at.mini) {
@@ -87,9 +97,11 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
   return (
     <>
       <NextSeo
-        title={`Программы обучения ${at.mini ? 'Mini MBA' : at.mba ? 'MBA' : ''
-          } ${at.online ? 'Online' : at.blended ? 'Blended' : ''
-          } - Moscow Business Academy`}
+        title={`Программы обучения ${
+          at.mini ? 'Mini MBA' : at.mba ? 'MBA' : ''
+        } ${
+          at.online ? 'Online' : at.blended ? 'Blended' : ''
+        } - Moscow Business Academy`}
         description={
           at.mini ? truncate(SetString(langMenu.categoryDiscMini), 120) : ''
         }
@@ -102,7 +114,9 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
         </div>
       </section>
       <div className={stls.generalContainer}>
-        <h1 className={stls.title}>ПРОГРАММЫ <span>ОБУЧЕНИЯ</span></h1>
+        <h1 className={stls.title}>
+          ПРОГРАММЫ <span>ОБУЧЕНИЯ</span>
+        </h1>
         <div className={stls.container}>
           <Filters
             mbaTypeOfProgram={mbaTypeOfProgram}
@@ -124,8 +138,8 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
                 {at.mini
                   ? SetString(langMenu.categoryDiscMini)
                   : at.mba
-                    ? SetString(langMenu.categoryDiscMba)
-                    : ''}
+                  ? SetString(langMenu.categoryDiscMba)
+                  : ''}
               </p>
 
               {at.profession ? (

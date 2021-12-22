@@ -15,7 +15,6 @@ const Filters = ({
   const at = useAt()
 
   const handleLinkClick = e => {
-    
     if (fields) e.preventDefault()
   }
 
