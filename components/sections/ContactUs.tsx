@@ -5,6 +5,7 @@ import lang from '@/data/translation/index'
 import { useState } from 'react'
 import LeadLoaderThankyou from '@/components/general/LeadLoaderThankyou'
 import { FormAlpha } from '@/components/forms'
+import WrapperComponent from '../layout/WrapperComponent'
 
 const ContactUs = ({
   programTitle = null,
@@ -17,7 +18,6 @@ const ContactUs = ({
 }) => {
   const [open, setOpen] = useState(false)
   const [openLoader, setOpenLoader] = useState(false)
-
   const at = useAt()
 
   return (
@@ -25,33 +25,35 @@ const ContactUs = ({
       className={classNames(stls.container, {
         [stls.overlapsFooter]: overlapsFooter
       })}>
-      <LeadLoaderThankyou
-        open={open}
-        setOpen={setOpen}
-        openLoader={openLoader}
-        setOpenLoader={setOpenLoader}
-        programId={programId}
-        programTitle={programTitle}
-      />
-      <h2 className={stls.title}>
-        {title}
-        {titleNewStr && (
-          <>
-            <br /> {titleNewStr}
-          </>
-        )}
-      </h2>
-      <div className={stls.desc}>
-        {at.course || at.profession
-          ? SetString(lang.helpToChooseDicsProfessionCourse)
-          : disc}
-      </div>
+      <WrapperComponent classNames={[stls.wrapper]}>
+        <LeadLoaderThankyou
+          open={open}
+          setOpen={setOpen}
+          openLoader={openLoader}
+          setOpenLoader={setOpenLoader}
+          programId={programId}
+          programTitle={programTitle}
+        />
+        <h2 className={stls.title}>
+          {title}
+          {titleNewStr && (
+            <>
+              <br /> {titleNewStr}
+            </>
+          )}
+        </h2>
+        <div className={stls.desc}>
+          {at.course || at.profession
+            ? SetString(lang.helpToChooseDicsProfessionCourse)
+            : disc}
+        </div>
 
-      <FormAlpha
-        programTitle={programTitle}
-        setOpenLoader={setOpenLoader}
-        setOpen={setOpen}
-      />
+        <FormAlpha
+          programTitle={programTitle}
+          setOpenLoader={setOpenLoader}
+          setOpen={setOpen}
+        />
+      </WrapperComponent>
     </section>
   )
 }

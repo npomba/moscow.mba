@@ -8,11 +8,11 @@ import ProgramSubjects from '@/components/general/ProgramSubjects'
 import ProgramsQty from '@/components/general/ProgramsQty'
 import Price from '@/components/costs/Price'
 import TrainingPeriod from '@/components/costs/TrainingPeriod'
-import Script from 'next/script'
 import Discount from '@/components/costs/Discount'
 import { IconCheckCircle, IconScreen } from '@/components/icons'
 import { useState } from 'react'
 import classNames from 'classnames'
+import WrapperComponent from '../layout/WrapperComponent'
 
 const Programs = ({ programs }) => {
   const data = programs
@@ -34,9 +34,9 @@ const Programs = ({ programs }) => {
   }
 
   return (
-    <>
       <section className='program-options-section'>
-        <div className='program-options-flex'>
+        <WrapperComponent classNames={[stls.wrapper]}>
+          <div className='program-options-flex'>
           <div className='program-options-left'>
             <h2>{SetString(langHeader.programsBtn)}</h2>
             <ul className='program-options-tabs'>
@@ -375,8 +375,8 @@ const Programs = ({ programs }) => {
             </div>
           </div>
         </div>
+        </WrapperComponent>
       </section>
-    </>
   )
 }
 

@@ -14,13 +14,11 @@ import Executive from '@/components/sections/Executive'
 import ContactUs from '@/components/sections/ContactUs'
 import HandleGetPrograms from '@/helpers/HandleGetPrograms'
 
-
 const PageHome = ({ programs }) => {
 
   HandleGetPrograms(programs)
   return (
     <>
-
       <NextSeo
         title={'Moscow Business Academy'}
         description={truncate(
@@ -32,17 +30,14 @@ const PageHome = ({ programs }) => {
         canonical={'https://moscow.mba/'}
       />
       <JumbotronCta />
-      <div className={stls.container}>
-        <About />
-        <ConferencesInEurope />
-        <ForeignAffiliates />
-        <StudentsInternational />
-        <CorporateClients />
-        <Programs programs={programs} />
-        <Executive />
-        <ContactUs overlapsFooter/>
-      </div>
-
+      <About />
+      <ConferencesInEurope />
+      <ForeignAffiliates />
+      <StudentsInternational />
+      <CorporateClients />
+      <Programs programs={programs} />
+      <Executive />
+      <ContactUs overlapsFooter />
     </>
   )
 }

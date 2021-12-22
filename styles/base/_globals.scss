@@ -198,20 +198,13 @@ h2 {
 
 /*program-options-section ======================================*/
 .program-options-section {
+ 
+  width: 100%;
   margin-bottom: 140px;
   padding-top: 144px;
-  position: relative;
+  border-top: 1px solid #e6e6e6;
   z-index: 3;
-  &:after {
-    content: '';
-    left: 50%;
-    height: 1px;
-    background: #e6e6e6;
-    position: absolute;
-    top: 0;
-    width: 102vw;
-    margin-left: -51vw;
-  }
+ 
   h2 {
     margin-top: -4px;
   }
@@ -219,6 +212,18 @@ h2 {
 
 .program-options-flex {
   display: flex;
+  position: relative;
+  
+  // &:after {
+  //   content: '';
+  //   left: 50%;
+  //   height: 1px;
+  //   background: #e6e6e6;
+  //   position: absolute;
+  //   top: 0;
+  //   width: 102vw;
+  //   margin-left: -51vw;
+  // }
 }
 
 .program-options-left {

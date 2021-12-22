@@ -1,10 +1,12 @@
 import stls from '@/styles/components/sections/About.module.sass'
 import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/index'
+import WrapperComponent from '../layout/WrapperComponent'
 
 const About = () => {
   return (
     <section className={stls.container}>
+      <WrapperComponent classNames={[stls.wrapper]}>
       <div className={stls.title}>{SetString(lang.aboutTitle)}</div>
       <div className={stls.flexContainer}>
         <div className={stls.titleDesc}>
@@ -32,6 +34,7 @@ const About = () => {
           </li>
         </ul>
       </div>
+      </WrapperComponent>
     </section>
   )
 }

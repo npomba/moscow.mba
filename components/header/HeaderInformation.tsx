@@ -16,8 +16,6 @@ import WrapperComponent from '@/components/layout/WrapperComponent'
 import getClassNames from '@/helpers/getClassNames'
 
 
-
-
 const HeaderInformation = ({classNames = [], handleMenu, openMenu}) => {
     const container = getClassNames({ classNames })
     const contactInfo = contactData()

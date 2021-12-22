@@ -4,10 +4,12 @@ import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/index'
 import imageData from '@/data/images/foreignAffiliates'
 import { base64pixel } from '@/config/index'
+import WrapperComponent from '../layout/WrapperComponent'
 
 const ForeignAffiliates = () => {
   return (
     <section className={stls.container}>
+      <WrapperComponent classNames={[stls.wrapper]}>
       <h2>{SetString(lang.foreignAffiliatesTitle)}</h2>
       <p className={stls.title}>{SetString(lang.foreignAffiliatesDisc)}</p>
       <div className={stls.flexContainer}>
@@ -71,6 +73,7 @@ const ForeignAffiliates = () => {
           />
         </div>
       </div>
+      </WrapperComponent>
     </section>
   )
 }

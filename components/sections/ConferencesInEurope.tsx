@@ -4,11 +4,13 @@ import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/index'
 import imageData from '@/data/images/conferencesInEurope'
 import { base64pixel } from '@/config/index'
+import WrapperComponent from '../layout/WrapperComponent'
 
 const ConferencesInEurope = () => {
   return (
     <section className={stls.container}>
-      <div className={stls.circle}></div>
+      <div className={stls.circle}/>
+      <WrapperComponent classNames={[stls.wrapper]}>
       <div className={stls.flexContainer}>
         <div className={stls.descContainer}>
           <h2 className={stls.title}>
@@ -42,6 +44,7 @@ const ConferencesInEurope = () => {
           </div>
         </div>
       </div>
+      </WrapperComponent>
     </section>
   )
 }

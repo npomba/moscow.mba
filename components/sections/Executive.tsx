@@ -10,11 +10,13 @@ import Price from '@/components/costs/Price'
 import TrainingPeriod from '@/components/costs/TrainingPeriod'
 import ProgramSubjects from '@/components/general/ProgramSubjects'
 import { base64pixel } from '@/config/index'
+import WrapperComponent from '../layout/WrapperComponent'
 
 const Executive = () => {
   return (
     <section className={stls.container}>
-      <div className={stls.flexContainer}>
+      <WrapperComponent classNames={[stls.wrapper]}>
+             <div className={stls.flexContainer}>
         <div className={stls.content}>
           <div className={stls.title}>
             <span>Premium</span>
@@ -69,6 +71,7 @@ const Executive = () => {
           </div>
         </div>
       </div>
+      </WrapperComponent>
     </section>
   )
 }
