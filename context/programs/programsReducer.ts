@@ -1,10 +1,12 @@
 import {
   SET_PROGRAMS,
   SET_CUR_PROGRAMS_TYPE,
+  SET_CUR_STUDY_FIELD,
   SET_CUR_PROGRAMS_STUDY_FIELD_SLUG,
   SET_SEARCH_TERM,
   SEARCH_PROGRAM
 } from '@/context/types'
+
 // import { filterProgramsByType, getStudyFields } from '@/helpers/index'
 
 const programsReducer = (state, action, at = null) => {
@@ -19,7 +21,13 @@ const programsReducer = (state, action, at = null) => {
       const professions = []
 
       // const studyFields = getStudyFields(programs)
-      const studyFields = []
+      const studyFields = programs
+        .reduce((acc, curr) => {
+          if (!acc.includes(curr.study_field?.name))
+            acc.push(curr.study_field?.name)
+          return acc
+        }, [])
+        .filter(field => field)
 
       // const studyFieldsProfessions = getStudyFields(professions)
       const studyFieldsProfessions = []
@@ -40,6 +48,11 @@ const programsReducer = (state, action, at = null) => {
       return {
         ...state,
         curProgramsType: action.payload
+      }
+    case SET_CUR_STUDY_FIELD:
+      return {
+        ...state,
+        curStudyField: action.payload
       }
     case SET_CUR_PROGRAMS_STUDY_FIELD_SLUG:
       return {

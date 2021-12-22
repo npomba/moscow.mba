@@ -1,5 +1,5 @@
 import stls from '@/styles/components/pages/Programs.module.sass'
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import { useAt } from '@/helpers/index'
@@ -14,61 +14,21 @@ import { CardProgram } from '@/components/cards'
 import { IconCheckCircle } from '@/components/icons'
 import programsContext from '@/context/programs/programsContext'
 
-
 const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
   const at = useAt()
 
-  const [currentField, setCurrentField] = useState(null)
+  const { studyFields, curStudyField, setCurStudyField } =
+    useContext(programsContext)
 
-  let fields
+  useEffect(() => {
+    if ((at.profession || at.course) && !curStudyField)
+      setCurStudyField(studyFields[0])
+  }, [at.profession, at.course, curStudyField, setCurStudyField, studyFields])
 
-  if (at.profession || at.course) {
-    fields = programs.reduce((acc, curr) => {
-      if (!acc.includes(curr.study_field?.name))
-        acc.push(curr.study_field?.name)
-      return acc
-    }, [])
-
-    const [firstField] = fields
-
-    if (!currentField) setCurrentField(firstField)
-  }
-
-  const generateHeading = () => {
-    if (at.mini) {
-      return `Mini MBA ${mbaFormat}`
-    }
-
-    if (at.mba) {
-      return `MBA ${mbaFormat}`
-    }
-
-    if (at.profession) {
-      return 'Профессии'
-    }
-
-    if (at.course) {
-      return 'Курсы'
-    }
-  }
-
-  const generatePrograms = () => {
-    let programsToDisplay
-
-    if (currentField) {
-      programsToDisplay = programs.filter(
-        program => program.study_field?.name === currentField
-      )
-    }
-
-    if (!currentField) {
-      programsToDisplay = programs
-    }
-
-    return programsToDisplay
-  }
-
-  const programsToDisplay = generatePrograms()
+  const programCards =
+    (at.profession || at.course) && curStudyField
+      ? programs.filter(program => program.study_field?.name === curStudyField)
+      : programs
 
   return (
     <>
@@ -90,19 +50,31 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
         </div>
       </section>
       <div className={stls.generalContainer}>
-        <h1 className={stls.title}>ПРОГРАММЫ <span>ОБУЧЕНИЯ</span></h1>
+        <h1 className={stls.title}>
+          ПРОГРАММЫ <span>ОБУЧЕНИЯ</span>
+        </h1>
         <div className={stls.container}>
           <Filters
             mbaTypeOfProgram={mbaTypeOfProgram}
             mbaFormat={mbaFormat}
-            fields={fields}
-            currentField={currentField}
-            updateCurrentField={setCurrentField}
+            fields={studyFields}
+            currentField={curStudyField}
+            updateCurrentField={setCurStudyField}
           />
           <div className={stls.content}>
             <div className={stls.programMainInfo}>
               <div className={stls.subtitle}>
-                <h2>{generateHeading()}</h2>
+                <h2>
+                  {at.mini
+                    ? `Mini MBA ${mbaFormat}`
+                    : at.mba
+                    ? `MBA ${mbaFormat}`
+                    : at.profession
+                    ? 'Профессии'
+                    : at.course
+                    ? 'Курсы'
+                    : 'Программы'}
+                </h2>
                 <span className={stls.qtPrograms}>
                   <ProgramsQty programs={programs} />
                 </span>
@@ -157,7 +129,7 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
               />
             )}
             <div className={stls.programs}>
-              {programsToDisplay.map((program, idx) => {
+              {programCards.map((program, idx) => {
                 return (
                   <CardProgram
                     key={program._id || program.id}
