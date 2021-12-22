@@ -27,10 +27,10 @@ const PopupImage = ({ closePopupImage, image }) => {
         />
       </div>
       <button
-        className='mfp-close image-close'
+        className={stls.close}
         type='button'
         onClick={closePopupImage}>
-        <IconClose />
+        <IconClose stroke={"#eee"} />
       </button>
     </div>
   )

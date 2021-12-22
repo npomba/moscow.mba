@@ -3,7 +3,7 @@ import stls from '@/styles/components/icons/IconClose.module.sass'
 const IconClose = ({ stroke = 'black' }) => {
   return (
     <div className={stls.container}>
-      <svg viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <svg viewBox='0 0 14 14' fill="none" xmlns='http://www.w3.org/2000/svg'>
         <title>Закрыть</title>
         <path
           d='M1 1L13 13'
