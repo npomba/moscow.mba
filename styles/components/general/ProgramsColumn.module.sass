@@ -16,8 +16,9 @@ $mazzardH: 'mazzardH', Arial, Tahoma, sans-serif
     
 .column
   display: flex
+
   @include m.media(tablet, phone)
-    display: block
+    overflow: hidden
 
 .itemDetails
   line-height: 1.2
@@ -27,16 +28,36 @@ $mazzardH: 'mazzardH', Arial, Tahoma, sans-serif
   &:last-child
     padding: 8px 0 50px 30px
     border-left: solid 1px #e6e6e6
+    @include m.media(tablet, phone)
+      border-left: none
+      padding: 30px 0
     @include m.media(laptop)
       padding-bottom: 30px
       border-left: none
   @include m.media(tablet, phone)
     display: none
-    &.active
+    &.activeOnline
+      animation: showColumnLeft .2s 
+      width: 100%
       display: block
-      border: none
       padding: 30px 0
-
+      @keyframes showColumnLeft 
+        0% 
+          transform: translateX(-100%)
+        100%
+          transform: translateX(0)
+    &.activeBlended
+      animation: showColumnRight .2s 
+      width: 100%
+      display: block
+      padding: 30px 0
+      margin-right: 0
+      @keyframes showColumnRight 
+        0% 
+          transform: translateX(100%)
+        100%
+          transform: translateX(0)
+      
 .itemTitle
   font-weight: 500
   font-size: 24px

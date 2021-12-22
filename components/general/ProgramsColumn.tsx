@@ -124,7 +124,7 @@ const ProgramsColumn = ({ data, id, type }) => {
         </p>
       </li>
       <li className={stls.column}>
-            <div className={classnames(stls.itemDetails, {[stls.active]: onlineOrBlended === 'online'})}>
+            <div className={classnames(stls.itemDetails, {[stls.activeOnline]: onlineOrBlended === 'online'})}>
               <div className={stls.itemTitle}>
                 {SetString(langMenu.onlineTitle)}
                 <div className={stls.itemDiscount}>
@@ -172,7 +172,7 @@ const ProgramsColumn = ({ data, id, type }) => {
                 {columnPrograms(programsOnline, 'online')}
               </ul>
             </div>
-            <div className={classnames(stls.itemDetails, {[stls.active]: onlineOrBlended === 'blended'})}>
+            <div className={classnames(stls.itemDetails, {[stls.activeBlended]: onlineOrBlended === 'blended'})}>
               <div className={stls.itemTitle}>
                 {SetString(langMenu.blendedTitle)}
               </div>
