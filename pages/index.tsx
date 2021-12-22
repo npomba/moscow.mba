@@ -15,7 +15,6 @@ import ContactUs from '@/components/sections/ContactUs'
 import HandleGetPrograms from '@/helpers/HandleGetPrograms'
 
 const PageHome = ({ programs }) => {
-
   HandleGetPrograms(programs)
   return (
     <>
