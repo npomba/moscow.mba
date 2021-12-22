@@ -3,7 +3,8 @@ import {
   SET_CUR_PROGRAMS_TYPE,
   SET_CUR_PROGRAMS_STUDY_FIELD_SLUG,
   SET_SEARCH_TERM,
-  SEARCH_PROGRAM
+  SEARCH_PROGRAM,
+  SET_CURRENT_FILTER
 } from '@/context/types'
 // import { filterProgramsByType, getStudyFields } from '@/helpers/index'
 
@@ -27,6 +28,8 @@ const programsReducer = (state, action, at = null) => {
       // const studyFieldsCourses = getStudyFields(courses)
       const studyFieldsCourses = []
 
+      const currentFilter = {}
+
       return {
         ...state,
         programs,
@@ -34,7 +37,7 @@ const programsReducer = (state, action, at = null) => {
         professions,
         studyFields,
         studyFieldsProfessions,
-        studyFieldsCourses
+        studyFieldsCourses,
       }
     case SET_CUR_PROGRAMS_TYPE:
       return {
@@ -75,6 +78,11 @@ const programsReducer = (state, action, at = null) => {
         ...state,
         filteredPrograms: res
       }
+      case SET_CURRENT_FILTER:
+        return {
+          ...state,
+          currentFilter: action.payload
+        }
     default:
       return state
   }

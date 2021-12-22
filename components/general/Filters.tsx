@@ -15,6 +15,7 @@ const Filters = ({
   const at = useAt()
 
   const handleLinkClick = e => {
+    
     if (fields) e.preventDefault()
   }
 
@@ -130,9 +131,9 @@ const Filters = ({
                   <span
                     className={classNames({
                       [stls.circle]: true,
-                      [stls.active]: field === currentField
+                      [stls.active]: field.title === currentField?.title
                     })}></span>
-                  {field}
+                  {field.title}
                 </button>
               ))}
             </div>
