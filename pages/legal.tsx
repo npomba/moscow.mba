@@ -10,6 +10,7 @@ import OurDiplomasAndCertificates from '@/components/sections/OurDiplomasAndCert
 import CompanyCard from '@/components/sections/CompanyCard'
 import LegalDocuments from '@/components/sections/LegalDocuments'
 import HandleGetPrograms from '@/helpers/HandleGetPrograms'
+import WrapperComponent from '@/components/layout/WrapperComponent'
 
 
 const PageLegal = ({ programs }) => {
@@ -25,19 +26,19 @@ const PageLegal = ({ programs }) => {
       />
 
       <section className={breadcrumbsStls.jumbotronGeneral}>
-        <div className={stls.container}>
+        <WrapperComponent>
           <Breadcrumbs />
-        </div>
+        </WrapperComponent>
       </section>
-      <div className={stls.container}>
+      <WrapperComponent classNames={[stls.wrapper]}>
         <h1 className={stls.title}>Сведения об организации</h1>
-        <CurrentLicenses />
-        <MemberOfRabe />
-        <MemberOfAcicel />
-        <OurDiplomasAndCertificates />
-        <CompanyCard />
-        <LegalDocuments />
-      </div>
+      </WrapperComponent>
+      <CurrentLicenses />
+      <MemberOfRabe />
+      <MemberOfAcicel />
+      <OurDiplomasAndCertificates />
+      <CompanyCard />
+      <LegalDocuments />
     </>
   )
 }

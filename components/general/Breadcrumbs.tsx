@@ -2,6 +2,7 @@ import stls from '@/styles/components/general/Breadcrumbs.module.sass'
 import BreadcrumbItem from '@/components/general/BreadcrumbItem'
 import { useAt } from '@/helpers/index'
 import { useRouter } from 'next/router'
+import WrapperComponent from '../layout/WrapperComponent'
 
 const mainRoutes = [
   {
@@ -126,7 +127,7 @@ const Breadcrumbs = ({ programChunkData = {} }) => {
 
         idx === 0
           ? (acc.label[router.locale] +=
-              curr[0].toUpperCase() + curr.slice(1) + ' MBA ')
+            curr[0].toUpperCase() + curr.slice(1) + ' MBA ')
           : (acc.label[router.locale] += curr.toUpperCase())
 
         return acc
@@ -171,20 +172,22 @@ const Breadcrumbs = ({ programChunkData = {} }) => {
   return (
     <div
       className={[stls.breadcrumbsOuter, stls.jumbotronBreadcrumbs].join(' ')}>
-      <ul className={stls.breadcrumbs}>
-        {breadcrumbsList.map((route, idx) => {
-          return (
-            <BreadcrumbItem
-              key={route.label['en-US'] + idx + route.label['ru']}
-              linkText={route.label[router.locale]}
-              linkPath={route.path}
-              itemIndex={idx}
-              listLength={breadcrumbsList.length}
-              userViewingProgramChunk={userViewingProgramChunk}
-            />
-          )
-        })}
-      </ul>
+      <WrapperComponent>
+        <ul className={stls.breadcrumbs}>
+          {breadcrumbsList.map((route, idx) => {
+            return (
+              <BreadcrumbItem
+                key={route.label['en-US'] + idx + route.label['ru']}
+                linkText={route.label[router.locale]}
+                linkPath={route.path}
+                itemIndex={idx}
+                listLength={breadcrumbsList.length}
+                userViewingProgramChunk={userViewingProgramChunk}
+              />
+            )
+          })}
+        </ul>
+      </WrapperComponent>
     </div>
   )
 }
