@@ -21,9 +21,9 @@ const Filters = ({
   return (
     <>
       <ul className={stls.filters}>
-        {/* <li>
+        <li>
           <SearchField />
-        </li> */}
+        </li>
         <li>
           <h4 className={stls.title}>Тип программы</h4>
           <div className={stls.content}>
@@ -130,9 +130,9 @@ const Filters = ({
                   <span
                     className={classNames({
                       [stls.circle]: true,
-                      [stls.active]: field.title === currentField?.title
+                      [stls.active]: field === currentField
                     })}></span>
-                  {field.title}
+                  {field}
                 </button>
               ))}
             </div>
