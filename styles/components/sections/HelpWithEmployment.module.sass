@@ -1,17 +1,24 @@
 @use '@/styles/utils/mixin' as m
 
 .section
+  // margin: 130px 50px 50px
+  // @include m.media(laptop, tablet, phone)
+  //   flex-direction: column
+  //   margin: 60px 0 30px
+  // @include m.media(tablet, phone)
+  //   margin-bottom: 0
+
+.wrapper
   display: flex
+  justify-content: space-between
   flex-wrap: wrap
-  margin: 130px 0 50px
+  padding-bottom: 50px
   @include m.media(laptop, tablet, phone)
     flex-direction: column
-    margin: 60px 0 30px
-  @include m.media(tablet, phone)
-    margin-bottom: 0
 
 .h2
-  flex: 1 0 100%
+  // flex: 1 0 100%
+  width: 100%
   margin-bottom: 80px
   @include m.media(tablet, phone)
     margin-bottom: 40px

@@ -2,11 +2,13 @@ import stls from '@/styles/components/sections/ProgramDesc.module.sass'
 import classNames from 'classnames'
 import { useAt } from '@/helpers/index'
 import Image from 'next/image'
+import WrapperComponent from '@/components/layout/WrapperComponent'
 
 const ProgramDesc = () => {
   const at = useAt()
   return (
     <section className={stls.container}>
+      <WrapperComponent classNames={[stls.wrapper]}>
       <div
         className={classNames(stls.content, {
           [stls.smallPl]: at.profession || at.course || at.promo
@@ -70,6 +72,7 @@ const ProgramDesc = () => {
           />
         )}
       </div>
+      </WrapperComponent>
     </section>
   )
 }

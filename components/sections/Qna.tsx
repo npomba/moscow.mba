@@ -3,44 +3,45 @@ import { useAt } from '@/helpers/index'
 import Popup from 'reactjs-popup'
 import PopupForm from '@/components/popups/PopupForm'
 import AccordionsContainer from '@/components/general/AccordionsContainer'
+import WrapperComponent from '../layout/WrapperComponent'
 
 const Qna = ({ programId, programTitle }) => {
   const at = useAt()
   const qna = at.profession
     ? [
-        {
-          title: 'Какой график обучения? Получится ли совмещать его с работой?',
-          content:
-            'Вы можете изучать материалы курса в удобном Вам режиме, совмещать обучение с работой и личной жизнью. Более того, все уроки будут доступны и по окончании курса, так что Вы сможете освежить свои знания в любой момент.',
-          isList: false
-        },
-        {
-          title: 'Я смогу общаться с преподавателями?',
-          content:
-            'Да, Вы сможете задавать вопросы преподавателям через нашу образовательную платформу. Преподаватели прокомментирует домашние задания и дадут полезные советы. Так Вы сможете перенять опыт, профессиональные знания и компетенции от ведущих специалистов.',
-          isList: false
-        },
-        {
-          title: 'Какие выпускные документы я получу?',
-          content:
-            'Диплом академии установленного образца Министерством Образования науки Российской Федерации, удостоверяющий право на ведение профессиональной деятельности.',
-          isList: false
-        },
-        {
-          title: 'Что будет, если я не уложусь в сроки обучения?',
-          content:
-            'Мы стараемся подбирать сроки обучения таким образом, чтобы Вам было удобно совмещать обучение с работой. В случае, если Вы не смогли закончить обучение в установленный срок, Вы всегда сможете продлить доступ к программе, обратившись к куратору.',
-          isList: false
-        },
-        {
-          title: 'Можно ли закончить обучение экстерном?',
-          content:
-            'Мы считаем, что каждый должен учиться в своем привычном темпе, и поэтому даем возможность окончить программу досрочно. Вы можете сократить обучение на программе в два раза от полного срока обучения.',
-          isList: false
-        }
-      ]
+      {
+        title: 'Какой график обучения? Получится ли совмещать его с работой?',
+        content:
+          'Вы можете изучать материалы курса в удобном Вам режиме, совмещать обучение с работой и личной жизнью. Более того, все уроки будут доступны и по окончании курса, так что Вы сможете освежить свои знания в любой момент.',
+        isList: false
+      },
+      {
+        title: 'Я смогу общаться с преподавателями?',
+        content:
+          'Да, Вы сможете задавать вопросы преподавателям через нашу образовательную платформу. Преподаватели прокомментирует домашние задания и дадут полезные советы. Так Вы сможете перенять опыт, профессиональные знания и компетенции от ведущих специалистов.',
+        isList: false
+      },
+      {
+        title: 'Какие выпускные документы я получу?',
+        content:
+          'Диплом академии установленного образца Министерством Образования науки Российской Федерации, удостоверяющий право на ведение профессиональной деятельности.',
+        isList: false
+      },
+      {
+        title: 'Что будет, если я не уложусь в сроки обучения?',
+        content:
+          'Мы стараемся подбирать сроки обучения таким образом, чтобы Вам было удобно совмещать обучение с работой. В случае, если Вы не смогли закончить обучение в установленный срок, Вы всегда сможете продлить доступ к программе, обратившись к куратору.',
+        isList: false
+      },
+      {
+        title: 'Можно ли закончить обучение экстерном?',
+        content:
+          'Мы считаем, что каждый должен учиться в своем привычном темпе, и поэтому даем возможность окончить программу досрочно. Вы можете сократить обучение на программе в два раза от полного срока обучения.',
+        isList: false
+      }
+    ]
     : at.course
-    ? [
+      ? [
         {
           title: 'Какой график обучения? Получится ли совмещать его с работой?',
           content:
@@ -66,7 +67,7 @@ const Qna = ({ programId, programTitle }) => {
           isList: false
         }
       ]
-    : [
+      : [
         {
           title: 'Можно ли закончить обучение экстерном?',
           content:
@@ -108,39 +109,41 @@ const Qna = ({ programId, programTitle }) => {
 
   return (
     <section className={stls.container}>
-      <p className={stls.title}>Узнай все</p>
-      <div className={stls.flexContent}>
-        <div className={stls.descContainer}>
-          <h2 className={stls.descTitle}>
-            Вопросы <br />и ответы
-          </h2>
-          <p className={stls.desc}>
-            Задавайте вопросы на интересующую тему и наши менеджеры ответят Вам
-            в ближайшее время
-          </p>
-          <Popup
-            trigger={<a className={stls.button}>Задать вопрос</a>}
-            modal
-            nested>
-            {close => (
-              <PopupForm
-                programId={programId}
-                programTitle={programTitle}
-                title={'Получите консультацию'}
-                closePopUpForm={close}
-              />
-            )}
-          </Popup>
+      <WrapperComponent classNames={[stls.wrapper]}>
+        <p className={stls.title}>Узнай все</p>
+        <div className={stls.flexContent}>
+          <div className={stls.descContainer}>
+            <h2 className={stls.descTitle}>
+              Вопросы <br />и ответы
+            </h2>
+            <p className={stls.desc}>
+              Задавайте вопросы на интересующую тему и наши менеджеры ответят Вам
+              в ближайшее время
+            </p>
+            <Popup
+              trigger={<a className={stls.button}>Задать вопрос</a>}
+              modal
+              nested>
+              {close => (
+                <PopupForm
+                  programId={programId}
+                  programTitle={programTitle}
+                  title={'Получите консультацию'}
+                  closePopUpForm={close}
+                />
+              )}
+            </Popup>
+          </div>
+          <div className={stls.content}>
+            <AccordionsContainer
+              accordionsItems={qna}
+              firstAccordionActive={false}
+              closeAll={false}
+              setCloseAll={() => { }}
+            />
+          </div>
         </div>
-        <div className={stls.content}>
-          <AccordionsContainer
-            accordionsItems={qna}
-            firstAccordionActive={false}
-            closeAll={false}
-            setCloseAll={() => {}}
-          />
-        </div>
-      </div>
+      </WrapperComponent>
     </section>
   )
 }

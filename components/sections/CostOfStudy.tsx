@@ -10,6 +10,7 @@ import Loan from '@/components/costs/Loan'
 import Discount from '@/components/costs/Discount'
 import TrainingPeriod from '@/components/costs/TrainingPeriod'
 import ProgramSubjects from '@/components/general/ProgramSubjects'
+import WrapperComponent from '@/components/layout/WrapperComponent'
 
 const PriceBlock = ({
   isDiscounted,
@@ -113,12 +114,12 @@ const CostOfStudy = ({
                 at.mini
                   ? 'mini'
                   : at.mba
-                  ? 'mba'
-                  : at.executive
-                  ? 'executive'
-                  : at.mbl
-                  ? 'mba'
-                  : null
+                    ? 'mba'
+                    : at.executive
+                      ? 'executive'
+                      : at.mbl
+                        ? 'mba'
+                        : null
               }
             />
           </li>
@@ -126,10 +127,10 @@ const CostOfStudy = ({
             {at.online
               ? 'Дистанционно'
               : at.blended
-              ? 'С очными модулями'
-              : at.mbl
-              ? 'Дистанционно'
-              : 'Очно'}
+                ? 'С очными модулями'
+                : at.mbl
+                  ? 'Дистанционно'
+                  : 'Очно'}
           </li>
           <li className={stls.listItem}>
             Ближайший набор{' '}
@@ -142,12 +143,12 @@ const CostOfStudy = ({
                 at.mini
                   ? 'mini'
                   : at.mba
-                  ? 'mba'
-                  : at.executive
-                  ? 'executive'
-                  : at.mbl
-                  ? 'mbl'
-                  : null
+                    ? 'mba'
+                    : at.executive
+                      ? 'executive'
+                      : at.mbl
+                        ? 'mbl'
+                        : null
               }
               subjects={'base'}
             />{' '}
@@ -160,12 +161,12 @@ const CostOfStudy = ({
                   at.mini
                     ? 'mini'
                     : at.mba
-                    ? 'mba'
-                    : at.executive
-                    ? 'executive'
-                    : at.mbl
-                    ? 'mba'
-                    : null
+                      ? 'mba'
+                      : at.executive
+                        ? 'executive'
+                        : at.mbl
+                          ? 'mba'
+                          : null
                 }
                 subjects={'specialty'}
               />{' '}
@@ -188,8 +189,8 @@ const CostOfStudy = ({
           {at.online
             ? 'Дистанционно'
             : at.blended
-            ? 'С очными модулями'
-            : 'Очно'}
+              ? 'С очными модулями'
+              : 'Очно'}
         </li>
         <li className={stls.listItem}>
           Ближайший набор <Until preposition={false} />
@@ -202,73 +203,75 @@ const CostOfStudy = ({
 
   return (
     <section className={stls.container}>
-      {isDiscounted && (
-        <div className={stls.discountSticker}>
-          <div className={stls.discountSize}>
-            <Discount />
-          </div>
-          <span>
-            <Until />
-          </span>
-        </div>
-      )}
-      <h2 className={classNames({ [stls.bigMb]: at.profession || at.course })}>
-        Стоимость обучения
-      </h2>
-      <div className={stls.content}>
-        <div
-          className={classNames({
-            [stls.contentBlock]: true,
-            [stls.flexBlock]: at.profession || at.course
-          })}>
-          {!at.profession && !at.course && (
-            <div className={stls.programName}>
-              {at.mini
-                ? 'MBA Mini'
-                : at.mba
-                ? 'MBA'
-                : at.executive
-                ? 'MBA Executive'
-                : at.mbl
-                ? 'MBA'
-                : ''}
+      <WrapperComponent classNames={[stls.wrapper]}>
+        {isDiscounted && (
+          <div className={stls.discountSticker}>
+            <div className={stls.discountSize}>
+              <Discount />
             </div>
-          )}
-          {list}
-        </div>
-        <div
-          className={classNames(stls.contentBlock, {
-            [stls.verticalSeparatorLine]: at.profession || at.course
-          })}>
-          <PriceBlock
-            isDiscounted={isDiscounted}
-            canPayInInstalments={canPayInInstalments}
-            programType={programType}
-            programFormat={programFormat}
-            withDesc={costWithDescription}
-            withPriceTitles={at.profession || at.course}
-            programPrice={(at.profession || at.course) && programPrice}
-          />
+            <span>
+              <Until />
+            </span>
+          </div>
+        )}
+        <h2 className={classNames({ [stls.bigMb]: at.profession || at.course })}>
+          Стоимость обучения
+        </h2>
+        <div className={stls.content}>
           <div
-            className={classNames(stls.buttonBlock, {
-              [stls.noMb]: at.profession || at.course
+            className={classNames({
+              [stls.contentBlock]: true,
+              [stls.flexBlock]: at.profession || at.course
             })}>
-            <Popup
-              trigger={<a className={stls.button}>Оставить заявку</a>}
-              modal
-              nested>
-              {close => (
-                <PopupForm
-                  programId={programId}
-                  programTitle={programTitle}
-                  title={'Получите консультацию'}
-                  closePopUpForm={close}
-                />
-              )}
-            </Popup>
+            {!at.profession && !at.course && (
+              <div className={stls.programName}>
+                {at.mini
+                  ? 'MBA Mini'
+                  : at.mba
+                    ? 'MBA'
+                    : at.executive
+                      ? 'MBA Executive'
+                      : at.mbl
+                        ? 'MBA'
+                        : ''}
+              </div>
+            )}
+            {list}
+          </div>
+          <div
+            className={classNames(stls.contentBlock, {
+              [stls.verticalSeparatorLine]: at.profession || at.course
+            })}>
+            <PriceBlock
+              isDiscounted={isDiscounted}
+              canPayInInstalments={canPayInInstalments}
+              programType={programType}
+              programFormat={programFormat}
+              withDesc={costWithDescription}
+              withPriceTitles={at.profession || at.course}
+              programPrice={(at.profession || at.course) && programPrice}
+            />
+            <div
+              className={classNames(stls.buttonBlock, {
+                [stls.noMb]: at.profession || at.course
+              })}>
+              <Popup
+                trigger={<a className={stls.button}>Оставить заявку</a>}
+                modal
+                nested>
+                {close => (
+                  <PopupForm
+                    programId={programId}
+                    programTitle={programTitle}
+                    title={'Получите консультацию'}
+                    closePopUpForm={close}
+                  />
+                )}
+              </Popup>
+            </div>
           </div>
         </div>
-      </div>
+      </WrapperComponent>
     </section>
   )
 }

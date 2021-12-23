@@ -1,11 +1,15 @@
 @use '@/styles/utils/mixin' as m
 
 .container
+  z-index: 2
+  position: relative
+
+.wrapper
   padding-top: 76px
   padding-right: 324px
   margin-bottom: 130px
-  position: relative
-  z-index: 2
+  
+  
   @include m.media(desktop)
     padding-right: 250px
   @include m.media(laptop, tablet, phone)
@@ -13,8 +17,7 @@
     padding-right: 0
     margin-bottom: 400px
   @include m.media(tablet, phone)
-    margin-left: -10px
-    margin-right: -10px
+    padding: 0
     margin-bottom: 60vw
 
 .content
@@ -76,7 +79,7 @@
 .imageContainer
   position: absolute
   z-index: 3
-  right: 0
+  right: 10px
   top: 0
   max-width: 503px
   @include m.media(desktop)

@@ -43,7 +43,11 @@
     float: none
  
 .title
-  width: 13ch 
+  width: 100% 
+  @include m.media(desktop, widescreen)
+    padding-left: 220px
+  @include m.media(laptop, tablet, phone)
+    padding-left: 0
   br
     @include m.media(laptop, tablet, phone)
       display: none

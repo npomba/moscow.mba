@@ -3,12 +3,14 @@ import classNames from 'classnames'
 import { useAt } from '@/helpers/index'
 import Image from 'next/image'
 import { IconCheck } from '@/components/icons'
+import WrapperComponent from '../layout/WrapperComponent'
 
 const Pros = ({ format = 'online' }) => {
   const at = useAt()
   if (format === 'online') {
     return (
       <section className={stls.container}>
+        <WrapperComponent classNames={[stls.wrapper]}>
         <div className={stls.title}>
           {!at.profession && !at.course && (
             <>
@@ -118,6 +120,7 @@ const Pros = ({ format = 'online' }) => {
             />
           </div>
         </div>
+        </WrapperComponent>
       </section>
     )
   }
@@ -198,6 +201,7 @@ const Pros = ({ format = 'online' }) => {
             </li>
           </ul>
         </div>
+        
       </section>
     )
   }

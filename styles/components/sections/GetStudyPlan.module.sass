@@ -2,17 +2,7 @@
 
 .container
   position: relative
-  display: flex
-  justify-content: center
-  align-items: center
   margin-bottom: 110px
-  background-color: #FF3535
-  color: #fff
-
-  @include m.media(laptop, tablet, phone)
-    display: block
-    padding: 45px 25px
-
   @include m.media(laptop)
     margin-bottom: 50px
 
@@ -22,31 +12,18 @@
   &.noMargin
     margin-bottom: 0
 
-.insignia
-  position: absolute
-  top: 50%
-  left: -100px
-  transform: translateY(-50%)
-  @include m.media(tablet, phone)
-    display: none
-
 .content
   display: flex
   justify-content: center
   align-items: center
-  margin: 109px 70px
+  padding: 109px 70px
+  background-color: #FF3535
+  color: #fff
   @include m.media(laptop, tablet, phone)
-    flex-direction: column
-    align-items: center
-    margin: 0
+    display: block
+    padding: 45px 25px
   @include m.media(tablet)
     align-items: center
-
-.noMargin
-  .content
-    margin: 80px 165px
-    @include m.media(tablet, phone)
-      margin: 50px 25px
 
 .title
   margin-right: 61px

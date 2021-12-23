@@ -1,11 +1,15 @@
 @use '@/styles/utils/mixin' as m
 
 .container
+  margin: 0 10px
+  
+.wrapper 
   background: #ff3535
   margin-bottom: 130px
   display: flex
   padding: 149px 82px
   color: #fff
+  max-width: 1290px
   @include m.media(desktop)
     padding: 120px 50px
   @include m.media(laptop, tablet, phone)
@@ -13,7 +17,7 @@
     padding: 60px 50px
     margin-bottom: 80px
   @include m.media(tablet, phone)
-    margin: 0 -10px 60px
+    margin: 0 0 60px
     padding: 60px 10px
   &.darkBg
     background-color: #2D2C2A

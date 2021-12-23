@@ -3,33 +3,28 @@
 .container
   position: relative
   z-index: 2
-  padding-left: 220px
-  padding-bottom: 130px
   margin-bottom: 145px
-  @include m.media(desktop, laptop, tablet, phone)
-    padding-left: 0
+  border-bottom: 1px solid #e6e6e6
   @include m.media(laptop)
-    padding-bottom: 80px
     margin-bottom: 80px
   @include m.media(tablet, phone)
-    padding-bottom: 60px
     margin-bottom: 60px
-  &::after
-    content: ''
-    height: 1px
-    background: #e6e6e6
-    width: 100vw
-    left: 50%
-    margin-left: -50vw
-    position: absolute
-    z-index: 2
-    bottom: 0
-  &::before
+ 
+.wrapper
+  padding-left: 220px
+  padding-bottom: 130px
+  @include m.media(desktop, laptop, tablet, phone)
+    padding-left: 10px
+  @include m.media(laptop)
+    padding-bottom: 80px
+  @include m.media(tablet, phone)
+    padding-bottom: 60px
+  &:after
     content: ''
     height: 2px
     background: #ff3535
     width: 169px
-    left: 0
+    left: 10px
     position: absolute
     z-index: 3
     bottom: 0

@@ -4,6 +4,7 @@ import { useState } from 'react'
 import studentPhoto from '@/public/assets/images/student-using-laptop.jpg'
 import Image from 'next/image'
 import { useAt } from '@/helpers/index'
+import WrapperComponent from '@/components/layout/WrapperComponent'
 
 const HowProcessGoes = () => {
   const [activeStep, setActiveStep] = useState(0)
@@ -62,10 +63,9 @@ const HowProcessGoes = () => {
   ]
 
   return (
-    <>
       <section className={stls.container}>
-        <div className={stls.content}>
-          <div>
+        <WrapperComponent classNames={[stls.content]}>
+          <div className={stls.titleContainer}>
             <h2 className={stls.title}>Как проходит процесс обучения</h2>
             {at.profession ||
               (at.course && (
@@ -115,9 +115,8 @@ const HowProcessGoes = () => {
               </div>
             ))}
           </div>
-        </div>
+        </WrapperComponent>
       </section>
-    </>
   )
 }
 
