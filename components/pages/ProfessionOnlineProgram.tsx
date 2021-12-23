@@ -18,6 +18,7 @@ import HelpWithEmployment from '@/components/sections/HelpWithEmployment'
 import Pros from '@/components/sections/Pros'
 import GetStudyPlan from '@/components/sections/GetStudyPlan'
 import ProgramDevelopedStandard from '@/components/sections/ProgramDevelopedStandard'
+import WrapperComponent from '../layout/WrapperComponent'
 
 const ProfessionOnlineProgram = ({ program, teachers }) => {
   const data = program
@@ -41,12 +42,15 @@ const ProfessionOnlineProgram = ({ program, teachers }) => {
       <JumbotronProgram program={data} />
 
       <div className={stls.container}>
-        <WhatWillYouLearn data={data} />
-        <ProgramDesc />
-        <ProgramDevelopedStandard />
-        <WhoItIsFor program={program} />
 
-        <Pros format={'online'} />
+      <WhatWillYouLearn data={data} />
+      <WrapperComponent classNames={[stls.wrapper]}>
+       
+        {/* <ProgramDesc /> */}
+        {/* <ProgramDevelopedStandard /> */}
+        {/* <WhoItIsFor program={program} /> */}
+
+        {/* <Pros format={'online'} />
         <HowProcessGoes />
         <ProgramModules program={data} smallerMb />
         <GetStudyPlan />
@@ -73,7 +77,9 @@ const ProfessionOnlineProgram = ({ program, teachers }) => {
           title={'Не знаете что выбрать?'}
           titleNewStr={'Получите консультацию по программам'}
           overlapsFooter
-        />
+        /> */}
+      </WrapperComponent>
+
       </div>
     </>
   )

@@ -15,53 +15,44 @@
         height: 1px
         width: 110px
         background-color: #ff3535
-
   @include m.media(phone)
     margin-bottom: 60px
 
 .content
-  &::before,
-  &::after
-    content: ''
-    display: table
-  &::after
-    clear: both
-
+  align-items: stretch
+  display: flex
+  @include m.media(laptop, tablet, phone)
+    display: block
+ 
 .floatLeft
-  float: left
   margin-top: 15px
-  width: 51%
-
+  position: sticky
+  top: 50px
+  @include m.media(laptop, tablet, phone)
+    position: static
 
 .floatRight
-  float: right
   width: 49%
+  @include m.media(laptop, tablet, phone)
+    margin-top: 20px
+    width: 100%
 
 .floatLeft,
 .floatRight
   @include m.media(laptop, tablet, phone)
     float: none
-    width: 100%
-
-.titleContainer
-  //padding-left: 220px
-  @include m.media(desktop, laptop, tablet, phone)
-    padding-left: 0
-  &.smallPl
-    padding-left: 190px
-    @include m.media(desktop, laptop, tablet, phone)
-      padding-left: 0
-
+ 
 .title
+  width: 13ch 
   br
     @include m.media(laptop, tablet, phone)
       display: none
 
 .image
   position: relative
-  margin-top: 25px
-  height: 500px
-
+  margin-top: 45px
+  @include m.media(laptop, tablet, phone)
+    margin-top: 20px
   img
     max-width: 100%
 
