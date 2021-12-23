@@ -56,8 +56,8 @@ const PageBlendedProgram = ({ program, teachers }) => {
           title={'Получите консультацию'}
           titleNewStr={'по программе обучения'}
         /> */}
-        <ECTSStandard />
-        {/* <GetStudyPlan /> */}
+        {/* <ECTSStandard /> */}
+        <GetStudyPlan />
         <Teachers
           programId={program._id}
           programTitle={program.title}
