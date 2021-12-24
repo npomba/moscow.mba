@@ -5,34 +5,29 @@
   margin-bottom: 130px
   @include m.media(laptop, tablet, phone)
     margin-bottom: 80px
-    padding-bottom: 0
+    // padding-bottom: 0
   @include m.media(tablet, phone)
     margin-bottom: 60px
   @include m.media(laptop, tablet, phone)
-    padding-bottom: 70px
+    // padding-bottom: 70px
     margin-bottom: 70px
   @include m.media(tablet, phone)
-    padding-bottom: 60px
+    // padding-bottom: 60px
     margin-bottom: 60px
   @include m.media(phone)
     padding-bottom: 40px
   &.withLine
-    padding-bottom: 140px
-    @include m.media(laptop)
-      padding-bottom: 80px
-    @include m.media(tablet, phone)
-      padding-bottom: 60px
-    &:after
-      content: ''
-      height: 1px
-      background: #e6e6e6
-      width: 100vw
-      left: 50%
-      margin-left: -50vw
-      position: absolute
-      z-index: 2
-      bottom: 0
-    &:before
+    border-bottom: 1px solid #e6e6e6
+
+
+.wrapper 
+  padding-bottom: 140px
+  @include m.media(laptop, tablet, phone)
+    padding-bottom: 70px
+  @include m.media(tablet, phone)
+    padding-bottom: 60px
+
+  &:before
       content: ''
       height: 2px
       background: #ff3535
@@ -42,13 +37,8 @@
       z-index: 3
       bottom: 0
       @include m.media(desktop, laptop, tablet, phone)
-        left: 0
-      @include m.media(tablet, phone)
-        width: 110px
+        left: 10px
 
-
-.wrapper 
-  overflow: hidden
   
 .section
   position: relative

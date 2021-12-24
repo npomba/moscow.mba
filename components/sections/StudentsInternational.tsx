@@ -9,7 +9,7 @@ import WrapperComponent from '../layout/WrapperComponent'
 const StudentsInternational = () => {
   return (
     <section className={stls.container}>
-      <WrapperComponent>
+      <WrapperComponent classNames={[stls.wrapper]}>
       <div className={stls.content}>
         <div className={stls.descContainer}>
           <h2>{SetString(lang.mbaWorldTitle)}</h2>

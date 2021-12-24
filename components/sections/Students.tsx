@@ -3,12 +3,14 @@ import classNames from 'classnames'
 import { useAt } from '@/helpers/index'
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar'
 import Image from 'next/image'
+import WrapperComponent from '../layout/WrapperComponent'
 
 const Students = () => {
   const at = useAt()
 
   return (
     <section className={stls.container}>
+      <WrapperComponent classNames={[stls.wrapper]}>
       <div className={stls.title}>Более 2000</div>
       <div className={stls.content}>
         <div className={stls.detail}>
@@ -68,6 +70,7 @@ const Students = () => {
           </div>
         </div>
       </div>
+      </WrapperComponent>
     </section>
   )
 }

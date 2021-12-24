@@ -2,25 +2,21 @@
 
 .container
   position: relative
-  padding-bottom: 130px
+  border-bottom: 1px solid #e6e6e6
   margin-bottom: 122px
   @include m.media(laptop)
-    padding-bottom: 80px
     margin-bottom: 80px
   @include m.media(tablet, phone)
-    padding-bottom: 60px
     margin-bottom: 60px
-  &::after
-    content: ''
-    height: 1px
-    background: #e6e6e6
-    width: 100vw
-    left: 50%
-    margin-left: -50vw
-    position: absolute
-    z-index: 2
-    bottom: 0
+ 
 
+.content
+
+  position: relative
+  z-index: 2
+  padding-left: 220px
+ 
+  padding-bottom: 130px
   &::before
     content: ''
     height: 2px
@@ -31,14 +27,16 @@
     z-index: 3
     bottom: 0
     @include m.media(desktop, laptop, tablet, phone)
-      left: 0
-
-.content
-  position: relative
-  z-index: 2
-  padding-left: 220px
+      left: 10px
+ 
+  @include m.media(laptop)
+    padding-bottom: 80px
+    
+  @include m.media(tablet, phone)
+    padding-bottom: 60px
+   
   @include m.media(desktop, laptop, tablet, phone)
-    padding-left: 0
+    padding-left: 10px
 
 .goals
   line-height: 1.3

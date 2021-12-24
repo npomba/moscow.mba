@@ -2,10 +2,12 @@ import stls from '@/styles/components/sections/ECTSStandard.module.sass'
 import { IconECTS } from '@/components/icons'
 import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/index'
+import WrapperComponent from '../layout/WrapperComponent'
 
 const ECTSStandard = () => {
   return (
     <section className={stls.container}>
+      <WrapperComponent classNames={[stls.wrapper]}>
       <div className={stls.left}>
         <IconECTS classNames={[stls.icon]} />
       </div>
@@ -21,6 +23,7 @@ const ECTSStandard = () => {
           за рубежом
         </p>
       </div>
+      </WrapperComponent>
     </section>
   )
 }

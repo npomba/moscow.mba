@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import PopupReview from '@/components/popups/PopupReview'
+import WrapperComponent from '../layout/WrapperComponent'
 
 const Reviews = () => {
   const reviews = [
@@ -46,6 +47,7 @@ const Reviews = () => {
   return (
     <>
       <section className={stls.container}>
+        <WrapperComponent classNames={[stls.wrapper]}>
         <div className={stls.titleContainer}>
           <h2>Что о нас говорят</h2>
         </div>
@@ -85,6 +87,7 @@ const Reviews = () => {
             )
           })}
         </div>
+        </WrapperComponent>
       </section>
     </>
   )

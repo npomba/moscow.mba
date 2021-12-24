@@ -18,7 +18,6 @@ import HelpWithEmployment from '@/components/sections/HelpWithEmployment'
 import Pros from '@/components/sections/Pros'
 import GetStudyPlan from '@/components/sections/GetStudyPlan'
 import ProgramDevelopedStandard from '@/components/sections/ProgramDevelopedStandard'
-import WrapperComponent from '@/components/layout/WrapperComponent'
 
 const ProfessionOnlineProgram = ({ program, teachers }) => {
   const data = program

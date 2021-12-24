@@ -19,9 +19,8 @@ import CorporateClients from '@/components/sections/CorporateClients'
 import CostOfStudy from '@/components/sections/CostOfStudy'
 import Accreditation from '@/components/sections/Accreditation'
 import Pros from '@/components/sections/Pros'
-import GetStudyPlan from '@/components/sections/GetStudyPlan'
-import ProgramDevelopedStandard from '@/components/sections/ProgramDevelopedStandard'
 import ECTSStandard from '@/components/sections/ECTSStandard'
+
 
 const PageOnlineProgram = ({ program, teachers }) => {
   const router = useRouter()
@@ -40,33 +39,25 @@ const PageOnlineProgram = ({ program, teachers }) => {
         description={truncate(program.goal, 120)}
       />
       <JumbotronProgram program={program} />
-      <div className={stls.container}>
-        <ProgramGoal data={program} />
-        <WhatWillYouLearn data={program} />
-        <ProgramDesc />
-        <Pros format={'online'} />
-        <HowProcessGoes />
-        <ProgramModules program={program} />
-        {/* <ContactUs
-          programId={data._id}
-          programTitle={data.title}
-          title={'Получите консультацию'}
-          titleNewStr={'по программе обучения'}
-        /> */}
-        <ECTSStandard />
-        {/* <GetStudyPlan /> */}
-        <Teachers
+      <ProgramGoal data={program} />
+      <WhatWillYouLearn data={program} />
+      <ProgramDesc />
+      <Pros format={'online'} />
+      <HowProcessGoes />
+      <ProgramModules program={program} />
+      <ECTSStandard />
+      <Teachers
           programId={program._id}
           programTitle={program.title}
           teachers={teachers}
         />
-        <UpToDateContent withBottomLine />
-        <CorporateClients />
-        <Accreditation />
-        <Diploma />
-        <Students />
-        <Reviews />
-        <CostOfStudy
+      <UpToDateContent withBottomLine />
+      <CorporateClients />
+      <Accreditation />
+      <Diploma />
+      <Students />
+      <Reviews />
+      <CostOfStudy
           programId={program._id}
           programTitle={program.title}
           programFormat={program.studyFormat}
@@ -80,7 +71,6 @@ const PageOnlineProgram = ({ program, teachers }) => {
           titleNewStr={'Получите консультацию по программам MBA'}
           overlapsFooter
         />
-      </div>
     </>
   )
 }
