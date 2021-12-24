@@ -7,7 +7,7 @@ import WrapperComponent from '@/components/layout/WrapperComponent'
 const GetStudyPlan = () => {
   return (
 
-    <div className={stls.container}>
+    <section className={stls.container}>
       <WrapperComponent classNames={[stls.wrapper]}>
         <div className={stls.content}>
           <h4 className={stls.title}>Получите полный учебный план</h4>
@@ -31,7 +31,7 @@ const GetStudyPlan = () => {
           </Popup>
         </div>
       </WrapperComponent>
-    </div>
+    </section>
 
   )
 }

@@ -36,7 +36,6 @@ const Webinars = ({ title, heading, timeframe = 'all' }) => {
         description={truncate('Узнайте даты и время вебинаров MBA', 120)}
         canonical={'https://moscow.mba/webinars'}
       />
-
       <section className={breadcrumbsStls.jumbotronGeneral}>
         <div className={stls.generalContainer}>
           <Breadcrumbs />
