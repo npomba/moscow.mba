@@ -53,14 +53,11 @@ const PageOnlineProgram = ({ program, teachers }) => {
         />
 
       <UpToDateContent withBottomLine />
-      
       <CorporateClients />
       <Accreditation />
       <Diploma />
       <Students />
-
       <Reviews />
-
       <CostOfStudy
           programId={program._id}
           programTitle={program.title}

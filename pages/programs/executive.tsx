@@ -21,7 +21,7 @@ import { handleGetStaticProps, HandleGetPrograms } from '@/helpers/index'
 import teachers from '@/data/images/teachers'
 
 const PageProgramsExecutive = ({ program, programs, teachers }) => {
-   HandleGetPrograms(programs)
+  HandleGetPrograms(programs)
   return (
     <>
       <NextSeo
@@ -37,37 +37,34 @@ const PageProgramsExecutive = ({ program, programs, teachers }) => {
       />
 
       <JumbotronProgram program={program} />
-      
-        <AboutExecutive />
-        <ResultsExecutive />
-        <InPersonWithExperts />
-        <ModulesAbroad />
-        <WhoStudies />
-
-        <ProgramsModules program={program} />
-        <Accreditation />
-        <Teachers
-          programId={program._id}
-          programTitle={program.title}
-          teachers={teachers}
-        />
-        <Rules prices={{ lowerPrice: '600 000', higherPrice: '2 000 000' }} />
-        <ExecutiveRequirements />
-        <Students />
-        <Reviews />
-        <CostOfStudy
-          programId={program._id}
-          programTitle={program.title}
-          programType='executive'
-        />
-        <Qna programId={program._id} programTitle={program.title} />
-        <ContactUs
-          programId={program._id}
-          programTitle={program.title}
-          title={'Не знаете что выбрать?'}
-          titleNewStr={'Получите консультацию по программам MBA'}
-        />
-     
+      <AboutExecutive />
+      <ResultsExecutive />
+      <InPersonWithExperts />
+      <ModulesAbroad />
+      <WhoStudies />
+      <ProgramsModules program={program} />
+      <Accreditation />
+      <Teachers
+        programId={program._id}
+        programTitle={program.title}
+        teachers={teachers}
+      />
+      <Rules prices={{ lowerPrice: '600 000', higherPrice: '2 000 000' }} />
+      <ExecutiveRequirements />
+      <Students />
+      <Reviews />
+      <CostOfStudy
+        programId={program._id}
+        programTitle={program.title}
+        programType='executive'
+      />
+      <Qna programId={program._id} programTitle={program.title} />
+      <ContactUs
+        programId={program._id}
+        programTitle={program.title}
+        title={'Не знаете что выбрать?'}
+        titleNewStr={'Получите консультацию по программам MBA'}
+      />
     </>
   )
 }
