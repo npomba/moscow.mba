@@ -29,16 +29,18 @@ const PriceBlock = ({
     topContentPart = (
       <div className={stls.ctaTextContainer}>
         <p>
-          Успех в бизнесе напрямую связывают с получением бизнес-образования
+          Успех в карьере напрямую связывают с получением образования.
         </p>
         <p>
-          Инвестируйте своё время в образование с Moscow Business Academy и
-          кратно увеличьте свой запас знаний и доход
+          Получите актульные знания, увеличьте свой доход и продвиньтесь по карьерной лестнице!
         </p>
         <p className={stls.red}>Запишитесь на MBA сегодня:</p>
       </div>
     )
   }
+
+
+
 
   if (!withDesc) {
     topContentPart = (
@@ -114,12 +116,12 @@ const CostOfStudy = ({
                 at.mini
                   ? 'mini'
                   : at.mba
-                  ? 'mba'
-                  : at.executive
-                  ? 'executive'
-                  : at.mbl
-                  ? 'mba'
-                  : null
+                    ? 'mba'
+                    : at.executive
+                      ? 'executive'
+                      : at.mbl
+                        ? 'mba'
+                        : null
               }
             />
           </li>
@@ -127,10 +129,10 @@ const CostOfStudy = ({
             {at.online
               ? 'Дистанционно'
               : at.blended
-              ? 'С очными модулями'
-              : at.mbl
-              ? 'Дистанционно'
-              : 'Очно'}
+                ? 'С очными модулями'
+                : at.mbl
+                  ? 'Дистанционно'
+                  : 'Очно'}
           </li>
           <li className={stls.listItem}>
             Ближайший набор{' '}
@@ -143,12 +145,12 @@ const CostOfStudy = ({
                 at.mini
                   ? 'mini'
                   : at.mba
-                  ? 'mba'
-                  : at.executive
-                  ? 'executive'
-                  : at.mbl
-                  ? 'mbl'
-                  : null
+                    ? 'mba'
+                    : at.executive
+                      ? 'executive'
+                      : at.mbl
+                        ? 'mbl'
+                        : null
               }
               subjects={'base'}
             />{' '}
@@ -161,12 +163,12 @@ const CostOfStudy = ({
                   at.mini
                     ? 'mini'
                     : at.mba
-                    ? 'mba'
-                    : at.executive
-                    ? 'executive'
-                    : at.mbl
-                    ? 'mba'
-                    : null
+                      ? 'mba'
+                      : at.executive
+                        ? 'executive'
+                        : at.mbl
+                          ? 'mba'
+                          : null
                 }
                 subjects={'specialty'}
               />{' '}
@@ -189,8 +191,8 @@ const CostOfStudy = ({
           {at.online
             ? 'Дистанционно'
             : at.blended
-            ? 'С очными модулями'
-            : 'Очно'}
+              ? 'С очными модулями'
+              : 'Очно'}
         </li>
         <li className={stls.listItem}>
           Ближайший набор <Until preposition={false} />
@@ -200,6 +202,25 @@ const CostOfStudy = ({
       </ul>
     )
   }
+
+
+
+  const listItems = (
+    <>
+      <li className={stls.listItem}>Практические домашние задания</li>
+      <li className={stls.listItem}>Современная программа 2021 года</li>
+      <li className={stls.listItem}>Интерактивные онлайн-семинары</li>
+      <li className={stls.listItem}>Карьерные консультации</li>
+      <li className={stls.listItem}>Дипломы заносятся в ФРДО</li>
+      <li className={stls.listItem}>Ежедневная помощь от кураторов и преподавателей</li>
+    </>
+  )
+ 
+
+
+
+
+  
 
   return (
     <section className={stls.container}>
@@ -223,20 +244,49 @@ const CostOfStudy = ({
             [stls.contentBlock]: true,
             [stls.flexBlock]: at.profession || at.course
           })}>
-          {!at.profession && !at.course && (
-            <div className={stls.programName}>
-              {at.mini
-                ? 'MBA Mini'
-                : at.mba
-                ? 'MBA'
-                : at.executive
-                ? 'MBA Executive'
-                : at.mbl
-                ? 'MBA'
-                : ''}
+          {/* {list} */}
+
+          <div className={stls.description}>
+            <div className={stls.row}>
+              <div className={stls.block}>
+                <p className={stls.title}>
+                <TrainingPeriod
+              type={
+                at.mini
+                  ? 'mini'
+                  : at.mba
+                    ? 'mba'
+                    : at.executive
+                      ? 'executive'
+                      : at.mbl
+                        ? 'mba'
+                        : null
+              }/>
+                </p>
+                <p className={stls.subtitle}>Возможно закончить экстерном</p>
+              </div>
+              <div className={stls.block}>
+                <p className={stls.title}>
+                {at.online
+            ? 'Дистанционно'
+            : at.blended
+              ? 'С очными модулями'
+              : 'Очно'}
+                </p>
+                <p className={stls.subtitle}>Онлайн-встречи с преподавателями</p>
+              </div>
             </div>
-          )}
-          {list}
+            <ul className={stls.list}>
+
+              <li className={stls.kit}>
+                <p className={stls.title}>Ближайший набор <span className={stls.red}>20 февраля</span></p>
+                <p className={stls.subtitle}>*количество мест ограничено</p>
+              </li>
+              {listItems}
+            </ul>
+          </div>
+
+
         </div>
         <div
           className={classNames(stls.contentBlock, {
