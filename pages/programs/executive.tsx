@@ -37,7 +37,7 @@ const PageProgramsExecutive = ({ program, programs, teachers }) => {
       />
 
       <JumbotronProgram program={program} />
-      <div className={stls.container}>
+      
         <AboutExecutive />
         <ResultsExecutive />
         <InPersonWithExperts />
@@ -45,12 +45,6 @@ const PageProgramsExecutive = ({ program, programs, teachers }) => {
         <WhoStudies />
 
         <ProgramsModules program={program} />
-        <ContactUs
-          programId={program._id}
-          programTitle={program.title}
-          title={'Получите консультацию'}
-          titleNewStr={'по программе обучения'}
-        />
         <Accreditation />
         <Teachers
           programId={program._id}
@@ -73,7 +67,7 @@ const PageProgramsExecutive = ({ program, programs, teachers }) => {
           title={'Не знаете что выбрать?'}
           titleNewStr={'Получите консультацию по программам MBA'}
         />
-      </div>
+     
     </>
   )
 }

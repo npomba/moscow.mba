@@ -1,6 +1,7 @@
 import stls from '@/styles/components/sections/ExecutiveRequirements.module.sass'
 import { IconCheck } from '@/components/icons'
 import Image from 'next/image'
+import WrapperComponent from '@/components/layout/WrapperComponent'
 
 const requirements = [
   {
@@ -24,6 +25,7 @@ const requirements = [
 const ExecutiveRequirements = () => {
   return (
     <section className={stls.container}>
+      <WrapperComponent classNames={[stls.wrapper]}>
       <div className={stls.infoContainer}>
         <p className={stls.info}>
           Программа EMBA предназначена для предпринимателей и топ-менеджеров,
@@ -55,6 +57,7 @@ const ExecutiveRequirements = () => {
           </li>
         ))}
       </ul>
+      </WrapperComponent>
     </section>
   )
 }

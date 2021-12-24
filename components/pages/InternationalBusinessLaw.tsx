@@ -47,12 +47,6 @@ const PageOnlineProgram = ({ program, teachers }) => {
         <Pros format={'online'} />
         <HowProcessGoes />
         <ProgramModules program={program} />
-        {/* <ContactUs
-          programId={data._id}
-          programTitle={data.title}
-          title={'Получите консультацию'}
-          titleNewStr={'по программе обучения'}
-        /> */}
         <GetStudyPlan />
         <Teachers
           programId={program._id}

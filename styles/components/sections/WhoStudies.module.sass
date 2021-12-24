@@ -2,9 +2,7 @@
 @use '@/styles/layout/general/circularProgressBar' as cpb
 
 .container
-  background: #2d2c2a
   margin-bottom: 136px
-  padding: 93px 80px 83px
   position: relative
   z-index: 2
   color: #fff
@@ -13,12 +11,8 @@
   align-items: center
   @include m.media(laptop)
     margin-bottom: 80px
-    padding: 60px 30px
   @include m.media(tablet, phone)
     margin-bottom: 60px
-    margin-left: -10px
-    margin-right: -10px
-    padding: 50px 10px
   h2
     flex-grow: 1
     padding-right: 40px
@@ -29,6 +23,15 @@
   p
     @include m.media(desktop)
       min-height: 1px
+
+.wrapper
+  max-width: 1290px
+  background: #2d2c2a
+  padding: 93px 80px 83px
+  @include m.media(laptop)
+    padding: 60px 30px
+  @include m.media(tablet, phone)
+    padding: 50px 10px
 
 .list
   flex-grow: 0

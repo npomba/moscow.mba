@@ -1,14 +1,18 @@
 @use '@/styles/utils/mixin' as m
 
 .container
-  display: flex
+  
   margin-bottom: 130px
-  @include m.media(laptop, tablet, phone)
-    display: block
+ 
   @include m.media(laptop)
     margin-bottom: 80px
   @include m.media(tablet, phone)
     margin-bottom: 60px
+
+.wrapper
+  display: flex
+  @include m.media(laptop, tablet, phone)
+    display: block
 
 .title
   font-size: 100px

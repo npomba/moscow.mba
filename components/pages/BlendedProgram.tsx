@@ -20,7 +20,6 @@ import Accreditation from '@/components/sections/Accreditation'
 import Pros from '@/components/sections/Pros'
 import BlendedMetups from '@/components/sections/BlendedMetups'
 import CostOfStudy from '@/components/sections/CostOfStudy'
-import GetStudyPlan from '@/components/sections/GetStudyPlan'
 import ECTSStandard from '@/components/sections/ECTSStandard'
 
 const PageBlendedProgram = ({ program, teachers }) => {

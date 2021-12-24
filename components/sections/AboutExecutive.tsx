@@ -1,10 +1,12 @@
 import stls from '@/styles/components/sections/AboutExecutive.module.sass'
 import classNames from 'classnames'
 import { ImgStudentsDuringConference } from '@/components/images'
+import WrapperComponent from '@/components/layout/WrapperComponent'
 
 const AboutExecutive = () => {
   return (
     <section className={stls.container}>
+      <WrapperComponent classNames={[stls.wrapper]}>
       <div className={stls.flexContainer}>
         <div className={stls.titleContainer}>
           <h2 className={stls.title}>
@@ -38,6 +40,7 @@ const AboutExecutive = () => {
           </div>
         </div>
       </div>
+      </WrapperComponent>
     </section>
   )
 }

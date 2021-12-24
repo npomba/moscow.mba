@@ -1,10 +1,12 @@
 import stls from '@/styles/components/sections/ModulesAbroad.module.sass'
 import classNames from 'classnames'
 import Image from 'next/image'
+import WrapperComponent from '../layout/WrapperComponent'
 
 const ModulesAbroad = () => {
   return (
     <section className={stls.container}>
+      <WrapperComponent classNames={[stls.wrapper]}>
       <div className={stls.content}>
         <h2 className={stls.title}>2 модуля за рубежом</h2>
         <div className={stls.desc}>
@@ -65,6 +67,7 @@ const ModulesAbroad = () => {
           </div>
         </li>
       </ul>
+      </WrapperComponent>
     </section>
   )
 }
