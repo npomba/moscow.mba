@@ -6,7 +6,7 @@ import Breadcrumbs from '@/components/general/Breadcrumbs'
 import ContactCards from '@/components/general/ContactCards'
 import CourseAccordion from '@/components/general/CourseAccordion'
 import Filters from '@/components/general/Filters'
-import HelpWIthEmploymentItem from '@/components/general/HelpWIthEmploymentItem'
+import HelpWithEmploymentItem from '@/components/general/HelpWithEmploymentItem'
 import ImageContainer from '@/components/general/ImageContainer'
 import InfoRectangle from '@/components/general/InfoRectangle'
 import JumbotronLabel from '@/components/general/JumbotronLabel'
@@ -33,7 +33,7 @@ export {
   ContactCards,
   CourseAccordion,
   Filters,
-  HelpWIthEmploymentItem,
+  HelpWithEmploymentItem,
   ImageContainer,
   InfoRectangle,
   JumbotronLabel,
