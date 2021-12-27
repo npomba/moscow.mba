@@ -12,7 +12,7 @@ import useAt from '@/helpers/useAt'
 import { BtnChangeLang } from '@/components/btns'
 import classnames from 'classnames'
 import contactData from '@/config/contactData'
-import Wrapper from '@/components/layout/Wrapper'
+import { Wrapper } from '@/components/layout'
 import getClassNames from '@/helpers/getClassNames'
 
 const HeaderInformation = ({ classNames = [], handleMenu, openMenu }) => {

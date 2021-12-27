@@ -1,7 +1,7 @@
 import stls from '@/styles/components/sections/AboutExecutive.module.sass'
 import classNames from 'classnames'
 import { ImgStudentsDuringConference } from '@/components/images'
-import Wrapper from '@/components/layout/Wrapper'
+import { Wrapper } from '@/components/layout'
 
 const AboutExecutive = () => {
   return (

@@ -2,7 +2,7 @@ import stls from '@/styles/components/sections/GetStudyPlan.module.sass'
 import Popup from 'reactjs-popup'
 import PopupForm from '@/components/popups/PopupForm'
 import React from 'react'
-import Wrapper from '@/components/layout/Wrapper'
+import { Wrapper } from '@/components/layout'
 
 const GetStudyPlan = () => {
   return (

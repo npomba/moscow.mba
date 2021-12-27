@@ -1,7 +1,6 @@
 import stls from '@/styles/components/layout/StickyBottomContainer.module.sass'
 import { useState } from 'react'
-import Overlay from '@/components/layout/Overlay'
-import StickyBottom from '@/components/layout/StickyBottom'
+import { Overlay, StickyBottom } from '@/components/layout'
 import AskQuestion from '@/components/general/AskQuestion'
 import { AskQuestionForm } from '@/components/forms'
 

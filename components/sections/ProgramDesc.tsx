@@ -2,7 +2,7 @@ import stls from '@/styles/components/sections/ProgramDesc.module.sass'
 import classNames from 'classnames'
 import { useAt } from '@/helpers/index'
 import Image from 'next/image'
-import Wrapper from '@/components/layout/Wrapper'
+import { Wrapper } from '@/components/layout'
 
 const ProgramDesc = () => {
   const at = useAt()

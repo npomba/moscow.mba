@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/InPersonWithExperts.module.sass'
 import Image from 'next/image'
-import Wrapper from '@/components/layout/Wrapper'
+import { Wrapper } from '@/components/layout'
 
 const InPersonWithExperts = () => {
   return (

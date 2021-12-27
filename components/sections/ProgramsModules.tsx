@@ -10,7 +10,7 @@ import Stickers from '@/components/general/Stickers'
 import Sticker from '@/components/general/Sticker'
 import { IconCheckCircleAltDim } from '@/components/icons'
 import ProgramSubjects from '@/components/general/ProgramSubjects'
-import Wrapper from '@/components/layout/Wrapper'
+import { Wrapper } from '@/components/layout'
 
 const ProgramsModules = ({ program, smallerMb = false }) => {
   const at = useAt()

@@ -9,7 +9,7 @@ import lang from '@/data/translation/header'
 import { ImgLogoRabo, ImgLogoMde } from '@/components/images'
 import menu from '@/data/translation/menu'
 import HeaderPrograms from '@/components/header/HeaderPrograms'
-import Wrapper from '@/components/layout/Wrapper'
+import { Wrapper } from '@/components/layout'
 
 const HeaderTabsModile = ({
   tabs,

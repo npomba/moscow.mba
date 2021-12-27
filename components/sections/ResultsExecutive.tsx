@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/ResultsExecutive.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
+import { Wrapper } from '@/components/layout'
 
 const ResultsExecutive = () => {
   return (

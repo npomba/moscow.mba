@@ -1,7 +1,7 @@
 import stls from '@/styles/components/sections/ExecutiveRequirements.module.sass'
 import { IconCheck } from '@/components/icons'
 import Image from 'next/image'
-import Wrapper from '@/components/layout/Wrapper'
+import { Wrapper } from '@/components/layout'
 
 const requirements = [
   {

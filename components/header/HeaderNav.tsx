@@ -3,7 +3,7 @@ import SetString from '@/helpers/SetString'
 import lang from '@/data/translation/header'
 import classnames from 'classnames'
 import Link from 'next/link'
-import Wrapper from '@/components/layout/Wrapper'
+import { Wrapper } from '@/components/layout'
 import getClassNames from '@/helpers/getClassNames'
 
 const HeaderNav = ({ links, handleMenu, openMenu, classNames = [] }) => {

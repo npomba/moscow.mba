@@ -10,7 +10,7 @@ import OurDiplomasAndCertificates from '@/components/sections/OurDiplomasAndCert
 import CompanyCard from '@/components/sections/CompanyCard'
 import LegalDocuments from '@/components/sections/LegalDocuments'
 import HandleGetPrograms from '@/helpers/HandleGetPrograms'
-import Wrapper from '@/components/layout/Wrapper'
+import { Wrapper } from '@/components/layout'
 
 const PageLegal = ({ programs }) => {
   HandleGetPrograms(programs)

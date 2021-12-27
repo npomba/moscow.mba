@@ -4,7 +4,7 @@ import { useState } from 'react'
 import studentPhoto from '@/public/assets/images/student-using-laptop.jpg'
 import Image from 'next/image'
 import { useAt } from '@/helpers/index'
-import Wrapper from '@/components/layout/Wrapper'
+import { Wrapper } from '@/components/layout'
 
 const HowProcessGoes = () => {
   const [activeStep, setActiveStep] = useState(0)

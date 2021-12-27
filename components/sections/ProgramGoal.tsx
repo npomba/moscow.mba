@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/ProgramGoal.module.sass'
-import Wrapper from '@/components/layout/Wrapper'
+import { Wrapper } from '@/components/layout'
 
 const ProgramGoal = ({ data }) => {
   return (

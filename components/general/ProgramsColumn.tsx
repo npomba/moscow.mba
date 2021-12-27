@@ -1,5 +1,5 @@
 import stls from '@/styles/components/general/ProgramsColumn.module.sass'
-import classNames from 'classnames'
+import cn from 'classnames'
 import Link from 'next/link'
 import langMenu from '@/data/translation/menu'
 import { SetString } from '@/helpers/index'
@@ -20,7 +20,6 @@ import {
 } from '@/components/icons'
 import menu from '@/data/translation/menu'
 import { useContext, useState } from 'react'
-import classnames from 'classnames'
 
 const ProgramsColumn = ({ data, id, type }) => {
   const { closeMenu } = useContext(MenuContext)
@@ -67,7 +66,7 @@ const ProgramsColumn = ({ data, id, type }) => {
   }
 
   return (
-    <ul id={id} className={classNames(stls.container)}>
+    <ul id={id} className={cn(stls.container)}>
       <li className={stls.programInfo}>
         <div className={stls.programTitle}>
           {type === 'mini' ? 'Mini MBA' : type === 'mba' ? 'MBA' : null}
@@ -75,14 +74,14 @@ const ProgramsColumn = ({ data, id, type }) => {
 
         <div className={stls.navigation}>
           <button
-            className={classnames(stls.programBtn, {
+            className={cn(stls.programBtn, {
               [stls.active]: onlineOrBlended === 'online'
             })}
             onClick={() => setOnlineOrBlended('online')}>
             online
           </button>
           <button
-            className={classnames(stls.programBtn, {
+            className={cn(stls.programBtn, {
               [stls.active]: onlineOrBlended === 'blended'
             })}
             onClick={() => setOnlineOrBlended('blended')}>
@@ -128,7 +127,7 @@ const ProgramsColumn = ({ data, id, type }) => {
       </li>
       <li className={stls.column}>
         <div
-          className={classnames(stls.itemDetails, {
+          className={cn(stls.itemDetails, {
             [stls.activeOnline]: onlineOrBlended === 'online'
           })}>
           <div className={stls.itemTitle}>
@@ -179,7 +178,7 @@ const ProgramsColumn = ({ data, id, type }) => {
           </ul>
         </div>
         <div
-          className={classnames(stls.itemDetails, {
+          className={cn(stls.itemDetails, {
             [stls.activeBlended]: onlineOrBlended === 'blended'
           })}>
           <div className={stls.itemTitle}>

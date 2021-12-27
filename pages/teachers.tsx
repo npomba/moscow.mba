@@ -7,7 +7,7 @@ import { handleGetStaticProps } from '@/helpers/index'
 
 import Breadcrumbs from '@/components/general/Breadcrumbs'
 import HandleGetPrograms from '@/helpers/HandleGetPrograms'
-import Wrapper from '@/components/layout/Wrapper'
+import { Wrapper } from '@/components/layout'
 
 const PageTeachers = ({ programs, teachers }) => {
   HandleGetPrograms(programs)
