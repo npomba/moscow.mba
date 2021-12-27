@@ -174,18 +174,16 @@ const Breadcrumbs = ({ programChunkData = {} }) => {
       className={[stls.breadcrumbsOuter, stls.jumbotronBreadcrumbs].join(' ')}>
       <Wrapper>
         <ul className={stls.breadcrumbs}>
-          {breadcrumbsList.map((route, idx) => {
-            return (
-              <BreadcrumbItem
-                key={route.label['en-US'] + idx + route.label['ru']}
-                linkText={route.label[router.locale]}
-                linkPath={route.path}
-                itemIndex={idx}
-                listLength={breadcrumbsList.length}
-                userViewingProgramChunk={userViewingProgramChunk}
-              />
-            )
-          })}
+          {breadcrumbsList.map((route, idx) => (
+            <BreadcrumbItem
+              key={route.label['en-US'] + idx + route.label['ru']}
+              linkText={route.label[router.locale]}
+              linkPath={route.path}
+              itemIndex={idx}
+              listLength={breadcrumbsList.length}
+              userViewingProgramChunk={userViewingProgramChunk}
+            />
+          ))}
         </ul>
       </Wrapper>
     </div>

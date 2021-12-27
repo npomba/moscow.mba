@@ -8,7 +8,6 @@ import langMenu from '@/data/translation/menu'
 import { useAt } from '@/helpers/index'
 import Price from '@/components/costs/Price'
 import PopupInfo from '@/components/popups/PopupInfo'
-import Wrapper from '../layout/Wrapper'
 
 const InfoRectangle = ({
   programPage = false,
