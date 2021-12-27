@@ -1,8 +1,8 @@
 import stls from '@/styles/components/general/Breadcrumbs.module.sass'
-import BreadcrumbItem from '@/components/general/BreadcrumbItem'
-import { useAt } from '@/helpers/index'
 import { useRouter } from 'next/router'
-import Wrapper from '../layout/Wrapper'
+import { useAt } from '@/helpers/index'
+import { Wrapper } from '@/components/layout'
+import { BreadcrumbItem } from '@/components/general'
 
 const mainRoutes = [
   {

@@ -1,7 +1,7 @@
 import stls from '@/styles/components/sections/HelpWithEmployment.module.sass'
-import HelpWithEmploymentItem from '@/components/general/HelpWIthEmploymentItem'
 import useAt from '@/helpers/useAt'
-import Wrapper from '../layout/Wrapper'
+import { Wrapper } from '@/components/layout/Wrapper'
+import { HelpWithEmploymentItem } from '@/components/general'
 
 const HelpWithEmployment = () => {
   const at = useAt()

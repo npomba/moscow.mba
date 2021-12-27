@@ -5,15 +5,16 @@ import truncate from 'truncate'
 import { useAt } from '@/helpers/index'
 import langMenu from '@/data/translation/menu'
 import { SetString } from '@/helpers/index'
-import Breadcrumbs from '@/components/general/Breadcrumbs'
-import InfoRectangle from '@/components/general/InfoRectangle'
-import ProgramSubjects from '@/components/general/ProgramSubjects'
-import ProgramsQty from '@/components/general/ProgramsQty'
-import Filters from '@/components/general/Filters'
+import {
+  Breadcrumbs,
+  InfoRectangle,
+  ProgramSubjects,
+  ProgramsQty,
+  Filters
+} from '@/components/general'
 import { CardProgram } from '@/components/cards'
 import { IconCheckCircle } from '@/components/icons'
 import programsContext from '@/context/programs/programsContext'
-
 
 const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
   const at = useAt()
@@ -90,7 +91,9 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
         </div>
       </section>
       <div className={stls.generalContainer}>
-        <h1 className={stls.title}>ПРОГРАММЫ <span>ОБУЧЕНИЯ</span></h1>
+        <h1 className={stls.title}>
+          ПРОГРАММЫ <span>ОБУЧЕНИЯ</span>
+        </h1>
         <div className={stls.container}>
           <Filters
             mbaTypeOfProgram={mbaTypeOfProgram}

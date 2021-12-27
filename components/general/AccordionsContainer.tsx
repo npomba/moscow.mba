@@ -1,16 +1,15 @@
 import stls from '@/styles/components/general/AccordionsContainer.module.sass'
 import { useState } from 'react'
-import Accordion from '@/components/general/Accordion'
-import CourseAccordion from '@/components/general/CourseAccordion'
+import { Accordion, CourseAccordion } from '@/components/general'
 
 const AccordionsContainer = ({
-                               accordionsItems,
-                               firstAccordionActive,
-                               closeAll,
-                               setCloseAll,
-                               isCoursesContainer = false,
-                               scrollableIntoView = false
-                             }) => {
+  accordionsItems,
+  firstAccordionActive,
+  closeAll,
+  setCloseAll,
+  isCoursesContainer = false,
+  scrollableIntoView = false
+}) => {
   const [activeAccordionIndex, setActiveAccordionIndex] = useState(
     firstAccordionActive ? 0 : -1
   )

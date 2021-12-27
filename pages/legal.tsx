@@ -1,7 +1,7 @@
 import stls from '@/styles/pages/Legal.module.sass'
 import { NextSeo } from 'next-seo'
 import { handleGetStaticProps } from '@/helpers/index'
-import Breadcrumbs from '@/components/general/Breadcrumbs'
+import { Breadcrumbs } from '@/components/general'
 import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
 import CurrentLicenses from '@/components/sections/CurrentLicenses'
 import MemberOfRabe from '@/components/sections/MemberOfRabe'

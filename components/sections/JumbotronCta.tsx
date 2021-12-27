@@ -6,12 +6,14 @@ import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/index'
 import { useState } from 'react'
 import Until from '@/components/costs/Until'
-import Breadcrumbs from '@/components/general/Breadcrumbs'
-import InfoRectangle from '@/components/general/InfoRectangle'
+import {
+  Breadcrumbs,
+  InfoRectangle,
+  LeadLoaderThankyou
+} from '@/components/general'
 import { useAt } from '@/helpers/index'
-import LeadLoaderThankyou from '@/components/general/LeadLoaderThankyou'
 import { FormAlpha } from '@/components/forms'
-import Wrapper from '../layout/Wrapper'
+import { Wrapper } from '@/components/layout'
 
 const JumbotronCta = ({ programTitle = null, programId = null }) => {
   const at = useAt()

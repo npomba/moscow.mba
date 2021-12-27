@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import Link from 'next/link'
 import { useAt } from '@/helpers/index'
 import Discount from '@/components/costs/Discount'
-import SearchField from '@/components/general/SearchField'
+import { SearchField } from '@/components/general'
 
 const Filters = ({
   mbaTypeOfProgram,

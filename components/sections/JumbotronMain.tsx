@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/index'
-import Breadcrumbs from '@/components/general/Breadcrumbs'
+import { Breadcrumbs } from '@/components/general'
 import { IconArrowTopRight } from '@/components/icons'
 
 import { base64pixel } from '@/config/index'

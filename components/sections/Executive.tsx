@@ -8,9 +8,9 @@ import langMenu from '@/data/translation/menu'
 import imageData from '@/data/images/executive'
 import Price from '@/components/costs/Price'
 import TrainingPeriod from '@/components/costs/TrainingPeriod'
-import ProgramSubjects from '@/components/general/ProgramSubjects'
+import { ProgramSubjects } from '@/components/general'
 import { base64pixel } from '@/config/index'
-import Wrapper from '../layout/Wrapper'
+import { Wrapper } from '@/components/layout'
 
 const Executive = () => {
   return (

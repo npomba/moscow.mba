@@ -1,8 +1,8 @@
 import stls from '@/styles/components/sections/WhoItIsFor.module.sass'
 import classNames from 'classnames'
 import { useAt } from '@/helpers/index'
-import WhoItIsForItem from '@/components/general/WhoItIsForItem'
-import Wrapper from '../layout/Wrapper'
+import { WhoItIsForItem } from '@/components/general'
+import { Wrapper } from '@/components/layout'
 
 const WhoItIsFor = ({ program }) => {
   const at = useAt()

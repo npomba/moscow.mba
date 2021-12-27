@@ -6,7 +6,7 @@ import Popup from 'reactjs-popup'
 import Link from 'next/link'
 import { IconSearch, IconClose } from '@/components/icons'
 import { FormAlpha } from '@/components/forms'
-import LeadLoaderThankyou from '@/components/general/LeadLoaderThankyou'
+import { LeadLoaderThankyou } from '@/components/general'
 
 const SearchField = () => {
   const at = useAt()
@@ -29,9 +29,7 @@ const SearchField = () => {
             <div className={stls.icon}>
               <IconSearch color={'#000'} />
             </div>
-            <button
-              className={stls.btn}
-            >{value || 'Поиск'}</button>
+            <button className={stls.btn}>{value || 'Поиск'}</button>
           </div>
         </div>
       )}>
@@ -64,7 +62,9 @@ const SearchField = () => {
                       <a className={stls.link}>
                         <span>
                           {Array.from(el?.title).map((str: string) => {
-                            if (value.toLowerCase().includes(str.toLowerCase())) {
+                            if (
+                              value.toLowerCase().includes(str.toLowerCase())
+                            ) {
                               return <span className={stls.strong}>{str}</span>
                             } else {
                               return <span>{str}</span>

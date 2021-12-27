@@ -5,11 +5,13 @@ import {
   createProgramModulesBase,
   createProgramModulesSpecialized
 } from '@/helpers/index'
-import ProgramsModule from '@/components/general/ProgramsModule'
-import Stickers from '@/components/general/Stickers'
-import Sticker from '@/components/general/Sticker'
+import {
+  ProgramsModule,
+  Stickers,
+  Sticker,
+  ProgramSubjects
+} from '@/components/general'
 import { IconCheckCircleAltDim } from '@/components/icons'
-import ProgramSubjects from '@/components/general/ProgramSubjects'
 import { Wrapper } from '@/components/layout'
 
 const ProgramsModules = ({ program, smallerMb = false }) => {

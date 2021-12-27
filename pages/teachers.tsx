@@ -5,7 +5,7 @@ import truncate from 'truncate'
 import Teachers from '@/components/sections/Teachers'
 import { handleGetStaticProps } from '@/helpers/index'
 
-import Breadcrumbs from '@/components/general/Breadcrumbs'
+import { Breadcrumbs } from '@/components/general'
 import HandleGetPrograms from '@/helpers/HandleGetPrograms'
 import { Wrapper } from '@/components/layout'
 

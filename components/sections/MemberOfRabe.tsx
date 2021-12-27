@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/MemberOfRabe.module.sass'
-import ImageContainer from '@/components/general/ImageContainer'
+import { ImageContainer } from '@/components/general'
 import rabeP1 from '@/public/legaldocuments/rabe-p1.jpg'
 import Wrapper from '../layout/Wrapper'
 

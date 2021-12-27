@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/MemberOfAcicel.module.sass'
-import ImageContainer from '@/components/general/ImageContainer'
+import { ImageContainer } from '@/components/general'
 import rabeP1 from '@/public/assets/images/accreditation/ecicel-accreditation.jpg'
 import Wrapper from '../layout/Wrapper'
 

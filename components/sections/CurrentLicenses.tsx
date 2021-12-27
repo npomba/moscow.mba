@@ -1,10 +1,10 @@
 import stls from '@/styles/components/sections/CurrentLicenses.module.sass'
-import ImageContainer from '@/components/general/ImageContainer'
+import { ImageContainer } from '@/components/general'
+import { Wrapper } from '@/components/layout'
 import CheckLicenses from '@/components/sections/CheckLicenses'
 import licenseP1 from '@/public/legaldocuments/license-p1.jpg'
 import licenseP2 from '@/public/legaldocuments/license-p2.jpg'
 import charterP1 from '@/public/legaldocuments/charter-p1.jpg'
-import Wrapper from '../layout/Wrapper'
 
 const licenses = [
   {

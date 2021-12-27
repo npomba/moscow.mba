@@ -1,12 +1,12 @@
 import stls from '@/styles/components/general/ProgramsColumn.module.sass'
-import cn from 'classnames'
+import { useContext, useState } from 'react'
 import Link from 'next/link'
+import cn from 'classnames'
 import langMenu from '@/data/translation/menu'
 import { SetString } from '@/helpers/index'
 import Until from '@/components/costs/Until'
 import Price from '@/components/costs/Price'
-import ProgramSubjects from '@/components/general/ProgramSubjects'
-import ProgramsQty from '@/components/general/ProgramsQty'
+import { ProgramSubjects, ProgramsQty } from '@/components/general'
 import TrainingPeriod from '@/components/costs/TrainingPeriod'
 import Discount from '@/components/costs/Discount'
 import MenuContext from '@/context/menu/menuContext'
@@ -18,8 +18,6 @@ import {
   IconClock,
   IconArrowLeft
 } from '@/components/icons'
-import menu from '@/data/translation/menu'
-import { useContext, useState } from 'react'
 
 const ProgramsColumn = ({ data, id, type }) => {
   const { closeMenu } = useContext(MenuContext)
@@ -55,7 +53,7 @@ const ProgramsColumn = ({ data, id, type }) => {
           <li className={stls.listItem} key={item.id || item._id}>
             <Link href={`/programs/${type}/${format}`} locale='ru'>
               <a className={stls.link} onClick={handleLinkClick}>
-                {SetString(menu.linkAllPrograms)}
+                {SetString(langMenu.linkAllPrograms)}
                 <IconArrowLeft classNames={[stls.arrow]} />
               </a>
             </Link>

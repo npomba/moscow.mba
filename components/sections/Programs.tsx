@@ -4,15 +4,14 @@ import { SetString } from '@/helpers/index'
 import langMenu from '@/data/translation/menu'
 import langHeader from '@/data/translation/header'
 import Until from '@/components/costs/Until'
-import ProgramSubjects from '@/components/general/ProgramSubjects'
-import ProgramsQty from '@/components/general/ProgramsQty'
+import { ProgramSubjects, ProgramsQty } from '@/components/general'
 import Price from '@/components/costs/Price'
 import TrainingPeriod from '@/components/costs/TrainingPeriod'
 import Discount from '@/components/costs/Discount'
 import { IconCheckCircle, IconScreen } from '@/components/icons'
 import { useState } from 'react'
 import classNames from 'classnames'
-import Wrapper from '../layout/Wrapper'
+import { Wrapper } from '@/components/layout'
 
 const Programs = ({ programs }) => {
   const data = programs

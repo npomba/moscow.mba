@@ -3,9 +3,9 @@ import classNames from 'classnames'
 import { SetString, useAt } from '@/helpers/index'
 import lang from '@/data/translation/index'
 import { useState } from 'react'
-import LeadLoaderThankyou from '@/components/general/LeadLoaderThankyou'
+import { LeadLoaderThankyou } from '@/components/general'
 import { FormAlpha } from '@/components/forms'
-import Wrapper from '../layout/Wrapper'
+import { Wrapper } from '@/components/layout'
 
 const ContactUs = ({
   programTitle = null,

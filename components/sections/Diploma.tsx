@@ -1,13 +1,13 @@
 import stls from '@/styles/components/sections/Diploma.module.sass'
+import { useState } from 'react'
+import Image from 'next/image'
 import classNames from 'classnames'
 import Popup from 'reactjs-popup'
-import { useState } from 'react'
-import { useAt } from '@/helpers/index'
-import Pagination from '@/components/general/Pagination'
-import Image from 'next/image'
 import { base64pixel } from '@/config/index'
+import { useAt } from '@/helpers/index'
+import { Wrapper } from '@/components/layout'
+import { Pagination } from '@/components/general'
 import PopupImage from '@/components/popups/PopupImage'
-import Wrapper from '../layout/Wrapper'
 
 const Diploma = ({ darkBackground = false }) => {
   const at = useAt()

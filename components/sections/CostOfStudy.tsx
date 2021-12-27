@@ -9,7 +9,7 @@ import Price from '@/components/costs/Price'
 import Loan from '@/components/costs/Loan'
 import Discount from '@/components/costs/Discount'
 import TrainingPeriod from '@/components/costs/TrainingPeriod'
-import ProgramSubjects from '@/components/general/ProgramSubjects'
+import { ProgramSubjects } from '@/components/general'
 import { Wrapper } from '@/components/layout'
 
 const PriceBlock = ({

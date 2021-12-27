@@ -2,8 +2,8 @@ import stls from '@/styles/components/sections/Qna.module.sass'
 import { useAt } from '@/helpers/index'
 import Popup from 'reactjs-popup'
 import PopupForm from '@/components/popups/PopupForm'
-import AccordionsContainer from '@/components/general/AccordionsContainer'
-import Wrapper from '../layout/Wrapper'
+import { AccordionsContainer } from '@/components/general'
+import { Wrapper } from '@/components/layout'
 
 const Qna = ({ programId, programTitle }) => {
   const at = useAt()
