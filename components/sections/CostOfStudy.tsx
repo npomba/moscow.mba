@@ -4,7 +4,7 @@ import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import Until from '@/components/costs/Until'
 import PopupForm from '@/components/popups/PopupForm'
-import { useAt } from '@/helpers/index'
+import {useAt } from '@/helpers/index'
 import Price from '@/components/costs/Price'
 import Loan from '@/components/costs/Loan'
 import Discount from '@/components/costs/Discount'
@@ -34,13 +34,20 @@ const PriceBlock = ({
         <p>
           Получите актульные знания, увеличьте свой доход и продвиньтесь по карьерной лестнице!
         </p>
-        <p className={stls.red}>Запишитесь на MBA сегодня:</p>
+        <p className={stls.red}>Запишитесь на курс { 
+          at.mini
+          ? 'MBA Mini'
+          : at.mba
+          ? 'MBA'
+          : at.executive
+          ? 'MBA Executive'
+          : at.mbl
+          ? 'MBA'
+          : ''
+          } сегодня:</p>
       </div>
     )
   }
-
-
-
 
   if (!withDesc) {
     topContentPart = (
@@ -204,7 +211,6 @@ const CostOfStudy = ({
   }
 
 
-
   const listItems = (
     <>
       <li className={stls.listItem}>Практические домашние задания</li>
@@ -216,11 +222,6 @@ const CostOfStudy = ({
     </>
   )
  
-
-
-
-
-  
 
   return (
     <section className={stls.container}>
@@ -235,7 +236,7 @@ const CostOfStudy = ({
           </span>
         </div>
       )}
-      <h2 className={classNames({ [stls.bigMb]: at.profession || at.course })}>
+      <h2 className={classNames(stls.cost, { [stls.bigMb]: at.profession || at.course })}>
         Стоимость обучения
       </h2>
       <div className={stls.content}>
@@ -244,7 +245,6 @@ const CostOfStudy = ({
             [stls.contentBlock]: true,
             [stls.flexBlock]: at.profession || at.course
           })}>
-          {/* {list} */}
 
           <div className={stls.description}>
             <div className={stls.row}>
@@ -259,7 +259,11 @@ const CostOfStudy = ({
                     : at.executive
                       ? 'executive'
                       : at.mbl
-                        ? 'mba'
+                        ? 'mbl'
+                        : at.profession
+                        ? 'profession'
+                        : at.course 
+                        ? 'course'
                         : null
               }/>
                 </p>
@@ -277,16 +281,13 @@ const CostOfStudy = ({
               </div>
             </div>
             <ul className={stls.list}>
-
-              <li className={stls.kit}>
+            <li className={stls.kit}>
                 <p className={stls.title}>Ближайший набор <span className={stls.red}>20 февраля</span></p>
                 <p className={stls.subtitle}>*количество мест ограничено</p>
               </li>
               {listItems}
             </ul>
           </div>
-
-
         </div>
         <div
           className={classNames(stls.contentBlock, {
@@ -319,6 +320,9 @@ const CostOfStudy = ({
               )}
             </Popup>
           </div>
+          <p className={stls.subtitle}>
+          *согласно опросу за 2020 год, 93% наших студентов окупили обучение уже на 2-й месяц
+          </p>
         </div>
       </div>
     </section>
