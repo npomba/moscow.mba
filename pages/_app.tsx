@@ -40,9 +40,9 @@ function MyApp({ Component, pageProps, router }) {
       const urlUtmsArr = router.asPath.split('?')[1]
 
       urlUtmsArr &&
-      urlUtmsArr.split('&').forEach(utm => {
-        utms[utm.split('=')[0]] = utm.split('=')[1]
-      })
+        urlUtmsArr.split('&').forEach(utm => {
+          utms[utm.split('=')[0]] = utm.split('=')[1]
+        })
       sessionStorage.setItem('utms', JSON.stringify(utms))
     }
 
@@ -77,8 +77,7 @@ function MyApp({ Component, pageProps, router }) {
   }, [router])
 
   if (!dev) {
-    console.log = function() {
-    }
+    console.log = function () {}
   }
   let programs = []
   if (pageProps) {
@@ -96,13 +95,13 @@ function MyApp({ Component, pageProps, router }) {
       <ProgramsState>
         <OverlayState>
           <MenuState>
-            {/* <Wrapper> */}
-              <Header programs={programs}/>
+            <Wrapper>
+              <Header programs={programs} />
               <Main>
                 <Component {...pageProps} />
               </Main>
               <Footer />
-            {/* </Wrapper> */}
+            </Wrapper>
           </MenuState>
         </OverlayState>
       </ProgramsState>
@@ -111,5 +110,3 @@ function MyApp({ Component, pageProps, router }) {
 }
 
 export default MyApp
-
-

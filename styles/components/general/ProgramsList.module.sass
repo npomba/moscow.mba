@@ -1,16 +1,15 @@
 @use '@/styles/utils/mixin' as m
 
-
 .container
-    height: 100%
-    padding-left: 30px
-    flex: 0 0 50%
-    padding: 40px 48px 0 58px
-    @include m.media(desktop, laptop, tablet, phone)
-        padding-left: 48px
-        padding-right: 20px
-    @include m.media(laptop, tablet, phone)
-        padding: 0
+  height: 100%
+  padding-left: 30px
+  flex: 0 0 50%
+  padding: 40px 48px 0 58px
+  @include m.media(desktop, laptop, tablet, phone)
+    padding-left: 48px
+    padding-right: 20px
+  @include m.media(laptop, tablet, phone)
+    padding: 0
 
 .itemDetails
   line-height: 1.2
@@ -20,30 +19,30 @@
     padding: 0
 
 .list
-    line-height: 1.2
-    color: #000000
-    display: flex
+  line-height: 1.2
+  color: #000000
+  display: flex
+  @include m.media(laptop, tablet, phone)
+    display: block
+  .column
+    padding: 0 30px 50px 0
     @include m.media(laptop, tablet, phone)
-      display: block
-    .column
-        padding: 0 30px 50px 0
-        @include m.media(laptop, tablet, phone)
-            padding: 0
-        &:last-child
-            padding-left: 30px
-            padding-right: 0
-            border-left: solid 1px #e6e6e6
-            @include m.media(laptop, tablet, phone)
-                padding: 0
-                border-left: none
+      padding: 0
+    &:last-child
+      padding-left: 30px
+      padding-right: 0
+      border-left: solid 1px #e6e6e6
+      @include m.media(laptop, tablet, phone)
+        padding: 0
+        border-left: none
 
 .listItem
   @include m.media(laptop, tablet, phone)
-      padding: 12px 0
-      margin: 0
-      border-bottom: 1px solid #d9d9d9
-      &:first-child
-          border-top: 1px solid #d9d9d9
+    padding: 12px 0
+    margin: 0
+    border-bottom: 1px solid #d9d9d9
+    &:first-child
+      border-top: 1px solid #d9d9d9
   @include m.media(desktop, widescreen)
     &:not(:last-child)
       margin-bottom: 10px
@@ -55,20 +54,19 @@
         color: #ff3535
     
 .listTitle
-    font-weight: 500
-    margin-bottom: 4px
-    display: flex
-    position: relative
-    display: inline-block
-    
-    @include m.media(tablet, phone, laptop)
-      font-size: 19px
-      margin-top: 20px
-      &:first-child
-        margin-top: 10px
-    @include m.media(desktop, widescreen)
-      font-size: 24px
-      margin: 20px 0
+  font-weight: 500
+  margin-bottom: 4px
+  display: flex
+  position: relative
+  display: inline-block
+  @include m.media(tablet, phone, laptop)
+    font-size: 19px
+    margin-top: 20px
+    &:first-child
+      margin-top: 10px
+  @include m.media(desktop, widescreen)
+    font-size: 24px
+    margin: 20px 0
 
 .link
   font-weight: 400
@@ -102,17 +100,17 @@
     line-height: 1.2
 
 .programTitle
-    font-size: 36px
-    line-height: 1.2
-    font-weight: 700
-    margin-bottom: 12px
-    display: inline-block
-    position: relative
-    margin-bottom: 4px
-    @include m.media(desktop, laptop, tablet, phone)
-        font-size: 28px
-    @include m.media(laptop, tablet, phone)
-        margin-bottom: 22px
+  font-size: 36px
+  line-height: 1.2
+  font-weight: 700
+  margin-bottom: 12px
+  display: inline-block
+  position: relative
+  margin-bottom: 4px
+  @include m.media(desktop, laptop, tablet, phone)
+    font-size: 28px
+  @include m.media(laptop, tablet, phone)
+    margin-bottom: 22px
 
 .programDesc
   line-height: 1.2
@@ -120,32 +118,32 @@
   font-size: 20px
   font-weight: 400
   @include m.media(laptop, tablet, phone)
-      display: none
+    display: none
 
 .itemDiscount
-    display: flex
-    flex-direction: column
-    justify-content: center
-    width: 74px
-    height: 74px
-    position: absolute
-    border-radius: 50%
-    background: #ff3535
-    color: #fff
-    text-align: center
-    left: 100%
-    top: 50%
-    margin-top: -36px
-    margin-left: 35px
-    line-height: 1
-    transform: rotate(20deg)
-    padding-top: 20px
-    @include m.media(desktop, laptop, tablet, phone)
-        margin-left: 10px
-    span
-        font-size: 8px
-        font-family: 'mazzardH', Arial, Tahoma, sans-serif
-        font-weight: 400
+  display: flex
+  flex-direction: column
+  justify-content: center
+  width: 74px
+  height: 74px
+  position: absolute
+  border-radius: 50%
+  background: #ff3535
+  color: #fff
+  text-align: center
+  left: 100%
+  top: 50%
+  margin-top: -36px
+  margin-left: 35px
+  line-height: 1
+  transform: rotate(20deg)
+  padding-top: 20px
+  @include m.media(desktop, laptop, tablet, phone)
+    margin-left: 10px
+  span
+    font-size: 8px
+    font-family: 'mazzardH', Arial, Tahoma, sans-serif
+    font-weight: 400
 
 .itemDiscountAmount
   font-weight: bold
@@ -175,7 +173,3 @@
 
 .iconBottom
   margin-right: 10px
-
-
- 
-  
