@@ -6,7 +6,7 @@ import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/about'
 import { IconPaperCorner } from '@/components/icons'
 import { base64pixel } from '@/config/index'
-import WrapperComponent from '../layout/WrapperComponent'
+import Wrapper from '../layout/Wrapper'
 
 const Accreditation = () => {
   const logos = [
@@ -17,7 +17,7 @@ const Accreditation = () => {
 
   return (
     <section className={stls.container}>
-      <WrapperComponent classNames={[stls.wrapper]}>
+      <Wrapper classNames={[stls.wrapper]}>
         <div className={stls.image}>
           <Image
             src={imgData.accreditationImageAlt.src}
@@ -64,7 +64,7 @@ const Accreditation = () => {
             <span>{SetString(lang.accreditationLicenseLink)}</span>
           </a>
         </div>
-      </WrapperComponent>
+      </Wrapper>
     </section>
   )
 }

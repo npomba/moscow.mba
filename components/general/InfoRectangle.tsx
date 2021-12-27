@@ -8,7 +8,7 @@ import langMenu from '@/data/translation/menu'
 import { useAt } from '@/helpers/index'
 import Price from '@/components/costs/Price'
 import PopupInfo from '@/components/popups/PopupInfo'
-import WrapperComponent from '../layout/WrapperComponent'
+import Wrapper from '../layout/Wrapper'
 
 const InfoRectangle = ({
   programPage = false,
@@ -35,12 +35,12 @@ const InfoRectangle = ({
         itemDetail: at.online
           ? SetString(langMenu.formatRemote)
           : at.blended
-            ? SetString(langMenu.formatBlended)
-            : at.executive
-              ? SetString(langMenu.formatExecutive)
-              : at.mbl
-                ? SetString(langMenu.formatRemote)
-                : ''
+          ? SetString(langMenu.formatBlended)
+          : at.executive
+          ? SetString(langMenu.formatExecutive)
+          : at.mbl
+          ? SetString(langMenu.formatRemote)
+          : ''
       },
       {
         itemTitle: 'Ближайшее зачисление:',
@@ -69,7 +69,7 @@ const InfoRectangle = ({
               items: [
                 'Ликвидация оборота поддельных документов государственного образца об образовании',
                 'Обеспечение ведомств и работодателей достоверной информацией о квалификации претендентов на\n' +
-                'трудоустройство',
+                  'трудоустройство',
                 'Сокращение числа нарушений и коррупции в образовательных учреждениях',
                 'Повышение качества образования за счет обеспечения общественности достоверной информацией о выпускниках'
               ]
@@ -94,27 +94,27 @@ const InfoRectangle = ({
   const typeOfContent = at.index || at.promo ? 'academyInfo' : 'programInfo'
 
   return (
-      <ul
-        className={classNames(stls.container, {
-          [stls.programsPageContainer]: programPage,
-          [stls.academyInfoContainer]: at.index || at.promo
-        })}>
-        {infoRectangleContent[typeOfContent].map((item, idx) => (
-          <li
-            key={idx + item.itemDetail}
-            className={classNames(stls.item, {
-              [stls.academyInfoItem]: at.index || at.promo
+    <ul
+      className={classNames(stls.container, {
+        [stls.programsPageContainer]: programPage,
+        [stls.academyInfoContainer]: at.index || at.promo
+      })}>
+      {infoRectangleContent[typeOfContent].map((item, idx) => (
+        <li
+          key={idx + item.itemDetail}
+          className={classNames(stls.item, {
+            [stls.academyInfoItem]: at.index || at.promo
+          })}>
+          {item.itemTitle && <p className={stls.itemTitle}>{item.itemTitle}</p>}
+          <div
+            className={classNames(stls.itemDetail, {
+              [stls.academyInfoItemDetail]: at.index || at.promo
             })}>
-            {item.itemTitle && <p className={stls.itemTitle}>{item.itemTitle}</p>}
-            <div
-              className={classNames(stls.itemDetail, {
-                [stls.academyInfoItemDetail]: at.index || at.promo
-              })}>
-              {item.itemDetail}
-            </div>
-          </li>
-        ))}
-      </ul>
+            {item.itemDetail}
+          </div>
+        </li>
+      ))}
+    </ul>
   )
 }
 

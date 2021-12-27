@@ -9,7 +9,7 @@ import lang from '@/data/translation/header'
 import { ImgLogoRabo, ImgLogoMde } from '@/components/images'
 import menu from '@/data/translation/menu'
 import HeaderPrograms from '@/components/header/HeaderPrograms'
-import WrapperComponent from '@/components/layout/WrapperComponent'
+import Wrapper from '@/components/layout/Wrapper'
 
 const HeaderTabsModile = ({
   tabs,
@@ -30,7 +30,7 @@ const HeaderTabsModile = ({
   return (
     <div className={stls.container}>
       <div className={stls.content}>
-        <WrapperComponent classNames={[stls.wrapper]}>
+        <Wrapper classNames={[stls.wrapper]}>
           <ul className={stls.links}>
             <li
               onClick={() => setOpenMenu(true)}
@@ -64,20 +64,20 @@ const HeaderTabsModile = ({
               {SetString(contactInfo.ru.address.street)}
             </div>
           </div>
-        </WrapperComponent>
+        </Wrapper>
       </div>
       <div
         className={classnames(stls.content, stls.menuPrograms, {
           [stls.opened]: openMenu
         })}>
         <button className={stls.btn} onClick={() => setOpenMenu(false)}>
-          <WrapperComponent classNames={[stls.wrapperTitle]}>
+          <Wrapper classNames={[stls.wrapperTitle]}>
             <span />
             {SetString(menu.backBtn)}
-          </WrapperComponent>
+          </Wrapper>
         </button>
         <ul className={classnames(stls.menu, stls.programs)}>
-          <WrapperComponent classNames={[stls.wrapper]}>
+          <Wrapper classNames={[stls.wrapper]}>
             <p className={stls.title}>{SetString(lang.programsBtn)}</p>
             {tabs.map((item, idx) => {
               if (idx + 1 === tabs.length) {
@@ -102,7 +102,7 @@ const HeaderTabsModile = ({
                 )
               }
             })}
-          </WrapperComponent>
+          </Wrapper>
         </ul>
       </div>
       <div
@@ -110,21 +110,21 @@ const HeaderTabsModile = ({
           [stls.opened]: openProg
         })}>
         <button className={stls.btn} onClick={() => setOpenProg(false)}>
-          <WrapperComponent classNames={[stls.wrapperTitle]}>
+          <Wrapper classNames={[stls.wrapperTitle]}>
             <span />
             {SetString(menu.toProgramsBtn)}
-          </WrapperComponent>
+          </Wrapper>
         </button>
-        <WrapperComponent>
+        <Wrapper>
           <HeaderPrograms programs={programs} visible={visible} />
-        </WrapperComponent>
+        </Wrapper>
         <button
           className={classnames(stls.btn, stls.bottom)}
           onClick={() => setOpenProg(false)}>
-          <WrapperComponent classNames={[stls.wrapperTitle]}>
+          <Wrapper classNames={[stls.wrapperTitle]}>
             <span />
             {SetString(menu.toProgramsBtn)}
-          </WrapperComponent>
+          </Wrapper>
         </button>
       </div>
     </div>

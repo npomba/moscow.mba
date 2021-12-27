@@ -1,7 +1,6 @@
 import stls from '@/styles/components/sections/LegalDocuments.module.sass'
 import { IconPaperCorner } from '@/components/icons'
-import WrapperComponent from '../layout/WrapperComponent'
-
+import Wrapper from '../layout/Wrapper'
 
 const legalDocuments = [
   'Лицензия на осуществление образовательной деятельности',
@@ -33,7 +32,7 @@ const legalDocuments = [
 const LegalDocuments = () => {
   return (
     <section className={stls.container}>
-      <WrapperComponent classNames={[stls.wrapper]}>
+      <Wrapper classNames={[stls.wrapper]}>
         <div className={stls.content}>
           <h2 className={stls.title}>Нормативные документы</h2>
           <ul className={stls.list}>
@@ -51,7 +50,7 @@ const LegalDocuments = () => {
             ))}
           </ul>
         </div>
-      </WrapperComponent>
+      </Wrapper>
     </section>
   )
 }

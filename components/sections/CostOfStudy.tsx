@@ -10,7 +10,7 @@ import Loan from '@/components/costs/Loan'
 import Discount from '@/components/costs/Discount'
 import TrainingPeriod from '@/components/costs/TrainingPeriod'
 import ProgramSubjects from '@/components/general/ProgramSubjects'
-import WrapperComponent from '@/components/layout/WrapperComponent'
+import Wrapper from '@/components/layout/Wrapper'
 
 const PriceBlock = ({
   isDiscounted,
@@ -114,12 +114,12 @@ const CostOfStudy = ({
                 at.mini
                   ? 'mini'
                   : at.mba
-                    ? 'mba'
-                    : at.executive
-                      ? 'executive'
-                      : at.mbl
-                        ? 'mba'
-                        : null
+                  ? 'mba'
+                  : at.executive
+                  ? 'executive'
+                  : at.mbl
+                  ? 'mba'
+                  : null
               }
             />
           </li>
@@ -127,10 +127,10 @@ const CostOfStudy = ({
             {at.online
               ? 'Дистанционно'
               : at.blended
-                ? 'С очными модулями'
-                : at.mbl
-                  ? 'Дистанционно'
-                  : 'Очно'}
+              ? 'С очными модулями'
+              : at.mbl
+              ? 'Дистанционно'
+              : 'Очно'}
           </li>
           <li className={stls.listItem}>
             Ближайший набор{' '}
@@ -143,12 +143,12 @@ const CostOfStudy = ({
                 at.mini
                   ? 'mini'
                   : at.mba
-                    ? 'mba'
-                    : at.executive
-                      ? 'executive'
-                      : at.mbl
-                        ? 'mbl'
-                        : null
+                  ? 'mba'
+                  : at.executive
+                  ? 'executive'
+                  : at.mbl
+                  ? 'mbl'
+                  : null
               }
               subjects={'base'}
             />{' '}
@@ -161,12 +161,12 @@ const CostOfStudy = ({
                   at.mini
                     ? 'mini'
                     : at.mba
-                      ? 'mba'
-                      : at.executive
-                        ? 'executive'
-                        : at.mbl
-                          ? 'mba'
-                          : null
+                    ? 'mba'
+                    : at.executive
+                    ? 'executive'
+                    : at.mbl
+                    ? 'mba'
+                    : null
                 }
                 subjects={'specialty'}
               />{' '}
@@ -189,8 +189,8 @@ const CostOfStudy = ({
           {at.online
             ? 'Дистанционно'
             : at.blended
-              ? 'С очными модулями'
-              : 'Очно'}
+            ? 'С очными модулями'
+            : 'Очно'}
         </li>
         <li className={stls.listItem}>
           Ближайший набор <Until preposition={false} />
@@ -203,7 +203,7 @@ const CostOfStudy = ({
 
   return (
     <section className={stls.container}>
-      <WrapperComponent classNames={[stls.wrapper]}>
+      <Wrapper classNames={[stls.wrapper]}>
         {isDiscounted && (
           <div className={stls.discountSticker}>
             <div className={stls.discountSize}>
@@ -214,7 +214,8 @@ const CostOfStudy = ({
             </span>
           </div>
         )}
-        <h2 className={classNames({ [stls.bigMb]: at.profession || at.course })}>
+        <h2
+          className={classNames({ [stls.bigMb]: at.profession || at.course })}>
           Стоимость обучения
         </h2>
         <div className={stls.content}>
@@ -228,12 +229,12 @@ const CostOfStudy = ({
                 {at.mini
                   ? 'MBA Mini'
                   : at.mba
-                    ? 'MBA'
-                    : at.executive
-                      ? 'MBA Executive'
-                      : at.mbl
-                        ? 'MBA'
-                        : ''}
+                  ? 'MBA'
+                  : at.executive
+                  ? 'MBA Executive'
+                  : at.mbl
+                  ? 'MBA'
+                  : ''}
               </div>
             )}
             {list}
@@ -271,7 +272,7 @@ const CostOfStudy = ({
             </div>
           </div>
         </div>
-      </WrapperComponent>
+      </Wrapper>
     </section>
   )
 }

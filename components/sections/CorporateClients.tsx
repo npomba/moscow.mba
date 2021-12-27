@@ -5,7 +5,7 @@ import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/index'
 import imageData from '@/data/images/corporateClients'
 import { base64pixel } from '@/config/index'
-import WrapperComponent from '../layout/WrapperComponent'
+import Wrapper from '../layout/Wrapper'
 
 const CorporateClients = ({ partnershipTitle = false }) => {
   const title = partnershipTitle ? (
@@ -24,7 +24,7 @@ const CorporateClients = ({ partnershipTitle = false }) => {
 
   return (
     <section className={stls.container}>
-      <WrapperComponent classNames={[stls.wrapper]}>
+      <Wrapper classNames={[stls.wrapper]}>
         <div
           className={classNames(stls.titleContainer, {
             [stls.noPaddingLeft]: partnershipTitle
@@ -133,7 +133,7 @@ const CorporateClients = ({ partnershipTitle = false }) => {
             </li>
           </ul>
         </div>
-        </WrapperComponent>
+      </Wrapper>
     </section>
   )
 }

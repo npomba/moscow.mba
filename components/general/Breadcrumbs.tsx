@@ -2,7 +2,7 @@ import stls from '@/styles/components/general/Breadcrumbs.module.sass'
 import BreadcrumbItem from '@/components/general/BreadcrumbItem'
 import { useAt } from '@/helpers/index'
 import { useRouter } from 'next/router'
-import WrapperComponent from '../layout/WrapperComponent'
+import Wrapper from '../layout/Wrapper'
 
 const mainRoutes = [
   {
@@ -127,7 +127,7 @@ const Breadcrumbs = ({ programChunkData = {} }) => {
 
         idx === 0
           ? (acc.label[router.locale] +=
-            curr[0].toUpperCase() + curr.slice(1) + ' MBA ')
+              curr[0].toUpperCase() + curr.slice(1) + ' MBA ')
           : (acc.label[router.locale] += curr.toUpperCase())
 
         return acc
@@ -172,7 +172,7 @@ const Breadcrumbs = ({ programChunkData = {} }) => {
   return (
     <div
       className={[stls.breadcrumbsOuter, stls.jumbotronBreadcrumbs].join(' ')}>
-      <WrapperComponent>
+      <Wrapper>
         <ul className={stls.breadcrumbs}>
           {breadcrumbsList.map((route, idx) => {
             return (
@@ -187,7 +187,7 @@ const Breadcrumbs = ({ programChunkData = {} }) => {
             )
           })}
         </ul>
-      </WrapperComponent>
+      </Wrapper>
     </div>
   )
 }

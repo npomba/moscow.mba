@@ -10,7 +10,7 @@ import Stickers from '@/components/general/Stickers'
 import Sticker from '@/components/general/Sticker'
 import { IconCheckCircleAltDim } from '@/components/icons'
 import ProgramSubjects from '@/components/general/ProgramSubjects'
-import WrapperComponent from '@/components/layout/WrapperComponent'
+import Wrapper from '@/components/layout/Wrapper'
 
 const ProgramsModules = ({ program, smallerMb = false }) => {
   const at = useAt()
@@ -21,7 +21,7 @@ const ProgramsModules = ({ program, smallerMb = false }) => {
   return (
     <section
       className={classNames(stls.container, { [stls.smallMb]: smallerMb })}>
-      <WrapperComponent classNames={[stls.wrapper]}>
+      <Wrapper classNames={[stls.wrapper]}>
         <div className={stls.pl}>
           <h2>Программа обучения</h2>
           <ul className={stls.redRectangle}>
@@ -35,15 +35,15 @@ const ProgramsModules = ({ program, smallerMb = false }) => {
               </div>
               <p className={stls.p}>
                 {program.programModulesCounters?.leftCounter ===
-                  'specializedlAcademicDisciplines'
+                'specializedlAcademicDisciplines'
                   ? 'профильных дисциплин'
                   : program.programModulesCounters?.leftCounter ===
                     'academicDisciplines'
-                    ? 'дисциплин'
-                    : program.programModulesCounters?.leftCounter ===
-                      'generalAcademicDisciplines'
-                      ? 'дисциплин базовой части'
-                      : 'дисциплин'}
+                  ? 'дисциплин'
+                  : program.programModulesCounters?.leftCounter ===
+                    'generalAcademicDisciplines'
+                  ? 'дисциплин базовой части'
+                  : 'дисциплин'}
               </p>
             </li>
             <li className={stls.redItem}>
@@ -213,7 +213,7 @@ const ProgramsModules = ({ program, smallerMb = false }) => {
             )}
           </div>
         )}
-      </WrapperComponent>
+      </Wrapper>
     </section>
   )
 }

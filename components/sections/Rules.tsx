@@ -1,10 +1,10 @@
 import stls from '@/styles/components/sections/Rules.module.sass'
-import WrapperComponent from '@/components/layout/WrapperComponent'
+import Wrapper from '@/components/layout/Wrapper'
 
 const Rules = ({ prices }) => {
   return (
     <section className={stls.container}>
-      <WrapperComponent classNames={[stls.wrapper]}>
+      <Wrapper classNames={[stls.wrapper]}>
         <h2 className={stls.title}>Правила приема</h2>
         <div className={stls.content}>
           <h3 className={stls.rulesHeading}>Что требуется от кандидата</h3>
@@ -19,15 +19,18 @@ const Rules = ({ prices }) => {
             </li>
             <li className={stls.item}>
               Годовой оборот организации от {prices.lowerPrice} $ для
-              топ-менеджеров и от {prices.higherPrice} $ для собственников бизнеса
+              топ-менеджеров и от {prices.higherPrice} $ для собственников
+              бизнеса
             </li>
-            <li className={stls.item}>Признанные профессиональные достижения</li>
+            <li className={stls.item}>
+              Признанные профессиональные достижения
+            </li>
             <li className={stls.item}>
               Уровень владения английским языком не ниже уровня Pre-Intermediate
             </li>
           </ul>
         </div>
-      </WrapperComponent>
+      </Wrapper>
     </section>
   )
 }

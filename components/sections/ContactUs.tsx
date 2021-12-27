@@ -5,7 +5,7 @@ import lang from '@/data/translation/index'
 import { useState } from 'react'
 import LeadLoaderThankyou from '@/components/general/LeadLoaderThankyou'
 import { FormAlpha } from '@/components/forms'
-import WrapperComponent from '../layout/WrapperComponent'
+import Wrapper from '../layout/Wrapper'
 
 const ContactUs = ({
   programTitle = null,
@@ -13,8 +13,7 @@ const ContactUs = ({
   title = SetString(lang.helpToChooseTitle),
   titleNewStr = null,
   disc = SetString(lang.helpToChooseDics),
-  overlapsFooter = false,
-
+  overlapsFooter = false
 }) => {
   const [open, setOpen] = useState(false)
   const [openLoader, setOpenLoader] = useState(false)
@@ -25,7 +24,7 @@ const ContactUs = ({
       className={classNames(stls.container, {
         [stls.overlapsFooter]: overlapsFooter
       })}>
-      <WrapperComponent classNames={[stls.wrapper]}>
+      <Wrapper classNames={[stls.wrapper]}>
         <LeadLoaderThankyou
           open={open}
           setOpen={setOpen}
@@ -53,7 +52,7 @@ const ContactUs = ({
           setOpenLoader={setOpenLoader}
           setOpen={setOpen}
         />
-      </WrapperComponent>
+      </Wrapper>
     </section>
   )
 }

@@ -1,12 +1,11 @@
 import stls from '@/styles/components/sections/InPersonWithExperts.module.sass'
 import Image from 'next/image'
-import WrapperComponent from '@/components/layout/WrapperComponent'
-
+import Wrapper from '@/components/layout/Wrapper'
 
 const InPersonWithExperts = () => {
   return (
     <section className={stls.container}>
-      <WrapperComponent classNames={[stls.wrapper]}>
+      <Wrapper classNames={[stls.wrapper]}>
         <div className={stls.content}>
           <div className={stls.smallScreenTitle}>10 модулей</div>
           <h2>Очные модули с экспертами в Москве</h2>
@@ -16,8 +15,8 @@ const InPersonWithExperts = () => {
           <div className={stls.descContainer}>
             <p className={stls.desc}>
               Очные сессии помогут пообщаться с единомышленниками и решить
-              конкретные вопросы, которые встречаются в повседневной деятельности
-              компании
+              конкретные вопросы, которые встречаются в повседневной
+              деятельности компании
             </p>
             <p className={stls.desc}>
               Во время обучения Вы вместе с преподавателями проанализируете все
@@ -34,7 +33,7 @@ const InPersonWithExperts = () => {
             height={467}
           />
         </div>
-      </WrapperComponent>
+      </Wrapper>
     </section>
   )
 }

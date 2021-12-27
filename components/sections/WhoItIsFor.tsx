@@ -2,14 +2,14 @@ import stls from '@/styles/components/sections/WhoItIsFor.module.sass'
 import classNames from 'classnames'
 import { useAt } from '@/helpers/index'
 import WhoItIsForItem from '@/components/general/WhoItIsForItem'
-import WrapperComponent from '../layout/WrapperComponent'
+import Wrapper from '../layout/Wrapper'
 
 const WhoItIsFor = ({ program }) => {
   const at = useAt()
 
   return (
     <section className={stls.container}>
-      <WrapperComponent classNames={[stls.wrapper]}>
+      <Wrapper classNames={[stls.wrapper]}>
         <h2 className={stls.title}>
           {at.promo ? 'Форматы обучения' : 'Кому подойдет программа?'}
         </h2>
@@ -27,7 +27,7 @@ const WhoItIsFor = ({ program }) => {
               />
             ))}
         </div>
-      </WrapperComponent>
+      </Wrapper>
     </section>
   )
 }

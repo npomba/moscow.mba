@@ -3,14 +3,14 @@ import classNames from 'classnames'
 import { useAt } from '@/helpers/index'
 import Image from 'next/image'
 import { IconCheck } from '@/components/icons'
-import WrapperComponent from '../layout/WrapperComponent'
+import Wrapper from '../layout/Wrapper'
 
 const Pros = ({ format = 'online' }) => {
   const at = useAt()
   if (format === 'online') {
     return (
       <section className={stls.container}>
-        <WrapperComponent classNames={[stls.wrapper]}>
+        <Wrapper classNames={[stls.wrapper]}>
           <div className={stls.title}>
             {!at.profession && !at.course && (
               <>
@@ -29,10 +29,10 @@ const Pros = ({ format = 'online' }) => {
             {at.mini
               ? 'MBA mini'
               : at.mba
-                ? 'MBA'
-                : at.executive
-                  ? 'MBA executive'
-                  : 'курсе'}{' '}
+              ? 'MBA'
+              : at.executive
+              ? 'MBA executive'
+              : 'курсе'}{' '}
             мы обучаем онлайн. И делаем это качественно
           </h2>
           <div className={stls.content}>
@@ -42,12 +42,14 @@ const Pros = ({ format = 'online' }) => {
                   <IconCheck stroke={'#FF3535'} />
                 </div>
                 <div>
-                  <h5 className={stls.itemTitle}>Учитесь из любой точки мира</h5>
+                  <h5 className={stls.itemTitle}>
+                    Учитесь из любой точки мира
+                  </h5>
                   <p>
                     Обучение проходит на нашей образовательной платформе. Всё
                     собрано в личном кабинете: здесь удобно смотреть расписание,
-                    изучать материалы, записи прошедших лекций, загружать задания
-                    и получать по ним обратную связь
+                    изучать материалы, записи прошедших лекций, загружать
+                    задания и получать по ним обратную связь
                   </p>
                 </div>
               </li>
@@ -73,15 +75,17 @@ const Pros = ({ format = 'online' }) => {
                   <IconCheck stroke={'#FF3535'} />
                 </div>
                 <div>
-                  <h5 className={stls.itemTitle}>Получаете престижные дипломы</h5>
+                  <h5 className={stls.itemTitle}>
+                    Получаете престижные дипломы
+                  </h5>
                   <p>
                     {at.mini
                       ? 'Дипломы MBA mini online'
                       : at.mba
-                        ? 'Дипломы MBA online'
-                        : at.executive
-                          ? 'Дипломы MBA executive online'
-                          : 'Дипломы дистанционных программ'}{' '}
+                      ? 'Дипломы MBA online'
+                      : at.executive
+                      ? 'Дипломы MBA executive online'
+                      : 'Дипломы дистанционных программ'}{' '}
                     не отличаются от дипломов очных программ за счет того, что
                     преподают те же спикеры по тем же учебным программам
                   </p>
@@ -100,8 +104,9 @@ const Pros = ({ format = 'online' }) => {
                     online
                   </h5>
                   <p>
-                    На {at.profession || at.course ? 'курсе' : 'MBA mini online'}{' '}
-                    у Вас есть возможность задавать вопросы
+                    На{' '}
+                    {at.profession || at.course ? 'курсе' : 'MBA mini online'} у
+                    Вас есть возможность задавать вопросы
                     {at.profession || at.course
                       ? ' преподавателям'
                       : ' экспертам'}{' '}
@@ -120,7 +125,7 @@ const Pros = ({ format = 'online' }) => {
               />
             </div>
           </div>
-        </WrapperComponent>
+        </Wrapper>
       </section>
     )
   }
@@ -128,7 +133,7 @@ const Pros = ({ format = 'online' }) => {
   if (format === 'blended') {
     return (
       <section className={classNames(stls.container, stls.blendedContainer)}>
-        <WrapperComponent classNames={[stls.wrapper]}>
+        <Wrapper classNames={[stls.wrapper]}>
           <div className={stls.title}>
             online <br /> модули
           </div>
@@ -152,12 +157,14 @@ const Pros = ({ format = 'online' }) => {
                   <IconCheck stroke={'#FF3535'} />
                 </div>
                 <div>
-                  <h5 className={stls.itemTitle}>Учитесь из любой точки мира</h5>
+                  <h5 className={stls.itemTitle}>
+                    Учитесь из любой точки мира
+                  </h5>
                   <p>
                     Обучение проходит на нашей образовательной платформе. Всё
                     собрано в личном кабинете: здесь удобно смотреть расписание,
-                    изучать материалы, записи прошедших лекций, загружать задания
-                    и получать по ним обратную связь
+                    изучать материалы, записи прошедших лекций, загружать
+                    задания и получать по ним обратную связь
                   </p>
                 </div>
               </li>
@@ -190,10 +197,10 @@ const Pros = ({ format = 'online' }) => {
                     {at.mini
                       ? 'mini'
                       : at.mba
-                        ? 'mba'
-                        : at.executive
-                          ? 'executive'
-                          : null}{' '}
+                      ? 'mba'
+                      : at.executive
+                      ? 'executive'
+                      : null}{' '}
                     online у Вас есть возможность задавать вопросы экспертам во
                     время видео-встреч, а также через нашу образовательную
                     платформу
@@ -202,7 +209,7 @@ const Pros = ({ format = 'online' }) => {
               </li>
             </ul>
           </div>
-        </WrapperComponent>
+        </Wrapper>
       </section>
     )
   }

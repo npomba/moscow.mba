@@ -4,7 +4,7 @@ import CheckLicenses from '@/components/sections/CheckLicenses'
 import licenseP1 from '@/public/legaldocuments/license-p1.jpg'
 import licenseP2 from '@/public/legaldocuments/license-p2.jpg'
 import charterP1 from '@/public/legaldocuments/charter-p1.jpg'
-import WrapperComponent from '../layout/WrapperComponent'
+import Wrapper from '../layout/Wrapper'
 
 const licenses = [
   {
@@ -36,7 +36,7 @@ const licenses = [
 const CurrentLicenses = () => {
   return (
     <section>
-      <WrapperComponent classNames={[stls.wrapper]}>
+      <Wrapper classNames={[stls.wrapper]}>
         <div className={stls.content}>
           <h2 className={stls.subHeading}>Действующие лицензии</h2>
           <p>
@@ -55,7 +55,7 @@ const CurrentLicenses = () => {
           </div>
           <CheckLicenses />
         </div>
-      </WrapperComponent>
+      </Wrapper>
     </section>
   )
 }

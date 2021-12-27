@@ -2,7 +2,7 @@ import stls from '@/styles/components/sections/WhatWillYouLearn.module.sass'
 import classNames from 'classnames'
 import Image from 'next/image'
 import { base64pixel } from '@/config/index'
-import WrapperComponent from '../layout/WrapperComponent'
+import Wrapper from '../layout/Wrapper'
 
 const WhatWillYouLearn = ({ data = null }) => {
   const aboutAcademy = [
@@ -21,9 +21,9 @@ const WhatWillYouLearn = ({ data = null }) => {
 
   return (
     <section className={stls.container}>
-      <WrapperComponent classNames={[stls.wrapper]}>
+      <Wrapper classNames={[stls.wrapper]}>
         <div className={stls.content}>
-        <div className={stls.floatLeft}>
+          <div className={stls.floatLeft}>
             <div
               className={classNames(stls.floatLeft, {
                 [stls.smallPl]: !data
@@ -41,16 +41,16 @@ const WhatWillYouLearn = ({ data = null }) => {
                 )}
               </h2>
               <div className={stls.image}>
-              <Image
-                src='/assets/images/learning_pic_1.jpg'
-                width='651'
-                height='389'
-                alt='Слушатели во время конференции'
-                placeholder='blur'
-                blurDataURL={base64pixel}
-              />
+                <Image
+                  src='/assets/images/learning_pic_1.jpg'
+                  width='651'
+                  height='389'
+                  alt='Слушатели во время конференции'
+                  placeholder='blur'
+                  blurDataURL={base64pixel}
+                />
+              </div>
             </div>
-            </div> 
           </div>
           <div className={stls.floatRight}>
             <ul className={stls.list}>
@@ -65,7 +65,7 @@ const WhatWillYouLearn = ({ data = null }) => {
             </ul>
           </div>
         </div>
-      </WrapperComponent>
+      </Wrapper>
     </section>
   )
 }

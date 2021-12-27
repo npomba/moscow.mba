@@ -11,7 +11,7 @@ import InfoRectangle from '@/components/general/InfoRectangle'
 import { useAt } from '@/helpers/index'
 import LeadLoaderThankyou from '@/components/general/LeadLoaderThankyou'
 import { FormAlpha } from '@/components/forms'
-import WrapperComponent from '../layout/WrapperComponent'
+import Wrapper from '../layout/Wrapper'
 
 const JumbotronCta = ({ programTitle = null, programId = null }) => {
   const at = useAt()
@@ -36,7 +36,7 @@ const JumbotronCta = ({ programTitle = null, programId = null }) => {
           layout='fill'
         />
       </div>
-      <WrapperComponent classNames={[stls.wrapper]}>
+      <Wrapper classNames={[stls.wrapper]}>
         <div className={stls.content}>
           <Breadcrumbs />
           <div className={stls.flexContainer}>
@@ -123,10 +123,9 @@ const JumbotronCta = ({ programTitle = null, programId = null }) => {
               </li>
             </ul>
           </div>
-          
         </div>
-      </WrapperComponent>
-        <InfoRectangle />
+      </Wrapper>
+      <InfoRectangle />
     </section>
   )
 }

@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/about'
 import Image from 'next/image'
-import WrapperComponent from '../layout/WrapperComponent'
+import Wrapper from '../layout/Wrapper'
 
 const UpToDateContent = ({ withBottomLine = false }) => {
   return (
@@ -11,7 +11,7 @@ const UpToDateContent = ({ withBottomLine = false }) => {
       className={classNames(stls.container, {
         [stls.withLine]: withBottomLine
       })}>
-      <WrapperComponent classNames={[stls.wrapper]}>
+      <Wrapper classNames={[stls.wrapper]}>
         <div className={stls.section}>
           <h2>{SetString(lang.uptodateTitle)}</h2>
         </div>
@@ -67,7 +67,7 @@ const UpToDateContent = ({ withBottomLine = false }) => {
             </li>
           </ul>
         </div>
-      </WrapperComponent>
+      </Wrapper>
     </section>
   )
 }

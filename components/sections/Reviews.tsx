@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import PopupReview from '@/components/popups/PopupReview'
-import WrapperComponent from '../layout/WrapperComponent'
+import Wrapper from '../layout/Wrapper'
 
 const Reviews = () => {
   const reviews = [
@@ -47,47 +47,47 @@ const Reviews = () => {
   return (
     <>
       <section className={stls.container}>
-        <WrapperComponent classNames={[stls.wrapper]}>
-        <div className={stls.titleContainer}>
-          <h2>Что о нас говорят</h2>
-        </div>
-        <div className={stls.list}>
-          {reviews.map((review, idx) => {
-            return (
-              <div className={stls.item} key={review.id}>
-                <div className={stls.avatar}>
-                  <Image
-                    src={`/assets/images/reviews/${review.picUrl}`}
-                    alt={review.name}
-                    width={187}
-                    height={187}
-                  />
-                </div>
-                <div>
-                  <div className={stls.excerptContainer}>
-                    <p className={stls.excerpt}>
-                      {review.excerpt + ' '}
-                      <Popup
-                        trigger={<a className={stls.link}>Читать</a>}
-                        modal
-                        nested>
-                        {close => (
-                          <PopupReview
-                            closePopUp={close}
-                            review={reviews[idx]}
-                          />
-                        )}
-                      </Popup>
-                    </p>
+        <Wrapper classNames={[stls.wrapper]}>
+          <div className={stls.titleContainer}>
+            <h2>Что о нас говорят</h2>
+          </div>
+          <div className={stls.list}>
+            {reviews.map((review, idx) => {
+              return (
+                <div className={stls.item} key={review.id}>
+                  <div className={stls.avatar}>
+                    <Image
+                      src={`/assets/images/reviews/${review.picUrl}`}
+                      alt={review.name}
+                      width={187}
+                      height={187}
+                    />
                   </div>
-                  <div className={stls.name}>{review.name}</div>
-                  <div className={stls.job}>{review.profession}</div>
+                  <div>
+                    <div className={stls.excerptContainer}>
+                      <p className={stls.excerpt}>
+                        {review.excerpt + ' '}
+                        <Popup
+                          trigger={<a className={stls.link}>Читать</a>}
+                          modal
+                          nested>
+                          {close => (
+                            <PopupReview
+                              closePopUp={close}
+                              review={reviews[idx]}
+                            />
+                          )}
+                        </Popup>
+                      </p>
+                    </div>
+                    <div className={stls.name}>{review.name}</div>
+                    <div className={stls.job}>{review.profession}</div>
+                  </div>
                 </div>
-              </div>
-            )
-          })}
-        </div>
-        </WrapperComponent>
+              )
+            })}
+          </div>
+        </Wrapper>
       </section>
     </>
   )

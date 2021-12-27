@@ -18,7 +18,7 @@ import diplomaAddendumProfession from '@/public/assets/diplomas/profession/diplo
 
 import certificateCourses from '@/public/assets/diplomas/courses/certificate-courses.jpg'
 import qualificationCertificateCourses from '@/public/assets/diplomas/courses/qualification-certificate-courses.jpg'
-import WrapperComponent from '../layout/WrapperComponent'
+import Wrapper from '../layout/Wrapper'
 
 const profIndDocuments = [
   {
@@ -158,25 +158,25 @@ const documentsBasedOnProgram = [
 const OurDiplomasAndCertificates = () => {
   return (
     <section>
-      <WrapperComponent classNames={[stls.wrapper]}>
+      <Wrapper classNames={[stls.wrapper]}>
         <div className={stls.content}>
-        <h2 className={stls.subHeading}>Выдаваемые дипломы и сертификаты</h2>
-        <p className={stls.desc}>
-          Мы производим обучение на основании государственной лицензии №041221.
-          После окончания обучения в Moscow Business Academy Вы получите диплом о
-          профессиональной переподготовке установленного образца, диплом академии
-          и международный диплом Supplement, которые можно добавить в портфолио и
-          показать работодателю.
-        </p>
-        <AccordionsContainer
-          accordionsItems={documentsBasedOnProgram}
-          firstAccordionActive={true}
-          closeAll={false}
-          setCloseAll={() => { }}
-          scrollableIntoView={true}
-        />
+          <h2 className={stls.subHeading}>Выдаваемые дипломы и сертификаты</h2>
+          <p className={stls.desc}>
+            Мы производим обучение на основании государственной лицензии
+            №041221. После окончания обучения в Moscow Business Academy Вы
+            получите диплом о профессиональной переподготовке установленного
+            образца, диплом академии и международный диплом Supplement, которые
+            можно добавить в портфолио и показать работодателю.
+          </p>
+          <AccordionsContainer
+            accordionsItems={documentsBasedOnProgram}
+            firstAccordionActive={true}
+            closeAll={false}
+            setCloseAll={() => {}}
+            scrollableIntoView={true}
+          />
         </div>
-      </WrapperComponent>
+      </Wrapper>
     </section>
   )
 }

@@ -5,7 +5,7 @@ import { DefaultSeo, LogoJsonLd } from 'next-seo'
 import SEO from '../seo.config'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
-import Wrapper from '@/components/layout/Wrapper'
+import WrapperPage from '@/components/layout/WrapperPage'
 import Main from '@/components/layout/Main'
 import '@/styles/app.sass'
 import { dev, gtmId } from '@/config/index'
@@ -95,13 +95,13 @@ function MyApp({ Component, pageProps, router }) {
       <ProgramsState>
         <OverlayState>
           <MenuState>
-            <Wrapper>
+            <WrapperPage>
               <Header programs={programs} />
               <Main>
                 <Component {...pageProps} />
               </Main>
               <Footer />
-            </Wrapper>
+            </WrapperPage>
           </MenuState>
         </OverlayState>
       </ProgramsState>

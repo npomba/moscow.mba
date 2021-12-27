@@ -4,7 +4,7 @@ import { useState } from 'react'
 import studentPhoto from '@/public/assets/images/student-using-laptop.jpg'
 import Image from 'next/image'
 import { useAt } from '@/helpers/index'
-import WrapperComponent from '@/components/layout/WrapperComponent'
+import Wrapper from '@/components/layout/Wrapper'
 
 const HowProcessGoes = () => {
   const [activeStep, setActiveStep] = useState(0)
@@ -63,60 +63,60 @@ const HowProcessGoes = () => {
   ]
 
   return (
-      <section className={stls.container}>
-        <WrapperComponent classNames={[stls.content]}>
-          <div className={stls.titleContainer}>
-            <h2 className={stls.title}>Как проходит процесс обучения</h2>
-            {at.profession ||
-              (at.course && (
-                <div className={stls.studentPhoto}>
-                  <Image
-                    src={studentPhoto}
-                    height={337}
-                    width={506}
-                    alt={'Студент академии сидит перед ноутбуком'}
-                  />
-                </div>
-              ))}
-          </div>
-          <div className={stls.infoContainer}>
-            <ul className={stls.tabsList}>
-              {processSteps.map((step, idx) => (
-                <li
-                  key={step.tabTitle + idx}
-                  className={stls.tabItem}
-                  onClick={() => setActiveStep(idx)}>
-                  <a
-                    className={classNames(
-                      stls.tabLink,
-                      idx === activeStep && stls.activeTabLink
-                    )}>
-                    {step.tabTitle}
-                  </a>
-                </li>
-              ))}
-            </ul>
-            {processSteps.map((step, idx) => (
-              <div
-                key={idx + step.tabTitle}
-                className={classNames(
-                  stls.processStep,
-                  idx === activeStep && stls.activeProcessStep
-                )}>
-                <div className={stls.processStepNumber}>{idx + 1}</div>
-                <div className={stls.processStepTitle}>{step.stepTitle}</div>
-                <ul className={stls.list}>
-                  {step.listItems.map((item, idx) => (
-                    <li key={item + idx} className={stls.listItem}>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
+    <section className={stls.container}>
+      <Wrapper classNames={[stls.content]}>
+        <div className={stls.titleContainer}>
+          <h2 className={stls.title}>Как проходит процесс обучения</h2>
+          {at.profession ||
+            (at.course && (
+              <div className={stls.studentPhoto}>
+                <Image
+                  src={studentPhoto}
+                  height={337}
+                  width={506}
+                  alt={'Студент академии сидит перед ноутбуком'}
+                />
               </div>
             ))}
-          </div>
-        </WrapperComponent>
-      </section>
+        </div>
+        <div className={stls.infoContainer}>
+          <ul className={stls.tabsList}>
+            {processSteps.map((step, idx) => (
+              <li
+                key={step.tabTitle + idx}
+                className={stls.tabItem}
+                onClick={() => setActiveStep(idx)}>
+                <a
+                  className={classNames(
+                    stls.tabLink,
+                    idx === activeStep && stls.activeTabLink
+                  )}>
+                  {step.tabTitle}
+                </a>
+              </li>
+            ))}
+          </ul>
+          {processSteps.map((step, idx) => (
+            <div
+              key={idx + step.tabTitle}
+              className={classNames(
+                stls.processStep,
+                idx === activeStep && stls.activeProcessStep
+              )}>
+              <div className={stls.processStepNumber}>{idx + 1}</div>
+              <div className={stls.processStepTitle}>{step.stepTitle}</div>
+              <ul className={stls.list}>
+                {step.listItems.map((item, idx) => (
+                  <li key={item + idx} className={stls.listItem}>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </Wrapper>
+    </section>
   )
 }
 

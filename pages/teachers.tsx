@@ -7,7 +7,7 @@ import { handleGetStaticProps } from '@/helpers/index'
 
 import Breadcrumbs from '@/components/general/Breadcrumbs'
 import HandleGetPrograms from '@/helpers/HandleGetPrograms'
-import WrapperComponent from '@/components/layout/WrapperComponent'
+import Wrapper from '@/components/layout/Wrapper'
 
 const PageTeachers = ({ programs, teachers }) => {
   HandleGetPrograms(programs)
@@ -22,9 +22,9 @@ const PageTeachers = ({ programs, teachers }) => {
         canonical={'https://moscow.mba/teachers'}
       />
       <section className={breadcrumbsStls.jumbotronGeneral}>
-        <WrapperComponent>
+        <Wrapper>
           <Breadcrumbs />
-        </WrapperComponent>
+        </Wrapper>
       </section>
       <Teachers atStandAlonePage teachers={teachers} />
     </>

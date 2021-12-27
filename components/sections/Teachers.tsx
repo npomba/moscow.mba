@@ -11,7 +11,7 @@ import imagesData from '@/data/images/teachers'
 import { IconCheck } from '@/components/icons'
 import { base64pixel } from '@/config/index'
 import classNames from 'classnames'
-import WrapperComponent from '../layout/WrapperComponent'
+import Wrapper from '../layout/Wrapper'
 
 const splitParaText = (string, splitBy) => {
   let firstPartOfString, secondPartOfString
@@ -164,7 +164,7 @@ const Teachers = ({
           [stls.container]: true,
           [stls.standalonePage]: atStandAlonePage
         })}>
-        <WrapperComponent classNames={[stls.wrapper]}>
+        <Wrapper classNames={[stls.wrapper]}>
           <div className={stls.sectionPl}>
             <div className={stls.titlePl}>
               {SetString(lang.teachersTitleLabel)}
@@ -244,7 +244,9 @@ const Teachers = ({
                     <h5>{SetString(lang.teachersListItemTitleSecond)}</h5>
                     <p>
                       {secondParaPartOne}
-                      <span className={stls.breakLine}>{secondParaPartTwo}</span>
+                      <span className={stls.breakLine}>
+                        {secondParaPartTwo}
+                      </span>
                     </p>
                   </div>
                 </li>
@@ -361,7 +363,7 @@ const Teachers = ({
               </Popup>
             </div>
           )}
-        </WrapperComponent>
+        </Wrapper>
       </section>
     </>
   )

@@ -1,7 +1,7 @@
 import stls from '@/styles/components/sections/HelpWithEmployment.module.sass'
 import HelpWithEmploymentItem from '@/components/general/HelpWIthEmploymentItem'
 import useAt from '@/helpers/useAt'
-import WrapperComponent from '../layout/WrapperComponent'
+import Wrapper from '../layout/Wrapper'
 
 const HelpWithEmployment = () => {
   const at = useAt()
@@ -36,16 +36,16 @@ const HelpWithEmployment = () => {
 
   return (
     <section className={stls.section}>
-      <WrapperComponent classNames={[stls.wrapper]}>
-      <h2 className={stls.h2}>Мы помогаем в трудоустройстве</h2>
-      {employmentMeasures.map(({ title, description }, idx) => (
-        <HelpWithEmploymentItem
-          key={title + idx}
-          title={title}
-          description={description}
-        />
-      ))}
-      </WrapperComponent>
+      <Wrapper classNames={[stls.wrapper]}>
+        <h2 className={stls.h2}>Мы помогаем в трудоустройстве</h2>
+        {employmentMeasures.map(({ title, description }, idx) => (
+          <HelpWithEmploymentItem
+            key={title + idx}
+            title={title}
+            description={description}
+          />
+        ))}
+      </Wrapper>
     </section>
   )
 }

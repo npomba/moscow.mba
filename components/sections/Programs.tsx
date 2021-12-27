@@ -12,7 +12,7 @@ import Discount from '@/components/costs/Discount'
 import { IconCheckCircle, IconScreen } from '@/components/icons'
 import { useState } from 'react'
 import classNames from 'classnames'
-import WrapperComponent from '../layout/WrapperComponent'
+import Wrapper from '../layout/Wrapper'
 
 const Programs = ({ programs }) => {
   const data = programs
@@ -34,9 +34,9 @@ const Programs = ({ programs }) => {
   }
 
   return (
-      <section className='program-options-section'>
-        <WrapperComponent classNames={[stls.wrapper]}>
-          <div className='program-options-flex'>
+    <section className='program-options-section'>
+      <Wrapper classNames={[stls.wrapper]}>
+        <div className='program-options-flex'>
           <div className='program-options-left'>
             <h2>{SetString(langHeader.programsBtn)}</h2>
             <ul className='program-options-tabs'>
@@ -139,13 +139,13 @@ const Programs = ({ programs }) => {
                   <div className='info-list'>
                     <div className='info-flex'>
                       <div className='pic'>
-                        <IconCheckCircle/>
+                        <IconCheckCircle />
                       </div>
                       <span>{SetString(langMenu.formatRemote)}</span>
                     </div>
                     <div className='info-flex'>
                       <div className='pic'>
-                        <IconScreen/>
+                        <IconScreen />
                       </div>
                       <span>
                         <ProgramSubjects type='mini' sum={true} />{' '}
@@ -375,8 +375,8 @@ const Programs = ({ programs }) => {
             </div>
           </div>
         </div>
-        </WrapperComponent>
-      </section>
+      </Wrapper>
+    </section>
   )
 }
 

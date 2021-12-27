@@ -1,14 +1,14 @@
 import stls from '@/styles/components/sections/BlendedMetups.module.sass'
 import Image from 'next/image'
 import { useAt } from '@/helpers/index'
-import WrapperComponent from '../layout/WrapperComponent'
+import Wrapper from '../layout/Wrapper'
 
 const BlendedMetups = () => {
   const at = useAt()
 
   return (
     <section className={stls.container}>
-      <WrapperComponent classNames={[stls.wrapper]}>
+      <Wrapper classNames={[stls.wrapper]}>
         <div className={stls.titleContainer}>3 очных модуля</div>
         <h2 className={stls.title}>
           {at.mini ? 'MBA mini' : at.mba ? 'MBA' : null} blended - это очные
@@ -43,7 +43,7 @@ const BlendedMetups = () => {
             </div>
           </div>
         </div>
-      </WrapperComponent>
+      </Wrapper>
     </section>
   )
 }

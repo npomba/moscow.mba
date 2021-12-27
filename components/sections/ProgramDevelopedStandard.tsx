@@ -1,12 +1,12 @@
 import stls from '@/styles/components/sections/ProgramDevelopedStandard.module.sass'
 import React from 'react'
 import { IconEmblem } from '@/components/icons'
-import WrapperComponent from '../layout/WrapperComponent'
+import Wrapper from '../layout/Wrapper'
 
 const ProgramDevelopedStandard: React.FC = () => {
   return (
     <section className={stls.container}>
-      <WrapperComponent classNames={[stls.wrapper]}>
+      <Wrapper classNames={[stls.wrapper]}>
         <IconEmblem classNames={stls.icon} />
         <div className={stls.content}>
           <div className={stls.title}>
@@ -20,7 +20,7 @@ const ProgramDevelopedStandard: React.FC = () => {
             </p>
           </div>
         </div>
-      </WrapperComponent>
+      </Wrapper>
     </section>
   )
 }
