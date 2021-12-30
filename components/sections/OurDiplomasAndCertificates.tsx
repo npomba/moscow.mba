@@ -1,7 +1,6 @@
 import stls from '@/styles/components/sections/OurDiplomasAndCertificates.module.sass'
-import classNames from 'classnames'
+import cn from 'classnames'
 import { AccordionsContainer } from '@/components/general'
-
 import academyDiplomaProfInd from '@/public/assets/diplomas/profind/diploma-profind.jpg'
 import qualificationDiplomaProfInd from '@/public/assets/diplomas/profind/qualification-diploma-profind.jpg'
 import diplomaAddendumProfInd from '@/public/assets/diplomas/profind/diploma-addendum-profind.jpg'

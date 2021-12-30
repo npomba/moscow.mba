@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/ContactUs.module.sass'
-import classNames from 'classnames'
+import cn from 'classnames'
 import { SetString, useAt } from '@/helpers/index'
 import lang from '@/data/translation/index'
 import { useState } from 'react'
@@ -21,7 +21,7 @@ const ContactUs = ({
 
   return (
     <section
-      className={classNames(stls.container, {
+      className={cn(stls.container, {
         [stls.overlapsFooter]: overlapsFooter
       })}>
       <Wrapper classNames={[stls.wrapper]}>

@@ -21,7 +21,6 @@ import Accreditation from '@/components/sections/Accreditation'
 import Pros from '@/components/sections/Pros'
 import ECTSStandard from '@/components/sections/ECTSStandard'
 
-
 const PageOnlineProgram = ({ program, teachers }) => {
   const router = useRouter()
 
@@ -47,10 +46,10 @@ const PageOnlineProgram = ({ program, teachers }) => {
       <ProgramModules program={program} />
       <ECTSStandard />
       <Teachers
-          programId={program._id}
-          programTitle={program.title}
-          teachers={teachers}
-        />
+        programId={program._id}
+        programTitle={program.title}
+        teachers={teachers}
+      />
 
       <UpToDateContent withBottomLine />
       <CorporateClients />
@@ -59,19 +58,19 @@ const PageOnlineProgram = ({ program, teachers }) => {
       <Students />
       <Reviews />
       <CostOfStudy
-          programId={program._id}
-          programTitle={program.title}
-          programFormat={program.studyFormat}
-          programType={program.category?.type}
-        />
-        <Qna programId={program._id} programTitle={program.title} />
-        <ContactUs
-          programId={program._id}
-          programTitle={program.title}
-          title={''}
-          titleNewStr={'Получите консультацию по программам MBA'}
-          overlapsFooter
-        />
+        programId={program._id}
+        programTitle={program.title}
+        programFormat={program.studyFormat}
+        programType={program.category?.type}
+      />
+      <Qna programId={program._id} programTitle={program.title} />
+      <ContactUs
+        programId={program._id}
+        programTitle={program.title}
+        title={''}
+        titleNewStr={'Получите консультацию по программам MBA'}
+        overlapsFooter
+      />
     </>
   )
 }

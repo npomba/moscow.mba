@@ -1,7 +1,7 @@
 import stls from '@/styles/components/sections/AboutExecutive.module.sass'
-import classNames from 'classnames'
-import { ImgStudentsDuringConference } from '@/components/images'
+import cn from 'classnames'
 import { Wrapper } from '@/components/layout'
+import { ImgStudentsDuringConference } from '@/components/images'
 
 const AboutExecutive = () => {
   return (
@@ -29,10 +29,10 @@ const AboutExecutive = () => {
             </div>
           </div>
           <div className={stls.imagesContainer}>
-            <div className={classNames(stls.image, stls.imageOne)}>
+            <div className={cn(stls.image, stls.imageOne)}>
               <ImgStudentsDuringConference />
             </div>
-            <div className={classNames(stls.image, stls.imageTwo)}>
+            <div className={cn(stls.image, stls.imageTwo)}>
               <div className={stls.number}>
                 200+<sup></sup>
               </div>

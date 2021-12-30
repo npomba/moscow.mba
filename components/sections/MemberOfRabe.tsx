@@ -1,7 +1,8 @@
 import stls from '@/styles/components/sections/MemberOfRabe.module.sass'
 import { ImageContainer } from '@/components/general'
+import cn from 'classnames'
+import { Wrapper } from '@/components/layout'
 import rabeP1 from '@/public/legaldocuments/rabe-p1.jpg'
-import Wrapper from '../layout/Wrapper'
 
 const rabeImage = {
   path: rabeP1,

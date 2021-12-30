@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/CostOfStudy.module.sass'
-import classNames from 'classnames'
+import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import Until from '@/components/costs/Until'
@@ -11,6 +11,7 @@ import Discount from '@/components/costs/Discount'
 import TrainingPeriod from '@/components/costs/TrainingPeriod'
 import { ProgramSubjects } from '@/components/general'
 import { Wrapper } from '@/components/layout'
+import { ImgDiscountDecoration } from '@/components/images'
 
 const PriceBlock = ({
   isDiscounted,
@@ -214,13 +215,12 @@ const CostOfStudy = ({
             </span>
           </div>
         )}
-        <h2
-          className={classNames({ [stls.bigMb]: at.profession || at.course })}>
+        <h2 className={cn({ [stls.bigMb]: at.profession || at.course })}>
           Стоимость обучения
         </h2>
         <div className={stls.content}>
           <div
-            className={classNames({
+            className={cn({
               [stls.contentBlock]: true,
               [stls.flexBlock]: at.profession || at.course
             })}>
@@ -240,7 +240,7 @@ const CostOfStudy = ({
             {list}
           </div>
           <div
-            className={classNames(stls.contentBlock, {
+            className={cn(stls.contentBlock, {
               [stls.verticalSeparatorLine]: at.profession || at.course
             })}>
             <PriceBlock
@@ -253,7 +253,7 @@ const CostOfStudy = ({
               programPrice={(at.profession || at.course) && programPrice}
             />
             <div
-              className={classNames(stls.buttonBlock, {
+              className={cn(stls.buttonBlock, {
                 [stls.noMb]: at.profession || at.course
               })}>
               <Popup

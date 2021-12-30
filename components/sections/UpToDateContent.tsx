@@ -1,14 +1,14 @@
 import stls from '@/styles/components/sections/UpToDateContent.module.sass'
-import classNames from 'classnames'
-import { SetString } from '@/helpers/index'
-import lang from '@/data/translation/about'
 import Image from 'next/image'
-import Wrapper from '../layout/Wrapper'
+import cn from 'classnames'
+import { SetString } from '@/helpers/index'
+import { Wrapper } from '@/components/layout'
+import lang from '@/data/translation/about'
 
 const UpToDateContent = ({ withBottomLine = false }) => {
   return (
     <section
-      className={classNames(stls.container, {
+      className={cn(stls.container, {
         [stls.withLine]: withBottomLine
       })}>
       <Wrapper classNames={[stls.wrapper]}>

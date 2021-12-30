@@ -1,6 +1,6 @@
 import stls from '@/styles/components/images/ImgTemplate.module.sass'
 import Image from 'next/image'
-import classnames from 'classnames'
+import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 
 type ImgTemplateType = {
@@ -21,7 +21,7 @@ const ImgTemplate = ({
   const container = getClassNames({ classNames })
 
   return (
-    <div className={classnames([stls.container], container)}>
+    <div className={cn([stls.container], container)}>
       <Image
         src={src}
         alt={alt}

@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/CourseOptions.module.sass'
 import { useState, useRef } from 'react'
-import classNames from 'classnames'
+import cn from 'classnames'
 import { AccordionsContainer, Pagination } from '@/components/general'
 
 const CourseOptions = ({ data }) => {
@@ -60,7 +60,7 @@ const CourseOptions = ({ data }) => {
         <p className={stls.coursesNumber}>{numberOfCourses}+ направлений</p>
       </div>
       <div
-        className={classNames({
+        className={cn({
           [stls.content]: true,
           ['accordionsContent']: true
         })}>

@@ -1,10 +1,10 @@
 import stls from '@/styles/components/sections/HowProcessGoes.module.sass'
-import classNames from 'classnames'
-import { useState } from 'react'
-import studentPhoto from '@/public/assets/images/student-using-laptop.jpg'
 import Image from 'next/image'
+import { useState } from 'react'
+import cn from 'classnames'
 import { useAt } from '@/helpers/index'
 import { Wrapper } from '@/components/layout'
+import studentPhoto from '@/public/assets/images/student-using-laptop.jpg'
 
 const HowProcessGoes = () => {
   const [activeStep, setActiveStep] = useState(0)
@@ -87,7 +87,7 @@ const HowProcessGoes = () => {
                 className={stls.tabItem}
                 onClick={() => setActiveStep(idx)}>
                 <a
-                  className={classNames(
+                  className={cn(
                     stls.tabLink,
                     idx === activeStep && stls.activeTabLink
                   )}>
@@ -99,7 +99,7 @@ const HowProcessGoes = () => {
           {processSteps.map((step, idx) => (
             <div
               key={idx + step.tabTitle}
-              className={classNames(
+              className={cn(
                 stls.processStep,
                 idx === activeStep && stls.activeProcessStep
               )}>

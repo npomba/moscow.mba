@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import OverlayContext from '@/context/overlay/overlayContext'
 import MenuContext from '@/context/menu/menuContext'
-import classNames from 'classnames'
+import cn from 'classnames'
 
 const Main = ({ children }) => {
   const { overlayIsShown, showOverlay, hideOverlay, toggleOverlay } =
@@ -16,7 +16,7 @@ const Main = ({ children }) => {
   }
   return (
     <main
-      className={classNames({
+      className={cn({
         'main-content': true,
         'show-overlay': overlayIsShown
       })}

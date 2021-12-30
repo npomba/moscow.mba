@@ -1,16 +1,16 @@
 import stls from '@/styles/components/sections/Executive.module.sass'
-import classNames from 'classnames'
+import cn from 'classnames'
 import Link from 'next/link'
 import Image from 'next/image'
+import { base64pixel } from '@/config/index'
 import { SetString } from '@/helpers/index'
-import lang from '@/data/translation/index'
-import langMenu from '@/data/translation/menu'
-import imageData from '@/data/images/executive'
+import { Wrapper } from '@/components/layout'
+import { ProgramSubjects } from '@/components/general'
 import Price from '@/components/costs/Price'
 import TrainingPeriod from '@/components/costs/TrainingPeriod'
-import { ProgramSubjects } from '@/components/general'
-import { base64pixel } from '@/config/index'
-import { Wrapper } from '@/components/layout'
+import imageData from '@/data/images/executive'
+import lang from '@/data/translation/index'
+import langMenu from '@/data/translation/menu'
 
 const Executive = () => {
   return (
@@ -47,7 +47,7 @@ const Executive = () => {
             </Link>
           </div>
           <div className={stls.imagesContainer}>
-            <div className={classNames(stls.image, stls.imageOne)}>
+            <div className={cn(stls.image, stls.imageOne)}>
               <Image
                 src={imageData.largerCircle.src}
                 alt={SetString(imageData.largerCircle.alt)}
@@ -57,7 +57,7 @@ const Executive = () => {
                 blurDataURL={base64pixel}
               />
             </div>
-            <div className={classNames(stls.image, stls.imageTwo)}>
+            <div className={cn(stls.image, stls.imageTwo)}>
               <Image
                 src={imageData.smallerCircle.src}
                 alt={SetString(imageData.smallerCircle.alt)}

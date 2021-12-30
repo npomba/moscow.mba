@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/JumbotronProgram.module.sass'
-import classNames from 'classnames'
+import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import Image from 'next/image'
@@ -14,6 +14,7 @@ import Discount from '@/components/costs/Discount'
 import { useAt } from '@/helpers/index'
 import { IconCheckCircleAlt } from '@/components/icons'
 import Loan from '@/components/costs/Loan'
+import { ImgDiscountDecoration } from '@/components/images'
 
 const JumbotronProgram = ({ program }) => {
   const at = useAt()
@@ -41,8 +42,8 @@ const JumbotronProgram = ({ program }) => {
           <Breadcrumbs programChunkData={program} />
           <div className={stls.contentTop}>
             {(at.online || at.mbl) && (
-              <div
-                className={classNames(stls.discountSticker, stls.leftCorner)}>
+              <div className={cn(stls.discountSticker, stls.leftCorner)}>
+                <ImgDiscountDecoration classNames={[stls.decoration]} />
                 <div className={stls.discountAmount}>
                   <Discount />
                 </div>
@@ -58,7 +59,7 @@ const JumbotronProgram = ({ program }) => {
           <div className={stls.flexContainer}>
             <div className={stls.descContainer}>
               <h1
-                className={classNames({
+                className={cn({
                   [stls.smallerTitle]: at.profession || at.course
                 })}>
                 {program.title}
@@ -92,6 +93,7 @@ const JumbotronProgram = ({ program }) => {
                         type={program.category?.type}
                         format={program.studyFormat}
                         notComparingPrices
+                        programPrice={program.price}
                       />
                     </p>
                   </div>

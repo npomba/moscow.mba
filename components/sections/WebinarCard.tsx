@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/WebinarCard.module.sass'
-import classNames from 'classnames'
+import cn from 'classnames'
 import Image from 'next/image'
 import PopupForm from '@/components/popups/PopupForm'
 import Popup from 'reactjs-popup'
@@ -22,7 +22,7 @@ const WebinarCard = ({
       <Popup
         trigger={
           <a
-            className={classNames(stls.container, {
+            className={cn(stls.container, {
               [stls.disabled]: disabled
             })}
             data-effect='mfp-zoom-in'>

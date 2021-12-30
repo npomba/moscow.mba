@@ -1,11 +1,11 @@
 import stls from '@/styles/components/sections/CorporateClients.module.sass'
-import classNames from 'classnames'
 import Image from 'next/image'
+import cn from 'classnames'
 import { SetString } from '@/helpers/index'
-import lang from '@/data/translation/index'
-import imageData from '@/data/images/corporateClients'
 import { base64pixel } from '@/config/index'
-import Wrapper from '../layout/Wrapper'
+import { Wrapper } from '@/components/layout'
+import imageData from '@/data/images/corporateClients'
+import lang from '@/data/translation/index'
 
 const CorporateClients = ({ partnershipTitle = false }) => {
   const title = partnershipTitle ? (
@@ -26,7 +26,7 @@ const CorporateClients = ({ partnershipTitle = false }) => {
     <section className={stls.container}>
       <Wrapper classNames={[stls.wrapper]}>
         <div
-          className={classNames(stls.titleContainer, {
+          className={cn(stls.titleContainer, {
             [stls.noPaddingLeft]: partnershipTitle
           })}>
           <div className={stls.title}>{title}</div>

@@ -2,7 +2,6 @@ import stls from '@/styles/components/general/ProgramsColumn.module.sass'
 import { useContext, useState } from 'react'
 import Link from 'next/link'
 import cn from 'classnames'
-import langMenu from '@/data/translation/menu'
 import { SetString } from '@/helpers/index'
 import Until from '@/components/costs/Until'
 import Price from '@/components/costs/Price'
@@ -11,6 +10,7 @@ import TrainingPeriod from '@/components/costs/TrainingPeriod'
 import Discount from '@/components/costs/Discount'
 import MenuContext from '@/context/menu/menuContext'
 import OverlayContext from '@/context/overlay/overlayContext'
+import ImgDiscountDecoration from '@/components/images/newyears/ImgDiscountDecoration'
 import {
   IconCheckCircle,
   IconScreen,
@@ -18,6 +18,7 @@ import {
   IconClock,
   IconArrowLeft
 } from '@/components/icons'
+import langMenu from '@/data/translation/menu'
 
 const ProgramsColumn = ({ data, id, type }) => {
   const { closeMenu } = useContext(MenuContext)
@@ -131,6 +132,7 @@ const ProgramsColumn = ({ data, id, type }) => {
           <div className={stls.itemTitle}>
             {SetString(langMenu.onlineTitle)}
             <div className={stls.itemDiscount}>
+              <ImgDiscountDecoration classNames={[stls.decoration]} />
               <div className={stls.itemDiscountAmount}>
                 <Discount />
               </div>

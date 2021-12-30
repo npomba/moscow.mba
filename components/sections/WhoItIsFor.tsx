@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/WhoItIsFor.module.sass'
-import classNames from 'classnames'
+import cn from 'classnames'
 import { useAt } from '@/helpers/index'
 import { WhoItIsForItem } from '@/components/general'
 import { Wrapper } from '@/components/layout'
@@ -14,7 +14,7 @@ const WhoItIsFor = ({ program }) => {
           {at.promo ? 'Форматы обучения' : 'Кому подойдет программа?'}
         </h2>
         <div
-          className={classNames(stls.itemsContainer, {
+          className={cn(stls.itemsContainer, {
             [stls.noBottomLine]: at.promo
           })}>
           {program.whoIsFor &&

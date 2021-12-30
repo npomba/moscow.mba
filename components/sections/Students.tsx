@@ -1,16 +1,16 @@
 import stls from '@/styles/components/sections/Students.module.sass'
-import classNames from 'classnames'
-import { useAt } from '@/helpers/index'
-import { CircularProgressbarWithChildren } from 'react-circular-progressbar'
 import Image from 'next/image'
-import Wrapper from '../layout/Wrapper'
+import cn from 'classnames'
+import { CircularProgressbarWithChildren } from 'react-circular-progressbar'
+import { useAt } from '@/helpers/index'
+import { Wrapper } from '@/components/layout'
 
 const Students = () => {
   const at = useAt()
 
   return (
     <section className={stls.container}>
-      <Wrapper classNames={[stls.wrapper]}>
+      <Wrapper>
         <div className={stls.title}>Более 2000</div>
         <div className={stls.content}>
           <div className={stls.detail}>
@@ -56,7 +56,7 @@ const Students = () => {
             </ul>
           </div>
           <div className={stls.imagesContainer}>
-            <div className={classNames(stls.image, stls.imageOne)}>
+            <div className={cn(stls.image, stls.imageOne)}>
               <Image
                 src='/assets/images/students_pic_1.png'
                 alt='Группа счастливых выпускников'
@@ -64,7 +64,7 @@ const Students = () => {
                 height={473}
               />
             </div>
-            <div className={classNames(stls.image, stls.imageTwo)}>
+            <div className={cn(stls.image, stls.imageTwo)}>
               <Image
                 src='/assets/images/students_pic_2.jpg'
                 alt='Счастливый выпускник'

@@ -1,19 +1,18 @@
 import stls from '@/styles/components/header/HeaderNav.module.sass'
-import SetString from '@/helpers/SetString'
-import lang from '@/data/translation/header'
-import classnames from 'classnames'
 import Link from 'next/link'
+import cn from 'classnames'
+import { SetString, getClassNames } from '@/helpers/index'
 import { Wrapper } from '@/components/layout'
-import getClassNames from '@/helpers/getClassNames'
+import lang from '@/data/translation/header'
 
 const HeaderNav = ({ links, handleMenu, openMenu, classNames = [] }) => {
   const container = getClassNames({ classNames })
   return (
-    <div className={classnames([stls.container], container)}>
+    <div className={cn([stls.container], container)}>
       <Wrapper>
         <div className={stls.menu}>
           <div
-            className={classnames(stls.toggle, {
+            className={cn(stls.toggle, {
               [stls.opened]: openMenu
             })}
             onClick={() => handleMenu(!openMenu)}>
@@ -30,7 +29,7 @@ const HeaderNav = ({ links, handleMenu, openMenu, classNames = [] }) => {
               <Link href={item.href} locale={item.locale}>
                 <a
                   onClick={() => handleMenu(false)}
-                  className={classnames(stls.link, {
+                  className={cn(stls.link, {
                     [stls.last]: idx + 1 === links.length,
                     [stls.active]: item.red
                   })}>

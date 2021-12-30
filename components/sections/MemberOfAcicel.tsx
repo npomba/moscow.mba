@@ -1,7 +1,8 @@
 import stls from '@/styles/components/sections/MemberOfAcicel.module.sass'
+import cn from 'classnames'
 import { ImageContainer } from '@/components/general'
+import { Wrapper } from '@/components/layout'
 import rabeP1 from '@/public/assets/images/accreditation/ecicel-accreditation.jpg'
-import Wrapper from '../layout/Wrapper'
 
 const rabeImage = {
   path: rabeP1,

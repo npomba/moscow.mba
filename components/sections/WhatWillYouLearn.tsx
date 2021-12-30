@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/WhatWillYouLearn.module.sass'
-import classNames from 'classnames'
+import cn from 'classnames'
 import Image from 'next/image'
 import { base64pixel } from '@/config/index'
 import Wrapper from '../layout/Wrapper'
@@ -23,33 +23,31 @@ const WhatWillYouLearn = ({ data = null }) => {
     <section className={stls.container}>
       <Wrapper classNames={[stls.wrapper]}>
         <div className={stls.content}>
-          <div className={stls.floatLeft}>
-            <div
-              className={classNames(stls.floatLeft, {
-                [stls.smallPl]: !data
-              })}>
-              <h2 className={stls.title}>
-                {data ? (
-                  <>
-                    Чему <br />
-                    Вы научитесь?
-                  </>
-                ) : (
-                  <>
-                    Moscow Business <br /> Academy это:
-                  </>
-                )}
-              </h2>
-              <div className={stls.image}>
-                <Image
-                  src='/assets/images/learning_pic_1.jpg'
-                  width='651'
-                  height='389'
-                  alt='Слушатели во время конференции'
-                  placeholder='blur'
-                  blurDataURL={base64pixel}
-                />
-              </div>
+          <div
+            className={cn(stls.floatLeft, {
+              [stls.smallPl]: !data
+            })}>
+            <h2 className={stls.title}>
+              {data ? (
+                <>
+                  Чему <br />
+                  Вы научитесь?
+                </>
+              ) : (
+                <>
+                  Moscow Business <br /> Academy это:
+                </>
+              )}
+            </h2>
+            <div className={stls.image}>
+              <Image
+                src='/assets/images/learning_pic_1.jpg'
+                width='651'
+                height='389'
+                alt='Слушатели во время конференции'
+                placeholder='blur'
+                blurDataURL={base64pixel}
+              />
             </div>
           </div>
           <div className={stls.floatRight}>

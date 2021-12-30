@@ -1,17 +1,18 @@
 import stls from '@/styles/components/sections/Programs.module.sass'
+import { useState } from 'react'
 import Link from 'next/link'
+import cn from 'classnames'
 import { SetString } from '@/helpers/index'
-import langMenu from '@/data/translation/menu'
-import langHeader from '@/data/translation/header'
-import Until from '@/components/costs/Until'
 import { ProgramSubjects, ProgramsQty } from '@/components/general'
+import { Wrapper } from '@/components/layout'
+import Until from '@/components/costs/Until'
 import Price from '@/components/costs/Price'
 import TrainingPeriod from '@/components/costs/TrainingPeriod'
 import Discount from '@/components/costs/Discount'
+import { ImgDiscountDecoration } from '@/components/images'
 import { IconCheckCircle, IconScreen } from '@/components/icons'
-import { useState } from 'react'
-import classNames from 'classnames'
-import { Wrapper } from '@/components/layout'
+import langMenu from '@/data/translation/menu'
+import langHeader from '@/data/translation/header'
 
 const Programs = ({ programs }) => {
   const data = programs
@@ -41,7 +42,7 @@ const Programs = ({ programs }) => {
             <ul className='program-options-tabs'>
               <li>
                 <a
-                  className={classNames({
+                  className={cn({
                     headerMenuTabs: true,
                     'active-tab': isMini
                   })}
@@ -51,7 +52,7 @@ const Programs = ({ programs }) => {
               </li>
               <li>
                 <a
-                  className={classNames({
+                  className={cn({
                     headerMenuTabs: true,
                     'active-tab': isMba
                   })}
@@ -73,7 +74,7 @@ const Programs = ({ programs }) => {
           </div>
           <div className='program-options-right'>
             <div
-              className={classNames({
+              className={cn({
                 'program-tabs-content': true,
                 visible: isMini
               })}>
@@ -96,14 +97,14 @@ const Programs = ({ programs }) => {
               <ul className='program-options-block-tabs--sctn-programs'>
                 <li>
                   <a
-                    className={classNames({ active: isMiniOnline })}
+                    className={cn({ active: isMiniOnline })}
                     onClick={() => setIsMiniOnline(true)}>
                     ONLINE
                   </a>
                 </li>
                 <li>
                   <a
-                    className={classNames({ active: !isMiniOnline })}
+                    className={cn({ active: !isMiniOnline })}
                     onClick={() => setIsMiniOnline(false)}>
                     BLENDED
                   </a>
@@ -111,13 +112,14 @@ const Programs = ({ programs }) => {
               </ul>
               <div className='program-options-detail'>
                 <div
-                  className={classNames({
+                  className={cn({
                     'program-options-block': true,
                     show: isMiniOnline
                   })}>
                   <div className='name'>
                     {SetString(langMenu.onlineTitle)}
                     <div className='discount'>
+                      <ImgDiscountDecoration classNames={[stls.decoration]} />
                       <div className='size'>
                         <Discount />
                       </div>
@@ -172,7 +174,7 @@ const Programs = ({ programs }) => {
                   </ul>
                 </div>
                 <div
-                  className={classNames({
+                  className={cn({
                     'program-options-block': true,
                     show: !isMiniOnline
                   })}>
@@ -225,7 +227,7 @@ const Programs = ({ programs }) => {
               </div>
             </div>
             <div
-              className={classNames({
+              className={cn({
                 'program-tabs-content': true,
                 visible: isMba
               })}>
@@ -248,14 +250,14 @@ const Programs = ({ programs }) => {
               <ul className='program-options-block-tabs--sctn-programs'>
                 <li>
                   <a
-                    className={classNames({ active: isMbaOnline })}
+                    className={cn({ active: isMbaOnline })}
                     onClick={() => setIsMbaOnline(true)}>
                     ONLINE
                   </a>
                 </li>
                 <li>
                   <a
-                    className={classNames({ active: !isMbaOnline })}
+                    className={cn({ active: !isMbaOnline })}
                     onClick={() => setIsMbaOnline(false)}>
                     BLENDED
                   </a>
@@ -263,13 +265,14 @@ const Programs = ({ programs }) => {
               </ul>
               <div className='program-options-detail'>
                 <div
-                  className={classNames({
+                  className={cn({
                     'program-options-block': true,
                     show: isMbaOnline
                   })}>
                   <div className='name'>
                     {SetString(langMenu.onlineTitle)}
                     <div className='discount'>
+                      <ImgDiscountDecoration classNames={[stls.decoration]} />
                       <div className='size'>
                         <Discount />
                       </div>
@@ -320,7 +323,7 @@ const Programs = ({ programs }) => {
                   </ul>
                 </div>
                 <div
-                  className={classNames({
+                  className={cn({
                     'program-options-block': true,
                     show: !isMbaOnline
                   })}>
