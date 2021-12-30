@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/OurDiplomasAndCertificates.module.sass'
-import classNames from 'classnames'
+import cn from 'classnames'
 import AccordionsContainer from '@/components/general/AccordionsContainer'
 
 import academyDiplomaProfInd from '@/public/assets/diplomas/profind/diploma-profind.jpg'
@@ -156,8 +156,7 @@ const documentsBasedOnProgram = [
 
 const OurDiplomasAndCertificates = () => {
   return (
-    <section
-      className={classNames(stls.legalSection, stls.diplomasAndCertificates)}>
+    <section className={cn(stls.legalSection, stls.diplomasAndCertificates)}>
       <h2 className={stls.subHeading}>Выдаваемые дипломы и сертификаты</h2>
       <p className={stls.desc}>
         Мы производим обучение на основании государственной лицензии №041221.

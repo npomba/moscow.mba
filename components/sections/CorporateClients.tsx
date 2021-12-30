@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/CorporateClients.module.sass'
-import classNames from 'classnames'
+import cn from 'classnames'
 import Image from 'next/image'
 import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/index'
@@ -24,7 +24,7 @@ const CorporateClients = ({ partnershipTitle = false }) => {
   return (
     <section className={stls.container}>
       <div
-        className={classNames(stls.titleContainer, {
+        className={cn(stls.titleContainer, {
           [stls.noPaddingLeft]: partnershipTitle
         })}>
         <div className={stls.title}>{title}</div>

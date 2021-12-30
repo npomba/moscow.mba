@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/ProgramDesc.module.sass'
-import classNames from 'classnames'
+import cn from 'classnames'
 import { useAt } from '@/helpers/index'
 import Image from 'next/image'
 
@@ -8,7 +8,7 @@ const ProgramDesc = () => {
   return (
     <section className={stls.container}>
       <div
-        className={classNames(stls.content, {
+        className={cn(stls.content, {
           [stls.smallPl]: at.profession || at.course || at.promo
         })}>
         {!at.profession && !at.course && !at.promo && (

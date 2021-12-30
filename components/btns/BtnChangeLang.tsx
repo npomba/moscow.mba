@@ -1,11 +1,11 @@
 import stls from '@/styles/components/btns/BtnChangeLang.module.sass'
-import classNames from 'classnames'
+import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { useState } from 'react'
+import cn from 'classnames'
 import { SetString } from '@/helpers/index'
-import lang from '@/data/translation/header'
 import { IconTriangleBottom } from '@/components/icons'
+import lang from '@/data/translation/header'
 
 const BtnChangeLang = () => {
   const [showMe, setShowMe] = useState(false)
@@ -15,12 +15,12 @@ const BtnChangeLang = () => {
   // `lang__selectList ${showMe && 'show'}`
 
   return (
-    <div className={classNames(stls.lang, { [stls.redHighlight]: showMe })}>
+    <div className={cn(stls.lang, { [stls.redHighlight]: showMe })}>
       <a className={stls.btn} onClick={showLangMenu}>
         {SetString(lang.linkLang)}{' '}
         <IconTriangleBottom fill={`${showMe ? '#FF3535' : '#000'}`} />
       </a>
-      <ul className={classNames(stls.list, { [stls.show]: showMe })}>
+      <ul className={cn(stls.list, { [stls.show]: showMe })}>
         <li className={stls.listItem}>
           <Link href={`${router.pathname}`} locale='ru'>
             <a className={stls.listItemLink} onClick={showLangMenu}>

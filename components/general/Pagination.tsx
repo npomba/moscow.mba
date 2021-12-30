@@ -1,6 +1,6 @@
 import stls from '@/styles/components/general/Pagination.module.sass'
-import classNames from 'classnames'
 import { useState } from 'react'
+import cn from 'classnames'
 import { IconSpinner, IconArrowLeft } from '@/components/icons'
 
 const Pagination = ({
@@ -31,7 +31,7 @@ const Pagination = ({
     paginationBtns.push(
       <button
         key={`btn${i}`}
-        className={classNames({
+        className={cn({
           [stls.paginationBtn]: true,
           [stls.semiTransparentBg]: semiTransparentBg,
           [stls.ordinaryBg]: !semiTransparentBg,
@@ -45,13 +45,13 @@ const Pagination = ({
 
   return (
     <div
-      className={classNames({
+      className={cn({
         [stls.container]: true,
         [stls.onlyPagination]: onlyPagination
       })}>
       {paginationBtns}
       <button
-        className={classNames(stls.loadMoreBtn, {
+        className={cn(stls.loadMoreBtn, {
           [stls.btnHidden]: lastShownItem >= totalItems
         })}
         onClick={handleLoadMoreBtnClick}>

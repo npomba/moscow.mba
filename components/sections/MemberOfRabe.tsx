@@ -1,4 +1,5 @@
 import stls from '@/styles/components/sections/MemberOfRabe.module.sass'
+import cn from 'classnames'
 import ImageContainer from '@/components/general/ImageContainer'
 import rabeP1 from '@/public/legaldocuments/rabe-p1.jpg'
 
@@ -12,10 +13,8 @@ const rabeImage = {
 }
 
 const MemberOfRABE = () => {
-  const rabeClassNames = [stls.legalSection, stls.memberOfRabe]
-
   return (
-    <section className={rabeClassNames.join(' ')}>
+    <section className={cn(stls.legalSection, stls.memberOfRabe)}>
       <div className={stls.descRabe}>
         <h2 className={stls.subHeading}>Членство в РАБО</h2>
         <p>

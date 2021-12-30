@@ -1,16 +1,15 @@
 import stls from '@/styles/components/sections/Teachers.module.sass'
+import Image from 'next/image'
+import { useRouter } from 'next/router'
+import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
-import { useAt } from '@/helpers/index'
-import { useRouter } from 'next/router'
-import Image from 'next/image'
+import { base64pixel } from '@/config/index'
+import { useAt, SetString } from '@/helpers/index'
 import PopupForm from '@/components/popups/PopupForm'
-import { SetString } from '@/helpers/index'
-import lang from 'data/translation/about'
 import imagesData from '@/data/images/teachers'
 import { IconCheck } from '@/components/icons'
-import { base64pixel } from '@/config/index'
-import classNames from 'classnames'
+import lang from 'data/translation/about'
 
 const splitParaText = (string, splitBy) => {
   let firstPartOfString, secondPartOfString
@@ -159,7 +158,7 @@ const Teachers = ({
   return (
     <>
       <section
-        className={classNames({
+        className={cn({
           [stls.container]: true,
           [stls.standalonePage]: atStandAlonePage
         })}>
@@ -173,13 +172,13 @@ const Teachers = ({
               <div className={stls.text}>{SetString(lang.teachersDics)}</div>
             )}
             <div
-              className={classNames({
+              className={cn({
                 [stls.twoImages]: true,
                 [stls.detailImage]: true,
                 [stls.detailImageAtProfession]: at.profession || at.course
               })}>
               <div
-                className={classNames({
+                className={cn({
                   [stls.image]: true,
                   [stls.pic1]: true,
                   [stls.pic1AtProfession]: at.profession || at.course
@@ -195,7 +194,7 @@ const Teachers = ({
                 />
               </div>
               <div
-                className={classNames({
+                className={cn({
                   [stls.image]: true,
                   [stls.pic2]: true,
                   [stls.pic2AtProfession]: at.profession || at.course
@@ -212,7 +211,7 @@ const Teachers = ({
               </div>
             </div>
             <ul
-              className={classNames({
+              className={cn({
                 [stls.detailList]: true,
                 [stls.detailListProfession]: at.profession || at.course
               })}>
@@ -275,7 +274,7 @@ const Teachers = ({
           )}
         </div>
         <ul
-          className={classNames({
+          className={cn({
             [stls.teachersList]: true,
             [stls.teachersListProfession]: at.profession || at.course
           })}>
@@ -309,14 +308,14 @@ const Teachers = ({
               Получите полный список преподавателей
             </h3>
             <div
-              className={classNames({
+              className={cn({
                 [stls.btn]: true,
                 [stls.getAllTeachersBtn]: true
               })}>
               <Popup
                 trigger={
                   <button
-                    className={classNames({
+                    className={cn({
                       button: true
                     })}>
                     {SetString(lang.getAllTeachersBtn)}

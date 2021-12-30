@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/Students.module.sass'
-import classNames from 'classnames'
+import cn from 'classnames'
 import { useAt } from '@/helpers/index'
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar'
 import Image from 'next/image'
@@ -50,7 +50,7 @@ const Students = () => {
           </ul>
         </div>
         <div className={stls.imagesContainer}>
-          <div className={classNames(stls.image, stls.imageOne)}>
+          <div className={cn(stls.image, stls.imageOne)}>
             <Image
               src='/assets/images/students_pic_1.png'
               alt='Группа счастливых выпускников'
@@ -58,7 +58,7 @@ const Students = () => {
               height={473}
             />
           </div>
-          <div className={classNames(stls.image, stls.imageTwo)}>
+          <div className={cn(stls.image, stls.imageTwo)}>
             <Image
               src='/assets/images/students_pic_2.jpg'
               alt='Счастливый выпускник'

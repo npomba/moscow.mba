@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/ProgramsModules.module.sass'
-import classNames from 'classnames'
+import cn from 'classnames'
 import {
   useAt,
   createProgramModulesBase,
@@ -21,8 +21,7 @@ const ProgramsModules = ({ program, smallerMb = false }) => {
   // console.log(programbaseSubjects)
 
   return (
-    <section
-      className={classNames(stls.container, { [stls.smallMb]: smallerMb })}>
+    <section className={cn(stls.container, { [stls.smallMb]: smallerMb })}>
       <div className={stls.pl}>
         <h2>Программа обучения</h2>
         <ul className={stls.redRectangle}>

@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/WhatWillYouLearn.module.sass'
-import classNames from 'classnames'
+import cn from 'classnames'
 import Image from 'next/image'
 import { base64pixel } from '@/config/index'
 
@@ -22,7 +22,7 @@ const WhatWillYouLearn = ({ data = null }) => {
     <section className={stls.container}>
       <div className={stls.content}>
         <div
-          className={classNames(stls.titleContainer, stls.floatLeft, {
+          className={cn(stls.titleContainer, stls.floatLeft, {
             [stls.smallPl]: !data
           })}>
           <h2 className={stls.title}>

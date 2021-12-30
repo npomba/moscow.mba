@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/Pros.module.sass'
-import classNames from 'classnames'
+import cn from 'classnames'
 import { useAt } from '@/helpers/index'
 import Image from 'next/image'
 import { IconCheck } from '@/components/icons'
@@ -124,7 +124,7 @@ const Pros = ({ format = 'online' }) => {
 
   if (format === 'blended') {
     return (
-      <section className={classNames(stls.container, stls.blendedContainer)}>
+      <section className={cn(stls.container, stls.blendedContainer)}>
         <div className={stls.title}>
           online <br /> модули
         </div>

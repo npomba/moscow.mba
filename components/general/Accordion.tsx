@@ -1,5 +1,5 @@
 import stls from '@/styles/components/general/Accordion.module.sass'
-import classNames from 'classnames'
+import cn from 'classnames'
 import ImageContainer from '@/components/general/ImageContainer'
 
 const Accordion = ({
@@ -60,7 +60,7 @@ const Accordion = ({
   return (
     <div
       id={'view_accordion'}
-      className={classNames(stls.container, {
+      className={cn(stls.container, {
         [stls.equalPadding]: isImage,
         [stls.opened]: activeAccordion
       })}
@@ -71,7 +71,7 @@ const Accordion = ({
       </div>
       <div className={stls.title}>{title}</div>
       <div
-        className={classNames(stls.content, {
+        className={cn(stls.content, {
           [stls.imageContent]: isImage
         })}>
         {accordionContent}

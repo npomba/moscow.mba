@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/Diploma.module.sass'
-import classNames from 'classnames'
+import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { useState } from 'react'
 import { useAt } from '@/helpers/index'
@@ -207,7 +207,7 @@ const Diploma = ({ darkBackground = false }) => {
 
   return (
     <section
-      className={classNames(stls.container, {
+      className={cn(stls.container, {
         [stls.noMobileMb]: at.profession || at.course,
         [stls.darkBg]: darkBackground
       })}>

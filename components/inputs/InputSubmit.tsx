@@ -1,8 +1,8 @@
 import stls from '@/styles/components/inputs/InputSubmit.module.sass'
-import classNames from 'classnames'
+import cn from 'classnames'
 import { SetString } from '@/helpers/index'
-import lang from '@/data/translation/index'
 import { IconArrowTopRight } from '@/components/icons'
+import lang from '@/data/translation/index'
 
 const InputSubmit = ({ errors, alpha = false, width = '25', ...props }) => {
   return (
@@ -10,7 +10,7 @@ const InputSubmit = ({ errors, alpha = false, width = '25', ...props }) => {
       <button
         {...props}
         type='submit'
-        className={classNames( props.className, {
+        className={cn(props.className, {
           button: !alpha,
           [stls.button]: alpha,
           'white-button': !alpha,

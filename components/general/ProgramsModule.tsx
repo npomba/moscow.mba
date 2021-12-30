@@ -1,5 +1,5 @@
 import stls from '@/styles/components/general/ProgramsModule.module.sass'
-import classNames from 'classnames'
+import cn from 'classnames'
 import { useState } from 'react'
 
 const ProgramsModule = ({
@@ -13,7 +13,7 @@ const ProgramsModule = ({
   return (
     <div className={stls.container}>
       <div
-        className={classNames(stls.module, { [stls.opened]: isOpen })}
+        className={cn(stls.module, { [stls.opened]: isOpen })}
         onClick={() => setIsOpen(prevState => !prevState)}>
         <div className={stls.plus}>
           <i></i>
@@ -22,7 +22,7 @@ const ProgramsModule = ({
         {title}
       </div>
       <div
-        className={classNames(stls.content, {
+        className={cn(stls.content, {
           [stls.show]: isOpen,
           [stls.fadeOutEffect]: fadeOutEffect
         })}>

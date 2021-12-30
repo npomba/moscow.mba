@@ -1,6 +1,6 @@
 import stls from '@/styles/components/general/Filters.module.sass'
-import classNames from 'classnames'
 import Link from 'next/link'
+import cn from 'classnames'
 import { useAt } from '@/helpers/index'
 import Discount from '@/components/costs/Discount'
 import SearchField from '@/components/general/SearchField'
@@ -30,7 +30,7 @@ const Filters = ({
             <Link href={`/programs/mini/${mbaFormat}`}>
               <a>
                 <span
-                  className={classNames({
+                  className={cn({
                     [stls.circle]: true,
                     [stls.active]: at.mini
                   })}></span>{' '}
@@ -41,7 +41,7 @@ const Filters = ({
             <Link href={`/programs/mba/${mbaFormat}`}>
               <a>
                 <span
-                  className={classNames({
+                  className={cn({
                     [stls.circle]: true,
                     [stls.active]: at.mba
                   })}></span>{' '}
@@ -52,7 +52,7 @@ const Filters = ({
             <Link href={`/programs/profession/online`}>
               <a>
                 <span
-                  className={classNames({
+                  className={cn({
                     [stls.circle]: true,
                     [stls.active]: at.profession
                   })}></span>{' '}
@@ -63,7 +63,7 @@ const Filters = ({
             {/* <Link href={`/programs/course/online`}>
             <a>
               <span
-                className={classNames({
+                className={cn({
                   [stls.circle]: true,
                   [stls.active]: at.course
                 })}></span>{' '}
@@ -73,7 +73,7 @@ const Filters = ({
 
             <Link href='/programs/international-business-law' locale='ru'>
               <a
-                className={classNames({
+                className={cn({
                   [stls.highlight]: true,
                   [stls.mbl]: true
                 })}>
@@ -92,10 +92,10 @@ const Filters = ({
           <div className={stls.content}>
             <Link href={`/programs/${mbaTypeOfProgram}/blended`}>
               <a
-                className={classNames({ [stls.inactiveLink]: fields })}
+                className={cn({ [stls.inactiveLink]: fields })}
                 onClick={e => handleLinkClick(e)}>
                 <span
-                  className={classNames({
+                  className={cn({
                     [stls.circle]: true,
                     [stls.active]: at.blended
                   })}></span>{' '}
@@ -106,7 +106,7 @@ const Filters = ({
             <Link href={`/programs/${mbaTypeOfProgram}/online`}>
               <a>
                 <span
-                  className={classNames({
+                  className={cn({
                     [stls.circle]: true,
                     [stls.active]: at.online
                   })}></span>{' '}
@@ -128,7 +128,7 @@ const Filters = ({
                   className={stls.fieldButton}
                   onClick={() => updateCurrentField(field)}>
                   <span
-                    className={classNames({
+                    className={cn({
                       [stls.circle]: true,
                       [stls.active]: field === currentField
                     })}></span>

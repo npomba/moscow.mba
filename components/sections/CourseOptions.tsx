@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/CourseOptions.module.sass'
-import classNames from 'classnames'
+import cn from 'classnames'
 import { useState, useRef } from 'react'
 import AccordionsContainer from '@/components/general/AccordionsContainer'
 import Pagination from '@/components/general/Pagination'
@@ -32,8 +32,8 @@ const CourseOptions = ({ data }) => {
   const shownCourses = swappedData.slice(firstCourseOnPage, lastCourseOnPage)
 
   const scrollToCoursesContainer = () => {
-    const coursesContainerTop = coursesContainerRef.current.getBoundingClientRect()
-      .top
+    const coursesContainerTop =
+      coursesContainerRef.current.getBoundingClientRect().top
     const offsetY = 100
 
     window.scrollTo({
@@ -61,7 +61,7 @@ const CourseOptions = ({ data }) => {
         <p className={stls.coursesNumber}>{numberOfCourses}+ направлений</p>
       </div>
       <div
-        className={classNames({
+        className={cn({
           [stls.content]: true,
           ['accordionsContent']: true
         })}>

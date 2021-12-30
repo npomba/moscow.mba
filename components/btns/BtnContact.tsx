@@ -1,5 +1,5 @@
 import stls from '@/styles/components/btns/BtnContact.module.sass'
-import classNames from 'classnames'
+import cn from 'classnames'
 
 const BtnContact = ({ wayToContact, chooseWayToContact }) => {
   const {
@@ -22,7 +22,7 @@ const BtnContact = ({ wayToContact, chooseWayToContact }) => {
   return (
     <button
       onClick={() => chooseWayToContact(selectedWayToContact)}
-      className={classNames(stls.container, stls[contactButtonClass])}>
+      className={cn(stls.container, stls[contactButtonClass])}>
       {svg}
     </button>
   )

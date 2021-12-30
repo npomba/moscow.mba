@@ -1,12 +1,12 @@
 import stls from '@/styles/components/header/HeaderTop.module.sass'
-import Link from 'next/link'
 import { useContext } from 'react'
+import Link from 'next/link'
+import cn from 'classnames'
 import MenuContext from '@/context/menu/menuContext'
 import { SetString } from '@/helpers/index'
 import { BtnChangeLang } from '@/components/btns'
 import { useAt } from '@/helpers/index'
 import { contactData } from '@/config/index'
-import classNames from 'classnames'
 import {
   IconLocation,
   IconLogo,
@@ -25,7 +25,7 @@ const HeaderTop = ({ handleMenuClose }) => {
     <div className='header-top'>
       <Link href='/'>
         <a
-          className={classNames({
+          className={cn({
             ['main-logo']: true,
             ['mainLogoDisabled']: at.promo
           })}
@@ -72,7 +72,7 @@ const HeaderTop = ({ handleMenuClose }) => {
       {at.index || at.about || at.contact ? <BtnChangeLang /> : null}
       {!at.promo && (
         <div
-          className={classNames({
+          className={cn({
             'header-buter': true,
             opened: menuIsOpen
           })}

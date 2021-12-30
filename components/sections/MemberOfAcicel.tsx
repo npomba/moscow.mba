@@ -1,4 +1,5 @@
 import stls from '@/styles/components/sections/MemberOfAcicel.module.sass'
+import cn from 'classnames'
 import ImageContainer from '@/components/general/ImageContainer'
 import rabeP1 from '@/public/assets/images/accreditation/ecicel-accreditation.jpg'
 
@@ -12,10 +13,8 @@ const rabeImage = {
 }
 
 const MemberOfAcicel = () => {
-  const rabeClassNames = [stls.legalSection, stls.MemberOfAcicel]
-
   return (
-    <section className={rabeClassNames.join(' ')}>
+    <section className={cn(stls.legalSection, stls.MemberOfAcicel)}>
       <div className={stls.descRabe}>
         <h2 className={stls.subHeading}>Аккредитация Ecicel</h2>
         <p>

@@ -1,10 +1,9 @@
 import stls from '@/styles/components/inputs/InputPhone.module.sass'
-import { SetString } from '@/helpers/index'
+import cn from 'classnames'
+import { SetString, handlePlaceholder } from '@/helpers/index'
 import lang from '@/data/translation/index'
-import { handlePlaceholder } from '@/helpers/index'
-import classNames from 'classnames'
 
-const InputPhone = ({ register, errors, width = '25'}) => {
+const InputPhone = ({ register, errors, width = '25' }) => {
   return (
     <div className={`input-block width-${width}`}>
       <input
@@ -20,7 +19,7 @@ const InputPhone = ({ register, errors, width = '25'}) => {
         onKeyUp={e => handlePlaceholder(e)}
       />
       <div
-        className={classNames({
+        className={cn({
           'input-placeholder': true
         })}>
         {SetString(lang.inputPhone)}

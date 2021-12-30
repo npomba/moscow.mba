@@ -1,5 +1,5 @@
 import stls from '@/styles/components/pages/Webinars.module.sass'
-import classNames from 'classnames'
+import cn from 'classnames'
 import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
@@ -50,7 +50,7 @@ const Webinars = ({ title, heading, timeframe = 'all' }) => {
           {/*    <li key={idx + link.ref} className={stls.listItem}>*/}
           {/*      <Link href={link.ref} locale='ru'>*/}
           {/*        <a*/}
-          {/*          className={classNames(stls.link, {*/}
+          {/*          className={cn(stls.link, {*/}
           {/*            [stls.active]: link.isActive*/}
           {/*          })}>*/}
           {/*          {link.title}*/}

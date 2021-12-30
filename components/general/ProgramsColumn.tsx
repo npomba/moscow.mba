@@ -1,10 +1,9 @@
 import stls from '@/styles/components/general/ProgramsColumn.module.sass'
 import { useContext } from 'react'
+import Link from 'next/link'
+import cn from 'classnames'
 import MenuContext from '@/context/menu/menuContext'
 import OverlayContext from '@/context/overlay/overlayContext'
-import classNames from 'classnames'
-import Link from 'next/link'
-import langMenu from '@/data/translation/menu'
 import { SetString } from '@/helpers/index'
 import Until from '@/components/costs/Until'
 import Price from '@/components/costs/Price'
@@ -12,13 +11,14 @@ import ProgramSubjects from '@/components/general/ProgramSubjects'
 import ProgramsQty from '@/components/general/ProgramsQty'
 import TrainingPeriod from '@/components/costs/TrainingPeriod'
 import Discount from '@/components/costs/Discount'
+import { ImgDiscountDecoration } from '@/components/images'
 import {
   IconCheckCircle,
   IconScreen,
   IconPaperCorner,
   IconClock
 } from '@/components/icons'
-import { ImgDiscountDecoration } from '@/components/images'
+import langMenu from '@/data/translation/menu'
 
 const ProgramsColumn = ({ data, id, type }) => {
   const { menuIsOpen, openMenu, closeMenu, toggleMenu } =
@@ -35,7 +35,7 @@ const ProgramsColumn = ({ data, id, type }) => {
   return (
     <ul
       id={id}
-      className={classNames(stls.container, 'header-podmenu-content', {
+      className={cn(stls.container, 'header-podmenu-content', {
         [stls.visible]: id === 'header-podmenu-1'
       })}>
       <li className={stls.containerItem}>

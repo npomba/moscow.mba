@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/ModulesAbroad.module.sass'
-import classNames from 'classnames'
+import cn from 'classnames'
 import Image from 'next/image'
 
 const ModulesAbroad = () => {
@@ -26,7 +26,7 @@ const ModulesAbroad = () => {
               width={516}
               height={344}
             />
-            <div className={classNames(stls.redOffset, stls.bottomRight)}></div>
+            <div className={cn(stls.redOffset, stls.bottomRight)}></div>
           </div>
           <div className={stls.itemTextContainer}>
             <div className={stls.countryName}>США</div>
@@ -48,7 +48,7 @@ const ModulesAbroad = () => {
               width={516}
               height={344}
             />
-            <div className={classNames(stls.redOffset, stls.topLeft)}></div>
+            <div className={cn(stls.redOffset, stls.topLeft)}></div>
           </div>
           <div className={stls.itemTextContainer}>
             <div className={stls.countryName}>Китай</div>

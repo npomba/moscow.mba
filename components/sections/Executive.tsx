@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/Executive.module.sass'
-import classNames from 'classnames'
+import cn from 'classnames'
 import Link from 'next/link'
 import Image from 'next/image'
 import { SetString } from '@/helpers/index'
@@ -43,7 +43,7 @@ const Executive = () => {
           </Link>
         </div>
         <div className={stls.imagesContainer}>
-          <div className={classNames(stls.image, stls.imageOne)}>
+          <div className={cn(stls.image, stls.imageOne)}>
             <Image
               src={imageData.largerCircle.src}
               alt={SetString(imageData.largerCircle.alt)}
@@ -53,7 +53,7 @@ const Executive = () => {
               blurDataURL={base64pixel}
             />
           </div>
-          <div className={classNames(stls.image, stls.imageTwo)}>
+          <div className={cn(stls.image, stls.imageTwo)}>
             <Image
               src={imageData.smallerCircle.src}
               alt={SetString(imageData.smallerCircle.alt)}

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { useContext } from 'react'
 import MenuContext from '@/context/menu/menuContext'
 import OverlayContext from '@/context/overlay/overlayContext'
-import classNames from 'classnames'
+import cn from 'classnames'
 import ProgramsColumn from '@/components/general/ProgramsColumn'
 import HeaderTabs from '@/components/header/HeaderTabs'
 
@@ -16,7 +16,7 @@ const HeaderDesktopMenu = ({ handleMenuClose, handleMouseEnter, programs }) => {
 
   return (
     <div
-      className={classNames({
+      className={cn({
         'header-podmenu': true,
         [stls.hidden]: !menuIsOpen
       })}>

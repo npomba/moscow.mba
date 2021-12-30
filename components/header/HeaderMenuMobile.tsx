@@ -1,10 +1,9 @@
 import stls from '@/styles/components/header/HeaderMenuMobile.module.sass'
-import Link from 'next/link'
 import { useContext, useState } from 'react'
-import MenuContext from '@/context/menu/menuContext'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
-import lang from '@/data/translation/header'
-import langMenu from '@/data/translation/menu'
+import cn from 'classnames'
+import MenuContext from '@/context/menu/menuContext'
 import { SetString } from '@/helpers/index'
 import Until from '@/components/costs/Until'
 import Price from '@/components/costs/Price'
@@ -12,7 +11,8 @@ import { useAt } from '@/helpers/index'
 import ProgramSubjects from '@/components/general/ProgramSubjects'
 import ProgramsQty from '@/components/general/ProgramsQty'
 import TrainingPeriod from '@/components/costs/TrainingPeriod'
-import classNames from 'classnames'
+import Discount from '@/components/costs/Discount'
+import { ImgLogoRabo, ImgLogoMde } from '@/components/images'
 import {
   IconLocation,
   IconCheckCircle,
@@ -20,8 +20,8 @@ import {
   IconPaperCorner,
   IconClock
 } from '@/components/icons'
-import Discount from '@/components/costs/Discount'
-import { ImgLogoRabo, ImgLogoMde } from '@/components/images'
+import lang from '@/data/translation/header'
+import langMenu from '@/data/translation/menu'
 
 const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
   const { menuIsOpen, openMenu, closeMenu, toggleMenu } =
@@ -39,7 +39,7 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
 
   return (
     <div
-      className={classNames({
+      className={cn({
         'header-mobile-podmenu': true,
         dblock: menuIsOpen
       })}>
@@ -123,7 +123,7 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
 
       {/* second */}
       <div
-        className={classNames({
+        className={cn({
           'header-mobile-second': true,
           opened: mobileSecond
         })}>
@@ -145,7 +145,7 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
 
               {/* third */}
               <div
-                className={classNames({
+                className={cn({
                   'header-mobile-third': true,
                   opened: mobileThirdMini
                 })}>
@@ -161,14 +161,14 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
                     <ul className='program-options-block-tabs'>
                       <li>
                         <a
-                          className={classNames({ active: miniOnline })}
+                          className={cn({ active: miniOnline })}
                           onClick={() => setMiniOnline(true)}>
                           ONLINE
                         </a>
                       </li>
                       <li>
                         <a
-                          className={classNames({ active: !miniOnline })}
+                          className={cn({ active: !miniOnline })}
                           onClick={() => setMiniOnline(false)}>
                           BLENDED
                         </a>
@@ -177,7 +177,7 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
                     <div className='program-options-detail'>
                       <div
                         id='program-mobile-1-1'
-                        className={classNames({
+                        className={cn({
                           'program-options-block': true,
                           show: miniOnline
                         })}>
@@ -246,7 +246,7 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
                       </div>
                       <div
                         id='program-mobile-1-2'
-                        className={classNames({
+                        className={cn({
                           'program-options-block': true,
                           show: !miniOnline
                         })}>
@@ -356,7 +356,7 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
 
               {/*third */}
               <div
-                className={classNames({
+                className={cn({
                   'header-mobile-third': true,
                   opened: mobileThirdMba
                 })}>
@@ -372,7 +372,7 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
                     <ul className='program-options-block-tabs'>
                       <li>
                         <a
-                          className={classNames({
+                          className={cn({
                             active: mbaOnline
                           })}
                           onClick={() => setmbaOnline(true)}>
@@ -381,7 +381,7 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
                       </li>
                       <li>
                         <a
-                          className={classNames({
+                          className={cn({
                             active: !mbaOnline
                           })}
                           onClick={() => setmbaOnline(false)}>
@@ -392,7 +392,7 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
                     <div className='program-options-detail'>
                       <div
                         id='program-mobile-2-1'
-                        className={classNames({
+                        className={cn({
                           'program-options-block': true,
                           show: mbaOnline
                         })}>
@@ -468,7 +468,7 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
                       </div>
                       <div
                         id='program-mobile-2-2'
-                        className={classNames({
+                        className={cn({
                           'program-options-block': true,
                           show: !mbaOnline
                         })}>
@@ -597,7 +597,7 @@ const HeaderMenuMobile = ({ handleMenuClose, programs }) => {
 
       {/* header-mobile-lang */}
       <div
-        className={classNames({
+        className={cn({
           'header-mobile-lang': true,
           opened: mobileLang
         })}>

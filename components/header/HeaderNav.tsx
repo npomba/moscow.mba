@@ -1,11 +1,11 @@
 import stls from '@/styles/components/header/HeaderNav.module.sass'
+import cn from 'classnames'
 import Link from 'next/link'
 import { useContext } from 'react'
 import MenuContext from '@/context/menu/menuContext'
 import lang from '@/data/translation/header'
 import { SetString } from '@/helpers/index'
 import { useAt } from '@/helpers/index'
-import classNames from 'classnames'
 
 const HeaderNav = ({ handleMenu, handleMenuClose }) => {
   const { menuIsOpen, openMenu, closeMenu, toggleMenu } =
@@ -49,7 +49,7 @@ const HeaderNav = ({ handleMenu, handleMenuClose }) => {
     <div className='header-bottom'>
       <div className='header-podmenu-outer'>
         <div
-          className={classNames({
+          className={cn({
             'header-podmenu-toggle': true,
             opened: menuIsOpen
           })}
@@ -67,7 +67,7 @@ const HeaderNav = ({ handleMenu, handleMenuClose }) => {
             <Link href={item.href} locale={item.locale}>
               <a
                 onClick={handleMenuClose}
-                className={classNames({
+                className={cn({
                   ['widescreen-only']: idx + 1 === links.length,
                   ['red']: item.red
                 })}>
