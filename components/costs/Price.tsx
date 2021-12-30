@@ -58,7 +58,8 @@ const Price = ({
     new: {
       ProgramsColumn: stls.programsColumnNewPrice,
       InfoRectangle: stls.infoRectangleNewPrice,
-      CardProgram: stls.cardProgramNewPrice
+      CardProgram: stls.cardProgramNewPrice,
+      CostOfStudy: stls.costOfStudyNewPrice
     },
     old: {
       ProgramsColumn: stls.programsColumnOldPrice,
@@ -84,7 +85,23 @@ const Price = ({
     return componentSpecificClass ?? generalClass
   }
 
+
+
   const regularOrDiscounted = discount ? 'discounted' : 'regular'
+
+  const splitMonths = (price) => {
+    let period = type === 'mini' ? 9 : 'mba' || 'mbl' ? 18 : 'profession' || 'course' ? 4 : 'executive' ? 26 : null
+    if (renderedByComponent === 'CostOfStudy') {
+      return <>{Array.from(Math.ceil((price).replace(' ', '') / period).toString())
+        .map((el, idx, array) => {
+          return (array.length - idx) % 3 === 0 ? ' ' + el : el
+        })}
+        <span className={stls.currency}>&#8381;/мес.</span>
+      </>
+    } else {
+      return price + ' P.'
+    }
+  }
 
   if ((!format && at.executive) || (!format && type === 'executive'))
     return <span className={stls.executive}>{price[regularOrDiscounted].executive} Р.</span>
@@ -98,18 +115,18 @@ const Price = ({
             : getPriceClass('simple', renderedByComponent)
         }>
         {programPrice
-          ? toNumberWithSpaces(programPrice)
-          : price[regularOrDiscounted]?.[type]?.[format]}{' '}
-        Р.
+          ? toNumberWithSpaces(programPrice) + ' P.'
+          : splitMonths(price[regularOrDiscounted]?.[type]?.[format])
+        }
       </i>
       {discount && (
         <i className={getPriceClass('old', renderedByComponent)}>
           {programPrice
             ? toNumberWithSpaces(
-                Math.ceil(((programPrice / 55) * 100) / 1000) * 1000
-              )
-            : price.regular[type]?.[format]}{' '}
-          Р.
+              Math.ceil(((programPrice / 55) * 100) / 1000) * 1000
+            ) + ' P.'
+            : splitMonths(price.regular[type]?.[format])
+          }
         </i>
       )}
     </>

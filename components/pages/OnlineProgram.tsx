@@ -22,6 +22,7 @@ import Pros from '@/components/sections/Pros'
 import GetStudyPlan from '@/components/sections/GetStudyPlan'
 import ProgramDevelopedStandard from '@/components/sections/ProgramDevelopedStandard'
 import ECTSStandard from '@/components/sections/ECTSStandard'
+import CostOfStudyDescription from '../sections/CostOfStudyDescription'
 
 const PageOnlineProgram = ({ program, teachers }) => {
   const router = useRouter()
@@ -72,7 +73,9 @@ const PageOnlineProgram = ({ program, teachers }) => {
           programFormat={program.studyFormat}
           programType={program.category?.type}
         />
-        <Qna programId={program._id} programTitle={program.title} />
+        <CostOfStudyDescription/>
+
+        {/* <Qna programId={program._id} programTitle={program.title} /> */}
         <ContactUs
           programId={program._id}
           programTitle={program.title}

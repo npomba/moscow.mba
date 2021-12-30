@@ -22,6 +22,7 @@ import BlendedMetups from '@/components/sections/BlendedMetups'
 import CostOfStudy from '@/components/sections/CostOfStudy'
 import GetStudyPlan from '@/components/sections/GetStudyPlan'
 import ECTSStandard from '@/components/sections/ECTSStandard'
+import CostOfStudyDescription from '@/components/sections/CostOfStudyDescription'
 
 const PageBlendedProgram = ({ program, teachers }) => {
   const router = useRouter()
@@ -75,7 +76,8 @@ const PageBlendedProgram = ({ program, teachers }) => {
           programFormat={program.studyFormat}
           programType={program.category?.type}
         />
-        <Qna programId={program._id} programTitle={program.title} />
+        <CostOfStudyDescription/>
+        {/* <Qna programId={program._id} programTitle={program.title} /> */}
         <ContactUs
           programId={program._id}
           programTitle={program.title}
