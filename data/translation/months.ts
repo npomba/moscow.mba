@@ -10,7 +10,7 @@ export default {
   },
 
   february: {
-    ru: 'ноября',
+    ru: 'февраля',
     en: 'February'
   },
 
