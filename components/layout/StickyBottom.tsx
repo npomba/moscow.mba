@@ -52,7 +52,6 @@ const StickyBottom = ({
         show: true,
         [stls.overlay]: overlayIsShown
       })}>
-      <div className={stls.decoration}></div>
       <div className={stls.content}>
         <p className={stls.p}>
           <strong>Скидка 45%</strong>

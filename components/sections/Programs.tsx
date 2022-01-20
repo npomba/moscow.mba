@@ -12,7 +12,6 @@ import Discount from '@/components/costs/Discount'
 import { IconCheckCircle, IconScreen } from '@/components/icons'
 import { useState } from 'react'
 import classNames from 'classnames'
-import { ImgDiscountDecoration } from '@/components/images'
 
 const Programs = ({ programs }) => {
   const data = programs
@@ -119,7 +118,6 @@ const Programs = ({ programs }) => {
                   <div className='name'>
                     {SetString(langMenu.onlineTitle)}
                     <div className='discount'>
-                      <ImgDiscountDecoration classNames={[stls.decoration]} />
                       <div className='size'>
                         <Discount />
                       </div>
@@ -140,13 +138,13 @@ const Programs = ({ programs }) => {
                   <div className='info-list'>
                     <div className='info-flex'>
                       <div className='pic'>
-                        <IconCheckCircle/>
+                        <IconCheckCircle />
                       </div>
                       <span>{SetString(langMenu.formatRemote)}</span>
                     </div>
                     <div className='info-flex'>
                       <div className='pic'>
-                        <IconScreen/>
+                        <IconScreen />
                       </div>
                       <span>
                         <ProgramSubjects type='mini' sum={true} />{' '}
@@ -272,7 +270,6 @@ const Programs = ({ programs }) => {
                   <div className='name'>
                     {SetString(langMenu.onlineTitle)}
                     <div className='discount'>
-                      <ImgDiscountDecoration classNames={[stls.decoration]} />
                       <div className='size'>
                         <Discount />
                       </div>

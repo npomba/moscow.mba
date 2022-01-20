@@ -12,7 +12,6 @@ import Discount from '@/components/costs/Discount'
 import { useAt } from '@/helpers/index'
 import { IconCheckCircleAlt } from '@/components/icons'
 import Loan from '@/components/costs/Loan'
-import { ImgDiscountDecoration } from '@/components/images'
 
 const JumbotronProgram = ({ program }) => {
   const at = useAt()
@@ -42,7 +41,6 @@ const JumbotronProgram = ({ program }) => {
             {(at.online || at.mbl) && (
               <div
                 className={classNames(stls.discountSticker, stls.leftCorner)}>
-                <ImgDiscountDecoration classNames={[stls.decoration]} />
                 <div className={stls.discountAmount}>
                   <Discount />
                 </div>

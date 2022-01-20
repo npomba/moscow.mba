@@ -4,13 +4,12 @@ import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import Until from '@/components/costs/Until'
 import PopupForm from '@/components/popups/PopupForm'
-import {useAt } from '@/helpers/index'
+import { useAt } from '@/helpers/index'
 import Price from '@/components/costs/Price'
 import Loan from '@/components/costs/Loan'
 import Discount from '@/components/costs/Discount'
 import TrainingPeriod from '@/components/costs/TrainingPeriod'
 import ProgramSubjects from '@/components/general/ProgramSubjects'
-import { ImgDiscountDecoration } from '@/components/images'
 
 const PriceBlock = ({
   isDiscounted,
@@ -28,23 +27,24 @@ const PriceBlock = ({
   if (withDesc) {
     topContentPart = (
       <div className={stls.ctaTextContainer}>
+        <p>Успех в карьере напрямую связывают с получением образования.</p>
         <p>
-          Успех в карьере напрямую связывают с получением образования.
+          Получите актульные знания, увеличьте свой доход и продвиньтесь по
+          карьерной лестнице!
         </p>
-        <p>
-          Получите актульные знания, увеличьте свой доход и продвиньтесь по карьерной лестнице!
+        <p className={stls.red}>
+          Запишитесь на курс{' '}
+          {at.mini
+            ? 'MBA Mini'
+            : at.mba
+            ? 'MBA'
+            : at.executive
+            ? 'MBA Executive'
+            : at.mbl
+            ? 'MBA'
+            : ''}{' '}
+          сегодня:
         </p>
-        <p className={stls.red}>Запишитесь на курс { 
-          at.mini
-          ? 'MBA Mini'
-          : at.mba
-          ? 'MBA'
-          : at.executive
-          ? 'MBA Executive'
-          : at.mbl
-          ? 'MBA'
-          : ''
-          } сегодня:</p>
       </div>
     )
   }
@@ -123,12 +123,12 @@ const CostOfStudy = ({
                 at.mini
                   ? 'mini'
                   : at.mba
-                    ? 'mba'
-                    : at.executive
-                      ? 'executive'
-                      : at.mbl
-                        ? 'mba'
-                        : null
+                  ? 'mba'
+                  : at.executive
+                  ? 'executive'
+                  : at.mbl
+                  ? 'mba'
+                  : null
               }
             />
           </li>
@@ -136,10 +136,10 @@ const CostOfStudy = ({
             {at.online
               ? 'Дистанционно'
               : at.blended
-                ? 'С очными модулями'
-                : at.mbl
-                  ? 'Дистанционно'
-                  : 'Очно'}
+              ? 'С очными модулями'
+              : at.mbl
+              ? 'Дистанционно'
+              : 'Очно'}
           </li>
           <li className={stls.listItem}>
             Ближайший набор{' '}
@@ -152,12 +152,12 @@ const CostOfStudy = ({
                 at.mini
                   ? 'mini'
                   : at.mba
-                    ? 'mba'
-                    : at.executive
-                      ? 'executive'
-                      : at.mbl
-                        ? 'mbl'
-                        : null
+                  ? 'mba'
+                  : at.executive
+                  ? 'executive'
+                  : at.mbl
+                  ? 'mbl'
+                  : null
               }
               subjects={'base'}
             />{' '}
@@ -170,12 +170,12 @@ const CostOfStudy = ({
                   at.mini
                     ? 'mini'
                     : at.mba
-                      ? 'mba'
-                      : at.executive
-                        ? 'executive'
-                        : at.mbl
-                          ? 'mba'
-                          : null
+                    ? 'mba'
+                    : at.executive
+                    ? 'executive'
+                    : at.mbl
+                    ? 'mba'
+                    : null
                 }
                 subjects={'specialty'}
               />{' '}
@@ -198,8 +198,8 @@ const CostOfStudy = ({
           {at.online
             ? 'Дистанционно'
             : at.blended
-              ? 'С очными модулями'
-              : 'Очно'}
+            ? 'С очными модулями'
+            : 'Очно'}
         </li>
         <li className={stls.listItem}>
           Ближайший набор <Until preposition={false} />
@@ -210,7 +210,6 @@ const CostOfStudy = ({
     )
   }
 
-
   const listItems = (
     <>
       <li className={stls.listItem}>Практические домашние задания</li>
@@ -218,16 +217,16 @@ const CostOfStudy = ({
       <li className={stls.listItem}>Интерактивные онлайн-семинары</li>
       <li className={stls.listItem}>Карьерные консультации</li>
       <li className={stls.listItem}>Дипломы заносятся в ФРДО</li>
-      <li className={stls.listItem}>Ежедневная помощь от кураторов и преподавателей</li>
+      <li className={stls.listItem}>
+        Ежедневная помощь от кураторов и преподавателей
+      </li>
     </>
   )
- 
 
   return (
     <section className={stls.container}>
       {isDiscounted && (
         <div className={stls.discountSticker}>
-          <ImgDiscountDecoration classNames={[stls.decoration]} />
           <div className={stls.discountSize}>
             <Discount />
           </div>
@@ -236,7 +235,10 @@ const CostOfStudy = ({
           </span>
         </div>
       )}
-      <h2 className={classNames(stls.cost, { [stls.bigMb]: at.profession || at.course })}>
+      <h2
+        className={classNames(stls.cost, {
+          [stls.bigMb]: at.profession || at.course
+        })}>
         Стоимость обучения
       </h2>
       <div className={stls.content}>
@@ -245,44 +247,48 @@ const CostOfStudy = ({
             [stls.contentBlock]: true,
             [stls.flexBlock]: at.profession || at.course
           })}>
-
           <div className={stls.description}>
             <div className={stls.row}>
               <div className={stls.block}>
                 <p className={stls.title}>
-                <TrainingPeriod
-              type={
-                at.mini
-                  ? 'mini'
-                  : at.mba
-                    ? 'mba'
-                    : at.executive
-                      ? 'executive'
-                      : at.mbl
+                  <TrainingPeriod
+                    type={
+                      at.mini
+                        ? 'mini'
+                        : at.mba
+                        ? 'mba'
+                        : at.executive
+                        ? 'executive'
+                        : at.mbl
                         ? 'mbl'
                         : at.profession
                         ? 'profession'
-                        : at.course 
+                        : at.course
                         ? 'course'
                         : null
-              }/>
+                    }
+                  />
                 </p>
                 <p className={stls.subtitle}>Возможно закончить экстерном</p>
               </div>
               <div className={stls.block}>
                 <p className={stls.title}>
-                {at.online
-            ? 'Дистанционно'
-            : at.blended
-              ? 'С очными модулями'
-              : 'Очно'}
+                  {at.online
+                    ? 'Дистанционно'
+                    : at.blended
+                    ? 'С очными модулями'
+                    : 'Очно'}
                 </p>
-                <p className={stls.subtitle}>Онлайн-встречи с преподавателями</p>
+                <p className={stls.subtitle}>
+                  Онлайн-встречи с преподавателями
+                </p>
               </div>
             </div>
             <ul className={stls.list}>
-            <li className={stls.kit}>
-                <p className={stls.title}>Ближайший набор <span className={stls.red}>20 февраля</span></p>
+              <li className={stls.kit}>
+                <p className={stls.title}>
+                  Ближайший набор <span className={stls.red}>20 февраля</span>
+                </p>
                 <p className={stls.subtitle}>*количество мест ограничено</p>
               </li>
               {listItems}
@@ -321,7 +327,8 @@ const CostOfStudy = ({
             </Popup>
           </div>
           <p className={stls.subtitle}>
-          *согласно опросу за 2020 год, 93% наших студентов окупили обучение уже на 2-й месяц
+            *согласно опросу за 2020 год, 93% наших студентов окупили обучение
+            уже на 2-й месяц
           </p>
         </div>
       </div>
