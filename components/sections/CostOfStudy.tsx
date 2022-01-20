@@ -287,7 +287,10 @@ const CostOfStudy = ({
             <ul className={stls.list}>
               <li className={stls.kit}>
                 <p className={stls.title}>
-                  Ближайший набор <span className={stls.red}>20 февраля</span>
+                  Ближайший набор{' '}
+                  <span className={stls.red}>
+                    <Until preposition={false} />
+                  </span>
                 </p>
                 <p className={stls.subtitle}>*количество мест ограничено</p>
               </li>
