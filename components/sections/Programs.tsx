@@ -317,6 +317,13 @@ const Programs = ({ programs }) => {
                         )
                       }
                     })}
+                    <li>
+                      <Link
+                        href={`/programs/international-business-law`}
+                        locale='ru'>
+                        <a>Магистр международного бизнес-права</a>
+                      </Link>
+                    </li>
                   </ul>
                 </div>
                 <div

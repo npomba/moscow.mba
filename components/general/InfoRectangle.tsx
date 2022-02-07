@@ -94,31 +94,27 @@ const InfoRectangle = ({
   const typeOfContent = at.index || at.promo ? 'academyInfo' : 'programInfo'
 
   return (
-    <Wrapper>
-      <ul
-        className={cn(stls.container, {
-          [stls.programsPageContainer]: programPage,
-          [stls.academyInfoContainer]: at.index || at.promo
-        })}>
-        {infoRectangleContent[typeOfContent].map((item, idx) => (
-          <li
-            key={idx + item.itemDetail}
-            className={cn(stls.item, {
-              [stls.academyInfoItem]: at.index || at.promo
+    <ul
+      className={cn(stls.container, {
+        [stls.programsPageContainer]: programPage,
+        [stls.academyInfoContainer]: at.index || at.promo
+      })}>
+      {infoRectangleContent[typeOfContent].map((item, idx) => (
+        <li
+          key={idx + item.itemDetail}
+          className={cn(stls.item, {
+            [stls.academyInfoItem]: at.index || at.promo
+          })}>
+          {item.itemTitle && <p className={stls.itemTitle}>{item.itemTitle}</p>}
+          <div
+            className={cn(stls.itemDetail, {
+              [stls.academyInfoItemDetail]: at.index || at.promo
             })}>
-            {item.itemTitle && (
-              <p className={stls.itemTitle}>{item.itemTitle}</p>
-            )}
-            <div
-              className={cn(stls.itemDetail, {
-                [stls.academyInfoItemDetail]: at.index || at.promo
-              })}>
-              {item.itemDetail}
-            </div>
-          </li>
-        ))}
-      </ul>
-    </Wrapper>
+            {item.itemDetail}
+          </div>
+        </li>
+      ))}
+    </ul>
   )
 }
 
