@@ -21,6 +21,7 @@ const ProgramsState = props => {
     courses: [],
     professions: [],
     studyFields: [],
+    studyFieldsWithSlugs: [],
     studyFieldsCourses: [],
     studyFieldsProfessions: [],
     curProgramsType: null,
@@ -33,10 +34,18 @@ const ProgramsState = props => {
   const [state, dispatch] = useReducer(programsReducer, initialState)
 
   const setPrograms = (programs = []) => {
-    const studyFieldArr = [...new Set(programs.filter(item => item !== undefined && item?.study_field))]
-    const fields = [...new Map(studyFieldArr.map(item => [item.study_field.slug, item.study_field])).values()].map(item => {return {title: item.name, slug: item.slug}})
+    const studyFieldArr = Array.from(
+      new Set(programs.filter(item => item !== undefined && item?.study_field))
+    )
+    const fields = Array.from(
+      new Map(
+        studyFieldArr.map(item => [item.study_field.slug, item.study_field])
+      ).values()
+    ).map(item => {
+      return { title: item.name, slug: item.slug }
+    })
 
-    dispatch({ type: SET_PROGRAMS, payload: {programs, fields}})
+    dispatch({ type: SET_PROGRAMS, payload: { programs, fields } })
   }
 
   const setCurProgramsType = (programType: string | null) => {
@@ -81,6 +90,7 @@ const ProgramsState = props => {
         courses: state.courses,
         professions: state.professions,
         studyFields: state.studyFields,
+        studyFieldsWithSlugs: state.studyFieldsWithSlugs,
         studyFieldsProfessions: state.studyFieldsProfessions,
         studyFieldsCourses: state.studyFieldsCourses,
         curProgramsType: state.curProgramsType,

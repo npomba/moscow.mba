@@ -2,7 +2,7 @@ import stls from '@/styles/components/sections/WhatWillYouLearn.module.sass'
 import cn from 'classnames'
 import Image from 'next/image'
 import { base64pixel } from '@/config/index'
-import Wrapper from '../layout/Wrapper'
+import { Wrapper } from '@/components/layout'
 
 const WhatWillYouLearn = ({ data = null }) => {
   const aboutAcademy = [

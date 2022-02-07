@@ -22,12 +22,23 @@ const programsReducer = (state, action, at = null) => {
 
       // const studyFields = getStudyFields(programs)
       const studyFields = programs
-        .reduce((acc, curr) => {
-          if (!acc.includes(curr.study_field?.name))
-            acc.push(curr.study_field?.name)
+        .reduce((acc, cur) => {
+          if (!acc.includes(cur.study_field?.name))
+            acc.push(cur.study_field?.name)
           return acc
         }, [])
         .filter(field => field)
+
+      const studyFieldsWithSlugs = studyFields.map(studyField => {
+        return {
+          label: studyField,
+          slug: programs.filter(
+            program => program.study_field?.name === studyField
+          )?.[0]?.study_field?.slug
+        }
+      })
+
+      console.log(studyFieldsWithSlugs)
 
       // const studyFieldsProfessions = getStudyFields(professions)
       const studyFieldsProfessions = []
@@ -41,6 +52,7 @@ const programsReducer = (state, action, at = null) => {
         courses,
         professions,
         studyFields,
+        studyFieldsWithSlugs,
         studyFieldsProfessions,
         studyFieldsCourses
       }

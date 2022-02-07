@@ -17,14 +17,14 @@ import ProgramSubjects from './ProgramSubjects'
 const ProgramsList = ({ data, id, type }) => {
   const { closeMenu } = useContext(MenuContext)
   const { hideOverlay } = useContext(OverlayContext)
-  const { studyFields } = useContext(programsContext)
+  const { studyFields, studyFieldsWithSlugs } = useContext(programsContext)
   const handleLinkClick = () => {
     closeMenu()
     hideOverlay()
   }
 
   const programs = []
-  studyFields.map(studyField => {
+  studyFieldsWithSlugs.map(studyField => {
     let filter = {
       title: '',
       fields: []
@@ -37,7 +37,7 @@ const ProgramsList = ({ data, id, type }) => {
         studyField.slug === item?.study_field?.slug
       ) {
         fields.push(item)
-        filter.title = studyField.title
+        filter.title = studyField.label
         filter.fields = fields
       }
     })

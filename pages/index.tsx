@@ -16,6 +16,7 @@ import HandleGetPrograms from '@/helpers/HandleGetPrograms'
 
 const PageHome = ({ programs }) => {
   HandleGetPrograms(programs)
+
   return (
     <>
       <NextSeo
