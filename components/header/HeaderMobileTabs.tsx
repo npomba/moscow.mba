@@ -1,7 +1,7 @@
 import stls from '@/styles/components/header/HeaderTabsModile.module.sass'
 import Link from 'next/link'
 import SetString from '@/helpers/SetString'
-import classnames from 'classnames'
+import cn from 'classnames'
 import React, { useState } from 'react'
 import { IconLocation } from '@/components/icons'
 import contactData from '@/config/contactData'
@@ -34,13 +34,13 @@ const HeaderTabsModile = ({
           <ul className={stls.links}>
             <li
               onClick={() => setOpenMenu(true)}
-              className={classnames(stls.link, stls.bold)}>
+              className={cn(stls.link, stls.bold)}>
               {SetString(lang.programsBtn)}
             </li>
             {links.map((item, idx) => (
               <Link href={item.href} key={item.href + idx}>
                 <a
-                  className={classnames(stls.link, {
+                  className={cn(stls.link, {
                     [stls.last]: idx === tabs.length
                   })}
                   onClick={() => handleMenu(false)}>
@@ -67,7 +67,7 @@ const HeaderTabsModile = ({
         </Wrapper>
       </div>
       <div
-        className={classnames(stls.content, stls.menuPrograms, {
+        className={cn(stls.content, stls.menuPrograms, {
           [stls.opened]: openMenu
         })}>
         <button className={stls.btn} onClick={() => setOpenMenu(false)}>
@@ -76,7 +76,7 @@ const HeaderTabsModile = ({
             {SetString(menu.backBtn)}
           </Wrapper>
         </button>
-        <ul className={classnames(stls.menu, stls.programs)}>
+        <ul className={cn(stls.menu, stls.programs)}>
           <Wrapper classNames={[stls.wrapper]}>
             <p className={stls.title}>{SetString(lang.programsBtn)}</p>
             {tabs.map((item, idx) => {
@@ -84,7 +84,7 @@ const HeaderTabsModile = ({
                 return (
                   <Link href={item.href} key={item.href + idx}>
                     <a
-                      className={classnames(stls.link, stls.last)}
+                      className={cn(stls.link, stls.last)}
                       onClick={() => handleMenu(false)}>
                       {item.val}
                     </a>
@@ -106,7 +106,7 @@ const HeaderTabsModile = ({
         </ul>
       </div>
       <div
-        className={classnames(stls.content, stls.programslist, {
+        className={cn(stls.content, stls.programslist, {
           [stls.opened]: openProg
         })}>
         <button className={stls.btn} onClick={() => setOpenProg(false)}>
@@ -119,7 +119,7 @@ const HeaderTabsModile = ({
           <HeaderPrograms programs={programs} visible={visible} />
         </Wrapper>
         <button
-          className={classnames(stls.btn, stls.bottom)}
+          className={cn(stls.btn, stls.bottom)}
           onClick={() => setOpenProg(false)}>
           <Wrapper classNames={[stls.wrapperTitle]}>
             <span />

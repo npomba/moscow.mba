@@ -2,7 +2,7 @@ import stls from '@/styles/components/general/ProgramsList.module.sass'
 import { Fragment, useContext } from 'react'
 import MenuContext from '@/context/menu/menuContext'
 import OverlayContext from '@/context/overlay/overlayContext'
-import classNames from 'classnames'
+import cn from 'classnames'
 import Link from 'next/link'
 import langMenu from '@/data/translation/menu'
 import { SetString, useAt } from '@/helpers/index'
@@ -76,7 +76,7 @@ const ProgramsList = ({ data, id, type }) => {
     ))
   }
   return (
-    <div id={id} className={classNames(stls.container)}>
+    <div id={id} className={cn(stls.container)}>
       <div className={stls.programInfo}>
         <div className={stls.programTitle}>
           {type === 'profession'

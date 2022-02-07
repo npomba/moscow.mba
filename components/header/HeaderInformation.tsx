@@ -10,7 +10,7 @@ import {
 import { ImgLogoRabo, ImgLogoMde } from '@/components/images'
 import useAt from '@/helpers/useAt'
 import { BtnChangeLang } from '@/components/btns'
-import classnames from 'classnames'
+import cn from 'classnames'
 import contactData from '@/config/contactData'
 import { Wrapper } from '@/components/layout'
 import getClassNames from '@/helpers/getClassNames'
@@ -21,11 +21,11 @@ const HeaderInformation = ({ classNames = [], handleMenu, openMenu }) => {
   const at = useAt()
 
   return (
-    <div className={classnames([stls.container], container)}>
+    <div className={cn([stls.container], container)}>
       <Wrapper>
         <Link href='/'>
           <a
-            className={classnames(stls.logo, {
+            className={cn(stls.logo, {
               [stls.logoDisabled]: at.promo
             })}
             onClick={() => handleMenu(false)}
@@ -71,7 +71,7 @@ const HeaderInformation = ({ classNames = [], handleMenu, openMenu }) => {
         {at.index || at.about || at.contact ? <BtnChangeLang /> : null}
         {!at.promo && (
           <div
-            className={classnames(stls.burger, {
+            className={cn(stls.burger, {
               [stls.opened]: openMenu
             })}
             onClick={() => handleMenu(!openMenu)}>

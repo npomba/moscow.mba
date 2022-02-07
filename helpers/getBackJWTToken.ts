@@ -1,5 +1,4 @@
 import { routesBack } from '@/config/index'
-const fetch = require('node-fetch')
 import axios from 'axios'
 
 const getBackJWTToken = async () => {
