@@ -8,6 +8,7 @@ import Price from '@/components/costs/Price'
 import PopupInfo from '@/components/popups/PopupInfo'
 import lang from '@/data/translation/index'
 import langMenu from '@/data/translation/menu'
+import { Wrapper } from '@/components/layout'
 
 const InfoRectangle = ({
   programPage = false,
@@ -93,27 +94,31 @@ const InfoRectangle = ({
   const typeOfContent = at.index || at.promo ? 'academyInfo' : 'programInfo'
 
   return (
-    <ul
-      className={cn(stls.container, {
-        [stls.programsPageContainer]: programPage,
-        [stls.academyInfoContainer]: at.index || at.promo
-      })}>
-      {infoRectangleContent[typeOfContent].map((item, idx) => (
-        <li
-          key={idx + item.itemDetail}
-          className={cn(stls.item, {
-            [stls.academyInfoItem]: at.index || at.promo
-          })}>
-          {item.itemTitle && <p className={stls.itemTitle}>{item.itemTitle}</p>}
-          <div
-            className={cn(stls.itemDetail, {
-              [stls.academyInfoItemDetail]: at.index || at.promo
+    <Wrapper>
+      <ul
+        className={cn(stls.container, {
+          [stls.programsPageContainer]: programPage,
+          [stls.academyInfoContainer]: at.index || at.promo
+        })}>
+        {infoRectangleContent[typeOfContent].map((item, idx) => (
+          <li
+            key={idx + item.itemDetail}
+            className={cn(stls.item, {
+              [stls.academyInfoItem]: at.index || at.promo
             })}>
-            {item.itemDetail}
-          </div>
-        </li>
-      ))}
-    </ul>
+            {item.itemTitle && (
+              <p className={stls.itemTitle}>{item.itemTitle}</p>
+            )}
+            <div
+              className={cn(stls.itemDetail, {
+                [stls.academyInfoItemDetail]: at.index || at.promo
+              })}>
+              {item.itemDetail}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </Wrapper>
   )
 }
 
