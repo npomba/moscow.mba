@@ -1,7 +1,13 @@
-import { handleGetStaticProps, handleGetStaticPaths } from '@/helpers/index'
+import {
+  handleGetStaticProps,
+  handleGetStaticPaths,
+  HandleGetPrograms
+} from '@/helpers/index'
 import BlendedProgram from '@/components/pages/BlendedProgram'
 
 const PageProgramsMbaBlendedProgram = ({ program, programs, teachers }) => {
+  HandleGetPrograms(programs)
+
   return <BlendedProgram program={program} teachers={teachers} />
 }
 

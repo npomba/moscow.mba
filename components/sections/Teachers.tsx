@@ -168,7 +168,7 @@ const Teachers = ({
           [stls.container]: true,
           [stls.standalonePage]: atStandAlonePage
         })}>
-        <Wrapper>
+        <Wrapper column>
           <div className={stls.sectionPl}>
             <div className={stls.titlePl}>
               {SetString(lang.teachersTitleLabel)}

@@ -1,7 +1,13 @@
-import { handleGetStaticProps, handleGetStaticPaths } from '@/helpers/index'
+import {
+  handleGetStaticProps,
+  handleGetStaticPaths,
+  HandleGetPrograms
+} from '@/helpers/index'
 import OnlineProgram from '@/components/pages/OnlineProgram'
 
 const PageProgramsMbaOnlineProgram = ({ program, programs, teachers }) => {
+  HandleGetPrograms(programs)
+
   return <OnlineProgram program={program} teachers={teachers} />
 }
 
