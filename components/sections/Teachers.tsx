@@ -156,6 +156,10 @@ const Teachers = ({
     wordToSplitBy.specialists[router.locale]
   )
 
+  const UITeachers = atStandAlonePage
+    ? teachers
+    : teachers.filter(teacher => teacher.programs.includes(programId))
+
   return (
     <>
       <section
@@ -279,10 +283,11 @@ const Teachers = ({
             [stls.teachersList]: true,
             [stls.teachersListProfession]: at.profession || at.course
           })}>
-          {teachers &&
-            teachers.length > 0 &&
-            teachers.map((teacher, idx) => (
+          {UITeachers &&
+            UITeachers.length > 0 &&
+            UITeachers.map((teacher, idx) => (
               <li key={teacher.name + idx}>
+                {console.log(teacher.name)}
                 <div className={stls.teachersItem}>
                   <div className={stls.image}>
                     <Image
@@ -303,7 +308,7 @@ const Teachers = ({
               </li>
             ))}
         </ul>
-        {teachers && teachers.length === 0 && (
+        {UITeachers && UITeachers.length === 0 && (
           <div className={stls.getAllTeachers}>
             <h3 className={stls.getAllTeachersTitle}>
               Получите полный список преподавателей
@@ -337,7 +342,7 @@ const Teachers = ({
             </div>
           </div>
         )}
-        {teachers && teachers.length > 0 && (
+        {UITeachers && UITeachers.length > 0 && (
           <div className={stls.btn}>
             <Popup
               trigger={
