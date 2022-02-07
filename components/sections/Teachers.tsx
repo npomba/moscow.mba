@@ -1,16 +1,17 @@
 import stls from '@/styles/components/sections/Teachers.module.sass'
-import { useRouter } from 'next/router'
-import Image from 'next/image'
-import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
-import { useAt, SetString } from '@/helpers/index'
-import { base64pixel } from '@/config/index'
+import { useAt } from '@/helpers/index'
+import { useRouter } from 'next/router'
+import Image from 'next/image'
 import PopupForm from '@/components/popups/PopupForm'
-import { Wrapper } from '@/components/layout'
-import { IconCheck } from '@/components/icons'
-import imagesData from '@/data/images/teachers'
+import { SetString } from '@/helpers/index'
 import lang from 'data/translation/about'
+import imagesData from '@/data/images/teachers'
+import { IconCheck } from '@/components/icons'
+import { base64pixel } from '@/config/index'
+import cn from 'classnames'
+import { Wrapper } from '@/components/layout'
 
 const splitParaText = (string, splitBy) => {
   let firstPartOfString, secondPartOfString
@@ -167,7 +168,7 @@ const Teachers = ({
           [stls.container]: true,
           [stls.standalonePage]: atStandAlonePage
         })}>
-        <Wrapper column>
+        <Wrapper>
           <div className={stls.sectionPl}>
             <div className={stls.titlePl}>
               {SetString(lang.teachersTitleLabel)}
@@ -290,6 +291,7 @@ const Teachers = ({
               UITeachers.length > 0 &&
               UITeachers.map((teacher, idx) => (
                 <li key={teacher.name + idx}>
+                  {console.log(teacher.name)}
                   <div className={stls.teachersItem}>
                     <div className={stls.image}>
                       <Image

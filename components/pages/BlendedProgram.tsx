@@ -21,6 +21,7 @@ import Pros from '@/components/sections/Pros'
 import BlendedMetups from '@/components/sections/BlendedMetups'
 import CostOfStudy from '@/components/sections/CostOfStudy'
 import ECTSStandard from '@/components/sections/ECTSStandard'
+import CostOfStudyDescription from '@/components/sections/CostOfStudyDescription'
 
 const PageBlendedProgram = ({ program, teachers }) => {
   const router = useRouter()
@@ -39,39 +40,41 @@ const PageBlendedProgram = ({ program, teachers }) => {
         description={truncate(program.goal, 120)}
       />
       <JumbotronProgram program={program} />
-      <ProgramGoal data={program} />
-      <WhatWillYouLearn data={program} />
-      <ProgramDesc />
-      <BlendedMetups />
-      <Pros format={'blended'} />
-      <HowProcessGoes />
-      <ProgramsModules program={program} />
-      <ECTSStandard />
-      <Teachers
-        programId={program._id}
-        programTitle={program.title}
-        teachers={teachers}
-      />
-      <UpToDateContent withBottomLine />
-      <CorporateClients />
-      <Accreditation />
-      <Diploma />
-      <Students />
-      <Reviews />
-      <CostOfStudy
-        programId={program._id}
-        programTitle={program.title}
-        programFormat={program.studyFormat}
-        programType={program.category?.type}
-      />
-      <Qna programId={program._id} programTitle={program.title} />
-      <ContactUs
-        programId={program._id}
-        programTitle={program.title}
-        title={'Не знаете что выбрать?'}
-        titleNewStr={'Получите консультацию по программам MBA'}
-        overlapsFooter
-      />
+      <div className={stls.container}>
+        <ProgramGoal data={program} />
+        <WhatWillYouLearn data={program} />
+        <ProgramDesc />
+        <BlendedMetups />
+        <Pros format={'blended'} />
+        <HowProcessGoes />
+        <ProgramsModules program={program} />
+        <ECTSStandard />
+        <Teachers
+          programId={program._id}
+          programTitle={program.title}
+          teachers={teachers}
+        />
+        <UpToDateContent withBottomLine />
+        <CorporateClients />
+        <Accreditation />
+        <Diploma />
+        <Students />
+        <Reviews />
+        <CostOfStudy
+          programId={program._id}
+          programTitle={program.title}
+          programFormat={program.studyFormat}
+          programType={program.category?.type}
+        />
+        <Qna programId={program._id} programTitle={program.title} />
+        <ContactUs
+          programId={program._id}
+          programTitle={program.title}
+          title={'Не знаете что выбрать?'}
+          titleNewStr={'Получите консультацию по программам MBA'}
+          overlapsFooter
+        />
+      </div>
     </>
   )
 }

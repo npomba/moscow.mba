@@ -2,13 +2,13 @@
 
 .costOfStudyOldPrice
   color: #808080
-  font-size: 24px
+  font-size: 36px
   position: relative
   margin-left: 28px
   display: inline-block
   @include m.media(desktop)
     margin-left: 15px
-  @include m.media(phone)
+  @include m.media(tablet, phone)
     font-size: 20px
   &::after
     content: ''
@@ -58,8 +58,14 @@
   font-weight: 400
   text-decoration: line-through
   display: inline-block
- 
 
+.costOfStudyNewPrice
+  font-size: 62px
+  @include m.media(desktop)
+    font-size: 48px
+  @include m.media(tablet, phone)
+    font-size: 36px
+ 
 .programsColumnNewPrice
   font-weight: bold
   font-size: 20px
@@ -90,3 +96,9 @@
 .executive
   margin-left: 4px
   font-weight: 600
+
+.currency
+  font-size: 14px
+  margin-left: 10px
+  @include m.media(tablet, phone)
+    font-size: 11px

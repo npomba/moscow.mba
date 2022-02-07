@@ -9,7 +9,6 @@ import Until from '@/components/costs/Until'
 import Price from '@/components/costs/Price'
 import TrainingPeriod from '@/components/costs/TrainingPeriod'
 import Discount from '@/components/costs/Discount'
-import { ImgDiscountDecoration } from '@/components/images'
 import { IconCheckCircle, IconScreen } from '@/components/icons'
 import langMenu from '@/data/translation/menu'
 import langHeader from '@/data/translation/header'
@@ -119,7 +118,6 @@ const Programs = ({ programs }) => {
                   <div className='name'>
                     {SetString(langMenu.onlineTitle)}
                     <div className='discount'>
-                      <ImgDiscountDecoration classNames={[stls.decoration]} />
                       <div className='size'>
                         <Discount />
                       </div>
@@ -272,7 +270,6 @@ const Programs = ({ programs }) => {
                   <div className='name'>
                     {SetString(langMenu.onlineTitle)}
                     <div className='discount'>
-                      <ImgDiscountDecoration classNames={[stls.decoration]} />
                       <div className='size'>
                         <Discount />
                       </div>

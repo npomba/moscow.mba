@@ -132,7 +132,6 @@ const ProgramsColumn = ({ data, id, type }) => {
           <div className={stls.itemTitle}>
             {SetString(langMenu.onlineTitle)}
             <div className={stls.itemDiscount}>
-              <ImgDiscountDecoration classNames={[stls.decoration]} />
               <div className={stls.itemDiscountAmount}>
                 <Discount />
               </div>

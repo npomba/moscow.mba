@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/CostOfStudy.module.sass'
-import cn from 'classnames'
+import classNames from 'classnames'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import Until from '@/components/costs/Until'
@@ -9,8 +9,7 @@ import Price from '@/components/costs/Price'
 import Loan from '@/components/costs/Loan'
 import Discount from '@/components/costs/Discount'
 import TrainingPeriod from '@/components/costs/TrainingPeriod'
-import { ProgramSubjects } from '@/components/general'
-import { Wrapper } from '@/components/layout'
+import ProgramSubjects from '@/components/general/ProgramSubjects'
 import { ImgDiscountDecoration } from '@/components/images'
 
 const PriceBlock = ({
@@ -204,75 +203,74 @@ const CostOfStudy = ({
 
   return (
     <section className={stls.container}>
-      <Wrapper classNames={[stls.wrapper]}>
-        {isDiscounted && (
-          <div className={stls.discountSticker}>
-            <div className={stls.discountSize}>
-              <Discount />
-            </div>
-            <span>
-              <Until />
-            </span>
+      {isDiscounted && (
+        <div className={stls.discountSticker}>
+          <ImgDiscountDecoration classNames={[stls.decoration]} />
+          <div className={stls.discountSize}>
+            <Discount />
           </div>
-        )}
-        <h2 className={cn({ [stls.bigMb]: at.profession || at.course })}>
-          Стоимость обучения
-        </h2>
-        <div className={stls.content}>
-          <div
-            className={cn({
-              [stls.contentBlock]: true,
-              [stls.flexBlock]: at.profession || at.course
-            })}>
-            {!at.profession && !at.course && (
-              <div className={stls.programName}>
-                {at.mini
-                  ? 'MBA Mini'
-                  : at.mba
-                  ? 'MBA'
-                  : at.executive
-                  ? 'MBA Executive'
-                  : at.mbl
-                  ? 'MBA'
-                  : ''}
-              </div>
-            )}
-            {list}
-          </div>
-          <div
-            className={cn(stls.contentBlock, {
-              [stls.verticalSeparatorLine]: at.profession || at.course
-            })}>
-            <PriceBlock
-              isDiscounted={isDiscounted}
-              canPayInInstalments={canPayInInstalments}
-              programType={programType}
-              programFormat={programFormat}
-              withDesc={costWithDescription}
-              withPriceTitles={at.profession || at.course}
-              programPrice={(at.profession || at.course) && programPrice}
-            />
-            <div
-              className={cn(stls.buttonBlock, {
-                [stls.noMb]: at.profession || at.course
-              })}>
-              <Popup
-                trigger={<a className={stls.button}>Оставить заявку</a>}
-                modal
-                nested>
-                {close => (
-                  <PopupForm
-                    programId={programId}
-                    programTitle={programTitle}
-                    title={'Получите консультацию'}
-                    closePopUpForm={close}
-                  />
-                )}
-              </Popup>
+          <span>
+            <Until />
+          </span>
+        </div>
+      )}
+      <h2 className={classNames({ [stls.bigMb]: at.profession || at.course })}>
+        Стоимость обучения
+      </h2>
+      <div className={stls.content}>
+        <div
+          className={classNames({
+            [stls.contentBlock]: true,
+            [stls.flexBlock]: at.profession || at.course
+          })}>
+          {!at.profession && !at.course && (
+            <div className={stls.programName}>
+              {at.mini
+                ? 'MBA Mini'
+                : at.mba
+                ? 'MBA'
+                : at.executive
+                ? 'MBA Executive'
+                : at.mbl
+                ? 'MBA'
+                : ''}
             </div>
+          )}
+          {list}
+        </div>
+        <div
+          className={classNames(stls.contentBlock, {
+            [stls.verticalSeparatorLine]: at.profession || at.course
+          })}>
+          <PriceBlock
+            isDiscounted={isDiscounted}
+            canPayInInstalments={canPayInInstalments}
+            programType={programType}
+            programFormat={programFormat}
+            withDesc={costWithDescription}
+            withPriceTitles={at.profession || at.course}
+            programPrice={(at.profession || at.course) && programPrice}
+          />
+          <div
+            className={classNames(stls.buttonBlock, {
+              [stls.noMb]: at.profession || at.course
+            })}>
+            <Popup
+              trigger={<a className={stls.button}>Оставить заявку</a>}
+              modal
+              nested>
+              {close => (
+                <PopupForm
+                  programId={programId}
+                  programTitle={programTitle}
+                  title={'Получите консультацию'}
+                  closePopUpForm={close}
+                />
+              )}
+            </Popup>
           </div>
         </div>
-      </Wrapper>
+      </div>
     </section>
   )
 }
