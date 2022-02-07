@@ -31,8 +31,10 @@ const PageProgramsExecutive = ({ program, programs, teachers }) => {
       />
       <CourseJsonLd
         courseName={`${program.title} MBA`}
-        provider='Moscow Business Academy'
-        providerUrl={'https://moscow.mba/programs/executive'}
+        provider={{
+          name: 'Moscow Business Academy',
+          url: 'https://moscow.mba/programs/executive'
+        }}
         description={truncate(program.description, 120)}
       />
 

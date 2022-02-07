@@ -33,8 +33,10 @@ const ProfessionOnlineProgram = ({ program, teachers }) => {
       />
       <CourseJsonLd
         courseName={`${data.title} MBA`}
-        provider='Moscow Business Academy'
-        providerUrl={`https://moscow.mba${router.asPath}`}
+        provider={{
+          name: 'Moscow Business Academy',
+          url: `https://moscow.mba${router.asPath}`
+        }}
         description={truncate(program.goal, 120)}
       />
       <JumbotronProgram program={data} />
