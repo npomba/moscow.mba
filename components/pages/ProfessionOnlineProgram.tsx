@@ -33,7 +33,7 @@ const ProfessionOnlineProgram = ({ program, teachers }) => {
       />
       <CourseJsonLd
         courseName={`${data.title} MBA`}
-        providerName='Moscow Business Academy'
+        provider='Moscow Business Academy'
         providerUrl={`https://moscow.mba${router.asPath}`}
         description={truncate(program.goal, 120)}
       />
