@@ -158,7 +158,7 @@ const Teachers = ({
 
   const UITeachers = atStandAlonePage
     ? teachers
-    : teachers.filter(teacher => teacher.programs.includes(programId))
+    : teachers.filter(teacher => teacher?.programs?.includes(programId))
 
   return (
     <>
