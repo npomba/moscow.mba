@@ -108,7 +108,8 @@ const CostOfStudy = ({
     (at.course && at.online) ||
     at.mbl
 
-  const canPayInInstalments = at.profession || at.course
+  const canPayInInstalments =
+    at.profession || at.course || at.mini || at.mba || at.executive || at.mbl
   const costWithDescription = at.mini || at.mba || at.executive || at.mbl
 
   let list
