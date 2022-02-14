@@ -1,6 +1,6 @@
 import stls from '@/styles/components/header/HeaderTabsModile.module.sass'
 import Link from 'next/link'
-import SetString from '@/helpers/SetString'
+import { SetString } from '@/helpers/index'
 import cn from 'classnames'
 import React, { useState } from 'react'
 import { IconLocation } from '@/components/icons'

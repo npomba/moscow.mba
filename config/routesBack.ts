@@ -3,6 +3,7 @@ import { dev } from '@/config/index'
 const routesBack = {
   root: dev ? 'http://localhost:1337' : 'https://api-moscow-mba.herokuapp.com',
   home: '/',
+  graphql: '/graphql',
   programs: '/products',
   programsGetStaticProps: '/products/getStaticProps',
   programsGetStaticPropsProfession: '/products/getStaticProps/profession',

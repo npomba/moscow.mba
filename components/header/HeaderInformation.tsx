@@ -1,5 +1,5 @@
 import stls from '@/styles/components/header/HeaderInformation.module.sass'
-import SetString from '@/helpers/SetString'
+import { SetString, useAt, getClassNames } from '@/helpers/index'
 import Link from 'next/link'
 import {
   IconLocation,
@@ -8,12 +8,10 @@ import {
   IconMobilePhone
 } from '@/components/icons'
 import { ImgLogoRabo, ImgLogoMde } from '@/components/images'
-import useAt from '@/helpers/useAt'
 import { BtnChangeLang } from '@/components/btns'
 import cn from 'classnames'
 import contactData from '@/config/contactData'
 import { Wrapper } from '@/components/layout'
-import getClassNames from '@/helpers/getClassNames'
 
 const HeaderInformation = ({ classNames = [], handleMenu, openMenu }) => {
   const container = getClassNames({ classNames })

@@ -2,7 +2,7 @@ import stls from '@/styles/components/sections/JumbotronCta.module.sass'
 import 'reactjs-popup/dist/index.css'
 import Image from 'next/image'
 import Link from 'next/link'
-import { SetString } from '@/helpers/index'
+import { SetString, useAt } from '@/helpers/index'
 import lang from '@/data/translation/index'
 import { useState } from 'react'
 import Until from '@/components/costs/Until'
@@ -11,7 +11,6 @@ import {
   InfoRectangle,
   LeadLoaderThankyou
 } from '@/components/general'
-import { useAt } from '@/helpers/index'
 import { FormAlpha } from '@/components/forms'
 import { Wrapper } from '@/components/layout'
 

@@ -1,6 +1,5 @@
-import { SetString } from '@/helpers/index'
+import { SetString, getStringDeclensionNumber } from '@/helpers/index'
 import langMenu from '@/data/translation/months'
-import { getStringDeclensionNumber } from '@/helpers/index'
 
 const TrainingPeriod = ({ period = null, type = null }) => {
   if (period)

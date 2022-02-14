@@ -3,10 +3,9 @@ import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import Teachers from '@/components/sections/Teachers'
-import { handleGetStaticProps } from '@/helpers/index'
+import { handleGetStaticProps, HandleGetPrograms } from '@/helpers/index'
 
 import { Breadcrumbs } from '@/components/general'
-import HandleGetPrograms from '@/helpers/HandleGetPrograms'
 import { Wrapper } from '@/components/layout'
 
 const PageTeachers = ({ programs, teachers }) => {

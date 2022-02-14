@@ -1,6 +1,6 @@
 import stls from '@/styles/pages/Legal.module.sass'
 import { NextSeo } from 'next-seo'
-import { handleGetStaticProps } from '@/helpers/index'
+import { handleGetStaticProps, HandleGetPrograms } from '@/helpers/index'
 import { Breadcrumbs } from '@/components/general'
 import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
 import CurrentLicenses from '@/components/sections/CurrentLicenses'
@@ -9,7 +9,6 @@ import MemberOfAcicel from '@/components/sections/MemberOfAcicel'
 import OurDiplomasAndCertificates from '@/components/sections/OurDiplomasAndCertificates'
 import CompanyCard from '@/components/sections/CompanyCard'
 import LegalDocuments from '@/components/sections/LegalDocuments'
-import HandleGetPrograms from '@/helpers/HandleGetPrograms'
 import { Wrapper } from '@/components/layout'
 
 const PageLegal = ({ programs }) => {

@@ -1,13 +1,11 @@
 import stls from '@/styles/components/header/HeaderMenu.module.sass'
-import SetString from '@/helpers/SetString'
+import { SetString, useAt, useWindowWidth } from '@/helpers/index'
 import HeaderPrograms from './HeaderPrograms'
 import HeaderTabs from './HeaderTabs'
 import langMenu from '@/data/translation/menu'
 import React, { useState } from 'react'
 import HeaderTabsModile from './HeaderMobileTabs'
-import useAt from '@/helpers/useAt'
 import lang from '@/data/translation/header'
-import useWindowWidth from '@/helpers/useWindowWidth'
 
 const HeaderMenu = ({ programs, handleMenu }) => {
   const widthWindowMobile = useWindowWidth() < 1020

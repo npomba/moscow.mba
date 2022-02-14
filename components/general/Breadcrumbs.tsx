@@ -74,6 +74,13 @@ const mainRoutes = [
       'en-US': 'Payment'
     },
     path: '/payment'
+  },
+  {
+    label: {
+      ru: 'Журнал',
+      'en-US': 'Journal'
+    },
+    path: '/journal'
   }
 ]
 

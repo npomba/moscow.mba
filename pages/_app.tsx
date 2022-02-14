@@ -6,17 +6,14 @@ import SEO from '../seo.config'
 import { Header, Main, WrapperPage, Footer } from '@/components/layout'
 import '@/styles/app.sass'
 import { dev, gtmId } from '@/config/index'
-
 import NProgress from 'nprogress'
 import Router from 'next/router'
 import 'nprogress/nprogress.css'
-
 import Script from 'next/script'
 import MenuState from '@/context/menu/MenuState'
-
 import OverlayState from '@/context/overlay/OverlayState'
-
 import ProgramsState from '@/context/programs/ProgramsState'
+import { ContextJournalState } from '@/context/index'
 
 function MyApp({ Component, pageProps, router }) {
   const [loading, setLoading] = useState(false)
@@ -88,17 +85,18 @@ function MyApp({ Component, pageProps, router }) {
         logo='https://moscow.mba/logo.jpg'
         url='https://moscow.mba/'
       />
-
       <ProgramsState>
         <OverlayState>
           <MenuState>
-            <WrapperPage>
-              <Header programs={programs} />
-              <Main>
-                <Component {...pageProps} />
-              </Main>
-              <Footer />
-            </WrapperPage>
+            <ContextJournalState>
+              <WrapperPage>
+                <Header programs={programs} />
+                <Main>
+                  <Component {...pageProps} />
+                </Main>
+                <Footer />
+              </WrapperPage>
+            </ContextJournalState>
           </MenuState>
         </OverlayState>
       </ProgramsState>

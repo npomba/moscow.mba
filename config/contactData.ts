@@ -23,7 +23,6 @@ const contactInfo = () => {
       },
       email: { val: 'info@moscow.mba', mailTo: 'mailto:info@moscow.mba' }
     },
-
     kz: [
       {
         tels: [
