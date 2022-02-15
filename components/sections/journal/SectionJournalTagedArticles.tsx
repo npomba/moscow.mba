@@ -47,6 +47,7 @@ const SectionJournalTagedArticles = ({
             ?.filter(article =>
               tag ? article.journal_tag.slug === tag.slug : article
             )
+            .filter((article, idx) => idx < 4)
             .map(article => (
               <li key={article.slug} className={stls.articleItem}>
                 <CardJournalArticle article={article} tag={!tag} />

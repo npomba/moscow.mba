@@ -29,11 +29,13 @@ const SectionJournalAllArticles = ({
       <Wrapper column>
         <GeneralJournalSectionTitle>Все материалы</GeneralJournalSectionTitle>
         <ul className={stls.articles}>
-          {journalArticles?.map(article => (
-            <li key={article.slug} className={stls.articleItem}>
-              <CardJournalArticle article={article} />
-            </li>
-          ))}
+          {journalArticles
+            ?.filter((article, idx) => idx < 4)
+            .map(article => (
+              <li key={article.slug} className={stls.articleItem}>
+                <CardJournalArticle article={article} />
+              </li>
+            ))}
         </ul>
       </Wrapper>
     </section>

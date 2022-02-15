@@ -26,6 +26,8 @@ const SectionJournalTagsWithPictures = ({
     ContextJournalContext
   )
 
+  // TODO: find a better way to do this
+
   const geometrics = [
     {
       component: <IconGeometricRightAngle classNames={[stls.icon]} />
@@ -64,7 +66,7 @@ const SectionJournalTagsWithPictures = ({
                     {geometrics[idx]?.component ||
                       geometrics[Math.floor(Math.random() * geometrics.length)]
                         .component}
-                    <span>#{tag.title}</span>
+                    <div className={stls.label}>#{tag.title}</div>
                   </a>
                 </Link>
               </li>

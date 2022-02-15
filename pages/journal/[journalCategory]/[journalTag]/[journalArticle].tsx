@@ -26,11 +26,7 @@ const PageJournalCategoryTagArticle: NextPage<TypePageJournalArticleProps> = ({
     gspContextParamsJournalCategoryTagArticle
   })
 
-  return (
-    <>
-      <PageJournalArticles />
-    </>
-  )
+  return <>Здесь будет страница заголовка</>
 }
 
 export default PageJournalCategoryTagArticle

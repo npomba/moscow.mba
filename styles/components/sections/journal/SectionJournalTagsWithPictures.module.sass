@@ -47,3 +47,14 @@ $item_mr: 2.4%
     margin-right: $item_mr
     &:nth-child(6n)
       margin-right: 0
+
+.label
+  @include m.media(phone, tablet)
+    margin-top: f.px(15)
+    font-size: f.px(11)
+  @include m.media(laptop, desktop, widescreen)
+    margin-top: f.px(20)
+    font-size: f.px(15)
+  font-weight: 500
+  line-height: 120%
+  letter-spacing: 0.1em
