@@ -13,6 +13,7 @@ type TypeLibJournalArticle = {
   }
   picture: TypeLibPicture | null
   shortDescription: string | null
+  createdAt: string | null
   program?: {
     category: {
       slug: string | null

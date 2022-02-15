@@ -50,6 +50,7 @@ const getStaticPropsPageJournalArticles = async ({
             height
           }
           shortDescription
+          createdAt
         }
       }
     `

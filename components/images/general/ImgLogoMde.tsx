@@ -1,9 +1,13 @@
-import { TypeImg } from '@/types/index'
+import { TypeClassNames, TypeImg } from '@/types/index'
 import { ImgTemplate } from '@/components/images'
 import { useAt } from '@/helpers/index'
 import src from '@/public/assets/images/general/logo-department.png'
 
-const ImgLogoMde = ({ classNames = [], width, height }: TypeImg) => {
+const ImgLogoMde = ({
+  classNames,
+  width,
+  height
+}: TypeClassNames & TypeImg) => {
   const at = useAt()
   // 105x31
   return (

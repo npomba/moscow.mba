@@ -1,4 +1,4 @@
-import { TypeImg } from '@/types/index'
+import { TypeClassNames, TypeImg } from '@/types/index'
 import { ImgTemplate } from '@/components/images'
 import src from '@/public/assets/images/newyears/stickybottom-decoration.png'
 
@@ -6,7 +6,7 @@ const ImgStickyBottomDecoration = ({
   classNames = [],
   width,
   height
-}: TypeImg) => {
+}: TypeClassNames & TypeImg) => {
   return (
     <ImgTemplate
       src={src}

@@ -24,7 +24,11 @@ const SectionJournalTagedArticles = ({
   return (
     <section
       className={
-        cn(stls.container, getClassNames({ classNames })) || undefined
+        cn(
+          stls.container,
+          { [stls.default]: !tag, [stls.tag]: tag },
+          getClassNames({ classNames })
+        ) || undefined
       }>
       <Wrapper column>
         <GeneralJournalSectionTitle>

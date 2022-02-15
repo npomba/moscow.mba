@@ -7,6 +7,7 @@ import TypeCategories from '@/types/general/TypeCategories'
 import TypeChildren from '@/types/general/TypeChildren'
 import TypeClassNames from '@/types/general/TypeClassNames'
 import TypeImg from '@/types/general/TypeImg'
+import TypeImgExtended from '@/types/general/TypeImgExtended'
 import TypeOfType from '@/types/general/TypeOfType'
 import TypeProgram from '@/types/general/TypeProgram'
 import TypeProgramDefault from '@/types/general/TypeProgramDefault'
@@ -51,6 +52,7 @@ export type {
   TypeChildren,
   TypeClassNames,
   TypeImg,
+  TypeImgExtended,
   TypeOfType,
   TypeProgram,
   TypeProgramDefault,

@@ -46,6 +46,7 @@ const getStaticPropsPageJournalArticle = async ({
             url
           }
           shortDescription
+          createdAt
         }
         journalCategories {
           title
@@ -78,6 +79,7 @@ const getStaticPropsPageJournalArticle = async ({
             height
           }
           shortDescription
+          createdAt
           program {
             category {
               slug

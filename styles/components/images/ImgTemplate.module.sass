@@ -2,3 +2,54 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 @use '@/styles/utils/mixin/media' as bp
+
+.container
+  @include m.flex
+  &.containerFaded,
+  &.containerFilter,
+  &.containerFilterAlt,
+  &.containerDarken
+    position: relative
+
+.faded
+  position: absolute
+  z-index: 1
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  @include m.flex
+  background: linear-gradient(0deg, rgba(219, 227, 255, 0.4), rgba(219, 227, 255, 0.4))
+
+.filter
+  position: absolute
+  z-index: 1
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  @include m.flex
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%)
+
+.filterAlt
+  position: absolute
+  z-index: 1
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  @include m.flex
+  background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%)
+
+.darken
+  position: absolute
+  z-index: 1
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  @include m.flex
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.54), rgba(0, 0, 0, 0.54))
+
+.isHidden
+  display: none

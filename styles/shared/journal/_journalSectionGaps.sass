@@ -1,0 +1,17 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+@mixin container($bottomOnly: false)
+  @include m.media(phone, tablet)
+    @if $bottomOnly == true
+      padding-bottom: f.px(30)
+    @else
+      padding-top: f.px(30)
+      padding-bottom: f.px(30)
+  @include m.media(laptop, desktop, widescreen)
+    @if $bottomOnly == true
+      padding-bottom: f.px(65)
+    @else
+      padding-top: f.px(65)
+      padding-bottom: f.px(65)

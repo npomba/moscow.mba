@@ -4,8 +4,10 @@
 
 .container
   @include m.media(phone, tablet)
+    margin-bottom: f.px(40)
     font-size: f.px(18)
   @include m.media(laptop, desktop, widescreen)
+    margin-bottom: f.px(35)
     font-size: f.px(20)
   line-height: 120%
   text-transform: uppercase

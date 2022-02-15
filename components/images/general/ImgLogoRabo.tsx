@@ -1,9 +1,13 @@
-import { TypeImg } from '@/types/index'
+import { TypeClassNames, TypeImg } from '@/types/index'
 import { ImgTemplate } from '@/components/images'
 import { useAt } from '@/helpers/index'
 import src from '@/public/assets/images/general/logo-rabo.png'
 
-const ImgLogoRabo = ({ classNames = [], width, height }: TypeImg) => {
+const ImgLogoRabo = ({
+  classNames,
+  width,
+  height
+}: TypeClassNames & TypeImg) => {
   const at = useAt()
   // 117x30
   return (

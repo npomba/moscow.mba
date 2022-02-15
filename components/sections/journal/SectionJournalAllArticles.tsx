@@ -8,15 +8,18 @@ import { getClassNames } from '@/helpers/index'
 import { ContextJournalContext } from '@/context/index'
 import { GeneralJournalSectionTitle } from '@/components/general'
 import { Wrapper } from '@/components/layout'
+import { CardJournalArticle } from '@/components/cards'
 
 type TypeSectionJournalAllArticlesProps = TypeClassNames
 
 const SectionJournalAllArticles = ({
   classNames
 }: TypeSectionJournalAllArticlesProps) => {
-  const { journalCategories, gspContextParamsJournalCategoryTag } = useContext(
-    ContextJournalContext
-  )
+  const {
+    journalCategories,
+    gspContextParamsJournalCategoryTag,
+    journalArticles
+  } = useContext(ContextJournalContext)
 
   return (
     <section
@@ -25,7 +28,13 @@ const SectionJournalAllArticles = ({
       }>
       <Wrapper column>
         <GeneralJournalSectionTitle>Все материалы</GeneralJournalSectionTitle>
-        SectionJournalAllArticles
+        <ul className={stls.articles}>
+          {journalArticles?.map(article => (
+            <li key={article.slug} className={stls.articleItem}>
+              <CardJournalArticle article={article} />
+            </li>
+          ))}
+        </ul>
       </Wrapper>
     </section>
   )

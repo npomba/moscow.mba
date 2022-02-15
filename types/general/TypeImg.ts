@@ -1,7 +1,6 @@
 type TypeImg = {
-  classNames?: string[]
-  width?: number
-  height?: number
+  readonly width?: number
+  readonly height?: number
 }
 
 export default TypeImg

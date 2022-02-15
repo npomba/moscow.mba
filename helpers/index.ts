@@ -10,6 +10,7 @@ import fetchProgramsGetStaticPropsCourse from '@/helpers/general/fetchProgramsGe
 import fetchProgramsGetStaticPropsProfession from '@/helpers/general/fetchProgramsGetStaticPropsProfession'
 import fetchProgramsGetStaticPropsPromo from '@/helpers/general/fetchProgramsGetStaticPropsPromo'
 import getClassNames from '@/helpers/general/getClassNames'
+import getImageHeight from '@/helpers/general/getImageHeight'
 import getProgram from '@/helpers/general/getProgram'
 import getProgramsReducedData from '@/helpers/general/getProgramsReducedData'
 import fetchPaths from '@/helpers/general/fetchPaths'
@@ -39,6 +40,7 @@ export {
   fetchProgramsGetStaticPropsProfession,
   fetchProgramsGetStaticPropsPromo,
   getClassNames,
+  getImageHeight,
   getProgram,
   getProgramsReducedData,
   fetchPaths,
