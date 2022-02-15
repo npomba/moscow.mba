@@ -8,6 +8,7 @@ import { getClassNames } from '@/helpers/index'
 import { ContextJournalContext } from '@/context/index'
 import { GeneralJournalSectionTitle } from '@/components/general'
 import { Wrapper } from '@/components/layout'
+import { CardJournalArticle } from '@/components/cards'
 
 type TypeSectionJournalTagedArticlesProps = TypeClassNames & {
   tag?: TypeLibJournalTag | null
@@ -17,7 +18,7 @@ const SectionJournalTagedArticles = ({
   classNames,
   tag
 }: TypeSectionJournalTagedArticlesProps) => {
-  const { journalCategories, gspContextParamsJournalCategoryTag } = useContext(
+  const { journalArticles, gspContextParamsJournalCategoryTag } = useContext(
     ContextJournalContext
   )
 
@@ -36,12 +37,22 @@ const SectionJournalTagedArticles = ({
             <>Самое читаемое</>
           ) : (
             <>
-              <span className={stls.highlight}>#</span>
+              <span className={stls.highlight}># </span>
               {tag.title}
             </>
           )}
         </GeneralJournalSectionTitle>
-        SectionJournalTagedArticles
+        <ul className={stls.articles}>
+          {journalArticles
+            ?.filter(article =>
+              tag ? article.journal_tag.slug === tag.slug : article
+            )
+            .map(article => (
+              <li key={article.slug} className={stls.articleItem}>
+                <CardJournalArticle article={article} tag={!tag} />
+              </li>
+            ))}
+        </ul>
       </Wrapper>
     </section>
   )

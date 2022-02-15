@@ -13,6 +13,7 @@
       margin-bottom: f.px(65)
       padding-top: f.px(130)
       padding-bottom: f.px(130)
+    @include m.dye(bgc, c.$phi)
   &.tag
     @include m.media(phone, tablet)
       padding-bottom: f.px(60)
@@ -20,3 +21,12 @@
       // margin-bottom: f.px(65)
       padding-top: f.px(65)
       padding-bottom: f.px(65)
+
+.articles
+  @include j.articles
+
+.articleItem
+  @include j.articleItem
+
+.highlight
+  @include m.dye(c, c.$alpha)

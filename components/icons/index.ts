@@ -1,3 +1,11 @@
+// geometrics
+import IconGeometricRectangle from '@/components/icons/geometrics/IconGeometricRectangle'
+import IconGeometricRightAngle from '@/components/icons/geometrics/IconGeometricRightAngle'
+import IconGeometricThreeHorizontalLines from '@/components/icons/geometrics/IconGeometricThreeHorizontalLines'
+import IconGeometricThreeVerticalLines from '@/components/icons/geometrics/IconGeometricThreeVerticalLines'
+import IconGeometricTwoRectangles from '@/components/icons/geometrics/IconGeometricTwoRectangles'
+import IconGeometricTwoRotatedRectangles from '@/components/icons/geometrics/IconGeometricTwoRotatedRectangles'
+//
 import IconArrowLeft from '@/components/icons/IconArrowLeft'
 import IconArrowTopRight from '@/components/icons/IconArrowTopRight'
 import IconBell from '@/components/icons/IconBell'
@@ -34,6 +42,14 @@ import IconSpinner from '@/components/icons/IconSpinner'
 import IconSearch from '@/components/icons/IconSearch'
 
 export {
+  // geometrics
+  IconGeometricRectangle,
+  IconGeometricRightAngle,
+  IconGeometricThreeHorizontalLines,
+  IconGeometricThreeVerticalLines,
+  IconGeometricTwoRectangles,
+  IconGeometricTwoRotatedRectangles,
+  //
   IconArrowLeft,
   IconArrowTopRight,
   IconBell,
@@ -67,5 +83,5 @@ export {
   IconWhatsapp,
   IconWhatsappAlt,
   IconSpinner,
-  IconSearch,
+  IconSearch
 }

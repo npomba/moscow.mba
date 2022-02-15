@@ -10,11 +10,13 @@ import { ImgJournalArticle } from '@/components/images'
 
 type TypeCardJournalArticleProps = TypeClassNames & {
   article: TypeLibJournalArticle | null
+  tag?: boolean
 }
 
 const CardJournalArticle = ({
   classNames,
-  article
+  article,
+  tag
 }: TypeCardJournalArticleProps) => {
   if (
     !article?.slug ||
@@ -30,16 +32,21 @@ const CardJournalArticle = ({
 
   const { slug, journal_tag, picture, title, journal_category, createdAt } =
     article
+
   return (
     <Link
       href={`${routesFront.journal}/${journal_category.slug}/${journal_tag.slug}/${slug}`}>
       <a
         className={
-          cn(stls.container, getClassNames({ classNames })) || undefined
+          cn(
+            stls.container,
+            { [stls.tag]: tag, [stls.default]: !tag },
+            getClassNames({ classNames })
+          ) || undefined
         }>
         <article className={stls.article}>
           <div className={stls.top}>
-            <div className={stls.tag}>{journal_tag.title}</div>
+            <div className={stls.tagLabel}>{journal_tag.title}</div>
             <ImgJournalArticle
               src={picture.url || undefined}
               width={picture.url && 443}

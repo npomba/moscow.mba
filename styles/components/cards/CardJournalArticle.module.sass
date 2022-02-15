@@ -4,13 +4,16 @@
 
 .container
   display: flex
+  &.tag
+    & .bottom
+      @include m.dye(bgc, c.$psi)
 
 .article
   position: relative
   display: flex
   flex-direction: column
 
-.tag
+.tagLabel
   position: absolute
   top: f.px(15)
   left: f.px(15)

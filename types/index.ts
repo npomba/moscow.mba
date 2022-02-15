@@ -6,6 +6,8 @@ import TypeContextJournalState from '@/types/context/journal/TypeContextJournalS
 import TypeCategories from '@/types/general/TypeCategories'
 import TypeChildren from '@/types/general/TypeChildren'
 import TypeClassNames from '@/types/general/TypeClassNames'
+import TypeColor from '@/types/general/TypeColor'
+import TypeColorsKeys from '@/types/general/TypeColorsKeys'
 import TypeImg from '@/types/general/TypeImg'
 import TypeImgExtended from '@/types/general/TypeImgExtended'
 import TypeOfType from '@/types/general/TypeOfType'
@@ -51,6 +53,8 @@ export type {
   TypeCategories,
   TypeChildren,
   TypeClassNames,
+  TypeColor,
+  TypeColorsKeys,
   TypeImg,
   TypeImgExtended,
   TypeOfType,

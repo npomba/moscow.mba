@@ -1,5 +1,6 @@
 import base64pixel from '@/config/base64pixel'
 import categories from '@/config/categories'
+import colors from '@/config/colors'
 import companyName from '@/config/companyName'
 import contactData from '@/config/contactData'
 import dev from '@/config/dev'
@@ -13,6 +14,7 @@ import studyFormats from '@/config/studyFormats'
 export {
   base64pixel,
   categories,
+  colors,
   companyName,
   contactData,
   dev,

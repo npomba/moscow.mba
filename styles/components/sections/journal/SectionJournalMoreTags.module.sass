@@ -11,3 +11,25 @@
   @include m.media(laptop, desktop, widescreen)
     padding-top: f.px(130)
     padding-bottom: f.px(130)
+  @include m.dye(bgc, c.$phi)
+
+.tags
+  display: flex
+  flex-wrap: wrap
+
+.tagItem
+  margin-right: f.px(35)
+  margin-bottom: f.px(25)
+
+.tag
+  @include m.media(phone, tablet)
+    font-size: f.px(14)
+  @include m.media(laptop, desktop, widescreen)
+    font-size: f.px(15)
+  font-weight: 500
+  line-height: 120%
+  letter-spacing: 0.1em
+  text-transform: uppercase
+
+.highlight
+  @include m.dye(c, c.$alpha)

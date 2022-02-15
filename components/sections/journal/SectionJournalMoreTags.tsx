@@ -25,7 +25,7 @@ const SectionJournalMoreTags = ({
       }>
       <Wrapper column>
         <GeneralJournalSectionTitle>
-          больше интересных <span className={stls.highlight}>#</span> тегов
+          больше интересных <span className={stls.highlight}>#&nbsp;</span>тегов
         </GeneralJournalSectionTitle>
 
         <ul className={stls.tags}>
