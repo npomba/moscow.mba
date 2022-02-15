@@ -7,13 +7,18 @@ import { ContextJournalContext } from '@/context/index'
 import {
   SectionJournalTags,
   SectionJournalCategories,
-  SectionJournalHeroArticle
+  SectionJournalHeroArticle,
+  SectionJournalAllArticles,
+  SectionJournalNews,
+  SectionJournalTagsWithPictures,
+  SectionJournalTagedArticles,
+  SectionJournalMoreTags
 } from '@/components/sections'
 
 type TypePageJournalArticlesProps = {}
 
 const PageJournalArticles = () => {
-  const { journalArticlesArticle } = useContext(ContextJournalContext)
+  const { journalTags } = useContext(ContextJournalContext)
 
   return (
     <>
@@ -26,6 +31,14 @@ const PageJournalArticles = () => {
       <SectionJournalTags />
       <SectionJournalCategories />
       <SectionJournalHeroArticle />
+      <SectionJournalAllArticles />
+      <SectionJournalNews />
+      <SectionJournalTagsWithPictures />
+      <SectionJournalTagedArticles />
+      {journalTags?.map(tag => (
+        <SectionJournalTagedArticles key={tag.slug} tag={tag} />
+      ))}
+      <SectionJournalMoreTags />
     </>
   )
 }

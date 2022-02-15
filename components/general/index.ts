@@ -6,6 +6,7 @@ import Breadcrumbs from '@/components/general/Breadcrumbs'
 import ContactCards from '@/components/general/ContactCards'
 import CourseAccordion from '@/components/general/CourseAccordion'
 import Filters from '@/components/general/Filters'
+import GeneralJuornalSectionTitle from '@/components/general/GeneralJuornalSectionTitle'
 import HelpWithEmploymentItem from '@/components/general/HelpWithEmploymentItem'
 import ImageContainer from '@/components/general/ImageContainer'
 import InfoRectangle from '@/components/general/InfoRectangle'
@@ -33,6 +34,7 @@ export {
   ContactCards,
   CourseAccordion,
   Filters,
+  GeneralJuornalSectionTitle,
   HelpWithEmploymentItem,
   ImageContainer,
   InfoRectangle,

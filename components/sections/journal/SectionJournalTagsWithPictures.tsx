@@ -1,4 +1,4 @@
-import stls from '@/styles/components/sections/journal/SectionJournalTags.module.sass'
+import stls from '@/styles/components/sections/journal/SectionJournalTagsWithPictures.module.sass'
 import { TypeClassNames } from '@/types/index'
 import Link from 'next/link'
 import { useContext } from 'react'
@@ -9,9 +9,11 @@ import { ContextJournalContext } from '@/context/index'
 import { GeneralJuornalSectionTitle } from '@/components/general'
 import { Wrapper } from '@/components/layout'
 
-type TypeSectionJournalTagsProps = TypeClassNames
+type TypeSectionJournalTagsWithPicturesProps = TypeClassNames
 
-const SectionJournalTags = ({ classNames }: TypeSectionJournalTagsProps) => {
+const SectionJournalTagsWithPictures = ({
+  classNames
+}: TypeSectionJournalTagsWithPicturesProps) => {
   const { journalTags, gspContextParamsJournalCategory } = useContext(
     ContextJournalContext
   )
@@ -39,4 +41,4 @@ const SectionJournalTags = ({ classNames }: TypeSectionJournalTagsProps) => {
   )
 }
 
-export default SectionJournalTags
+export default SectionJournalTagsWithPictures
