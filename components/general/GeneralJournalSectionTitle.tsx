@@ -1,14 +1,14 @@
-import stls from '@/styles/components/general/GeneralJuornalSectionTitle.module.sass'
+import stls from '@/styles/components/general/GeneralJournalSectionTitle.module.sass'
 import { TypeClassNames, TypeChildren } from '@/types/index'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 
-type TypeGeneralJuornalSectionTitleProps = TypeClassNames & TypeChildren
+type TypeGeneralJournalSectionTitleProps = TypeClassNames & TypeChildren
 
-const GeneralJuornalSectionTitle = ({
+const GeneralJournalSectionTitle = ({
   classNames,
   children
-}: TypeGeneralJuornalSectionTitleProps) => {
+}: TypeGeneralJournalSectionTitleProps) => {
   return (
     <h2
       className={
@@ -19,4 +19,4 @@ const GeneralJuornalSectionTitle = ({
   )
 }
 
-export default GeneralJuornalSectionTitle
+export default GeneralJournalSectionTitle

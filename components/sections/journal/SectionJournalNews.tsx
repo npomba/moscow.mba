@@ -6,7 +6,7 @@ import cn from 'classnames'
 import { routesFront } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import { ContextJournalContext } from '@/context/index'
-import { GeneralJuornalSectionTitle } from '@/components/general'
+import { GeneralJournalSectionTitle } from '@/components/general'
 import { Wrapper } from '@/components/layout'
 
 type TypeSectionJournalNewsProps = TypeClassNames
@@ -22,7 +22,7 @@ const SectionJournalNews = ({ classNames }: TypeSectionJournalNewsProps) => {
         cn(stls.container, getClassNames({ classNames })) || undefined
       }>
       <Wrapper column>
-        <GeneralJuornalSectionTitle>Новости</GeneralJuornalSectionTitle>
+        <GeneralJournalSectionTitle>Новости</GeneralJournalSectionTitle>
         SectionJournalNews
       </Wrapper>
     </section>
