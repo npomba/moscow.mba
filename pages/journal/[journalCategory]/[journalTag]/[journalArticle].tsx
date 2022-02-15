@@ -28,7 +28,6 @@ const PageJournalCategoryTagArticle: NextPage<TypePageJournalArticleProps> = ({
 
   return (
     <>
-      Article
       <PageJournalArticles />
     </>
   )

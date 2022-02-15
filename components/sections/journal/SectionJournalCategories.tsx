@@ -13,9 +13,11 @@ type TypeSectionJournalCategoriesProps = TypeClassNames
 const SectionJournalCategories = ({
   classNames
 }: TypeSectionJournalCategoriesProps) => {
-  const { journalCategories, gspContextParamsJournalCategoryTag } = useContext(
-    ContextJournalContext
-  )
+  const {
+    journalCategories,
+    gspContextParamsJournalCategoryTag,
+    gspContextParamsJournalCategory
+  } = useContext(ContextJournalContext)
 
   return (
     <section
@@ -24,13 +26,31 @@ const SectionJournalCategories = ({
       }>
       <Wrapper>
         <ul className={stls.categories}>
+          <li className={stls.categoryItem}>
+            <Link
+              href={`${routesFront.journal}/categories/${gspContextParamsJournalCategoryTag}`}>
+              <a
+                className={cn(stls.category, {
+                  [stls.isActive]:
+                    'categories' === gspContextParamsJournalCategory
+                })}>
+                Все&nbsp;форматы
+              </a>
+            </Link>
+          </li>
           {journalCategories
             ?.filter(category => category.title && category.slug)
             .map(category => (
               <li key={category.slug} className={stls.categoryItem}>
                 <Link
                   href={`${routesFront.journal}/${category.slug}/${gspContextParamsJournalCategoryTag}`}>
-                  <a className={stls.categoryItem}>{category.title}</a>
+                  <a
+                    className={cn(stls.category, {
+                      [stls.isActive]:
+                        category.slug === gspContextParamsJournalCategory
+                    })}>
+                    {category.title}
+                  </a>
                 </Link>
               </li>
             ))}

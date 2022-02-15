@@ -12,9 +12,11 @@ import { Wrapper } from '@/components/layout'
 type TypeSectionJournalTagsProps = TypeClassNames
 
 const SectionJournalTags = ({ classNames }: TypeSectionJournalTagsProps) => {
-  const { journalTags, gspContextParamsJournalCategory } = useContext(
-    ContextJournalContext
-  )
+  const {
+    journalTags,
+    gspContextParamsJournalCategory,
+    gspContextParamsJournalCategoryTag
+  } = useContext(ContextJournalContext)
 
   return (
     <section
@@ -26,9 +28,18 @@ const SectionJournalTags = ({ classNames }: TypeSectionJournalTagsProps) => {
           {journalTags
             ?.filter(tag => tag.title && tag.slug)
             .map(tag => (
-              <li key={tag.slug} className={stls.tagItem}>
+              <li
+                key={tag.slug}
+                className={cn(stls.tagItem, {
+                  [stls.isActive]:
+                    tag.slug === gspContextParamsJournalCategoryTag
+                })}>
                 <Link
-                  href={`${routesFront.journal}/${gspContextParamsJournalCategory}/${tag.slug}`}>
+                  href={
+                    tag.slug === gspContextParamsJournalCategoryTag
+                      ? `${routesFront.journal}/${gspContextParamsJournalCategory}`
+                      : `${routesFront.journal}/${gspContextParamsJournalCategory}/${tag.slug}`
+                  }>
                   <a className={stls.tag}>#{tag.title}</a>
                 </Link>
               </li>
