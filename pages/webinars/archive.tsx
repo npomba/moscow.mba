@@ -1,6 +1,5 @@
 import Webinars from '@/components/pages/Webinars'
-import { handleGetStaticProps } from '@/helpers/index'
-import HandleGetPrograms from '@/helpers/HandleGetPrograms'
+import { handleGetStaticProps, HandleGetPrograms } from '@/helpers/index'
 
 const PageWebinarsArchive = ({ programs }) => {
   HandleGetPrograms(programs)

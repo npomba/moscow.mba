@@ -1,6 +1,5 @@
 import stls from '@/styles/components/costs/Loan.module.sass'
-import { useAt } from '@/helpers/index'
-import { toNumberWithSpaces } from '@/helpers/index'
+import { useAt, toNumberWithSpaces } from '@/helpers/index'
 
 const Loan = ({
   discount = false,

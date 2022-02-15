@@ -2,9 +2,8 @@ import stls from '@/styles/components/pages/Programs.module.sass'
 import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import { useAt } from '@/helpers/index'
+import { SetString, useAt } from '@/helpers/index'
 import langMenu from '@/data/translation/menu'
-import { SetString } from '@/helpers/index'
 import {
   Breadcrumbs,
   InfoRectangle,

@@ -1,6 +1,6 @@
 import stls from '@/styles/components/icons/IconArrowLeft.module.sass'
-import { getClassNames } from '@/helpers/index'
 import cn from 'classnames'
+import { getClassNames } from '@/helpers/index'
 
 const IconArrowLeft = ({ fill = '', classNames = [] }) => {
   const container = getClassNames({ classNames })

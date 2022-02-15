@@ -1,5 +1,5 @@
 import stls from '@/styles/components/header/HeaderTabs.module.sass'
-import SetString from '@/helpers/SetString'
+import { SetString } from '@/helpers/index'
 import Link from 'next/link'
 import langMenu from '@/data/translation/menu'
 

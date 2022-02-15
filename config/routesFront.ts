@@ -1,6 +1,7 @@
+import { TypeRoutesFront } from '@/types/index'
 import { dev } from '@/config/index'
 
-const routesFront = {
+const routesFront: TypeRoutesFront = {
   root: dev ? 'http://localhost:3000' : 'https://moscow.mba',
   home: '/',
   about: '/about',
@@ -9,6 +10,11 @@ const routesFront = {
   legal: '/legal',
   payment: '/payment',
   promo: '/promo',
+  journal: '/journal',
+  journalCategory: '/journal/[journalCategory]',
+  journalCategoryTag: '/journal/[journalCategory]/[journalTag]',
+  journalCategoryTagArticle:
+    '/journal/[journalCategory]/[journalTag]/[journalArticle]',
   webinars: '/webinars',
   webinarsArchive: '/webinars/archive',
   webinarsUpcoming: '/webinars/upcoming',

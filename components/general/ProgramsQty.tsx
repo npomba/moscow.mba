@@ -1,8 +1,7 @@
 import stls from '@/styles/components/general/ProgramsQty.module.sass'
 import cn from 'classnames'
-import { SetString } from '@/helpers/index'
+import { SetString, getStringDeclensionNumber } from '@/helpers/index'
 import langMenu from '@/data/translation/menu'
-import { getStringDeclensionNumber } from '@/helpers/index'
 
 const ProgramsQty = ({
   programs,

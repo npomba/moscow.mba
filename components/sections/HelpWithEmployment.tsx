@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/HelpWithEmployment.module.sass'
-import useAt from '@/helpers/useAt'
+import { useAt } from '@/helpers/index'
 import { Wrapper } from '@/components/layout'
 import { HelpWithEmploymentItem } from '@/components/general'
 

@@ -1,6 +1,6 @@
 import stls from '@/styles/components/layout/Wrapper.module.sass'
 import cn from 'classnames'
-import getClassNames from '@/helpers/getClassNames'
+import { getClassNames } from '@/helpers/index'
 
 const Wrapper = ({ children, classNames = [], row = true, column = false }) => {
   let container

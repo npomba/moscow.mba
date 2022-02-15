@@ -1,6 +1,6 @@
-import getClassNames from '@/helpers/getClassNames'
 import stls from '@/styles/components/icons/IconPaperCorner.module.sass'
 import cn from 'classnames'
+import { getClassNames } from '@/helpers/index'
 
 const IconPaperCorner = ({ fill = '#D9D9D9', classNames = [] }) => {
   const container = getClassNames({ classNames })

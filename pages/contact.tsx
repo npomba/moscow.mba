@@ -1,14 +1,16 @@
 import stls from '@/styles/pages/Contact.module.sass'
 import { NextSeo, CorporateContactJsonLd } from 'next-seo'
 import truncate from 'truncate'
-import { SetString } from '@/helpers/index'
+import {
+  SetString,
+  HandleGetPrograms,
+  handleGetStaticProps
+} from '@/helpers/index'
 import lang from '@/data/translation/header'
 import { ContactCards, Breadcrumbs } from '@/components/general'
 import { contactData } from '@/config/index'
 
 import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
-import { handleGetStaticProps } from '@/helpers/index'
-import HandleGetPrograms from '@/helpers/HandleGetPrograms'
 
 const PageContact = ({ programs }) => {
   HandleGetPrograms(programs)
