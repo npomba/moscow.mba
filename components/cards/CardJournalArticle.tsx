@@ -2,10 +2,9 @@ import stls from '@/styles/components/cards/CardJournalArticle.module.sass'
 import { TypeClassNames, TypeLibJournalArticle } from '@/types/index'
 import Link from 'next/link'
 import cn from 'classnames'
-import { format } from 'date-fns'
-import { ru } from 'date-fns/locale'
 import { routesFront } from '@/config/index'
 import { getClassNames, getImageHeight } from '@/helpers/index'
+import { GeneralJournalArticleCreatedAt } from '@/components/general'
 import { ImgJournalArticle } from '@/components/images'
 
 type TypeCardJournalArticleProps = TypeClassNames & {
@@ -60,15 +59,17 @@ const CardJournalArticle = ({
               }
               alt={title}
               title={title}
+              darken
             />
           </div>
           <div className={stls.bottom}>
             <h3 className={stls.title}>{title}</h3>
             <div className={stls.bottomBottom}>
               <div className={stls.category}>{journal_category.title}</div>
-              <div className={stls.date}>
-                {format(new Date(createdAt), 'dd LLL', { locale: ru })}
-              </div>
+              <GeneralJournalArticleCreatedAt
+                classNames={[stls.date]}
+                createdAt={createdAt}
+              />
             </div>
           </div>
         </article>

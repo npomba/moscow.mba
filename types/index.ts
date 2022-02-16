@@ -20,6 +20,10 @@ import TypeStudyFormat from '@/types/general/TypeStudyFormat'
 
 // Lib/general
 import TypeLibPicture from '@/types/lib/general/TypeLibPicture'
+import TypeLibTypename from '@/types/lib/general/TypeLibTypename'
+
+// Lib/journal/article
+import TypeLibJournalArticleParagraphBody from '@/types/lib/journal/article/TypeLibJournalArticleParagraphBody'
 
 // Lib/journal
 import TypeLibJournalArticle from '@/types/lib/journal/TypeLibJournalArticle'
@@ -66,6 +70,9 @@ export type {
   TypeStudyFormat,
   // Lib/general
   TypeLibPicture,
+  TypeLibTypename,
+  // Lib/journal/article
+  TypeLibJournalArticleParagraphBody,
   // Lib/journal
   TypeLibJournalArticle,
   TypeLibJournalArticles,

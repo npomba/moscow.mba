@@ -2,10 +2,15 @@ import stls from '@/styles/pages/PageJournalCategoryTagArticle.module.sass'
 import type { NextPage } from 'next'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { TypePageJournalArticleProps } from '@/types/index'
+import { useEffect, useState } from 'react'
 import { routesFront } from '@/config/index'
+import { getImageHeight } from '@/helpers/index'
 import { handleGetStaticProps, handleGetStaticPaths } from '@/lib/index'
 import { usePageHandleContext } from '@/hooks/index'
-import { PageJournalArticles } from '@/components/pages'
+import { GeneralJournalArticleCreatedAt } from '@/components/general'
+import { Wrapper, ContentJournalArticle } from '@/components/layout'
+import { ImgJournalArticle } from '@/components/images'
+import { SectionJournalParagraph } from '@/components/sections'
 
 const PageJournalCategoryTagArticle: NextPage<TypePageJournalArticleProps> = ({
   journalCategories,
@@ -26,10 +31,82 @@ const PageJournalCategoryTagArticle: NextPage<TypePageJournalArticleProps> = ({
     gspContextParamsJournalCategoryTagArticle
   })
 
-  return <>Здесь будет страница заголовка</>
-}
+  const { title, journal_category, createdAt, picture, articleBody } =
+    journalArticlesArticle
 
-export default PageJournalCategoryTagArticle
+  const [pageYOffset, setPageYOffset] = useState(0)
+  const [scollHeight, setScrollHeight] = useState(0)
+  const [clientHeight, setClientHeight] = useState(0)
+
+  const handleScroll = () => {
+    setPageYOffset(window.pageYOffset)
+    setScrollHeight(document.body.scrollHeight)
+    setClientHeight(
+      window.innerHeight ||
+        document.documentElement.clientHeight ||
+        document.body.clientHeight
+    )
+  }
+
+  useEffect(() => {
+    document.addEventListener('scroll', handleScroll)
+    return () => {
+      document.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
+  console.log(articleBody)
+
+  return (
+    <>
+      <div className={stls.scrollProgress}>
+        <div
+          className={stls.scrollProgressBar}
+          style={{
+            transform: `translateX(-${
+              100 - pageYOffset / ((scollHeight - clientHeight) / 100)
+            }%)`
+          }}></div>
+      </div>
+      <Wrapper column>
+        <ContentJournalArticle classNames={[stls.content]}>
+          <h1 className={stls.title}>{title}</h1>
+          <div className={stls.categorydate}>
+            <div className={stls.category}>{journal_category.title}</div>
+            <GeneralJournalArticleCreatedAt
+              classNames={[stls.date]}
+              createdAt={createdAt}
+              formatString='dd.MM.yyyy'
+            />
+          </div>
+          <ImgJournalArticle
+            src={picture.url || undefined}
+            width={picture.url && 850}
+            height={
+              picture.url &&
+              getImageHeight({
+                width: 850,
+                widthInitial: picture.width,
+                heightInitial: picture.height
+              })
+            }
+            alt={title}
+            title={title}
+            classNames={[stls.img]}
+          />
+        </ContentJournalArticle>
+      </Wrapper>
+      {articleBody?.map((component, idx) => (
+        <>
+          {component.__typename === 'ComponentJournalParagraph' && (
+            <SectionJournalParagraph body={component.paragraphBody} idx={idx} />
+          )}
+          <br />
+        </>
+      ))}
+    </>
+  )
+}
 
 export const getStaticPaths: GetStaticPaths = async () =>
   await handleGetStaticPaths({ page: routesFront.journalCategoryTagArticle })
@@ -39,3 +116,5 @@ export const getStaticProps: GetStaticProps = async context =>
     page: routesFront.journalCategoryTagArticle,
     context
   })
+
+export default PageJournalCategoryTagArticle

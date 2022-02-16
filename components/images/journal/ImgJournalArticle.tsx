@@ -3,7 +3,11 @@ import { TypeClassNames, TypeImg, TypeImgExtended } from '@/types/index'
 import { ImgTemplate } from '@/components/images'
 import srcDefault from '@/public/assets/images/journal/journalDefault.jpg'
 
-type TypeImgJournalArticleProps = TypeClassNames & TypeImg & TypeImgExtended
+type TypeImgJournalArticleProps = TypeClassNames &
+  TypeImg &
+  TypeImgExtended & {
+    darken?: boolean
+  }
 
 const ImgJournalArticle = ({
   classNames,
@@ -11,7 +15,8 @@ const ImgJournalArticle = ({
   width,
   height,
   alt,
-  title
+  title,
+  darken
 }: TypeImgJournalArticleProps) => {
   return (
     <>
@@ -22,7 +27,7 @@ const ImgJournalArticle = ({
         height={height}
         alt={alt || 'Заголовок'}
         title={title || 'Заголовок'}
-        darken
+        darken={darken}
       />
     </>
   )

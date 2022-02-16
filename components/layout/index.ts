@@ -1,3 +1,4 @@
+import ContentJournalArticle from '@/components/layout/ContentJournalArticle'
 import Footer from '@/components/layout/Footer'
 import Header from '@/components/layout/Header'
 import Main from '@/components/layout/Main'
@@ -8,6 +9,7 @@ import Wrapper from '@/components/layout/Wrapper'
 import WrapperPage from '@/components/layout/WrapperPage'
 
 export {
+  ContentJournalArticle,
   Footer,
   Header,
   Main,

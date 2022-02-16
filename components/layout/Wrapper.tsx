@@ -11,7 +11,7 @@ const Wrapper = ({ children, classNames = [], row = true, column = false }) => {
   } else if (row) {
     container = stls.row
   }
-  return <div className={cn([stls.page], container)}>{children}</div>
+  return <div className={cn(stls.page, container)}>{children}</div>
 }
 
 export default Wrapper

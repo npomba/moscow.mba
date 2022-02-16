@@ -1,0 +1,28 @@
+@use 'sass:math'
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+@use '@/styles/shared/journal' as j
+
+.paragraph
+  display: inline
+  & p
+    display: inline
+    margin-bottom: f.px(25)
+    font-size: f.px(18)
+    font-weight: 400
+    line-height: 140%
+    @include m.dye(c, c.$chi)
+
+.isHighlighted
+  & p
+    border-bottom: 2px solid
+    @include m.dye(borderc, c.$alpha)
+    @include m.dye(bgc, c.$eta)
+
+.isLarger
+  & p
+    @include m.media(laptop, desktop, widescreen)
+      font-size: f.px(20)
+    font-weight: 500
+    line-height: 120%

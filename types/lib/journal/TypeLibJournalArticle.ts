@@ -1,4 +1,8 @@
-import { TypeLibPicture } from '@/types/index'
+import {
+  TypeLibPicture,
+  TypeLibTypename,
+  TypeLibJournalArticleParagraphBody
+} from '@/types/index'
 
 type TypeLibJournalArticle = {
   title: string | null
@@ -33,7 +37,12 @@ type TypeLibJournalArticle = {
       string: string | null
     } | null
   } | null
-  articleBody: any[]
+  articleBody?:
+    | {
+        __typename: TypeLibTypename
+        paragraphBody?: TypeLibJournalArticleParagraphBody | null
+      }[]
+    | null
 }
 
 export default TypeLibJournalArticle
