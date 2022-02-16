@@ -1,9 +1,7 @@
 import stls from '@/styles/components/sections/journal/SectionJournalTitle.module.sass'
 import { TypeClassNames, TypeLibJournalArticleTitleBody } from '@/types/index'
 import cn from 'classnames'
-import parse from 'html-react-parser'
 import truncate from 'truncate'
-import { marked } from 'marked'
 import { getClassNames } from '@/helpers/index'
 import { Wrapper, ContentJournalArticle } from '@/components/layout'
 
@@ -37,10 +35,7 @@ const SectionJournalTitle = ({
                   className={cn({
                     [stls.isHighlighted]: part.isHighlighted
                   })}>
-                  {part.text &&
-                    parse(
-                      marked(part.text).replace('<p>', '').replace('</p>', '')
-                    )}
+                  {part.text}{' '}
                 </span>
               ))}
           </h2>

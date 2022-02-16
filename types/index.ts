@@ -24,6 +24,8 @@ import TypeLibTypename from '@/types/lib/general/TypeLibTypename'
 
 // Lib/journal/article
 import TypeLibJournalArticleParagraphBody from '@/types/lib/journal/article/TypeLibJournalArticleParagraphBody'
+import TypeLibJournalArticlePicture from '@/types/lib/journal/article/TypeLibJournalArticlePicture'
+import TypeLibJournalArticleTitle from '@/types/lib/journal/article/TypeLibJournalArticleTitle'
 import TypeLibJournalArticleTitleBody from '@/types/lib/journal/article/TypeLibJournalArticleTitleBody'
 
 // Lib/journal
@@ -74,6 +76,8 @@ export type {
   TypeLibTypename,
   // Lib/journal/article
   TypeLibJournalArticleParagraphBody,
+  TypeLibJournalArticlePicture,
+  TypeLibJournalArticleTitle,
   TypeLibJournalArticleTitleBody,
   // Lib/journal
   TypeLibJournalArticle,

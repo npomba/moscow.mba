@@ -2,7 +2,7 @@ import stls from '@/styles/pages/PageJournalCategoryTagArticle.module.sass'
 import type { NextPage } from 'next'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { TypePageJournalArticleProps } from '@/types/index'
-import { useEffect, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { routesFront } from '@/config/index'
 import { getImageHeight } from '@/helpers/index'
 import { handleGetStaticProps, handleGetStaticPaths } from '@/lib/index'
@@ -12,7 +12,8 @@ import { Wrapper, ContentJournalArticle } from '@/components/layout'
 import { ImgJournalArticle } from '@/components/images'
 import {
   SectionJournalParagraph,
-  SectionJournalTitle
+  SectionJournalTitle,
+  SectionJournalPicture
 } from '@/components/sections'
 
 const PageJournalCategoryTagArticle: NextPage<TypePageJournalArticleProps> = ({
@@ -102,14 +103,21 @@ const PageJournalCategoryTagArticle: NextPage<TypePageJournalArticleProps> = ({
         </Wrapper>
       </section>
       {articleBody?.map((component, idx) => (
-        <>
+        <Fragment key={`${component.__typename} ${idx}`}>
           {component.__typename === 'ComponentJournalParagraph' && (
             <SectionJournalParagraph body={component.paragraphBody} idx={idx} />
           )}
           {component.__typename === 'ComponentJournalTitle' && (
             <SectionJournalTitle body={component.titleBody} idx={idx} />
           )}
-        </>
+          {component.__typename === 'ComponentGeneralPicture' && (
+            <SectionJournalPicture
+              picture={component.picture}
+              title={component.title}
+              idx={idx}
+            />
+          )}
+        </Fragment>
       ))}
     </>
   )
