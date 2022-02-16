@@ -1,5 +1,5 @@
 import stls from '@/styles/components/general/GeneralJournalArticleCreatedAt.module.sass'
-import { TypeClassNames, TypeChildren } from '@/types/index'
+import { TypeClassNames } from '@/types/index'
 import cn from 'classnames'
 import { format } from 'date-fns'
 import { ru } from 'date-fns/locale'

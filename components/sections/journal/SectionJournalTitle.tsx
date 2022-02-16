@@ -1,8 +1,5 @@
-import stls from '@/styles/components/sections/journal/SectionJournalParagraph.module.sass'
-import {
-  TypeClassNames,
-  TypeLibJournalArticleParagraphBody
-} from '@/types/index'
+import stls from '@/styles/components/sections/journal/SectionJournalTitle.module.sass'
+import { TypeClassNames, TypeLibJournalArticleTitleBody } from '@/types/index'
 import cn from 'classnames'
 import parse from 'html-react-parser'
 import truncate from 'truncate'
@@ -10,16 +7,16 @@ import { marked } from 'marked'
 import { getClassNames } from '@/helpers/index'
 import { Wrapper, ContentJournalArticle } from '@/components/layout'
 
-type TypeSectionJournalParagraphProps = TypeClassNames & {
-  body: TypeLibJournalArticleParagraphBody | null
+type TypeSectionJournalTitleProps = TypeClassNames & {
+  body: TypeLibJournalArticleTitleBody | null
   idx: number
 }
 
-const SectionJournalParagraph = ({
+const SectionJournalTitle = ({
   classNames,
   body,
   idx
-}: TypeSectionJournalParagraphProps) => {
+}: TypeSectionJournalTitleProps) => {
   return (
     <section
       className={
@@ -27,7 +24,7 @@ const SectionJournalParagraph = ({
       }>
       <Wrapper column>
         <ContentJournalArticle>
-          <p className={stls.p}>
+          <h2 className={stls.title}>
             {body
               ?.filter(part => part)
               .map(part => (
@@ -35,11 +32,10 @@ const SectionJournalParagraph = ({
                   key={
                     part.text
                       ? truncate(part.text, 21)
-                      : `SectionJournalParagraph ${idx}`
+                      : `SectionJournalTitle ${idx}`
                   }
                   className={cn({
-                    [stls.isHighlighted]: part.isHighlighted,
-                    [stls.isLarger]: part.isLarger
+                    [stls.isHighlighted]: part.isHighlighted
                   })}>
                   {part.text &&
                     parse(
@@ -47,11 +43,11 @@ const SectionJournalParagraph = ({
                     )}
                 </span>
               ))}
-          </p>
+          </h2>
         </ContentJournalArticle>
       </Wrapper>
     </section>
   )
 }
 
-export default SectionJournalParagraph
+export default SectionJournalTitle

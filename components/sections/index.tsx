@@ -9,6 +9,7 @@ import SectionJournalParagraph from '@/components/sections/journal/SectionJourna
 import SectionJournalTagedArticles from '@/components/sections/journal/SectionJournalTagedArticles'
 import SectionJournalTags from '@/components/sections/journal/SectionJournalTags'
 import SectionJournalTagsWithPictures from '@/components/sections/journal/SectionJournalTagsWithPictures'
+import SectionJournalTitle from '@/components/sections/journal/SectionJournalTitle'
 
 export {
   SectionJournalAllArticles,
@@ -21,5 +22,6 @@ export {
   SectionJournalParagraph,
   SectionJournalTagedArticles,
   SectionJournalTags,
-  SectionJournalTagsWithPictures
+  SectionJournalTagsWithPictures,
+  SectionJournalTitle
 }

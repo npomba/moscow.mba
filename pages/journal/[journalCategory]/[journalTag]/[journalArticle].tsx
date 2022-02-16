@@ -10,7 +10,10 @@ import { usePageHandleContext } from '@/hooks/index'
 import { GeneralJournalArticleCreatedAt } from '@/components/general'
 import { Wrapper, ContentJournalArticle } from '@/components/layout'
 import { ImgJournalArticle } from '@/components/images'
-import { SectionJournalParagraph } from '@/components/sections'
+import {
+  SectionJournalParagraph,
+  SectionJournalTitle
+} from '@/components/sections'
 
 const PageJournalCategoryTagArticle: NextPage<TypePageJournalArticleProps> = ({
   journalCategories,
@@ -68,40 +71,44 @@ const PageJournalCategoryTagArticle: NextPage<TypePageJournalArticleProps> = ({
             }%)`
           }}></div>
       </div>
-      <Wrapper column>
-        <ContentJournalArticle classNames={[stls.content]}>
-          <h1 className={stls.title}>{title}</h1>
-          <div className={stls.categorydate}>
-            <div className={stls.category}>{journal_category.title}</div>
-            <GeneralJournalArticleCreatedAt
-              classNames={[stls.date]}
-              createdAt={createdAt}
-              formatString='dd.MM.yyyy'
+      <section>
+        <Wrapper column>
+          <ContentJournalArticle classNames={[stls.content]}>
+            <h1 className={stls.title}>{title}</h1>
+            <div className={stls.categorydate}>
+              <div className={stls.category}>{journal_category.title}</div>
+              <GeneralJournalArticleCreatedAt
+                classNames={[stls.date]}
+                createdAt={createdAt}
+                formatString='dd.MM.yyyy'
+              />
+            </div>
+            <ImgJournalArticle
+              src={picture.url || undefined}
+              width={picture.url && 850}
+              height={
+                picture.url &&
+                getImageHeight({
+                  width: 850,
+                  widthInitial: picture.width,
+                  heightInitial: picture.height
+                })
+              }
+              alt={title}
+              title={title}
+              classNames={[stls.img]}
             />
-          </div>
-          <ImgJournalArticle
-            src={picture.url || undefined}
-            width={picture.url && 850}
-            height={
-              picture.url &&
-              getImageHeight({
-                width: 850,
-                widthInitial: picture.width,
-                heightInitial: picture.height
-              })
-            }
-            alt={title}
-            title={title}
-            classNames={[stls.img]}
-          />
-        </ContentJournalArticle>
-      </Wrapper>
+          </ContentJournalArticle>
+        </Wrapper>
+      </section>
       {articleBody?.map((component, idx) => (
         <>
           {component.__typename === 'ComponentJournalParagraph' && (
             <SectionJournalParagraph body={component.paragraphBody} idx={idx} />
           )}
-          <br />
+          {component.__typename === 'ComponentJournalTitle' && (
+            <SectionJournalTitle body={component.titleBody} idx={idx} />
+          )}
         </>
       ))}
     </>
