@@ -13,7 +13,9 @@ import { ImgJournalArticle } from '@/components/images'
 import {
   SectionJournalParagraph,
   SectionJournalTitle,
-  SectionJournalPicture
+  SectionJournalPicture,
+  SectionJournalTagsWithPictures,
+  SectionJournalTagedArticles
 } from '@/components/sections'
 
 const PageJournalCategoryTagArticle: NextPage<TypePageJournalArticleProps> = ({
@@ -119,6 +121,8 @@ const PageJournalCategoryTagArticle: NextPage<TypePageJournalArticleProps> = ({
           )}
         </Fragment>
       ))}
+      <SectionJournalTagedArticles suggestions />
+      <SectionJournalTagsWithPictures />
     </>
   )
 }

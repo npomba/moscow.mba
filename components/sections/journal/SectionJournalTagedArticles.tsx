@@ -12,11 +12,13 @@ import { CardJournalArticle } from '@/components/cards'
 
 type TypeSectionJournalTagedArticlesProps = TypeClassNames & {
   tag?: TypeLibJournalTag | null
+  suggestions?: boolean
 }
 
 const SectionJournalTagedArticles = ({
   classNames,
-  tag
+  tag,
+  suggestions
 }: TypeSectionJournalTagedArticlesProps) => {
   const { journalArticles, gspContextParamsJournalCategoryTag } = useContext(
     ContextJournalContext
@@ -33,9 +35,12 @@ const SectionJournalTagedArticles = ({
       }>
       <Wrapper column>
         <GeneralJournalSectionTitle>
-          {!tag ? (
-            <>Самое читаемое</>
-          ) : (
+          {!tag && (
+            <>
+              {suggestions ? 'Возможно вам будет интересно' : 'Самое читаемое'}
+            </>
+          )}
+          {tag && (
             <>
               <span className={stls.highlight}># </span>
               {tag.title}
@@ -47,7 +52,7 @@ const SectionJournalTagedArticles = ({
             ?.filter(article =>
               tag ? article.journal_tag.slug === tag.slug : article
             )
-            .filter((article, idx) => idx < 4)
+            .filter((_, idx) => idx < 4)
             .map(article => (
               <li key={article.slug} className={stls.articleItem}>
                 <CardJournalArticle article={article} tag={!tag} />
