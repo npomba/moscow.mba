@@ -15,11 +15,6 @@ const JumbotronMain = () => {
       <div className={stls.image}>
         {/* should replace following alt with english supported version */}
         <ImgJumbotronFill/>
-        {/* <Image
-          src='/assets/images/jumbotron_1.jpg'
-          layout='fill'
-          alt={'Студенты обучаются'}
-        /> */}
       </div>
       <div className={stls.generalContainer}>
         <div className={stls.content}>
