@@ -10,6 +10,7 @@ import SectionJournalNews from '@/components/sections/journal/SectionJournalNews
 import SectionJournalParagraph from '@/components/sections/journal/SectionJournalParagraph'
 import SectionJournalPicture from '@/components/sections/journal/SectionJournalPicture'
 import SectionJournalQuote from '@/components/sections/journal/SectionJournalQuote'
+import SectionJournalRecommendedProgram from '@/components/sections/journal/SectionJournalRecommendedProgram'
 import SectionJournalTagedArticles from '@/components/sections/journal/SectionJournalTagedArticles'
 import SectionJournalTags from '@/components/sections/journal/SectionJournalTags'
 import SectionJournalTagsWithPictures from '@/components/sections/journal/SectionJournalTagsWithPictures'
@@ -28,6 +29,7 @@ export {
   SectionJournalParagraph,
   SectionJournalPicture,
   SectionJournalQuote,
+  SectionJournalRecommendedProgram,
   SectionJournalTagedArticles,
   SectionJournalTags,
   SectionJournalTagsWithPictures,

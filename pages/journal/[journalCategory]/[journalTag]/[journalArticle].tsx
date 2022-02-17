@@ -17,6 +17,7 @@ import {
   SectionJournalEmphasis,
   SectionJournalQuote,
   SectionJournalList,
+  SectionJournalRecommendedProgram,
   SectionJournalTagedArticles,
   SectionJournalTagsWithPictures
 } from '@/components/sections'
@@ -134,6 +135,10 @@ const PageJournalCategoryTagArticle: NextPage<TypePageJournalArticleProps> = ({
           )}
           {component.__typename === 'ComponentJournalList' && (
             <SectionJournalList listItem={component.listItem} />
+          )}
+          {component.__typename ===
+            'ComponentJournalJournalRecommendedProgram' && (
+            <SectionJournalRecommendedProgram program={component.program} />
           )}
         </Fragment>
       ))}

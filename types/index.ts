@@ -25,13 +25,14 @@ import TypeLibTypename from '@/types/lib/general/TypeLibTypename'
 // Lib/journal/article
 import TypeLibJournalArticleParagraphBody from '@/types/lib/journal/article/TypeLibJournalArticleParagraphBody'
 import TypeLibJournalArticlePicture from '@/types/lib/journal/article/TypeLibJournalArticlePicture'
+import TypeLibJournalArticleProgram from '@/types/lib/journal/article/TypeLibJournalArticleProgram'
 import TypeLibJournalArticleTitle from '@/types/lib/journal/article/TypeLibJournalArticleTitle'
 import TypeLibJournalArticleTitleBody from '@/types/lib/journal/article/TypeLibJournalArticleTitleBody'
-import TypeLibJournalAuthorName from '@/types/lib/journal/article/TypeLibJournalAuthorName'
-import TypeLibJournalAuthorPosition from '@/types/lib/journal/article/TypeLibJournalAuthorPosition'
-import TypeLibJournalBody from '@/types/lib/journal/article/TypeLibJournalBody'
-import TypeLibJournalEmphasisBody from '@/types/lib/journal/article/TypeLibJournalEmphasisBody'
-import TypeLibJournalListItem from '@/types/lib/journal/article/TypeLibJournalListItem'
+import TypeLibJournalArticleAuthorName from '@/types/lib/journal/article/TypeLibJournalArticleAuthorName'
+import TypeLibJournalArticleAuthorPosition from '@/types/lib/journal/article/TypeLibJournalArticleAuthorPosition'
+import TypeLibJournalArticleBody from '@/types/lib/journal/article/TypeLibJournalArticleBody'
+import TypeLibJournalArticleEmphasisBody from '@/types/lib/journal/article/TypeLibJournalArticleEmphasisBody'
+import TypeLibJournalArticleListItem from '@/types/lib/journal/article/TypeLibJournalArticleListItem'
 
 // Lib/journal
 import TypeLibJournalArticle from '@/types/lib/journal/TypeLibJournalArticle'
@@ -82,13 +83,14 @@ export type {
   // Lib/journal/article
   TypeLibJournalArticleParagraphBody,
   TypeLibJournalArticlePicture,
+  TypeLibJournalArticleProgram,
   TypeLibJournalArticleTitle,
   TypeLibJournalArticleTitleBody,
-  TypeLibJournalAuthorName,
-  TypeLibJournalAuthorPosition,
-  TypeLibJournalBody,
-  TypeLibJournalEmphasisBody,
-  TypeLibJournalListItem,
+  TypeLibJournalArticleAuthorName,
+  TypeLibJournalArticleAuthorPosition,
+  TypeLibJournalArticleBody,
+  TypeLibJournalArticleEmphasisBody,
+  TypeLibJournalArticleListItem,
   // Lib/journal
   TypeLibJournalArticle,
   TypeLibJournalArticles,

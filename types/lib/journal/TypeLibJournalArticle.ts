@@ -5,11 +5,12 @@ import {
   TypeLibJournalArticleTitleBody,
   TypeLibJournalArticlePicture,
   TypeLibJournalArticleTitle,
-  TypeLibJournalEmphasisBody,
-  TypeLibJournalAuthorName,
-  TypeLibJournalAuthorPosition,
-  TypeLibJournalBody,
-  TypeLibJournalListItem
+  TypeLibJournalArticleEmphasisBody,
+  TypeLibJournalArticleAuthorName,
+  TypeLibJournalArticleAuthorPosition,
+  TypeLibJournalArticleBody,
+  TypeLibJournalArticleListItem,
+  TypeLibJournalArticleProgram
 } from '@/types/index'
 
 type TypeLibJournalArticle = {
@@ -26,25 +27,6 @@ type TypeLibJournalArticle = {
   picture: TypeLibPicture | null
   shortDescription: string | null
   createdAt: string | null
-  program?: {
-    category: {
-      slug: string | null
-      type: string | null
-      labelCases: {
-        singular: string | null
-      } | null
-    } | null
-    study_field: {
-      slug: string | null
-    }
-    title: string | null
-    slug: string | null
-    discount: string | null
-    whatWillYouLearn: {
-      title: string | null
-      string: string | null
-    } | null
-  } | null
   articleBody?:
     | {
         __typename: TypeLibTypename
@@ -52,11 +34,12 @@ type TypeLibJournalArticle = {
         titleBody?: TypeLibJournalArticleTitleBody | null
         picture?: TypeLibJournalArticlePicture | null
         title?: TypeLibJournalArticleTitle | null
-        emphasisBody?: TypeLibJournalEmphasisBody | null
-        athorPosition?: TypeLibJournalAuthorPosition | null
-        authorName?: TypeLibJournalAuthorName | null
-        body?: TypeLibJournalBody | null
-        listItem?: TypeLibJournalListItem | null
+        emphasisBody?: TypeLibJournalArticleEmphasisBody | null
+        athorPosition?: TypeLibJournalArticleAuthorPosition | null
+        authorName?: TypeLibJournalArticleAuthorName | null
+        body?: TypeLibJournalArticleBody | null
+        listItem?: TypeLibJournalArticleListItem | null
+        program?: TypeLibJournalArticleProgram | null
       }[]
     | null
 }

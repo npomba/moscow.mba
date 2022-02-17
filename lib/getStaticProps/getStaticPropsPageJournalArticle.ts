@@ -80,25 +80,6 @@ const getStaticPropsPageJournalArticle = async ({
           }
           shortDescription
           createdAt
-          program {
-            category {
-              slug
-              type
-              labelCases {
-                singular
-              }
-            }
-            study_field {
-              slug
-            }
-            title
-            slug
-            discount
-            whatWillYouLearn {
-              title
-              string
-            }
-          }
           articleBody {
             ... on ComponentJournalParagraph {
               paragraphBody {
@@ -138,6 +119,24 @@ const getStaticPropsPageJournalArticle = async ({
               item {
                 title
                 body
+              }
+            }
+            ... on ComponentJournalJournalRecommendedProgram {
+              program {
+                category {
+                  slug
+                  type
+                  labelCases {
+                    singular
+                  }
+                }
+                title
+                slug
+                discount
+                whatWillYouLearn {
+                  title
+                  string
+                }
               }
             }
           }

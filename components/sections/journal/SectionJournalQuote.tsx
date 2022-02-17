@@ -1,9 +1,9 @@
 import stls from '@/styles/components/sections/journal/SectionJournalQuote.module.sass'
 import {
   TypeClassNames,
-  TypeLibJournalEmphasisBody,
-  TypeLibJournalAuthorPosition,
-  TypeLibJournalAuthorName
+  TypeLibJournalArticleEmphasisBody,
+  TypeLibJournalArticleAuthorPosition,
+  TypeLibJournalArticleAuthorName
 } from '@/types/index'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
@@ -11,9 +11,9 @@ import { Wrapper, ContentJournalArticle } from '@/components/layout'
 import { IconQuote } from '@/components/icons'
 
 type TypeSectionJournalQuoteProps = TypeClassNames & {
-  body: TypeLibJournalEmphasisBody | null
-  authorPosition: TypeLibJournalAuthorPosition | null
-  authorName: TypeLibJournalAuthorName | null
+  body: TypeLibJournalArticleEmphasisBody | null
+  authorPosition: TypeLibJournalArticleAuthorPosition | null
+  authorName: TypeLibJournalArticleAuthorName | null
 }
 
 const SectionJournalQuote = ({

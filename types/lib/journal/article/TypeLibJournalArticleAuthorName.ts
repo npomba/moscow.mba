@@ -1,0 +1,3 @@
+type TypeLibJournalArticleAuthorName = string
+
+export default TypeLibJournalArticleAuthorName

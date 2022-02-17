@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/journal/SectionJournalList.module.sass'
-import { TypeClassNames, TypeLibJournalListItem } from '@/types/index'
+import { TypeClassNames, TypeLibJournalArticleListItem } from '@/types/index'
 import cn from 'classnames'
 import parse from 'html-react-parser'
 import truncate from 'truncate'
@@ -8,7 +8,7 @@ import { getClassNames } from '@/helpers/index'
 import { Wrapper, ContentJournalArticle } from '@/components/layout'
 
 type TypeSectionJournalListProps = TypeClassNames & {
-  listItem: TypeLibJournalListItem | null
+  listItem: TypeLibJournalArticleListItem | null
 }
 
 const SectionJournalList = ({

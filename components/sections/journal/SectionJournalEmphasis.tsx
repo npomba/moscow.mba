@@ -1,11 +1,14 @@
 import stls from '@/styles/components/sections/journal/SectionJournalEmphasis.module.sass'
-import { TypeClassNames, TypeLibJournalEmphasisBody } from '@/types/index'
+import {
+  TypeClassNames,
+  TypeLibJournalArticleEmphasisBody
+} from '@/types/index'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 import { Wrapper, ContentJournalArticle } from '@/components/layout'
 
 type TypeSectionJournalEmphasisProps = TypeClassNames & {
-  body: TypeLibJournalEmphasisBody | null
+  body: TypeLibJournalArticleEmphasisBody | null
 }
 
 const SectionJournalEmphasis = ({
