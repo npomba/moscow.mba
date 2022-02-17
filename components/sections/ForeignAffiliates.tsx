@@ -5,6 +5,7 @@ import lang from '@/data/translation/index'
 import imageData from '@/data/images/foreignAffiliates'
 import { base64pixel } from '@/config/index'
 import Wrapper from '../layout/Wrapper'
+import {ImgCampusThree} from '@/components/images'
 
 const ForeignAffiliates = () => {
   return (
@@ -40,14 +41,7 @@ const ForeignAffiliates = () => {
             </li>
             <li className={stls.imagesListItem}>
               <div className={stls.image}>
-                <Image
-                  src={imageData.circleThree.src}
-                  alt={SetString(imageData.circleThree.alt)}
-                  width={191}
-                  height={191}
-                  placeholder='blur'
-                  blurDataURL={base64pixel}
-                />
+                <ImgCampusThree/>
               </div>
             </li>
             <li className={stls.imagesListItem}>
