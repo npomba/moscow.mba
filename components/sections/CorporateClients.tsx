@@ -6,6 +6,7 @@ import { base64pixel } from '@/config/index'
 import { Wrapper } from '@/components/layout'
 import imageData from '@/data/images/corporateClients'
 import lang from '@/data/translation/index'
+import { ImgHh } from '@/components/images'
 
 const CorporateClients = ({ partnershipTitle = false }) => {
   const title = partnershipTitle ? (
@@ -35,14 +36,7 @@ const CorporateClients = ({ partnershipTitle = false }) => {
           <ul className={stls.list}>
             <li className={stls.listItem}>
               <div className={stls.image}>
-                <Image
-                  src={imageData.hh.src}
-                  alt={SetString(imageData.hh.alt)}
-                  width={141}
-                  height={106}
-                  placeholder='blur'
-                  blurDataURL={base64pixel}
-                />
+                <ImgHh/>
               </div>
             </li>
             <li className={stls.listItem}>
