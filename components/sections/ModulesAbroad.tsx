@@ -2,6 +2,7 @@ import stls from '@/styles/components/sections/ModulesAbroad.module.sass'
 import cn from 'classnames'
 import Image from 'next/image'
 import { Wrapper } from '@/components/layout'
+import { ImgStatueLiberty } from '@/components/images'
 
 const ModulesAbroad = () => {
   return (
@@ -22,12 +23,7 @@ const ModulesAbroad = () => {
         <ul className={stls.list}>
           <li className={stls.item}>
             <div className={stls.image}>
-              <Image
-                src='/assets/images/new_abroad_modules_pic_1.jpg'
-                alt={'Вид на Статую Свободы, США'}
-                width={516}
-                height={344}
-              />
+              <ImgStatueLiberty/>
               <div className={cn(stls.redOffset, stls.bottomRight)}></div>
             </div>
             <div className={stls.itemTextContainer}>
