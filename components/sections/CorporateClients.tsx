@@ -6,6 +6,7 @@ import { base64pixel } from '@/config/index'
 import { Wrapper } from '@/components/layout'
 import imageData from '@/data/images/corporateClients'
 import lang from '@/data/translation/index'
+import { ImgLukomA } from '@/components/images'
 
 const CorporateClients = ({ partnershipTitle = false }) => {
   const title = partnershipTitle ? (
@@ -121,14 +122,7 @@ const CorporateClients = ({ partnershipTitle = false }) => {
             </li>
             <li className={stls.listItem}>
               <div className={stls.image}>
-                <Image
-                  src={imageData.lukomA.src}
-                  alt={SetString(imageData.lukomA.alt)}
-                  width={165}
-                  height={43}
-                  placeholder='blur'
-                  blurDataURL={base64pixel}
-                />
+                <ImgLukomA/>
               </div>
             </li>
           </ul>
