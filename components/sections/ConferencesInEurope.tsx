@@ -5,6 +5,7 @@ import lang from '@/data/translation/index'
 import imageData from '@/data/images/conferencesInEurope'
 import { base64pixel } from '@/config/index'
 import Wrapper from '../layout/Wrapper'
+import { ImgShorterStudentsConference } from '@/components/images'
 
 const ConferencesInEurope = () => {
   return (
@@ -19,19 +20,14 @@ const ConferencesInEurope = () => {
             </h2>
             <p className={stls.titleDesc}>{SetString(lang.orgDisc)}</p>
             <div className={stls.image}>
-              <Image
-                src={imageData.shorterImage.src}
-                alt={SetString(imageData.shorterImage.alt)}
-                width={623}
-                height={364}
-                layout='responsive'
-                placeholder='blur'
-                blurDataURL={base64pixel}
-              />
+
+              <ImgShorterStudentsConference/>
+
             </div>
           </div>
           <div className={stls.imageContainer}>
             <div className={stls.image}>
+
               <Image
                 src={imageData.higherImage.src}
                 alt={SetString(imageData.higherImage.alt)}
@@ -41,6 +37,7 @@ const ConferencesInEurope = () => {
                 placeholder='blur'
                 blurDataURL={base64pixel}
               />
+
             </div>
           </div>
         </div>
