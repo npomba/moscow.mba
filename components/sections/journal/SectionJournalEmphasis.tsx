@@ -1,16 +1,16 @@
 import stls from '@/styles/components/sections/journal/SectionJournalEmphasis.module.sass'
-import { TypeClassNames, TypeLibJournalArticleTitleBody } from '@/types/index'
+import { TypeClassNames, TypeLibJournalEmphasisBody } from '@/types/index'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
 import { Wrapper, ContentJournalArticle } from '@/components/layout'
 
 type TypeSectionJournalEmphasisProps = TypeClassNames & {
-  emphasisBody: any
+  body: TypeLibJournalEmphasisBody | null
 }
 
 const SectionJournalEmphasis = ({
   classNames,
-  emphasisBody
+  body
 }: TypeSectionJournalEmphasisProps) => {
   return (
     <section
@@ -19,7 +19,7 @@ const SectionJournalEmphasis = ({
       }>
       <Wrapper column>
         <ContentJournalArticle>
-          <p className={stls.p}>{emphasisBody}</p>
+          <p className={stls.p}>{body}</p>
         </ContentJournalArticle>
       </Wrapper>
     </section>

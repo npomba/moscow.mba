@@ -5,7 +5,10 @@ import {
   TypeLibJournalArticleTitleBody,
   TypeLibJournalArticlePicture,
   TypeLibJournalArticleTitle,
-  TypeLibJournalEmphasisBody
+  TypeLibJournalEmphasisBody,
+  TypeLibJournalAuthorName,
+  TypeLibJournalAuthorPosition,
+  TypeLibJournalBody
 } from '@/types/index'
 
 type TypeLibJournalArticle = {
@@ -49,6 +52,9 @@ type TypeLibJournalArticle = {
         picture?: TypeLibJournalArticlePicture | null
         title?: TypeLibJournalArticleTitle | null
         emphasisBody?: TypeLibJournalEmphasisBody | null
+        athorPosition?: TypeLibJournalAuthorPosition | null
+        authorName?: TypeLibJournalAuthorName | null
+        body?: TypeLibJournalBody | null
       }[]
     | null
 }

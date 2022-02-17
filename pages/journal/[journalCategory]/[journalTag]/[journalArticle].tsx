@@ -14,9 +14,10 @@ import {
   SectionJournalParagraph,
   SectionJournalTitle,
   SectionJournalPicture,
-  SectionJournalTagsWithPictures,
   SectionJournalEmphasis,
-  SectionJournalTagedArticles
+  SectionJournalQuote,
+  SectionJournalTagedArticles,
+  SectionJournalTagsWithPictures
 } from '@/components/sections'
 
 const PageJournalCategoryTagArticle: NextPage<TypePageJournalArticleProps> = ({
@@ -121,7 +122,14 @@ const PageJournalCategoryTagArticle: NextPage<TypePageJournalArticleProps> = ({
             />
           )}
           {component.__typename === 'ComponentJournalEmphasis' && (
-            <SectionJournalEmphasis emphasisBody={component.emphasisBody} />
+            <SectionJournalEmphasis body={component.emphasisBody} />
+          )}
+          {component.__typename === 'ComponentJournalQuote' && (
+            <SectionJournalQuote
+              body={component.body}
+              authorPosition={component.athorPosition}
+              authorName={component.authorName}
+            />
           )}
         </Fragment>
       ))}
