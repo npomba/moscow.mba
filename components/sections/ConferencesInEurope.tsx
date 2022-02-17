@@ -5,6 +5,7 @@ import lang from '@/data/translation/index'
 import imageData from '@/data/images/conferencesInEurope'
 import { base64pixel } from '@/config/index'
 import Wrapper from '../layout/Wrapper'
+import { ImgHigherMitap } from '@/components/images'
 
 const ConferencesInEurope = () => {
   return (
@@ -32,15 +33,7 @@ const ConferencesInEurope = () => {
           </div>
           <div className={stls.imageContainer}>
             <div className={stls.image}>
-              <Image
-                src={imageData.higherImage.src}
-                alt={SetString(imageData.higherImage.alt)}
-                width={415}
-                height={690}
-                layout='responsive'
-                placeholder='blur'
-                blurDataURL={base64pixel}
-              />
+            <ImgHigherMitap/>      
             </div>
           </div>
         </div>
