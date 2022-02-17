@@ -6,6 +6,7 @@ import { base64pixel } from '@/config/index'
 import { Wrapper } from '@/components/layout'
 import imageData from '@/data/images/corporateClients'
 import lang from '@/data/translation/index'
+import { ImgRzd } from '@/components/images'
 
 const CorporateClients = ({ partnershipTitle = false }) => {
   const title = partnershipTitle ? (
@@ -47,14 +48,7 @@ const CorporateClients = ({ partnershipTitle = false }) => {
             </li>
             <li className={stls.listItem}>
               <div className={stls.image}>
-                <Image
-                  src={imageData.rzd.src}
-                  alt={SetString(imageData.rzd.alt)}
-                  width={141}
-                  height={107}
-                  placeholder='blur'
-                  blurDataURL={base64pixel}
-                />
+                <ImgRzd/>
               </div>
             </li>
             <li className={stls.listItem}>
