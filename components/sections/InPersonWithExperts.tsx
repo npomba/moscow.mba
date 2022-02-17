@@ -1,6 +1,7 @@
 import stls from '@/styles/components/sections/InPersonWithExperts.module.sass'
 import Image from 'next/image'
 import { Wrapper } from '@/components/layout'
+import { ImgIntramural } from '@/components/images'
 
 const InPersonWithExperts = () => {
   return (
@@ -26,12 +27,7 @@ const InPersonWithExperts = () => {
           </div>
         </div>
         <div className={stls.image}>
-          <Image
-            src='/assets/images/intramural_moduls_pic_1.jpg'
-            alt='Слушатели на конференции MBA'
-            width={467}
-            height={467}
-          />
+          <ImgIntramural/>
         </div>
       </Wrapper>
     </section>
