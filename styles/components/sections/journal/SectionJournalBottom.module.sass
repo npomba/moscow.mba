@@ -1,0 +1,12 @@
+@use 'sass:math'
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+@use '@/styles/shared/journal' as j
+
+.tagsTitle
+  font-size: f.px(20)
+  font-weight: 700
+  line-height: 120%
+  text-transform: uppercase
+  @include m.dye(c, c.$chi)

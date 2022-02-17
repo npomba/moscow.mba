@@ -20,7 +20,8 @@ import {
   SectionJournalRecommendedProgram,
   SectionJournalConclusion,
   SectionJournalTagedArticles,
-  SectionJournalTagsWithPictures
+  SectionJournalTagsWithPictures,
+  SectionJournalBottom
 } from '@/components/sections'
 
 const PageJournalCategoryTagArticle: NextPage<TypePageJournalArticleProps> = ({
@@ -146,6 +147,7 @@ const PageJournalCategoryTagArticle: NextPage<TypePageJournalArticleProps> = ({
           )}
         </Fragment>
       ))}
+      <SectionJournalBottom />
       <SectionJournalTagedArticles suggestions />
       <SectionJournalTagsWithPictures />
     </>
