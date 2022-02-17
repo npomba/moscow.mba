@@ -6,6 +6,7 @@ import { base64pixel } from '@/config/index'
 import { Wrapper } from '@/components/layout'
 import imageData from '@/data/images/corporateClients'
 import lang from '@/data/translation/index'
+import { ImgToms } from '@/components/images'
 
 const CorporateClients = ({ partnershipTitle = false }) => {
   const title = partnershipTitle ? (
@@ -71,14 +72,7 @@ const CorporateClients = ({ partnershipTitle = false }) => {
             </li>
             <li className={stls.listItem}>
               <div className={stls.image}>
-                <Image
-                  src={imageData.toms.src}
-                  alt={SetString(imageData.toms.alt)}
-                  width={163}
-                  height={54}
-                  placeholder='blur'
-                  blurDataURL={base64pixel}
-                />
+                <ImgToms/>
               </div>
             </li>
           </ul>
