@@ -6,6 +6,7 @@ import { base64pixel } from '@/config/index'
 import { Wrapper } from '@/components/layout'
 import imageData from '@/data/images/corporateClients'
 import lang from '@/data/translation/index'
+import { ImgTatenergo } from '@/components/images'
 
 const CorporateClients = ({ partnershipTitle = false }) => {
   const title = partnershipTitle ? (
@@ -59,14 +60,7 @@ const CorporateClients = ({ partnershipTitle = false }) => {
             </li>
             <li className={stls.listItem}>
               <div className={stls.image}>
-                <Image
-                  src={imageData.tatenergo.src}
-                  alt={SetString(imageData.tatenergo.alt)}
-                  width={240}
-                  height={92}
-                  placeholder='blur'
-                  blurDataURL={base64pixel}
-                />
+                <ImgTatenergo/>
               </div>
             </li>
             <li className={stls.listItem}>
