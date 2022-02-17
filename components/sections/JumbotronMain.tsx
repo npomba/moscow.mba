@@ -5,8 +5,7 @@ import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/index'
 import { Breadcrumbs } from '@/components/general'
 import { IconArrowTopRight } from '@/components/icons'
-
-import { base64pixel } from '@/config/index'
+import { ImgMBA } from '@/components/images'
 
 const JumbotronMain = () => {
   return (
@@ -25,14 +24,7 @@ const JumbotronMain = () => {
           <div className={stls.flexContainer}>
             <div className={stls.descContainer}>
               <div className={stls.imageContainer}>
-                <Image
-                  src='/assets/images/mba_text.png'
-                  alt='Moscow Business Academy'
-                  width={482}
-                  height={146}
-                  placeholder='blur'
-                  blurDataURL={base64pixel}
-                />
+                <ImgMBA/>
               </div>
               <h1>Moscow Business Academy</h1>
               <div className={stls.desc}>{SetString(lang.headerSubtitle)}</div>
