@@ -6,6 +6,7 @@ import { base64pixel } from '@/config/index'
 import { Wrapper } from '@/components/layout'
 import imageData from '@/data/images/corporateClients'
 import lang from '@/data/translation/index'
+import { ImgRosseti } from '@/components/images'
 
 const CorporateClients = ({ partnershipTitle = false }) => {
   const title = partnershipTitle ? (
@@ -97,14 +98,7 @@ const CorporateClients = ({ partnershipTitle = false }) => {
             </li>
             <li className={stls.listItem}>
               <div className={stls.image}>
-                <Image
-                  src={imageData.rosseti.src}
-                  alt={SetString(imageData.rosseti.alt)}
-                  width={142}
-                  height={107}
-                  placeholder='blur'
-                  blurDataURL={base64pixel}
-                />
+                <ImgRosseti/>
               </div>
             </li>
             <li className={stls.listItem}>
