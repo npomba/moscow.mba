@@ -2,6 +2,7 @@ import stls from '@/styles/components/sections/BlendedMetups.module.sass'
 import Image from 'next/image'
 import { useAt } from '@/helpers/index'
 import Wrapper from '../layout/Wrapper'
+import { ImgFullAuditorium } from '@/components/images'
 
 const BlendedMetups = () => {
   const at = useAt()
@@ -34,12 +35,16 @@ const BlendedMetups = () => {
           </div>
           <div className={stls.imageContainer}>
             <div className={stls.image}>
-              <Image
+
+
+             <ImgFullAuditorium/>
+              {/* <Image
                 src='/assets/images/top_path_pic_1.jpg'
                 alt='Полный зал слушателей во время конференции'
                 width={315}
                 height={315}
-              />
+              /> */}
+
             </div>
           </div>
         </div>
