@@ -1,5 +1,6 @@
 import SectionJournalAllArticles from '@/components/sections/journal/SectionJournalAllArticles'
 import SectionJournalCategories from '@/components/sections/journal/SectionJournalCategories'
+import SectionJournalConclusion from '@/components/sections/journal/SectionJournalConclusion'
 import SectionJournalEmphasis from '@/components/sections/journal/SectionJournalEmphasis'
 import SectionJournalHeroArticle from '@/components/sections/journal/SectionJournalHeroArticle'
 import SectionJournalHeroTag from '@/components/sections/journal/SectionJournalHeroTag'
@@ -19,6 +20,7 @@ import SectionJournalTitle from '@/components/sections/journal/SectionJournalTit
 export {
   SectionJournalAllArticles,
   SectionJournalCategories,
+  SectionJournalConclusion,
   SectionJournalEmphasis,
   SectionJournalHeroArticle,
   SectionJournalHeroTag,

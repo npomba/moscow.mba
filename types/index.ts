@@ -28,6 +28,7 @@ import TypeLibJournalArticlePicture from '@/types/lib/journal/article/TypeLibJou
 import TypeLibJournalArticleProgram from '@/types/lib/journal/article/TypeLibJournalArticleProgram'
 import TypeLibJournalArticleTitle from '@/types/lib/journal/article/TypeLibJournalArticleTitle'
 import TypeLibJournalArticleTitleBody from '@/types/lib/journal/article/TypeLibJournalArticleTitleBody'
+import TypeLibJournalArticleItem from '@/types/lib/journal/article/TypeLibJournalArticleItem'
 import TypeLibJournalArticleAuthorName from '@/types/lib/journal/article/TypeLibJournalArticleAuthorName'
 import TypeLibJournalArticleAuthorPosition from '@/types/lib/journal/article/TypeLibJournalArticleAuthorPosition'
 import TypeLibJournalArticleBody from '@/types/lib/journal/article/TypeLibJournalArticleBody'
@@ -81,16 +82,17 @@ export type {
   TypeLibPicture,
   TypeLibTypename,
   // Lib/journal/article
+  TypeLibJournalArticleAuthorName,
+  TypeLibJournalArticleAuthorPosition,
+  TypeLibJournalArticleBody,
+  TypeLibJournalArticleEmphasisBody,
+  TypeLibJournalArticleItem,
+  TypeLibJournalArticleListItem,
   TypeLibJournalArticleParagraphBody,
   TypeLibJournalArticlePicture,
   TypeLibJournalArticleProgram,
   TypeLibJournalArticleTitle,
   TypeLibJournalArticleTitleBody,
-  TypeLibJournalArticleAuthorName,
-  TypeLibJournalArticleAuthorPosition,
-  TypeLibJournalArticleBody,
-  TypeLibJournalArticleEmphasisBody,
-  TypeLibJournalArticleListItem,
   // Lib/journal
   TypeLibJournalArticle,
   TypeLibJournalArticles,
