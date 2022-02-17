@@ -11,6 +11,7 @@ import TrainingPeriod from '@/components/costs/TrainingPeriod'
 import imageData from '@/data/images/executive'
 import lang from '@/data/translation/index'
 import langMenu from '@/data/translation/menu'
+import { ImgLargerCircle } from '@/components/images'
 
 const Executive = () => {
   return (
@@ -48,15 +49,7 @@ const Executive = () => {
           </div>
           <div className={stls.imagesContainer}>
             <div className={cn(stls.image, stls.imageOne)}>
-              <Image
-                src={imageData.largerCircle.src}
-                alt={SetString(imageData.largerCircle.alt)}
-                width={401}
-                height={400}
-                placeholder='blur'
-                blurDataURL={base64pixel}
-              />
-            </div>
+              <ImgLargerCircle/>
             <div className={cn(stls.image, stls.imageTwo)}>
               <Image
                 src={imageData.smallerCircle.src}
