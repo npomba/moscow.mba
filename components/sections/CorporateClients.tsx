@@ -6,6 +6,7 @@ import { base64pixel } from '@/config/index'
 import { Wrapper } from '@/components/layout'
 import imageData from '@/data/images/corporateClients'
 import lang from '@/data/translation/index'
+import { ImgRosneft } from '@/components/images'
 
 const CorporateClients = ({ partnershipTitle = false }) => {
   const title = partnershipTitle ? (
@@ -85,14 +86,7 @@ const CorporateClients = ({ partnershipTitle = false }) => {
           <ul className={stls.list}>
             <li className={stls.listItem}>
               <div className={stls.image}>
-                <Image
-                  src={imageData.rosneft.src}
-                  alt={SetString(imageData.rosneft.alt)}
-                  width={142}
-                  height={107}
-                  placeholder='blur'
-                  blurDataURL={base64pixel}
-                />
+                <ImgRosneft/>
               </div>
             </li>
             <li className={stls.listItem}>
