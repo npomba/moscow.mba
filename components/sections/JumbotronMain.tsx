@@ -7,17 +7,19 @@ import { Breadcrumbs } from '@/components/general'
 import { IconArrowTopRight } from '@/components/icons'
 
 import { base64pixel } from '@/config/index'
+import { ImgJumbotronFill } from '@/components/images'
 
 const JumbotronMain = () => {
   return (
     <section className={stls.container}>
       <div className={stls.image}>
         {/* should replace following alt with english supported version */}
-        <Image
+        <ImgJumbotronFill/>
+        {/* <Image
           src='/assets/images/jumbotron_1.jpg'
           layout='fill'
           alt={'Студенты обучаются'}
-        />
+        /> */}
       </div>
       <div className={stls.generalContainer}>
         <div className={stls.content}>
