@@ -2,6 +2,7 @@ import stls from '@/styles/components/sections/ModulesAbroad.module.sass'
 import cn from 'classnames'
 import Image from 'next/image'
 import { Wrapper } from '@/components/layout'
+import { ImgWangjingSOHO } from '@/components/images'
 
 const ModulesAbroad = () => {
   return (
@@ -40,18 +41,13 @@ const ModulesAbroad = () => {
                 области управления инновациями в США. Вы проведете встречи с
                 предпринимателями, познакомитесь с практикой внедрения
                 инноваций, а также освоите новые дисциплины, такие как Design
-                Thinking, Technology Innovation и многие другие.
+                Thinking, Technology Innovation и многие другие.  
               </p>
             </div>
           </li>
           <li className={stls.item}>
             <div className={stls.image}>
-              <Image
-                src='/assets/images/new_abroad_modules_pic_2.jpg'
-                alt={'Вид на небоскреб Wangjing SOHO, Китай'}
-                width={516}
-                height={344}
-              />
+              <ImgWangjingSOHO/>
               <div className={cn(stls.redOffset, stls.topLeft)}></div>
             </div>
             <div className={stls.itemTextContainer}>
