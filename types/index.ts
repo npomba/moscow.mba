@@ -27,6 +27,7 @@ import TypeLibJournalArticleParagraphBody from '@/types/lib/journal/article/Type
 import TypeLibJournalArticlePicture from '@/types/lib/journal/article/TypeLibJournalArticlePicture'
 import TypeLibJournalArticleTitle from '@/types/lib/journal/article/TypeLibJournalArticleTitle'
 import TypeLibJournalArticleTitleBody from '@/types/lib/journal/article/TypeLibJournalArticleTitleBody'
+import TypeLibJournalEmphasisBody from '@/types/lib/journal/article/TypeLibJournalEmphasisBody'
 
 // Lib/journal
 import TypeLibJournalArticle from '@/types/lib/journal/TypeLibJournalArticle'
@@ -79,6 +80,7 @@ export type {
   TypeLibJournalArticlePicture,
   TypeLibJournalArticleTitle,
   TypeLibJournalArticleTitleBody,
+  TypeLibJournalEmphasisBody,
   // Lib/journal
   TypeLibJournalArticle,
   TypeLibJournalArticles,

@@ -15,6 +15,7 @@ import {
   SectionJournalTitle,
   SectionJournalPicture,
   SectionJournalTagsWithPictures,
+  SectionJournalEmphasis,
   SectionJournalTagedArticles
 } from '@/components/sections'
 
@@ -118,6 +119,9 @@ const PageJournalCategoryTagArticle: NextPage<TypePageJournalArticleProps> = ({
               title={component.title}
               idx={idx}
             />
+          )}
+          {component.__typename === 'ComponentJournalEmphasis' && (
+            <SectionJournalEmphasis emphasisBody={component.emphasisBody} />
           )}
         </Fragment>
       ))}

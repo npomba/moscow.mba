@@ -10,8 +10,8 @@ import { Wrapper, ContentJournalArticle } from '@/components/layout'
 import { ImgJournalArticlePicture } from '@/components/images'
 
 type TypeSectionJournalPictureProps = TypeClassNames & {
-  picture: TypeLibJournalArticlePicture
-  title: TypeLibJournalArticleTitle
+  picture: TypeLibJournalArticlePicture | null
+  title: TypeLibJournalArticleTitle | null
   idx: number
 }
 
@@ -21,6 +21,7 @@ const SectionJournalPicture = ({
   title,
   idx
 }: TypeSectionJournalPictureProps) => {
+  if (!picture) return null
   return (
     <section
       className={

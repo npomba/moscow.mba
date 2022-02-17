@@ -4,7 +4,8 @@ import {
   TypeLibJournalArticleParagraphBody,
   TypeLibJournalArticleTitleBody,
   TypeLibJournalArticlePicture,
-  TypeLibJournalArticleTitle
+  TypeLibJournalArticleTitle,
+  TypeLibJournalEmphasisBody
 } from '@/types/index'
 
 type TypeLibJournalArticle = {
@@ -45,8 +46,9 @@ type TypeLibJournalArticle = {
         __typename: TypeLibTypename
         paragraphBody?: TypeLibJournalArticleParagraphBody | null
         titleBody?: TypeLibJournalArticleTitleBody | null
-        picture?: TypeLibJournalArticlePicture
-        title?: TypeLibJournalArticleTitle
+        picture?: TypeLibJournalArticlePicture | null
+        title?: TypeLibJournalArticleTitle | null
+        emphasisBody?: TypeLibJournalEmphasisBody | null
       }[]
     | null
 }

@@ -27,23 +27,38 @@ const SectionJournalCategories = ({
       <Wrapper>
         <ul className={stls.categories}>
           <li className={stls.categoryItem}>
-            <Link
-              href={`${routesFront.journal}/categories/${gspContextParamsJournalCategoryTag}`}>
-              <a
-                className={cn(stls.category, {
-                  [stls.isActive]:
-                    'categories' === gspContextParamsJournalCategory
-                })}>
+            {'categories' === gspContextParamsJournalCategory ||
+            !gspContextParamsJournalCategory ? (
+              <div className={cn(stls.category, stls.isActive)}>
                 Все&nbsp;форматы
-              </a>
-            </Link>
+              </div>
+            ) : (
+              <Link
+                href={
+                  gspContextParamsJournalCategoryTag
+                    ? `${routesFront.journal}/categories/${gspContextParamsJournalCategoryTag}`
+                    : routesFront.journal
+                }>
+                <a className={cn(stls.category)}>Все&nbsp;форматы</a>
+              </Link>
+            )}
           </li>
           {journalCategories
             ?.filter(category => category.title && category.slug)
             .map(category => (
               <li key={category.slug} className={stls.categoryItem}>
                 <Link
-                  href={`${routesFront.journal}/${category.slug}/${gspContextParamsJournalCategoryTag}`}>
+                  href={
+                    category.slug === gspContextParamsJournalCategory
+                      ? `${routesFront.journal}${
+                          gspContextParamsJournalCategoryTag
+                            ? `/categories/${gspContextParamsJournalCategoryTag}`
+                            : ''
+                        }`
+                      : `${routesFront.journal}/${category.slug}/${
+                          gspContextParamsJournalCategoryTag || ''
+                        }`
+                  }>
                   <a
                     className={cn(stls.category, {
                       [stls.isActive]:

@@ -25,12 +25,12 @@ const SectionJournalTitle = ({
           <h2 className={stls.title}>
             {body
               ?.filter(part => part)
-              .map(part => (
+              .map((part, pidx) => (
                 <span
                   key={
                     part.text
-                      ? truncate(part.text, 21)
-                      : `SectionJournalTitle ${idx}`
+                      ? `${truncate(part.text, 21)} ${idx}-${pidx}`
+                      : `SectionJournalTitle ${idx}-${pidx}`
                   }
                   className={cn({
                     [stls.isHighlighted]: part.isHighlighted
