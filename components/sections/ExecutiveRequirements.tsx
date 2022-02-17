@@ -2,6 +2,7 @@ import stls from '@/styles/components/sections/ExecutiveRequirements.module.sass
 import { IconCheck } from '@/components/icons'
 import Image from 'next/image'
 import { Wrapper } from '@/components/layout'
+import { ImgStudentsExecutive } from '@/components/images'
 
 const requirements = [
   {
@@ -34,14 +35,7 @@ const ExecutiveRequirements = () => {
             предъявляются особые требования.
           </p>
           <div className={stls.image}>
-            <Image
-              src='/assets/images/requirements_pic_1.jpg'
-              alt='Студенты Executive на конференции'
-              // width={1290}
-              // height={293}
-              layout={'fill'}
-              objectFit={'cover'}
-            />
+            <ImgStudentsExecutive/>
           </div>
         </div>
         <ul className={stls.list}>
