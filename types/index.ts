@@ -31,6 +31,7 @@ import TypeLibJournalAuthorName from '@/types/lib/journal/article/TypeLibJournal
 import TypeLibJournalAuthorPosition from '@/types/lib/journal/article/TypeLibJournalAuthorPosition'
 import TypeLibJournalBody from '@/types/lib/journal/article/TypeLibJournalBody'
 import TypeLibJournalEmphasisBody from '@/types/lib/journal/article/TypeLibJournalEmphasisBody'
+import TypeLibJournalListItem from '@/types/lib/journal/article/TypeLibJournalListItem'
 
 // Lib/journal
 import TypeLibJournalArticle from '@/types/lib/journal/TypeLibJournalArticle'
@@ -87,6 +88,7 @@ export type {
   TypeLibJournalAuthorPosition,
   TypeLibJournalBody,
   TypeLibJournalEmphasisBody,
+  TypeLibJournalListItem,
   // Lib/journal
   TypeLibJournalArticle,
   TypeLibJournalArticles,

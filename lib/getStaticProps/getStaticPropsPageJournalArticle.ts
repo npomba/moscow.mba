@@ -131,7 +131,6 @@ const getStaticPropsPageJournalArticle = async ({
             }
             ... on ComponentJournalList {
               listItem {
-                title
                 body
               }
             }
