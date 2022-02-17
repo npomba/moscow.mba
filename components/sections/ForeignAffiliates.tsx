@@ -5,6 +5,7 @@ import lang from '@/data/translation/index'
 import imageData from '@/data/images/foreignAffiliates'
 import { base64pixel } from '@/config/index'
 import Wrapper from '../layout/Wrapper'
+import { ImgMBAAffiliates } from '@/components/images'
 
 const ForeignAffiliates = () => {
   return (
@@ -62,15 +63,7 @@ const ForeignAffiliates = () => {
           </ul>
           <div className={stls.mapContainer}>
             {/*TODO: swap fixed layout with default, fix up the css for an image */}
-            <Image
-              src='/assets/images/branches_map-alt.png'
-              alt={SetString(lang.foreignAffiliatesDisc)}
-              width={659}
-              height={394}
-              layout='fixed'
-              placeholder='blur'
-              blurDataURL={base64pixel}
-            />
+            <ImgMBAAffiliates/>
           </div>
         </div>
       </Wrapper>

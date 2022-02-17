@@ -7,6 +7,7 @@ import ImgDiscountDecoration from '@/components/images/newyears/ImgDiscountDecor
 import ImgStickyBottomDecoration from '@/components/images/newyears/ImgStickyBottomDecoration'
 import ImgStudentsDuringConference from '@/components/images/sections/ImgStudentsDuringConference'
 import ImgTemplate from '@/components/images/ImgTemplate'
+import ImgMBAAffiliates from '@/components/images/sections/ImgMBAAffiliates'
 
 export {
   ImgLogoEcicel,
@@ -17,5 +18,6 @@ export {
   ImgDiscountDecoration,
   ImgStickyBottomDecoration,
   ImgStudentsDuringConference,
-  ImgTemplate
+  ImgTemplate,
+  ImgMBAAffiliates
 }
