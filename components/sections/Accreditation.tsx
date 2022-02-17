@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/Accreditation.module.sass'
 import Image from 'next/image'
-import { ImgLogoEcicel, ImgLogoRabo, ImgLogoMde } from '@/components/images'
+import { ImgLogoEcicel, ImgLogoRabo, ImgLogoMde, ImgAccreditation } from '@/components/images'
 import imgData from '@/data/images/accreditation'
 import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/about'
@@ -19,7 +19,8 @@ const Accreditation = () => {
     <section className={stls.container}>
       <Wrapper classNames={[stls.wrapper]}>
         <div className={stls.image}>
-          <Image
+          <ImgAccreditation/>
+          {/* <Image
             src={imgData.accreditationImageAlt.src}
             alt={SetString(imgData.accreditationImageAlt.alt)}
             width={648}
@@ -27,7 +28,8 @@ const Accreditation = () => {
             placeholder='blur'
             blurDataURL={base64pixel}
             layout='responsive'
-          />
+          /> */}
+
         </div>
         <div className={stls.content}>
           <h2 className={stls.title}>{SetString(lang.accreditationTitle)}</h2>
