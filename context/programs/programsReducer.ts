@@ -38,7 +38,7 @@ const programsReducer = (state, action, at = null) => {
         }
       })
 
-      console.log(studyFieldsWithSlugs)
+      // console.log(studyFieldsWithSlugs)
 
       // const studyFieldsProfessions = getStudyFields(professions)
       const studyFieldsProfessions = []
