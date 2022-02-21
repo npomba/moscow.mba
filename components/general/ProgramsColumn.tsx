@@ -8,8 +8,7 @@ import Price from '@/components/costs/Price'
 import { ProgramSubjects, ProgramsQty } from '@/components/general'
 import TrainingPeriod from '@/components/costs/TrainingPeriod'
 import Discount from '@/components/costs/Discount'
-import MenuContext from '@/context/menu/menuContext'
-import OverlayContext from '@/context/overlay/overlayContext'
+import { MenuContext, OverlayContext } from '@/context/index'
 import {
   IconCheckCircle,
   IconScreen,

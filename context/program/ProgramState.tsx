@@ -1,6 +1,5 @@
 import { useReducer } from 'react'
-import ProgramContext from '@/context/program/programContext'
-import programReducer from '@/context/program/programReducer'
+import { ProgramContext, programReducer } from '@/context/index'
 import { SET_PROGRAM } from '@/context/types'
 
 const ProgramState = props => {

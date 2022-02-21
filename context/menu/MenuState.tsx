@@ -1,6 +1,5 @@
 import { useReducer } from 'react'
-import MenuContext from '@/context/menu/menuContext'
-import menuReducer from '@/context/menu/menuReducer'
+import { MenuContext, menuReducer } from '@/context/index'
 import { OPEN_MENU, CLOSE_MENU, TOGGLE_MENU } from '@/context/types'
 
 const MenuState = props => {

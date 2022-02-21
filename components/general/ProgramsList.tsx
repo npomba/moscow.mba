@@ -1,7 +1,5 @@
 import stls from '@/styles/components/general/ProgramsList.module.sass'
 import { Fragment, useContext } from 'react'
-import MenuContext from '@/context/menu/menuContext'
-import OverlayContext from '@/context/overlay/overlayContext'
 import cn from 'classnames'
 import Link from 'next/link'
 import langMenu from '@/data/translation/menu'
@@ -9,15 +7,15 @@ import { SetString, useAt } from '@/helpers/index'
 import Until from '@/components/costs/Until'
 import Discount from '@/components/costs/Discount'
 import menu from '@/data/translation/menu'
-import programsContext from '@/context/programs/programsContext'
-import { IconArrowLeft, IconClock, IconPaperCorner } from '../icons'
+import { ProgramsContext, MenuContext, OverlayContext } from '@/context/index'
+import { IconArrowLeft, IconClock, IconPaperCorner } from '@/components/icons'
 import TrainingPeriod from '../costs/TrainingPeriod'
 import ProgramSubjects from './ProgramSubjects'
 
 const ProgramsList = ({ data, id, type }) => {
   const { closeMenu } = useContext(MenuContext)
   const { hideOverlay } = useContext(OverlayContext)
-  const { studyFields, studyFieldsWithSlugs } = useContext(programsContext)
+  const { studyFields, studyFieldsWithSlugs } = useContext(ProgramsContext)
   const handleLinkClick = () => {
     closeMenu()
     hideOverlay()

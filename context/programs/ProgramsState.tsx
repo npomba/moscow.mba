@@ -8,8 +8,7 @@ import {
 } from '@/context/types'
 import { useReducer } from 'react'
 // import { useRouter } from 'next/router'
-import ProgramsContext from '@/context/programs/programsContext'
-import programsReducer from '@/context/programs/programsReducer'
+import { ProgramsContext, programsReducer } from '@/context/index'
 import { useAt } from '@/helpers/index'
 
 const ProgramsState = props => {
