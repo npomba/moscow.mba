@@ -1,3 +1,5 @@
+// all icons should be restructured the way it's done in geometrics icons
+
 // geometrics
 import IconGeometricRectangle from '@/components/icons/geometrics/IconGeometricRectangle'
 import IconGeometricRightAngle from '@/components/icons/geometrics/IconGeometricRightAngle'
