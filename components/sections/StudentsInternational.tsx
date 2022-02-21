@@ -5,6 +5,7 @@ import lang from '@/data/translation/index'
 import imageData from '@/data/images/studentsInternational'
 import { base64pixel } from '@/config/index'
 import Wrapper from '../layout/Wrapper'
+import { ImgWorldMba } from '@/components/images'
 
 const StudentsInternational = () => {
   return (
@@ -17,14 +18,7 @@ const StudentsInternational = () => {
           </div>
           <div className={stls.imageContainer}>
             <div className={stls.image}>
-              <Image
-                src={imageData.image.src}
-                alt={SetString(imageData.image.alt)}
-                width={769}
-                height={597}
-                placeholder='blur'
-                blurDataURL={base64pixel}
-              />
+              <ImgWorldMba/>
             </div>
             <div className={stls.info}>
               <span>{SetString(lang.mbaWorldMoreThan)}</span>
