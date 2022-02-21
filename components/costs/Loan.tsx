@@ -14,12 +14,12 @@ const Loan = ({
   const price = {
     loanRegular: {
       mini: {
-        online: '13 500',
-        blended: '14 500'
+        online: '14 900',
+        blended: '15 800'
       },
       mba: {
-        online: '24 000',
-        blended: '25 000'
+        online: '26 500',
+        blended: '27 400'
       },
       profession: {
         online: '6 000'
@@ -28,15 +28,15 @@ const Loan = ({
         online: '6 000'
       },
       mbl: {
-        online: '24 000'
+        online: '26 500'
       }
     },
     loanDiscounted: {
       mini: {
-        online: '7 400'
+        online: '8 200'
       },
       mba: {
-        online: '13 250'
+        online: '14 600'
       },
       profession: {
         online: '3 250'
@@ -45,7 +45,7 @@ const Loan = ({
         online: '3 250'
       },
       mbl: {
-        online: '13 250'
+        online: '14 600'
       }
     }
   }

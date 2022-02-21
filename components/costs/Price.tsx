@@ -13,12 +13,12 @@ const Price = ({
   const price = {
     regular: {
       mini: {
-        online: '162 000',
-        blended: '172 000'
+        online: '178 000',
+        blended: '189 000'
       },
       mba: {
-        online: '289 000',
-        blended: '299 000'
+        online: '318 000',
+        blended: '328 000'
       },
       profession: {
         online: '70 000'
@@ -27,16 +27,16 @@ const Price = ({
         online: '70 000'
       },
       mbl: {
-        online: '289 000'
+        online: '318 000'
       },
       executive: '1 400 000'
     },
     discounted: {
       mini: {
-        online: '89 000'
+        online: '98 000'
       },
       mba: {
-        online: '159 000'
+        online: '175 000'
       },
       profession: {
         online: '39 000'
@@ -45,7 +45,7 @@ const Price = ({
         online: '39 000'
       },
       mbl: {
-        online: '159 000'
+        online: '175 000'
       },
       executive: '1 400 000'
     }
@@ -85,26 +85,41 @@ const Price = ({
     return componentSpecificClass ?? generalClass
   }
 
-
-
   const regularOrDiscounted = discount ? 'discounted' : 'regular'
 
-  const splitMonths = (price) => {
-    let period = type === 'mini' ? 9 : 'mba' || 'mbl' ? 18 : 'profession' || 'course' ? 4 : 'executive' ? 26 : null
+  const splitMonths = price => {
+    let period =
+      type === 'mini'
+        ? 9
+        : 'mba' || 'mbl'
+        ? 18
+        : 'profession' || 'course'
+        ? 4
+        : 'executive'
+        ? 26
+        : null
     if (renderedByComponent === 'CostOfStudy') {
-      return <>{Array.from(Math.ceil((price).replace(' ', '') / period).toString())
-        .map((el, idx, array) => {
-          return (array.length - idx) % 3 === 0 ? ' ' + el : el
-        })}
-        <span className={stls.currency}>&#8381;/мес.</span>
-      </>
+      return (
+        <>
+          {Array.from(
+            Math.ceil(price.replace(' ', '') / period).toString()
+          ).map((el, idx, array) => {
+            return (array.length - idx) % 3 === 0 ? ' ' + el : el
+          })}
+          <span className={stls.currency}>&#8381;/мес.</span>
+        </>
+      )
     } else {
       return price + ' P.'
     }
   }
 
   if ((!format && at.executive) || (!format && type === 'executive'))
-    return <span className={stls.executive}>{price[regularOrDiscounted].executive} Р.</span>
+    return (
+      <span className={stls.executive}>
+        {price[regularOrDiscounted].executive} Р.
+      </span>
+    )
 
   return (
     <>
@@ -116,17 +131,15 @@ const Price = ({
         }>
         {programPrice
           ? toNumberWithSpaces(programPrice) + ' P.'
-          : splitMonths(price[regularOrDiscounted]?.[type]?.[format])
-        }
+          : splitMonths(price[regularOrDiscounted]?.[type]?.[format])}
       </i>
       {discount && (
         <i className={getPriceClass('old', renderedByComponent)}>
           {programPrice
             ? toNumberWithSpaces(
-              Math.ceil(((programPrice / 55) * 100) / 1000) * 1000
-            ) + ' P.'
-            : splitMonths(price.regular[type]?.[format])
-          }
+                Math.ceil(((programPrice / 55) * 100) / 1000) * 1000
+              ) + ' P.'
+            : splitMonths(price.regular[type]?.[format])}
         </i>
       )}
     </>
