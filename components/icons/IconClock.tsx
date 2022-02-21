@@ -1,8 +1,11 @@
 import stls from '@/styles/components/icons/IconClock.module.sass'
+import cn from 'classnames'
+import { getClassNames } from '@/helpers/index'
 
-const IconClock = ({ fill = '#D9D9D9' }) => {
+const IconClock = ({ fill = '#D9D9D9', classNames = [] }) => {
+  const container = getClassNames({ classNames })
   return (
-    <div className={stls.container}>
+    <div className={cn(stls.container, container)}>
       <svg viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <title>Время</title>
         <path

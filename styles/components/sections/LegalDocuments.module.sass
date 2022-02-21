@@ -1,10 +1,9 @@
 @use '@/styles/utils/mixin' as m
 
-.container
-  &:not(:first-of-type)
-    padding: 75px 0
-    @include m.media(tablet, phone)
-      padding: 60px 0
+.content
+  padding: 75px 0
+  @include m.media(tablet, phone)
+    padding: 60px 0
   p
     font-size: 20px
     @include m.media(tablet, phone)

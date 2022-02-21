@@ -20,7 +20,6 @@ import Accreditation from '@/components/sections/Accreditation'
 import Pros from '@/components/sections/Pros'
 import BlendedMetups from '@/components/sections/BlendedMetups'
 import CostOfStudy from '@/components/sections/CostOfStudy'
-import GetStudyPlan from '@/components/sections/GetStudyPlan'
 import ECTSStandard from '@/components/sections/ECTSStandard'
 import CostOfStudyDescription from '@/components/sections/CostOfStudyDescription'
 
@@ -36,13 +35,13 @@ const PageBlendedProgram = ({ program, teachers }) => {
       />
       <CourseJsonLd
         courseName={`${program.title} MBA`}
-        providerName='Moscow Business Academy'
-        providerUrl={`https://moscow.mba${router.asPath}`}
+        provider={{
+          name: 'Moscow Business Academy',
+          url: `https://moscow.mba${router.asPath}`
+        }}
         description={truncate(program.goal, 120)}
       />
-
       <JumbotronProgram program={program} />
-
       <div className={stls.container}>
         <ProgramGoal data={program} />
         <WhatWillYouLearn data={program} />
@@ -51,14 +50,7 @@ const PageBlendedProgram = ({ program, teachers }) => {
         <Pros format={'blended'} />
         <HowProcessGoes />
         <ProgramsModules program={program} />
-        {/* <ContactUs
-          programId={program._id}
-          programTitle={program.title}
-          title={'Получите консультацию'}
-          titleNewStr={'по программе обучения'}
-        /> */}
-        {/* <ECTSStandard /> */}
-        <GetStudyPlan />
+        <ECTSStandard />
         <Teachers
           programId={program._id}
           programTitle={program.title}
@@ -76,8 +68,7 @@ const PageBlendedProgram = ({ program, teachers }) => {
           programFormat={program.studyFormat}
           programType={program.category?.type}
         />
-        <CostOfStudyDescription/>
-        {/* <Qna programId={program._id} programTitle={program.title} /> */}
+        <Qna programId={program._id} programTitle={program.title} />
         <ContactUs
           programId={program._id}
           programTitle={program.title}

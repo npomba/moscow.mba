@@ -3,23 +3,15 @@ import { useEffect, useState } from 'react'
 import TagManager from 'react-gtm-module'
 import { DefaultSeo, LogoJsonLd } from 'next-seo'
 import SEO from '../seo.config'
-import Header from '@/components/layout/Header'
-import Footer from '@/components/layout/Footer'
-import Wrapper from '@/components/layout/Wrapper'
-import Main from '@/components/layout/Main'
+import { Header, Main, WrapperPage, Footer } from '@/components/layout'
 import '@/styles/app.sass'
 import { dev, gtmId } from '@/config/index'
-
 import NProgress from 'nprogress'
 import Router from 'next/router'
 import 'nprogress/nprogress.css'
-
 import Script from 'next/script'
-import MenuState from '@/context/menu/MenuState'
-
-import OverlayState from '@/context/overlay/OverlayState'
-
-import ProgramsState from '@/context/programs/ProgramsState'
+import { MenuState, OverlayState, ProgramsState } from '@/context/index'
+import { ContextJournalState } from '@/context/index'
 
 function MyApp({ Component, pageProps, router }) {
   const [loading, setLoading] = useState(false)
@@ -40,9 +32,9 @@ function MyApp({ Component, pageProps, router }) {
       const urlUtmsArr = router.asPath.split('?')[1]
 
       urlUtmsArr &&
-      urlUtmsArr.split('&').forEach(utm => {
-        utms[utm.split('=')[0]] = utm.split('=')[1]
-      })
+        urlUtmsArr.split('&').forEach(utm => {
+          utms[utm.split('=')[0]] = utm.split('=')[1]
+        })
       sessionStorage.setItem('utms', JSON.stringify(utms))
     }
 
@@ -77,8 +69,7 @@ function MyApp({ Component, pageProps, router }) {
   }, [router])
 
   if (!dev) {
-    console.log = function() {
-    }
+    console.log = function () {}
   }
   let programs = []
   if (pageProps) {
@@ -92,17 +83,18 @@ function MyApp({ Component, pageProps, router }) {
         logo='https://moscow.mba/logo.jpg'
         url='https://moscow.mba/'
       />
-
       <ProgramsState>
         <OverlayState>
           <MenuState>
-            <Wrapper>
-              <Header programs={programs} />
-              <Main>
-                <Component {...pageProps} />
-              </Main>
-              <Footer />
-            </Wrapper>
+            <ContextJournalState>
+              <WrapperPage>
+                <Header programs={programs} />
+                <Main>
+                  <Component {...pageProps} />
+                </Main>
+                <Footer />
+              </WrapperPage>
+            </ContextJournalState>
           </MenuState>
         </OverlayState>
       </ProgramsState>
@@ -111,5 +103,3 @@ function MyApp({ Component, pageProps, router }) {
 }
 
 export default MyApp
-
-

@@ -1,11 +1,17 @@
-import { handleGetStaticProps, handleGetStaticPaths } from '@/helpers/index'
 import ProfessionOnlineProgram from '@/components/pages/ProfessionOnlineProgram'
+import {
+  handleGetStaticProps,
+  handleGetStaticPaths,
+  HandleGetPrograms
+} from '@/helpers/index'
 
 const PageProgramsProfessionOnlineProgram = ({
   program,
   programs,
   teachers
 }) => {
+  HandleGetPrograms(programs)
+
   return <ProfessionOnlineProgram program={program} teachers={teachers} />
 }
 

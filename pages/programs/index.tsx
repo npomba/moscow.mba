@@ -1,7 +1,5 @@
 import Programs from '@/components/pages/Programs'
-import HandleGetPrograms from '@/helpers/HandleGetPrograms'
-import { handleGetStaticProps } from '@/helpers/index'
-
+import { handleGetStaticProps, HandleGetPrograms } from '@/helpers/index'
 
 const PagePrograms = ({ programs }) => {
   HandleGetPrograms(programs)
@@ -9,7 +7,6 @@ const PagePrograms = ({ programs }) => {
     program =>
       program.studyFormat === 'online' && program.category?.type === 'mini'
   )
-
 
   return (
     <Programs programs={data} mbaTypeOfProgram={'mini'} mbaFormat={'online'} />

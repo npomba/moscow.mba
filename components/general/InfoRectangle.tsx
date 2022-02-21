@@ -1,13 +1,13 @@
 import stls from '@/styles/components/general/InfoRectangle.module.sass'
-import classNames from 'classnames'
+import cn from 'classnames'
 import Until from '@/components/costs/Until'
 import TrainingPeriod from '@/components/costs/TrainingPeriod'
-import { SetString } from '@/helpers/index'
-import lang from '@/data/translation/index'
-import langMenu from '@/data/translation/menu'
-import { useAt } from '@/helpers/index'
+import { SetString, useAt } from '@/helpers/index'
 import Price from '@/components/costs/Price'
 import PopupInfo from '@/components/popups/PopupInfo'
+import lang from '@/data/translation/index'
+import langMenu from '@/data/translation/menu'
+import { Wrapper } from '@/components/layout'
 
 const InfoRectangle = ({
   programPage = false,
@@ -94,19 +94,19 @@ const InfoRectangle = ({
 
   return (
     <ul
-      className={classNames(stls.container, {
+      className={cn(stls.container, {
         [stls.programsPageContainer]: programPage,
         [stls.academyInfoContainer]: at.index || at.promo
       })}>
       {infoRectangleContent[typeOfContent].map((item, idx) => (
         <li
           key={idx + item.itemDetail}
-          className={classNames(stls.item, {
+          className={cn(stls.item, {
             [stls.academyInfoItem]: at.index || at.promo
           })}>
           {item.itemTitle && <p className={stls.itemTitle}>{item.itemTitle}</p>}
           <div
-            className={classNames(stls.itemDetail, {
+            className={cn(stls.itemDetail, {
               [stls.academyInfoItemDetail]: at.index || at.promo
             })}>
             {item.itemDetail}

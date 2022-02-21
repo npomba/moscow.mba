@@ -1,17 +1,18 @@
 import stls from '@/styles/components/sections/JumbotronCta.module.sass'
-import classNames from 'classnames'
 import 'reactjs-popup/dist/index.css'
 import Image from 'next/image'
 import Link from 'next/link'
-import { SetString } from '@/helpers/index'
+import { SetString, useAt } from '@/helpers/index'
 import lang from '@/data/translation/index'
 import { useState } from 'react'
 import Until from '@/components/costs/Until'
-import Breadcrumbs from '@/components/general/Breadcrumbs'
-import InfoRectangle from '@/components/general/InfoRectangle'
-import { useAt } from '@/helpers/index'
-import LeadLoaderThankyou from '@/components/general/LeadLoaderThankyou'
+import {
+  Breadcrumbs,
+  InfoRectangle,
+  LeadLoaderThankyou
+} from '@/components/general'
 import { FormAlpha } from '@/components/forms'
+import { Wrapper } from '@/components/layout'
 
 const JumbotronCta = ({ programTitle = null, programId = null }) => {
   const at = useAt()
@@ -36,7 +37,7 @@ const JumbotronCta = ({ programTitle = null, programId = null }) => {
           layout='fill'
         />
       </div>
-      <div className={stls.generalContainer}>
+      <Wrapper classNames={[stls.wrapper]}>
         <div className={stls.content}>
           <Breadcrumbs />
           <div className={stls.flexContainer}>
@@ -123,9 +124,9 @@ const JumbotronCta = ({ programTitle = null, programId = null }) => {
               </li>
             </ul>
           </div>
-          <InfoRectangle />
         </div>
-      </div>
+      </Wrapper>
+      <InfoRectangle />
     </section>
   )
 }

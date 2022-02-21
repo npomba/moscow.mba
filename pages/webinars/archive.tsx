@@ -1,7 +1,8 @@
 import Webinars from '@/components/pages/Webinars'
-import { handleGetStaticProps } from '@/helpers/index'
+import { handleGetStaticProps, HandleGetPrograms } from '@/helpers/index'
 
 const PageWebinarsArchive = ({ programs }) => {
+  HandleGetPrograms(programs)
   return (
     <Webinars
       title={'Прошедшие вебинары'}

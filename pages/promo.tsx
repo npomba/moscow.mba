@@ -1,8 +1,11 @@
 import stls from '@/styles/pages/promo/Index.module.sass'
-import { SetString } from '@/helpers/index'
+import {
+  SetString,
+  HandleGetPrograms,
+  handleGetStaticProps
+} from '@/helpers/index'
 import lang from '@/data/translation/index'
 import { NextSeo } from 'next-seo'
-import { handleGetStaticProps } from '@/helpers/index'
 import JumbotronCta from '@/components/sections/JumbotronCta'
 import WhatWillYouLearn from '@/components/sections/WhatWillYouLearn'
 import CourseOptions from '@/components/sections/CourseOptions'
@@ -11,11 +14,8 @@ import ContactUs from '@/components/sections/ContactUs'
 import Accreditation from '@/components/sections/Accreditation'
 import Diploma from '@/components/sections/Diploma'
 import WhoItIsFor from '@/components/sections/WhoItIsFor'
-import HandleGetPrograms from '@/helpers/HandleGetPrograms'
-
 
 const PagePromo = ({ programs }) => {
-
   HandleGetPrograms(programs)
   const courseOptions = {
     whoIsFor: [

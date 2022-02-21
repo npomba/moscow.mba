@@ -2,16 +2,14 @@ import stls from '@/styles/pages/Payment.module.sass'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import Image from 'next/image'
-import { handleGetStaticProps } from '@/helpers/index'
+import { handleGetStaticProps, HandleGetPrograms } from '@/helpers/index'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import PopupForm from '@/components/popups/PopupForm'
 import { contactData } from '@/config/index'
 
-import Breadcrumbs from '@/components/general/Breadcrumbs'
+import { Breadcrumbs } from '@/components/general'
 import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
-import HandleGetPrograms from '@/helpers/HandleGetPrograms'
-
 
 const PagePayment = ({ programs }) => {
   HandleGetPrograms(programs)

@@ -2,15 +2,18 @@
 
 .container
   position: relative
+  overflow: hidden
   z-index: 3
   color: #b3b3b3
   padding: 126px 0 100px
   margin-bottom: 140px
+  background: #2d2c2a
   &.standalonePage
     color: #333
     padding-top: 50px
     padding-bottom: 50px
     margin-bottom: 0
+    background-color: #fff
   @include m.media(laptop)
     padding: 90px 0 40px
     margin-bottom: 80px
@@ -18,16 +21,9 @@
     margin-bottom: 60px
     padding-top: 60px
     padding-bottom: 30px
-  &:after
-    content: ''
-    position: absolute
-    z-index: -1
-    left: 50%
-    width: 102vw
-    margin-left: -51vw
-    height: 100%
-    top: 0
-    background: #2d2c2a
+
+.wrapper
+  display: block
 
 .titleProfession
   @include m.media(phone, tablet)

@@ -1,7 +1,8 @@
 import stls from '@/styles/components/sections/WhatWillYouLearn.module.sass'
-import classNames from 'classnames'
+import cn from 'classnames'
 import Image from 'next/image'
 import { base64pixel } from '@/config/index'
+import { Wrapper } from '@/components/layout'
 
 const WhatWillYouLearn = ({ data = null }) => {
   const aboutAcademy = [
@@ -20,49 +21,49 @@ const WhatWillYouLearn = ({ data = null }) => {
 
   return (
     <section className={stls.container}>
-      <div className={stls.content}>
-        <div
-          className={classNames(stls.titleContainer, stls.floatLeft, {
-            [stls.smallPl]: !data
-          })}>
-          <h2 className={stls.title}>
-            {data ? (
-              <>
-                Чему <br />
-                Вы научитесь?
-              </>
-            ) : (
-              <>
-                Moscow Business <br /> Academy это:
-              </>
-            )}
-          </h2>
-        </div>
-        <div className={stls.floatRight}>
-          <ul className={stls.list}>
-            {list &&
-              list.map((item, idx) => {
-                return (
-                  <li key={(item.string || item) + idx} className={stls.item}>
-                    {item.string || item}
-                  </li>
-                )
-              })}
-          </ul>
-        </div>
-        <div className={stls.floatLeft}>
-          <div className={stls.image}>
-            <Image
-              src='/assets/images/learning_pic_1.jpg'
-              width='651'
-              height='389'
-              alt='Слушатели во время конференции'
-              placeholder='blur'
-              blurDataURL={base64pixel}
-            />
+      <Wrapper classNames={[stls.wrapper]}>
+        <div className={stls.content}>
+          <div
+            className={cn(stls.floatLeft, {
+              [stls.smallPl]: !data
+            })}>
+            <h2 className={stls.title}>
+              {data ? (
+                <>
+                  Чему <br />
+                  Вы научитесь?
+                </>
+              ) : (
+                <>
+                  Moscow Business <br /> Academy это:
+                </>
+              )}
+            </h2>
+            <div className={stls.image}>
+              <Image
+                src='/assets/images/learning_pic_1.jpg'
+                width='651'
+                height='389'
+                alt='Слушатели во время конференции'
+                placeholder='blur'
+                blurDataURL={base64pixel}
+              />
+            </div>
+          </div>
+          <div className={stls.floatRight}>
+            <ul className={stls.list}>
+              {list &&
+                list.map((item, idx) => {
+                  return (
+                    <li key={(item.string || item) + idx} className={stls.item}>
+                      {item.string || item}
+                    </li>
+                  )
+                })}
+            </ul>
           </div>
         </div>
-      </div>
+      </Wrapper>
     </section>
   )
 }

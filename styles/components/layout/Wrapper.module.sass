@@ -1,5 +1,25 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
 .page
-  overflow: hidden
-  display: flex
-  min-height: 100vh
-  flex-direction: column
+	margin: 0 auto
+	width: 1310px
+	padding-left: 10px
+	padding-right: 10px
+	box-sizing: border-box
+	position: relative
+	&.row
+		display: flex
+		justify-content: space-between
+		align-items: center
+	&.column
+		display: flex
+		flex-direction: column
+		justify-content: space-between
+	@include m.media(desktop)
+		width: 1000px
+	@include m.media(laptop, tablet)
+		width: 710px
+	@include m.media(tablet, phone)
+		width: 100%

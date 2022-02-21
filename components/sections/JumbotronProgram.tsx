@@ -1,13 +1,15 @@
 import stls from '@/styles/components/sections/JumbotronProgram.module.sass'
-import classNames from 'classnames'
+import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import Image from 'next/image'
 import Until from '@/components/costs/Until'
-import Breadcrumbs from '@/components/general/Breadcrumbs'
-import JumbotronLabel from '@/components/general/JumbotronLabel'
+import {
+  Breadcrumbs,
+  JumbotronLabel,
+  InfoRectangle
+} from '@/components/general'
 import PopupForm from '@/components/popups/PopupForm'
-import InfoRectangle from '@/components/general/InfoRectangle'
 import Discount from '@/components/costs/Discount'
 import { useAt } from '@/helpers/index'
 import { IconCheckCircleAlt } from '@/components/icons'
@@ -39,8 +41,7 @@ const JumbotronProgram = ({ program }) => {
           <Breadcrumbs programChunkData={program} />
           <div className={stls.contentTop}>
             {(at.online || at.mbl) && (
-              <div
-                className={classNames(stls.discountSticker, stls.leftCorner)}>
+              <div className={cn(stls.discountSticker, stls.leftCorner)}>
                 <div className={stls.discountAmount}>
                   <Discount />
                 </div>
@@ -56,7 +57,7 @@ const JumbotronProgram = ({ program }) => {
           <div className={stls.flexContainer}>
             <div className={stls.descContainer}>
               <h1
-                className={classNames({
+                className={cn({
                   [stls.smallerTitle]: at.profession || at.course
                 })}>
                 {program.title}

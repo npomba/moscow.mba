@@ -1,8 +1,12 @@
-import { TypeImg } from '@/types/index'
+import { TypeClassNames, TypeImg } from '@/types/index'
 import { ImgTemplate } from '@/components/images'
 import src from '@/public/assets/images/general/logo-ecicel.jpg'
 
-const ImgLogoEcicel = ({ classNames = [], width, height }: TypeImg) => {
+const ImgLogoEcicel = ({
+  classNames,
+  width,
+  height
+}: TypeClassNames & TypeImg) => {
   return (
     <ImgTemplate
       src={src}

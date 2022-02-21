@@ -1,7 +1,6 @@
 import stls from '@/styles/components/sections/OurDiplomasAndCertificates.module.sass'
-import classNames from 'classnames'
-import AccordionsContainer from '@/components/general/AccordionsContainer'
-
+import cn from 'classnames'
+import { AccordionsContainer } from '@/components/general'
 import academyDiplomaProfInd from '@/public/assets/diplomas/profind/diploma-profind.jpg'
 import qualificationDiplomaProfInd from '@/public/assets/diplomas/profind/qualification-diploma-profind.jpg'
 import diplomaAddendumProfInd from '@/public/assets/diplomas/profind/diploma-addendum-profind.jpg'
@@ -18,6 +17,7 @@ import diplomaAddendumProfession from '@/public/assets/diplomas/profession/diplo
 
 import certificateCourses from '@/public/assets/diplomas/courses/certificate-courses.jpg'
 import qualificationCertificateCourses from '@/public/assets/diplomas/courses/qualification-certificate-courses.jpg'
+import Wrapper from '../layout/Wrapper'
 
 const profIndDocuments = [
   {
@@ -156,23 +156,26 @@ const documentsBasedOnProgram = [
 
 const OurDiplomasAndCertificates = () => {
   return (
-    <section
-      className={classNames(stls.legalSection, stls.diplomasAndCertificates)}>
-      <h2 className={stls.subHeading}>Выдаваемые дипломы и сертификаты</h2>
-      <p className={stls.desc}>
-        Мы производим обучение на основании государственной лицензии №041221.
-        После окончания обучения в Moscow Business Academy Вы получите диплом о
-        профессиональной переподготовке установленного образца, диплом академии
-        и международный диплом Supplement, которые можно добавить в портфолио и
-        показать работодателю.
-      </p>
-      <AccordionsContainer
-        accordionsItems={documentsBasedOnProgram}
-        firstAccordionActive={true}
-        closeAll={false}
-        setCloseAll={() => {}}
-        scrollableIntoView={true}
-      />
+    <section>
+      <Wrapper classNames={[stls.wrapper]}>
+        <div className={stls.content}>
+          <h2 className={stls.subHeading}>Выдаваемые дипломы и сертификаты</h2>
+          <p className={stls.desc}>
+            Мы производим обучение на основании государственной лицензии
+            №041221. После окончания обучения в Moscow Business Academy Вы
+            получите диплом о профессиональной переподготовке установленного
+            образца, диплом академии и международный диплом Supplement, которые
+            можно добавить в портфолио и показать работодателю.
+          </p>
+          <AccordionsContainer
+            accordionsItems={documentsBasedOnProgram}
+            firstAccordionActive={true}
+            closeAll={false}
+            setCloseAll={() => {}}
+            scrollableIntoView={true}
+          />
+        </div>
+      </Wrapper>
     </section>
   )
 }

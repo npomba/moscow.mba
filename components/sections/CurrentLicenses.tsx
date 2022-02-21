@@ -1,5 +1,6 @@
 import stls from '@/styles/components/sections/CurrentLicenses.module.sass'
-import ImageContainer from '@/components/general/ImageContainer'
+import { ImageContainer } from '@/components/general'
+import { Wrapper } from '@/components/layout'
 import CheckLicenses from '@/components/sections/CheckLicenses'
 import licenseP1 from '@/public/legaldocuments/license-p1.jpg'
 import licenseP2 from '@/public/legaldocuments/license-p2.jpg'
@@ -33,26 +34,28 @@ const licenses = [
 ]
 
 const CurrentLicenses = () => {
-  const currentLicensesClasses = [stls.legalSection, stls.currentLicenses]
-
   return (
-    <section className={currentLicensesClasses.join(' ')}>
-      <h2 className={stls.subHeading}>Действующие лицензии</h2>
-      <p>
-        Лицензия Департамента образования города Москвы на осуществление
-        образовательной деятельности:
-      </p>
-      <div className={stls.licensesContainer}>
-        {licenses.map((license, idx) => (
-          <ImageContainer
-            key={license.name + idx}
-            image={license}
-            imageWidth={license.smallWidth}
-            imageHeight={license.smallHeight}
-          />
-        ))}
-      </div>
-      <CheckLicenses />
+    <section>
+      <Wrapper classNames={[stls.wrapper]}>
+        <div className={stls.content}>
+          <h2 className={stls.subHeading}>Действующие лицензии</h2>
+          <p>
+            Лицензия Департамента образования города Москвы на осуществление
+            образовательной деятельности:
+          </p>
+          <div className={stls.licensesContainer}>
+            {licenses.map((license, idx) => (
+              <ImageContainer
+                key={license.name + idx}
+                image={license}
+                imageWidth={license.smallWidth}
+                imageHeight={license.smallHeight}
+              />
+            ))}
+          </div>
+          <CheckLicenses />
+        </div>
+      </Wrapper>
     </section>
   )
 }

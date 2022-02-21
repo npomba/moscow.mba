@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/LegalDocuments.module.sass'
 import { IconPaperCorner } from '@/components/icons'
-
+import Wrapper from '../layout/Wrapper'
 
 const legalDocuments = [
   'Лицензия на осуществление образовательной деятельности',
@@ -32,21 +32,25 @@ const legalDocuments = [
 const LegalDocuments = () => {
   return (
     <section className={stls.container}>
-      <h2 className={stls.title}>Нормативные документы</h2>
-      <ul className={stls.list}>
-        {legalDocuments.map((document, idx) => (
-          <li key={document + idx} className={stls.item}>
-            <a
-              className={stls.link}
-              href={`/legaldocuments/doc-${idx + 1}.pdf`}
-              rel='noopener noreferrer'
-              target='_blank'>
-              <IconPaperCorner fill='#000' />
-              <p>{document + '.pdf'}</p>
-            </a>
-          </li>
-        ))}
-      </ul>
+      <Wrapper classNames={[stls.wrapper]}>
+        <div className={stls.content}>
+          <h2 className={stls.title}>Нормативные документы</h2>
+          <ul className={stls.list}>
+            {legalDocuments.map((document, idx) => (
+              <li key={document + idx} className={stls.item}>
+                <a
+                  className={stls.link}
+                  href={`/legaldocuments/doc-${idx + 1}.pdf`}
+                  rel='noopener noreferrer'
+                  target='_blank'>
+                  <IconPaperCorner fill='#000' />
+                  <p>{document + '.pdf'}</p>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Wrapper>
     </section>
   )
 }

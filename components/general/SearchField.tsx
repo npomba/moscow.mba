@@ -1,12 +1,12 @@
 import stls from '@/styles/components/general/SearchField.module.sass'
-import programsContext from '@/context/programs/programsContext'
-import useAt from '@/helpers/useAt'
+import { ProgramsContext } from '@/context/index'
+import { useAt } from '@/helpers/index'
 import { useContext, useState } from 'react'
 import Popup from 'reactjs-popup'
 import Link from 'next/link'
 import { IconSearch, IconClose } from '@/components/icons'
 import { FormAlpha } from '@/components/forms'
-import LeadLoaderThankyou from '@/components/general/LeadLoaderThankyou'
+import { LeadLoaderThankyou } from '@/components/general'
 
 const SearchField = () => {
   const at = useAt()
@@ -14,7 +14,7 @@ const SearchField = () => {
   const [openLoader, setOpenLoader] = useState(false)
 
   const [value, setValue] = useState('')
-  const { filteredPrograms, setSearchProgram } = useContext(programsContext)
+  const { filteredPrograms, setSearchProgram } = useContext(ProgramsContext)
 
   const handleSearch = () => setSearchProgram(value.toLowerCase())
 
@@ -29,9 +29,7 @@ const SearchField = () => {
             <div className={stls.icon}>
               <IconSearch color={'#000'} />
             </div>
-            <button
-              className={stls.btn}
-            >{value || 'Поиск'}</button>
+            <button className={stls.btn}>{value || 'Поиск'}</button>
           </div>
         </div>
       )}>
@@ -64,7 +62,9 @@ const SearchField = () => {
                       <a className={stls.link}>
                         <span>
                           {Array.from(el?.title).map((str: string) => {
-                            if (value.toLowerCase().includes(str.toLowerCase())) {
+                            if (
+                              value.toLowerCase().includes(str.toLowerCase())
+                            ) {
                               return <span className={stls.strong}>{str}</span>
                             } else {
                               return <span>{str}</span>

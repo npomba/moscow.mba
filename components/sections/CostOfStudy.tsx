@@ -27,24 +27,14 @@ const PriceBlock = ({
   if (withDesc) {
     topContentPart = (
       <div className={stls.ctaTextContainer}>
-        <p>Успех в карьере напрямую связывают с получением образования.</p>
         <p>
-          Получите актульные знания, увеличьте свой доход и продвиньтесь по
-          карьерной лестнице!
+          Успех в бизнесе напрямую связывают с получением бизнес-образования
         </p>
-        <p className={stls.red}>
-          Запишитесь на курс{' '}
-          {at.mini
-            ? 'MBA Mini'
-            : at.mba
-            ? 'MBA'
-            : at.executive
-            ? 'MBA Executive'
-            : at.mbl
-            ? 'MBA'
-            : ''}{' '}
-          сегодня:
+        <p>
+          Инвестируйте своё время в образование с Moscow Business Academy и
+          кратно увеличьте свой запас знаний и доход
         </p>
+        <p className={stls.red}>Запишитесь на MBA сегодня:</p>
       </div>
     )
   }
@@ -93,6 +83,7 @@ const PriceBlock = ({
   )
 }
 
+// TODO: view cost of study. Verify it's visuals the way it's done in figma
 const CostOfStudy = ({
   programTitle = null,
   programId = null,
@@ -210,23 +201,11 @@ const CostOfStudy = ({
     )
   }
 
-  const listItems = (
-    <>
-      <li className={stls.listItem}>Практические домашние задания</li>
-      <li className={stls.listItem}>Современная программа 2021 года</li>
-      <li className={stls.listItem}>Интерактивные онлайн-семинары</li>
-      <li className={stls.listItem}>Карьерные консультации</li>
-      <li className={stls.listItem}>Дипломы заносятся в ФРДО</li>
-      <li className={stls.listItem}>
-        Ежедневная помощь от кураторов и преподавателей
-      </li>
-    </>
-  )
-
   return (
     <section className={stls.container}>
       {isDiscounted && (
         <div className={stls.discountSticker}>
+          {/* <ImgDiscountDecoration classNames={[stls.decoration]} /> */}
           <div className={stls.discountSize}>
             <Discount />
           </div>
@@ -235,10 +214,7 @@ const CostOfStudy = ({
           </span>
         </div>
       )}
-      <h2
-        className={classNames(stls.cost, {
-          [stls.bigMb]: at.profession || at.course
-        })}>
+      <h2 className={classNames({ [stls.bigMb]: at.profession || at.course })}>
         Стоимость обучения
       </h2>
       <div className={stls.content}>
@@ -247,56 +223,20 @@ const CostOfStudy = ({
             [stls.contentBlock]: true,
             [stls.flexBlock]: at.profession || at.course
           })}>
-          <div className={stls.description}>
-            <div className={stls.row}>
-              <div className={stls.block}>
-                <p className={stls.title}>
-                  <TrainingPeriod
-                    type={
-                      at.mini
-                        ? 'mini'
-                        : at.mba
-                        ? 'mba'
-                        : at.executive
-                        ? 'executive'
-                        : at.mbl
-                        ? 'mbl'
-                        : at.profession
-                        ? 'profession'
-                        : at.course
-                        ? 'course'
-                        : null
-                    }
-                  />
-                </p>
-                <p className={stls.subtitle}>Возможно закончить экстерном</p>
-              </div>
-              <div className={stls.block}>
-                <p className={stls.title}>
-                  {at.online
-                    ? 'Дистанционно'
-                    : at.blended
-                    ? 'С очными модулями'
-                    : 'Очно'}
-                </p>
-                <p className={stls.subtitle}>
-                  Онлайн-встречи с преподавателями
-                </p>
-              </div>
+          {!at.profession && !at.course && (
+            <div className={stls.programName}>
+              {at.mini
+                ? 'MBA Mini'
+                : at.mba
+                ? 'MBA'
+                : at.executive
+                ? 'MBA Executive'
+                : at.mbl
+                ? 'MBA'
+                : ''}
             </div>
-            <ul className={stls.list}>
-              <li className={stls.kit}>
-                <p className={stls.title}>
-                  Ближайший набор{' '}
-                  <span className={stls.red}>
-                    <Until preposition={false} />
-                  </span>
-                </p>
-                <p className={stls.subtitle}>*количество мест ограничено</p>
-              </li>
-              {listItems}
-            </ul>
-          </div>
+          )}
+          {list}
         </div>
         <div
           className={classNames(stls.contentBlock, {
@@ -329,10 +269,6 @@ const CostOfStudy = ({
               )}
             </Popup>
           </div>
-          <p className={stls.subtitle}>
-            *согласно опросу за 2020 год, 93% наших студентов окупили обучение
-            уже на 2-й месяц
-          </p>
         </div>
       </div>
     </section>

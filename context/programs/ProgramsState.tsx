@@ -8,9 +8,8 @@ import {
 } from '@/context/types'
 import { useReducer } from 'react'
 // import { useRouter } from 'next/router'
-import ProgramsContext from '@/context/programs/programsContext'
-import programsReducer from '@/context/programs/programsReducer'
-import useAt from '@/helpers/useAt'
+import { ProgramsContext, programsReducer } from '@/context/index'
+import { useAt } from '@/helpers/index'
 
 const ProgramsState = props => {
   // const router = useRouter()
@@ -21,6 +20,7 @@ const ProgramsState = props => {
     courses: [],
     professions: [],
     studyFields: [],
+    studyFieldsWithSlugs: [],
     studyFieldsCourses: [],
     studyFieldsProfessions: [],
     curProgramsType: null,
@@ -33,7 +33,18 @@ const ProgramsState = props => {
   const [state, dispatch] = useReducer(programsReducer, initialState)
 
   const setPrograms = (programs = []) => {
-    dispatch({ type: SET_PROGRAMS, payload: programs })
+    const studyFieldArr = Array.from(
+      new Set(programs.filter(item => item !== undefined && item?.study_field))
+    )
+    const fields = Array.from(
+      new Map(
+        studyFieldArr.map(item => [item.study_field.slug, item.study_field])
+      ).values()
+    ).map(item => {
+      return { title: item.name, slug: item.slug }
+    })
+
+    dispatch({ type: SET_PROGRAMS, payload: { programs, fields } })
   }
 
   const setCurProgramsType = (programType: string | null) => {
@@ -78,6 +89,7 @@ const ProgramsState = props => {
         courses: state.courses,
         professions: state.professions,
         studyFields: state.studyFields,
+        studyFieldsWithSlugs: state.studyFieldsWithSlugs,
         studyFieldsProfessions: state.studyFieldsProfessions,
         studyFieldsCourses: state.studyFieldsCourses,
         curProgramsType: state.curProgramsType,

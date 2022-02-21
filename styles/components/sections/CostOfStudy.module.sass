@@ -2,8 +2,12 @@
 
 .container
   position: relative
-  margin-bottom: 130px
+  margin: 0 10px
+
+.wrapper
+  max-width: 1290px
   background: #f7f7f7
+  margin-bottom: 130px
   padding: 130px 120px 130px 130px
   @include m.media(desktop)
     padding: 100px 50px
@@ -11,7 +15,7 @@
     padding: 50px
     margin-bottom: 80px
   @include m.media(tablet, phone)
-    margin: 0 -10px 60px
+    margin: 0 0 60px
     padding: 50px 10px
 
 .cost 

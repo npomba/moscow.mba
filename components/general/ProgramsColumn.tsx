@@ -1,86 +1,134 @@
 import stls from '@/styles/components/general/ProgramsColumn.module.sass'
-import { useContext } from 'react'
-import MenuContext from '@/context/menu/menuContext'
-import OverlayContext from '@/context/overlay/overlayContext'
-import classNames from 'classnames'
+import { useContext, useState } from 'react'
 import Link from 'next/link'
-import langMenu from '@/data/translation/menu'
+import cn from 'classnames'
 import { SetString } from '@/helpers/index'
 import Until from '@/components/costs/Until'
 import Price from '@/components/costs/Price'
-import ProgramSubjects from '@/components/general/ProgramSubjects'
-import ProgramsQty from '@/components/general/ProgramsQty'
+import { ProgramSubjects, ProgramsQty } from '@/components/general'
 import TrainingPeriod from '@/components/costs/TrainingPeriod'
 import Discount from '@/components/costs/Discount'
+import { MenuContext, OverlayContext } from '@/context/index'
 import {
   IconCheckCircle,
   IconScreen,
   IconPaperCorner,
-  IconClock
+  IconClock,
+  IconArrowLeft
 } from '@/components/icons'
+import langMenu from '@/data/translation/menu'
 
 const ProgramsColumn = ({ data, id, type }) => {
-  const { menuIsOpen, openMenu, closeMenu, toggleMenu } =
-    useContext(MenuContext)
-
-  const { overlayIsShown, showOverlay, hideOverlay, toggleOverlay } =
-    useContext(OverlayContext)
-
+  const { closeMenu } = useContext(MenuContext)
+  const { hideOverlay } = useContext(OverlayContext)
   const handleLinkClick = () => {
     closeMenu()
     hideOverlay()
   }
+  const programsOnline = data?.filter(
+    program =>
+      program.category?.type === type && program.studyFormat === 'online'
+  )
+  const programsBlended = data?.filter(
+    program =>
+      program.category?.type === type && program.studyFormat === 'blended'
+  )
+  const [programFormat, setProgramFormat] = useState('online')
+
+  // TODO: columnPrograms should be renamed to ProgramsColumn. Current file should be renamed to ProgramsColumns.
+  // TODO: columnPrograms should be it's own component in the separate file in ./components/listItems/ColumnPrograms
+  // TODO: condition should be dropped. View all link should be added into ul right below ColumnPrograms component
+  const columnPrograms = (arr, format, count = 15) =>
+    arr?.map((item, idx) => {
+      if (idx < count) {
+        return (
+          <li key={item.id || item._id} className={stls.listItem}>
+            <Link
+              href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
+              locale='ru'>
+              <a onClick={handleLinkClick}>{SetString(item, true)}</a>
+            </Link>
+          </li>
+        )
+      } else if (idx === count) {
+        return (
+          <li key={item.id || item._id} className={stls.listItem}>
+            <Link href={`/programs/${type}/${format}`} locale='ru'>
+              <a className={stls.link} onClick={handleLinkClick}>
+                {SetString(langMenu.linkAllPrograms)}
+                <IconArrowLeft classNames={[stls.arrow]} />
+              </a>
+            </Link>
+          </li>
+        )
+      }
+    })
 
   return (
-    <ul
-      id={id}
-      className={classNames(stls.container, 'header-podmenu-content', {
-        [stls.visible]: id === 'header-podmenu-1'
-      })}>
-      <li className={stls.containerItem}>
-        <div className={stls.programInfo}>
-          <div className={stls.programTitle}>
-            {type === 'mini' ? 'Mini MBA' : type === 'mba' ? 'MBA' : null}
-          </div>
-          <div className={stls.infoFlexContainer}>
-            <div className={stls.infoItemContainer}>
-              <div className={stls.iconContainer}>
-                <IconClock />
-              </div>
-              <span>
-                <TrainingPeriod type={type} />
-              </span>
-            </div>
-            <div className={stls.infoItemContainer}>
-              <div className={stls.iconContainer}>
-                <IconPaperCorner />
-              </div>
-              <span>
-                <ProgramSubjects type={type} subjects='base' />{' '}
-                {SetString(langMenu.categoryAboutManagement)}
-              </span>
-            </div>
-            <div className={stls.infoItemContainer}>
-              <div className={stls.iconContainer}>
-                <IconPaperCorner />
-              </div>
-              <span>
-                <ProgramSubjects type={type} subjects='specialty' />{' '}
-                {SetString(langMenu.categorySpecializedSubjects)}
-              </span>
-            </div>
-          </div>
-          <p className={stls.programDesc}>
-            {type === 'mini'
-              ? SetString(langMenu.categoryDiscMini)
-              : type === 'mba'
-              ? SetString(langMenu.categoryDiscMba)
-              : null}
-          </p>
+    <ul id={id} className={cn(stls.container)}>
+      <li className={stls.programInfo}>
+        <div className={stls.programTitle}>
+          {type === 'mini' ? 'Mini MBA' : type === 'mba' ? 'MBA' : null}
         </div>
+
+        <div className={stls.navigation}>
+          <button
+            className={cn(stls.programBtn, {
+              [stls.active]: programFormat === 'online'
+            })}
+            onClick={() => setProgramFormat('online')}>
+            online
+          </button>
+          <button
+            className={cn(stls.programBtn, {
+              [stls.active]: programFormat === 'blended'
+            })}
+            onClick={() => setProgramFormat('blended')}>
+            blended
+          </button>
+        </div>
+
+        <div className={stls.infoFlexContainer}>
+          <div className={stls.infoItemContainer}>
+            <div className={stls.iconContainer}>
+              <IconClock />
+            </div>
+            <span>
+              <TrainingPeriod type={type} />
+            </span>
+          </div>
+          <div className={stls.infoItemContainer}>
+            <div className={stls.iconContainer}>
+              <IconPaperCorner />
+            </div>
+            <span>
+              <ProgramSubjects type={type} subjects='base' />{' '}
+              {SetString(langMenu.categoryAboutManagement)}
+            </span>
+          </div>
+          <div className={stls.infoItemContainer}>
+            <div className={stls.iconContainer}>
+              <IconPaperCorner />
+            </div>
+            <span>
+              <ProgramSubjects type={type} subjects='specialty' />{' '}
+              {SetString(langMenu.categorySpecializedSubjects)}
+            </span>
+          </div>
+        </div>
+        <p className={stls.programDesc}>
+          {type === 'mini'
+            ? SetString(langMenu.categoryDiscMini)
+            : type === 'mba'
+            ? SetString(langMenu.categoryDiscMba)
+            : null}
+        </p>
       </li>
-      <li className={stls.containerItem}>
-        <div className={stls.itemDetails}>
+      <li className={stls.column}>
+        <div
+          className={cn(stls.itemDetails, {
+            [stls.activeOnline]: programFormat === 'online'
+          })}>
           <div className={stls.itemTitle}>
             {SetString(langMenu.onlineTitle)}
             <div className={stls.itemDiscount}>
@@ -125,39 +173,16 @@ const ProgramsColumn = ({ data, id, type }) => {
             </div>
           </div>
           <ul className={stls.list}>
-            {data &&
-              data.map(item => {
-                if (
-                  item.category?.type === type &&
-                  item.studyFormat === 'online'
-                ) {
-                  return (
-                    <li key={item.id || item._id} className={stls.listItem}>
-                      <Link
-                        href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
-                        locale='ru'>
-                        <a onClick={handleLinkClick}>{SetString(item, true)}</a>
-                      </Link>
-                    </li>
-                  )
-                }
-              })}
-            {type === 'mba' && (
-              <li className={stls.listItem}>
-                <Link href={`/programs/international-business-law`} locale='ru'>
-                  <a onClick={handleLinkClick}>MBL</a>
-                </Link>
-              </li>
-            )}
+            {columnPrograms(programsOnline, 'online')}
           </ul>
         </div>
-      </li>
-      <li className={stls.containerItem}>
-        <div className={stls.itemDetails}>
+        <div
+          className={cn(stls.itemDetails, {
+            [stls.activeBlended]: programFormat === 'blended'
+          })}>
           <div className={stls.itemTitle}>
             {SetString(langMenu.blendedTitle)}
           </div>
-
           <ProgramsQty
             programs={data}
             type={type}
@@ -191,26 +216,40 @@ const ProgramsColumn = ({ data, id, type }) => {
             </div>
           </div>
           <ul className={stls.list}>
-            {data &&
-              data.map(item => {
-                if (
-                  item.category?.type === type &&
-                  item.studyFormat === 'blended'
-                ) {
-                  return (
-                    <li key={item.id || item._id} className={stls.listItem}>
-                      <Link
-                        href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
-                        locale='ru'>
-                        <a onClick={handleLinkClick}>{SetString(item, true)}</a>
-                      </Link>
-                    </li>
-                  )
-                }
-              })}
+            {columnPrograms(programsBlended, 'blended')}
           </ul>
         </div>
       </li>
+      <div className={stls.bottomInfo}>
+        <div className={stls.bottomTitle}>
+          {type === 'mini' ? 'Mini MBA' : type === 'mba' ? 'MBA' : null}
+        </div>
+        <div className={stls.itemBottom}>
+          <IconClock classNames={[stls.iconBottom]} />
+          <TrainingPeriod type={type} />
+        </div>
+        <p className={stls.textBottom}>
+          {type === 'mini'
+            ? SetString(langMenu.categoryDiscMini)
+            : type === 'mba'
+            ? SetString(langMenu.categoryDiscMba)
+            : null}
+        </p>
+        <div className={stls.itemBottom}>
+          <IconPaperCorner classNames={[stls.iconBottom]} />
+          <span>
+            <ProgramSubjects type='mba' subjects='base' />{' '}
+            {SetString(langMenu.categoryAboutManagement)}
+          </span>
+        </div>
+        <div className={stls.itemBottom}>
+          <IconPaperCorner classNames={[stls.iconBottom]} />
+          <span>
+            <ProgramSubjects type='mba' subjects='specialty' />{' '}
+            {SetString(langMenu.categorySpecializedSubjects)}
+          </span>
+        </div>
+      </div>
     </ul>
   )
 }

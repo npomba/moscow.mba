@@ -1,4 +1,3 @@
-
 import stls from '@/styles/pages/About.module.sass'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
@@ -11,13 +10,18 @@ import CorporateClients from '@/components/sections/CorporateClients'
 import Teachers from '@/components/sections/Teachers'
 import UpToDateContent from '@/components/sections/UpToDateContent'
 import Accreditation from '@/components/sections/Accreditation'
-import { SetString } from '@/helpers/index'
+import {
+  SetString,
+  handleGetStaticProps,
+  HandleGetPrograms
+} from '@/helpers/index'
 import lang from '@/data/translation/about'
 import langIndex from '@/data/translation/index'
-import { handleGetStaticProps } from '@/helpers/index'
 import ContactUs from '@/components/sections/ContactUs'
 
 const PageAbout = ({ programs, teachers }) => {
+  HandleGetPrograms(programs)
+
   return (
     <>
       <NextSeo
@@ -46,4 +50,3 @@ const PageAbout = ({ programs, teachers }) => {
 export const getStaticProps = async () => handleGetStaticProps()
 
 export default PageAbout
-

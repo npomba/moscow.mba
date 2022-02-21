@@ -1,6 +1,5 @@
 import { useReducer } from 'react'
-import OverlayContext from '@/context/overlay/overlayContext'
-import overlayReducer from '@/context/overlay/overlayReducer'
+import { OverlayContext, overlayReducer } from '@/context/index'
 import { OPEN_OVERLAY, CLOSE_OVERLAY, TOGGLE_OVERLAY } from '@/context/types'
 
 const OverlayState = props => {

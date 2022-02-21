@@ -1,8 +1,8 @@
 import stls from '@/styles/components/general/CourseAccordion.module.sass'
-import classNames from 'classnames'
 import { useState, useEffect } from 'react'
-import { Transition } from 'react-transition-group'
+import cn from 'classnames'
 import Popup from 'reactjs-popup'
+import { Transition } from 'react-transition-group'
 import PopupForm from '@/components/popups/PopupForm'
 import Until from '@/components/costs/Until'
 import TrainingPeriod from '@/components/costs/TrainingPeriod'
@@ -97,7 +97,7 @@ const CourseAccordion = ({
       {state => (
         <div
           style={{ ...initialStyles, ...transitionStyles[state] }}
-          className={classNames(stls.container, {
+          className={cn(stls.container, {
             [stls.opened]: activeAccordion
           })}>
           <div
@@ -121,7 +121,7 @@ const CourseAccordion = ({
             </div>
           </div>
           <div
-            className={classNames({
+            className={cn({
               [stls.additionalInfoContainer]: true,
               ['openedAdditionalInfo']: activeAccordion
             })}>

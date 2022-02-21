@@ -1,13 +1,14 @@
 @use '@/styles/utils/mixin' as m
 
-.container
-  position: relative
+.wrapper
   z-index: 2
+  overflow: hidden
   padding-left: 220px
   padding-top: 19px
   margin-bottom: 69px
+  position: relative
   @include m.media(desktop, laptop, tablet, phone)
-    padding-left: 0
+    padding-left: 10px
   @include m.media(tablet, phone)
     margin-bottom: 40px
 

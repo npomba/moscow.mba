@@ -2,23 +2,24 @@ import stls from '@/styles/components/pages/Programs.module.sass'
 import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import { useAt } from '@/helpers/index'
+import { SetString, useAt } from '@/helpers/index'
 import langMenu from '@/data/translation/menu'
-import { SetString } from '@/helpers/index'
-import Breadcrumbs from '@/components/general/Breadcrumbs'
-import InfoRectangle from '@/components/general/InfoRectangle'
-import ProgramSubjects from '@/components/general/ProgramSubjects'
-import ProgramsQty from '@/components/general/ProgramsQty'
-import Filters from '@/components/general/Filters'
+import {
+  Breadcrumbs,
+  InfoRectangle,
+  ProgramSubjects,
+  ProgramsQty,
+  Filters
+} from '@/components/general'
 import { CardProgram } from '@/components/cards'
 import { IconCheckCircle } from '@/components/icons'
-import programsContext from '@/context/programs/programsContext'
+import { ProgramsContext } from '@/context/index'
 
 const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
   const at = useAt()
 
   const { studyFields, curStudyField, setCurStudyField } =
-    useContext(programsContext)
+    useContext(ProgramsContext)
 
   useEffect(() => {
     if ((at.profession || at.course) && !curStudyField)

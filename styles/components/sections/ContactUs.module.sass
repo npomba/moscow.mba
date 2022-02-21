@@ -1,7 +1,12 @@
 @use '@/styles/utils/mixin' as m
 
 .container
-  margin-bottom: 110px
+  margin: 0 10px
+
+.wrapper
+  transform: translateY(30px)
+  max-width: 1290px
+  display: block 
   color: #fff
   padding: 96px 110px 135px 220px
   background: #ff3535
@@ -22,7 +27,7 @@
     margin-bottom: 20px
     @include m.media(phone)
       font-weight: 400
-      font-size: 28px
+      font-size: 28px 
 
 .desc
   line-height: 1.2

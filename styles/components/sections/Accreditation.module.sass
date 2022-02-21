@@ -2,32 +2,25 @@
 
 .container
   margin-bottom: 70px
-  border: 1px solid #e5e5e5
   position: relative
   z-index: 2
   @include m.media(laptop, tablet, phone)
     margin-bottom: 60px
   @include m.media(tablet, phone)
     border: none
-  &::after
-    content: ''
-    width: 169px
-    height: 2px
-    background: #ff3535h
-    top: -2px
-    left: 50%
-    position: absolute
-    margin-left: 76px
-    @include m.media(desktop)
-      margin-left: 50px
-    @include m.media(laptop, tablet, phone)
-      display: none
 
+.wrapper 
+  max-width: 1290px
+  border: 1px solid #e5e5e5
+  @include m.media(tablet, phone)
+    border: none
+    overflow: hidden
+  
 .image
-  height: calc(100% + 2px)
+  height: 100%  
   width: 50%
   left: -1px
-  top: -1px
+  overflow: hidden
   position: absolute
   z-index: 2
   & div
@@ -35,13 +28,10 @@
   img
     object-fit: cover
   @include m.media(laptop)
-    div
-      width: 690px
-      height: 711px
+    width: 100%
   @include m.media(tablet, phone)
     position: static
-    width: calc(100% + 20px)
-    max-width: 100%
+    width: calc(100%)
     margin-bottom: 30px
 
 .content

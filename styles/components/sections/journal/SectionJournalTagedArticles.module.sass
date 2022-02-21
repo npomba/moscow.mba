@@ -1,0 +1,32 @@
+@use 'sass:math'
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+@use '@/styles/shared/journal' as j
+
+.container
+  &.default
+    @include m.media(phone, tablet)
+      padding-top: f.px(60)
+      padding-bottom: f.px(60)
+    @include m.media(laptop, desktop, widescreen)
+      margin-bottom: f.px(65)
+      padding-top: f.px(130)
+      padding-bottom: f.px(130)
+    @include m.dye(bgc, c.$phi)
+  &.tag
+    @include m.media(phone, tablet)
+      padding-bottom: f.px(60)
+    @include m.media(laptop, desktop, widescreen)
+      // margin-bottom: f.px(65)
+      padding-top: f.px(65)
+      padding-bottom: f.px(65)
+
+.articles
+  @include j.articles
+
+.articleItem
+  @include j.articleItem
+
+.highlight
+  @include m.dye(c, c.$alpha)

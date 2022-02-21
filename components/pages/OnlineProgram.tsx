@@ -19,8 +19,6 @@ import CorporateClients from '@/components/sections/CorporateClients'
 import CostOfStudy from '@/components/sections/CostOfStudy'
 import Accreditation from '@/components/sections/Accreditation'
 import Pros from '@/components/sections/Pros'
-import GetStudyPlan from '@/components/sections/GetStudyPlan'
-import ProgramDevelopedStandard from '@/components/sections/ProgramDevelopedStandard'
 import ECTSStandard from '@/components/sections/ECTSStandard'
 import CostOfStudyDescription from '../sections/CostOfStudyDescription'
 
@@ -36,8 +34,10 @@ const PageOnlineProgram = ({ program, teachers }) => {
       />
       <CourseJsonLd
         courseName={`${program.title} MBA`}
-        providerName='Moscow Business Academy'
-        providerUrl={`https://moscow.mba${router.asPath}`}
+        provider={{
+          name: 'Moscow Business Academy',
+          url: `https://moscow.mba${router.asPath}`
+        }}
         description={truncate(program.goal, 120)}
       />
       <JumbotronProgram program={program} />
@@ -48,19 +48,13 @@ const PageOnlineProgram = ({ program, teachers }) => {
         <Pros format={'online'} />
         <HowProcessGoes />
         <ProgramModules program={program} />
-        {/* <ContactUs
-          programId={data._id}
-          programTitle={data.title}
-          title={'Получите консультацию'}
-          titleNewStr={'по программе обучения'}
-        /> */}
-        {/* <ECTSStandard /> */}
-        <GetStudyPlan />
+        <ECTSStandard />
         <Teachers
           programId={program._id}
           programTitle={program.title}
           teachers={teachers}
         />
+
         <UpToDateContent withBottomLine />
         <CorporateClients />
         <Accreditation />
@@ -73,9 +67,7 @@ const PageOnlineProgram = ({ program, teachers }) => {
           programFormat={program.studyFormat}
           programType={program.category?.type}
         />
-        <CostOfStudyDescription/>
-
-        {/* <Qna programId={program._id} programTitle={program.title} /> */}
+        <Qna programId={program._id} programTitle={program.title} />
         <ContactUs
           programId={program._id}
           programTitle={program.title}

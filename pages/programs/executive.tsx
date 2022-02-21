@@ -21,7 +21,7 @@ import { handleGetStaticProps, HandleGetPrograms } from '@/helpers/index'
 import teachers from '@/data/images/teachers'
 
 const PageProgramsExecutive = ({ program, programs, teachers }) => {
-   HandleGetPrograms(programs)
+  HandleGetPrograms(programs)
   return (
     <>
       <NextSeo
@@ -31,49 +31,42 @@ const PageProgramsExecutive = ({ program, programs, teachers }) => {
       />
       <CourseJsonLd
         courseName={`${program.title} MBA`}
-        providerName='Moscow Business Academy'
-        providerUrl={'https://moscow.mba/programs/executive'}
+        provider={{
+          name: 'Moscow Business Academy',
+          url: 'https://moscow.mba/programs/executive'
+        }}
         description={truncate(program.description, 120)}
       />
 
       <JumbotronProgram program={program} />
-      <div className={stls.container}>
-        <AboutExecutive />
-        <ResultsExecutive />
-        <InPersonWithExperts />
-        <ModulesAbroad />
-        <WhoStudies />
-
-        <ProgramsModules program={program} />
-        <ContactUs
-          programId={program._id}
-          programTitle={program.title}
-          title={'Получите консультацию'}
-          titleNewStr={'по программе обучения'}
-        />
-        <Accreditation />
-        <Teachers
-          programId={program._id}
-          programTitle={program.title}
-          teachers={teachers}
-        />
-        <Rules prices={{ lowerPrice: '600 000', higherPrice: '2 000 000' }} />
-        <ExecutiveRequirements />
-        <Students />
-        <Reviews />
-        <CostOfStudy
-          programId={program._id}
-          programTitle={program.title}
-          programType='executive'
-        />
-        <Qna programId={program._id} programTitle={program.title} />
-        <ContactUs
-          programId={program._id}
-          programTitle={program.title}
-          title={'Не знаете что выбрать?'}
-          titleNewStr={'Получите консультацию по программам MBA'}
-        />
-      </div>
+      <AboutExecutive />
+      <ResultsExecutive />
+      <InPersonWithExperts />
+      <ModulesAbroad />
+      <WhoStudies />
+      <ProgramsModules program={program} />
+      <Accreditation />
+      <Teachers
+        programId={program._id}
+        programTitle={program.title}
+        teachers={teachers}
+      />
+      <Rules prices={{ lowerPrice: '600 000', higherPrice: '2 000 000' }} />
+      <ExecutiveRequirements />
+      <Students />
+      <Reviews />
+      <CostOfStudy
+        programId={program._id}
+        programTitle={program.title}
+        programType='executive'
+      />
+      <Qna programId={program._id} programTitle={program.title} />
+      <ContactUs
+        programId={program._id}
+        programTitle={program.title}
+        title={'Не знаете что выбрать?'}
+        titleNewStr={'Получите консультацию по программам MBA'}
+      />
     </>
   )
 }

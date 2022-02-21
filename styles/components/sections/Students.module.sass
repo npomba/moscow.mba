@@ -2,17 +2,18 @@
 @use '@/styles/layout/general/circularProgressBar' as cpb
 
 .container
-  position: relative
   z-index: 2
   margin-bottom: 118px
-  padding-left: 220px
-  @include m.media(desktop, laptop, tablet, phone)
-    padding-left: 0
   @include m.media(laptop)
     margin-bottom: 70px
   @include m.media(tablet, phone)
     margin-bottom: 40px
 
+.wrapper 
+  padding-left: 220px
+  @include m.media(desktop, laptop, tablet, phone)
+    padding-left: 10px
+  
 .title
   position: absolute
   left: 0

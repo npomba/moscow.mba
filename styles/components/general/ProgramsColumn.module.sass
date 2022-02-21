@@ -1,30 +1,62 @@
 @use '@/styles/utils/mixin' as m
+$visuelt: 'Visuelt', Arial, Tahoma, sans-serif
+$mazzardH: 'mazzardH', Arial, Tahoma, sans-serif
 
 .container
-  display: none
+  display: flex
   flex-wrap: wrap
   height: 100%
-  padding-left: 30px
-  &.visible
-    display: flex
-
-.containerItem
-  flex: 0 0 50%
-  padding: 0 28px 50px
+  padding: 40px 48px 0 58px
   @include m.media(desktop, laptop, tablet, phone)
-    padding-left: 20px
+    padding-left: 48px
     padding-right: 20px
-  &:first-child
-    flex: 0 0 100%
-    padding-top: 40px
-    padding-bottom: 0
-  &:last-child
-    border-left: solid 1px #e6e6e6
+  @include m.media(laptop, tablet, phone)
+    padding: 40px 0 0 0
+    display: block
+    
+.column
+  display: flex
+  @include m.media(tablet, phone)
+    overflow: hidden
 
 .itemDetails
   line-height: 1.2
-  padding-top: 8px
-
+  padding: 8px 30px 50px 0
+  @include m.media(laptop)
+    padding-bottom: 30px
+  &:last-child
+    padding: 8px 0 50px 30px
+    border-left: solid 1px #e6e6e6
+    @include m.media(tablet, phone)
+      border-left: none
+      padding: 30px 0
+    @include m.media(laptop)
+      padding-bottom: 30px
+      border-left: none
+  @include m.media(tablet, phone)
+    display: none
+    &.activeOnline
+      animation: showColumnLeft .2s 
+      width: 100%
+      display: block
+      padding: 30px 0
+      @keyframes showColumnLeft 
+        0% 
+          transform: translateX(-100%)
+        100%
+          transform: translateX(0)
+    &.activeBlended
+      animation: showColumnRight .2s 
+      width: 100%
+      display: block
+      padding: 30px 0
+      margin-right: 0
+      @keyframes showColumnRight 
+        0% 
+          transform: translateX(100%)
+        100%
+          transform: translateX(0)
+      
 .itemTitle
   font-weight: 500
   font-size: 24px
@@ -79,6 +111,7 @@
 
 .infoItemContainer
   display: flex
+  white-space: nowrap
   &:not(:last-child)
     margin-right: 37px
 
@@ -94,30 +127,48 @@
   .infoFlexContainer
     align-items: flex-start
 
-.iconContainer  
+.iconContainer
   width: 20px
   text-align: center
   flex-shrink: 0
   margin-right: 8px
- 
 
 .list
   line-height: 1.2
   color: #000000
 
 .listItem
-  &:not(:last-child)
-    margin-bottom: 10px
-  a
-    transition: all .3s ease-out
-    @include m.media(laptop, desktop, widescreen)
+  @include m.media(desktop, widescreen)
+    &:not(:last-child)
+      margin-bottom: 10px
+    a
+      transition: all .3s ease-out
       &:hover
+        .arrow
+          fill: #ff3535
         color: #ff3535
+  @include m.media(laptop)
+    padding: 0 0 10px 20px
+    position: relative
+    &::before
+      border-radius: 50%
+      content: ""
+      width: 4px
+      height: 4px
+      position: absolute
+      left: 0
+      top: 8px
+      background: #ff3535
+  @include m.media(tablet, phone)
+    padding: 12px 0
+    border-bottom: 1px solid #d9d9d9
+    &:first-child
+      border-top: 1px solid #d9d9d9
 
 .programInfo
-  @include m.media(laptop, tablet, phone)
-    margin-top: 40px
   .infoFlexContainer
+    @include m.media(laptop, tablet, phone)
+      display: none
     display: flex
     align-items: flex-start
     margin-bottom: 10px
@@ -135,11 +186,107 @@
   line-height: 1.2
   font-weight: 700
   margin-bottom: 12px
+  position: relative
+  display: inline-block
   @include m.media(desktop, laptop, tablet, phone)
     font-size: 28px
+  @include m.media(laptop, tablet, phone)
+    font-weight: 500
+    margin-bottom: 30px
 
 .programDesc
   line-height: 1.2
   margin-bottom: 38px
   font-size: 20px
   font-weight: 400
+  @include m.media(laptop, tablet, phone)
+    display: none
+
+.link
+  font-weight: 400
+  position: relative
+
+.arrow
+  position: absolute
+  right: -10px
+  top: 3px
+  width: 7px
+  display: inline-block
+  transform: rotate(-180deg)
+  margin-left: 5px
+  fill: #000
+  transition: all .3s ease-out
+
+.professionItem
+  &:last-child
+    border-left: none
+
+.content
+  display: flex
+  padding-bottom: 30px
+
+.listProfession
+  padding-right: 20px
+  margin-right: 30px
+  border-right: solid 1px #e6e6e6
+
+.listTitle
+  &:first-child
+    margin: 0px 0 18px 0
+  font-weight: 500
+  font-size: 24px
+  line-height: 120%
+  margin: 28px 0 18px 0
+
+
+.bottomInfo
+  @include m.media(desktop, widescreen)
+    display: none
+  padding-bottom: 30px
+
+.bottomTitle
+  line-height: 1.2
+  font-weight: 700
+  margin-bottom: 12px
+  font-size: 28px
+
+.textBottom
+  padding-bottom: 15px
+
+.itemBottom
+  display: flex
+  align-items: center
+  margin-bottom: 10px
+  font-weight: 700
+  padding-left: 2px
+
+.iconBottom
+  margin-right: 10px
+
+.navigation
+  @include m.media(desktop, widescreen, laptop)
+    display: none
+  display: flex
+  justify-content: space-between
+  
+.programBtn
+  background-color: #f7f7f7
+  display: block
+  width: 100%
+  border: none
+  height: 60px
+  transition: all .3s ease-out
+  text-align: center
+  padding: 5px 10px
+  font-size: 14px
+  text-transform: uppercase
+  font-weight: 700
+  color: #262626
+  font-family: $mazzardH
+  letter-spacing: .5px
+  &.active
+    background-color: #ff3535
+    color: #fff
+
+
+

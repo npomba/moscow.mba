@@ -2,27 +2,23 @@
 
 .container
   position: relative
-  padding-bottom: 132px
   margin-bottom: 130px
+  border-bottom: 1px solid #e6e6e6
   @include m.media(laptop)
-    padding-bottom: 80px
     margin-bottom: 80px
   @include m.media(tablet)
-    padding-bottom: 60px
     margin-bottom: 60px
   @include m.media(phone)
-    padding-bottom: 50px
     margin-bottom: 50px
-  &::after
-    content: ''
-    height: 1px
-    background: #e6e6e6
-    width: 100vw
-    left: 50%
-    margin-left: -50vw
-    position: absolute
-    z-index: 2
-    bottom: 0
+  
+.wrapper
+  padding-bottom: 132px
+  @include m.media(laptop)
+    padding-bottom: 80px
+  @include m.media(tablet)
+    padding-bottom: 60px
+  @include m.media(phone)
+    padding-bottom: 50px
   &::before
     content: ''
     height: 2px

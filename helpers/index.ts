@@ -1,29 +1,31 @@
-import createBlended from '@/helpers/createBlended'
-import createLeadBackApi from '@/helpers/createLeadBackApi'
-import createProgramModules from '@/helpers/createProgramModules'
-import createProgramModulesBase from '@/helpers/createProgramModulesBase'
-import createProgramModulesSpecialized from '@/helpers/createProgramModulesSpecialized'
-import fetchProgram from '@/helpers/fetchProgram'
-import fetchPrograms from '@/helpers/fetchPrograms'
-import fetchProgramsGetStaticProps from '@/helpers/fetchProgramsGetStaticProps'
-import fetchProgramsGetStaticPropsCourse from '@/helpers/fetchProgramsGetStaticPropsCourse'
-import fetchProgramsGetStaticPropsProfession from '@/helpers/fetchProgramsGetStaticPropsProfession'
-import fetchProgramsGetStaticPropsPromo from '@/helpers/fetchProgramsGetStaticPropsPromo'
-import getClassNames from '@/helpers/getClassNames'
-import getProgram from '@/helpers/getProgram'
-import getProgramsReducedData from '@/helpers/getProgramsReducedData'
-import fetchPaths from '@/helpers/fetchPaths'
-import getStringDeclensionNumber from '@/helpers/getStringDeclensionNumber'
-import HandleGetPrograms from '@/helpers/HandleGetPrograms'
-import handleGetStaticPaths from '@/helpers/handleGetStaticPaths'
-import handleGetStaticProps from '@/helpers/handleGetStaticProps'
-import handlePlaceholder from '@/helpers/handlePlaceholder'
-import hitContactRoute from '@/helpers/hitContactRoute'
-import getBackJWTToken from '@/helpers/getBackJWTToken'
-import onSubmitForm from '@/helpers/onSubmitForm'
-import SetString from '@/helpers/SetString'
-import toNumberWithSpaces from '@/helpers/toNumberWithSpaces'
-import useAt from '@/helpers/useAt'
+import createBlended from '@/helpers/general/createBlended'
+import createLeadBackApi from '@/helpers/general/createLeadBackApi'
+import createProgramModules from '@/helpers/general/createProgramModules'
+import createProgramModulesBase from '@/helpers/general/createProgramModulesBase'
+import createProgramModulesSpecialized from '@/helpers/general/createProgramModulesSpecialized'
+import fetchProgram from '@/helpers/general/fetchProgram'
+import fetchPrograms from '@/helpers/general/fetchPrograms'
+import fetchProgramsGetStaticProps from '@/helpers/general/fetchProgramsGetStaticProps'
+import fetchProgramsGetStaticPropsCourse from '@/helpers/general/fetchProgramsGetStaticPropsCourse'
+import fetchProgramsGetStaticPropsProfession from '@/helpers/general/fetchProgramsGetStaticPropsProfession'
+import fetchProgramsGetStaticPropsPromo from '@/helpers/general/fetchProgramsGetStaticPropsPromo'
+import getClassNames from '@/helpers/general/getClassNames'
+import getImageHeight from '@/helpers/general/getImageHeight'
+import getProgram from '@/helpers/general/getProgram'
+import getProgramsReducedData from '@/helpers/general/getProgramsReducedData'
+import fetchPaths from '@/helpers/general/fetchPaths'
+import getStringDeclensionNumber from '@/helpers/general/getStringDeclensionNumber'
+import HandleGetPrograms from '@/helpers/general/HandleGetPrograms'
+import handleGetStaticPaths from '@/helpers/general/handleGetStaticPaths'
+import handleGetStaticProps from '@/helpers/general/handleGetStaticProps'
+import handlePlaceholder from '@/helpers/general/handlePlaceholder'
+import hitContactRoute from '@/helpers/general/hitContactRoute'
+import getBackJWTToken from '@/helpers/general/getBackJWTToken'
+import onSubmitForm from '@/helpers/general/onSubmitForm'
+import SetString from '@/helpers/general/SetString'
+import toNumberWithSpaces from '@/helpers/general/toNumberWithSpaces'
+import useAt from '@/helpers/general/useAt'
+import useWindowWidth from '@/helpers/general/useWindowWidth'
 
 export {
   createBlended,
@@ -38,6 +40,7 @@ export {
   fetchProgramsGetStaticPropsProfession,
   fetchProgramsGetStaticPropsPromo,
   getClassNames,
+  getImageHeight,
   getProgram,
   getProgramsReducedData,
   fetchPaths,
@@ -51,5 +54,6 @@ export {
   onSubmitForm,
   SetString,
   toNumberWithSpaces,
-  useAt
+  useAt,
+  useWindowWidth
 }

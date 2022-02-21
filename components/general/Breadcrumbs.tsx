@@ -1,7 +1,8 @@
 import stls from '@/styles/components/general/Breadcrumbs.module.sass'
-import BreadcrumbItem from '@/components/general/BreadcrumbItem'
-import { useAt } from '@/helpers/index'
 import { useRouter } from 'next/router'
+import { useAt } from '@/helpers/index'
+import { Wrapper } from '@/components/layout'
+import { BreadcrumbItem } from '@/components/general'
 
 const mainRoutes = [
   {
@@ -73,6 +74,13 @@ const mainRoutes = [
       'en-US': 'Payment'
     },
     path: '/payment'
+  },
+  {
+    label: {
+      ru: 'Журнал',
+      'en-US': 'Journal'
+    },
+    path: '/journal'
   }
 ]
 
@@ -171,9 +179,9 @@ const Breadcrumbs = ({ programChunkData = {} }) => {
   return (
     <div
       className={[stls.breadcrumbsOuter, stls.jumbotronBreadcrumbs].join(' ')}>
-      <ul className={stls.breadcrumbs}>
-        {breadcrumbsList.map((route, idx) => {
-          return (
+      <Wrapper>
+        <ul className={stls.breadcrumbs}>
+          {breadcrumbsList.map((route, idx) => (
             <BreadcrumbItem
               key={route.label['en-US'] + idx + route.label['ru']}
               linkText={route.label[router.locale]}
@@ -182,9 +190,9 @@ const Breadcrumbs = ({ programChunkData = {} }) => {
               listLength={breadcrumbsList.length}
               userViewingProgramChunk={userViewingProgramChunk}
             />
-          )
-        })}
-      </ul>
+          ))}
+        </ul>
+      </Wrapper>
     </div>
   )
 }

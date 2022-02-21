@@ -1,9 +1,6 @@
 @use '@/styles/utils/mixin' as m
 @use '@/styles/utils/funcs' as f
 
-
-.popup
-
 .trigger
   display: flex
   align-items: center
@@ -15,18 +12,15 @@
   width: 20px
   height: 20px
 
-
 .btn
   background-color: #00000000
   cursor: pointer
   border: none
   padding: 5px 0 5px 12px
   font-size: 20px
-
   &::placeholder
     color: #000
     opacity: 1
-
 
 .container
   width: 1285px
@@ -38,26 +32,21 @@
   @include m.media(desktop, laptop, tablet, phone)
     width: 100vw
     margin: -15px
-
   &::-webkit-scrollbar
     -webkit-appearance: none
     width: 3px
-
   &::-webkit-scrollbar-thumb
     border-radius: 2px
     background-color: #FF3535
-
     &:hover
       background-color: #cccc
 
 .search
   display: flex
   align-items: center
-
   .icon
     width: 29px
     height: 29px
-
   @include m.media(tablet, phone)
     padding: 30px 15px
   @include m.media(widescreen, desktop, laptop)
@@ -68,7 +57,6 @@
   cursor: pointer
   width: 24px
   height: 24px
-
   svg
     width: 24px
     height: 24px
@@ -82,7 +70,6 @@
   line-height: 120%
   color: #000
   margin-left: 20px
-
   &::placeholder
     color: #000
     opacity: 1
@@ -100,7 +87,6 @@
   font-size: 20px
   line-height: 120%
 
-
 .link
   display: flex
   justify-content: space-between
@@ -112,7 +98,6 @@
     .format
       border-color: #FF3535
 
-
 .strong
   font-weight: 800
 
@@ -123,7 +108,6 @@
 
 .form
   width: 100%
-
   @include m.media(tablet, phone)
     padding: 30px 15px
   @include m.media(widescreen, desktop, laptop)

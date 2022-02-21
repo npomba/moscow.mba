@@ -1,0 +1,60 @@
+@use 'sass:math'
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+@use '@/styles/shared/journal' as j
+
+.container
+  @include m.media(phone, tablet)
+    padding-top: f.px(60)
+    padding-bottom: f.px(60)
+  @include m.media(laptop, desktop, widescreen)
+    padding-top: f.px(130)
+    padding-bottom: f.px(130)
+
+.tags
+  display: flex
+  flex-wrap: wrap
+
+$item_mr: 2.4%
+.tagItem
+  display: flex
+  @include m.media(phone)
+    flex-basis: math.div((100% - $item_mr * 1), 2)
+    &:nth-child(n+3)
+      margin-top: f.px(30)
+    margin-right: $item_mr
+    &:nth-child(2n)
+      margin-right: 0
+  @include m.media(tablet)
+    flex-basis: math.div((100% - $item_mr * 2), 3)
+    &:nth-child(n+4)
+      margin-top: f.px(30)
+    margin-right: $item_mr
+    &:nth-child(3n)
+      margin-right: 0
+  @include m.media(laptop)
+    flex-basis: math.div((100% - $item_mr * 3), 4)
+    &:nth-child(n+5)
+      margin-top: f.px(30)
+    margin-right: $item_mr
+    &:nth-child(4n)
+      margin-right: 0
+  @include m.media(desktop, widescreen)
+    flex-basis: math.div((100% - $item_mr * 5), 6)
+    &:nth-child(n+7)
+      margin-top: f.px(30)
+    margin-right: $item_mr
+    &:nth-child(6n)
+      margin-right: 0
+
+.label
+  @include m.media(phone, tablet)
+    margin-top: f.px(15)
+    font-size: f.px(11)
+  @include m.media(laptop, desktop, widescreen)
+    margin-top: f.px(20)
+    font-size: f.px(15)
+  font-weight: 500
+  line-height: 120%
+  letter-spacing: 0.1em

@@ -3,7 +3,7 @@ import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/index'
 import { useState } from 'react'
 import { IconClose } from '@/components/icons'
-import LeadLoaderThankyou from '@/components/general/LeadLoaderThankyou'
+import { LeadLoaderThankyou } from '@/components/general'
 import { FormAlpha } from '@/components/forms'
 
 const Form = ({

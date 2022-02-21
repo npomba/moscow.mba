@@ -1,6 +1,7 @@
 import stls from '@/styles/components/sections/ExecutiveRequirements.module.sass'
 import { IconCheck } from '@/components/icons'
 import Image from 'next/image'
+import { Wrapper } from '@/components/layout'
 
 const requirements = [
   {
@@ -24,37 +25,39 @@ const requirements = [
 const ExecutiveRequirements = () => {
   return (
     <section className={stls.container}>
-      <div className={stls.infoContainer}>
-        <p className={stls.info}>
-          Программа EMBA предназначена для предпринимателей и топ-менеджеров,
-          которые уже достигли определенной ступени развития и теперь хотят
-          выйти на международный уровень. Поэтому к участникам программы
-          предъявляются особые требования.
-        </p>
-        <div className={stls.image}>
-          <Image
-            src='/assets/images/requirements_pic_1.jpg'
-            alt='Студенты Executive на конференции'
-            // width={1290}
-            // height={293}
-            layout={'fill'}
-            objectFit={'cover'}
-          />
+      <Wrapper classNames={[stls.wrapper]}>
+        <div className={stls.infoContainer}>
+          <p className={stls.info}>
+            Программа EMBA предназначена для предпринимателей и топ-менеджеров,
+            которые уже достигли определенной ступени развития и теперь хотят
+            выйти на международный уровень. Поэтому к участникам программы
+            предъявляются особые требования.
+          </p>
+          <div className={stls.image}>
+            <Image
+              src='/assets/images/requirements_pic_1.jpg'
+              alt='Студенты Executive на конференции'
+              // width={1290}
+              // height={293}
+              layout={'fill'}
+              objectFit={'cover'}
+            />
+          </div>
         </div>
-      </div>
-      <ul className={stls.list}>
-        {requirements.map((req, idx) => (
-          <li key={req.title + idx} className={stls.listItem}>
-            <div className={stls.circle}>
-              <IconCheck />
-            </div>
-            <div>
-              <h5 className={stls.listItemTitle}>{req.title}</h5>
-              <p>{req.desc}</p>
-            </div>
-          </li>
-        ))}
-      </ul>
+        <ul className={stls.list}>
+          {requirements.map((req, idx) => (
+            <li key={req.title + idx} className={stls.listItem}>
+              <div className={stls.circle}>
+                <IconCheck />
+              </div>
+              <div>
+                <h5 className={stls.listItemTitle}>{req.title}</h5>
+                <p>{req.desc}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </Wrapper>
     </section>
   )
 }

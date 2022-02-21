@@ -33,48 +33,48 @@ const CourseOnlineProgram = ({ program, teachers }) => {
       />
       <CourseJsonLd
         courseName={`${data.title} MBA`}
-        providerName='Moscow Business Academy'
-        providerUrl={`https://moscow.mba${router.asPath}`}
+        provider={{
+          name: 'Moscow Business Academy',
+          url: `https://moscow.mba${router.asPath}`
+        }}
         description={truncate(program.goal, 120)}
       />
 
       <JumbotronProgram program={data} />
 
-      <div className={stls.container}>
-        <WhatWillYouLearn data={data} />
-        <ProgramDesc />
-        <ProgramDevelopedStandard />
-        <WhoItIsFor program={program} />
+      <WhatWillYouLearn data={data} />
+      <ProgramDesc />
+      <ProgramDevelopedStandard />
+      <WhoItIsFor program={program} />
 
-        <Pros format={'online'} />
-        <HowProcessGoes />
-        <ProgramModules program={data} smallerMb />
-        <GetStudyPlan />
-        <Teachers
-          programId={data._id}
-          programTitle={data.title}
-          teachers={program.teachers}
-        />
-        <HelpWithEmployment />
-        <CorporateClients partnershipTitle />
-        <Diploma />
+      <Pros format={'online'} />
+      <HowProcessGoes />
+      <ProgramModules program={data} smallerMb />
+      <GetStudyPlan />
+      <Teachers
+        programId={data._id}
+        programTitle={data.title}
+        teachers={program.teachers}
+      />
+      <HelpWithEmployment />
+      <CorporateClients partnershipTitle />
+      <Diploma />
 
-        <CostOfStudy
-          programId={data._id}
-          programTitle={data.title}
-          programFormat={data.studyFormat}
-          programType={data.category?.type}
-          programPrice={data.price}
-        />
-        <Qna programId={data._id} programTitle={data.title} />
-        <ContactUs
-          programId={data._id}
-          programTitle={data.title}
-          title={'Не знаете что выбрать?'}
-          titleNewStr={'Получите консультацию по программам'}
-          overlapsFooter
-        />
-      </div>
+      <CostOfStudy
+        programId={data._id}
+        programTitle={data.title}
+        programFormat={data.studyFormat}
+        programType={data.category?.type}
+        programPrice={data.price}
+      />
+      <Qna programId={data._id} programTitle={data.title} />
+      <ContactUs
+        programId={data._id}
+        programTitle={data.title}
+        title={'Не знаете что выбрать?'}
+        titleNewStr={'Получите консультацию по программам'}
+        overlapsFooter
+      />
     </>
   )
 }

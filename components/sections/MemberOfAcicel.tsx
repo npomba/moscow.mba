@@ -1,5 +1,7 @@
 import stls from '@/styles/components/sections/MemberOfAcicel.module.sass'
-import ImageContainer from '@/components/general/ImageContainer'
+import cn from 'classnames'
+import { ImageContainer } from '@/components/general'
+import { Wrapper } from '@/components/layout'
 import rabeP1 from '@/public/assets/images/accreditation/ecicel-accreditation.jpg'
 
 const rabeImage = {
@@ -12,24 +14,26 @@ const rabeImage = {
 }
 
 const MemberOfAcicel = () => {
-  const rabeClassNames = [stls.legalSection, stls.MemberOfAcicel]
-
   return (
-    <section className={rabeClassNames.join(' ')}>
-      <div className={stls.descRabe}>
-        <h2 className={stls.subHeading}>Аккредитация Ecicel</h2>
-        <p>
-          Наши программы прошли строгую проверку европейской аккредитационной
-          комиссии ECICEL и полностью соответствуют всем стандартам. Наличие
-          данной аккредитации гарантирует высокое качество образования в Moscow
-          Business Academy
-        </p>
-      </div>
-      <ImageContainer
-        image={rabeImage}
-        imageWidth={rabeImage.smallWidth}
-        imageHeight={rabeImage.smallHeight}
-      />
+    <section>
+      <Wrapper classNames={[stls.wrapper]}>
+        <div className={stls.content}>
+          <div className={stls.descRabe}>
+            <h2 className={stls.subHeading}>Аккредитация Ecicel</h2>
+            <p>
+              Наши программы прошли строгую проверку европейской
+              аккредитационной комиссии ECICEL и полностью соответствуют всем
+              стандартам. Наличие данной аккредитации гарантирует высокое
+              качество образования в Moscow Business Academy
+            </p>
+          </div>
+          <ImageContainer
+            image={rabeImage}
+            imageWidth={rabeImage.smallWidth}
+            imageHeight={rabeImage.smallHeight}
+          />
+        </div>
+      </Wrapper>
     </section>
   )
 }

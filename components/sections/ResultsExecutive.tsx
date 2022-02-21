@@ -1,9 +1,10 @@
 import stls from '@/styles/components/sections/ResultsExecutive.module.sass'
+import { Wrapper } from '@/components/layout'
 
 const ResultsExecutive = () => {
   return (
     <section className={stls.container}>
-      <div className={stls.content}>
+      <Wrapper classNames={[stls.content]}>
         <div className={stls.floatLeft}>
           <h2 className={stls.title}>
             Результаты участия в программе <span>Executive MBA</span>
@@ -46,7 +47,7 @@ const ResultsExecutive = () => {
             </p>
           </div>
         </div>
-      </div>
+      </Wrapper>
     </section>
   )
 }

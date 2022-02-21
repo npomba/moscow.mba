@@ -3,10 +3,10 @@ import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import Teachers from '@/components/sections/Teachers'
-import { handleGetStaticProps } from '@/helpers/index'
+import { handleGetStaticProps, HandleGetPrograms } from '@/helpers/index'
 
-import Breadcrumbs from '@/components/general/Breadcrumbs'
-import HandleGetPrograms from '@/helpers/HandleGetPrograms'
+import { Breadcrumbs } from '@/components/general'
+import { Wrapper } from '@/components/layout'
 
 const PageTeachers = ({ programs, teachers }) => {
   HandleGetPrograms(programs)
@@ -21,13 +21,11 @@ const PageTeachers = ({ programs, teachers }) => {
         canonical={'https://moscow.mba/teachers'}
       />
       <section className={breadcrumbsStls.jumbotronGeneral}>
-        <div className={stls.container}>
+        <Wrapper>
           <Breadcrumbs />
-        </div>
+        </Wrapper>
       </section>
-      <div className={stls.container}>
-        <Teachers atStandAlonePage teachers={teachers} />
-      </div>
+      <Teachers atStandAlonePage teachers={teachers} />
     </>
   )
 }

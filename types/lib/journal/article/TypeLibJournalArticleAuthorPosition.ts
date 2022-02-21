@@ -1,0 +1,3 @@
+type TypeLibJournalArticleAuthorPosition = string
+
+export default TypeLibJournalArticleAuthorPosition

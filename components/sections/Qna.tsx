@@ -2,7 +2,8 @@ import stls from '@/styles/components/sections/Qna.module.sass'
 import { useAt } from '@/helpers/index'
 import Popup from 'reactjs-popup'
 import PopupForm from '@/components/popups/PopupForm'
-import AccordionsContainer from '@/components/general/AccordionsContainer'
+import { AccordionsContainer } from '@/components/general'
+import { Wrapper } from '@/components/layout'
 
 const Qna = ({ programId, programTitle }) => {
   const at = useAt()
@@ -108,39 +109,41 @@ const Qna = ({ programId, programTitle }) => {
 
   return (
     <section className={stls.container}>
-      <p className={stls.title}>Узнай все</p>
-      <div className={stls.flexContent}>
-        <div className={stls.descContainer}>
-          <h2 className={stls.descTitle}>
-            Вопросы <br />и ответы
-          </h2>
-          <p className={stls.desc}>
-            Задавайте вопросы на интересующую тему и наши менеджеры ответят Вам
-            в ближайшее время
-          </p>
-          <Popup
-            trigger={<a className={stls.button}>Задать вопрос</a>}
-            modal
-            nested>
-            {close => (
-              <PopupForm
-                programId={programId}
-                programTitle={programTitle}
-                title={'Получите консультацию'}
-                closePopUpForm={close}
-              />
-            )}
-          </Popup>
+      <Wrapper classNames={[stls.wrapper]}>
+        <p className={stls.title}>Узнай все</p>
+        <div className={stls.flexContent}>
+          <div className={stls.descContainer}>
+            <h2 className={stls.descTitle}>
+              Вопросы <br />и ответы
+            </h2>
+            <p className={stls.desc}>
+              Задавайте вопросы на интересующую тему и наши менеджеры ответят
+              Вам в ближайшее время
+            </p>
+            <Popup
+              trigger={<a className={stls.button}>Задать вопрос</a>}
+              modal
+              nested>
+              {close => (
+                <PopupForm
+                  programId={programId}
+                  programTitle={programTitle}
+                  title={'Получите консультацию'}
+                  closePopUpForm={close}
+                />
+              )}
+            </Popup>
+          </div>
+          <div className={stls.content}>
+            <AccordionsContainer
+              accordionsItems={qna}
+              firstAccordionActive={false}
+              closeAll={false}
+              setCloseAll={() => {}}
+            />
+          </div>
         </div>
-        <div className={stls.content}>
-          <AccordionsContainer
-            accordionsItems={qna}
-            firstAccordionActive={false}
-            closeAll={false}
-            setCloseAll={() => {}}
-          />
-        </div>
-      </div>
+      </Wrapper>
     </section>
   )
 }

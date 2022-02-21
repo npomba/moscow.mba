@@ -33,8 +33,10 @@ const PageOnlineProgram = ({ program, teachers }) => {
       />
       <CourseJsonLd
         courseName={`${program.title} MBA`}
-        providerName='Moscow Business Academy'
-        providerUrl={`https://moscow.mba${router.asPath}`}
+        provider={{
+          name: 'Moscow Business Academy',
+          url: `https://moscow.mba${router.asPath}`
+        }}
         description={truncate(program.goalStr, 120)}
       />
 
@@ -47,12 +49,6 @@ const PageOnlineProgram = ({ program, teachers }) => {
         <Pros format={'online'} />
         <HowProcessGoes />
         <ProgramModules program={program} />
-        {/* <ContactUs
-          programId={data._id}
-          programTitle={data.title}
-          title={'Получите консультацию'}
-          titleNewStr={'по программе обучения'}
-        /> */}
         <GetStudyPlan />
         <Teachers
           programId={program._id}

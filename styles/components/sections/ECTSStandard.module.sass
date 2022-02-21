@@ -4,10 +4,12 @@
 @use '@/styles/utils/mixin/media' as bp
 
 .container
-  position: relative
-  @include m.flex
   margin-bottom: 103px
 
+.wrapper 
+  position: relative
+  @include m.flex
+ 
 .left
   @include m.flex($jc: center, $ai: center)
   background-color: #2300FA

@@ -1,0 +1,3 @@
+type TypeLibJournalArticleEmphasisBody = string
+
+export default TypeLibJournalArticleEmphasisBody

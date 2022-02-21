@@ -1,12 +1,13 @@
 import stls from '@/styles/components/sections/GetStudyPlan.module.sass'
-
 import Popup from 'reactjs-popup'
 import PopupForm from '@/components/popups/PopupForm'
+import React from 'react'
+import { Wrapper } from '@/components/layout'
 
 const GetStudyPlan = () => {
   return (
-    <>
-      <div className={stls.container}>
+    <section className={stls.container}>
+      <Wrapper classNames={[stls.wrapper]}>
         <div className={stls.content}>
           <h4 className={stls.title}>Получите полный учебный план</h4>
           <Popup
@@ -28,8 +29,8 @@ const GetStudyPlan = () => {
             )}
           </Popup>
         </div>
-      </div>
-    </>
+      </Wrapper>
+    </section>
   )
 }
 

@@ -1,12 +1,12 @@
 import stls from '@/styles/components/pages/Webinars.module.sass'
-import classNames from 'classnames'
+import Link from 'next/link'
+import cn from 'classnames'
 import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import WebinarCards from '@/components/sections/WebinarCards'
 import { useAt } from '@/helpers/index'
-import Link from 'next/link'
-import Breadcrumbs from '@/components/general/Breadcrumbs'
+import { Breadcrumbs } from '@/components/general'
 
 const Webinars = ({ title, heading, timeframe = 'all' }) => {
   const at = useAt()
@@ -36,7 +36,6 @@ const Webinars = ({ title, heading, timeframe = 'all' }) => {
         description={truncate('Узнайте даты и время вебинаров MBA', 120)}
         canonical={'https://moscow.mba/webinars'}
       />
-
       <section className={breadcrumbsStls.jumbotronGeneral}>
         <div className={stls.generalContainer}>
           <Breadcrumbs />
@@ -50,7 +49,7 @@ const Webinars = ({ title, heading, timeframe = 'all' }) => {
           {/*    <li key={idx + link.ref} className={stls.listItem}>*/}
           {/*      <Link href={link.ref} locale='ru'>*/}
           {/*        <a*/}
-          {/*          className={classNames(stls.link, {*/}
+          {/*          className={cn(stls.link, {*/}
           {/*            [stls.active]: link.isActive*/}
           {/*          })}>*/}
           {/*          {link.title}*/}

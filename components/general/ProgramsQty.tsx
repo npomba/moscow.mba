@@ -1,8 +1,7 @@
 import stls from '@/styles/components/general/ProgramsQty.module.sass'
-import classNames from 'classnames'
-import { SetString } from '@/helpers/index'
+import cn from 'classnames'
+import { SetString, getStringDeclensionNumber } from '@/helpers/index'
 import langMenu from '@/data/translation/menu'
-import { getStringDeclensionNumber } from '@/helpers/index'
 
 const ProgramsQty = ({
   programs,
@@ -23,7 +22,7 @@ const ProgramsQty = ({
 
   return (
     <div
-      className={classNames(stls.container, {
+      className={cn(stls.container, {
         [stls.headerContainer]: isInsideHeader
       })}>
       <span>{ProgramsQty} </span>

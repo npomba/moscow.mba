@@ -1,0 +1,31 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.tags
+  display: flex
+  margin-top: f.px(55)
+  margin-bottom: f.px(25 - 2)
+  padding-bottom: f.px(2)
+  overflow-x: auto
+
+.tagItem
+  & + .tagItem
+    @include m.media(phone, tablet)
+      margin-left: f.px(20)
+    @include m.media(laptop, desktop, widescreen)
+      margin-left: f.px(32)
+
+.isActive
+  @include m.dye(c, c.$alpha)
+
+.tag
+  @include m.media(phone, tablet)
+    font-size: f.px(13)
+    @include m.dye(c, c.$chi)
+  @include m.media(laptop, desktop, widescreen)
+    font-size: f.px(15)
+  font-weight: 500
+  line-height: 120%
+  text-transform: uppercase
+  letter-spacing: 0.1em
