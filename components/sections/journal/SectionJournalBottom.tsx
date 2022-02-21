@@ -9,6 +9,7 @@ type TypeSectionJournalBottomProps = TypeClassNames
 const SectionJournalBottom = ({
   classNames
 }: TypeSectionJournalBottomProps) => {
+  return null
   return (
     <section
       className={

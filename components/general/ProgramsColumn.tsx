@@ -10,7 +10,6 @@ import TrainingPeriod from '@/components/costs/TrainingPeriod'
 import Discount from '@/components/costs/Discount'
 import MenuContext from '@/context/menu/menuContext'
 import OverlayContext from '@/context/overlay/overlayContext'
-import ImgDiscountDecoration from '@/components/images/newyears/ImgDiscountDecoration'
 import {
   IconCheckCircle,
   IconScreen,

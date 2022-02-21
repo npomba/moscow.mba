@@ -17,6 +17,8 @@ const SectionJournalHeroArticle = ({
     ContextJournalContext
   )
 
+  return null
+
   return (
     <section
       className={
