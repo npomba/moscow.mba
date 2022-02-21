@@ -4,6 +4,7 @@ import { useAt } from '@/helpers/index'
 import Image from 'next/image'
 import { IconCheck } from '@/components/icons'
 import Wrapper from '../layout/Wrapper'
+import { MBAStudent } from '@/components/images'
 
 const Pros = ({ format = 'online' }) => {
   const at = useAt()
@@ -117,12 +118,7 @@ const Pros = ({ format = 'online' }) => {
               </li>
             </ul>
             <div className={stls.imageRight}>
-              <Image
-                src='/assets/images/advantages_pic_1.jpg'
-                alt='Студент MBA'
-                width={357}
-                height={558}
-              />
+              <MBAStudent/>
             </div>
           </div>
         </Wrapper>
@@ -143,12 +139,7 @@ const Pros = ({ format = 'online' }) => {
           <div className={stls.content}>
             <div className={stls.imageLeft}>
               <div className={stls.imageContainer}>
-                <Image
-                  src='/assets/images/advantages_pic_1.jpg'
-                  alt='Студент MBA'
-                  width={265}
-                  height={317}
-                />
+              <MBAStudent/>
               </div>
             </div>
             <ul className={stls.list}>
