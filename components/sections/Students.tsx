@@ -4,6 +4,7 @@ import cn from 'classnames'
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar'
 import { useAt } from '@/helpers/index'
 import { Wrapper } from '@/components/layout'
+import { ImgHappyGraduate } from '@/components/images'
 
 const Students = () => {
   const at = useAt()
@@ -65,12 +66,7 @@ const Students = () => {
               />
             </div>
             <div className={cn(stls.image, stls.imageTwo)}>
-              <Image
-                src='/assets/images/students_pic_2.jpg'
-                alt='Счастливый выпускник'
-                width={199}
-                height={199}
-              />
+              <ImgHappyGraduate/>
             </div>
           </div>
         </div>
