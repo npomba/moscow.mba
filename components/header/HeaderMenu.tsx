@@ -4,7 +4,7 @@ import HeaderPrograms from './HeaderPrograms'
 import HeaderTabs from './HeaderTabs'
 import langMenu from '@/data/translation/menu'
 import React, { useState } from 'react'
-import HeaderTabsModile from './HeaderMobileTabs'
+import HeaderMobileTabs from './HeaderMobileTabs'
 import lang from '@/data/translation/header'
 
 const HeaderMenu = ({ programs, handleMenu }) => {
@@ -79,7 +79,7 @@ const HeaderMenu = ({ programs, handleMenu }) => {
     <div className={stls.container}>
       <div className={stls.content}>
         {widthWindowMobile ? (
-          <HeaderTabsModile
+          <HeaderMobileTabs
             tabs={tabs}
             links={links}
             programs={programs}
