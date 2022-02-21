@@ -35,6 +35,9 @@ const ProgramsColumn = ({ data, id, type }) => {
   )
   const [programFormat, setProgramFormat] = useState('online')
 
+  // TODO: columnPrograms should be renamed to ProgramsColumn. Current file should be renamed to ProgramsColumns.
+  // TODO: columnPrograms should be it's own component in the separate file in ./components/listItems/ColumnPrograms
+  // TODO: condition should be dropped. View all link should be added into ul right below ColumnPrograms component
   const columnPrograms = (arr, format, count = 15) =>
     arr.map((item, idx) => {
       if (idx < count) {
