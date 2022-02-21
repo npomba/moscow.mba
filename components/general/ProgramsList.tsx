@@ -21,6 +21,7 @@ const ProgramsList = ({ data, id, type }) => {
     hideOverlay()
   }
 
+  // TODO: figure out a better way to do this
   const programs = []
   studyFieldsWithSlugs.map(studyField => {
     let filter = {
@@ -44,7 +45,7 @@ const ProgramsList = ({ data, id, type }) => {
 
   const columnPrograms = array => {
     return array.map((key, i) => (
-      <Fragment key={i}>
+      <Fragment key={`columnPrograms-${i}`}>
         <div className={stls.listTitle}>{key.title}</div>
         {key.fields.map((item, idx) => {
           if (idx < 5) {
