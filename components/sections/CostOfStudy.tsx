@@ -83,6 +83,7 @@ const PriceBlock = ({
   )
 }
 
+// TODO: view cost of study. Verify it's visuals the way it's done in figma
 const CostOfStudy = ({
   programTitle = null,
   programId = null,
