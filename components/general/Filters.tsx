@@ -15,7 +15,7 @@ const Filters = ({
   const at = useAt()
 
   const handleLinkClick = e => {
-    if (fields) e.preventDefault()
+    if (at.profession) e.preventDefault()
   }
 
   return (
@@ -92,7 +92,7 @@ const Filters = ({
           <div className={stls.content}>
             <Link href={`/programs/${mbaTypeOfProgram}/blended`}>
               <a
-                className={cn({ [stls.inactiveLink]: fields })}
+                className={cn({ [stls.inactiveLink]: at.profession })}
                 onClick={e => handleLinkClick(e)}>
                 <span
                   className={cn({
