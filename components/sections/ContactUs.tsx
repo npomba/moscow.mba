@@ -24,7 +24,10 @@ const ContactUs = ({
       className={cn(stls.container, {
         [stls.overlapsFooter]: overlapsFooter
       })}>
-      <Wrapper classNames={[stls.wrapper]}>
+      <Wrapper
+        classNames={[
+          cn(stls.wrapper, { [stls.overlapsFooter]: overlapsFooter })
+        ]}>
         <LeadLoaderThankyou
           open={open}
           setOpen={setOpen}

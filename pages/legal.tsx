@@ -31,6 +31,7 @@ const PageLegal = ({ programs }) => {
       <Wrapper classNames={[stls.wrapper]}>
         <h1 className={stls.title}>Сведения об организации</h1>
       </Wrapper>
+      {/* TODO: add cursor pointer to each license */}
       <CurrentLicenses />
       <MemberOfRabe />
       <MemberOfAcicel />
