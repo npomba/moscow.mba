@@ -68,6 +68,7 @@ const PageOnlineProgram = ({ program, teachers }) => {
         programFormat={program.studyFormat}
         programType={program.category?.type}
       />
+      <CostOfStudyDescription />
       <Qna programId={program._id} programTitle={program.title} />
       <ContactUs
         programId={program._id}
