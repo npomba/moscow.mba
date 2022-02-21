@@ -9,7 +9,7 @@ import lang from '@/data/translation/index'
 import langMenu from '@/data/translation/menu'
 import { Wrapper } from '@/components/layout'
 
-// @TODO: improve styles for rectangle. It's content is not vertically centered on tablet & laptop, it goes full width on smaller screen but should have padding left & right
+// TODO:: improve styles for rectangle. It's content is not vertically centered on tablet & laptop, it goes full width on smaller screen but should have padding left & right
 const InfoRectangle = ({
   programPage = false,
   type = null,

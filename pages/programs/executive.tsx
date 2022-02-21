@@ -45,6 +45,12 @@ const PageProgramsExecutive = ({ program, programs, teachers }) => {
       <ModulesAbroad />
       <WhoStudies />
       <ProgramsModules program={program} />
+      <ContactUs
+        programId={program._id}
+        programTitle={program.title}
+        title={'Получите консультацию'}
+        titleNewStr={'по программе обучени'}
+      />
       <Accreditation />
       <Teachers
         programId={program._id}
@@ -55,6 +61,7 @@ const PageProgramsExecutive = ({ program, programs, teachers }) => {
       <ExecutiveRequirements />
       <Students />
       <Reviews />
+      {/* ! Fix bug with price */}
       <CostOfStudy
         programId={program._id}
         programTitle={program.title}

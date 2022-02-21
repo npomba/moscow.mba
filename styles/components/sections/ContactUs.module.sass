@@ -1,12 +1,19 @@
+@use 'sass:math'
 @use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+@use '@/styles/shared/journal' as j
 
 .container
   margin: 0 10px
 
 .wrapper
-  transform: translateY(30px)
   max-width: 1290px
   display: block 
+  @include m.media(desktop, widescreen)
+    margin-bottom: f.px(110)
+  @include m.media(phone, tablet, laptop)
+    margin-bottom: f.px(78)
   color: #fff
   padding: 96px 110px 135px 220px
   background: #ff3535
@@ -20,14 +27,15 @@
     margin-bottom: 60px
   @include m.media(tablet, phone)
     padding: 40px 25px
-  .title
-    font-size: 36px
-    font-weight: 800
-    line-height: 1.2
-    margin-bottom: 20px
-    @include m.media(phone)
-      font-weight: 400
-      font-size: 28px 
+
+.title
+  font-size: 36px
+  font-weight: 800
+  line-height: 1.2
+  margin-bottom: 20px
+  @include m.media(phone)
+    font-weight: 400
+    font-size: 28px 
 
 .desc
   line-height: 1.2

@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { base64pixel } from '@/config/index'
 import { Wrapper } from '@/components/layout'
 
-// @TODO: align picture to the bottom of section on vertical layout (phone, tablet, laptop)
+// TODO:: align picture to the bottom of section on vertical layout (phone, tablet, laptop)
 const WhatWillYouLearn = ({ data = null }) => {
   const aboutAcademy = [
     'Одна из немногих школ России, которая имеет европейскую аккредитацию Ecicel',
