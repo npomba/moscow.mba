@@ -8,6 +8,8 @@ import HeaderTabsModile from './HeaderMobileTabs'
 import lang from '@/data/translation/header'
 
 const HeaderMenu = ({ programs, handleMenu }) => {
+  // TODO: this should be avoided and replaced with native css solution (media queries and display nones) because event listener on resize unnecessary slows apps perfomance, expecially on less powerful cpus. It will be ok for screen readers & robots. Screen readers don't read markup with display none. Robots are used to reading repeated content for mobile & desktop menus as long as semantics are good, so it won't effect seo
+  // TODO: useWindowWidth should be removed
   const widthWindowMobile = useWindowWidth() < 1020
 
   const at = useAt()
