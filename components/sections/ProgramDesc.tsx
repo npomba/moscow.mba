@@ -3,6 +3,7 @@ import cn from 'classnames'
 import { useAt } from '@/helpers/index'
 import Image from 'next/image'
 import { Wrapper } from '@/components/layout'
+import { ListenersAtTheConferenceBusiness } from '@/components/images'
 
 const ProgramDesc = () => {
   const at = useAt()
@@ -64,12 +65,7 @@ const ProgramDesc = () => {
             />
           )}
           {(at.profession || at.course || at.promo) && (
-            <Image
-              src='/assets/images/handsome-business-man.jpg'
-              alt='Слушатели на конференции'
-              width={503}
-              height={503}
-            />
+            <ListenersAtTheConferenceBusiness/>
           )}
         </div>
       </Wrapper>
