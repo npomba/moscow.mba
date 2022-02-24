@@ -3,11 +3,8 @@ import { useContext, useState } from 'react'
 import Link from 'next/link'
 import cn from 'classnames'
 import { SetString } from '@/helpers/index'
-import Until from '@/components/costs/Until'
-import Price from '@/components/costs/Price'
+import { Until, Price, Discount, TrainingPeriod } from '@/components/costs'
 import { ProgramSubjects, ProgramsQty } from '@/components/general'
-import TrainingPeriod from '@/components/costs/TrainingPeriod'
-import Discount from '@/components/costs/Discount'
 import { MenuContext, OverlayContext } from '@/context/index'
 import {
   IconCheckCircle,

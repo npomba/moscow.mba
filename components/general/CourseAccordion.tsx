@@ -4,8 +4,7 @@ import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { Transition } from 'react-transition-group'
 import PopupForm from '@/components/popups/PopupForm'
-import Until from '@/components/costs/Until'
-import TrainingPeriod from '@/components/costs/TrainingPeriod'
+import { Until, TrainingPeriod } from '@/components/costs/'
 import { IconCheckCircle, IconClock, IconScreen } from '@/components/icons'
 
 const duration = 0.6

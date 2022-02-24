@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { SetString, useAt } from '@/helpers/index'
 import lang from '@/data/translation/index'
 import { useState } from 'react'
-import Until from '@/components/costs/Until'
+import { Until } from '@/components/costs'
 import {
   Breadcrumbs,
   InfoRectangle,

@@ -1,7 +1,6 @@
 import stls from '@/styles/components/popups/PopupLearnMore.module.sass'
-import Discount from '@/components/costs/Discount'
+import { Discount, Until } from '@/components/costs'
 import { IconClose } from '@/components/icons'
-import Until from '@/components/costs/Until'
 import learmMoreStls from '@/styles/components/layout/StickyBottom.module.sass'
 import Popup from 'reactjs-popup'
 import PopupForm from '@/components/popups/PopupForm'

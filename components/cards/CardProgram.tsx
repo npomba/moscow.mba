@@ -1,10 +1,9 @@
 import stls from '@/styles/components/cards/CardProgram.module.sass'
 import Link from 'next/link'
-import Price from '@/components/costs/Price'
+import { Price, TrainingPeriod } from '@/components/costs/index'
 import { IconArrowTopRight } from '@/components/icons'
 import { getStringDeclensionNumber, SetString, useAt } from '@/helpers/index'
 import lang from '@/data/translation/months'
-import TrainingPeriod from '@/components/costs/TrainingPeriod'
 
 const CardProgram = ({ professionLayout, program, number, type, format }) => {
   const at = useAt()

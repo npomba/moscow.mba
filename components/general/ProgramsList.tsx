@@ -4,12 +4,10 @@ import cn from 'classnames'
 import Link from 'next/link'
 import langMenu from '@/data/translation/menu'
 import { SetString, useAt } from '@/helpers/index'
-import Until from '@/components/costs/Until'
-import Discount from '@/components/costs/Discount'
+import { Until, Discount, TrainingPeriod} from '@/components/costs'
 import menu from '@/data/translation/menu'
 import { ProgramsContext, MenuContext, OverlayContext } from '@/context/index'
 import { IconArrowLeft, IconClock, IconPaperCorner } from '@/components/icons'
-import TrainingPeriod from '../costs/TrainingPeriod'
 import ProgramSubjects from './ProgramSubjects'
 
 const ProgramsList = ({ data, id, type }) => {

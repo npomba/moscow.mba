@@ -2,7 +2,7 @@ import stls from '@/styles/components/general/Filters.module.sass'
 import Link from 'next/link'
 import cn from 'classnames'
 import { useAt } from '@/helpers/index'
-import Discount from '@/components/costs/Discount'
+import { Discount } from '@/components/costs'
 import { SearchField } from '@/components/general'
 
 const Filters = ({
