@@ -1,7 +1,7 @@
 import stls from '@/styles/components/sections/Qna.module.sass'
 import { useAt } from '@/helpers/index'
 import Popup from 'reactjs-popup'
-import PopupForm from '@/components/popups/PopupForm'
+import { PopupForm } from '@/components/popups'
 import { AccordionsContainer } from '@/components/general'
 import { Wrapper } from '@/components/layout'
 

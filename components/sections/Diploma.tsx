@@ -7,7 +7,7 @@ import { base64pixel } from '@/config/index'
 import { useAt } from '@/helpers/index'
 import { Wrapper } from '@/components/layout'
 import { Pagination } from '@/components/general'
-import PopupImage from '@/components/popups/PopupImage'
+import { PopupImage } from '@/components/popups'
 
 const Diploma = ({ darkBackground = false }) => {
   const at = useAt()

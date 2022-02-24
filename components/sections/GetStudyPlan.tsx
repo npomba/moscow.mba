@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/GetStudyPlan.module.sass'
 import Popup from 'reactjs-popup'
-import PopupForm from '@/components/popups/PopupForm'
+import { PopupForm } from '@/components/popups'
 import React from 'react'
 import { Wrapper } from '@/components/layout'
 

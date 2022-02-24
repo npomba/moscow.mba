@@ -4,7 +4,7 @@ import { IconClose } from '@/components/icons'
 import Until from '@/components/costs/Until'
 import learmMoreStls from '@/styles/components/layout/StickyBottom.module.sass'
 import Popup from 'reactjs-popup'
-import PopupForm from '@/components/popups/PopupForm'
+import { PopupForm } from '@/components/popups'
 import Link from 'next/link'
 
 const PopupLearnMore = ({ close }) => {

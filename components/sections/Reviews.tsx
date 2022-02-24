@@ -2,7 +2,7 @@ import stls from '@/styles/components/sections/Reviews.module.sass'
 import Image from 'next/image'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
-import PopupReview from '@/components/popups/PopupReview'
+import { PopupReview } from '@/components/popups'
 import Wrapper from '../layout/Wrapper'
 
 const Reviews = () => {

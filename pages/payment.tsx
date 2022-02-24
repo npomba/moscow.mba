@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { handleGetStaticProps, HandleGetPrograms } from '@/helpers/index'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
-import PopupForm from '@/components/popups/PopupForm'
+import { PopupForm } from '@/components/popups'
 import { contactData } from '@/config/index'
 
 import { Breadcrumbs } from '@/components/general'

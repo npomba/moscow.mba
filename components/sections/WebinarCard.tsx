@@ -1,7 +1,7 @@
 import stls from '@/styles/components/sections/WebinarCard.module.sass'
 import cn from 'classnames'
 import Image from 'next/image'
-import PopupForm from '@/components/popups/PopupForm'
+import { PopupForm } from '@/components/popups'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import { IconBell } from '@/components/icons'

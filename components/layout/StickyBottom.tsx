@@ -6,8 +6,7 @@ import Until from '@/components/costs/Until'
 import { IconCross, IconClose } from '@/components/icons'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
-import PopupForm from '@/components/popups/PopupForm'
-import PopupLearnMore from '@/components/popups/PopupLearnMore'
+import { PopupForm, PopupLearnMore } from '@/components/popups'
 import { OverlayContext } from '@/context/index'
 
 const StickyBottom = ({

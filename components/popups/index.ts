@@ -4,6 +4,7 @@ import PopupInfo from '@/components/popups/PopupInfo'
 import PopupLearnMore from '@/components/popups/PopupLearnMore'
 import PopupLoader from '@/components/popups/PopupLoader'
 import PopupReview from '@/components/popups/PopupReview'
+import PopupPdf from '@/components/popups/PopupPdf'
 import PopupThankyou from '@/components/popups/PopupThankyou'
 
 export { 
@@ -13,5 +14,6 @@ export {
     PopupLearnMore,
     PopupLoader,
     PopupReview,
-    PopupThankyou
+    PopupThankyou,
+    PopupPdf
 }

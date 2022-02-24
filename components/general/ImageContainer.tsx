@@ -2,7 +2,7 @@ import stls from '@/styles/components/general/ImageContainer.module.sass'
 import Image from 'next/image'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
-import PopupImage from '@/components/popups/PopupImage'
+import { PopupImage } from '@/components/popups'
 import { IconPaperCorner } from '@/components/icons'
 
 const ImageContainer = ({ image, imageWidth, imageHeight }) => {

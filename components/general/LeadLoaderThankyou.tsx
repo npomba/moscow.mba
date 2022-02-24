@@ -1,7 +1,6 @@
 import stls from '@/styles/components/general/LeadLoaderThankyou.module.sass'
 import Popup from 'reactjs-popup'
-import PopupThankyou from '@/components/popups/PopupThankyou'
-import PopupLoader from '@/components/popups/PopupLoader'
+import { PopupThankyou, PopupLoader } from '@/components/popups'
 
 const LeadLoaderThankyou = ({
   open,
