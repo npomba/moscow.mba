@@ -10,7 +10,7 @@ import {
 import { ImgLogoRabo, ImgLogoMde } from '@/components/images'
 import { BtnChangeLang } from '@/components/btns'
 import cn from 'classnames'
-import contactData from '@/config/contactData'
+import { contactData } from '@/config/index'
 import { Wrapper } from '@/components/layout'
 
 const HeaderInformation = ({ classNames = [], handleMenu, openMenu }) => {
