@@ -1,19 +1,19 @@
 import stls from '@/styles/components/inputs/InputPhone.module.sass'
 import cn from 'classnames'
 import { SetString, handlePlaceholder } from '@/helpers/index'
-import lang from '@/data/translation/index'
+import { index } from '@/data/index'
 
 const InputPhone = ({ register, errors, width = '25' }) => {
   return (
     <div className={`input-block width-${width}`}>
       <input
         type='tel'
-        aria-label={SetString(lang.inputPhone)}
+        aria-label={SetString(index.inputPhone)}
         {...register('phone', {
-          required: `*${SetString(lang.formErrEmptyPhone)}`,
+          required: `*${SetString(index.formErrEmptyPhone)}`,
           minLength: {
             value: 5,
-            message: `*${SetString(lang.formErrShortPhone)}`
+            message: `*${SetString(index.formErrShortPhone)}`
           }
         })}
         onKeyUp={e => handlePlaceholder(e)}
@@ -22,7 +22,7 @@ const InputPhone = ({ register, errors, width = '25' }) => {
         className={cn({
           'input-placeholder': true
         })}>
-        {SetString(lang.inputPhone)}
+        {SetString(index.inputPhone)}
       </div>
       <p className='inpt-err-msg'>{errors.phone && errors.phone.message}</p>
     </div>

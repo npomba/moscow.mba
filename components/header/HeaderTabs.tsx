@@ -1,7 +1,7 @@
 import stls from '@/styles/components/header/HeaderTabs.module.sass'
 import { SetString } from '@/helpers/index'
 import Link from 'next/link'
-import langMenu from '@/data/translation/menu'
+import { menu } from '@/data/index'
 
 const HeaderTabs = ({ tabs, handleMouseEnter, handleMenu, visible }) => {
   const currentTab = (visible && visible.slice(-1) - 1) || 0
@@ -14,12 +14,12 @@ const HeaderTabs = ({ tabs, handleMouseEnter, handleMenu, visible }) => {
               className={
                 idx === currentTab
                   ? stls.active
-                  : item.val === SetString(langMenu.allPrograms)
+                  : item.val === SetString(menu.allPrograms)
                   ? stls.all
                   : undefined
               }
               data-tab={
-                item.val !== SetString(langMenu.allPrograms) &&
+                item.val !== SetString(menu.allPrograms) &&
                 `#header-podmenu-${idx + 1}`
               }
               onClick={() => handleMenu(false)}

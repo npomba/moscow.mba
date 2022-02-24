@@ -3,7 +3,7 @@ import Image from 'next/image'
 import cn from 'classnames'
 import { SetString } from '@/helpers/index'
 import { Wrapper } from '@/components/layout'
-import lang from '@/data/translation/about'
+import { about } from '@/data/index'
 
 const UpToDateContent = ({ withBottomLine = false }) => {
   return (
@@ -13,16 +13,16 @@ const UpToDateContent = ({ withBottomLine = false }) => {
       })}>
       <Wrapper classNames={[stls.wrapper]}>
         <div className={stls.section}>
-          <h2>{SetString(lang.uptodateTitle)}</h2>
+          <h2>{SetString(about.uptodateTitle)}</h2>
         </div>
         <div className={stls.content}>
           <div className={stls.top}>
             <div className={stls.desc}>
-              {SetString(lang.uptodateDicsFirst)}{' '}
+              {SetString(about.uptodateDicsFirst)}{' '}
               <strong className={stls.red}>
-                {SetString(lang.uptodateDicsRed)}{' '}
+                {SetString(about.uptodateDicsRed)}{' '}
               </strong>
-              {SetString(lang.uptodateDicsSecond)}
+              {SetString(about.uptodateDicsSecond)}
             </div>
             <div className={stls.bottomImg}>
               <Image
@@ -46,24 +46,24 @@ const UpToDateContent = ({ withBottomLine = false }) => {
           <ul className={stls.list}>
             <li>
               <div className={stls.number}>
-                2021 {SetString(lang.uptodateYear)}
+                2021 {SetString(about.uptodateYear)}
               </div>
               <p>
-                {SetString(lang.uptodateBenefitOneDics)} 2021{' '}
-                {SetString(lang.uptodateYearV2)}
+                {SetString(about.uptodateBenefitOneDics)} 2021{' '}
+                {SetString(about.uptodateYearV2)}
               </p>
             </li>
             <li>
               <div className={stls.number}>
-                53 {SetString(lang.uptodateBenefitTwoTitle)}
+                53 {SetString(about.uptodateBenefitTwoTitle)}
               </div>
-              <p>{SetString(lang.uptodateBenefitTwoDics)}</p>
+              <p>{SetString(about.uptodateBenefitTwoDics)}</p>
             </li>
             <li>
               <div className={stls.number}>
-                {SetString(lang.uptodateBenefitThreeTitle)}
+                {SetString(about.uptodateBenefitThreeTitle)}
               </div>
-              <p>{SetString(lang.uptodateBenefitThreeDics)}</p>
+              <p>{SetString(about.uptodateBenefitThreeDics)}</p>
             </li>
           </ul>
         </div>

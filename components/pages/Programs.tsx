@@ -3,7 +3,7 @@ import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import { SetString, useAt } from '@/helpers/index'
-import langMenu from '@/data/translation/menu'
+import { menu } from '@/data/index'
 import {
   Breadcrumbs,
   InfoRectangle,
@@ -40,7 +40,7 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
           at.online ? 'Online' : at.blended ? 'Blended' : ''
         } - Moscow Business Academy`}
         description={
-          at.mini ? truncate(SetString(langMenu.categoryDiscMini), 120) : ''
+          at.mini ? truncate(SetString(menu.categoryDiscMini), 120) : ''
         }
         canonical={'https://moscow.mba/programs/mba/online'}
       />
@@ -83,9 +83,9 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
 
               <p className={stls.desc}>
                 {at.mini
-                  ? SetString(langMenu.categoryDiscMini)
+                  ? SetString(menu.categoryDiscMini)
                   : at.mba
-                  ? SetString(langMenu.categoryDiscMba)
+                  ? SetString(menu.categoryDiscMba)
                   : ''}
               </p>
 

@@ -2,11 +2,10 @@ import stls from '@/styles/components/general/ProgramsList.module.sass'
 import { Fragment, useContext } from 'react'
 import cn from 'classnames'
 import Link from 'next/link'
-import langMenu from '@/data/translation/menu'
+import { menu } from '@/data/index'
 import { SetString, useAt } from '@/helpers/index'
 import Until from '@/components/costs/Until'
 import Discount from '@/components/costs/Discount'
-import menu from '@/data/translation/menu'
 import { ProgramsContext, MenuContext, OverlayContext } from '@/context/index'
 import { IconArrowLeft, IconClock, IconPaperCorner } from '@/components/icons'
 import TrainingPeriod from '../costs/TrainingPeriod'
@@ -94,9 +93,9 @@ const ProgramsList = ({ data, id, type }) => {
         </div>
         <p className={stls.programDesc}>
           {type === 'profession'
-            ? SetString(langMenu.categoryDiscProfession)
+            ? SetString(menu.categoryDiscProfession)
             : type === 'courses'
-            ? SetString(langMenu.categoryDiscMba)
+            ? SetString(menu.categoryDiscMba)
             : null}
         </p>
       </div>
@@ -137,16 +136,16 @@ const ProgramsList = ({ data, id, type }) => {
         </div>
         <p className={stls.textBottom}>
           {type === 'profession'
-            ? SetString(langMenu.categoryDiscProfession)
+            ? SetString(menu.categoryDiscProfession)
             : type === 'courses'
-            ? SetString(langMenu.categoryDiscMba)
+            ? SetString(menu.categoryDiscMba)
             : null}
         </p>
         <div className={stls.itemBottom}>
           <IconPaperCorner classNames={[stls.iconBottom]} />
           <span>
             <ProgramSubjects type={type} subjects='base' />{' '}
-            {SetString(langMenu.categoryAboutManagement)}
+            {SetString(menu.categoryAboutManagement)}
           </span>
         </div>
       </div>

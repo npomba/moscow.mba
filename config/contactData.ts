@@ -1,6 +1,4 @@
-import lang from '@/data/translation/header'
-import langContact from '@/data/translation/contact'
-import langCities from '@/data/translation/cities'
+import { header, contact, cities } from '@/data/index'
 
 const contactInfo = () => {
   return {
@@ -18,8 +16,8 @@ const contactInfo = () => {
         }
       ],
       address: {
-        city: langCities.moscow,
-        street: lang.addressStreet
+        city: cities.moscow,
+        street: header.addressStreet
       },
       email: { val: 'info@moscow.mba', mailTo: 'mailto:info@moscow.mba' }
     },
@@ -40,8 +38,8 @@ const contactInfo = () => {
           }
         ],
         address: {
-          city: langCities.almaty,
-          street: langContact.almatyAddressStreet
+          city: cities.almaty,
+          street: contact.almatyAddressStreet
         },
         email: {
           val: 'almaty@moscow.mba',
@@ -60,8 +58,8 @@ const contactInfo = () => {
           }
         ],
         address: {
-          city: langCities.shymkent,
-          street: langContact.shymkentAddressStreet
+          city: cities.shymkent,
+          street: contact.shymkentAddressStreet
         },
         email: {
           val: 'shymkent@moscow.mba',
@@ -86,8 +84,8 @@ const contactInfo = () => {
         }
       ],
       address: {
-        city: langCities.tashkent,
-        street: langContact.tashkentAddressStreet
+        city: cities.tashkent,
+        street: contact.tashkentAddressStreet
       },
       email: {
         val: 'tashkent@moscow.mba',
@@ -103,8 +101,8 @@ const contactInfo = () => {
         }
       ],
       address: {
-        city: langCities.newYork,
-        street: langContact.newyorkAddressStreet
+        city: cities.newYork,
+        street: contact.newyorkAddressStreet
       },
       email: { val: 'info@moscow.mba', mailTo: 'mailto:info@moscow.mba' }
     },
@@ -117,8 +115,8 @@ const contactInfo = () => {
         }
       ],
       address: {
-        city: langCities.barcelona,
-        street: langContact.barcelonaAddressStreet
+        city: cities.barcelona,
+        street: contact.barcelonaAddressStreet
       },
       email: { val: 'info@moscow.mba', mailTo: 'mailto:info@moscow.mba' }
     },
@@ -131,8 +129,8 @@ const contactInfo = () => {
         }
       ],
       address: {
-        city: langCities.berlin,
-        street: langContact.berlinAddressStreet
+        city: cities.berlin,
+        street: contact.berlinAddressStreet
       },
       email: { val: 'info@moscow.mba', mailTo: 'mailto:info@moscow.mba' }
     }

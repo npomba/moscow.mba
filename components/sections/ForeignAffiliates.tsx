@@ -1,8 +1,7 @@
 import stls from '@/styles/components/sections/ForeignAffiliates.module.sass'
 import Image from 'next/image'
 import { SetString } from '@/helpers/index'
-import lang from '@/data/translation/index'
-import imageData from '@/data/images/foreignAffiliates'
+import { index, foreignAffiliates } from '@/data/index'
 import { base64pixel } from '@/config/index'
 import Wrapper from '../layout/Wrapper'
 
@@ -10,15 +9,15 @@ const ForeignAffiliates = () => {
   return (
     <section className={stls.container}>
       <Wrapper classNames={[stls.wrapper]}>
-        <h2>{SetString(lang.foreignAffiliatesTitle)}</h2>
-        <p className={stls.title}>{SetString(lang.foreignAffiliatesDisc)}</p>
+        <h2>{SetString(index.foreignAffiliatesTitle)}</h2>
+        <p className={stls.title}>{SetString(index.foreignAffiliatesDisc)}</p>
         <div className={stls.flexContainer}>
           <ul className={stls.imagesList}>
             <li className={stls.imagesListItem}>
               <div className={stls.image}>
                 <Image
-                  src={imageData.circleOne.src}
-                  alt={SetString(imageData.circleOne.alt)}
+                  src={foreignAffiliates.circleOne.src}
+                  alt={SetString(foreignAffiliates.circleOne.alt)}
                   width={191}
                   height={191}
                   placeholder='blur'
@@ -29,8 +28,8 @@ const ForeignAffiliates = () => {
             <li className={stls.imagesListItem}>
               <div className={stls.image}>
                 <Image
-                  src={imageData.circleTwo.src}
-                  alt={SetString(imageData.circleTwo.alt)}
+                  src={foreignAffiliates.circleTwo.src}
+                  alt={SetString(foreignAffiliates.circleTwo.alt)}
                   width={191}
                   height={191}
                   placeholder='blur'
@@ -41,8 +40,8 @@ const ForeignAffiliates = () => {
             <li className={stls.imagesListItem}>
               <div className={stls.image}>
                 <Image
-                  src={imageData.circleThree.src}
-                  alt={SetString(imageData.circleThree.alt)}
+                  src={foreignAffiliates.circleThree.src}
+                  alt={SetString(foreignAffiliates.circleThree.alt)}
                   width={191}
                   height={191}
                   placeholder='blur'
@@ -56,7 +55,7 @@ const ForeignAffiliates = () => {
                   5 000 м<sup>2</sup>
                 </div>
                 <div className={stls.line}></div>
-                <p>{SetString(lang.foreignAffiliatesSurfaceArea)}</p>
+                <p>{SetString(index.foreignAffiliatesSurfaceArea)}</p>
               </div>
             </li>
           </ul>
@@ -64,7 +63,7 @@ const ForeignAffiliates = () => {
             {/*TODO: swap fixed layout with default, fix up the css for an image */}
             <Image
               src='/assets/images/branches_map-alt.png'
-              alt={SetString(lang.foreignAffiliatesDisc)}
+              alt={SetString(index.foreignAffiliatesDisc)}
               width={659}
               height={394}
               layout='fixed'

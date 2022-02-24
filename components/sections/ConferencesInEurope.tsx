@@ -1,8 +1,8 @@
 import stls from '@/styles/components/sections/ConferencesInEurope.module.sass'
 import Image from 'next/image'
 import { SetString, useAt } from '@/helpers/index'
-import lang from '@/data/translation/index'
-import imageData from '@/data/images/conferencesInEurope'
+import { index } from '@/data/index'
+import { conferencesInEurope } from '@/data/index'
 import { base64pixel } from '@/config/index'
 import Wrapper from '../layout/Wrapper'
 
@@ -27,11 +27,11 @@ const ConferencesInEurope = () => {
                 {at.ru && <>в&nbsp;Европе</>}
               </span>
             </h2>
-            <p className={stls.titleDesc}>{SetString(lang.orgDisc)}</p>
+            <p className={stls.titleDesc}>{SetString(index.orgDisc)}</p>
             <div className={stls.image}>
               <Image
-                src={imageData.shorterImage.src}
-                alt={SetString(imageData.shorterImage.alt)}
+                src={conferencesInEurope.shorterImage.src}
+                alt={SetString(conferencesInEurope.shorterImage.alt)}
                 width={623}
                 height={364}
                 layout='responsive'
@@ -43,8 +43,8 @@ const ConferencesInEurope = () => {
           <div className={stls.imageContainer}>
             <div className={stls.image}>
               <Image
-                src={imageData.higherImage.src}
-                alt={SetString(imageData.higherImage.alt)}
+                src={conferencesInEurope.higherImage.src}
+                alt={SetString(conferencesInEurope.higherImage.alt)}
                 width={415}
                 height={690}
                 layout='responsive'

@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { ImgLogoEcicel, ImgLogoRabo, ImgLogoMde } from '@/components/images'
 import imgData from '@/data/images/accreditation'
 import { SetString } from '@/helpers/index'
-import lang from '@/data/translation/about'
+import { about } from '@/data/index'
 import { IconPaperCorner } from '@/components/icons'
 import { base64pixel } from '@/config/index'
 import Wrapper from '../layout/Wrapper'
@@ -30,9 +30,9 @@ const Accreditation = () => {
           />
         </div>
         <div className={stls.content}>
-          <h2 className={stls.title}>{SetString(lang.accreditationTitle)}</h2>
+          <h2 className={stls.title}>{SetString(about.accreditationTitle)}</h2>
           <div className={stls.titleDesc}>
-            {SetString(lang.accreditationDics)}
+            {SetString(about.accreditationDics)}
           </div>
           <div className={stls.logosContainer}>
             {logos.map(({ logo }, idx) => (
@@ -43,14 +43,14 @@ const Accreditation = () => {
           </div>
           <ul className={stls.list}>
             <li className={stls.listItem}>
-              {SetString(lang.accreditationItemOne)}
+              {SetString(about.accreditationItemOne)}
             </li>
             <li className={stls.listItem}>
-              {SetString(lang.accreditationItemTwo)}
+              {SetString(about.accreditationItemTwo)}
             </li>
-            <p>{SetString(lang.accreditationItemTwoPara)}</p>
+            <p>{SetString(about.accreditationItemTwoPara)}</p>
             <li className={stls.listItem}>
-              {SetString(lang.accreditationItemThree)}
+              {SetString(about.accreditationItemThree)}
             </li>
           </ul>
           <a
@@ -61,7 +61,7 @@ const Accreditation = () => {
             <div className={stls.iconContainer}>
               <IconPaperCorner />
             </div>
-            <span>{SetString(lang.accreditationLicenseLink)}</span>
+            <span>{SetString(about.accreditationLicenseLink)}</span>
           </a>
         </div>
       </Wrapper>

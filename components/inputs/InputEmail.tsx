@@ -1,7 +1,7 @@
 import stls from '@/styles/components/inputs/InputEmail.module.sass'
 import cn from 'classnames'
 import { SetString, handlePlaceholder } from '@/helpers/index'
-import lang from '@/data/translation/index'
+import { index } from '@/data/index'
 
 const InputEmail = ({ register, errors, width = '25', ...props }) => {
   return (
@@ -9,12 +9,12 @@ const InputEmail = ({ register, errors, width = '25', ...props }) => {
       <input
         {...props}
         type='email'
-        aria-label={SetString(lang.inputEmail)}
+        aria-label={SetString(index.inputEmail)}
         {...register('email', {
           pattern: {
             value:
               /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
-            message: `*${SetString(lang.formErrInvalidEmail)}`
+            message: `*${SetString(index.formErrInvalidEmail)}`
           }
         })}
         onKeyUp={e => handlePlaceholder(e)}
@@ -23,7 +23,7 @@ const InputEmail = ({ register, errors, width = '25', ...props }) => {
         className={cn({
           'input-placeholder': true
         })}>
-        {SetString(lang.inputEmail)}
+        {SetString(index.inputEmail)}
       </div>
       <p className='inpt-err-msg'>{errors.email && errors.email.message}</p>
     </div>

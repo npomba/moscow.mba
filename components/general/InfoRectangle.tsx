@@ -5,8 +5,8 @@ import TrainingPeriod from '@/components/costs/TrainingPeriod'
 import { SetString, useAt } from '@/helpers/index'
 import Price from '@/components/costs/Price'
 import PopupInfo from '@/components/popups/PopupInfo'
-import lang from '@/data/translation/index'
-import langMenu from '@/data/translation/menu'
+import { index } from '@/data/index'
+import { menu } from '@/data/index'
 import { Wrapper } from '@/components/layout'
 
 // TODO:: improve styles for rectangle. It's content is not vertically centered on tablet & laptop, it goes full width on smaller screen but should have padding left & right
@@ -33,13 +33,13 @@ const InfoRectangle = ({
       {
         itemTitle: 'Форма обучения:',
         itemDetail: at.online
-          ? SetString(langMenu.formatRemote)
+          ? SetString(menu.formatRemote)
           : at.blended
-          ? SetString(langMenu.formatBlended)
+          ? SetString(menu.formatBlended)
           : at.executive
-          ? SetString(langMenu.formatExecutive)
+          ? SetString(menu.formatExecutive)
           : at.mbl
-          ? SetString(langMenu.formatRemote)
+          ? SetString(menu.formatRemote)
           : ''
       },
       {
@@ -80,13 +80,13 @@ const InfoRectangle = ({
     ],
     academyInfo: [
       {
-        itemDetail: SetString(lang.jumInfoOne)
+        itemDetail: SetString(index.jumInfoOne)
       },
       {
-        itemDetail: SetString(lang.jumInfoTwo)
+        itemDetail: SetString(index.jumInfoTwo)
       },
       {
-        itemDetail: SetString(lang.jumInfoThree)
+        itemDetail: SetString(index.jumInfoThree)
       }
     ]
   }

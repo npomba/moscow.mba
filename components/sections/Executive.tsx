@@ -9,8 +9,8 @@ import { ProgramSubjects } from '@/components/general'
 import Price from '@/components/costs/Price'
 import TrainingPeriod from '@/components/costs/TrainingPeriod'
 import imageData from '@/data/images/executive'
-import lang from '@/data/translation/index'
-import langMenu from '@/data/translation/menu'
+import { index, menu } from '@/data/index'
+
 
 const Executive = () => {
   return (
@@ -22,28 +22,28 @@ const Executive = () => {
               <span>Premium</span>
             </div>
             <h2>Executive MBA</h2>
-            <p className={stls.desc}>{SetString(lang.executiveMBADicsFirst)}</p>
+            <p className={stls.desc}>{SetString(index.executiveMBADicsFirst)}</p>
             <p className={stls.desc}>
-              {SetString(lang.executiveMBADicsSecond)}
+              {SetString(index.executiveMBADicsSecond)}
             </p>
             <ul className={stls.list}>
               <li className={stls.listItem}>
                 <TrainingPeriod type={'executive'} />
               </li>
               <li className={stls.listItem}>
-                2 {SetString(lang.executiveOfflineModules)}
+                2 {SetString(index.executiveOfflineModules)}
               </li>
               <li className={stls.listItem}>
                 <ProgramSubjects sum={true} type={'executive'} />{' '}
-                {SetString(langMenu.qtSubjects)}
+                {SetString(menu.qtSubjects)}
               </li>
             </ul>
             <div className={stls.price}>
-              {SetString(langMenu.price)}:{' '}
+              {SetString(menu.price)}:{' '}
               <Price discount={false} type={'executive'} />
             </div>
             <Link href='/programs/executive/' locale='ru'>
-              <a className={stls.button}>{SetString(lang.learnMoreBtn)}</a>
+              <a className={stls.button}>{SetString(index.learnMoreBtn)}</a>
             </Link>
           </div>
           <div className={stls.imagesContainer}>
@@ -69,7 +69,7 @@ const Executive = () => {
             </div>
             <div className={stls.count}>
               <strong>200+</strong>
-              <span>{SetString(lang.graduates)}</span>
+              <span>{SetString(index.graduates)}</span>
             </div>
           </div>
         </div>

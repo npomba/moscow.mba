@@ -1,7 +1,7 @@
 import stls from '@/styles/components/general/ProgramsQty.module.sass'
 import cn from 'classnames'
 import { SetString, getStringDeclensionNumber } from '@/helpers/index'
-import langMenu from '@/data/translation/menu'
+import { menu } from '@/data/index'
 
 const ProgramsQty = ({
   programs,
@@ -27,7 +27,7 @@ const ProgramsQty = ({
       })}>
       <span>{ProgramsQty} </span>
       {SetString(
-        langMenu.qtPrograms,
+        menu.qtPrograms,
         false,
         getStringDeclensionNumber(ProgramsQty)
       )}

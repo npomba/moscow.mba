@@ -3,7 +3,7 @@ import 'reactjs-popup/dist/index.css'
 import Image from 'next/image'
 import Link from 'next/link'
 import { SetString, useAt } from '@/helpers/index'
-import lang from '@/data/translation/index'
+import { index } from '@/data/index'
 import { useState } from 'react'
 import Until from '@/components/costs/Until'
 import {
@@ -58,32 +58,32 @@ const JumbotronCta = ({ programTitle = null, programId = null }) => {
                   MINI MBA
                 </li>
                 <li className={stls.desktopLinkBorder}></li>
-                <li className={stls.linkItem}>{SetString(lang.courses)}</li>
+                <li className={stls.linkItem}>{SetString(index.courses)}</li>
               </ul>
 
               <ul className={stls.mobileLinksList}>
                 <li className={stls.linkItem}>
                   <Link href='/programs' locale='ru'>
-                    <a>{SetString(lang.programsMbaMobileLink)}</a>
+                    <a>{SetString(index.programsMbaMobileLink)}</a>
                   </Link>
                 </li>
               </ul>
               <h1 className={stls.title}>
-                {SetString(lang.headerTitlePreHighlight)}{' '}
+                {SetString(index.headerTitlePreHighlight)}{' '}
                 <span className={stls.red}>
-                  {SetString(lang.headerTitleHighlight)}
+                  {SetString(index.headerTitleHighlight)}
                 </span>{' '}
-                {SetString(lang.headerTitlePostHighlight)}
+                {SetString(index.headerTitlePostHighlight)}
               </h1>
               <div className={stls.descTopPart}>
                 <span className={stls.red}>
-                  {SetString(lang.headerDescTopHightlight)}
+                  {SetString(index.headerDescTopHightlight)}
                 </span>{' '}
-                {SetString(lang.headerDescTop)} <Until preposition={true} />!
+                {SetString(index.headerDescTop)} <Until preposition={true} />!
               </div>
               <div className={stls.descForm}>
                 <p className={stls.descBottomPart}>
-                  {SetString(lang.headerDescription)}
+                  {SetString(index.headerDescription)}
                 </p>
                 <FormAlpha
                   programTitle={programTitle}
@@ -97,18 +97,18 @@ const JumbotronCta = ({ programTitle = null, programId = null }) => {
             <ul className={stls.prosList}>
               <li className={stls.prosItem}>
                 <div className={stls.prosStatsNumber}>100+</div>
-                <p>{SetString(lang.benefitOneDisc)}</p>
+                <p>{SetString(index.benefitOneDisc)}</p>
               </li>
               <li className={stls.prosSeparator}></li>
               <li className={stls.prosItem}>
-                <div className={stls.prosStatsNumber}>2021+</div>
-                <p>{SetString(lang.benefitTwoDisc)}</p>
+                <div className={stls.prosStatsNumber}>2021+</div>index
+                <p>{SetString(index.benefitTwoDisc)}</p>
               </li>
               <li className={stls.prosSeparator}></li>
 
               <li className={stls.prosItem}>
                 <div className={stls.prosStatsNumber}>150+</div>
-                <p>{SetString(lang.benefitThreeDisc)}</p>
+                <p>{SetString(index.benefitThreeDisc)}</p>
               </li>
               <li className={stls.prosSeparator}></li>
 
@@ -118,8 +118,8 @@ const JumbotronCta = ({ programTitle = null, programId = null }) => {
                 </div>
                 <p>
                   {at.index
-                    ? SetString(lang.benefitFourDiscAlt)
-                    : SetString(lang.benefitFourDisc)}
+                    ? SetString(index.benefitFourDiscAlt)
+                    : SetString(index.benefitFourDisc)}
                 </p>
               </li>
             </ul>

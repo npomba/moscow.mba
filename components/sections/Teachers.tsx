@@ -5,8 +5,7 @@ import { useAt, SetString } from '@/helpers/index'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 import PopupForm from '@/components/popups/PopupForm'
-import lang from 'data/translation/about'
-import imagesData from '@/data/images/teachers'
+import { about, teachersImges } from '@/data/index'
 import { IconCheck } from '@/components/icons'
 import { base64pixel } from '@/config/index'
 import cn from 'classnames'
@@ -36,67 +35,67 @@ const Teachers = ({
 
   const defaultTeachers = [
     {
-      name: SetString(lang.teachersTeacherOneTitle),
-      desc: SetString(lang.teachersTeacherOneDics),
+      name: SetString(about.teachersTeacherOneTitle),
+      desc: SetString(about.teachersTeacherOneDics),
       img: {
         src: '/assets/images/teachers/teacher-1.jpg',
-        alt: SetString(lang.teachersTeacherOneTitle)
+        alt: SetString(about.teachersTeacherOneTitle)
       }
     },
     {
-      name: SetString(lang.teachersTeacherTwoTitle),
-      desc: SetString(lang.teachersTeacherTwoDics),
+      name: SetString(about.teachersTeacherTwoTitle),
+      desc: SetString(about.teachersTeacherTwoDics),
       img: {
         src: '/assets/images/teachers/teacher-2.jpg',
-        alt: SetString(lang.teachersTeacherTwoTitle)
+        alt: SetString(about.teachersTeacherTwoTitle)
       }
     },
     {
-      name: SetString(lang.teachersTeacherThreeTitle),
-      desc: SetString(lang.teachersTeacherThreeDics),
+      name: SetString(about.teachersTeacherThreeTitle),
+      desc: SetString(about.teachersTeacherThreeDics),
       img: {
         src: '/assets/images/teachers/teacher-3.jpg',
-        alt: SetString(lang.teachersTeacherThreeTitle)
+        alt: SetString(about.teachersTeacherThreeTitle)
       }
     },
     {
-      name: SetString(lang.teachersTeacherFourTitle),
-      desc: SetString(lang.teachersTeacherFourDics),
+      name: SetString(about.teachersTeacherFourTitle),
+      desc: SetString(about.teachersTeacherFourDics),
       img: {
         src: '/assets/images/teachers/teacher-4.jpg',
-        alt: SetString(lang.teachersTeacherOneTitle)
+        alt: SetString(about.teachersTeacherOneTitle)
       }
     },
     {
-      name: SetString(lang.teachersTeacherFiveTitle),
-      desc: SetString(lang.teachersTeacherFiveDics),
+      name: SetString(about.teachersTeacherFiveTitle),
+      desc: SetString(about.teachersTeacherFiveDics),
       img: {
         src: '/assets/images/teachers/teacher-5.jpg',
-        alt: SetString(lang.teachersTeacherFiveTitle)
+        alt: SetString(about.teachersTeacherFiveTitle)
       }
     },
     {
-      name: SetString(lang.teachersTeacherSixTitle),
-      desc: SetString(lang.teachersTeacherSixDics),
+      name: SetString(about.teachersTeacherSixTitle),
+      desc: SetString(about.teachersTeacherSixDics),
       img: {
         src: '/assets/images/teachers/teacher-6.jpg',
-        alt: SetString(lang.teachersTeacherSixTitle)
+        alt: SetString(about.teachersTeacherSixTitle)
       }
     },
     {
-      name: SetString(lang.teachersTeacherSevenTitle),
-      desc: SetString(lang.teachersTeacherSevenDics),
+      name: SetString(about.teachersTeacherSevenTitle),
+      desc: SetString(about.teachersTeacherSevenDics),
       img: {
         src: '/assets/images/teachers/teacher-7.jpg',
-        alt: SetString(lang.teachersTeacherSevenTitle)
+        alt: SetString(about.teachersTeacherSevenTitle)
       }
     },
     {
-      name: SetString(lang.teachersTeacherEightTitle),
-      desc: SetString(lang.teachersTeacherEightDics),
+      name: SetString(about.teachersTeacherEightTitle),
+      desc: SetString(about.teachersTeacherEightDics),
       img: {
         src: '/assets/images/teachers/teacher-8.jpg',
-        alt: SetString(lang.teachersTeacherEightTitle)
+        alt: SetString(about.teachersTeacherEightTitle)
       }
     }
   ]
@@ -104,28 +103,28 @@ const Teachers = ({
   const title =
     at.profession || at.course ? (
       <h2 className={stls.titleProfession}>
-        {SetString(lang.teachersTitleFirstSecondary)}{' '}
+        {SetString(about.teachersTitleFirstSecondary)}{' '}
         <span className='red'>
-          {SetString(lang.teachersTitleRedSecondary)}{' '}
+          {SetString(about.teachersTitleRedSecondary)}{' '}
         </span>
-        {SetString(lang.teachersTitleSecondSecondary)}
+        {SetString(about.teachersTitleSecondSecondary)}
       </h2>
     ) : (
       <h2>
-        {SetString(lang.teachersTitleFirstMain)}{' '}
-        <span className='red'>{SetString(lang.teachersTitleRedMain)} </span>
-        {SetString(lang.teachersTitleSecondMain)}
+        {SetString(about.teachersTitleFirstMain)}{' '}
+        <span className='red'>{SetString(about.teachersTitleRedMain)} </span>
+        {SetString(about.teachersTitleSecondMain)}
       </h2>
     )
 
   const firstParaText = SetString(
     at.profession || at.course
-      ? lang.teachersListItemDiscSecondary
-      : lang.teachersListItemDiscMain
+      ? about.teachersListItemDiscSecondary
+      : about.teachersListItemDiscMain
   )
-  const secondParaText = SetString(lang.teachersListItemDiscSecond)
+  const secondParaText = SetString(about.teachersListItemDiscSecond)
   const teachersProsTitle = SetString(
-    !at.profession && !at.course && lang.teachersProsTitleMain
+    !at.profession && !at.course && about.teachersProsTitleMain
   )
 
   const wordToSplitBy = {
@@ -170,12 +169,12 @@ const Teachers = ({
         <Wrapper column>
           <div className={stls.sectionPl}>
             <div className={stls.titlePl}>
-              {SetString(lang.teachersTitleLabel)}
+              {SetString(about.teachersTitleLabel)}
             </div>
             <div className={stls.content}>
               {title}
               {!at.profession && !at.course && (
-                <div className={stls.text}>{SetString(lang.teachersDics)}</div>
+                <div className={stls.text}>{SetString(about.teachersDics)}</div>
               )}
               <div
                 className={cn({
@@ -190,8 +189,8 @@ const Teachers = ({
                     [stls.pic1AtProfession]: at.profession || at.course
                   })}>
                   <Image
-                    src={imagesData.circleSpeakerOne.src}
-                    alt={SetString(imagesData.circleSpeakerOne.alt)}
+                    src={teachersImges.circleSpeakerOne.src}
+                    alt={SetString(teachersImges.circleSpeakerOne.alt)}
                     width={!at.profession && !at.course ? 425 : 344}
                     height={!at.profession && !at.course ? 422 : 342}
                     layout='responsive'
@@ -206,8 +205,8 @@ const Teachers = ({
                     [stls.pic2AtProfession]: at.profession || at.course
                   })}>
                   <Image
-                    src={imagesData.circleSpeakerTwo.src}
-                    alt={SetString(imagesData.circleSpeakerTwo.alt)}
+                    src={teachersImges.circleSpeakerTwo.src}
+                    alt={SetString(teachersImges.circleSpeakerTwo.alt)}
                     width={!at.profession && !at.course ? 236 : 199}
                     height={!at.profession && !at.course ? 236 : 199}
                     layout='responsive'
@@ -229,8 +228,8 @@ const Teachers = ({
                     <h5>
                       {SetString(
                         at.profession || at.course
-                          ? lang.teachersListItemTitleSecondary
-                          : lang.teachersListItemTitleMain
+                          ? about.teachersListItemTitleSecondary
+                          : about.teachersListItemTitleMain
                       )}
                     </h5>
                     <p>
@@ -244,7 +243,7 @@ const Teachers = ({
                     <IconCheck />
                   </div>
                   <div>
-                    <h5>{SetString(lang.teachersListItemTitleSecond)}</h5>
+                    <h5>{SetString(about.teachersListItemTitleSecond)}</h5>
                     <p>
                       {secondParaPartOne}
                       <span className={stls.breakLine}>
@@ -260,14 +259,14 @@ const Teachers = ({
                   <div>
                     <h5>
                       {at.profession || at.course
-                        ? SetString(lang.teachersListItemTitleThirdAlt)
-                        : SetString(lang.teachersListItemTitleThird)}
+                        ? SetString(about.teachersListItemTitleThirdAlt)
+                        : SetString(about.teachersListItemTitleThird)}
                     </h5>
                     <p>
                       {SetString(
                         at.profession || at.course
-                          ? lang.teachersListItemDiscThirdSecondary
-                          : lang.teachersListItemDiscThirdMain
+                          ? about.teachersListItemDiscThirdSecondary
+                          : about.teachersListItemDiscThirdMain
                       )}
                     </p>
                   </div>
@@ -327,7 +326,7 @@ const Teachers = ({
                       className={cn({
                         button: true
                       })}>
-                      {SetString(lang.getAllTeachersBtn)}
+                      {SetString(about.getAllTeachersBtn)}
                     </button>
                   }
                   modal
@@ -337,8 +336,8 @@ const Teachers = ({
                       programId={programId}
                       programTitle={programTitle}
                       closePopUpForm={close}
-                      title={SetString(lang.getAllTeachersPopupTitle)}
-                      disc={SetString(lang.teachersPopupFormDics)}
+                      title={SetString(about.getAllTeachersPopupTitle)}
+                      disc={SetString(about.teachersPopupFormDics)}
                     />
                   )}
                 </Popup>
@@ -350,7 +349,7 @@ const Teachers = ({
               <Popup
                 trigger={
                   <button className='button'>
-                    {SetString(lang.teachersCtaBtn)}
+                    {SetString(about.teachersCtaBtn)}
                   </button>
                 }
                 modal
@@ -360,8 +359,8 @@ const Teachers = ({
                     programId={programId}
                     programTitle={programTitle}
                     closePopUpForm={close}
-                    title={SetString(lang.teachersPopupFormTitle)}
-                    disc={SetString(lang.teachersPopupFormDics)}
+                    title={SetString(about.teachersPopupFormTitle)}
+                    disc={SetString(about.teachersPopupFormDics)}
                   />
                 )}
               </Popup>

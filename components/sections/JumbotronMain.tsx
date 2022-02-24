@@ -2,7 +2,7 @@ import stls from '@/styles/components/sections/JumbotronMain.module.sass'
 import Link from 'next/link'
 import Image from 'next/image'
 import { SetString } from '@/helpers/index'
-import lang from '@/data/translation/index'
+import { index } from '@/data/index'
 import { Breadcrumbs } from '@/components/general'
 import { IconArrowTopRight } from '@/components/icons'
 
@@ -35,12 +35,12 @@ const JumbotronMain = () => {
                 />
               </div>
               <h1>Moscow Business Academy</h1>
-              <div className={stls.desc}>{SetString(lang.headerSubtitle)}</div>
+              <div className={stls.desc}>{SetString(index.headerSubtitle)}</div>
             </div>
           </div>
           <Link href='/programs/mini/online' locale='ru'>
             <a className={stls.square}>
-              <p>{SetString(lang.redCubeLink)}</p>
+              <p>{SetString(index.redCubeLink)}</p>
               <div className={stls.arrow}>
                 <IconArrowTopRight />
               </div>

@@ -1,37 +1,37 @@
 import stls from '@/styles/components/header/HeaderTop.module.sass'
 import { SetString, useAt } from '@/helpers/index'
 import { HeaderNav, HeaderInformation } from '@/components/header'
-import lang from '@/data/translation/header'
+import { header } from '@/data/index'
 
 const HeaderTop = ({ handleMenu, openMenu }) => {
   const at = useAt()
   const links = [
     {
       href: '/about',
-      val: SetString(lang.linkAbout),
+      val: SetString(header.linkAbout),
       red: at.about
     },
     {
       href: '/teachers',
-      val: SetString(lang.linkTeachers),
+      val: SetString(header.linkTeachers),
       red: at.teachers,
       locale: 'ru'
     },
     {
       href: '/webinars',
-      val: SetString(lang.linkWebinars),
+      val: SetString(header.linkWebinars),
       red: at.webinars,
       locale: 'ru'
     },
     {
       href: '/contact',
-      val: SetString(lang.linkContacts),
+      val: SetString(header.linkContacts),
       red: at.contact,
       locale: 'ru'
     },
     {
       href: '/legal',
-      val: SetString(lang.linkLegal),
+      val: SetString(header.linkLegal),
       red: at.legal,
       locale: 'ru'
     }

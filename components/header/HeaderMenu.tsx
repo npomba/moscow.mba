@@ -2,10 +2,9 @@ import stls from '@/styles/components/header/HeaderMenu.module.sass'
 import { SetString, useAt, useWindowWidth } from '@/helpers/index'
 import HeaderPrograms from './HeaderPrograms'
 import HeaderTabs from './HeaderTabs'
-import langMenu from '@/data/translation/menu'
 import React, { useState } from 'react'
 import HeaderMobileTabs from './HeaderMobileTabs'
-import lang from '@/data/translation/header'
+import { menu, header } from '@/data/index'
 
 const HeaderMenu = ({ programs, handleMenu }) => {
   // TODO: this should be avoided and replaced with native css solution (media queries and display nones) because event listener on resize unnecessary slows apps perfomance, expecially on less powerful cpus. It will be ok for screen readers & robots. Screen readers don't read markup with display none. Robots are used to reading repeated content for mobile & desktop menus as long as semantics are good, so it won't effect seo
@@ -16,30 +15,30 @@ const HeaderMenu = ({ programs, handleMenu }) => {
   const links = [
     {
       href: '/about',
-      val: SetString(lang.linkAbout),
+      val: SetString(header.linkAbout),
       red: at.about
     },
     {
       href: '/teachers',
-      val: SetString(lang.linkTeachers),
+      val: SetString(header.linkTeachers),
       red: at.teachers,
       locale: 'ru'
     },
     {
       href: '/webinars',
-      val: SetString(lang.linkWebinars),
+      val: SetString(header.linkWebinars),
       red: at.webinars,
       locale: 'ru'
     },
     {
       href: '/contact',
-      val: SetString(lang.linkContacts),
+      val: SetString(header.linkContacts),
       red: at.contact,
       locale: 'ru'
     },
     {
       href: '/legal',
-      val: SetString(lang.linkLegal),
+      val: SetString(header.linkLegal),
       red: at.legal,
       locale: 'ru'
     }
@@ -56,7 +55,7 @@ const HeaderMenu = ({ programs, handleMenu }) => {
     },
     {
       href: '/programs/profession/online',
-      val: SetString(langMenu.professions)
+      val: SetString(menu.professions)
     },
     // {
     //   href: '/programs/course/online',
@@ -68,7 +67,7 @@ const HeaderMenu = ({ programs, handleMenu }) => {
     // },
     {
       href: '/programs/mini/online',
-      val: SetString(langMenu.allPrograms)
+      val: SetString(menu.allPrograms)
     }
   ]
 

@@ -1,7 +1,7 @@
 import stls from '@/styles/components/sections/ContactUs.module.sass'
 import cn from 'classnames'
 import { SetString, useAt } from '@/helpers/index'
-import lang from '@/data/translation/index'
+import { index } from '@/data/index'
 import { useState } from 'react'
 import { LeadLoaderThankyou } from '@/components/general'
 import { FormAlpha } from '@/components/forms'
@@ -10,9 +10,9 @@ import { Wrapper } from '@/components/layout'
 const ContactUs = ({
   programTitle = null,
   programId = null,
-  title = SetString(lang.helpToChooseTitle),
+  title = SetString(index.helpToChooseTitle),
   titleNewStr = null,
-  disc = SetString(lang.helpToChooseDics),
+  disc = SetString(index.helpToChooseDics),
   overlapsFooter = false
 }) => {
   const [open, setOpen] = useState(false)
@@ -46,7 +46,7 @@ const ContactUs = ({
         </h2>
         <div className={stls.desc}>
           {at.course || at.profession
-            ? SetString(lang.helpToChooseDicsProfessionCourse)
+            ? SetString(index.helpToChooseDicsProfessionCourse)
             : disc}
         </div>
 

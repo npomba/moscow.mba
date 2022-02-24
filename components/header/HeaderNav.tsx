@@ -3,7 +3,7 @@ import Link from 'next/link'
 import cn from 'classnames'
 import { SetString, getClassNames } from '@/helpers/index'
 import { Wrapper } from '@/components/layout'
-import lang from '@/data/translation/header'
+import { header } from '@/data/index'
 
 const HeaderNav = ({ links, handleMenu, openMenu, classNames = [] }) => {
   const container = getClassNames({ classNames })
@@ -20,7 +20,7 @@ const HeaderNav = ({ links, handleMenu, openMenu, classNames = [] }) => {
               <i className={stls.line} />
               <i className={stls.line} />
             </div>
-            <span>{SetString(lang.programsBtn)}</span>
+            <span>{SetString(header.programsBtn)}</span>
           </div>
         </div>
         <ul className={stls.list}>

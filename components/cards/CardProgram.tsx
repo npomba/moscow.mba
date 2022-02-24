@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Price from '@/components/costs/Price'
 import { IconArrowTopRight } from '@/components/icons'
 import { getStringDeclensionNumber, SetString, useAt } from '@/helpers/index'
-import lang from '@/data/translation/months'
+import { months } from '@/data/index'
 import TrainingPeriod from '@/components/costs/TrainingPeriod'
 
 const CardProgram = ({ professionLayout, program, number, type, format }) => {
@@ -20,12 +20,12 @@ const CardProgram = ({ professionLayout, program, number, type, format }) => {
             {at.mini
               ? 'Mini MBA'
               : at.mba
-              ? 'MBA'
-              : at.profession
-              ? 'Профессия'
-              : at.course
-              ? 'Курс'
-              : ''}
+                ? 'MBA'
+                : at.profession
+                  ? 'Профессия'
+                  : at.course
+                    ? 'Курс'
+                    : ''}
           </span>
         </div>
         <h3 className={stls.programTitle}>{program.title}</h3>
@@ -42,7 +42,7 @@ const CardProgram = ({ professionLayout, program, number, type, format }) => {
           <div className={stls.duration}>
             {program.duration ? (
               `${program.duration?.minStudyMonths} ${SetString(
-                lang.months,
+                months.months,
                 false,
                 getStringDeclensionNumber(program.duration?.minStudyMonths)
               )}`

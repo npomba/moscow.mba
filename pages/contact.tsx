@@ -6,7 +6,7 @@ import {
   HandleGetPrograms,
   handleGetStaticProps
 } from '@/helpers/index'
-import lang from '@/data/translation/header'
+import { header } from '@/data/index'
 import { ContactCards, Breadcrumbs } from '@/components/general'
 import { contactData } from '@/config/index'
 
@@ -18,7 +18,7 @@ const PageContact = ({ programs }) => {
   return (
     <>
       <NextSeo
-        title={`${SetString(lang.linkContacts)} - Moscow Business Academy`}
+        title={`${SetString(header.linkContacts)} - Moscow Business Academy`}
         description={truncate(
           `${SetString(contactInfo.ru.address.city)}, ${SetString(
             contactInfo.ru.address.street
@@ -46,7 +46,7 @@ const PageContact = ({ programs }) => {
         </div>
       </section>
       <div className={stls.container}>
-        <h1 className={stls.h1}>{SetString(lang.linkContacts)}</h1>
+        <h1 className={stls.h1}>{SetString(header.linkContacts)}</h1>
         <ContactCards />
       </div>
     </>

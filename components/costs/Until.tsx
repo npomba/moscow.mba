@@ -1,24 +1,23 @@
 import langMenu from '@/data/translation/menu'
-import langMonths from '@/data/translation/months'
+import { months } from '@/data/index'
 import { SetString } from '@/helpers/index'
 
 const Until = ({ preposition = true, executive = false }) => {
   const currentDate = new Date()
   const currentDay = currentDate.getDate()
   let currentMonth = currentDate.getMonth()
-  const months = [
-    SetString(langMonths.january),
-    SetString(langMonths.february),
-    SetString(langMonths.march),
-    SetString(langMonths.april),
-    SetString(langMonths.may),
-    SetString(langMonths.june),
-    SetString(langMonths.july),
-    SetString(langMonths.august),
-    SetString(langMonths.september),
-    SetString(langMonths.october),
-    SetString(langMonths.november),
-    SetString(langMonths.december)
+  const monthsArr = [
+    SetString(months.january),
+    SetString(months.february),
+    SetString(months.march),
+    SetString(months.may),
+    SetString(months.june),
+    SetString(months.july),
+    SetString(months.august),
+    SetString(months.september),
+    SetString(months.october),
+    SetString(months.november),
+    SetString(months.december)
   ]
   if (executive)
     currentMonth =

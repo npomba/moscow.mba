@@ -4,7 +4,7 @@ import {
   HandleGetPrograms,
   handleGetStaticProps
 } from '@/helpers/index'
-import lang from '@/data/translation/index'
+import { index } from '@/data/index'
 import { NextSeo } from 'next-seo'
 import JumbotronCta from '@/components/sections/JumbotronCta'
 import WhatWillYouLearn from '@/components/sections/WhatWillYouLearn'
@@ -65,7 +65,7 @@ const PagePromo = ({ programs }) => {
         <CourseOptions
           data={programs.filter(program => program.studyFormat === 'online')}
         />
-        <ContactUs title={SetString(lang.receiveConsultation)} />
+        <ContactUs title={SetString(index.receiveConsultation)} />
         <WhatWillYouLearn />
         <ProgramDesc />
         <Accreditation />

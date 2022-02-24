@@ -6,7 +6,7 @@ import {
   SetString,
   HandleGetPrograms
 } from '@/helpers/index'
-import lang from '@/data/translation/index'
+import { index } from '@/data/index'
 import JumbotronCta from '@/components/sections/JumbotronCta'
 import About from '@/components/sections/About'
 import ConferencesInEurope from '@/components/sections/ConferencesInEurope'
@@ -25,9 +25,9 @@ const PageHome = ({ programs }) => {
       <NextSeo
         title={'Moscow Business Academy'}
         description={truncate(
-          `${SetString(lang.headerTitlePreHighlight)} ${SetString(
-            lang.headerTitleHighlight
-          )} ${SetString(lang.headerTitlePostHighlight)}`,
+          `${SetString(index.headerTitlePreHighlight)} ${SetString(
+            index.headerTitleHighlight
+          )} ${SetString(index.headerTitlePostHighlight)}`,
           120
         )}
         canonical={'https://moscow.mba/'}

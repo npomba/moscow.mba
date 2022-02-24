@@ -9,7 +9,7 @@ import {
   InputPhone,
   InputSubmit
 } from '@/components/inputs'
-import lang from '@/data/translation/index'
+import { index } from '@/data/index'
 
 type TypeFormValues = {
   name: string
@@ -66,9 +66,9 @@ const FormAlpha = ({
           className={cn({
             'personal-data': globalStyle
           })}>
-          {SetString(lang.privacyPolicyFirst)}{' '}
+          {SetString(index.privacyPolicyFirst)}{' '}
           {/* <a href=''>{SetString(lang.privacyPolicySecond)}</a> */}
-          <span>{SetString(lang.privacyPolicySecond)}</span>
+          <span>{SetString(index.privacyPolicySecond)}</span>
         </div>
       )}
     </form>
