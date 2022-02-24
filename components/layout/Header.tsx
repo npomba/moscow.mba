@@ -1,7 +1,6 @@
 import stls from '@/styles/components/layout/Header.module.sass'
 import { useContext, useState } from 'react'
-import HeaderMenu from '../header/HeaderMenu'
-import HeaderTop from '../header/HeaderTop'
+import { HeaderMenu, HeaderTop } from '@/components/header'
 import { MenuContext, OverlayContext } from '@/context/index'
 
 const Header = ({ programs }) => {
