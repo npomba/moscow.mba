@@ -2,22 +2,26 @@ import stls from '@/styles/components/pages/ProfessionOnlineProgram.module.sass'
 import { NextSeo, CourseJsonLd } from 'next-seo'
 import { useRouter } from 'next/router'
 import truncate from 'truncate'
-import JumbotronProgram from '@/components/sections/JumbotronProgram'
-import WhoItIsFor from '@/components/sections/WhoItIsFor'
-import WhatWillYouLearn from '@/components/sections/WhatWillYouLearn'
-import ProgramDesc from '@/components/sections/ProgramDesc'
-import HowProcessGoes from '@/components/sections/HowProcessGoes'
-import ProgramModules from '@/components/sections/ProgramsModules'
-import ContactUs from '@/components/sections/ContactUs'
-import Qna from '@/components/sections/Qna'
-import Teachers from '@/components/sections/Teachers'
-import Diploma from '@/components/sections/Diploma'
-import CorporateClients from '@/components/sections/CorporateClients'
-import CostOfStudy from '@/components/sections/CostOfStudy'
-import HelpWithEmployment from '@/components/sections/HelpWithEmployment'
-import Pros from '@/components/sections/Pros'
-import GetStudyPlan from '@/components/sections/GetStudyPlan'
-import ProgramDevelopedStandard from '@/components/sections/ProgramDevelopedStandard'
+
+import { 
+  JumbotronProgram,
+  WhoItIsFor,
+  WhatWillYouLearn,
+  ProgramDesc,
+  HowProcessGoes,
+  ProgramsModules,
+  ContactUs,
+  Qna,
+  Teachers,
+  Diploma,
+  CorporateClients,
+  CostOfStudy,
+  HelpWithEmployment,
+  Pros,
+  GetStudyPlan,
+  ProgramDevelopedStandard
+} from '@/components/sections'
+
 
 const CourseOnlineProgram = ({ program, teachers }) => {
   const data = program
@@ -49,7 +53,7 @@ const CourseOnlineProgram = ({ program, teachers }) => {
 
       <Pros format={'online'} />
       <HowProcessGoes />
-      <ProgramModules program={data} smallerMb />
+      <ProgramsModules program={data} smallerMb />
       <GetStudyPlan />
       <Teachers
         programId={data._id}
