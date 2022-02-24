@@ -4,7 +4,7 @@ import cn from 'classnames'
 import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import WebinarCards from '@/components/sections/WebinarCards'
+import { WebinarCards } from '@/components/sections/'
 import { useAt } from '@/helpers/index'
 import { Breadcrumbs } from '@/components/general'
 
