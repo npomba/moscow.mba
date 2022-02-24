@@ -1,10 +1,8 @@
 import stls from '@/styles/components/header/HeaderMenu.module.sass'
-import { SetString, useAt, useWindowWidth } from '@/helpers/index'
-import HeaderPrograms from './HeaderPrograms'
-import HeaderTabs from './HeaderTabs'
-import langMenu from '@/data/translation/menu'
 import React, { useState } from 'react'
-import HeaderMobileTabs from './HeaderMobileTabs'
+import { SetString, useAt, useWindowWidth } from '@/helpers/index'
+import { HeaderMobileTabs, HeaderPrograms, HeaderTabs } from '@/components/header'
+import langMenu from '@/data/translation/menu'
 import lang from '@/data/translation/header'
 
 const HeaderMenu = ({ programs, handleMenu }) => {
