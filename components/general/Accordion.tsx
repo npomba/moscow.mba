@@ -1,6 +1,6 @@
 import stls from '@/styles/components/general/Accordion.module.sass'
 import cn from 'classnames'
-import ImageContainer from '@/components/general/ImageContainer'
+import { ImageContainer } from '@/components/general'
 
 const Accordion = ({
   accordionItem,
