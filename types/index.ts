@@ -47,6 +47,11 @@ import TypeLibJournalTags from '@/types/lib/journal/TypeLibJournalTags'
 import TypeLibProgram from '@/types/lib/programs/TypeLibProgram'
 import TypeLibPrograms from '@/types/lib/programs/TypeLibPrograms'
 
+// Page/default/props
+import TypePageDefaultProps from '@/types/page/default/props/TypePageDefaultProps'
+// Page/default/queries
+import TypePageDefaultPropsQuery from '@/types/page/default/queries/TypePageDefaultPropsQuery'
+
 // Page/home/props
 import TypePageHomeProps from '@/types/page/home/props/TypePageHomeProps'
 // Page/home/queries
@@ -112,6 +117,10 @@ export type {
   // Lib/programs
   TypeLibProgram,
   TypeLibPrograms,
+  // Page/default/props
+  TypePageDefaultProps,
+  // Page/default/queries
+  TypePageDefaultPropsQuery,
   // Page/home/props
   TypePageHomeProps,
   // Page/home/queries
