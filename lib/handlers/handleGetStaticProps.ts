@@ -7,8 +7,8 @@ import {
 } from '@/types/index'
 import { routesFront, revalidate } from '@/config/index'
 import {
+  getStaticPropsDefaultTeachers,
   getStaticPropsDefault,
-  // getStaticPropsPageHome,
   getStaticPropsPageJournalArticles,
   getStaticPropsPageJournalArticle
 } from '@/lib/index'
@@ -30,8 +30,23 @@ const handleGetStaticProps = async ({
   revalidate: number
 }> => {
   switch (page) {
-    // case routesFront.home:
-    //   return await getStaticPropsPageHome({ context })
+    case routesFront.about:
+      return await getStaticPropsDefaultTeachers({ context })
+
+    case routesFront.contact:
+      return await getStaticPropsDefault({ context })
+
+    case routesFront.home:
+      return await getStaticPropsDefault({ context })
+
+    case routesFront.legal:
+      return await getStaticPropsDefault({ context })
+
+    case routesFront.payment:
+      return await getStaticPropsDefault({ context })
+
+    case routesFront.teachers:
+      return await getStaticPropsDefaultTeachers({ context })
 
     case routesFront.journal:
       return await getStaticPropsPageJournalArticles({ context })

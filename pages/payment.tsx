@@ -7,7 +7,7 @@ import { handleGetStaticProps } from '@/lib/index'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import PopupForm from '@/components/popups/PopupForm'
-import { contactData } from '@/config/index'
+import { contactData, routesFront } from '@/config/index'
 import { Breadcrumbs } from '@/components/general'
 import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
 import { usePageHandleContext } from '@/hooks/index'
@@ -136,6 +136,6 @@ const PagePayment = ({ programs }) => {
 }
 
 export const getStaticProps: GetStaticProps = async context =>
-  await handleGetStaticProps({ context })
+  await handleGetStaticProps({ page: routesFront.payment, context })
 
 export default PagePayment

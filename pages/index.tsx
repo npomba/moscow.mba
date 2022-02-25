@@ -17,6 +17,7 @@ import CorporateClients from '@/components/sections/CorporateClients'
 import Programs from '@/components/sections/Programs'
 import Executive from '@/components/sections/Executive'
 import ContactUs from '@/components/sections/ContactUs'
+import { routesFront } from '@/config/index'
 
 const PageHome: NextPage<TypePageHomeProps> = ({ programs }) => {
   usePageHandleContext({ programs })
@@ -47,6 +48,6 @@ const PageHome: NextPage<TypePageHomeProps> = ({ programs }) => {
 }
 
 export const getStaticProps: GetStaticProps = async context =>
-  await handleGetStaticProps({ context })
+  await handleGetStaticProps({ page: routesFront.home, context })
 
 export default PageHome

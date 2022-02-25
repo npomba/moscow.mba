@@ -6,7 +6,7 @@ import { SetString } from '@/helpers/index'
 import { handleGetStaticProps } from '@/lib/index'
 import lang from '@/data/translation/header'
 import { ContactCards, Breadcrumbs } from '@/components/general'
-import { contactData } from '@/config/index'
+import { contactData, routesFront } from '@/config/index'
 import { usePageHandleContext } from '@/hooks/index'
 
 import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
@@ -53,6 +53,6 @@ const PageContact = ({ programs }) => {
 }
 
 export const getStaticProps: GetStaticProps = async context =>
-  await handleGetStaticProps({ context })
+  await handleGetStaticProps({ page: routesFront.contact, context })
 
 export default PageContact

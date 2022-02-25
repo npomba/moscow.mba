@@ -1,21 +1,24 @@
 import { GetStaticPropsContext } from 'next'
-import { TypePageHomeProps, TypePageHomePropsQuery } from '@/types/index'
+import {
+  TypePageDefaultTeachersProps,
+  TypePageDefaultTeachersPropsQuery
+} from '@/types/index'
 import { gql } from '@apollo/client'
 import apolloClient from 'apolloClient'
 import { revalidate } from '@/config/index'
 import { createBlended } from '@/helpers/index'
 
-const getStaticPropsPageHome = async ({
+const getStaticPropsDefaultTeachers = async ({
   context
 }: {
   context: GetStaticPropsContext
 }): Promise<{
-  props: TypePageHomeProps
+  props: TypePageDefaultTeachersProps
   revalidate: number
 }> => {
-  const res = await apolloClient.query<TypePageHomePropsQuery>({
+  const res = await apolloClient.query<TypePageDefaultTeachersPropsQuery>({
     query: gql`
-      query GetStaticPropsPageHome {
+      query GetStaticPropsDefaultTeachers {
         programs: products {
           _id
           id
@@ -33,6 +36,19 @@ const getStaticPropsPageHome = async ({
             description
           }
         }
+        teachers {
+          name
+          description
+          slug
+          portrait {
+            width
+            height
+            url
+          }
+          descriptionItems {
+            item
+          }
+        }
       }
     `
   })
@@ -46,4 +62,4 @@ const getStaticPropsPageHome = async ({
   }
 }
 
-export default getStaticPropsPageHome
+export default getStaticPropsDefaultTeachers

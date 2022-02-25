@@ -14,6 +14,7 @@ import Accreditation from '@/components/sections/Accreditation'
 import { SetString } from '@/helpers/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { usePageHandleContext } from '@/hooks/index'
+import { routesFront } from '@/config/index'
 import lang from '@/data/translation/about'
 import langIndex from '@/data/translation/index'
 import ContactUs from '@/components/sections/ContactUs'
@@ -47,6 +48,6 @@ const PageAbout = ({ programs, teachers }) => {
 }
 
 export const getStaticProps: GetStaticProps = async context =>
-  await handleGetStaticProps({ context })
+  await handleGetStaticProps({ page: routesFront.about, context })
 
 export default PageAbout

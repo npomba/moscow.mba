@@ -156,9 +156,7 @@ const Teachers = ({
     wordToSplitBy.specialists[router.locale]
   )
 
-  const UITeachers = atStandAlonePage
-    ? teachers
-    : teachers.filter(teacher => teacher?.programs?.includes(programId))
+  const UITeachers = teachers.filter((teacher, idx) => idx < 8)
 
   return (
     <>

@@ -2,6 +2,7 @@ import stls from '@/styles/pages/Legal.module.sass'
 import { GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
 import { handleGetStaticProps } from '@/lib/index'
+import { routesFront } from '@/config/index'
 import { Breadcrumbs } from '@/components/general'
 import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
 import CurrentLicenses from '@/components/sections/CurrentLicenses'
@@ -46,6 +47,6 @@ const PageLegal = ({ programs }) => {
 }
 
 export const getStaticProps: GetStaticProps = async context =>
-  await handleGetStaticProps({ context })
+  await handleGetStaticProps({ page: routesFront.legal, context })
 
 export default PageLegal

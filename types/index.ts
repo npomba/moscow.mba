@@ -47,10 +47,16 @@ import TypeLibJournalTags from '@/types/lib/journal/TypeLibJournalTags'
 import TypeLibProgram from '@/types/lib/programs/TypeLibProgram'
 import TypeLibPrograms from '@/types/lib/programs/TypeLibPrograms'
 
+// Lib/teachers
+import TypeLibTeacher from '@/types/lib/teachers/TypeLibTeacher'
+import TypeLibTeachers from '@/types/lib/teachers/TypeLibTeachers'
+
 // Page/default/props
 import TypePageDefaultProps from '@/types/page/default/props/TypePageDefaultProps'
+import TypePageDefaultTeachersProps from '@/types/page/default/props/TypePageDefaultTeachersProps'
 // Page/default/queries
 import TypePageDefaultPropsQuery from '@/types/page/default/queries/TypePageDefaultPropsQuery'
+import TypePageDefaultTeachersPropsQuery from '@/types/page/default/queries/TypePageDefaultTeachersPropsQuery'
 
 // Page/home/props
 import TypePageHomeProps from '@/types/page/home/props/TypePageHomeProps'
@@ -117,10 +123,15 @@ export type {
   // Lib/programs
   TypeLibProgram,
   TypeLibPrograms,
+  // Lib/teachers
+  TypeLibTeacher,
+  TypeLibTeachers,
   // Page/default/props
   TypePageDefaultProps,
+  TypePageDefaultTeachersProps,
   // Page/default/queries
   TypePageDefaultPropsQuery,
+  TypePageDefaultTeachersPropsQuery,
   // Page/home/props
   TypePageHomeProps,
   // Page/home/queries
