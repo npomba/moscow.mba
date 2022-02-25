@@ -1,8 +1,11 @@
+import { GetStaticProps } from 'next'
 import Webinars from '@/components/pages/Webinars'
-import { handleGetStaticProps, HandleGetPrograms } from '@/helpers/index'
+import { routesFront } from '@/config/index'
+import { handleGetStaticProps } from '@/lib/index'
+import { usePageHandleContext } from '@/hooks/index'
 
 const PageWebinarsArchive = ({ programs }) => {
-  HandleGetPrograms(programs)
+  usePageHandleContext({ programs })
   return (
     <Webinars
       title={'Прошедшие вебинары'}
@@ -12,6 +15,7 @@ const PageWebinarsArchive = ({ programs }) => {
   )
 }
 
-export const getStaticProps = async () => handleGetStaticProps()
+export const getStaticProps: GetStaticProps = async context =>
+  await handleGetStaticProps({ page: routesFront.webinarsArchive, context })
 
 export default PageWebinarsArchive

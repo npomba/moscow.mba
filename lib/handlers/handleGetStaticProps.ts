@@ -30,6 +30,15 @@ const handleGetStaticProps = async ({
   revalidate: number
 }> => {
   switch (page) {
+    case routesFront.webinarsArchive:
+      return await getStaticPropsDefault({ context })
+
+    case routesFront.webinars:
+      return await getStaticPropsDefault({ context })
+
+    case routesFront.webinarsUpcoming:
+      return await getStaticPropsDefault({ context })
+
     case routesFront.about:
       return await getStaticPropsDefaultTeachers({ context })
 
