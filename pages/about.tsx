@@ -1,4 +1,5 @@
 import stls from '@/styles/pages/About.module.sass'
+import { GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import JumbotronMain from '@/components/sections/JumbotronMain'
@@ -10,17 +11,15 @@ import CorporateClients from '@/components/sections/CorporateClients'
 import Teachers from '@/components/sections/Teachers'
 import UpToDateContent from '@/components/sections/UpToDateContent'
 import Accreditation from '@/components/sections/Accreditation'
-import {
-  SetString,
-  handleGetStaticProps,
-  HandleGetPrograms
-} from '@/helpers/index'
+import { SetString } from '@/helpers/index'
+import { handleGetStaticProps } from '@/lib/index'
+import { usePageHandleContext } from '@/hooks/index'
 import lang from '@/data/translation/about'
 import langIndex from '@/data/translation/index'
 import ContactUs from '@/components/sections/ContactUs'
 
 const PageAbout = ({ programs, teachers }) => {
-  HandleGetPrograms(programs)
+  usePageHandleContext({ programs })
 
   return (
     <>
@@ -47,6 +46,7 @@ const PageAbout = ({ programs, teachers }) => {
   )
 }
 
-export const getStaticProps = async () => handleGetStaticProps()
+export const getStaticProps: GetStaticProps = async context =>
+  await handleGetStaticProps({ context })
 
 export default PageAbout

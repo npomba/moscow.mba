@@ -1,6 +1,7 @@
 import stls from '@/styles/pages/Legal.module.sass'
+import { GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
-import { handleGetStaticProps, HandleGetPrograms } from '@/helpers/index'
+import { handleGetStaticProps } from '@/lib/index'
 import { Breadcrumbs } from '@/components/general'
 import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
 import CurrentLicenses from '@/components/sections/CurrentLicenses'
@@ -10,9 +11,11 @@ import OurDiplomasAndCertificates from '@/components/sections/OurDiplomasAndCert
 import CompanyCard from '@/components/sections/CompanyCard'
 import LegalDocuments from '@/components/sections/LegalDocuments'
 import { Wrapper } from '@/components/layout'
+import { usePageHandleContext } from '@/hooks/index'
 
 const PageLegal = ({ programs }) => {
-  HandleGetPrograms(programs)
+  usePageHandleContext({ programs })
+
   return (
     <>
       <NextSeo
@@ -42,6 +45,7 @@ const PageLegal = ({ programs }) => {
   )
 }
 
-export const getStaticProps = async () => handleGetStaticProps()
+export const getStaticProps: GetStaticProps = async context =>
+  await handleGetStaticProps({ context })
 
 export default PageLegal
