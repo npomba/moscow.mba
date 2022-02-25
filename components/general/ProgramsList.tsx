@@ -102,7 +102,7 @@ const ProgramsList = ({ data, id, type }) => {
       </div>
       <div className={stls.itemDetails}>
         <ul className={stls.list}>
-          {programs && programs.length > 3 ? (
+          {programs?.length > 3 ? (
             <>
               <li className={stls.column}>
                 {columnPrograms(
@@ -119,7 +119,7 @@ const ProgramsList = ({ data, id, type }) => {
               </li>
             </>
           ) : (
-            <>{columnPrograms(programs)}</>
+            <li className={stls.column}>{columnPrograms(programs)}</li>
           )}
         </ul>
       </div>

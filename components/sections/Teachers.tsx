@@ -290,7 +290,6 @@ const Teachers = ({
               UITeachers.length > 0 &&
               UITeachers.map((teacher, idx) => (
                 <li key={teacher.name + idx}>
-                  {console.log(teacher.name)}
                   <div className={stls.teachersItem}>
                     <div className={stls.image}>
                       <Image

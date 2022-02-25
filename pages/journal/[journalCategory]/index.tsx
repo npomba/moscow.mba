@@ -8,6 +8,7 @@ import { usePageHandleContext } from '@/hooks/index'
 import { PageJournalArticles } from '@/components/pages'
 
 const PageJournalCategory: NextPage<TypePageJournalArticlesProps> = ({
+  programs,
   journalCategories,
   journalTags,
   journalArticles,
@@ -16,6 +17,7 @@ const PageJournalCategory: NextPage<TypePageJournalArticlesProps> = ({
   gspContextParamsJournalCategoryTagArticle
 }) => {
   usePageHandleContext({
+    programs,
     journalCategories,
     journalTags,
     journalArticles,

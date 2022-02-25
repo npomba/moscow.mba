@@ -25,6 +25,7 @@ import {
 } from '@/components/sections'
 
 const PageJournalCategoryTagArticle: NextPage<TypePageJournalArticleProps> = ({
+  programs,
   journalCategories,
   journalTags,
   journalArticles,
@@ -34,6 +35,7 @@ const PageJournalCategoryTagArticle: NextPage<TypePageJournalArticleProps> = ({
   gspContextParamsJournalCategoryTagArticle
 }) => {
   usePageHandleContext({
+    programs,
     journalCategories,
     journalTags,
     journalArticles,
@@ -66,8 +68,6 @@ const PageJournalCategoryTagArticle: NextPage<TypePageJournalArticleProps> = ({
       document.removeEventListener('scroll', handleScroll)
     }
   }, [])
-
-  console.log(articleBody)
 
   return (
     <>

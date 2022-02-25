@@ -33,9 +33,12 @@ const ProgramsState = props => {
   const [state, dispatch] = useReducer(programsReducer, initialState)
 
   const setPrograms = (programs = []) => {
-    const studyFieldArr = Array.from(
-      new Set(programs.filter(item => item !== undefined && item?.study_field))
-    )
+    const studyFieldArr =
+      Array.from(
+        new Set(
+          programs?.filter(item => item !== undefined && item?.study_field)
+        )
+      ) || []
     const fields = Array.from(
       new Map(
         studyFieldArr.map(item => [item.study_field.slug, item.study_field])

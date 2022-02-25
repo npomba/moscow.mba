@@ -43,6 +43,10 @@ import TypeLibJournalCategories from '@/types/lib/journal/TypeLibJournalCategori
 import TypeLibJournalTag from '@/types/lib/journal/TypeLibJournalTag'
 import TypeLibJournalTags from '@/types/lib/journal/TypeLibJournalTags'
 
+// Lib/programs
+import TypeLibProgram from '@/types/lib/programs/TypeLibProgram'
+import TypeLibPrograms from '@/types/lib/programs/TypeLibPrograms'
+
 // Page/journal/gspContext
 import TypePageJournalArticlesGspContext from '@/types/page/journal/gspContext/TypePageJournalArticlesGspContext'
 // Page/journal/paths
@@ -100,6 +104,9 @@ export type {
   TypeLibJournalCategories,
   TypeLibJournalTag,
   TypeLibJournalTags,
+  // Lib/programs
+  TypeLibProgram,
+  TypeLibPrograms,
   // Page/journal/gspContext
   TypePageJournalArticlesGspContext,
   // Page/journal/paths

@@ -32,7 +32,7 @@ const programsReducer = (state, action, at = null) => {
       const studyFieldsWithSlugs = studyFields.map(studyField => {
         return {
           label: studyField,
-          slug: programs.filter(
+          slug: programs?.filter(
             program => program.study_field?.name === studyField
           )?.[0]?.study_field?.slug
         }
@@ -74,7 +74,7 @@ const programsReducer = (state, action, at = null) => {
     case SET_SEARCH_TERM:
       const searchTerm = action.payload.term === '' ? null : action.payload.term
       const filteredPrograms = searchTerm
-        ? action.payload.programs.filter(item =>
+        ? action.payload.programs?.filter(item =>
             item.title.toLowerCase().includes(searchTerm.toLowerCase())
           )
         : []
@@ -85,7 +85,7 @@ const programsReducer = (state, action, at = null) => {
       }
     case SEARCH_PROGRAM:
       const { value, at } = action.payload
-      const res = state.programs.filter((item, idx) => {
+      const res = state.programs?.filter((item, idx) => {
         if (!value || idx >= 10) {
           return
         }

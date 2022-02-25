@@ -6,6 +6,7 @@ import {
 import { gql } from '@apollo/client'
 import apolloClient from 'apolloClient'
 import { revalidate } from '@/config/index'
+import { createBlended } from '@/helpers/index'
 
 const getStaticPropsPageJournalArticles = async ({
   context
@@ -21,10 +22,26 @@ const getStaticPropsPageJournalArticles = async ({
     context?.params?.journalTag?.toString() || null
   const gspContextParamsJournalCategoryTagArticle =
     context?.params?.journalArticle?.toString() || null
-
   const res = await apolloClient.query<TypePageJournalArticlesPropsQuery>({
     query: gql`
       query GetStaticPropsPageJournalArticles {
+        programs: products {
+          _id
+          id
+          title
+          slug
+          studyFormat
+          category {
+            type
+            slug
+          }
+          study_field {
+            id
+            name
+            slug
+            description
+          }
+        }
         journalCategories {
           title
           slug
@@ -58,7 +75,8 @@ const getStaticPropsPageJournalArticles = async ({
 
   return {
     props: {
-      ...res.data,
+      ...res?.data,
+      programs: createBlended(res?.data?.programs),
       gspContextParamsJournalCategory,
       gspContextParamsJournalCategoryTag,
       gspContextParamsJournalCategoryTagArticle
