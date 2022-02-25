@@ -30,6 +30,15 @@ const handleGetStaticProps = async ({
   revalidate: number
 }> => {
   switch (page) {
+    case routesFront.journal:
+      return await getStaticPropsPageJournalArticles({ context })
+
+    case routesFront.journalCategoryTagArticle:
+      return await getStaticPropsPageJournalArticle({ context })
+
+    case routesFront.programs:
+      return await getStaticPropsDefault({ context })
+
     case routesFront.webinarsArchive:
       return await getStaticPropsDefault({ context })
 
@@ -56,12 +65,6 @@ const handleGetStaticProps = async ({
 
     case routesFront.teachers:
       return await getStaticPropsDefaultTeachers({ context })
-
-    case routesFront.journal:
-      return await getStaticPropsPageJournalArticles({ context })
-
-    case routesFront.journalCategoryTagArticle:
-      return await getStaticPropsPageJournalArticle({ context })
 
     default:
       return await getStaticPropsDefault({ context })

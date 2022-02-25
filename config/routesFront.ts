@@ -18,6 +18,7 @@ const routesFront: TypeRoutesFront = {
   webinars: '/webinars',
   webinarsArchive: '/webinars/archive',
   webinarsUpcoming: '/webinars/upcoming',
+  programs: '/programs',
   programsExecutive: '/programs/executive',
   programsInternationalBusinessLaw: '/programs/international-business-law',
   programsMba: '/programs/mba',
