@@ -1,12 +1,10 @@
 import stls from '@/styles/pages/Index.module.sass'
+import { TypePageHomeProps } from '@/types/index'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import {
-  handleGetStaticProps,
-  SetString,
-  HandleGetPrograms
-} from '@/helpers/index'
+import { handleGetStaticProps, SetString } from '@/helpers/index'
 import lang from '@/data/translation/index'
+import { usePageHandleContext } from '@/hooks/index'
 import JumbotronCta from '@/components/sections/JumbotronCta'
 import About from '@/components/sections/About'
 import ConferencesInEurope from '@/components/sections/ConferencesInEurope'
@@ -17,8 +15,8 @@ import Programs from '@/components/sections/Programs'
 import Executive from '@/components/sections/Executive'
 import ContactUs from '@/components/sections/ContactUs'
 
-const PageHome = ({ programs }) => {
-  HandleGetPrograms(programs)
+const PageHome = ({ programs }: TypePageHomeProps) => {
+  usePageHandleContext({ programs })
 
   return (
     <>

@@ -10,9 +10,9 @@ import { useContext, useEffect } from 'react'
 
 type TypeUsePageHandleContextProps = {
   readonly programs: TypeLibPrograms
-  readonly journalCategories: TypeLibJournalCategories | null
-  readonly journalTags: TypeLibJournalTags | null
-  readonly journalArticles: TypeLibJournalArticles | null
+  readonly journalCategories?: TypeLibJournalCategories | null
+  readonly journalTags?: TypeLibJournalTags | null
+  readonly journalArticles?: TypeLibJournalArticles | null
   readonly journalArticlesArticle?: TypeLibJournalArticle | null
   readonly gspContextParamsJournalCategory?: string | null
   readonly gspContextParamsJournalCategoryTag?: string | null

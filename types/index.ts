@@ -47,6 +47,11 @@ import TypeLibJournalTags from '@/types/lib/journal/TypeLibJournalTags'
 import TypeLibProgram from '@/types/lib/programs/TypeLibProgram'
 import TypeLibPrograms from '@/types/lib/programs/TypeLibPrograms'
 
+// Page/home/props
+import TypePageHomeProps from '@/types/page/home/props/TypePageHomeProps'
+// Page/home/queries
+import TypePageHomePropsQuery from '@/types/page/home/queries/TypePageHomePropsQuery'
+
 // Page/journal/gspContext
 import TypePageJournalArticlesGspContext from '@/types/page/journal/gspContext/TypePageJournalArticlesGspContext'
 // Page/journal/paths
@@ -107,6 +112,10 @@ export type {
   // Lib/programs
   TypeLibProgram,
   TypeLibPrograms,
+  // Page/home/props
+  TypePageHomeProps,
+  // Page/home/queries
+  TypePageHomePropsQuery,
   // Page/journal/gspContext
   TypePageJournalArticlesGspContext,
   // Page/journal/paths
