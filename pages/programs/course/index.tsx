@@ -1,8 +1,9 @@
 import Programs from '@/components/pages/Programs'
 import { handleGetStaticProps, HandleGetPrograms } from '@/helpers/index'
+import { usePageHandleContext } from '@/hooks/index'
 
 const PageProgramsCourse = ({ programs }) => {
-  HandleGetPrograms(programs)
+  usePageHandleContext({ programs })
 
   const data = programs.filter(
     program =>

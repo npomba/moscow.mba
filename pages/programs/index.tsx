@@ -3,9 +3,8 @@ import { GetStaticProps } from 'next'
 import { TypePageHomeProps } from '@/types/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { usePageHandleContext } from '@/hooks/index'
-import Programs from '@/components/pages/Programs'
-
 import { routesFront } from '@/config/index'
+import Programs from '@/components/pages/Programs'
 
 const PagePrograms = ({ programs }) => {
   usePageHandleContext({ programs })

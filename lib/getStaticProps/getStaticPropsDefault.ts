@@ -22,6 +22,10 @@ const getStaticPropsDefault = async ({
           title
           slug
           studyFormat
+          price
+          duration {
+            minStudyMonths
+          }
           category {
             type
             slug

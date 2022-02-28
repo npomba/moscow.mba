@@ -1,4 +1,5 @@
 import { handleGetStaticProps, HandleGetPrograms } from '@/helpers/index'
+import { usePageHandleContext } from '@/hooks/index'
 import InternationalBusinessLaw from '@/components/pages/InternationalBusinessLaw'
 
 const PageProgramsInternationalBusinessLaw = ({
@@ -6,9 +7,12 @@ const PageProgramsInternationalBusinessLaw = ({
   programs,
   teachers
 }) => {
-  HandleGetPrograms(programs)
+  usePageHandleContext({ programs })
   return <InternationalBusinessLaw program={program} teachers={teachers} />
 }
+
+// export const getStaticProps: GetStaticProps = async context =>
+//   await handleGetStaticProps({ page: routesFront.program, context })
 
 export const getStaticProps = async () =>
   handleGetStaticProps({

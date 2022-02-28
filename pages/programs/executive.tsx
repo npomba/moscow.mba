@@ -1,6 +1,8 @@
 import stls from '@/styles/pages/programs/Executive.module.sass'
 import { NextSeo, CourseJsonLd } from 'next-seo'
 import truncate from 'truncate'
+import { handleGetStaticProps } from '@/helpers/index'
+import { usePageHandleContext } from '@/hooks/index'
 import JumbotronProgram from '@/components/sections/JumbotronProgram'
 import AboutExecutive from '@/components/sections/AboutExecutive'
 import ResultsExecutive from '@/components/sections/ResultsExecutive'
@@ -17,11 +19,9 @@ import Students from '@/components/sections/Students'
 import Reviews from '@/components/sections/Reviews'
 import CostOfStudy from '@/components/sections/CostOfStudy'
 import Qna from '@/components/sections/Qna'
-import { handleGetStaticProps, HandleGetPrograms } from '@/helpers/index'
-import teachers from '@/data/images/teachers'
 
 const PageProgramsExecutive = ({ program, programs, teachers }) => {
-  HandleGetPrograms(programs)
+  usePageHandleContext({ programs })
   return (
     <>
       <NextSeo
@@ -77,6 +77,9 @@ const PageProgramsExecutive = ({ program, programs, teachers }) => {
     </>
   )
 }
+
+// export const getStaticProps: GetStaticProps = async context =>
+//   await handleGetStaticProps({ page: routesFront.program, context })
 
 export const getStaticProps = async () =>
   handleGetStaticProps({

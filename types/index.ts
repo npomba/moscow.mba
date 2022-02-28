@@ -53,10 +53,8 @@ import TypeLibTeachers from '@/types/lib/teachers/TypeLibTeachers'
 
 // Page/default/props
 import TypePageDefaultProps from '@/types/page/default/props/TypePageDefaultProps'
-import TypePageDefaultTeachersProps from '@/types/page/default/props/TypePageDefaultTeachersProps'
 // Page/default/queries
 import TypePageDefaultPropsQuery from '@/types/page/default/queries/TypePageDefaultPropsQuery'
-import TypePageDefaultTeachersPropsQuery from '@/types/page/default/queries/TypePageDefaultTeachersPropsQuery'
 
 // Page/home/props
 import TypePageHomeProps from '@/types/page/home/props/TypePageHomeProps'
@@ -78,6 +76,12 @@ import TypePageJournalArticlePropsQuery from '@/types/page/journal/queries/TypeP
 import TypePageJournalArticlesPropsQuery from '@/types/page/journal/queries/TypePageJournalArticlesPropsQuery'
 import TypePageJournalCategoryPathsQuery from '@/types/page/journal/queries/TypePageJournalCategoryPathsQuery'
 import TypePageJournalTagPathsQuery from '@/types/page/journal/queries/TypePageJournalTagPathsQuery'
+
+// Page/home/props
+import TypePageTeachersProps from '@/types/page/teachers/props/TypePageTeachersProps'
+
+// Page/home/queries
+import TypePageTeachersPropsQuery from '@/types/page/teachers/queries/TypePageTeachersPropsQuery'
 
 export type {
   // context/journal
@@ -128,10 +132,10 @@ export type {
   TypeLibTeachers,
   // Page/default/props
   TypePageDefaultProps,
-  TypePageDefaultTeachersProps,
+  TypePageTeachersProps,
   // Page/default/queries
   TypePageDefaultPropsQuery,
-  TypePageDefaultTeachersPropsQuery,
+  TypePageTeachersPropsQuery,
   // Page/home/props
   TypePageHomeProps,
   // Page/home/queries

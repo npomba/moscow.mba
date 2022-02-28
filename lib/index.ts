@@ -5,7 +5,7 @@ import getStaticPathsPageJournalCategoryTagArticle from '@/lib/getStaticPaths/ge
 
 // getStaticProps
 import getStaticPropsDefault from '@/lib/getStaticProps/getStaticPropsDefault'
-import getStaticPropsDefaultTeachers from '@/lib/getStaticProps/getStaticPropsDefaultTeachers'
+import getStaticPropsTeachers from '@/lib/getStaticProps/getStaticPropsTeachers'
 import getStaticPropsPageJournalArticles from '@/lib/getStaticProps/getStaticPropsPageJournalArticles'
 import getStaticPropsPageJournalArticle from '@/lib/getStaticProps/getStaticPropsPageJournalArticle'
 
@@ -20,7 +20,7 @@ export {
   getStaticPathsPageJournalCategoryTagArticle,
   // getStaticProps
   getStaticPropsDefault,
-  getStaticPropsDefaultTeachers,
+  getStaticPropsTeachers,
   getStaticPropsPageJournalArticles,
   getStaticPropsPageJournalArticle,
   // handlers

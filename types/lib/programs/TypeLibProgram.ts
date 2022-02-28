@@ -4,6 +4,10 @@ type TypeLibProgram = {
   title: string | null
   slug: string | null
   studyFormat: string | null
+  price?: string | number | null
+  duration?: {
+    minStudyMonths: string | number | null
+  } | null
   category: {
     type: string | null
     slug: string | null

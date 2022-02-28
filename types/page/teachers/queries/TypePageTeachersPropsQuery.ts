@@ -1,8 +1,8 @@
 import { TypeLibPrograms, TypeLibTeachers } from '@/types/index'
 
-type TypePageDefaultTeachersPropsQuery = {
+type TypePageTeachersPropsQuery = {
   readonly programs: TypeLibPrograms | null
   readonly teachers: TypeLibTeachers | null
 }
 
-export default TypePageDefaultTeachersPropsQuery
+export default TypePageTeachersPropsQuery

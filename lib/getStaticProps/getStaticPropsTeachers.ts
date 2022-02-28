@@ -1,24 +1,24 @@
 import { GetStaticPropsContext } from 'next'
 import {
-  TypePageDefaultTeachersProps,
-  TypePageDefaultTeachersPropsQuery
+  TypePageTeachersProps,
+  TypePageTeachersPropsQuery
 } from '@/types/index'
 import { gql } from '@apollo/client'
 import apolloClient from 'apolloClient'
 import { revalidate } from '@/config/index'
 import { createBlended } from '@/helpers/index'
 
-const getStaticPropsDefaultTeachers = async ({
+const getStaticPropsTeachers = async ({
   context
 }: {
   context: GetStaticPropsContext
 }): Promise<{
-  props: TypePageDefaultTeachersProps
+  props: TypePageTeachersProps
   revalidate: number
 }> => {
-  const res = await apolloClient.query<TypePageDefaultTeachersPropsQuery>({
+  const res = await apolloClient.query<TypePageTeachersPropsQuery>({
     query: gql`
-      query GetStaticPropsDefaultTeachers {
+      query GetStaticPropsTeachers {
         programs: products {
           _id
           id
@@ -62,4 +62,4 @@ const getStaticPropsDefaultTeachers = async ({
   }
 }
 
-export default getStaticPropsDefaultTeachers
+export default getStaticPropsTeachers
