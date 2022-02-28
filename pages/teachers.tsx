@@ -2,9 +2,8 @@ import stls from '@/styles/pages/Teachers.module.sass'
 import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import Teachers from '@/components/sections/Teachers'
+import { Teachers } from '@/components/sections'
 import { handleGetStaticProps, HandleGetPrograms } from '@/helpers/index'
-
 import { Breadcrumbs } from '@/components/general'
 import { Wrapper } from '@/components/layout'
 
