@@ -9,6 +9,7 @@ import { routesFront, revalidate } from '@/config/index'
 import {
   getStaticPropsTeachers,
   getStaticPropsDefault,
+  getStaticPropsPrograms,
   getStaticPropsPageJournalArticles,
   getStaticPropsPageJournalArticle
 } from '@/lib/index'
@@ -37,7 +38,7 @@ const handleGetStaticProps = async ({
       return await getStaticPropsPageJournalArticle({ context })
 
     case routesFront.programs:
-      return await getStaticPropsDefault({ context })
+      return await getStaticPropsPrograms({ context })
 
     case routesFront.webinarsArchive:
       return await getStaticPropsDefault({ context })

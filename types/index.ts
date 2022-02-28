@@ -1,158 +1,87 @@
 // context/journal
-import TypeContextJournalContext from '@/types/context/journal/TypeContextJournalContext'
-import TypeContextJournalState from '@/types/context/journal/TypeContextJournalState'
+export type { default as TypeContextJournalContext } from '@/types/context/journal/TypeContextJournalContext'
+export type { default as TypeContextJournalState } from '@/types/context/journal/TypeContextJournalState'
 
 // general
-import TypeCategories from '@/types/general/TypeCategories'
-import TypeChildren from '@/types/general/TypeChildren'
-import TypeClassNames from '@/types/general/TypeClassNames'
-import TypeColor from '@/types/general/TypeColor'
-import TypeColorsKeys from '@/types/general/TypeColorsKeys'
-import TypeImg from '@/types/general/TypeImg'
-import TypeImgExtended from '@/types/general/TypeImgExtended'
-import TypeOfType from '@/types/general/TypeOfType'
-import TypeProgram from '@/types/general/TypeProgram'
-import TypeProgramDefault from '@/types/general/TypeProgramDefault'
-import TypePrograms from '@/types/general/TypePrograms'
-import TypeProgramsDefault from '@/types/general/TypeProgramsDefault'
-import TypeRoutesFront from '@/types/general/TypeRoutesFront'
-import TypeStudyFormat from '@/types/general/TypeStudyFormat'
+export type { default as TypeCategories } from '@/types/general/TypeCategories'
+export type { default as TypeChildren } from '@/types/general/TypeChildren'
+export type { default as TypeClassNames } from '@/types/general/TypeClassNames'
+export type { default as TypeColor } from '@/types/general/TypeColor'
+export type { default as TypeColorsKeys } from '@/types/general/TypeColorsKeys'
+export type { default as TypeImg } from '@/types/general/TypeImg'
+export type { default as TypeImgExtended } from '@/types/general/TypeImgExtended'
+export type { default as TypeOfType } from '@/types/general/TypeOfType'
+export type { default as TypeProgram } from '@/types/general/TypeProgram'
+export type { default as TypeProgramDefault } from '@/types/general/TypeProgramDefault'
+export type { default as TypePrograms } from '@/types/general/TypePrograms'
+export type { default as TypeProgramsDefault } from '@/types/general/TypeProgramsDefault'
+export type { default as TypeRoutesFront } from '@/types/general/TypeRoutesFront'
+export type { default as TypeStudyFormat } from '@/types/general/TypeStudyFormat'
 
 // Lib/general
-import TypeLibPicture from '@/types/lib/general/TypeLibPicture'
-import TypeLibTypename from '@/types/lib/general/TypeLibTypename'
+export type { default as TypeLibPicture } from '@/types/lib/general/TypeLibPicture'
+export type { default as TypeLibTypename } from '@/types/lib/general/TypeLibTypename'
 
 // Lib/journal/article
-import TypeLibJournalArticleParagraphBody from '@/types/lib/journal/article/TypeLibJournalArticleParagraphBody'
-import TypeLibJournalArticlePicture from '@/types/lib/journal/article/TypeLibJournalArticlePicture'
-import TypeLibJournalArticleProgram from '@/types/lib/journal/article/TypeLibJournalArticleProgram'
-import TypeLibJournalArticleTitle from '@/types/lib/journal/article/TypeLibJournalArticleTitle'
-import TypeLibJournalArticleTitleBody from '@/types/lib/journal/article/TypeLibJournalArticleTitleBody'
-import TypeLibJournalArticleItem from '@/types/lib/journal/article/TypeLibJournalArticleItem'
-import TypeLibJournalArticleAuthorName from '@/types/lib/journal/article/TypeLibJournalArticleAuthorName'
-import TypeLibJournalArticleAuthorPosition from '@/types/lib/journal/article/TypeLibJournalArticleAuthorPosition'
-import TypeLibJournalArticleBody from '@/types/lib/journal/article/TypeLibJournalArticleBody'
-import TypeLibJournalArticleEmphasisBody from '@/types/lib/journal/article/TypeLibJournalArticleEmphasisBody'
-import TypeLibJournalArticleListItem from '@/types/lib/journal/article/TypeLibJournalArticleListItem'
+export type { default as TypeLibJournalArticleParagraphBody } from '@/types/lib/journal/article/TypeLibJournalArticleParagraphBody'
+export type { default as TypeLibJournalArticlePicture } from '@/types/lib/journal/article/TypeLibJournalArticlePicture'
+export type { default as TypeLibJournalArticleProgram } from '@/types/lib/journal/article/TypeLibJournalArticleProgram'
+export type { default as TypeLibJournalArticleTitle } from '@/types/lib/journal/article/TypeLibJournalArticleTitle'
+export type { default as TypeLibJournalArticleTitleBody } from '@/types/lib/journal/article/TypeLibJournalArticleTitleBody'
+export type { default as TypeLibJournalArticleItem } from '@/types/lib/journal/article/TypeLibJournalArticleItem'
+export type { default as TypeLibJournalArticleAuthorName } from '@/types/lib/journal/article/TypeLibJournalArticleAuthorName'
+export type { default as TypeLibJournalArticleAuthorPosition } from '@/types/lib/journal/article/TypeLibJournalArticleAuthorPosition'
+export type { default as TypeLibJournalArticleBody } from '@/types/lib/journal/article/TypeLibJournalArticleBody'
+export type { default as TypeLibJournalArticleEmphasisBody } from '@/types/lib/journal/article/TypeLibJournalArticleEmphasisBody'
+export type { default as TypeLibJournalArticleListItem } from '@/types/lib/journal/article/TypeLibJournalArticleListItem'
 
 // Lib/journal
-import TypeLibJournalArticle from '@/types/lib/journal/TypeLibJournalArticle'
-import TypeLibJournalArticles from '@/types/lib/journal/TypeLibJournalArticles'
-import TypeLibJournalCategory from '@/types/lib/journal/TypeLibJournalCategory'
-import TypeLibJournalCategories from '@/types/lib/journal/TypeLibJournalCategories'
-import TypeLibJournalTag from '@/types/lib/journal/TypeLibJournalTag'
-import TypeLibJournalTags from '@/types/lib/journal/TypeLibJournalTags'
+export type { default as TypeLibJournalArticle } from '@/types/lib/journal/TypeLibJournalArticle'
+export type { default as TypeLibJournalArticles } from '@/types/lib/journal/TypeLibJournalArticles'
+export type { default as TypeLibJournalCategory } from '@/types/lib/journal/TypeLibJournalCategory'
+export type { default as TypeLibJournalCategories } from '@/types/lib/journal/TypeLibJournalCategories'
+export type { default as TypeLibJournalTag } from '@/types/lib/journal/TypeLibJournalTag'
+export type { default as TypeLibJournalTags } from '@/types/lib/journal/TypeLibJournalTags'
 
 // Lib/programs
-import TypeLibProgram from '@/types/lib/programs/TypeLibProgram'
-import TypeLibPrograms from '@/types/lib/programs/TypeLibPrograms'
+export type { default as TypeLibProgram } from '@/types/lib/programs/TypeLibProgram'
+export type { default as TypeLibPrograms } from '@/types/lib/programs/TypeLibPrograms'
 
 // Lib/teachers
-import TypeLibTeacher from '@/types/lib/teachers/TypeLibTeacher'
-import TypeLibTeachers from '@/types/lib/teachers/TypeLibTeachers'
+export type { default as TypeLibTeacher } from '@/types/lib/teachers/TypeLibTeacher'
+export type { default as TypeLibTeachers } from '@/types/lib/teachers/TypeLibTeachers'
 
 // Page/default/props
-import TypePageDefaultProps from '@/types/page/default/props/TypePageDefaultProps'
+export type { default as TypePageDefaultProps } from '@/types/page/default/props/TypePageDefaultProps'
 // Page/default/queries
-import TypePageDefaultPropsQuery from '@/types/page/default/queries/TypePageDefaultPropsQuery'
+export type { default as TypePageDefaultPropsQuery } from '@/types/page/default/queries/TypePageDefaultPropsQuery'
 
 // Page/home/props
-import TypePageHomeProps from '@/types/page/home/props/TypePageHomeProps'
+export type { default as TypePageHomeProps } from '@/types/page/home/props/TypePageHomeProps'
 // Page/home/queries
-import TypePageHomePropsQuery from '@/types/page/home/queries/TypePageHomePropsQuery'
+export type { default as TypePageHomePropsQuery } from '@/types/page/home/queries/TypePageHomePropsQuery'
+
+// Page/home/props
+export type { default as TypePageTeachersProps } from '@/types/page/teachers/props/TypePageTeachersProps'
+
+// Page/home/queries
+export type { default as TypePageTeachersPropsQuery } from '@/types/page/teachers/queries/TypePageTeachersPropsQuery'
 
 // Page/journal/gspContext
-import TypePageJournalArticlesGspContext from '@/types/page/journal/gspContext/TypePageJournalArticlesGspContext'
+export type { default as TypePageJournalArticlesGspContext } from '@/types/page/journal/gspContext/TypePageJournalArticlesGspContext'
 // Page/journal/paths
-import TypePageJournalArticlePaths from '@/types/page/journal/paths/TypePageJournalArticlePaths'
-import TypePageJournalCategoryPaths from '@/types/page/journal/paths/TypePageJournalCategoryPaths'
-import TypePageJournalTagPaths from '@/types/page/journal/paths/TypePageJournalTagPaths'
+export type { default as TypePageJournalArticlePaths } from '@/types/page/journal/paths/TypePageJournalArticlePaths'
+export type { default as TypePageJournalCategoryPaths } from '@/types/page/journal/paths/TypePageJournalCategoryPaths'
+export type { default as TypePageJournalTagPaths } from '@/types/page/journal/paths/TypePageJournalTagPaths'
 // Page/journal/props
-import TypePageJournalArticleProps from '@/types/page/journal/props/TypePageJournalArticleProps'
-import TypePageJournalArticlesProps from '@/types/page/journal/props/TypePageJournalArticlesProps'
+export type { default as TypePageJournalArticleProps } from '@/types/page/journal/props/TypePageJournalArticleProps'
+export type { default as TypePageJournalArticlesProps } from '@/types/page/journal/props/TypePageJournalArticlesProps'
 // Page/journal/queries
-import TypePageJournalArticlePathsQuery from '@/types/page/journal/queries/TypePageJournalArticlePathsQuery'
-import TypePageJournalArticlePropsQuery from '@/types/page/journal/queries/TypePageJournalArticlePropsQuery'
-import TypePageJournalArticlesPropsQuery from '@/types/page/journal/queries/TypePageJournalArticlesPropsQuery'
-import TypePageJournalCategoryPathsQuery from '@/types/page/journal/queries/TypePageJournalCategoryPathsQuery'
-import TypePageJournalTagPathsQuery from '@/types/page/journal/queries/TypePageJournalTagPathsQuery'
-
-// Page/home/props
-import TypePageTeachersProps from '@/types/page/teachers/props/TypePageTeachersProps'
-
-// Page/home/queries
-import TypePageTeachersPropsQuery from '@/types/page/teachers/queries/TypePageTeachersPropsQuery'
-
-export type {
-  // context/journal
-  TypeContextJournalContext,
-  TypeContextJournalState,
-  // general
-  TypeCategories,
-  TypeChildren,
-  TypeClassNames,
-  TypeColor,
-  TypeColorsKeys,
-  TypeImg,
-  TypeImgExtended,
-  TypeOfType,
-  TypeProgram,
-  TypeProgramDefault,
-  TypePrograms,
-  TypeProgramsDefault,
-  TypeRoutesFront,
-  TypeStudyFormat,
-  // Lib/general
-  TypeLibPicture,
-  TypeLibTypename,
-  // Lib/journal/article
-  TypeLibJournalArticleAuthorName,
-  TypeLibJournalArticleAuthorPosition,
-  TypeLibJournalArticleBody,
-  TypeLibJournalArticleEmphasisBody,
-  TypeLibJournalArticleItem,
-  TypeLibJournalArticleListItem,
-  TypeLibJournalArticleParagraphBody,
-  TypeLibJournalArticlePicture,
-  TypeLibJournalArticleProgram,
-  TypeLibJournalArticleTitle,
-  TypeLibJournalArticleTitleBody,
-  // Lib/journal
-  TypeLibJournalArticle,
-  TypeLibJournalArticles,
-  TypeLibJournalCategory,
-  TypeLibJournalCategories,
-  TypeLibJournalTag,
-  TypeLibJournalTags,
-  // Lib/programs
-  TypeLibProgram,
-  TypeLibPrograms,
-  // Lib/teachers
-  TypeLibTeacher,
-  TypeLibTeachers,
-  // Page/default/props
-  TypePageDefaultProps,
-  TypePageTeachersProps,
-  // Page/default/queries
-  TypePageDefaultPropsQuery,
-  TypePageTeachersPropsQuery,
-  // Page/home/props
-  TypePageHomeProps,
-  // Page/home/queries
-  TypePageHomePropsQuery,
-  // Page/journal/gspContext
-  TypePageJournalArticlesGspContext,
-  // Page/journal/paths
-  TypePageJournalArticlePaths,
-  TypePageJournalCategoryPaths,
-  TypePageJournalTagPaths,
-  // Page/journal/props
-  TypePageJournalArticleProps,
-  TypePageJournalArticlesProps,
-  // Page/journal/queries
-  TypePageJournalArticlePathsQuery,
-  TypePageJournalArticlePropsQuery,
-  TypePageJournalArticlesPropsQuery,
-  TypePageJournalCategoryPathsQuery,
-  TypePageJournalTagPathsQuery
-}
+export type { default as TypePageJournalArticlePathsQuery } from '@/types/page/journal/queries/TypePageJournalArticlePathsQuery'
+export type { default as TypePageJournalArticlePropsQuery } from '@/types/page/journal/queries/TypePageJournalArticlePropsQuery'
+export type { default as TypePageJournalArticlesPropsQuery } from '@/types/page/journal/queries/TypePageJournalArticlesPropsQuery'
+export type { default as TypePageJournalCategoryPathsQuery } from '@/types/page/journal/queries/TypePageJournalCategoryPathsQuery'
+export type { default as TypePageJournalTagPathsQuery } from '@/types/page/journal/queries/TypePageJournalTagPathsQuery'
+// Page/programs/queries
+export type { default as TypePageProgramsProps } from '@/types/page/programs/props/TypePageProgramsProps'
+export type { default as TypePageProgramsPropsQuery } from '@/types/page/programs/queries/TypePageProgramsPropsQuery'

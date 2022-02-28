@@ -1,27 +1,34 @@
 import { GetStaticPropsContext } from 'next'
-import { TypePageDefaultProps, TypePageDefaultPropsQuery } from '@/types/index'
+import {
+  TypePageProgramsProps,
+  TypePageProgramsPropsQuery
+} from '@/types/index'
 import { gql } from '@apollo/client'
 import apolloClient from 'apolloClient'
 import { revalidate } from '@/config/index'
 import { createBlended } from '@/helpers/index'
 
-const getStaticPropsDefault = async ({
+const getStaticPropsPrograms = async ({
   context
 }: {
   context: GetStaticPropsContext
 }): Promise<{
-  props: TypePageDefaultProps
+  props: TypePageProgramsProps
   revalidate: number
 }> => {
-  const res = await apolloClient.query<TypePageDefaultPropsQuery>({
+  const res = await apolloClient.query<TypePageProgramsPropsQuery>({
     query: gql`
-      query GetStaticPropsDefault {
+      query GetStaticPropsPrograms {
         programs: products {
           _id
           id
           title
           slug
           studyFormat
+          price
+          duration {
+            minStudyMonths
+          }
           category {
             type
             slug
@@ -46,4 +53,4 @@ const getStaticPropsDefault = async ({
   }
 }
 
-export default getStaticPropsDefault
+export default getStaticPropsPrograms

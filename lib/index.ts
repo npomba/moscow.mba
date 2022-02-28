@@ -1,29 +1,15 @@
 // getStaticPaths
-import getStaticPathsPageJournalCategory from '@/lib/getStaticPaths/getStaticPathsPageJournalCategory'
-import getStaticPathsPageJournalCategoryTag from '@/lib/getStaticPaths/getStaticPathsPageJournalCategoryTag'
-import getStaticPathsPageJournalCategoryTagArticle from '@/lib/getStaticPaths/getStaticPathsPageJournalCategoryTagArticle'
+export { default as getStaticPathsPageJournalCategory } from '@/lib/getStaticPaths/getStaticPathsPageJournalCategory'
+export { default as getStaticPathsPageJournalCategoryTag } from '@/lib/getStaticPaths/getStaticPathsPageJournalCategoryTag'
+export { default as getStaticPathsPageJournalCategoryTagArticle } from '@/lib/getStaticPaths/getStaticPathsPageJournalCategoryTagArticle'
 
 // getStaticProps
-import getStaticPropsDefault from '@/lib/getStaticProps/getStaticPropsDefault'
-import getStaticPropsTeachers from '@/lib/getStaticProps/getStaticPropsTeachers'
-import getStaticPropsPageJournalArticles from '@/lib/getStaticProps/getStaticPropsPageJournalArticles'
-import getStaticPropsPageJournalArticle from '@/lib/getStaticProps/getStaticPropsPageJournalArticle'
+export { default as getStaticPropsDefault } from '@/lib/getStaticProps/getStaticPropsDefault'
+export { default as getStaticPropsTeachers } from '@/lib/getStaticProps/getStaticPropsTeachers'
+export { default as getStaticPropsPageJournalArticles } from '@/lib/getStaticProps/getStaticPropsPageJournalArticles'
+export { default as getStaticPropsPrograms } from '@/lib/getStaticProps/getStaticPropsPrograms'
+export { default as getStaticPropsPageJournalArticle } from '@/lib/getStaticProps/getStaticPropsPageJournalArticle'
 
 // handlers
-import handleGetStaticPaths from '@/lib/handlers/handleGetStaticPaths'
-import handleGetStaticProps from '@/lib/handlers/handleGetStaticProps'
-
-export {
-  // getStaticPaths
-  getStaticPathsPageJournalCategory,
-  getStaticPathsPageJournalCategoryTag,
-  getStaticPathsPageJournalCategoryTagArticle,
-  // getStaticProps
-  getStaticPropsDefault,
-  getStaticPropsTeachers,
-  getStaticPropsPageJournalArticles,
-  getStaticPropsPageJournalArticle,
-  // handlers
-  handleGetStaticPaths,
-  handleGetStaticProps
-}
+export { default as handleGetStaticPaths } from '@/lib/handlers/handleGetStaticPaths'
+export { default as handleGetStaticProps } from '@/lib/handlers/handleGetStaticProps'
