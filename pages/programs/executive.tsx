@@ -1,22 +1,24 @@
 import stls from '@/styles/pages/programs/Executive.module.sass'
 import { NextSeo, CourseJsonLd } from 'next-seo'
 import truncate from 'truncate'
-import JumbotronProgram from '@/components/sections/JumbotronProgram'
-import AboutExecutive from '@/components/sections/AboutExecutive'
-import ResultsExecutive from '@/components/sections/ResultsExecutive'
-import InPersonWithExperts from '@/components/sections/InPersonWithExperts'
-import ModulesAbroad from '@/components/sections/ModulesAbroad'
-import WhoStudies from '@/components/sections/WhoStudies'
-import ProgramsModules from '@/components/sections/ProgramsModules'
-import ContactUs from '@/components/sections/ContactUs'
-import Accreditation from '@/components/sections/Accreditation'
-import Teachers from '@/components/sections/Teachers'
-import Rules from '@/components/sections/Rules'
-import ExecutiveRequirements from '@/components/sections/ExecutiveRequirements'
-import Students from '@/components/sections/Students'
-import Reviews from '@/components/sections/Reviews'
-import CostOfStudy from '@/components/sections/CostOfStudy'
-import Qna from '@/components/sections/Qna'
+import {
+  JumbotronProgram,
+  AboutExecutive,
+  ResultsExecutive,
+  InPersonWithExperts,
+  ModulesAbroad,
+  WhoStudies,
+  ProgramsModules,
+  ContactUs,
+  Accreditation,
+  Teachers,
+  Rules,
+  ExecutiveRequirements,
+  Students,
+  Reviews,
+  CostOfStudy,
+  Qna
+} from '@/components/sections'
 import { handleGetStaticProps, HandleGetPrograms } from '@/helpers/index'
 import teachers from '@/data/images/teachers'
 
