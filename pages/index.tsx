@@ -7,15 +7,18 @@ import {
   HandleGetPrograms
 } from '@/helpers/index'
 import lang from '@/data/translation/index'
-import JumbotronCta from '@/components/sections/JumbotronCta'
-import About from '@/components/sections/About'
-import ConferencesInEurope from '@/components/sections/ConferencesInEurope'
-import ForeignAffiliates from '@/components/sections/ForeignAffiliates'
-import StudentsInternational from '@/components/sections/StudentsInternational'
-import CorporateClients from '@/components/sections/CorporateClients'
-import Programs from '@/components/sections/Programs'
-import Executive from '@/components/sections/Executive'
-import ContactUs from '@/components/sections/ContactUs'
+import {
+  JumbotronCta,
+  About,
+  ConferencesInEurope,
+  ForeignAffiliates,
+  StudentsInternational,
+  CorporateClients,
+  Programs,
+  Executive,
+  ContactUs
+} from '@/components/sections'
+
 
 const PageHome = ({ programs }) => {
   HandleGetPrograms(programs)
