@@ -32,7 +32,7 @@ const CardProgram = ({ professionLayout, program, number, type, format }) => {
         <div className={stls.bottomContainer}>
           <div>
             <Price
-              discount
+              discount={!at.blended}
               type={type}
               format={format}
               programPrice={(at.profession || at.course) && program.price}

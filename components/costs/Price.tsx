@@ -85,7 +85,7 @@ const Price = ({
     return componentSpecificClass ?? generalClass
   }
 
-  const regularOrDiscounted = discount ? 'discounted' : 'regular'
+  const isDiscounted = discount ? 'discounted' : 'regular'
 
   const splitMonths = price => {
     let period =
@@ -116,9 +116,7 @@ const Price = ({
 
   if ((!format && at.executive) || (!format && type === 'executive'))
     return (
-      <span className={stls.executive}>
-        {price[regularOrDiscounted].executive} Р.
-      </span>
+      <span className={stls.executive}>{price[isDiscounted].executive} Р.</span>
     )
 
   return (
@@ -131,7 +129,7 @@ const Price = ({
         }>
         {programPrice
           ? toNumberWithSpaces(programPrice) + ' P.'
-          : splitMonths(price[regularOrDiscounted]?.[type]?.[format])}
+          : splitMonths(price[isDiscounted]?.[type]?.[format])}
       </i>
       {discount && (
         <i className={getPriceClass('old', renderedByComponent)}>
