@@ -6,14 +6,17 @@ import {
 } from '@/helpers/index'
 import lang from '@/data/translation/index'
 import { NextSeo } from 'next-seo'
-import JumbotronCta from '@/components/sections/JumbotronCta'
-import WhatWillYouLearn from '@/components/sections/WhatWillYouLearn'
-import CourseOptions from '@/components/sections/CourseOptions'
-import ProgramDesc from '@/components/sections/ProgramDesc'
-import ContactUs from '@/components/sections/ContactUs'
-import Accreditation from '@/components/sections/Accreditation'
-import Diploma from '@/components/sections/Diploma'
-import WhoItIsFor from '@/components/sections/WhoItIsFor'
+import {
+  JumbotronCta,
+  WhatWillYouLearn,
+  CourseOptions,
+  ProgramDesc,
+  ContactUs,
+  Accreditation,
+  Diploma,
+  WhoItIsFor
+} from '@/components/sections'
+
 
 const PagePromo = ({ programs }) => {
   HandleGetPrograms(programs)
