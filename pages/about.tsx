@@ -1,15 +1,18 @@
 import stls from '@/styles/pages/About.module.sass'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import JumbotronMain from '@/components/sections/JumbotronMain'
-import About from '@/components/sections/About'
-import ConferencesInEurope from '@/components/sections/ConferencesInEurope'
-import ForeignAffiliates from '@/components/sections/ForeignAffiliates'
-import StudentsInternational from '@/components/sections/StudentsInternational'
-import CorporateClients from '@/components/sections/CorporateClients'
-import Teachers from '@/components/sections/Teachers'
-import UpToDateContent from '@/components/sections/UpToDateContent'
-import Accreditation from '@/components/sections/Accreditation'
+import {
+  JumbotronMain,
+  About,
+  ConferencesInEurope,
+  ForeignAffiliates,
+  StudentsInternational,
+  CorporateClients,
+  Teachers,
+  UpToDateContent,
+  Accreditation,
+  ContactUs
+} from '@/components/sections'
 import {
   SetString,
   handleGetStaticProps,
@@ -17,7 +20,7 @@ import {
 } from '@/helpers/index'
 import lang from '@/data/translation/about'
 import langIndex from '@/data/translation/index'
-import ContactUs from '@/components/sections/ContactUs'
+
 
 const PageAbout = ({ programs, teachers }) => {
   HandleGetPrograms(programs)
