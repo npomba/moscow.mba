@@ -57,23 +57,25 @@ const PageTeachersTeacher: NextPage<TypePageTeacherProps> = ({
             </div>
             <div className={stls.right}>
               <h1 className={stls.title}>{teacher?.name || 'Преподаватель'}</h1>
-              {teacher?.descriptionItems && (
-                <div className={stls.about}>
-                  <div className={stls.phoneTablet}>{image}</div>
-                  <h2 className={stls.subtitle}>Об эксперте:</h2>
-                  <ul className={stls.list}>
-                    {teacher.descriptionItems
-                      .filter(item => item.item)
-                      .map((item, idx) => (
-                        <li
-                          key={`${item || 'teacherListItem'}-${idx}`}
-                          className={stls.listItem}>
-                          {parse(marked(item?.item))}
-                        </li>
-                      ))}
-                  </ul>
-                </div>
-              )}
+              <div className={stls.about}>
+                <div className={stls.phoneTablet}>{image}</div>
+                {teacher?.descriptionItems?.length > 0 && (
+                  <>
+                    <h2 className={stls.subtitle}>Об эксперте:</h2>
+                    <ul className={stls.list}>
+                      {teacher.descriptionItems
+                        .filter(item => item.item)
+                        .map((item, idx) => (
+                          <li
+                            key={`${item || 'teacherListItem'}-${idx}`}
+                            className={stls.listItem}>
+                            {parse(marked(item?.item))}
+                          </li>
+                        ))}
+                    </ul>
+                  </>
+                )}
+              </div>
             </div>
           </div>
         </Wrapper>
