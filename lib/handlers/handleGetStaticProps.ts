@@ -1,15 +1,21 @@
 import { GetStaticPropsContext } from 'next'
 import {
+  TypePageDefaultProps,
   TypePageHomeProps,
   TypeRoutesFront,
   TypePageJournalArticlesProps,
-  TypePageJournalArticleProps
+  TypePageJournalArticleProps,
+  TypePageProgramProps,
+  TypePageProgramsProps,
+  TypePagePromoProps,
+  TypePageTeachersProps
 } from '@/types/index'
 import { routesFront, revalidate } from '@/config/index'
 import {
   getStaticPropsTeachers,
   getStaticPropsDefault,
   getStaticPropsPrograms,
+  getStaticPropsProgram,
   getStaticPropsPagePromo,
   getStaticPropsPageJournalArticles,
   getStaticPropsPageJournalArticle
@@ -18,16 +24,25 @@ import {
 type TypeHandleGetStaticPropsProps = {
   page?: TypeRoutesFront[keyof TypeRoutesFront]
   context: GetStaticPropsContext
+  type?: string | null
+  format?: string | null
 }
 
 const handleGetStaticProps = async ({
   page,
-  context
+  context,
+  type,
+  format
 }: TypeHandleGetStaticPropsProps): Promise<{
   props:
+    | TypePageDefaultProps
     | TypePageHomeProps
     | TypePageJournalArticlesProps
     | TypePageJournalArticleProps
+    | TypePageProgramProps
+    | TypePageProgramsProps
+    | TypePagePromoProps
+    | TypePageTeachersProps
     | null
   revalidate: number
 }> => {
@@ -40,6 +55,9 @@ const handleGetStaticProps = async ({
 
     case routesFront.programs:
       return await getStaticPropsPrograms({ context })
+
+    case routesFront.program:
+      return await getStaticPropsProgram({ context, type, format })
 
     case routesFront.webinarsArchive:
       return await getStaticPropsDefault({ context })

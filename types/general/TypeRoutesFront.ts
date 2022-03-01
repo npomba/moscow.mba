@@ -15,6 +15,7 @@ type TypeRoutesFront = {
   webinarsArchive: '/webinars/archive'
   webinarsUpcoming: '/webinars/upcoming'
   programs: '/programs'
+  program: '/programs/[type]/[format]/[slug]'
   programsExecutive: '/programs/executive'
   programsInternationalBusinessLaw: '/programs/international-business-law'
   programsMba: '/programs/mba'

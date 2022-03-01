@@ -1,13 +1,11 @@
+import { TypeLibPicture } from '../..'
+
 type TypeLibTeacher = {
-  name: string
-  description: string
-  slug: string
-  portrait: {
-    width: string
-    height: string
-    url: string
-  }
-  descriptionItems: string[]
+  name: string | null
+  description: string | null
+  slug: string | null
+  portrait: TypeLibPicture | null
+  descriptionItems: string[] | null
 }
 
 export default TypeLibTeacher

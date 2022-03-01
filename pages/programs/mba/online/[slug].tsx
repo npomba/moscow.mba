@@ -1,21 +1,22 @@
-import {
-  handleGetStaticProps,
-  handleGetStaticPaths,
-  HandleGetPrograms
-} from '@/helpers/index'
+import { GetStaticProps } from 'next'
+import { handleGetStaticProps } from '@/lib/index'
+import { usePageHandleContext } from '@/hooks/index'
+import { routesFront } from '@/config/index'
+import { handleGetStaticPaths } from '@/helpers/index'
 import OnlineProgram from '@/components/pages/OnlineProgram'
 
-const PageProgramsMbaOnlineProgram = ({ program, programs, teachers }) => {
-  HandleGetPrograms(programs)
+const PageProgramsMbaOnlineProgram = ({ program, programs }) => {
+  usePageHandleContext({ programs })
 
-  return <OnlineProgram program={program} teachers={teachers} />
+  return <OnlineProgram program={program} teachers={program?.teachers} />
 }
 
-export const getStaticProps = async context =>
-  handleGetStaticProps({
-    programSlug: context.params.slug,
-    programStudyFormat: 'online',
-    programType: 'mba'
+export const getStaticProps: GetStaticProps = async context =>
+  await handleGetStaticProps({
+    page: routesFront.program,
+    context,
+    type: 'mba',
+    format: 'online'
   })
 
 export const getStaticPaths = async () =>

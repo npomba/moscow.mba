@@ -27,9 +27,9 @@ const JumbotronProgram = ({ program }) => {
   return (
     <section className={stls.container}>
       <div className={stls.image}>
-        {program.picture?.formats?.large?.url && (
+        {program.picture?.url && (
           <Image
-            src={program.picture.formats.large.url}
+            src={program.picture.url}
             alt='Студенты обучаются'
             layout='fill'
             priority

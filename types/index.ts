@@ -77,12 +77,19 @@ export type { default as TypePageJournalArticlesPropsQuery } from '@/types/page/
 export type { default as TypePageJournalCategoryPathsQuery } from '@/types/page/journal/queries/TypePageJournalCategoryPathsQuery'
 export type { default as TypePageJournalTagPathsQuery } from '@/types/page/journal/queries/TypePageJournalTagPathsQuery'
 
-// Page/programs/queries
+// Page/program/props
+export type { default as TypePageProgramProps } from '@/types/page/program/props/TypePageProgramProps'
+// Page/program/queries
+export type { default as TypePageProgramPropsQuery } from '@/types/page/program/queries/TypePageProgramPropsQuery'
+
+// Page/programs/props
 export type { default as TypePageProgramsProps } from '@/types/page/programs/props/TypePageProgramsProps'
+// Page/programs/queries
 export type { default as TypePageProgramsPropsQuery } from '@/types/page/programs/queries/TypePageProgramsPropsQuery'
 
-// Page/promo/queries
+// Page/promo/props
 export type { default as TypePagePromoProps } from '@/types/page/promo/props/TypePagePromoProps'
+// Page/promo/queries
 export type { default as TypePagePromoPropsQuery } from '@/types/page/promo/queries/TypePagePromoPropsQuery'
 
 // Page/teachers/props
