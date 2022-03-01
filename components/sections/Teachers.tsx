@@ -29,7 +29,13 @@ const splitParaText = (string, splitBy) => {
   return [firstPartOfString, secondPartOfString]
 }
 
-const LiTeacherContent = ({ teacher }: { teacher: TypeLibTeacher | null }) => {
+const LiTeacherContent = ({
+  teacher,
+  atStandAlonePage
+}: {
+  teacher: TypeLibTeacher | null
+  atStandAlonePage?: boolean
+}) => {
   return (
     <div className={stls.teachersItem}>
       <div className={stls.teachersItemWrapper}>
@@ -49,14 +55,30 @@ const LiTeacherContent = ({ teacher }: { teacher: TypeLibTeacher | null }) => {
             <div className={stls.name}>{teacher?.name}</div>
             <p className={stls.description}>{teacher?.description}</p>
           </div>
-          <div className={cn(stls.bio, stls.phone)}>
-            <p className={stls.bioP}>Биография</p>
+          <div
+            className={cn(stls.bio, stls.phone, {
+              [stls.atStandAlonePage]: atStandAlonePage
+            })}>
+            <p
+              className={cn(stls.bioP, {
+                [stls.atStandAlonePage]: atStandAlonePage
+              })}>
+              Биография
+            </p>
             <IconMoreThan classNames={[stls.icon]} />
           </div>
         </div>
       </div>
-      <div className={cn(stls.bio, stls.tabletLaptopDesktopWidescreen)}>
-        <p className={stls.bioP}>Биография</p>
+      <div
+        className={cn(stls.bio, stls.tabletLaptopDesktopWidescreen, {
+          [stls.atStandAlonePage]: atStandAlonePage
+        })}>
+        <p
+          className={cn(stls.bioP, {
+            [stls.atStandAlonePage]: atStandAlonePage
+          })}>
+          Биография
+        </p>
         <IconMoreThan classNames={[stls.icon]} />
       </div>
     </div>
@@ -340,14 +362,20 @@ const Teachers = ({
                         teacher?.slug || 'teacher'
                       }`}>
                       <a className={stls.a}>
-                        <LiTeacherContent teacher={teacher} />
+                        <LiTeacherContent
+                          teacher={teacher}
+                          atStandAlonePage={atStandAlonePage}
+                        />
                       </a>
                     </Link>
                   ) : (
                     <Popup
                       trigger={
                         <a href='#!' className={stls.a}>
-                          <LiTeacherContent teacher={teacher} />
+                          <LiTeacherContent
+                            teacher={teacher}
+                            atStandAlonePage={atStandAlonePage}
+                          />
                         </a>
                       }
                       modal

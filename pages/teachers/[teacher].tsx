@@ -35,16 +35,16 @@ const PageTeachersTeacher: NextPage<TypePageTeacherProps> = ({
   return (
     <>
       <NextSeo
-        title={`${teacher.name || 'Преподаватель'}${` | ${companyName}`}`}
+        title={`${teacher?.name || 'Преподаватель'}${` | ${companyName}`}`}
         description={truncate(
           `${
-            teacher.description ||
+            teacher?.description ||
             'Эксперт по бизнес-планированию, инвестиционному и финансовому анализу'
           }`,
           120
         )}
         canonical={`${routesFront.root}${routesFront.teachers}/${
-          teacher.slug || 'teacher'
+          teacher?.slug || 'teacher'
         }`}
       />
       <section>
@@ -57,21 +57,21 @@ const PageTeachersTeacher: NextPage<TypePageTeacherProps> = ({
               <h1 className={stls.title}>{teacher?.name || 'Преподаватель'}</h1>
               <div className={stls.about}>
                 <div className={stls.phoneTablet}>{image}</div>
-                {teacher?.descriptionItems?.length > 0 && (
-                  <>
-                    <h2 className={stls.subtitle}>Об эксперте:</h2>
-                    <ul className={stls.list}>
-                      {teacher.descriptionItems
-                        .filter(item => item?.item)
-                        .map((item, idx) => (
-                          <li
-                            key={`${item || 'teacherListItem'}-${idx}`}
-                            className={stls.listItem}>
-                            {parse(marked(item?.item))}
-                          </li>
-                        ))}
-                    </ul>
-                  </>
+                <h2 className={stls.subtitle}>Об эксперте:</h2>
+                {teacher?.descriptionItems?.length > 0 ? (
+                  <ul className={stls.list}>
+                    {teacher.descriptionItems
+                      .filter(item => item?.item)
+                      .map((item, idx) => (
+                        <li
+                          key={`${item || 'teacherListItem'}-${idx}`}
+                          className={stls.listItem}>
+                          {parse(marked(item?.item))}
+                        </li>
+                      ))}
+                  </ul>
+                ) : (
+                  <p className={stls.p}>{teacher?.description}</p>
                 )}
               </div>
             </div>

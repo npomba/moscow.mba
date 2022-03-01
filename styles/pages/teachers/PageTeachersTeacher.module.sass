@@ -96,6 +96,19 @@ $left_ldw_mr: 2.4%
     border-radius: 50%
     @include m.dye(bgc, c.$alpha)
 
+.p
+  max-width: 75ch
+  @include m.media(phone, tablet)
+    margin-top: f.px(7)
+    font-size: f.px(15)
+    @include m.dye(c, c.$omega)
+  @include m.media(laptop, desktop, widescreen)
+    margin-top: f.px(10)
+    font-size: f.px(16)
+    @include m.dye(c, c.$chi)
+  font-weight: 300
+  line-height: 120%
+
 .laptopDesktopWidescreen
   @include m.media(phone, tablet)
     display: none
