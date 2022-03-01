@@ -33,18 +33,18 @@ const LiTeacherContent = ({ teacher }: { teacher: TypeLibTeacher | null }) => {
     <div className={stls.teachersItem}>
       <div className={stls.image}>
         <Image
-          src={teacher.portrait?.url}
-          alt={teacher.name}
-          width={teacher.portrait?.width}
-          height={teacher.portrait?.height}
+          src={teacher?.portrait?.url}
+          alt={teacher?.name}
+          width={teacher?.portrait?.width}
+          height={teacher?.portrait?.height}
           layout='responsive'
           placeholder='blur'
           blurDataURL={base64pixel}
         />
       </div>
       <div>
-        <div className={stls.name}>{teacher.name}</div>
-        <p>{teacher.description}</p>
+        <div className={stls.name}>{teacher?.name}</div>
+        <p>{teacher?.description}</p>
       </div>
     </div>
   )

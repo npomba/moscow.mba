@@ -64,7 +64,7 @@ const PageTeachersTeacher: NextPage<TypePageTeacherProps> = ({
                     <h2 className={stls.subtitle}>Об эксперте:</h2>
                     <ul className={stls.list}>
                       {teacher.descriptionItems
-                        .filter(item => item.item)
+                        .filter(item => item?.item)
                         .map((item, idx) => (
                           <li
                             key={`${item || 'teacherListItem'}-${idx}`}
