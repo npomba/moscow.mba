@@ -1,4 +1,5 @@
 import stls from '@/styles/components/sections/Teachers.module.sass'
+import { useState } from 'react'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import { useAt, SetString } from '@/helpers/index'
@@ -33,6 +34,8 @@ const Teachers = ({
 }) => {
   const at = useAt()
   const router = useRouter()
+
+  const [shownTeachersCount, setShownTeachersCount] = useState(8)
 
   const defaultTeachers = [
     {
@@ -156,7 +159,9 @@ const Teachers = ({
     wordToSplitBy.specialists[router.locale]
   )
 
-  const UITeachers = teachers.filter((teacher, idx) => idx < 8)
+  const UITeachers =
+    teachers?.filter((teacher, idx) => idx < shownTeachersCount) ||
+    defaultTeachers?.filter((teacher, idx) => idx < shownTeachersCount)
 
   return (
     <>
@@ -344,24 +349,38 @@ const Teachers = ({
           )}
           {UITeachers && UITeachers.length > 0 && (
             <div className={stls.btn}>
-              <Popup
-                trigger={
-                  <button className='button'>
-                    {SetString(lang.teachersCtaBtn)}
-                  </button>
-                }
-                modal
-                nested>
-                {close => (
-                  <PopupForm
-                    programId={programId}
-                    programTitle={programTitle}
-                    closePopUpForm={close}
-                    title={SetString(lang.teachersPopupFormTitle)}
-                    disc={SetString(lang.teachersPopupFormDics)}
-                  />
-                )}
-              </Popup>
+              {shownTeachersCount >= teachers.length ? (
+                <Popup
+                  trigger={
+                    <button
+                      className='button'
+                      onClick={() =>
+                        setShownTeachersCount(shownTeachersCount + 4)
+                      }>
+                      {at.en && 'Request full list'}
+                      {at.ru && 'Запросить полный список'}
+                    </button>
+                  }
+                  modal
+                  nested>
+                  {close => (
+                    <PopupForm
+                      programId={programId}
+                      programTitle={programTitle}
+                      closePopUpForm={close}
+                      title={SetString(lang.teachersPopupFormTitle)}
+                      disc={SetString(lang.teachersPopupFormDics)}
+                    />
+                  )}
+                </Popup>
+              ) : (
+                <button
+                  className='button'
+                  onClick={() => setShownTeachersCount(shownTeachersCount + 4)}>
+                  {at.en && 'Show more'}
+                  {at.ru && 'Показать ещё'}
+                </button>
+              )}
             </div>
           )}
         </Wrapper>

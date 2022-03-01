@@ -189,11 +189,6 @@ const about = {
     en: ''
   },
 
-  teachersCtaBtn: {
-    ru: 'Запросить полный список',
-    en: 'Request full list'
-  },
-
   teachersBiographyLink: {
     ru: 'Биография',
     en: 'Biography'

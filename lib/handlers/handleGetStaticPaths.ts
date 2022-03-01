@@ -4,9 +4,7 @@ import {
   TypePageJournalTagPaths,
   TypePageJournalArticlePaths
 } from '@/types/index'
-import { gql } from '@apollo/client'
-import apolloClient from 'apolloClient'
-import { routesFront, routesBack, revalidate } from '@/config/index'
+import { routesFront, routesBack, fallback } from '@/config/index'
 import {
   getStaticPathsPageJournalCategory,
   getStaticPathsPageJournalCategoryTag,
@@ -40,7 +38,7 @@ const handleGetStaticPaths = async ({
     default:
       return {
         paths: [],
-        fallback: 'blocking'
+        fallback: fallback.default
       }
   }
 }
