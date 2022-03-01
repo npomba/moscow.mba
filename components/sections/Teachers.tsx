@@ -8,9 +8,10 @@ import { useAt, SetString } from '@/helpers/index'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 import PopupForm from '@/components/popups/PopupForm'
+import { PopupTeacher } from '@/components/popups'
 import lang from 'data/translation/about'
 import imagesData from '@/data/images/teachers'
-import { IconCheck } from '@/components/icons'
+import { IconCheck, IconMoreThan } from '@/components/icons'
 import { routesFront, base64pixel } from '@/config/index'
 import cn from 'classnames'
 import { Wrapper } from '@/components/layout'
@@ -31,20 +32,32 @@ const splitParaText = (string, splitBy) => {
 const LiTeacherContent = ({ teacher }: { teacher: TypeLibTeacher | null }) => {
   return (
     <div className={stls.teachersItem}>
-      <div className={stls.image}>
-        <Image
-          src={teacher?.portrait?.url}
-          alt={teacher?.name}
-          width={teacher?.portrait?.width}
-          height={teacher?.portrait?.height}
-          layout='responsive'
-          placeholder='blur'
-          blurDataURL={base64pixel}
-        />
+      <div className={stls.teachersItemWrapper}>
+        <div className={stls.image}>
+          <Image
+            src={teacher?.portrait?.url}
+            alt={teacher?.name}
+            width={teacher?.portrait?.width}
+            height={teacher?.portrait?.height}
+            layout='responsive'
+            placeholder='blur'
+            blurDataURL={base64pixel}
+          />
+        </div>
+        <div className={stls.teachersItemContent}>
+          <div>
+            <div className={stls.name}>{teacher?.name}</div>
+            <p className={stls.description}>{teacher?.description}</p>
+          </div>
+          <div className={cn(stls.bio, stls.phone)}>
+            <p className={stls.bioP}>Биография</p>
+            <IconMoreThan classNames={[stls.icon]} />
+          </div>
+        </div>
       </div>
-      <div>
-        <div className={stls.name}>{teacher?.name}</div>
-        <p>{teacher?.description}</p>
+      <div className={cn(stls.bio, stls.tabletLaptopDesktopWidescreen)}>
+        <p className={stls.bioP}>Биография</p>
+        <IconMoreThan classNames={[stls.icon]} />
       </div>
     </div>
   )
@@ -185,8 +198,10 @@ const Teachers = ({
   )
 
   const UITeachers: TypeLibTeachers | null =
-    teachers?.filter((teacher, idx) => idx < shownTeachersCount) ||
-    defaultTeachers?.filter((teacher, idx) => idx < shownTeachersCount)
+    teachers?.filter((teacher, idx) => teacher && idx < shownTeachersCount) ||
+    defaultTeachers?.filter(
+      (teacher, idx) => teacher && idx < shownTeachersCount
+    )
 
   return (
     <>
@@ -314,19 +329,38 @@ const Teachers = ({
               [stls.teachersList]: true,
               [stls.teachersListProfession]: at.profession || at.course
             })}>
-            {UITeachers &&
-              UITeachers.length > 0 &&
+            {UITeachers?.length > 0 &&
               UITeachers.map((teacher, idx) => (
-                <li key={`${teacher.name || 'LiTeacherContent'}-${idx}`}>
-                  <Link href={`${routesFront.teachers}/${teacher.slug}`}>
-                    <a>
-                      <LiTeacherContent teacher={teacher} />
-                    </a>
-                  </Link>
+                <li
+                  key={`${teacher?.name || 'LiTeacherContent'}-${idx}`}
+                  className={stls.teachersListItem}>
+                  {atStandAlonePage || at.about ? (
+                    <Link
+                      href={`${routesFront.teachers}/${
+                        teacher?.slug || 'teacher'
+                      }`}>
+                      <a className={stls.a}>
+                        <LiTeacherContent teacher={teacher} />
+                      </a>
+                    </Link>
+                  ) : (
+                    <Popup
+                      trigger={
+                        <a href='#!' className={stls.a}>
+                          <LiTeacherContent teacher={teacher} />
+                        </a>
+                      }
+                      modal
+                      nested>
+                      {close => (
+                        <PopupTeacher close={close} teacher={teacher} />
+                      )}
+                    </Popup>
+                  )}
                 </li>
               ))}
           </ul>
-          {UITeachers && UITeachers.length === 0 && (
+          {UITeachers?.length === 0 && (
             <div className={stls.getAllTeachers}>
               <h3 className={stls.getAllTeachersTitle}>
                 Получите полный список преподавателей
@@ -360,9 +394,9 @@ const Teachers = ({
               </div>
             </div>
           )}
-          {UITeachers && UITeachers.length > 0 && (
+          {UITeachers?.length > 0 && (
             <div className={stls.btn}>
-              {shownTeachersCount >= teachers.length ? (
+              {shownTeachersCount >= teachers?.length ? (
                 <Popup
                   trigger={
                     <button
@@ -398,7 +432,9 @@ const Teachers = ({
                   }>
                   {at.en && 'Show more'}
                   {at.ru &&
-                    `Ещё ${showMoreTeachersAddendum} преподавателя из ${teachers.length}`}
+                    `Ещё ${showMoreTeachersAddendum} преподавателя${
+                      teachers?.length ? ` из ${teachers.length}` : undefined
+                    }`}
                 </button>
               )}
             </div>

@@ -1,41 +1,20 @@
-import SectionJournalAllArticles from '@/components/sections/journal/SectionJournalAllArticles'
-import SectionJournalBottom from '@/components/sections/journal/SectionJournalBottom'
-import SectionJournalCategories from '@/components/sections/journal/SectionJournalCategories'
-import SectionJournalConclusion from '@/components/sections/journal/SectionJournalConclusion'
-import SectionJournalEmphasis from '@/components/sections/journal/SectionJournalEmphasis'
-import SectionJournalHeroArticle from '@/components/sections/journal/SectionJournalHeroArticle'
-import SectionJournalHeroTag from '@/components/sections/journal/SectionJournalHeroTag'
-import SectionJournalHighlightedArticle from '@/components/sections/journal/SectionJournalHighlightedArticle'
-import SectionJournalList from '@/components/sections/journal/SectionJournalList'
-import SectionJournalMoreTags from '@/components/sections/journal/SectionJournalMoreTags'
-import SectionJournalNews from '@/components/sections/journal/SectionJournalNews'
-import SectionJournalParagraph from '@/components/sections/journal/SectionJournalParagraph'
-import SectionJournalPicture from '@/components/sections/journal/SectionJournalPicture'
-import SectionJournalQuote from '@/components/sections/journal/SectionJournalQuote'
-import SectionJournalRecommendedProgram from '@/components/sections/journal/SectionJournalRecommendedProgram'
-import SectionJournalTagedArticles from '@/components/sections/journal/SectionJournalTagedArticles'
-import SectionJournalTags from '@/components/sections/journal/SectionJournalTags'
-import SectionJournalTagsWithPictures from '@/components/sections/journal/SectionJournalTagsWithPictures'
-import SectionJournalTitle from '@/components/sections/journal/SectionJournalTitle'
-
-export {
-  SectionJournalAllArticles,
-  SectionJournalBottom,
-  SectionJournalCategories,
-  SectionJournalConclusion,
-  SectionJournalEmphasis,
-  SectionJournalHeroArticle,
-  SectionJournalHeroTag,
-  SectionJournalHighlightedArticle,
-  SectionJournalList,
-  SectionJournalMoreTags,
-  SectionJournalNews,
-  SectionJournalParagraph,
-  SectionJournalPicture,
-  SectionJournalQuote,
-  SectionJournalRecommendedProgram,
-  SectionJournalTagedArticles,
-  SectionJournalTags,
-  SectionJournalTagsWithPictures,
-  SectionJournalTitle
-}
+// journal
+export { default as SectionJournalAllArticles } from '@/components/sections/journal/SectionJournalAllArticles'
+export { default as SectionJournalBottom } from '@/components/sections/journal/SectionJournalBottom'
+export { default as SectionJournalCategories } from '@/components/sections/journal/SectionJournalCategories'
+export { default as SectionJournalConclusion } from '@/components/sections/journal/SectionJournalConclusion'
+export { default as SectionJournalEmphasis } from '@/components/sections/journal/SectionJournalEmphasis'
+export { default as SectionJournalHeroArticle } from '@/components/sections/journal/SectionJournalHeroArticle'
+export { default as SectionJournalHeroTag } from '@/components/sections/journal/SectionJournalHeroTag'
+export { default as SectionJournalHighlightedArticle } from '@/components/sections/journal/SectionJournalHighlightedArticle'
+export { default as SectionJournalList } from '@/components/sections/journal/SectionJournalList'
+export { default as SectionJournalMoreTags } from '@/components/sections/journal/SectionJournalMoreTags'
+export { default as SectionJournalNews } from '@/components/sections/journal/SectionJournalNews'
+export { default as SectionJournalParagraph } from '@/components/sections/journal/SectionJournalParagraph'
+export { default as SectionJournalPicture } from '@/components/sections/journal/SectionJournalPicture'
+export { default as SectionJournalQuote } from '@/components/sections/journal/SectionJournalQuote'
+export { default as SectionJournalRecommendedProgram } from '@/components/sections/journal/SectionJournalRecommendedProgram'
+export { default as SectionJournalTagedArticles } from '@/components/sections/journal/SectionJournalTagedArticles'
+export { default as SectionJournalTags } from '@/components/sections/journal/SectionJournalTags'
+export { default as SectionJournalTagsWithPictures } from '@/components/sections/journal/SectionJournalTagsWithPictures'
+export { default as SectionJournalTitle } from '@/components/sections/journal/SectionJournalTitle'
