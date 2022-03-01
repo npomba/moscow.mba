@@ -1,8 +1,7 @@
-import { GetStaticProps } from 'next'
-import { handleGetStaticProps } from '@/lib/index'
+import { GetStaticPaths, GetStaticProps } from 'next'
+import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
 import { usePageHandleContext } from '@/hooks/index'
 import { routesFront } from '@/config/index'
-import { handleGetStaticPaths } from '@/helpers/index'
 import BlendedProgram from '@/components/pages/BlendedProgram'
 
 const PageProgramsMbaBlendedProgram = ({ program, programs }) => {
@@ -19,7 +18,11 @@ export const getStaticProps: GetStaticProps = async context =>
     format: 'blended'
   })
 
-export const getStaticPaths = async () =>
-  handleGetStaticPaths({ studyFormat: 'blended', type: 'mba' })
+export const getStaticPaths: GetStaticPaths = async () =>
+  await handleGetStaticPaths({
+    page: routesFront.program,
+    type: 'mba',
+    format: 'blended'
+  })
 
 export default PageProgramsMbaBlendedProgram

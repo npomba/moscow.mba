@@ -77,9 +77,12 @@ export type { default as TypePageJournalArticlesPropsQuery } from '@/types/page/
 export type { default as TypePageJournalCategoryPathsQuery } from '@/types/page/journal/queries/TypePageJournalCategoryPathsQuery'
 export type { default as TypePageJournalTagPathsQuery } from '@/types/page/journal/queries/TypePageJournalTagPathsQuery'
 
+// Page/program/paths
+export type { default as TypePageProgramPaths } from '@/types/page/program/paths/TypePageProgramPaths'
 // Page/program/props
 export type { default as TypePageProgramProps } from '@/types/page/program/props/TypePageProgramProps'
 // Page/program/queries
+export type { default as TypePageProgramPathsQuery } from '@/types/page/program/queries/TypePageProgramPathsQuery'
 export type { default as TypePageProgramPropsQuery } from '@/types/page/program/queries/TypePageProgramPropsQuery'
 
 // Page/programs/props

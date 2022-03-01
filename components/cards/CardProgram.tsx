@@ -28,7 +28,7 @@ const CardProgram = ({ professionLayout, program, number, type, format }) => {
               : ''}
           </span>
         </div>
-        <h3 className={stls.programTitle}>{program.title}</h3>
+        <h3 className={stls.programTitle}>{program?.title}</h3>
         <div className={stls.bottomContainer}>
           <div>
             <Price
