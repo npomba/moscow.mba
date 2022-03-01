@@ -1,4 +1,4 @@
-import stls from '@/styles/pages/Teachers.module.sass'
+import stls from '@/styles/pages/teachers/PageTeachers.module.sass'
 import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
 import { GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'

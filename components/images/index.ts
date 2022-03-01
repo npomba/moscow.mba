@@ -1,21 +1,15 @@
-import ImgLogoEcicel from '@/components/images/general/ImgLogoEcicel'
-import ImgLogoMde from '@/components/images/general/ImgLogoMde'
-import ImgLogoRabo from '@/components/images/general/ImgLogoRabo'
-import ImgJournalArticle from '@/components/images/journal/ImgJournalArticle'
-import ImgJournalArticlePicture from '@/components/images/journal/ImgJournalArticlePicture'
-import ImgDiscountDecoration from '@/components/images/newyears/ImgDiscountDecoration'
-import ImgStickyBottomDecoration from '@/components/images/newyears/ImgStickyBottomDecoration'
-import ImgStudentsDuringConference from '@/components/images/sections/ImgStudentsDuringConference'
-import ImgTemplate from '@/components/images/ImgTemplate'
-
-export {
-  ImgLogoEcicel,
-  ImgLogoMde,
-  ImgLogoRabo,
-  ImgJournalArticle,
-  ImgJournalArticlePicture,
-  ImgDiscountDecoration,
-  ImgStickyBottomDecoration,
-  ImgStudentsDuringConference,
-  ImgTemplate
-}
+// ./general
+export { default as ImgLogoEcicel } from '@/components/images/general/ImgLogoEcicel'
+export { default as ImgLogoMde } from '@/components/images/general/ImgLogoMde'
+export { default as ImgLogoRabo } from '@/components/images/general/ImgLogoRabo'
+// ./journal
+export { default as ImgJournalArticle } from '@/components/images/journal/ImgJournalArticle'
+export { default as ImgJournalArticlePicture } from '@/components/images/journal/ImgJournalArticlePicture'
+// ./newyears
+export { default as ImgDiscountDecoration } from '@/components/images/newyears/ImgDiscountDecoration'
+export { default as ImgStickyBottomDecoration } from '@/components/images/newyears/ImgStickyBottomDecoration'
+// ./sections
+export { default as ImgStudentsDuringConference } from '@/components/images/sections/ImgStudentsDuringConference'
+// ./teachers
+export { default as ImgTeachersTeacher } from '@/components/images/teachers/ImgTeachersTeacher'
+export { default as ImgTemplate } from '@/components/images/ImgTemplate'

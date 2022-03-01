@@ -4,6 +4,7 @@ import {
 } from '@/types/index'
 import { gql } from '@apollo/client'
 import apolloClient from 'apolloClient'
+import { fallback } from '@/config/index'
 
 const getStaticPathsPageJournalCategoryTagArticle = async (): Promise<{
   paths: TypePageJournalArticlePaths
@@ -46,7 +47,7 @@ const getStaticPathsPageJournalCategoryTagArticle = async (): Promise<{
         }
       }
     ],
-    fallback: 'blocking'
+    fallback: fallback.default
   }
 }
 

@@ -1,5 +1,7 @@
 import stls from '@/styles/pages/About.module.sass'
+import type { NextPage } from 'next'
 import { GetStaticProps } from 'next'
+import { TypePageTeachersProps } from '@/types/index'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import JumbotronMain from '@/components/sections/JumbotronMain'
@@ -19,7 +21,7 @@ import lang from '@/data/translation/about'
 import langIndex from '@/data/translation/index'
 import ContactUs from '@/components/sections/ContactUs'
 
-const PageAbout = ({ programs, teachers }) => {
+const PageAbout: NextPage<TypePageTeachersProps> = ({ programs, teachers }) => {
   usePageHandleContext({ programs })
 
   return (
@@ -29,20 +31,16 @@ const PageAbout = ({ programs, teachers }) => {
         description={truncate(`${SetString(langIndex.headerSubtitle)}`, 120)}
         canonical={'https://moscow.mba/about'}
       />
-
       <JumbotronMain />
-
-      <div className={stls.container}>
-        <About />
-        <ConferencesInEurope />
-        <ForeignAffiliates />
-        <StudentsInternational />
-        <CorporateClients />
-        <Teachers teachers={teachers} />
-        <UpToDateContent />
-        <Accreditation />
-        <ContactUs overlapsFooter />
-      </div>
+      <About />
+      <ConferencesInEurope />
+      <ForeignAffiliates />
+      <StudentsInternational />
+      <CorporateClients />
+      <Teachers teachers={teachers} />
+      <UpToDateContent />
+      <Accreditation />
+      <ContactUs overlapsFooter />
     </>
   )
 }

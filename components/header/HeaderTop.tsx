@@ -14,7 +14,7 @@ const HeaderTop = ({ handleMenu, openMenu }) => {
     {
       href: '/teachers',
       val: SetString(lang.linkTeachers),
-      red: at.teachers,
+      red: at.teachers && !at.teachersTeacher,
       locale: 'ru'
     },
     {

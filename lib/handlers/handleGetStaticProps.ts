@@ -8,10 +8,12 @@ import {
   TypePageProgramProps,
   TypePageProgramsProps,
   TypePagePromoProps,
-  TypePageTeachersProps
+  TypePageTeachersProps,
+  TypePageTeacherProps
 } from '@/types/index'
 import { routesFront, revalidate } from '@/config/index'
 import {
+  getStaticPropsTeacher,
   getStaticPropsTeachers,
   getStaticPropsDefault,
   getStaticPropsPrograms,
@@ -43,6 +45,7 @@ const handleGetStaticProps = async ({
     | TypePageProgramsProps
     | TypePagePromoProps
     | TypePageTeachersProps
+    | TypePageTeacherProps
     | null
   revalidate: number
 }> => {
@@ -58,6 +61,12 @@ const handleGetStaticProps = async ({
 
     case routesFront.program:
       return await getStaticPropsProgram({ context, type, format })
+
+    case routesFront.teachers:
+      return await getStaticPropsTeachers({ context })
+
+    case routesFront.teachersTeacher:
+      return await getStaticPropsTeacher({ context })
 
     case routesFront.webinarsArchive:
       return await getStaticPropsDefault({ context })
@@ -85,9 +94,6 @@ const handleGetStaticProps = async ({
 
     case routesFront.promo:
       return await getStaticPropsPagePromo({ context })
-
-    case routesFront.teachers:
-      return await getStaticPropsTeachers({ context })
 
     default:
       return await getStaticPropsDefault({ context })

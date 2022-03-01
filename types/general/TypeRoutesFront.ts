@@ -26,6 +26,7 @@ type TypeRoutesFront = {
   programsMiniOnline: '/programs/mini/online'
   programsMiniBlended: '/programs/mini/blended'
   programsProfessionOnline: '/programs/profession/online'
+  teachersTeacher: '/teachers/[teacher]'
 }
 
 export default TypeRoutesFront

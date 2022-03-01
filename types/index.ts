@@ -92,7 +92,12 @@ export type { default as TypePagePromoProps } from '@/types/page/promo/props/Typ
 // Page/promo/queries
 export type { default as TypePagePromoPropsQuery } from '@/types/page/promo/queries/TypePagePromoPropsQuery'
 
+// Page/teachers/paths
+export type { default as TypePageTeachersTeacherPaths } from '@/types/page/teachers/paths/TypePageTeachersTeacherPaths'
 // Page/teachers/props
+export type { default as TypePageTeacherProps } from '@/types/page/teachers/props/TypePageTeacherProps'
 export type { default as TypePageTeachersProps } from '@/types/page/teachers/props/TypePageTeachersProps'
 // Page/teachers/queries
+export type { default as TypePageTeacherPropsQuery } from '@/types/page/teachers/queries/TypePageTeacherPropsQuery'
 export type { default as TypePageTeachersPropsQuery } from '@/types/page/teachers/queries/TypePageTeachersPropsQuery'
+export type { default as TypePageTeachersTeacherPathsQuery } from '@/types/page/teachers/queries/TypePageTeachersTeacherPathsQuery'

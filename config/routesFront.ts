@@ -5,7 +5,6 @@ const routesFront: TypeRoutesFront = {
   root: dev ? 'http://localhost:3000' : 'https://moscow.mba',
   home: '/',
   about: '/about',
-  teachers: '/teachers',
   contact: '/contact',
   legal: '/legal',
   payment: '/payment',
@@ -29,7 +28,9 @@ const routesFront: TypeRoutesFront = {
   programsMbaBlended: '/programs/mba/blended',
   programsMiniOnline: '/programs/mini/online',
   programsMiniBlended: '/programs/mini/blended',
-  programsProfessionOnline: '/programs/profession/online'
+  programsProfessionOnline: '/programs/profession/online',
+  teachers: '/teachers',
+  teachersTeacher: '/teachers/[teacher]'
 }
 
 export default routesFront

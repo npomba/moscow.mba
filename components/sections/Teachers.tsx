@@ -1,4 +1,6 @@
 import stls from '@/styles/components/sections/Teachers.module.sass'
+import { TypeLibTeacher, TypeLibTeachers } from '@/types/index'
+import Link from 'next/link'
 import { useState } from 'react'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
@@ -9,7 +11,7 @@ import PopupForm from '@/components/popups/PopupForm'
 import lang from 'data/translation/about'
 import imagesData from '@/data/images/teachers'
 import { IconCheck } from '@/components/icons'
-import { base64pixel } from '@/config/index'
+import { routesFront, base64pixel } from '@/config/index'
 import cn from 'classnames'
 import { Wrapper } from '@/components/layout'
 
@@ -26,6 +28,28 @@ const splitParaText = (string, splitBy) => {
   return [firstPartOfString, secondPartOfString]
 }
 
+const LiTeacherContent = ({ teacher }: { teacher: TypeLibTeacher | null }) => {
+  return (
+    <div className={stls.teachersItem}>
+      <div className={stls.image}>
+        <Image
+          src={teacher.portrait?.url}
+          alt={teacher.name}
+          width={teacher.portrait?.width}
+          height={teacher.portrait?.height}
+          layout='responsive'
+          placeholder='blur'
+          blurDataURL={base64pixel}
+        />
+      </div>
+      <div>
+        <div className={stls.name}>{teacher.name}</div>
+        <p>{teacher.description}</p>
+      </div>
+    </div>
+  )
+}
+
 const Teachers = ({
   programTitle = null,
   programId = null,
@@ -36,6 +60,7 @@ const Teachers = ({
   const router = useRouter()
 
   const [shownTeachersCount, setShownTeachersCount] = useState(8)
+  const showMoreTeachersAddendum = 4
 
   const defaultTeachers = [
     {
@@ -159,7 +184,7 @@ const Teachers = ({
     wordToSplitBy.specialists[router.locale]
   )
 
-  const UITeachers =
+  const UITeachers: TypeLibTeachers | null =
     teachers?.filter((teacher, idx) => idx < shownTeachersCount) ||
     defaultTeachers?.filter((teacher, idx) => idx < shownTeachersCount)
 
@@ -292,24 +317,12 @@ const Teachers = ({
             {UITeachers &&
               UITeachers.length > 0 &&
               UITeachers.map((teacher, idx) => (
-                <li key={teacher.name + idx}>
-                  <div className={stls.teachersItem}>
-                    <div className={stls.image}>
-                      <Image
-                        src={teacher.portrait?.url}
-                        alt={teacher.name}
-                        width={teacher.portrait?.width}
-                        height={teacher.portrait?.height}
-                        layout='responsive'
-                        placeholder='blur'
-                        blurDataURL={base64pixel}
-                      />
-                    </div>
-                    <div>
-                      <div className={stls.name}>{teacher.name}</div>
-                      <p>{teacher.description}</p>
-                    </div>
-                  </div>
+                <li key={`${teacher.name || 'LiTeacherContent'}-${idx}`}>
+                  <Link href={`${routesFront.teachers}/${teacher.slug}`}>
+                    <a>
+                      <LiTeacherContent teacher={teacher} />
+                    </a>
+                  </Link>
                 </li>
               ))}
           </ul>
@@ -355,7 +368,9 @@ const Teachers = ({
                     <button
                       className='button'
                       onClick={() =>
-                        setShownTeachersCount(shownTeachersCount + 4)
+                        setShownTeachersCount(
+                          shownTeachersCount + showMoreTeachersAddendum
+                        )
                       }>
                       {at.en && 'Request full list'}
                       {at.ru && 'Запросить полный список'}
@@ -376,9 +391,14 @@ const Teachers = ({
               ) : (
                 <button
                   className='button'
-                  onClick={() => setShownTeachersCount(shownTeachersCount + 4)}>
+                  onClick={() =>
+                    setShownTeachersCount(
+                      shownTeachersCount + showMoreTeachersAddendum
+                    )
+                  }>
                   {at.en && 'Show more'}
-                  {at.ru && 'Показать ещё'}
+                  {at.ru &&
+                    `Ещё ${showMoreTeachersAddendum} преподавателя из ${teachers.length}`}
                 </button>
               )}
             </div>
