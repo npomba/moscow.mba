@@ -1,4 +1,5 @@
 import stls from '@/styles/pages/Payment.module.sass'
+import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
 import { GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
@@ -9,7 +10,6 @@ import 'reactjs-popup/dist/index.css'
 import PopupForm from '@/components/popups/PopupForm'
 import { contactData, routesFront } from '@/config/index'
 import { Breadcrumbs } from '@/components/general'
-import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
 import { usePageHandleContext } from '@/hooks/index'
 
 const PagePayment = ({ programs }) => {

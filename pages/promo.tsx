@@ -1,9 +1,9 @@
 import stls from '@/styles/pages/promo/Index.module.sass'
-import {
-  SetString,
-  HandleGetPrograms,
-  handleGetStaticProps
-} from '@/helpers/index'
+import { GetStaticProps } from 'next'
+import { routesFront } from '@/config/index'
+import { SetString } from '@/helpers/index'
+import { usePageHandleContext } from '@/hooks/index'
+import { handleGetStaticProps } from '@/lib/index'
 import lang from '@/data/translation/index'
 import { NextSeo } from 'next-seo'
 import JumbotronCta from '@/components/sections/JumbotronCta'
@@ -16,7 +16,7 @@ import Diploma from '@/components/sections/Diploma'
 import WhoItIsFor from '@/components/sections/WhoItIsFor'
 
 const PagePromo = ({ programs }) => {
-  HandleGetPrograms(programs)
+  usePageHandleContext({ programs })
   const courseOptions = {
     whoIsFor: [
       {
@@ -81,7 +81,7 @@ const PagePromo = ({ programs }) => {
   )
 }
 
-export const getStaticProps = async () =>
-  handleGetStaticProps({ ofType: 'mini', dataFor: 'promo' })
+export const getStaticProps: GetStaticProps = async context =>
+  await handleGetStaticProps({ page: routesFront.promo, context })
 
 export default PagePromo

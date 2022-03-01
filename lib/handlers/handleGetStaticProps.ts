@@ -10,6 +10,7 @@ import {
   getStaticPropsTeachers,
   getStaticPropsDefault,
   getStaticPropsPrograms,
+  getStaticPropsPagePromo,
   getStaticPropsPageJournalArticles,
   getStaticPropsPageJournalArticle
 } from '@/lib/index'
@@ -63,6 +64,9 @@ const handleGetStaticProps = async ({
 
     case routesFront.payment:
       return await getStaticPropsDefault({ context })
+
+    case routesFront.promo:
+      return await getStaticPropsPagePromo({ context })
 
     case routesFront.teachers:
       return await getStaticPropsTeachers({ context })

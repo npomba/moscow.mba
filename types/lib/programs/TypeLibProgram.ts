@@ -8,6 +8,9 @@ type TypeLibProgram = {
   duration?: {
     minStudyMonths: string | number | null
   } | null
+  whatWillYouLearn?: {
+    string: string | null
+  } | null
   category: {
     type: string | null
     slug: string | null

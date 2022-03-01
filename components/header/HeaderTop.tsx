@@ -44,12 +44,14 @@ const HeaderTop = ({ handleMenu, openMenu }) => {
         handleMenu={handleMenu}
         openMenu={openMenu}
       />
-      <HeaderNav
-        links={links}
-        classNames={[stls.border]}
-        handleMenu={handleMenu}
-        openMenu={openMenu}
-      />
+      {!at.promo && (
+        <HeaderNav
+          links={links}
+          classNames={[stls.border]}
+          handleMenu={handleMenu}
+          openMenu={openMenu}
+        />
+      )}
     </>
   )
 }

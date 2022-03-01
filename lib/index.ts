@@ -7,6 +7,7 @@ export { default as getStaticPathsPageJournalCategoryTagArticle } from '@/lib/ge
 export { default as getStaticPropsDefault } from '@/lib/getStaticProps/getStaticPropsDefault'
 export { default as getStaticPropsTeachers } from '@/lib/getStaticProps/getStaticPropsTeachers'
 export { default as getStaticPropsPageJournalArticles } from '@/lib/getStaticProps/getStaticPropsPageJournalArticles'
+export { default as getStaticPropsPagePromo } from '@/lib/getStaticProps/getStaticPropsPagePromo'
 export { default as getStaticPropsPrograms } from '@/lib/getStaticProps/getStaticPropsPrograms'
 export { default as getStaticPropsPageJournalArticle } from '@/lib/getStaticProps/getStaticPropsPageJournalArticle'
 

@@ -61,12 +61,6 @@ export type { default as TypePageHomeProps } from '@/types/page/home/props/TypeP
 // Page/home/queries
 export type { default as TypePageHomePropsQuery } from '@/types/page/home/queries/TypePageHomePropsQuery'
 
-// Page/home/props
-export type { default as TypePageTeachersProps } from '@/types/page/teachers/props/TypePageTeachersProps'
-
-// Page/home/queries
-export type { default as TypePageTeachersPropsQuery } from '@/types/page/teachers/queries/TypePageTeachersPropsQuery'
-
 // Page/journal/gspContext
 export type { default as TypePageJournalArticlesGspContext } from '@/types/page/journal/gspContext/TypePageJournalArticlesGspContext'
 // Page/journal/paths
@@ -82,6 +76,16 @@ export type { default as TypePageJournalArticlePropsQuery } from '@/types/page/j
 export type { default as TypePageJournalArticlesPropsQuery } from '@/types/page/journal/queries/TypePageJournalArticlesPropsQuery'
 export type { default as TypePageJournalCategoryPathsQuery } from '@/types/page/journal/queries/TypePageJournalCategoryPathsQuery'
 export type { default as TypePageJournalTagPathsQuery } from '@/types/page/journal/queries/TypePageJournalTagPathsQuery'
+
 // Page/programs/queries
 export type { default as TypePageProgramsProps } from '@/types/page/programs/props/TypePageProgramsProps'
 export type { default as TypePageProgramsPropsQuery } from '@/types/page/programs/queries/TypePageProgramsPropsQuery'
+
+// Page/promo/queries
+export type { default as TypePagePromoProps } from '@/types/page/promo/props/TypePagePromoProps'
+export type { default as TypePagePromoPropsQuery } from '@/types/page/promo/queries/TypePagePromoPropsQuery'
+
+// Page/teachers/props
+export type { default as TypePageTeachersProps } from '@/types/page/teachers/props/TypePageTeachersProps'
+// Page/teachers/queries
+export type { default as TypePageTeachersPropsQuery } from '@/types/page/teachers/queries/TypePageTeachersPropsQuery'
