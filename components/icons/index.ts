@@ -1,13 +1,13 @@
 // TODO: all icons should be restructured the way it's done in geometrics icons
 
-// geometrics
+// ./geometrics
 export { default as IconGeometricRectangle } from '@/components/icons/geometrics/IconGeometricRectangle'
 export { default as IconGeometricRightAngle } from '@/components/icons/geometrics/IconGeometricRightAngle'
 export { default as IconGeometricThreeHorizontalLines } from '@/components/icons/geometrics/IconGeometricThreeHorizontalLines'
 export { default as IconGeometricThreeVerticalLines } from '@/components/icons/geometrics/IconGeometricThreeVerticalLines'
 export { default as IconGeometricTwoRectangles } from '@/components/icons/geometrics/IconGeometricTwoRectangles'
 export { default as IconGeometricTwoRotatedRectangles } from '@/components/icons/geometrics/IconGeometricTwoRotatedRectangles'
-//
+// ./
 export { default as IconArrowLeft } from '@/components/icons/IconArrowLeft'
 export { default as IconArrowTopRight } from '@/components/icons/IconArrowTopRight'
 export { default as IconBell } from '@/components/icons/IconBell'

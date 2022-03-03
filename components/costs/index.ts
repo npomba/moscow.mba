@@ -1,3 +1,4 @@
+// ./
 export { default as Discount } from '@/components/costs/Discount'
 export { default as Loan } from '@/components/costs/Loan'
 export { default as Price } from '@/components/costs/Price'

@@ -1,4 +1,3 @@
-import MetaFonts from '@/components/meta/MetaFonts'
-import MetaManifest from '@/components/meta/MetaManifest'
-
-export { MetaFonts, MetaManifest }
+// ./
+export { default as MetaFonts } from '@/components/meta/MetaFonts'
+export { default as MetaManifest } from '@/components/meta/MetaManifest'

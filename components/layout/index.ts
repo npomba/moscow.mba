@@ -1,21 +1,10 @@
-import ContentJournalArticle from '@/components/layout/ContentJournalArticle'
-import Footer from '@/components/layout/Footer'
-import Header from '@/components/layout/Header'
-import Main from '@/components/layout/Main'
-import Overlay from '@/components/layout/Overlay'
-import StickyBottom from '@/components/layout/StickyBottom'
-import StickyBottomContainer from '@/components/layout/StickyBottomContainer'
-import Wrapper from '@/components/layout/Wrapper'
-import WrapperPage from '@/components/layout/WrapperPage'
-
-export {
-  ContentJournalArticle,
-  Footer,
-  Header,
-  Main,
-  Overlay,
-  StickyBottom,
-  StickyBottomContainer,
-  Wrapper,
-  WrapperPage
-}
+// ./
+export { default as ContentJournalArticle } from '@/components/layout/ContentJournalArticle'
+export { default as Footer } from '@/components/layout/Footer'
+export { default as Header } from '@/components/layout/Header'
+export { default as Main } from '@/components/layout/Main'
+export { default as Overlay } from '@/components/layout/Overlay'
+export { default as StickyBottom } from '@/components/layout/StickyBottom'
+export { default as StickyBottomContainer } from '@/components/layout/StickyBottomContainer'
+export { default as Wrapper } from '@/components/layout/Wrapper'
+export { default as WrapperPage } from '@/components/layout/WrapperPage'

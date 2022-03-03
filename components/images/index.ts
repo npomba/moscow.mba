@@ -12,4 +12,5 @@ export { default as ImgStickyBottomDecoration } from '@/components/images/newyea
 export { default as ImgStudentsDuringConference } from '@/components/images/sections/ImgStudentsDuringConference'
 // ./teachers
 export { default as ImgTeachersTeacher } from '@/components/images/teachers/ImgTeachersTeacher'
+// ./
 export { default as ImgTemplate } from '@/components/images/ImgTemplate'

@@ -1,3 +1,4 @@
+// ./
 export { default as Accordion } from '@/components/general/Accordion'
 export { default as AccordionsContainer } from '@/components/general/AccordionsContainer'
 export { default as AskQuestion } from '@/components/general/AskQuestion'

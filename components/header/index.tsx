@@ -1,3 +1,4 @@
+// ./
 export { default as HeaderInformation } from '@/components/header/HeaderInformation'
 export { default as HeaderMenu } from '@/components/header/HeaderMenu'
 export { default as HeaderMobileTabs } from '@/components/header/HeaderMobileTabs'
