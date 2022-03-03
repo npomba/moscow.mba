@@ -1,11 +1,13 @@
 import stls from '@/styles/components/header/HeaderMenu.module.sass'
-import { SetString, useAt, useWindowWidth } from '@/helpers/index'
-import HeaderPrograms from './HeaderPrograms'
-import HeaderTabs from './HeaderTabs'
+import { useState } from 'react'
 import langMenu from '@/data/translation/menu'
-import React, { useState } from 'react'
-import HeaderMobileTabs from './HeaderMobileTabs'
 import lang from '@/data/translation/header'
+import { SetString, useAt, useWindowWidth } from '@/helpers/index'
+import {
+  HeaderPrograms,
+  HeaderTabs,
+  HeaderMobileTabs
+} from '@/components/header'
 
 const HeaderMenu = ({ programs, handleMenu }) => {
   // TODO: this should be avoided and replaced with native css solution (media queries and display nones) because event listener on resize unnecessary slows apps perfomance, expecially on less powerful cpus. It will be ok for screen readers & robots. Screen readers don't read markup with display none. Robots are used to reading repeated content for mobile & desktop menus as long as semantics are good, so it won't effect seo

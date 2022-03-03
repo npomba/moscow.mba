@@ -4,7 +4,7 @@ import { SetString, useAt } from '@/helpers/index'
 import lang from '@/data/translation/index'
 import imageData from '@/data/images/conferencesInEurope'
 import { base64pixel } from '@/config/index'
-import Wrapper from '../layout/Wrapper'
+import { Wrapper } from '@/components/layout'
 
 const ConferencesInEurope = () => {
   const at = useAt()

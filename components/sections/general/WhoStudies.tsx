@@ -1,7 +1,7 @@
 import stls from '@/styles/components/sections/WhoStudies.module.sass'
 import { IconDecorativeLines } from '@/components/icons'
 import { CircularProgressbar } from 'react-circular-progressbar'
-import Wrapper from '../layout/Wrapper'
+import { Wrapper } from '@/components/layout'
 
 const WhoStudies = () => {
   return (

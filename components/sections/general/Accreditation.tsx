@@ -6,7 +6,7 @@ import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/about'
 import { IconPaperCorner } from '@/components/icons'
 import { base64pixel } from '@/config/index'
-import Wrapper from '../layout/Wrapper'
+import { Wrapper } from '@/components/layout'
 
 const Accreditation = () => {
   const logos = [

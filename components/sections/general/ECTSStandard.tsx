@@ -2,7 +2,7 @@ import stls from '@/styles/components/sections/ECTSStandard.module.sass'
 import { IconECTS } from '@/components/icons'
 import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/index'
-import Wrapper from '../layout/Wrapper'
+import { Wrapper } from '@/components/layout'
 
 const ECTSStandard = () => {
   return (

@@ -1,7 +1,6 @@
 import stls from '@/styles/components/header/HeaderPrograms.module.sass'
 import React from 'react'
-import ProgramsColumn from '../general/ProgramsColumn'
-import ProgramsList from '../general/ProgramsList'
+import { ProgramsColumn, ProgramsList } from '@/components/general'
 
 const HeaderPrograms = ({ programs, visible }) => {
   const program = () => {

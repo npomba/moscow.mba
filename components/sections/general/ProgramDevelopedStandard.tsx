@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/ProgramDevelopedStandard.module.sass'
 import { IconEmblem } from '@/components/icons'
-import Wrapper from '../layout/Wrapper'
+import { Wrapper } from '@/components/layout'
 
 const ProgramDevelopedStandard = () => {
   return (

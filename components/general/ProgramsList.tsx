@@ -9,8 +9,8 @@ import Discount from '@/components/costs/Discount'
 import menu from '@/data/translation/menu'
 import { ProgramsContext, MenuContext, OverlayContext } from '@/context/index'
 import { IconArrowLeft, IconClock, IconPaperCorner } from '@/components/icons'
-import TrainingPeriod from '../costs/TrainingPeriod'
-import ProgramSubjects from './ProgramSubjects'
+import { TrainingPeriod } from '@/components/costs'
+import { ProgramSubjects } from '@/components/general'
 
 const ProgramsList = ({ data, id, type }) => {
   const { closeMenu } = useContext(MenuContext)

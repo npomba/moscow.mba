@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/CompanyCard.module.sass'
 import { contactData } from '@/config/index'
-import Wrapper from '../layout/Wrapper'
+import { Wrapper } from '@/components/layout'
 
 const CompanyCard = () => {
   const contactInfo = contactData()

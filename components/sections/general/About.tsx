@@ -1,7 +1,7 @@
 import stls from '@/styles/components/sections/About.module.sass'
 import { SetString } from '@/helpers/index'
 import lang from '@/data/translation/index'
-import Wrapper from '../layout/Wrapper'
+import { Wrapper } from '@/components/layout'
 
 const About = () => {
   return (

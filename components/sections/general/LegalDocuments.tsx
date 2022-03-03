@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/LegalDocuments.module.sass'
 import { IconPaperCorner } from '@/components/icons'
-import Wrapper from '../layout/Wrapper'
+import { Wrapper } from '@/components/layout'
 
 const legalDocuments = [
   'Лицензия на осуществление образовательной деятельности',

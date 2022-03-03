@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import PopupReview from '@/components/popups/PopupReview'
-import Wrapper from '../layout/Wrapper'
+import { Wrapper } from '@/components/layout'
 
 const Reviews = () => {
   const reviews = [

@@ -17,7 +17,7 @@ import diplomaAddendumProfession from '@/public/assets/diplomas/profession/diplo
 
 import certificateCourses from '@/public/assets/diplomas/courses/certificate-courses.jpg'
 import qualificationCertificateCourses from '@/public/assets/diplomas/courses/qualification-certificate-courses.jpg'
-import Wrapper from '../layout/Wrapper'
+import { Wrapper } from '@/components/layout'
 
 const profIndDocuments = [
   {

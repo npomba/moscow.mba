@@ -3,7 +3,7 @@ import cn from 'classnames'
 import { useAt } from '@/helpers/index'
 import Image from 'next/image'
 import { IconCheck } from '@/components/icons'
-import Wrapper from '../layout/Wrapper'
+import { Wrapper } from '@/components/layout'
 
 const Pros = ({ format = 'online' }) => {
   const at = useAt()
