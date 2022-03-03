@@ -4,22 +4,24 @@ import { GetStaticProps } from 'next'
 import { TypePageTeachersProps } from '@/types/index'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import JumbotronMain from '@/components/sections/JumbotronMain'
-import About from '@/components/sections/About'
-import ConferencesInEurope from '@/components/sections/ConferencesInEurope'
-import ForeignAffiliates from '@/components/sections/ForeignAffiliates'
-import StudentsInternational from '@/components/sections/StudentsInternational'
-import CorporateClients from '@/components/sections/CorporateClients'
-import Teachers from '@/components/sections/Teachers'
-import UpToDateContent from '@/components/sections/UpToDateContent'
-import Accreditation from '@/components/sections/Accreditation'
+import lang from '@/data/translation/about'
+import langIndex from '@/data/translation/index'
+import { routesFront } from '@/config/index'
 import { SetString } from '@/helpers/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { usePageHandleContext } from '@/hooks/index'
-import { routesFront } from '@/config/index'
-import lang from '@/data/translation/about'
-import langIndex from '@/data/translation/index'
-import ContactUs from '@/components/sections/ContactUs'
+import {
+  JumbotronMain,
+  About,
+  ConferencesInEurope,
+  ForeignAffiliates,
+  StudentsInternational,
+  CorporateClients,
+  Teachers,
+  UpToDateContent,
+  Accreditation,
+  ContactUs
+} from '@/components/sections'
 
 const PageAbout: NextPage<TypePageTeachersProps> = ({ programs, teachers }) => {
   usePageHandleContext({ programs })

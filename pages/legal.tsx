@@ -1,18 +1,20 @@
 import stls from '@/styles/pages/Legal.module.sass'
+import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
 import { GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
-import { handleGetStaticProps } from '@/lib/index'
 import { routesFront } from '@/config/index'
-import { Breadcrumbs } from '@/components/general'
-import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
-import CurrentLicenses from '@/components/sections/CurrentLicenses'
-import MemberOfRabe from '@/components/sections/MemberOfRabe'
-import MemberOfAcicel from '@/components/sections/MemberOfAcicel'
-import OurDiplomasAndCertificates from '@/components/sections/OurDiplomasAndCertificates'
-import CompanyCard from '@/components/sections/CompanyCard'
-import LegalDocuments from '@/components/sections/LegalDocuments'
-import { Wrapper } from '@/components/layout'
+import { handleGetStaticProps } from '@/lib/index'
 import { usePageHandleContext } from '@/hooks/index'
+import { Breadcrumbs } from '@/components/general'
+import { Wrapper } from '@/components/layout'
+import {
+  CurrentLicenses,
+  MemberOfRabe,
+  MemberOfAcicel,
+  OurDiplomasAndCertificates,
+  CompanyCard,
+  LegalDocuments
+} from '@/components/sections'
 
 const PageLegal = ({ programs }) => {
   usePageHandleContext({ programs })

@@ -3,12 +3,12 @@ import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass
 import { GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import Teachers from '@/components/sections/Teachers'
-import { handleGetStaticProps } from '@/lib/index'
 import { routesFront } from '@/config/index'
+import { handleGetStaticProps } from '@/lib/index'
 import { usePageHandleContext } from '@/hooks/index'
-import { Breadcrumbs } from '@/components/general'
 import { Wrapper } from '@/components/layout'
+import { Breadcrumbs } from '@/components/general'
+import { Teachers } from '@/components/sections'
 
 const PageTeachers = ({ programs, teachers }) => {
   usePageHandleContext({ programs })
