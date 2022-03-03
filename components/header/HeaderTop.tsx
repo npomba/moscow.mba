@@ -14,7 +14,7 @@ const HeaderTop = ({ handleMenu, openMenu }) => {
     {
       href: '/teachers',
       val: SetString(lang.linkTeachers),
-      red: at.teachers,
+      red: at.teachers && !at.teachersTeacher,
       locale: 'ru'
     },
     {
@@ -44,12 +44,14 @@ const HeaderTop = ({ handleMenu, openMenu }) => {
         handleMenu={handleMenu}
         openMenu={openMenu}
       />
-      <HeaderNav
-        links={links}
-        classNames={[stls.border]}
-        handleMenu={handleMenu}
-        openMenu={openMenu}
-      />
+      {!at.promo && (
+        <HeaderNav
+          links={links}
+          classNames={[stls.border]}
+          handleMenu={handleMenu}
+          openMenu={openMenu}
+        />
+      )}
     </>
   )
 }

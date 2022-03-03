@@ -2,15 +2,17 @@ import {
   TypeLibJournalCategories,
   TypeLibJournalTags,
   TypeLibJournalArticles,
-  TypeLibJournalArticle
+  TypeLibJournalArticle,
+  TypeLibPrograms
 } from '@/types/index'
-import { ContextJournalContext } from '@/context/index'
+import { ProgramsContext, ContextJournalContext } from '@/context/index'
 import { useContext, useEffect } from 'react'
 
 type TypeUsePageHandleContextProps = {
-  readonly journalCategories: TypeLibJournalCategories | null
-  readonly journalTags: TypeLibJournalTags | null
-  readonly journalArticles: TypeLibJournalArticles | null
+  readonly programs: TypeLibPrograms
+  readonly journalCategories?: TypeLibJournalCategories | null
+  readonly journalTags?: TypeLibJournalTags | null
+  readonly journalArticles?: TypeLibJournalArticles | null
   readonly journalArticlesArticle?: TypeLibJournalArticle | null
   readonly gspContextParamsJournalCategory?: string | null
   readonly gspContextParamsJournalCategoryTag?: string | null
@@ -18,6 +20,7 @@ type TypeUsePageHandleContextProps = {
 }
 
 const usePageHandleContext = ({
+  programs,
   journalCategories,
   journalTags,
   journalArticles,
@@ -26,6 +29,8 @@ const usePageHandleContext = ({
   gspContextParamsJournalCategoryTag,
   gspContextParamsJournalCategoryTagArticle
 }: TypeUsePageHandleContextProps) => {
+  const { setPrograms } = useContext(ProgramsContext)
+
   const {
     setJournalCategories,
     setJournalTags,
@@ -38,6 +43,7 @@ const usePageHandleContext = ({
   // const { setProgram } = useContext(ProgramContext)
 
   useEffect(() => {
+    setPrograms(programs || null)
     setJournalCategories(journalCategories || null)
     setJournalTags(journalTags || null)
     setJournalArticles(journalArticles || null)
@@ -49,7 +55,13 @@ const usePageHandleContext = ({
     setGSPContextParamsJournalCategoryTagArticle(
       gspContextParamsJournalCategoryTagArticle || null
     )
-  }, [journalCategories, journalTags, journalArticles, journalArticlesArticle])
+  }, [
+    programs,
+    journalCategories,
+    journalTags,
+    journalArticles,
+    journalArticlesArticle
+  ])
 }
 
 export default usePageHandleContext

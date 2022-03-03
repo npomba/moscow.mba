@@ -1,15 +1,17 @@
-import stls from '@/styles/pages/Teachers.module.sass'
+import stls from '@/styles/pages/teachers/PageTeachers.module.sass'
 import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
+import { GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import Teachers from '@/components/sections/Teachers'
-import { handleGetStaticProps, HandleGetPrograms } from '@/helpers/index'
-
+import { handleGetStaticProps } from '@/lib/index'
+import { routesFront } from '@/config/index'
+import { usePageHandleContext } from '@/hooks/index'
 import { Breadcrumbs } from '@/components/general'
 import { Wrapper } from '@/components/layout'
 
 const PageTeachers = ({ programs, teachers }) => {
-  HandleGetPrograms(programs)
+  usePageHandleContext({ programs })
   return (
     <>
       <NextSeo
@@ -30,6 +32,7 @@ const PageTeachers = ({ programs, teachers }) => {
   )
 }
 
-export const getStaticProps = async () => handleGetStaticProps()
+export const getStaticProps: GetStaticProps = async context =>
+  await handleGetStaticProps({ page: routesFront.teachers, context })
 
 export default PageTeachers

@@ -91,7 +91,7 @@ const ProgramsModules = ({ program, smallerMb = false }) => {
             <div className={stls.list}>
               {programModulesBase.map((module, idx) => (
                 <ProgramsModule
-                  key={module.id}
+                  key={`ProgramsModule-${idx}`}
                   title={`${idx + 1} модуль`}
                   subTitle={module.title && module.title}
                   items={module.subjects}
@@ -121,7 +121,7 @@ const ProgramsModules = ({ program, smallerMb = false }) => {
             <>
               {programModulesSpecialty.map((module, idx) => (
                 <ProgramsModule
-                  key={module.id}
+                  key={`programModulesSpecialty-${idx}`}
                   title={`${idx + 1} модуль`}
                   subTitle={module.title && module.title}
                   items={module.subjects}

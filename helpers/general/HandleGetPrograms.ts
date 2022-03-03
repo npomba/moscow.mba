@@ -1,8 +1,8 @@
 import { useContext, useEffect } from 'react'
-import programsContext from '@/context/programs/programsContext'
+import { ProgramsContext } from '@/context/index'
 
 const HandleGetPrograms = data => {
-  const { setPrograms } = useContext(programsContext)
+  const { setPrograms } = useContext(ProgramsContext)
 
   useEffect(() => {
     setPrograms(data)

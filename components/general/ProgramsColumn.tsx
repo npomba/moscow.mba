@@ -8,9 +8,7 @@ import Price from '@/components/costs/Price'
 import { ProgramSubjects, ProgramsQty } from '@/components/general'
 import TrainingPeriod from '@/components/costs/TrainingPeriod'
 import Discount from '@/components/costs/Discount'
-import MenuContext from '@/context/menu/menuContext'
-import OverlayContext from '@/context/overlay/overlayContext'
-import ImgDiscountDecoration from '@/components/images/newyears/ImgDiscountDecoration'
+import { MenuContext, OverlayContext } from '@/context/index'
 import {
   IconCheckCircle,
   IconScreen,
@@ -27,18 +25,21 @@ const ProgramsColumn = ({ data, id, type }) => {
     closeMenu()
     hideOverlay()
   }
-  const programsOnline = data.filter(
+  const programsOnline = data?.filter(
     program =>
       program.category?.type === type && program.studyFormat === 'online'
   )
-  const programsBlended = data.filter(
+  const programsBlended = data?.filter(
     program =>
       program.category?.type === type && program.studyFormat === 'blended'
   )
-  const [onlineOrBlended, setOnlineOrBlended] = useState('online')
+  const [programFormat, setProgramFormat] = useState('online')
 
-  const columnPrograms = (array, format, count = 15) => {
-    return array.map((item, idx) => {
+  // TODO: columnPrograms should be renamed to ProgramsColumn. Current file should be renamed to ProgramsColumns.
+  // TODO: columnPrograms should be it's own component in the separate file in ./components/listItems/ColumnPrograms
+  // TODO: condition should be dropped. View all link should be added into ul right below ColumnPrograms component
+  const columnPrograms = (arr, format, count = 15) =>
+    arr?.map((item, idx) => {
       if (idx < count) {
         return (
           <li key={item.id || item._id} className={stls.listItem}>
@@ -51,7 +52,7 @@ const ProgramsColumn = ({ data, id, type }) => {
         )
       } else if (idx === count) {
         return (
-          <li className={stls.listItem} key={item.id || item._id}>
+          <li key={item.id || item._id} className={stls.listItem}>
             <Link href={`/programs/${type}/${format}`} locale='ru'>
               <a className={stls.link} onClick={handleLinkClick}>
                 {SetString(langMenu.linkAllPrograms)}
@@ -62,7 +63,6 @@ const ProgramsColumn = ({ data, id, type }) => {
         )
       }
     })
-  }
 
   return (
     <ul id={id} className={cn(stls.container)}>
@@ -74,16 +74,16 @@ const ProgramsColumn = ({ data, id, type }) => {
         <div className={stls.navigation}>
           <button
             className={cn(stls.programBtn, {
-              [stls.active]: onlineOrBlended === 'online'
+              [stls.active]: programFormat === 'online'
             })}
-            onClick={() => setOnlineOrBlended('online')}>
+            onClick={() => setProgramFormat('online')}>
             online
           </button>
           <button
             className={cn(stls.programBtn, {
-              [stls.active]: onlineOrBlended === 'blended'
+              [stls.active]: programFormat === 'blended'
             })}
-            onClick={() => setOnlineOrBlended('blended')}>
+            onClick={() => setProgramFormat('blended')}>
             blended
           </button>
         </div>
@@ -127,7 +127,7 @@ const ProgramsColumn = ({ data, id, type }) => {
       <li className={stls.column}>
         <div
           className={cn(stls.itemDetails, {
-            [stls.activeOnline]: onlineOrBlended === 'online'
+            [stls.activeOnline]: programFormat === 'online'
           })}>
           <div className={stls.itemTitle}>
             {SetString(langMenu.onlineTitle)}
@@ -178,7 +178,7 @@ const ProgramsColumn = ({ data, id, type }) => {
         </div>
         <div
           className={cn(stls.itemDetails, {
-            [stls.activeBlended]: onlineOrBlended === 'blended'
+            [stls.activeBlended]: programFormat === 'blended'
           })}>
           <div className={stls.itemTitle}>
             {SetString(langMenu.blendedTitle)}

@@ -1,6 +1,5 @@
 import { useContext } from 'react'
-import OverlayContext from '@/context/overlay/overlayContext'
-import MenuContext from '@/context/menu/menuContext'
+import { OverlayContext, MenuContext } from '@/context/index'
 import cn from 'classnames'
 
 const Main = ({ children }) => {

@@ -1,8 +1,11 @@
+import { GetStaticProps } from 'next'
 import Webinars from '@/components/pages/Webinars'
-import { HandleGetPrograms, handleGetStaticProps } from '@/helpers/index'
+import { routesFront } from '@/config/index'
+import { handleGetStaticProps } from '@/lib/index'
+import { usePageHandleContext } from '@/hooks/index'
 
 const PageWebinarsUpcoming = ({ programs }) => {
-  HandleGetPrograms(programs)
+  usePageHandleContext({ programs })
 
   return (
     <Webinars
@@ -13,6 +16,7 @@ const PageWebinarsUpcoming = ({ programs }) => {
   )
 }
 
-export const getStaticProps = async () => handleGetStaticProps()
+export const getStaticProps: GetStaticProps = async context =>
+  await handleGetStaticProps({ page: routesFront.webinarsUpcoming, context })
 
 export default PageWebinarsUpcoming

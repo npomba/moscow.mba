@@ -1,4 +1,7 @@
 import stls from '@/styles/pages/About.module.sass'
+import type { NextPage } from 'next'
+import { GetStaticProps } from 'next'
+import { TypePageTeachersProps } from '@/types/index'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import JumbotronMain from '@/components/sections/JumbotronMain'
@@ -10,17 +13,16 @@ import CorporateClients from '@/components/sections/CorporateClients'
 import Teachers from '@/components/sections/Teachers'
 import UpToDateContent from '@/components/sections/UpToDateContent'
 import Accreditation from '@/components/sections/Accreditation'
-import {
-  SetString,
-  handleGetStaticProps,
-  HandleGetPrograms
-} from '@/helpers/index'
+import { SetString } from '@/helpers/index'
+import { handleGetStaticProps } from '@/lib/index'
+import { usePageHandleContext } from '@/hooks/index'
+import { routesFront } from '@/config/index'
 import lang from '@/data/translation/about'
 import langIndex from '@/data/translation/index'
 import ContactUs from '@/components/sections/ContactUs'
 
-const PageAbout = ({ programs, teachers }) => {
-  HandleGetPrograms(programs)
+const PageAbout: NextPage<TypePageTeachersProps> = ({ programs, teachers }) => {
+  usePageHandleContext({ programs })
 
   return (
     <>
@@ -29,24 +31,21 @@ const PageAbout = ({ programs, teachers }) => {
         description={truncate(`${SetString(langIndex.headerSubtitle)}`, 120)}
         canonical={'https://moscow.mba/about'}
       />
-
       <JumbotronMain />
-
-      <div className={stls.container}>
-        <About />
-        <ConferencesInEurope />
-        <ForeignAffiliates />
-        <StudentsInternational />
-        <CorporateClients />
-        <Teachers teachers={teachers} />
-        <UpToDateContent />
-        <Accreditation />
-        <ContactUs overlapsFooter />
-      </div>
+      <About />
+      <ConferencesInEurope />
+      <ForeignAffiliates />
+      <StudentsInternational />
+      <CorporateClients />
+      <Teachers teachers={teachers} />
+      <UpToDateContent />
+      <Accreditation />
+      <ContactUs overlapsFooter />
     </>
   )
 }
 
-export const getStaticProps = async () => handleGetStaticProps()
+export const getStaticProps: GetStaticProps = async context =>
+  await handleGetStaticProps({ page: routesFront.about, context })
 
 export default PageAbout

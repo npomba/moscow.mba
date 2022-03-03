@@ -10,7 +10,7 @@ const Students = () => {
 
   return (
     <section className={stls.container}>
-      <Wrapper>
+      <Wrapper classNames={[stls.wrapper]}>
         <div className={stls.title}>Более 2000</div>
         <div className={stls.content}>
           <div className={stls.detail}>

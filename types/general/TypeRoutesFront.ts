@@ -14,6 +14,8 @@ type TypeRoutesFront = {
   webinars: '/webinars'
   webinarsArchive: '/webinars/archive'
   webinarsUpcoming: '/webinars/upcoming'
+  programs: '/programs'
+  program: '/programs/[type]/[format]/[slug]'
   programsExecutive: '/programs/executive'
   programsInternationalBusinessLaw: '/programs/international-business-law'
   programsMba: '/programs/mba'
@@ -24,6 +26,7 @@ type TypeRoutesFront = {
   programsMiniOnline: '/programs/mini/online'
   programsMiniBlended: '/programs/mini/blended'
   programsProfessionOnline: '/programs/profession/online'
+  teachersTeacher: '/teachers/[teacher]'
 }
 
 export default TypeRoutesFront

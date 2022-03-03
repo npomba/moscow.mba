@@ -1,14 +1,18 @@
 import stls from '@/styles/components/sections/Teachers.module.sass'
+import { TypeLibTeacher, TypeLibTeachers } from '@/types/index'
+import Link from 'next/link'
+import { useState } from 'react'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import { useAt, SetString } from '@/helpers/index'
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 import PopupForm from '@/components/popups/PopupForm'
+import { PopupTeacher } from '@/components/popups'
 import lang from 'data/translation/about'
 import imagesData from '@/data/images/teachers'
-import { IconCheck } from '@/components/icons'
-import { base64pixel } from '@/config/index'
+import { IconCheck, IconMoreThan } from '@/components/icons'
+import { routesFront, base64pixel } from '@/config/index'
 import cn from 'classnames'
 import { Wrapper } from '@/components/layout'
 
@@ -25,6 +29,62 @@ const splitParaText = (string, splitBy) => {
   return [firstPartOfString, secondPartOfString]
 }
 
+const LiTeacherContent = ({
+  teacher,
+  atStandAlonePage
+}: {
+  teacher: TypeLibTeacher | null
+  atStandAlonePage?: boolean
+}) => {
+  return (
+    <div className={stls.teachersItem}>
+      <div className={stls.teachersItemWrapper}>
+        <div className={stls.image}>
+          <Image
+            src={teacher?.portrait?.url}
+            alt={teacher?.name}
+            width={teacher?.portrait?.width}
+            height={teacher?.portrait?.height}
+            layout='responsive'
+            placeholder='blur'
+            blurDataURL={base64pixel}
+          />
+        </div>
+        <div className={stls.teachersItemContent}>
+          <div>
+            <div className={stls.name}>{teacher?.name}</div>
+            <p className={stls.description}>{teacher?.description}</p>
+          </div>
+          <div
+            className={cn(stls.bio, stls.phone, {
+              [stls.atStandAlonePage]: atStandAlonePage
+            })}>
+            <p
+              className={cn(stls.bioP, {
+                [stls.atStandAlonePage]: atStandAlonePage
+              })}>
+              Биография
+            </p>
+            <IconMoreThan classNames={[stls.icon]} />
+          </div>
+        </div>
+      </div>
+      <div
+        className={cn(stls.bio, stls.tabletLaptopDesktopWidescreen, {
+          [stls.atStandAlonePage]: atStandAlonePage
+        })}>
+        <p
+          className={cn(stls.bioP, {
+            [stls.atStandAlonePage]: atStandAlonePage
+          })}>
+          Биография
+        </p>
+        <IconMoreThan classNames={[stls.icon]} />
+      </div>
+    </div>
+  )
+}
+
 const Teachers = ({
   programTitle = null,
   programId = null,
@@ -33,6 +93,9 @@ const Teachers = ({
 }) => {
   const at = useAt()
   const router = useRouter()
+
+  const [shownTeachersCount, setShownTeachersCount] = useState(8)
+  const showMoreTeachersAddendum = 4
 
   const defaultTeachers = [
     {
@@ -156,9 +219,11 @@ const Teachers = ({
     wordToSplitBy.specialists[router.locale]
   )
 
-  const UITeachers = atStandAlonePage
-    ? teachers
-    : teachers.filter(teacher => teacher?.programs?.includes(programId))
+  const UITeachers: TypeLibTeachers | null =
+    teachers?.filter((teacher, idx) => teacher && idx < shownTeachersCount) ||
+    defaultTeachers?.filter(
+      (teacher, idx) => teacher && idx < shownTeachersCount
+    )
 
   return (
     <>
@@ -286,32 +351,44 @@ const Teachers = ({
               [stls.teachersList]: true,
               [stls.teachersListProfession]: at.profession || at.course
             })}>
-            {UITeachers &&
-              UITeachers.length > 0 &&
+            {UITeachers?.length > 0 &&
               UITeachers.map((teacher, idx) => (
-                <li key={teacher.name + idx}>
-                  {console.log(teacher.name)}
-                  <div className={stls.teachersItem}>
-                    <div className={stls.image}>
-                      <Image
-                        src={teacher.portrait?.url}
-                        alt={teacher.name}
-                        width={teacher.portrait?.width}
-                        height={teacher.portrait?.height}
-                        layout='responsive'
-                        placeholder='blur'
-                        blurDataURL={base64pixel}
-                      />
-                    </div>
-                    <div>
-                      <div className={stls.name}>{teacher.name}</div>
-                      <p>{teacher.description}</p>
-                    </div>
-                  </div>
+                <li
+                  key={`${teacher?.name || 'LiTeacherContent'}-${idx}`}
+                  className={stls.teachersListItem}>
+                  {atStandAlonePage || at.about ? (
+                    <Link
+                      href={`${routesFront.teachers}/${
+                        teacher?.slug || 'teacher'
+                      }`}>
+                      <a className={stls.a}>
+                        <LiTeacherContent
+                          teacher={teacher}
+                          atStandAlonePage={atStandAlonePage}
+                        />
+                      </a>
+                    </Link>
+                  ) : (
+                    <Popup
+                      trigger={
+                        <a href='#!' className={stls.a}>
+                          <LiTeacherContent
+                            teacher={teacher}
+                            atStandAlonePage={atStandAlonePage}
+                          />
+                        </a>
+                      }
+                      modal
+                      nested>
+                      {close => (
+                        <PopupTeacher close={close} teacher={teacher} />
+                      )}
+                    </Popup>
+                  )}
                 </li>
               ))}
           </ul>
-          {UITeachers && UITeachers.length === 0 && (
+          {UITeachers?.length === 0 && (
             <div className={stls.getAllTeachers}>
               <h3 className={stls.getAllTeachersTitle}>
                 Получите полный список преподавателей
@@ -345,26 +422,49 @@ const Teachers = ({
               </div>
             </div>
           )}
-          {UITeachers && UITeachers.length > 0 && (
+          {UITeachers?.length > 0 && (
             <div className={stls.btn}>
-              <Popup
-                trigger={
-                  <button className='button'>
-                    {SetString(lang.teachersCtaBtn)}
-                  </button>
-                }
-                modal
-                nested>
-                {close => (
-                  <PopupForm
-                    programId={programId}
-                    programTitle={programTitle}
-                    closePopUpForm={close}
-                    title={SetString(lang.teachersPopupFormTitle)}
-                    disc={SetString(lang.teachersPopupFormDics)}
-                  />
-                )}
-              </Popup>
+              {shownTeachersCount >= teachers?.length ? (
+                <Popup
+                  trigger={
+                    <button
+                      className='button'
+                      onClick={() =>
+                        setShownTeachersCount(
+                          shownTeachersCount + showMoreTeachersAddendum
+                        )
+                      }>
+                      {at.en && 'Request full list'}
+                      {at.ru && 'Запросить полный список'}
+                    </button>
+                  }
+                  modal
+                  nested>
+                  {close => (
+                    <PopupForm
+                      programId={programId}
+                      programTitle={programTitle}
+                      closePopUpForm={close}
+                      title={SetString(lang.teachersPopupFormTitle)}
+                      disc={SetString(lang.teachersPopupFormDics)}
+                    />
+                  )}
+                </Popup>
+              ) : (
+                <button
+                  className='button'
+                  onClick={() =>
+                    setShownTeachersCount(
+                      shownTeachersCount + showMoreTeachersAddendum
+                    )
+                  }>
+                  {at.en && 'Show more'}
+                  {at.ru &&
+                    `Ещё ${showMoreTeachersAddendum} преподавателя${
+                      teachers?.length ? ` из ${teachers.length}` : undefined
+                    }`}
+                </button>
+              )}
             </div>
           )}
         </Wrapper>

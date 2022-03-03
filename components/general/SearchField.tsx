@@ -1,5 +1,5 @@
 import stls from '@/styles/components/general/SearchField.module.sass'
-import programsContext from '@/context/programs/programsContext'
+import { ProgramsContext } from '@/context/index'
 import { useAt } from '@/helpers/index'
 import { useContext, useState } from 'react'
 import Popup from 'reactjs-popup'
@@ -14,7 +14,7 @@ const SearchField = () => {
   const [openLoader, setOpenLoader] = useState(false)
 
   const [value, setValue] = useState('')
-  const { filteredPrograms, setSearchProgram } = useContext(programsContext)
+  const { filteredPrograms, setSearchProgram } = useContext(ProgramsContext)
 
   const handleSearch = () => setSearchProgram(value.toLowerCase())
 

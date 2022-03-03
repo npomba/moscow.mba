@@ -1,8 +1,11 @@
+@use 'sass:math'
 @use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+@use '@/styles/shared/journal' as j
 
 .container
   position: relative
-  overflow: hidden
   z-index: 2
   // padding-left: 220px
   margin-bottom: 170px
@@ -12,9 +15,6 @@
     margin-bottom: 80px
   @include m.media(tablet, phone)
     margin-bottom: 60px
-
-.wrapper
- 
 
 .circle
   position: absolute
@@ -32,12 +32,14 @@
 
 .flexContainer
   display: flex
+  justify-content: space-between
   @include m.media(laptop, tablet, phone)
     display: block
 
 .descContainer
-  flex-grow: 1
   padding-top: 65px
+  @include m.media(widescreen)
+    padding-left: f.px(220)
   @include m.media(laptop, tablet, phone)
     padding-top: 0
 
@@ -59,19 +61,20 @@
     margin-bottom: 40px
 
 .image
-  img
-    height: 100%
-    width: 100%
-    object-fit: cover
+  @include m.media(laptop, desktop, widescreen)
+    max-width: f.px(623)
 
 .imageContainer
   margin-left: 32px
-  width: 415px
+  max-width: f.px(415)
+  min-width: f.px(415)
   flex-shrink: 0
   @include m.media(laptop, tablet, phone)
     display: none
-  .image
-    height: 100%
 
 .red
   color: #ff3535
+
+.laptopDesktopWindescreen
+  @include m.media(phone, tablet)
+    display: none

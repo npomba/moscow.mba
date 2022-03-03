@@ -21,6 +21,10 @@ const useAt = () => {
     return getSplitedPath[0] === 'teachers'
   }
 
+  const teachersTeacher = () => {
+    return getSplitedPath[0] === 'teachers' && (!!getSplitedPath?.[1] || false)
+  }
+
   const legal = () => {
     return getSplitedPath[0] === 'legal' && !getSplitedPath[1]
   }
@@ -124,6 +128,7 @@ const useAt = () => {
     index: index(),
     about: about(),
     teachers: teachers(),
+    teachersTeacher: teachersTeacher(),
     legal: legal(),
     promo: promo(),
     mini: mini(),

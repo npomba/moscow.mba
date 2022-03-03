@@ -24,6 +24,13 @@ const SectionJournalTagedArticles = ({
     ContextJournalContext
   )
 
+  if (
+    journalArticles?.filter(article =>
+      tag ? article.journal_tag.slug === tag.slug : article
+    ).length === 0
+  )
+    return null
+
   return (
     <section
       className={

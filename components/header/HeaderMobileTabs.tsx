@@ -1,4 +1,4 @@
-import stls from '@/styles/components/header/HeaderTabsModile.module.sass'
+import stls from '@/styles/components/header/HeaderMobileTabs.module.sass'
 import Link from 'next/link'
 import { SetString } from '@/helpers/index'
 import cn from 'classnames'
@@ -11,7 +11,8 @@ import menu from '@/data/translation/menu'
 import HeaderPrograms from '@/components/header/HeaderPrograms'
 import { Wrapper } from '@/components/layout'
 
-const HeaderTabsModile = ({
+// TODO: whole component should be devided into multiple components. Each component would be a step in mobile menu.
+const HeaderMobileTabs = ({
   tabs,
   links,
   handleMouseEnter,
@@ -32,6 +33,7 @@ const HeaderTabsModile = ({
       <div className={stls.content}>
         <Wrapper classNames={[stls.wrapper]}>
           <ul className={stls.links}>
+            {/* TODO: onClick should be on the button, not on li */}
             <li
               onClick={() => setOpenMenu(true)}
               className={cn(stls.link, stls.bold)}>
@@ -131,4 +133,4 @@ const HeaderTabsModile = ({
   )
 }
 
-export default HeaderTabsModile
+export default HeaderMobileTabs

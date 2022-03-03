@@ -1,19 +1,18 @@
 import stls from '@/styles/pages/Contact.module.sass'
+import { GetStaticProps } from 'next'
 import { NextSeo, CorporateContactJsonLd } from 'next-seo'
 import truncate from 'truncate'
-import {
-  SetString,
-  HandleGetPrograms,
-  handleGetStaticProps
-} from '@/helpers/index'
+import { SetString } from '@/helpers/index'
+import { handleGetStaticProps } from '@/lib/index'
 import lang from '@/data/translation/header'
 import { ContactCards, Breadcrumbs } from '@/components/general'
-import { contactData } from '@/config/index'
+import { contactData, routesFront } from '@/config/index'
+import { usePageHandleContext } from '@/hooks/index'
 
 import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
 
 const PageContact = ({ programs }) => {
-  HandleGetPrograms(programs)
+  usePageHandleContext({ programs })
   const contactInfo = contactData()
   return (
     <>
@@ -53,6 +52,7 @@ const PageContact = ({ programs }) => {
   )
 }
 
-export const getStaticProps = async () => handleGetStaticProps()
+export const getStaticProps: GetStaticProps = async context =>
+  await handleGetStaticProps({ page: routesFront.contact, context })
 
 export default PageContact

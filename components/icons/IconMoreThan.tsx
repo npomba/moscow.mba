@@ -1,0 +1,28 @@
+import stls from '@/styles/components/icons/IconMoreThan.module.sass'
+import { TypeClassNames } from '@/types/index'
+import cn from 'classnames'
+import { colors } from '@/config/index'
+import { getClassNames } from '@/helpers/index'
+
+type TypeIconMoreThanProps = TypeClassNames
+
+const IconMoreThan = ({ classNames }: TypeIconMoreThanProps) => {
+  return (
+    <div
+      className={cn(stls.container, getClassNames({ classNames })) || undefined}
+      aria-hidden={'true'}>
+      <svg viewBox='0 0 8 11' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <title>Стрелка вправо</title>
+        <path
+          d='M2 1.5L6 5.5L2 9.5'
+          stroke={colors.alpha}
+          strokeWidth='2'
+          strokeLinecap='round'
+          strokeLinejoin='round'
+        />
+      </svg>
+    </div>
+  )
+}
+
+export default IconMoreThan

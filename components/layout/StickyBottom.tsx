@@ -8,7 +8,7 @@ import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import PopupForm from '@/components/popups/PopupForm'
 import PopupLearnMore from '@/components/popups/PopupLearnMore'
-import OverlayContext from '@/context/overlay/overlayContext'
+import { OverlayContext } from '@/context/index'
 
 const StickyBottom = ({
   openStickyModule,

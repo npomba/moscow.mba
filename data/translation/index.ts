@@ -134,11 +134,6 @@ const index = {
     en: 'Conferences'
   },
 
-  orgTitleSecond: {
-    ru: 'в Европе',
-    en: 'in Europe'
-  },
-
   orgDisc: {
     ru: 'Несколько раз в год мы проводим конференции на актуальные темы',
     en: 'We meet to discuss the most relevant topics several times a year'

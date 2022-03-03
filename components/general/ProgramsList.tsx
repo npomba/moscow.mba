@@ -1,7 +1,5 @@
 import stls from '@/styles/components/general/ProgramsList.module.sass'
 import { Fragment, useContext } from 'react'
-import MenuContext from '@/context/menu/menuContext'
-import OverlayContext from '@/context/overlay/overlayContext'
 import cn from 'classnames'
 import Link from 'next/link'
 import langMenu from '@/data/translation/menu'
@@ -9,20 +7,21 @@ import { SetString, useAt } from '@/helpers/index'
 import Until from '@/components/costs/Until'
 import Discount from '@/components/costs/Discount'
 import menu from '@/data/translation/menu'
-import programsContext from '@/context/programs/programsContext'
-import { IconArrowLeft, IconClock, IconPaperCorner } from '../icons'
+import { ProgramsContext, MenuContext, OverlayContext } from '@/context/index'
+import { IconArrowLeft, IconClock, IconPaperCorner } from '@/components/icons'
 import TrainingPeriod from '../costs/TrainingPeriod'
 import ProgramSubjects from './ProgramSubjects'
 
 const ProgramsList = ({ data, id, type }) => {
   const { closeMenu } = useContext(MenuContext)
   const { hideOverlay } = useContext(OverlayContext)
-  const { studyFields, studyFieldsWithSlugs } = useContext(programsContext)
+  const { studyFields, studyFieldsWithSlugs } = useContext(ProgramsContext)
   const handleLinkClick = () => {
     closeMenu()
     hideOverlay()
   }
 
+  // TODO: figure out a better way to do this
   const programs = []
   studyFieldsWithSlugs.map(studyField => {
     let filter = {
@@ -46,7 +45,7 @@ const ProgramsList = ({ data, id, type }) => {
 
   const columnPrograms = array => {
     return array.map((key, i) => (
-      <Fragment key={i}>
+      <Fragment key={`columnPrograms-${i}`}>
         <div className={stls.listTitle}>{key.title}</div>
         {key.fields.map((item, idx) => {
           if (idx < 5) {
@@ -103,7 +102,7 @@ const ProgramsList = ({ data, id, type }) => {
       </div>
       <div className={stls.itemDetails}>
         <ul className={stls.list}>
-          {programs && programs.length > 3 ? (
+          {programs?.length > 3 ? (
             <>
               <li className={stls.column}>
                 {columnPrograms(
@@ -120,7 +119,7 @@ const ProgramsList = ({ data, id, type }) => {
               </li>
             </>
           ) : (
-            <>{columnPrograms(programs)}</>
+            <li className={stls.column}>{columnPrograms(programs)}</li>
           )}
         </ul>
       </div>

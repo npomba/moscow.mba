@@ -13,13 +13,13 @@ import {
 } from '@/components/general'
 import { CardProgram } from '@/components/cards'
 import { IconCheckCircle } from '@/components/icons'
-import programsContext from '@/context/programs/programsContext'
+import { ProgramsContext } from '@/context/index'
 
 const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
   const at = useAt()
 
   const { studyFields, curStudyField, setCurStudyField } =
-    useContext(programsContext)
+    useContext(ProgramsContext)
 
   useEffect(() => {
     if ((at.profession || at.course) && !curStudyField)

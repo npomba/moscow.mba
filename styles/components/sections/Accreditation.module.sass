@@ -17,21 +17,14 @@
     overflow: hidden
   
 .image
-  height: 100%  
   width: 50%
   left: -1px
   overflow: hidden
-  position: absolute
+  @include m.media(desktop, widescreen)
+    position: absolute
   z-index: 2
-  & div
-    height: 100%
-  img
-    object-fit: cover
-  @include m.media(laptop)
+  @include m.media(phone, tablet, laptop)
     width: 100%
-  @include m.media(tablet, phone)
-    position: static
-    width: calc(100%)
     margin-bottom: 30px
 
 .content
@@ -43,7 +36,6 @@
     padding-left: 50px
   @include m.media(laptop, tablet, phone)
     margin-left: 0
-    margin-top: 701px
     min-height: 1px
     padding: 40px 50px 30px
   @include m.media(tablet, phone)

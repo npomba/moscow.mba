@@ -42,7 +42,6 @@ const CourseOnlineProgram = ({ program, teachers }) => {
 
       <JumbotronProgram program={data} />
 
-      {/* <div className={stls.container}> */}
       <WhatWillYouLearn data={data} />
       <ProgramDesc />
       <ProgramDevelopedStandard />
@@ -76,7 +75,6 @@ const CourseOnlineProgram = ({ program, teachers }) => {
         titleNewStr={'Получите консультацию по программам'}
         overlapsFooter
       />
-      {/* </div> */}
     </>
   )
 }

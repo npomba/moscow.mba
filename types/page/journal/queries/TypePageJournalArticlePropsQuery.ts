@@ -1,4 +1,5 @@
 import {
+  TypeLibPrograms,
   TypeLibJournalCategories,
   TypeLibJournalTags,
   TypeLibJournalArticles,
@@ -6,6 +7,7 @@ import {
 } from '@/types/index'
 
 type TypePageJournalArticlePropsQuery = {
+  readonly programs: TypeLibPrograms | null
   readonly journalCategories: TypeLibJournalCategories | null
   readonly journalTags: TypeLibJournalTags | null
   readonly journalArticles: TypeLibJournalArticles | null

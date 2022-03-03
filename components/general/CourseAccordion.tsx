@@ -127,8 +127,10 @@ const CourseAccordion = ({
             })}>
             <p className={stls.listTitle}>Чему научитесь:</p>
             <ul className={stls.whatWillLearnList}>
-              {whatWillYouLearn.map(item => (
-                <li key={item.id} className={stls.whatWillLearnItem}>
+              {whatWillYouLearn.map((item, idx) => (
+                <li
+                  key={`whatWillYouLearn-${idx}`}
+                  className={stls.whatWillLearnItem}>
                   {item.string || item}
                 </li>
               ))}
@@ -145,7 +147,7 @@ const CourseAccordion = ({
             </ul>
             <ul className={stls.courseProsList}>
               {coursePros.map((pro, idx) => (
-                <li key={idx} className={stls.courseProsItem}>
+                <li key={`coursePros-${idx}`} className={stls.courseProsItem}>
                   <IconCheckCircle />
                   <p className={stls.courseProDesc}>{pro}</p>
                 </li>

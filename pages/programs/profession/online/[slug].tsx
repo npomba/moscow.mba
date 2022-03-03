@@ -1,28 +1,30 @@
+import { GetStaticPaths, GetStaticProps } from 'next'
+import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
+import { usePageHandleContext } from '@/hooks/index'
+import { routesFront } from '@/config/index'
 import ProfessionOnlineProgram from '@/components/pages/ProfessionOnlineProgram'
-import {
-  handleGetStaticProps,
-  handleGetStaticPaths,
-  HandleGetPrograms
-} from '@/helpers/index'
 
-const PageProgramsProfessionOnlineProgram = ({
-  program,
-  programs,
-  teachers
-}) => {
-  HandleGetPrograms(programs)
+const PageProgramsProfessionOnlineProgram = ({ program, programs }) => {
+  usePageHandleContext({ programs })
 
-  return <ProfessionOnlineProgram program={program} teachers={teachers} />
+  return (
+    <ProfessionOnlineProgram program={program} teachers={program?.teachers} />
+  )
 }
 
-export const getStaticProps = async context =>
-  handleGetStaticProps({
-    programSlug: context.params.slug,
-    programStudyFormat: 'online',
-    programType: 'profession'
+export const getStaticProps: GetStaticProps = async context =>
+  await handleGetStaticProps({
+    page: routesFront.program,
+    context,
+    type: 'profession',
+    format: 'online'
   })
 
-export const getStaticPaths = async () =>
-  handleGetStaticPaths({ studyFormat: 'online', type: 'profession' })
+export const getStaticPaths: GetStaticPaths = async () =>
+  await handleGetStaticPaths({
+    page: routesFront.program,
+    type: 'profession',
+    format: 'online'
+  })
 
 export default PageProgramsProfessionOnlineProgram

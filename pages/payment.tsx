@@ -1,18 +1,20 @@
 import stls from '@/styles/pages/Payment.module.sass'
+import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
+import { GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import Image from 'next/image'
-import { handleGetStaticProps, HandleGetPrograms } from '@/helpers/index'
+import { handleGetStaticProps } from '@/lib/index'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
 import PopupForm from '@/components/popups/PopupForm'
-import { contactData } from '@/config/index'
-
+import { contactData, routesFront } from '@/config/index'
 import { Breadcrumbs } from '@/components/general'
-import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
+import { usePageHandleContext } from '@/hooks/index'
 
 const PagePayment = ({ programs }) => {
-  HandleGetPrograms(programs)
+  usePageHandleContext({ programs })
+
   const contactInfo = contactData()
 
   return (
@@ -133,6 +135,7 @@ const PagePayment = ({ programs }) => {
   )
 }
 
-export const getStaticProps = async () => handleGetStaticProps()
+export const getStaticProps: GetStaticProps = async context =>
+  await handleGetStaticProps({ page: routesFront.payment, context })
 
 export default PagePayment

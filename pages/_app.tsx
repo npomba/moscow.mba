@@ -10,9 +10,7 @@ import NProgress from 'nprogress'
 import Router from 'next/router'
 import 'nprogress/nprogress.css'
 import Script from 'next/script'
-import MenuState from '@/context/menu/MenuState'
-import OverlayState from '@/context/overlay/OverlayState'
-import ProgramsState from '@/context/programs/ProgramsState'
+import { MenuState, OverlayState, ProgramsState } from '@/context/index'
 import { ContextJournalState } from '@/context/index'
 
 function MyApp({ Component, pageProps, router }) {
