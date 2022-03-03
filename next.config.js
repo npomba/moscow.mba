@@ -10,6 +10,7 @@ module.exports = {
   //   disable: dev
   // },
   // reactStrictMode: true,
+  staticPageGenerationTimeout: 120,
   poweredByHeader: false,
   i18n: {
     locales: ['ru', 'en-US'],
