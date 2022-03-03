@@ -1,9 +1,8 @@
 import stls from '@/styles/components/sections/ProgramDevelopedStandard.module.sass'
-import React from 'react'
 import { IconEmblem } from '@/components/icons'
 import Wrapper from '../layout/Wrapper'
 
-const ProgramDevelopedStandard: React.FC = () => {
+const ProgramDevelopedStandard = () => {
   return (
     <section className={stls.container}>
       <Wrapper classNames={[stls.wrapper]}>
