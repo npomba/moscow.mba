@@ -1,57 +1,27 @@
-import Accordion from '@/components/general/Accordion'
-import AccordionsContainer from '@/components/general/AccordionsContainer'
-import AskQuestion from '@/components/general/AskQuestion'
-import BreadcrumbItem from '@/components/general/BreadcrumbItem'
-import Breadcrumbs from '@/components/general/Breadcrumbs'
-import ContactCards from '@/components/general/ContactCards'
-import CourseAccordion from '@/components/general/CourseAccordion'
-import Filters from '@/components/general/Filters'
-import GeneralJournalArticleCreatedAt from '@/components/general/GeneralJournalArticleCreatedAt'
-import GeneralJournalSectionTitle from '@/components/general/GeneralJournalSectionTitle'
-import HelpWithEmploymentItem from '@/components/general/HelpWithEmploymentItem'
-import ImageContainer from '@/components/general/ImageContainer'
-import InfoRectangle from '@/components/general/InfoRectangle'
-import JumbotronLabel from '@/components/general/JumbotronLabel'
-import LeadLoaderThankyou from '@/components/general/LeadLoaderThankyou'
-import MovingWithScroll from '@/components/general/MovingWithScroll'
-import Pagination from '@/components/general/Pagination'
-import PdfDocument from '@/components/general/PdfDocument'
-import ProgramsColumn from '@/components/general/ProgramsColumn'
-import ProgramsList from '@/components/general/ProgramsList'
-import ProgramsModule from '@/components/general/ProgramsModule'
-import ProgramsQty from '@/components/general/ProgramsQty'
-import ProgramSubjects from '@/components/general/ProgramSubjects'
-import SearchField from '@/components/general/SearchField'
-import Sticker from '@/components/general/Sticker'
-import Stickers from '@/components/general/Stickers'
-import WhoItIsForItem from '@/components/general/WhoItIsForItem'
-
-export {
-  Accordion,
-  AccordionsContainer,
-  AskQuestion,
-  BreadcrumbItem,
-  Breadcrumbs,
-  ContactCards,
-  CourseAccordion,
-  Filters,
-  GeneralJournalArticleCreatedAt,
-  GeneralJournalSectionTitle,
-  HelpWithEmploymentItem,
-  ImageContainer,
-  InfoRectangle,
-  JumbotronLabel,
-  LeadLoaderThankyou,
-  MovingWithScroll,
-  Pagination,
-  PdfDocument,
-  ProgramsColumn,
-  ProgramsList,
-  ProgramsModule,
-  ProgramsQty,
-  ProgramSubjects,
-  SearchField,
-  Sticker,
-  Stickers,
-  WhoItIsForItem
-}
+export { default as Accordion } from '@/components/general/Accordion'
+export { default as AccordionsContainer } from '@/components/general/AccordionsContainer'
+export { default as AskQuestion } from '@/components/general/AskQuestion'
+export { default as BreadcrumbItem } from '@/components/general/BreadcrumbItem'
+export { default as Breadcrumbs } from '@/components/general/Breadcrumbs'
+export { default as ContactCards } from '@/components/general/ContactCards'
+export { default as CourseAccordion } from '@/components/general/CourseAccordion'
+export { default as Filters } from '@/components/general/Filters'
+export { default as GeneralJournalArticleCreatedAt } from '@/components/general/GeneralJournalArticleCreatedAt'
+export { default as GeneralJournalSectionTitle } from '@/components/general/GeneralJournalSectionTitle'
+export { default as HelpWithEmploymentItem } from '@/components/general/HelpWithEmploymentItem'
+export { default as ImageContainer } from '@/components/general/ImageContainer'
+export { default as InfoRectangle } from '@/components/general/InfoRectangle'
+export { default as JumbotronLabel } from '@/components/general/JumbotronLabel'
+export { default as LeadLoaderThankyou } from '@/components/general/LeadLoaderThankyou'
+export { default as MovingWithScroll } from '@/components/general/MovingWithScroll'
+export { default as Pagination } from '@/components/general/Pagination'
+export { default as PdfDocument } from '@/components/general/PdfDocument'
+export { default as ProgramsColumn } from '@/components/general/ProgramsColumn'
+export { default as ProgramsList } from '@/components/general/ProgramsList'
+export { default as ProgramsModule } from '@/components/general/ProgramsModule'
+export { default as ProgramsQty } from '@/components/general/ProgramsQty'
+export { default as ProgramSubjects } from '@/components/general/ProgramSubjects'
+export { default as SearchField } from '@/components/general/SearchField'
+export { default as Sticker } from '@/components/general/Sticker'
+export { default as Stickers } from '@/components/general/Stickers'
+export { default as WhoItIsForItem } from '@/components/general/WhoItIsForItem'
