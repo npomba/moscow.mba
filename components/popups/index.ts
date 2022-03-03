@@ -1,3 +1,4 @@
+// ./
 export { default as PopupForm } from '@/components/popups/PopupForm'
 export { default as PopupImage } from '@/components/popups/PopupImage'
 export { default as PopupInfo } from '@/components/popups/PopupInfo'
