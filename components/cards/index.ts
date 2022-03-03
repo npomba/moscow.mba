@@ -1,5 +1,3 @@
-import CardContact from '@/components/cards/CardContact'
-import CardJournalArticle from '@/components/cards/CardJournalArticle'
-import CardProgram from '@/components/cards/CardProgram'
-
-export { CardContact, CardJournalArticle, CardProgram }
+export { default as CardContact } from '@/components/cards/CardContact'
+export { default as CardJournalArticle } from '@/components/cards/CardJournalArticle'
+export { default as CardProgram } from '@/components/cards/CardProgram'
