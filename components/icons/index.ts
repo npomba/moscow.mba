@@ -1,4 +1,4 @@
-// all icons should be restructured the way it's done in geometrics icons
+// TODO: all icons should be restructured the way it's done in geometrics icons
 
 // geometrics
 export { default as IconGeometricRectangle } from '@/components/icons/geometrics/IconGeometricRectangle'
@@ -35,6 +35,8 @@ export { default as IconPhoneAlt } from '@/components/icons/IconPhoneAlt'
 export { default as IconQuote } from '@/components/icons/IconQuote'
 export { default as IconRosObrInsignia } from '@/components/icons/IconRosObrInsignia'
 export { default as IconScreen } from '@/components/icons/IconScreen'
+export { default as IconSearch } from '@/components/icons/IconSearch'
+export { default as IconSpinner } from '@/components/icons/IconSpinner'
 export { default as IconTelegram } from '@/components/icons/IconTelegram'
 export { default as IconTelegramAlt } from '@/components/icons/IconTelegramAlt'
 export { default as IconTriangleBottom } from '@/components/icons/IconTriangleBottom'
@@ -42,5 +44,3 @@ export { default as IconViber } from '@/components/icons/IconViber'
 export { default as IconVk } from '@/components/icons/IconVk'
 export { default as IconWhatsapp } from '@/components/icons/IconWhatsapp'
 export { default as IconWhatsappAlt } from '@/components/icons/IconWhatsappAlt'
-export { default as IconSpinner } from '@/components/icons/IconSpinner'
-export { default as IconSearch } from '@/components/icons/IconSearch'
