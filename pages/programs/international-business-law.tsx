@@ -1,4 +1,4 @@
-import { handleGetStaticProps, HandleGetPrograms } from '@/helpers/index'
+import { handleGetStaticProps } from '@/helpers/index'
 import { usePageHandleContext } from '@/hooks/index'
 import InternationalBusinessLaw from '@/components/pages/InternationalBusinessLaw'
 
