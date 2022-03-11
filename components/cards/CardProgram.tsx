@@ -1,4 +1,4 @@
-import stls from '@/styles/components/cards/Cardprogram?.module.sass'
+import stls from '@/styles/components/cards/Cardprogram.module.sass'
 import Link from 'next/link'
 import Price from '@/components/costs/Price'
 import { IconArrowTopRight } from '@/components/icons'

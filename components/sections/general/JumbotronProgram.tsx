@@ -1,4 +1,4 @@
-import stls from '@/styles/components/sections/Jumbotronprogram?.module.sass'
+import stls from '@/styles/components/sections/Jumbotronprogram.module.sass'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
