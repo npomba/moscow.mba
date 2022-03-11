@@ -10,7 +10,7 @@ const PagePrograms = ({ programs }) => {
   usePageHandleContext({ programs })
   const data = programs.filter(
     program =>
-      program.studyFormat === 'online' && program.category?.type === 'mini'
+      program?.studyFormat === 'online' && program?.category?.type === 'mini'
   )
 
   return (

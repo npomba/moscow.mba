@@ -11,7 +11,7 @@ const PageProgramsMiniBlended = ({ programs }) => {
 
   const data = programs.filter(
     program =>
-      program.studyFormat === 'blended' && program.category?.type === 'mini'
+      program?.studyFormat === 'blended' && program?.category?.type === 'mini'
   )
 
   return (

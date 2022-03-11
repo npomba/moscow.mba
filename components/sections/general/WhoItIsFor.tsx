@@ -17,8 +17,8 @@ const WhoItIsFor = ({ program }) => {
           className={cn(stls.itemsContainer, {
             [stls.noBottomLine]: at.promo
           })}>
-          {program.whoIsFor &&
-            program.whoIsFor.map(({ name, description }, idx) => (
+          {program?.whoIsFor &&
+            program?.whoIsFor.map(({ name, description }, idx) => (
               <WhoItIsForItem
                 key={name + idx}
                 name={name}

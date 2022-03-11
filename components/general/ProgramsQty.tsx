@@ -16,7 +16,7 @@ const ProgramsQty = ({
       programs &&
       programs.filter(
         program =>
-          program.category?.type === type && program.studyFormat === format
+          program?.category?.type === type && program?.studyFormat === format
       ).length
   else ProgramsQty = programs.length
 

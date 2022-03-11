@@ -1,4 +1,4 @@
-import stls from '@/styles/components/cards/CardProgram.module.sass'
+import stls from '@/styles/components/cards/Cardprogram?.module.sass'
 import Link from 'next/link'
 import Price from '@/components/costs/Price'
 import { IconArrowTopRight } from '@/components/icons'
@@ -10,7 +10,7 @@ const CardProgram = ({ professionLayout, program, number, type, format }) => {
   const at = useAt()
 
   return (
-    <Link href={`/programs/${type}/${format}/${program.slug}`}>
+    <Link href={`/programs/${type}/${format}/${program?.slug}`}>
       <a className={stls.container}>
         <div className={stls.arrow}>
           <IconArrowTopRight />
@@ -35,16 +35,16 @@ const CardProgram = ({ professionLayout, program, number, type, format }) => {
               discount={!at.blended}
               type={type}
               format={format}
-              programPrice={(at.profession || at.course) && program.price}
+              programPrice={(at.profession || at.course) && program?.price}
               renderedByComponent='CardProgram'
             />
           </div>
           <div className={stls.duration}>
-            {program.duration ? (
-              `${program.duration?.minStudyMonths} ${SetString(
+            {program?.duration ? (
+              `${program?.duration?.minStudyMonths} ${SetString(
                 lang.months,
                 false,
-                getStringDeclensionNumber(program.duration?.minStudyMonths)
+                getStringDeclensionNumber(program?.duration?.minStudyMonths)
               )}`
             ) : (
               <TrainingPeriod type={type} />

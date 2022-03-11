@@ -10,8 +10,8 @@ const PageProgramsProfessionOnline = ({ programs }) => {
   usePageHandleContext({ programs })
   const data = programs.filter(
     program =>
-      program.studyFormat === 'online' &&
-      program.category?.type === 'profession'
+      program?.studyFormat === 'online' &&
+      program?.category?.type === 'profession'
   )
 
   return (

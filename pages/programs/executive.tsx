@@ -27,17 +27,17 @@ const PageProgramsExecutive = ({ program, programs, teachers }) => {
   return (
     <>
       <NextSeo
-        title={`${program.title} - Moscow Business Academy`}
-        description={truncate(program.description, 120)}
+        title={`${program?.title} - Moscow Business Academy`}
+        description={truncate(program?.description, 120)}
         canonical={'https://moscow.mba/programs/executive'}
       />
       <CourseJsonLd
-        courseName={`${program.title} MBA`}
+        courseName={`${program?.title} MBA`}
         provider={{
           name: 'Moscow Business Academy',
           url: 'https://moscow.mba/programs/executive'
         }}
-        description={truncate(program.description, 120)}
+        description={truncate(program?.description, 120)}
       />
 
       <JumbotronProgram program={program} />
@@ -48,15 +48,15 @@ const PageProgramsExecutive = ({ program, programs, teachers }) => {
       <WhoStudies />
       <ProgramsModules program={program} />
       <ContactUs
-        programId={program._id}
-        programTitle={program.title}
+        programId={program?._id}
+        programTitle={program?.title}
         title={'Получите консультацию'}
         titleNewStr={'по программе обучени'}
       />
       <Accreditation />
       <Teachers
-        programId={program._id}
-        programTitle={program.title}
+        programId={program?._id}
+        programTitle={program?.title}
         teachers={teachers}
       />
       <Rules prices={{ lowerPrice: '600 000', higherPrice: '2 000 000' }} />
@@ -65,14 +65,14 @@ const PageProgramsExecutive = ({ program, programs, teachers }) => {
       <Reviews />
       {/* ! Fix bug with price */}
       <CostOfStudy
-        programId={program._id}
-        programTitle={program.title}
+        programId={program?._id}
+        programTitle={program?.title}
         programType='executive'
       />
-      <Qna programId={program._id} programTitle={program.title} />
+      <Qna programId={program?._id} programTitle={program?.title} />
       <ContactUs
-        programId={program._id}
-        programTitle={program.title}
+        programId={program?._id}
+        programTitle={program?.title}
         title={'Не знаете что выбрать?'}
         titleNewStr={'Получите консультацию по программам MBA'}
       />

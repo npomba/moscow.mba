@@ -7,8 +7,8 @@ const createBlended = (programs: TypePrograms) => [
   ...programs
     .filter(
       program =>
-        program.category?.type === categories.mini ||
-        program.category?.type === categories.mba
+        program?.category?.type === categories.mini ||
+        program?.category?.type === categories.mba
     )
     .map(program => {
       const id = uuidv4()

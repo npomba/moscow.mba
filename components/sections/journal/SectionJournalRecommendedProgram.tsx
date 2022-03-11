@@ -1,4 +1,4 @@
-import stls from '@/styles/components/sections/journal/SectionJournalRecommendedProgram.module.sass'
+import stls from '@/styles/components/sections/journal/SectionJournalRecommendedprogram?.module.sass'
 import { TypeClassNames, TypeLibJournalArticleProgram } from '@/types/index'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
@@ -20,7 +20,7 @@ const SectionJournalRecommendedProgram = ({
       }>
       <Wrapper column>
         <ContentJournalArticle classNames={[stls.content]}>
-          {program.title}
+          {program?.title}
         </ContentJournalArticle>
       </Wrapper>
     </section>

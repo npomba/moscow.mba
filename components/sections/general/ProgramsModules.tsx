@@ -31,39 +31,39 @@ const ProgramsModules = ({ program, smallerMb = false }) => {
                 {at.executive ? (
                   <ProgramSubjects subjects='base' />
                 ) : (
-                  program && program.baseSubjects?.length
+                  program && program?.baseSubjects?.length
                 )}
               </div>
               <p className={stls.p}>
-                {program.programModulesCounters?.leftCounter ===
+                {program?.programModulesCounters?.leftCounter ===
                 'specializedlAcademicDisciplines'
                   ? 'профильных дисциплин'
-                  : program.programModulesCounters?.leftCounter ===
+                  : program?.programModulesCounters?.leftCounter ===
                     'academicDisciplines'
                   ? 'дисциплин'
-                  : program.programModulesCounters?.leftCounter ===
+                  : program?.programModulesCounters?.leftCounter ===
                     'generalAcademicDisciplines'
                   ? 'дисциплин базовой части'
                   : 'дисциплин'}
               </p>
             </li>
             <li className={stls.redItem}>
-              {program.programModulesCounters?.rightCounter === 'icon' ? (
+              {program?.programModulesCounters?.rightCounter === 'icon' ? (
                 <>
                   <div className={stls.number}>
                     <IconCheckCircleAltDim />
                   </div>
                   <p className={stls.p}>Практика и защита дипломной работы</p>
                 </>
-              ) : program.programModulesCounters?.rightCounter ===
+              ) : program?.programModulesCounters?.rightCounter ===
                 'specializedlAcademicDisciplines' ? (
                 <>
                   <div className={stls.number}>
-                    {program.specializedSubjects.length}
+                    {program?.specializedSubjects.length}
                   </div>
                   <p className={stls.p}>дисциплин специализации</p>
                 </>
-              ) : program.programModulesCounters?.rightCounter ===
+              ) : program?.programModulesCounters?.rightCounter ===
                 'practiceAndExam' ? (
                 <>
                   <div className={stls.number}>
@@ -77,10 +77,10 @@ const ProgramsModules = ({ program, smallerMb = false }) => {
             </li>
           </ul>
         </div>
-        {program && program.baseSubjects?.length > 0 && !at.executive && (
+        {program && program?.baseSubjects?.length > 0 && !at.executive && (
           <>
             {program &&
-              program.baseSubjects?.length > 0 &&
+              program?.baseSubjects?.length > 0 &&
               !at.executive &&
               !at.profession &&
               !at.course && (
@@ -110,14 +110,14 @@ const ProgramsModules = ({ program, smallerMb = false }) => {
 
         <div className={stls.list}>
           {program &&
-            program.specializedSubjects?.length > 0 &&
+            program?.specializedSubjects?.length > 0 &&
             !at.profession &&
             !at.course && (
               <div className={stls.pl}>
                 <h3 className={stls.h3}>Специализированные дисциплины</h3>
               </div>
             )}
-          {program.specializedSubjects?.length > 0 && (
+          {program?.specializedSubjects?.length > 0 && (
             <>
               {programModulesSpecialty.map((module, idx) => (
                 <ProgramsModule
@@ -129,7 +129,7 @@ const ProgramsModules = ({ program, smallerMb = false }) => {
               ))}
             </>
           )}
-          {program.specializedSubjectsAddons?.Practice ? (
+          {program?.specializedSubjectsAddons?.Practice ? (
             <ProgramsModule
               title='Практика'
               subTitle=''
@@ -140,7 +140,7 @@ const ProgramsModules = ({ program, smallerMb = false }) => {
                 'Эссе'
               ]}
             />
-          ) : program.specializedSubjectsAddons?.OfflineModule ? (
+          ) : program?.specializedSubjectsAddons?.OfflineModule ? (
             <ProgramsModule
               title='Очный модуль'
               subTitle=''
@@ -151,7 +151,7 @@ const ProgramsModules = ({ program, smallerMb = false }) => {
                 'Защита проектов и выпускной вечер'
               ]}
             />
-          ) : program.specializedSubjectsAddons?.diplomaProtection ? (
+          ) : program?.specializedSubjectsAddons?.diplomaProtection ? (
             <ProgramsModule
               title='Защита диплома'
               items={[
@@ -164,9 +164,9 @@ const ProgramsModules = ({ program, smallerMb = false }) => {
           )}
         </div>
 
-        {program.subjectsStickerType && (
+        {program?.subjectsStickerType && (
           <div className={stls.sticker}>
-            {program.subjectsStickerType === 'finalAttestation' ? (
+            {program?.subjectsStickerType === 'finalAttestation' ? (
               <Sticker
                 type={'long'}
                 clr={'light'}
@@ -176,7 +176,7 @@ const ProgramsModules = ({ program, smallerMb = false }) => {
                   'Защита итоговой аттестационной работы'
                 ]}
               />
-            ) : program.subjectsStickerType === 'fullTimeModuleInMoscow' ? (
+            ) : program?.subjectsStickerType === 'fullTimeModuleInMoscow' ? (
               <Sticker
                 type={'long'}
                 clr={'light'}
@@ -188,7 +188,7 @@ const ProgramsModules = ({ program, smallerMb = false }) => {
                   'Защита проектов и выпускной вечер'
                 ]}
               />
-            ) : program.subjectsStickerType ===
+            ) : program?.subjectsStickerType ===
               'practiceModulesAndFinalAttestation' ? (
               <Stickers>
                 <Sticker

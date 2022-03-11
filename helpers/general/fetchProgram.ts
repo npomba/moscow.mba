@@ -15,7 +15,7 @@ const fetchProgram = async ({ slug, studyFormat, type }: TypeFetchProgram) => {
     `${routesBack.root}${routesBack.programsProgram}/${type}.${slug}`
   )
 
-  const programData = program.data
+  const programData = program?.data
 
   if (studyFormat === studyFormats.blended) {
     const id = uuidv4()

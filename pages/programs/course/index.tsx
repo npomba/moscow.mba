@@ -11,7 +11,7 @@ const PageProgramsCourse = ({ programs }) => {
 
   const data = programs.filter(
     program =>
-      program.studyFormat === 'online' && program.category?.type === 'course'
+      program?.studyFormat === 'online' && program?.category?.type === 'course'
   )
 
   return (

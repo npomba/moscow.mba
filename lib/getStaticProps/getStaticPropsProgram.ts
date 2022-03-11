@@ -152,7 +152,7 @@ const getStaticPropsProgram = async ({
       programs: createBlended(res?.data?.programs),
       program:
         createBlended(res?.data?.program)?.filter(
-          program => program.studyFormat === format
+          program => program?.studyFormat === format
         )?.[0] || null
     },
     revalidate: revalidate.default

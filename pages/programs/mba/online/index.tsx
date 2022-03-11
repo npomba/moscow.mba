@@ -10,7 +10,7 @@ const PageProgramsMbaOnline = ({ programs }) => {
   usePageHandleContext({ programs })
   const data = programs.filter(
     program =>
-      program.studyFormat === 'online' && program.category?.type === 'mba'
+      program?.studyFormat === 'online' && program?.category?.type === 'mba'
   )
 
   return (

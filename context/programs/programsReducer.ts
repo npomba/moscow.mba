@@ -33,7 +33,7 @@ const programsReducer = (state, action, at = null) => {
         return {
           label: studyField,
           slug: programs?.filter(
-            program => program.study_field?.name === studyField
+            program => program?.study_field?.name === studyField
           )?.[0]?.study_field?.slug
         }
       })

@@ -1,4 +1,4 @@
-import stls from '@/styles/components/sections/JumbotronProgram.module.sass'
+import stls from '@/styles/components/sections/Jumbotronprogram?.module.sass'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import 'reactjs-popup/dist/index.css'
@@ -27,9 +27,9 @@ const JumbotronProgram = ({ program }) => {
   return (
     <section className={stls.container}>
       <div className={stls.image}>
-        {program.picture?.url && (
+        {program?.picture?.url && (
           <Image
-            src={program.picture.url}
+            src={program?.picture.url}
             alt='Студенты обучаются'
             layout='fill'
             priority
@@ -60,11 +60,11 @@ const JumbotronProgram = ({ program }) => {
                 className={cn({
                   [stls.smallerTitle]: at.profession || at.course
                 })}>
-                {program.title}
+                {program?.title}
               </h1>
               <div className={stls.desc}>
                 {at.profession || at.course
-                  ? program.description
+                  ? program?.description
                   : 'Оставьте заявку и получите консультацию по программе, а также узнайте возможные варианты скидок и требования к поступлению'}
               </div>
               <div className={stls.btnLoanGroup}>
@@ -74,8 +74,8 @@ const JumbotronProgram = ({ program }) => {
                   nested>
                   {close => (
                     <PopupForm
-                      programId={program._id}
-                      programTitle={program.title}
+                      programId={program?._id}
+                      programTitle={program?.title}
                       title={'Получите консультацию'}
                       closePopUpForm={close}
                     />
@@ -88,10 +88,10 @@ const JumbotronProgram = ({ program }) => {
                       Можно учиться в рассрочку за{' '}
                       <Loan
                         discount={isDiscounted}
-                        type={program.category?.type}
-                        format={program.studyFormat}
+                        type={program?.category?.type}
+                        format={program?.studyFormat}
                         notComparingPrices
-                        programPrice={program.price}
+                        programPrice={program?.price}
                       />
                     </p>
                   </div>
@@ -122,9 +122,9 @@ const JumbotronProgram = ({ program }) => {
             </ul>
           </div>
           <InfoRectangle
-            type={program.category?.type ?? 'executive'}
-            format={program.studyFormat}
-            studyDurationMonths={program.duration?.minStudyMonths}
+            type={program?.category?.type ?? 'executive'}
+            format={program?.studyFormat}
+            studyDurationMonths={program?.duration?.minStudyMonths}
           />
         </div>
       </div>

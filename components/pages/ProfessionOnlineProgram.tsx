@@ -1,4 +1,4 @@
-import stls from '@/styles/components/pages/ProfessionOnlineProgram.module.sass'
+import stls from '@/styles/components/pages/ProfessionOnlineprogram?.module.sass'
 import { NextSeo, CourseJsonLd } from 'next-seo'
 import { useRouter } from 'next/router'
 import truncate from 'truncate'

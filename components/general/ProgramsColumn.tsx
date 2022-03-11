@@ -27,11 +27,11 @@ const ProgramsColumn = ({ data, id, type }) => {
   }
   const programsOnline = data?.filter(
     program =>
-      program.category?.type === type && program.studyFormat === 'online'
+      program?.category?.type === type && program?.studyFormat === 'online'
   )
   const programsBlended = data?.filter(
     program =>
-      program.category?.type === type && program.studyFormat === 'blended'
+      program?.category?.type === type && program?.studyFormat === 'blended'
   )
   const [programFormat, setProgramFormat] = useState('online')
 
