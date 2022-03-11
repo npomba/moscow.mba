@@ -6,7 +6,7 @@ const ProgramGoal = ({ data }) => {
     <section className={stls.container}>
       <Wrapper classNames={[stls.content]}>
         <h2>Цель программы</h2>
-        <div className={stls.goals}>{data.goal}</div>
+        <div className={stls.goals}>{data?.goal}</div>
       </Wrapper>
     </section>
   )
