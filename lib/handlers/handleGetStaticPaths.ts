@@ -35,27 +35,35 @@ const handleGetStaticPaths = async ({
     | []
   fallback: boolean | 'blocking'
 }> => {
-  switch (page) {
-    case routesFront.program:
-      return await getStaticPathsPageProgram({ format, type })
+  try {
+    switch (page) {
+      case routesFront.program:
+        return await getStaticPathsPageProgram({ format, type })
 
-    case routesFront.teachersTeacher:
-      return await getStaticPathsPageTeachersTeacher()
+      case routesFront.teachersTeacher:
+        return await getStaticPathsPageTeachersTeacher()
 
-    case routesFront.journalCategory:
-      return await getStaticPathsPageJournalCategory()
+      case routesFront.journalCategory:
+        return await getStaticPathsPageJournalCategory()
 
-    case routesFront.journalCategoryTag:
-      return await getStaticPathsPageJournalCategoryTag()
+      case routesFront.journalCategoryTag:
+        return await getStaticPathsPageJournalCategoryTag()
 
-    case routesFront.journalCategoryTagArticle:
-      return await getStaticPathsPageJournalCategoryTagArticle()
+      case routesFront.journalCategoryTagArticle:
+        return await getStaticPathsPageJournalCategoryTagArticle()
 
-    default:
-      return {
-        paths: [],
-        fallback: fallback.default
-      }
+      default:
+        return {
+          paths: [],
+          fallback: fallback.default
+        }
+    }
+  } catch (err) {
+    console.log(err)
+    return {
+      paths: [],
+      fallback: fallback.default
+    }
   }
 }
 
