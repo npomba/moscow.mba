@@ -4,7 +4,7 @@ const revalidate = async (req, res) => {
   }
 
   try {
-    await res.unstable_revalidate(req.query.path)
+    await res.unstable_revalidate(decodeURIComponent(req.query.path))
     return res.json({ revalidated: true })
   } catch (err) {
     console.log(err)
