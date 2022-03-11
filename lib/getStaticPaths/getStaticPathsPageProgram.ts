@@ -1,6 +1,6 @@
 import { TypePageProgramPaths, TypePageProgramPathsQuery } from '@/types/index'
 import { gql } from '@apollo/client'
-import apolloClient from 'apolloClient'
+import apolloClient from '@/lib/apolloClient'
 import { fallback } from '@/config/index'
 
 type TypeGetStaticPathsPageProgram = {

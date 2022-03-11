@@ -3,7 +3,7 @@ import {
   TypePageJournalTagPathsQuery
 } from '@/types/index'
 import { gql } from '@apollo/client'
-import apolloClient from 'apolloClient'
+import apolloClient from '@/lib/apolloClient'
 import { fallback } from '@/config/index'
 
 const getStaticPathsPageJournalCategoryTag = async (): Promise<{

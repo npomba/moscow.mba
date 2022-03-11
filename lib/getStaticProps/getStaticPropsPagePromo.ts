@@ -1,7 +1,7 @@
 import { GetStaticPropsContext } from 'next'
 import { TypePagePromoProps, TypePagePromoPropsQuery } from '@/types/index'
 import { gql } from '@apollo/client'
-import apolloClient from 'apolloClient'
+import apolloClient from '@/lib/apolloClient'
 import { revalidate } from '@/config/index'
 import { createBlended } from '@/helpers/index'
 
