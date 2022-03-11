@@ -22,14 +22,14 @@ const programsReducer = (state, action, at = null) => {
 
       // const studyFields = getStudyFields(programs)
       const studyFields = programs
-        .reduce((acc, cur) => {
+        ?.reduce((acc, cur) => {
           if (!acc.includes(cur.study_field?.name))
             acc.push(cur.study_field?.name)
           return acc
         }, [])
         .filter(field => field)
 
-      const studyFieldsWithSlugs = studyFields.map(studyField => {
+      const studyFieldsWithSlugs = studyFields?.map(studyField => {
         return {
           label: studyField,
           slug: programs?.filter(

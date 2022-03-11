@@ -1,9 +1,9 @@
 import stls from '@/styles/pages/PageJournal.module.sass'
 import type { NextPage } from 'next'
-import { GetStaticPaths, GetStaticProps } from 'next'
+import { GetStaticProps } from 'next'
 import { TypePageJournalArticlesProps } from '@/types/index'
 import { routesFront } from '@/config/index'
-import { handleGetStaticProps, handleGetStaticPaths } from '@/lib/index'
+import { handleGetStaticProps } from '@/lib/index'
 import { usePageHandleContext } from '@/hooks/index'
 import { PageJournalArticles } from '@/components/pages'
 
