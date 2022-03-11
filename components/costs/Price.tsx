@@ -88,6 +88,9 @@ const Price = ({
   const isDiscounted = discount ? 'discounted' : 'regular'
 
   const splitMonths = price => {
+    if (!price) {
+      price = 0
+    }
     let period =
       type === 'mini'
         ? 9
@@ -102,7 +105,7 @@ const Price = ({
       return (
         <>
           {Array.from(
-            Math.ceil(price.replace(' ', '') / period).toString()
+            Math.ceil(price?.replace(' ', '') / period).toString()
           ).map((el, idx, array) => {
             return (array.length - idx) % 3 === 0 ? ' ' + el : el
           })}
