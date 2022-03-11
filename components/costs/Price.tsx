@@ -140,7 +140,7 @@ const Price = ({
             ? toNumberWithSpaces(
                 Math.ceil(((programPrice / 55) * 100) / 1000) * 1000
               ) + ' P.'
-            : splitMonths(price.regular[type]?.[format])}
+            : splitMonths(price?.regular?.[type]?.[format] || 0)}
         </i>
       )}
     </>
