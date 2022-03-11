@@ -55,8 +55,8 @@ const PageBlendedProgram = ({ program, teachers }) => {
       {/* <ECTSStandard /> */}
       <GetStudyPlan />
       <Teachers
-        programId={program._id}
-        programTitle={program.title}
+        programId={program?._id}
+        programTitle={program?.title}
         teachers={teachers}
       />
       <UpToDateContent withBottomLine />
@@ -66,16 +66,16 @@ const PageBlendedProgram = ({ program, teachers }) => {
       <Students />
       <Reviews />
       <CostOfStudy
-        programId={program._id}
-        programTitle={program.title}
-        programFormat={program.studyFormat}
-        programType={program.category?.type}
+        programId={program?._id}
+        programTitle={program?.title}
+        programFormat={program?.studyFormat}
+        programType={program?.category?.type}
       />
       <CostOfStudyDescription />
-      <Qna programId={program._id} programTitle={program.title} />
+      <Qna programId={program?._id} programTitle={program?.title} />
       <ContactUs
-        programId={program._id}
-        programTitle={program.title}
+        programId={program?._id}
+        programTitle={program?.title}
         title={'Не знаете что выбрать?'}
         titleNewStr={'Получите консультацию по программам MBA'}
         overlapsFooter

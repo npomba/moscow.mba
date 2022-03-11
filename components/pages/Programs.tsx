@@ -28,7 +28,7 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
 
   const programCards =
     (at.profession || at.course) && curStudyField
-      ? programs.filter(program => program.study_field?.name === curStudyField)
+      ? programs.filter(program => program?.study_field?.name === curStudyField)
       : programs
 
   return (
@@ -133,7 +133,7 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
               {programCards.map((program, idx) => {
                 return (
                   <CardProgram
-                    key={program._id || program.id}
+                    key={program?._id || program?.id}
                     professionLayout={at.profession || at.course}
                     program={program}
                     number={idx + 1}

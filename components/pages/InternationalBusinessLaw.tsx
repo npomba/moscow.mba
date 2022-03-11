@@ -29,17 +29,17 @@ const PageOnlineProgram = ({ program, teachers }) => {
   return (
     <>
       <NextSeo
-        title={`${program.title} MBA - Moscow Business Academy`}
-        description={truncate(program.goalStr, 120)}
+        title={`${program?.title} MBA - Moscow Business Academy`}
+        description={truncate(program?.goalStr, 120)}
         canonical={`https://moscow.mba${router.asPath}`}
       />
       <CourseJsonLd
-        courseName={`${program.title} MBA`}
+        courseName={`${program?.title} MBA`}
         provider={{
           name: 'Moscow Business Academy',
           url: `https://moscow.mba${router.asPath}`
         }}
-        description={truncate(program.goalStr, 120)}
+        description={truncate(program?.goalStr, 120)}
       />
 
       <JumbotronProgram program={program} />
@@ -52,8 +52,8 @@ const PageOnlineProgram = ({ program, teachers }) => {
       <ProgramsModules program={program} />
       <GetStudyPlan />
       <Teachers
-        programId={program._id}
-        programTitle={program.title}
+        programId={program?._id}
+        programTitle={program?.title}
         teachers={teachers}
       />
       <UpToDateContent withBottomLine />
@@ -63,15 +63,15 @@ const PageOnlineProgram = ({ program, teachers }) => {
       <Students />
       <Reviews />
       <CostOfStudy
-        programId={program._id}
-        programTitle={program.title}
-        programFormat={program.studyFormat}
-        programType={program.category?.type}
+        programId={program?._id}
+        programTitle={program?.title}
+        programFormat={program?.studyFormat}
+        programType={program?.category?.type}
       />
-      <Qna programId={program._id} programTitle={program.title} />
+      <Qna programId={program?._id} programTitle={program?.title} />
       <ContactUs
-        programId={program._id}
-        programTitle={program.title}
+        programId={program?._id}
+        programTitle={program?.title}
         title={'Не знаете что выбрать?'}
         titleNewStr={'Получите консультацию по программам MBA'}
         overlapsFooter

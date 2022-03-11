@@ -36,7 +36,7 @@ const PageJournalArticles = () => {
       <SectionJournalTagsWithPictures />
       <SectionJournalTagedArticles />
       {journalTags?.map(tag => (
-        <SectionJournalTagedArticles key={tag.slug} tag={tag} />
+        <SectionJournalTagedArticles key={tag?.slug} tag={tag} />
       ))}
       <SectionJournalMoreTags />
     </>
