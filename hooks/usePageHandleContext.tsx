@@ -60,7 +60,10 @@ const usePageHandleContext = ({
     journalCategories,
     journalTags,
     journalArticles,
-    journalArticlesArticle
+    journalArticlesArticle,
+    gspContextParamsJournalCategory,
+    gspContextParamsJournalCategoryTag,
+    gspContextParamsJournalCategoryTagArticle
   ])
 }
 
