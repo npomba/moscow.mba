@@ -2,8 +2,8 @@ import stls from '@/styles/pages/programs/Executive.module.sass'
 import { GetStaticProps } from 'next'
 import { NextSeo, CourseJsonLd } from 'next-seo'
 import truncate from 'truncate'
-import { routesFront } from '@/config/index'
-import { createBlended } from '@/helpers/index'
+import { v4 as uuidv4 } from 'uuid'
+import { studyFormats, routesFront } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { usePageHandleContext } from '@/hooks/index'
 import {
@@ -28,12 +28,17 @@ import {
 const PageProgramsExecutive = ({ program, programs }) => {
   usePageHandleContext({ programs })
 
+  const id = uuidv4()
   const programBlended =
-    (program &&
-      createBlended([program])?.filter(
-        program => program?.studyFormat === 'blended'
-      )?.[0]) ||
+    (program && {
+      ...program,
+      studyFormat: studyFormats.blended,
+      id,
+      _id: id
+    }) ||
     null
+
+  if (!programBlended) return null
 
   return (
     <>

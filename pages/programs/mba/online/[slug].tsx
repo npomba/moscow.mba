@@ -7,7 +7,7 @@ import OnlineProgram from '@/components/pages/OnlineProgram'
 const PageProgramsMbaOnlineProgram = ({ program, programs }) => {
   usePageHandleContext({ programs })
 
-  if (!program) return <></>
+  if (!program) return null
 
   return <OnlineProgram program={program} teachers={program.teachers} />
 }

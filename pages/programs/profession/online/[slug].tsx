@@ -7,7 +7,7 @@ import ProfessionOnlineProgram from '@/components/pages/ProfessionOnlineProgram'
 const PageProgramsProfessionOnlineProgram = ({ program, programs }) => {
   usePageHandleContext({ programs })
 
-  if (!program) return <></>
+  if (!program) return null
 
   return (
     <ProfessionOnlineProgram program={program} teachers={program.teachers} />

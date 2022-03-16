@@ -1,21 +1,24 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
+import { v4 as uuidv4 } from 'uuid'
 import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
+import { studyFormats, routesFront } from '@/config/index'
 import { usePageHandleContext } from '@/hooks/index'
-import { routesFront } from '@/config/index'
-import { createBlended } from '@/helpers/index'
 import BlendedProgram from '@/components/pages/BlendedProgram'
 
 const PageProgramsMbaBlendedProgram = ({ program, programs }) => {
   usePageHandleContext({ programs })
 
+  const id = uuidv4()
   const programBlended =
-    (program &&
-      createBlended([program])?.filter(
-        program => program?.studyFormat === 'blended'
-      )?.[0]) ||
+    (program && {
+      ...program,
+      studyFormat: studyFormats.blended,
+      id,
+      _id: id
+    }) ||
     null
 
-  if (!programBlended) return <></>
+  if (!programBlended) return null
 
   return (
     <BlendedProgram
