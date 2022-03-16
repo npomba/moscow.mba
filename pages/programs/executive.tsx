@@ -38,8 +38,6 @@ const PageProgramsExecutive = ({ program, programs }) => {
     }) ||
     null
 
-  if (!programBlended) return null
-
   return (
     <>
       <NextSeo

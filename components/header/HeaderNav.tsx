@@ -1,14 +1,16 @@
 import stls from '@/styles/components/header/HeaderNav.module.sass'
 import Link from 'next/link'
 import cn from 'classnames'
-import { SetString, getClassNames } from '@/helpers/index'
+import { useAt, getClassNames } from '@/helpers/index'
 import { Wrapper } from '@/components/layout'
-import lang from '@/data/translation/header'
 
 const HeaderNav = ({ links, handleMenu, openMenu, classNames = [] }) => {
-  const container = getClassNames({ classNames })
+  const at = useAt()
   return (
-    <div className={cn([stls.container], container)}>
+    <div
+      className={
+        cn([stls.container], getClassNames({ classNames })) || undefined
+      }>
       <Wrapper>
         <div className={stls.menu}>
           <div
@@ -20,7 +22,7 @@ const HeaderNav = ({ links, handleMenu, openMenu, classNames = [] }) => {
               <i className={stls.line} />
               <i className={stls.line} />
             </div>
-            <span>{SetString(lang.programsBtn)}</span>
+            <span>{at.en ? 'Программы' : 'Programs'}</span>
           </div>
         </div>
         <ul className={stls.list}>

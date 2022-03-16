@@ -1,25 +1,28 @@
-import lang from '@/data/translation/header'
 import langContact from '@/data/translation/contact'
 import langCities from '@/data/translation/cities'
+import { useAt } from '@/helpers/index'
 
-const contactInfo = () => {
+const useContactInfo = () => {
+  const at = useAt()
   return {
     ru: {
       tels: [
         {
           href: 'tel:+7-800-500-27-47',
           val: '+7 (800) 500-27-47',
-          description: 'Бесплатно по России'
+          description: at.en ? 'Free for Russia' : 'Бесплатно по России'
         },
         {
           href: 'tel:+7-495-149-00-20',
           val: '+7 (495) 149-00-20',
-          description: 'Бесплатно по Москве'
+          description: at.en ? 'Free for Moscow' : 'Бесплатно по Москве'
         }
       ],
       address: {
         city: langCities.moscow,
-        street: lang.addressStreet
+        street: at.en
+          ? 'Derbenevskaya Naberezhnaya 11'
+          : 'Дербеневская набережная 11'
       },
       email: { val: 'info@moscow.mba', mailTo: 'mailto:info@moscow.mba' }
     },
@@ -139,4 +142,4 @@ const contactInfo = () => {
   }
 }
 
-export default contactInfo
+export default useContactInfo

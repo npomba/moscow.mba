@@ -1,11 +1,10 @@
 import stls from '@/styles/components/header/HeaderMobileTabs.module.sass'
 import Link from 'next/link'
-import { SetString } from '@/helpers/index'
+import { useAt, SetString } from '@/helpers/index'
 import cn from 'classnames'
 import React, { useState } from 'react'
 import { IconLocation } from '@/components/icons'
 import contactData from '@/config/contactData'
-import lang from '@/data/translation/header'
 import { ImgLogoRabo, ImgLogoMde } from '@/components/images'
 import menu from '@/data/translation/menu'
 import HeaderPrograms from '@/components/header/HeaderPrograms'
@@ -20,6 +19,7 @@ const HeaderMobileTabs = ({
   programs,
   handleMenu
 }) => {
+  const at = useAt()
   const contactInfo = contactData()
   const [openMenu, setOpenMenu] = useState(false)
   const [openProg, setOpenProg] = useState(false)
@@ -37,7 +37,7 @@ const HeaderMobileTabs = ({
             <li
               onClick={() => setOpenMenu(true)}
               className={cn(stls.link, stls.bold)}>
-              {SetString(lang.programsBtn)}
+              {at.en ? 'Programs' : 'Программы'}
             </li>
             {links.map((item, idx) => (
               <Link href={item.href} key={item.href + idx}>
@@ -80,7 +80,7 @@ const HeaderMobileTabs = ({
         </button>
         <ul className={cn(stls.menu, stls.programs)}>
           <Wrapper classNames={[stls.wrapper]}>
-            <p className={stls.title}>{SetString(lang.programsBtn)}</p>
+            <p className={stls.title}>{at.en ? 'Programs' : 'Программы'}</p>
             {tabs.map((item, idx) => {
               if (idx + 1 === tabs.length) {
                 return (

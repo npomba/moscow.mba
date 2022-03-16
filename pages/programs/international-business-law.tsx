@@ -7,8 +7,6 @@ import InternationalBusinessLaw from '@/components/pages/InternationalBusinessLa
 const PageProgramsInternationalBusinessLaw = ({ program, programs }) => {
   usePageHandleContext({ programs })
 
-  if (!program) return null
-
   return (
     <InternationalBusinessLaw program={program} teachers={program.teachers} />
   )

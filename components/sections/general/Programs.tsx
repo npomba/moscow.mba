@@ -3,8 +3,7 @@ import { useState, useContext } from 'react'
 import Link from 'next/link'
 import cn from 'classnames'
 import langMenu from '@/data/translation/menu'
-import langHeader from '@/data/translation/header'
-import { SetString } from '@/helpers/index'
+import { useAt, SetString } from '@/helpers/index'
 import { ProgramsContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
 import { ProgramSubjects, ProgramsQty } from '@/components/general'
@@ -12,6 +11,8 @@ import { Until, Price, TrainingPeriod, Discount } from '@/components/costs'
 import { IconCheckCircle, IconScreen } from '@/components/icons'
 
 const Programs = () => {
+  const at = useAt()
+
   const { programs } = useContext(ProgramsContext)
 
   const [isMini, setIsMini] = useState(true)
@@ -35,7 +36,7 @@ const Programs = () => {
       <Wrapper classNames={[stls.wrapper]}>
         <div className='program-options-flex'>
           <div className='program-options-left'>
-            <h2>{SetString(langHeader.programsBtn)}</h2>
+            <h2>{at.en ? 'Programs' : 'Программы'}</h2>
             <ul className='program-options-tabs'>
               <li>
                 <a

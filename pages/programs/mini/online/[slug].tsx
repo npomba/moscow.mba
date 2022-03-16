@@ -7,8 +7,6 @@ import OnlineProgram from '@/components/pages/OnlineProgram'
 const PageProgramsMiniOnlineProgram = ({ program, programs }) => {
   usePageHandleContext({ programs })
 
-  if (!program) return null
-
   return <OnlineProgram program={program} teachers={program.teachers} />
 }
 

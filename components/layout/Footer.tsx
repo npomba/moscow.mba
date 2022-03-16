@@ -1,7 +1,6 @@
 import stls from '@/styles/components/layout/Footer.module.sass'
 import Link from 'next/link'
 import { SetString, useAt } from '@/helpers/index'
-import langHeader from '@/data/translation/header'
 import lang from '@/data/translation/footer'
 import { contactData } from '@/config/index'
 import {
@@ -57,35 +56,35 @@ const Footer = () => {
                 <li className={stls.linkItem}>
                   <Link href='/about'>
                     <a className={stls.link}>
-                      {SetString(langHeader.linkAbout)}
+                      {at.en ? 'About' : 'Об академии'}
                     </a>
                   </Link>
                 </li>
                 <li className={stls.linkItem}>
                   <Link href='/teachers' locale='ru'>
                     <a className={stls.link}>
-                      {SetString(langHeader.linkTeachers)}
+                      {at.en ? 'Experts' : 'Эксперты'}
                     </a>
                   </Link>
                 </li>
                 <li className={stls.linkItem}>
                   <Link href='/webinars' locale='ru'>
                     <a className={stls.link}>
-                      {SetString(langHeader.linkWebinars)}
+                      {at.en ? 'Webinars' : 'Вебинары'}
                     </a>
                   </Link>
                 </li>
                 <li className={stls.linkItem}>
                   <Link href='/contact'>
                     <a className={stls.link}>
-                      {SetString(langHeader.linkContacts)}
+                      {at.en ? 'Contact' : 'Контакты'}
                     </a>
                   </Link>
                 </li>
                 <li className={stls.linkItem}>
                   <Link href='/legal' locale='ru'>
                     <a className={stls.link}>
-                      {SetString(langHeader.linkLegal)}
+                      {at.en ? 'Legal' : 'Сведения об организации'}
                     </a>
                   </Link>
                 </li>

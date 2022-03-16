@@ -2,26 +2,23 @@ import stls from '@/styles/pages/Contact.module.sass'
 import { GetStaticProps } from 'next'
 import { NextSeo, CorporateContactJsonLd } from 'next-seo'
 import truncate from 'truncate'
-import { SetString } from '@/helpers/index'
+import { useAt } from '@/helpers/index'
 import { handleGetStaticProps } from '@/lib/index'
-import lang from '@/data/translation/header'
 import { ContactCards, Breadcrumbs } from '@/components/general'
 import { contactData, routesFront } from '@/config/index'
 import { usePageHandleContext } from '@/hooks/index'
-
 import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
 
 const PageContact = ({ programs }) => {
   usePageHandleContext({ programs })
+  const at = useAt()
   const contactInfo = contactData()
   return (
     <>
       <NextSeo
-        title={`${SetString(lang.linkContacts)} - Moscow Business Academy`}
+        title={`${at.en ? 'Contact' : 'Контакты'} - Moscow Business Academy`}
         description={truncate(
-          `${SetString(contactInfo.ru.address.city)}, ${SetString(
-            contactInfo.ru.address.street
-          )}, ${contactInfo.ru.tels[0].val}, ${contactInfo.ru.email.val}`,
+          `${contactInfo.ru.address.city}, ${contactInfo.ru.address.street}, ${contactInfo.ru.tels[0].val}, ${contactInfo.ru.email.val}`,
           120
         )}
         canonical={'https://moscow.mba/contact'}
@@ -45,7 +42,7 @@ const PageContact = ({ programs }) => {
         </div>
       </section>
       <div className={stls.container}>
-        <h1 className={stls.h1}>{SetString(lang.linkContacts)}</h1>
+        <h1 className={stls.h1}>{at.en ? 'Contact' : 'Контакты'}</h1>
         <ContactCards />
       </div>
     </>

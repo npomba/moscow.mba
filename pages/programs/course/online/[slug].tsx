@@ -7,8 +7,6 @@ import CourseOnlineProgram from '@/components/pages/CourseOnlineProgram'
 const PageProgramsCourseOnlineProgram = ({ program, programs }) => {
   usePageHandleContext({ programs })
 
-  if (!program) return null
-
   return <CourseOnlineProgram program={program} teachers={program.teachers} />
 }
 

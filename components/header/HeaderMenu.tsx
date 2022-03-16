@@ -1,7 +1,6 @@
 import stls from '@/styles/components/header/HeaderMenu.module.sass'
 import { useState } from 'react'
 import langMenu from '@/data/translation/menu'
-import lang from '@/data/translation/header'
 import { SetString, useAt, useWindowWidth } from '@/helpers/index'
 import {
   HeaderPrograms,
@@ -18,30 +17,30 @@ const HeaderMenu = ({ programs, handleMenu }) => {
   const links = [
     {
       href: '/about',
-      val: SetString(lang.linkAbout),
+      val: at.en ? 'About' : 'Об академии',
       red: at.about
     },
     {
       href: '/teachers',
-      val: SetString(lang.linkTeachers),
+      val: at.en ? 'Experts' : 'Эксперты',
       red: at.teachers,
       locale: 'ru'
     },
     {
       href: '/webinars',
-      val: SetString(lang.linkWebinars),
+      val: at.en ? 'Webinars' : 'Вебинары',
       red: at.webinars,
       locale: 'ru'
     },
     {
       href: '/contact',
-      val: SetString(lang.linkContacts),
+      val: at.en ? 'Contact' : 'Контакты',
       red: at.contact,
       locale: 'ru'
     },
     {
       href: '/legal',
-      val: SetString(lang.linkLegal),
+      val: at.en ? 'Legal' : 'Сведения об организации',
       red: at.legal,
       locale: 'ru'
     }
