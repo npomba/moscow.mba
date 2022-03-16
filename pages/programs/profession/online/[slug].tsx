@@ -7,12 +7,10 @@ import ProfessionOnlineProgram from '@/components/pages/ProfessionOnlineProgram'
 const PageProgramsProfessionOnlineProgram = ({ program, programs }) => {
   usePageHandleContext({ programs })
 
-  return (
-    <ProfessionOnlineProgram
-      program={program && program}
-      teachers={program?.teachers}
-    />
-  )
+  if (program)
+    return (
+      <ProfessionOnlineProgram program={program} teachers={program.teachers} />
+    )
 }
 
 export const getStaticProps: GetStaticProps = async context =>

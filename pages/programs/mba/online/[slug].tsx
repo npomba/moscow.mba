@@ -7,9 +7,8 @@ import OnlineProgram from '@/components/pages/OnlineProgram'
 const PageProgramsMbaOnlineProgram = ({ program, programs }) => {
   usePageHandleContext({ programs })
 
-  return (
-    <OnlineProgram program={program && program} teachers={program?.teachers} />
-  )
+  if (program)
+    return <OnlineProgram program={program} teachers={program.teachers} />
 }
 
 export const getStaticProps: GetStaticProps = async context =>

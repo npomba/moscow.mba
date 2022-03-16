@@ -21,7 +21,7 @@ const PagePrograms = ({ mbaTypeOfProgram, mbaFormat }) => {
   const { programs, studyFields, curStudyField, setCurStudyField } =
     useContext(ProgramsContext)
 
-  const programsFiltered = programs.filter(
+  const programsFiltered = programs?.filter(
     program =>
       program?.studyFormat === mbaFormat &&
       program?.category?.type === mbaTypeOfProgram
@@ -29,7 +29,7 @@ const PagePrograms = ({ mbaTypeOfProgram, mbaFormat }) => {
 
   const programCards =
     (at.profession || at.course) && curStudyField
-      ? programsFiltered.filter(
+      ? programsFiltered?.filter(
           program => program?.study_field?.name === curStudyField
         )
       : programsFiltered
