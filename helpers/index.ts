@@ -6,8 +6,6 @@ export { default as createProgramModulesBase } from '@/helpers/general/createPro
 export { default as createProgramModulesSpecialized } from '@/helpers/general/createProgramModulesSpecialized'
 export { default as getClassNames } from '@/helpers/general/getClassNames'
 export { default as getImageHeight } from '@/helpers/general/getImageHeight'
-export { default as getProgram } from '@/helpers/general/getProgram'
-export { default as getProgramsReducedData } from '@/helpers/general/getProgramsReducedData'
 export { default as getStringDeclensionNumber } from '@/helpers/general/getStringDeclensionNumber'
 export { default as handlePlaceholder } from '@/helpers/general/handlePlaceholder'
 export { default as hitContactRoute } from '@/helpers/general/hitContactRoute'

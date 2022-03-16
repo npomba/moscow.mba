@@ -15,6 +15,7 @@ const GeneralJournalArticleCreatedAt = ({
   createdAt,
   formatString
 }: TypeGeneralJournalArticleCreatedAtProps) => {
+  if (!createdAt) return <></>
   return (
     <div
       className={

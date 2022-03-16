@@ -34,6 +34,7 @@
     "react-pdf": "^5.5.0",
     "react-transition-group": "^4.4.2",
     "reactjs-popup": "^2.0.4",
+    "sharp": "^0.30.3",
     "truncate": "^3.0.0",
     "uuid": "^8.3.2"
   },
