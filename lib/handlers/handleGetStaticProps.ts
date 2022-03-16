@@ -27,14 +27,14 @@ type TypeHandleGetStaticPropsProps = {
   page?: TypeRoutesFront[keyof TypeRoutesFront]
   context: GetStaticPropsContext
   type?: string | null
-  format?: string | null
+  slug?: string | null
 }
 
 const handleGetStaticProps = async ({
   page,
   context,
   type,
-  format
+  slug
 }: TypeHandleGetStaticPropsProps): Promise<{
   props:
     | TypePageDefaultProps
@@ -61,7 +61,7 @@ const handleGetStaticProps = async ({
         return await getStaticPropsPrograms({ context })
 
       case routesFront.program:
-        return await getStaticPropsProgram({ context, type, format })
+        return await getStaticPropsProgram({ context, type, slug })
 
       case routesFront.teachers:
         return await getStaticPropsTeachers({ context })

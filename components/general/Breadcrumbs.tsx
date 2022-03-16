@@ -151,14 +151,12 @@ const Breadcrumbs = ({ programChunkData = {} }) => {
   }
 
   const addProgramChunkRoute = (splitedPath, programChunkData) => {
-    const { title, titleEng, url: programChunkUrl } = programChunkData
-
     const programChunkRoute = {
       label: {
-        ru: title,
-        'en-US': titleEng
+        ru: programChunkData?.title,
+        'en-US': programChunkData?.titleEng
       },
-      path: '/' + splitedPath.join('/') + '/' + programChunkUrl
+      path: '/' + splitedPath.join('/') + '/' + programChunkData?.url
     }
 
     additionalRoutes.push(programChunkRoute)

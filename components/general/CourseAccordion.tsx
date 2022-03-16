@@ -30,13 +30,6 @@ const CourseAccordion = ({
   setActiveAccordion
 }) => {
   const [isShown, setIsShown] = useState(false)
-  const {
-    title,
-    whatWillYouLearn,
-    category: { type },
-    studyFormat,
-    slug
-  } = course
 
   useEffect(() => setIsShown(true), [])
 
@@ -114,7 +107,7 @@ const CourseAccordion = ({
                 Ближайшее зачисление {<Until preposition={false} />}
               </li>
             </ul>
-            <h3 className={stls.courseTitle}>{title}</h3>
+            <h3 className={stls.courseTitle}>{course?.title}</h3>
             <div className={stls.plus}>
               <i></i>
               <i></i>
@@ -127,7 +120,7 @@ const CourseAccordion = ({
             })}>
             <p className={stls.listTitle}>Чему научитесь:</p>
             <ul className={stls.whatWillLearnList}>
-              {whatWillYouLearn.map((item, idx) => (
+              {course?.whatWillYouLearn?.map((item, idx) => (
                 <li
                   key={`whatWillYouLearn-${idx}`}
                   className={stls.whatWillLearnItem}>
@@ -138,7 +131,7 @@ const CourseAccordion = ({
             <ul className={stls.courseAdditionalInfoList}>
               <li className={stls.courseAdditionalInfoItem}>
                 <IconClock />
-                От {<TrainingPeriod type={type} />}
+                От {<TrainingPeriod type={course?.category?.type} />}
               </li>
               <li className={stls.courseAdditionalInfoItem}>
                 <IconScreen />
@@ -163,8 +156,8 @@ const CourseAccordion = ({
                 <PopupForm
                   title={'Получите консультацию по программе'}
                   closePopUpForm={close}
-                  programTitle={title}
-                  promoCourseLink={`/programs/${type}/${studyFormat}/${slug}`}
+                  programTitle={course?.title}
+                  promoCourseLink={`/programs/${course?.category?.type}/${course?.studyFormat}/${course?.slug}`}
                 />
               )}
             </Popup>

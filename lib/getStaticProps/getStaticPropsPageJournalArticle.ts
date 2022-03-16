@@ -170,7 +170,7 @@ const getStaticPropsPageJournalArticle = async ({
   return {
     props: {
       ...(res?.data || null),
-      journalArticlesArticle: res.data.journalArticlesArticle?.[0] || null,
+      journalArticlesArticle: res?.data?.journalArticlesArticle?.[0] || null,
       gspContextParamsJournalCategory,
       gspContextParamsJournalCategoryTag,
       gspContextParamsJournalCategoryTagArticle

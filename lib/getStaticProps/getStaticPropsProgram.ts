@@ -3,27 +3,22 @@ import { TypePageProgramProps, TypePageProgramPropsQuery } from '@/types/index'
 import { gql } from '@apollo/client'
 import apolloClient from '@/lib/apolloClient'
 import { revalidate } from '@/config/index'
-import { createBlended } from '@/helpers/index'
 
 const getStaticPropsProgram = async ({
   context,
   type,
-  format
+  slug
 }: {
   context: GetStaticPropsContext
   type?: string | null
-  format?: string | null
+  slug?: string | null
 }): Promise<{
   props: TypePageProgramProps
   revalidate: number
 }> => {
   const res = await apolloClient.query<TypePageProgramPropsQuery>({
     query: gql`
-      query GetStaticPropsProgram(
-        $type: String!
-        $format: String!
-        $slug: String!
-      ) {
+      query GetStaticPropsProgram($type: String!, $slug: String!) {
         programs: products {
           _id
           id
@@ -41,13 +36,7 @@ const getStaticPropsProgram = async ({
             description
           }
         }
-        program: products(
-          where: {
-            category: { type: $type }
-            studyFormat: $format
-            slug: $slug
-          }
-        ) {
+        program: products(where: { category: { type: $type }, slug: $slug }) {
           _id
           id
           title
@@ -141,18 +130,14 @@ const getStaticPropsProgram = async ({
     `,
     variables: {
       type: type || 'mini',
-      format: 'online',
-      slug: context.params?.slug || 'program'
+      slug: slug || context.params?.slug || 'program'
     }
   })
 
   return {
     props: {
       ...(res?.data || null),
-      program:
-        createBlended(res?.data?.program)?.filter(
-          program => program?.studyFormat === format
-        )?.[0] || null
+      program: res?.data?.program?.[0] || null
     },
     revalidate: revalidate.default
   }

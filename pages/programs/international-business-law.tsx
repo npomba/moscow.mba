@@ -1,24 +1,25 @@
-import { handleGetStaticProps } from '@/helpers/index'
+import { GetStaticProps } from 'next'
+import { routesFront } from '@/config/index'
+import { handleGetStaticProps } from '@/lib/index'
 import { usePageHandleContext } from '@/hooks/index'
 import InternationalBusinessLaw from '@/components/pages/InternationalBusinessLaw'
 
-const PageProgramsInternationalBusinessLaw = ({
-  program,
-  programs,
-  teachers
-}) => {
+const PageProgramsInternationalBusinessLaw = ({ program, programs }) => {
   usePageHandleContext({ programs })
-  return <InternationalBusinessLaw program={program} teachers={teachers} />
+  return (
+    <InternationalBusinessLaw
+      program={program && program}
+      teachers={program?.teachers}
+    />
+  )
 }
 
-// export const getStaticProps: GetStaticProps = async context =>
-//   await handleGetStaticProps({ page: routesFront.program, context })
-
-export const getStaticProps = async () =>
-  handleGetStaticProps({
-    programSlug: 'international-business-law',
-    programStudyFormat: 'online',
-    programType: 'mbl'
+export const getStaticProps: GetStaticProps = async context =>
+  await handleGetStaticProps({
+    page: routesFront.program,
+    context,
+    type: 'mbl',
+    slug: 'international-business-law'
   })
 
 export default PageProgramsInternationalBusinessLaw

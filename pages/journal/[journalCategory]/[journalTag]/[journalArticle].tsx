@@ -45,9 +45,6 @@ const PageJournalCategoryTagArticle: NextPage<TypePageJournalArticleProps> = ({
     gspContextParamsJournalCategoryTagArticle
   })
 
-  const { title, journal_category, createdAt, picture, articleBody } =
-    journalArticlesArticle
-
   const [pageYOffset, setPageYOffset] = useState(0)
   const [scollHeight, setScrollHeight] = useState(0)
   const [clientHeight, setClientHeight] = useState(0)
@@ -83,34 +80,36 @@ const PageJournalCategoryTagArticle: NextPage<TypePageJournalArticleProps> = ({
       <section>
         <Wrapper column>
           <ContentJournalArticle classNames={[stls.content]}>
-            <h1 className={stls.title}>{title}</h1>
+            <h1 className={stls.title}>{journalArticlesArticle?.title}</h1>
             <div className={stls.categorydate}>
-              <div className={stls.category}>{journal_category.title}</div>
+              <div className={stls.category}>
+                {journalArticlesArticle?.journal_category.title}
+              </div>
               <GeneralJournalArticleCreatedAt
                 classNames={[stls.date]}
-                createdAt={createdAt}
+                createdAt={journalArticlesArticle?.createdAt}
                 formatString='dd.MM.yyyy'
               />
             </div>
             <ImgJournalArticle
-              src={picture.url || undefined}
-              width={picture.url && 850}
+              src={journalArticlesArticle?.picture.url || undefined}
+              width={journalArticlesArticle?.picture.url && 850}
               height={
-                picture.url &&
+                journalArticlesArticle?.picture.url &&
                 getImageHeight({
                   width: 850,
-                  widthInitial: picture.width,
-                  heightInitial: picture.height
+                  widthInitial: journalArticlesArticle?.picture.width,
+                  heightInitial: journalArticlesArticle?.picture.height
                 })
               }
-              alt={title}
-              title={title}
+              alt={journalArticlesArticle?.title}
+              title={journalArticlesArticle?.title}
               classNames={[stls.img]}
             />
           </ContentJournalArticle>
         </Wrapper>
       </section>
-      {articleBody?.map((component, idx) => (
+      {journalArticlesArticle?.articleBody?.map((component, idx) => (
         <Fragment key={`${component.__typename} ${idx}`}>
           {component.__typename === 'ComponentJournalParagraph' && (
             <SectionJournalParagraph body={component.paragraphBody} idx={idx} />

@@ -89,7 +89,7 @@ const Price = ({
 
   const splitMonths = price => {
     if (!price) {
-      price = 0
+      price = '0'
     }
     let period =
       type === 'mini'
@@ -132,7 +132,7 @@ const Price = ({
         }>
         {programPrice
           ? toNumberWithSpaces(programPrice) + ' P.'
-          : splitMonths(price[isDiscounted]?.[type]?.[format])}
+          : splitMonths(price?.[isDiscounted]?.[type]?.[format])}
       </i>
       {discount && (
         <i className={getPriceClass('old', renderedByComponent)}>

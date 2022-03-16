@@ -62,7 +62,7 @@ const PriceBlock = ({
         {withPriceTitles && (
           <p className={stls.priceDesc}>Оплата по месяцам без переплаты</p>
         )}
-        {canPayInInstalments ? (
+        {canPayInInstalments && !at.executive ? (
           <Loan
             discount={isDiscounted}
             type={programType}

@@ -8,7 +8,10 @@ const PageProgramsProfessionOnlineProgram = ({ program, programs }) => {
   usePageHandleContext({ programs })
 
   return (
-    <ProfessionOnlineProgram program={program} teachers={program?.teachers} />
+    <ProfessionOnlineProgram
+      program={program && program}
+      teachers={program?.teachers}
+    />
   )
 }
 
@@ -16,8 +19,7 @@ export const getStaticProps: GetStaticProps = async context =>
   await handleGetStaticProps({
     page: routesFront.program,
     context,
-    type: 'profession',
-    format: 'online'
+    type: 'profession'
   })
 
 export const getStaticPaths: GetStaticPaths = async () =>

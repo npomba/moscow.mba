@@ -7,15 +7,16 @@ import OnlineProgram from '@/components/pages/OnlineProgram'
 const PageProgramsMiniOnlineProgram = ({ program, programs }) => {
   usePageHandleContext({ programs })
 
-  return <OnlineProgram program={program} teachers={program?.teachers} />
+  return (
+    <OnlineProgram program={program && program} teachers={program?.teachers} />
+  )
 }
 
 export const getStaticProps: GetStaticProps = async context =>
   await handleGetStaticProps({
     page: routesFront.program,
     context,
-    type: 'mini',
-    format: 'online'
+    type: 'mini'
   })
 
 export const getStaticPaths: GetStaticPaths = async () =>

@@ -7,15 +7,19 @@ import CourseOnlineProgram from '@/components/pages/CourseOnlineProgram'
 const PageProgramsCourseOnlineProgram = ({ program, programs }) => {
   usePageHandleContext({ programs })
 
-  return <CourseOnlineProgram program={program} teachers={program?.teachers} />
+  return (
+    <CourseOnlineProgram
+      program={program && program}
+      teachers={program?.teachers}
+    />
+  )
 }
 
 export const getStaticProps: GetStaticProps = async context =>
   await handleGetStaticProps({
     page: routesFront.program,
     context,
-    type: 'course',
-    format: 'online'
+    type: 'course'
   })
 
 export const getStaticPaths: GetStaticPaths = async () =>
