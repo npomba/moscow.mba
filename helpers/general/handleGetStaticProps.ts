@@ -4,7 +4,6 @@ import {
   TypeProgramDefault
 } from '@/types/index'
 import {
-  createBlended,
   fetchProgramsGetStaticProps,
   fetchProgramsGetStaticPropsProfession,
   fetchProgramsGetStaticPropsCourse,

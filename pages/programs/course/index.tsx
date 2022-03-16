@@ -9,18 +9,7 @@ import Programs from '@/components/pages/Programs'
 const PageProgramsCourse = ({ programs }) => {
   usePageHandleContext({ programs })
 
-  const data = programs.filter(
-    program =>
-      program?.studyFormat === 'online' && program?.category?.type === 'course'
-  )
-
-  return (
-    <Programs
-      programs={data}
-      mbaTypeOfProgram={'course'}
-      mbaFormat={'online'}
-    />
-  )
+  return <Programs mbaTypeOfProgram={'course'} mbaFormat={'online'} />
 }
 
 export const getStaticProps: GetStaticProps = async context =>

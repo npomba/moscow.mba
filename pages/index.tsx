@@ -42,7 +42,7 @@ const PageHome: NextPage<TypePageHomeProps> = ({ programs }) => {
       <ForeignAffiliates />
       <StudentsInternational />
       <CorporateClients />
-      <Programs programs={programs} />
+      <Programs />
       <Executive />
       <ContactUs overlapsFooter />
     </>

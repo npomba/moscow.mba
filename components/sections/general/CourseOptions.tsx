@@ -1,15 +1,20 @@
 import stls from '@/styles/components/sections/CourseOptions.module.sass'
-import { useState, useRef } from 'react'
+import { useState, useRef, useContext } from 'react'
 import cn from 'classnames'
+import { ProgramsContext } from '@/context/index'
 import { AccordionsContainer, Pagination } from '@/components/general'
 
-const CourseOptions = ({ data }) => {
+const CourseOptions = () => {
+  const { programs } = useContext(ProgramsContext)
+  const programsFiltered = programs.filter(
+    program => program?.studyFormat === 'online'
+  )
   const swapDataItems = () => {
-    const firstDataItem = data[0]
-    const lastDataItem = data[data.length - 1]
+    const firstDataItem = programsFiltered?.[0]
+    const lastDataItem = programsFiltered?.[programsFiltered?.length - 1]
     const swappedData = [
       lastDataItem,
-      ...data.slice(1, data.length - 1),
+      ...programsFiltered?.slice(1, programsFiltered?.length - 1),
       firstDataItem
     ]
     return swappedData
@@ -25,7 +30,7 @@ const CourseOptions = ({ data }) => {
     firstCourseOnPage + coursesPerPage
   )
   const [closeAllAccordions, setCloseAllAccordions] = useState(false)
-  const numberOfCourses = data.length
+  const numberOfCourses = programsFiltered?.length
   const numberOfPages = numberOfCourses / coursesPerPage
 
   const shownCourses = swappedData.slice(firstCourseOnPage, lastCourseOnPage)

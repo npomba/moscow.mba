@@ -1,11 +1,12 @@
 import stls from '@/styles/components/layout/Header.module.sass'
 import { useContext, useState } from 'react'
 import { HeaderMenu, HeaderTop } from '@/components/header'
-import { MenuContext, OverlayContext } from '@/context/index'
+import { MenuContext, OverlayContext, ProgramsContext } from '@/context/index'
 
-const Header = ({ programs }) => {
+const Header = () => {
   const { menuIsOpen, openMenu, closeMenu } = useContext(MenuContext)
   const { hideOverlay, showOverlay } = useContext(OverlayContext)
+  const { programs } = useContext(ProgramsContext)
 
   const handleMenu = (value: boolean) => {
     if (value) {

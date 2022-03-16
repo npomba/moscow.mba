@@ -148,8 +148,7 @@ const getStaticPropsProgram = async ({
 
   return {
     props: {
-      ...res?.data,
-      programs: createBlended(res?.data?.programs),
+      ...(res?.data || null),
       program:
         createBlended(res?.data?.program)?.filter(
           program => program?.studyFormat === format

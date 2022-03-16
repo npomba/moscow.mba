@@ -3,7 +3,6 @@ import { TypePageTeacherProps, TypePageTeacherPropsQuery } from '@/types/index'
 import { gql } from '@apollo/client'
 import apolloClient from '@/lib/apolloClient'
 import { revalidate } from '@/config/index'
-import { createBlended } from '@/helpers/index'
 
 const getStaticPropsTeacher = async ({
   context
@@ -55,8 +54,7 @@ const getStaticPropsTeacher = async ({
 
   return {
     props: {
-      ...res?.data,
-      programs: createBlended(res?.data?.programs),
+      ...(res?.data || null),
       teacher: res?.data.teacher?.[0] || null
     },
     revalidate: revalidate.default

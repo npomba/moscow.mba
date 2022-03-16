@@ -3,7 +3,6 @@ import { TypePageDefaultProps, TypePageDefaultPropsQuery } from '@/types/index'
 import { gql } from '@apollo/client'
 import apolloClient from '@/lib/apolloClient'
 import { revalidate } from '@/config/index'
-import { createBlended } from '@/helpers/index'
 
 const getStaticPropsDefault = async ({
   context
@@ -38,10 +37,7 @@ const getStaticPropsDefault = async ({
   })
 
   return {
-    props: {
-      ...res?.data,
-      programs: createBlended(res?.data?.programs)
-    },
+    props: res?.data || null,
     revalidate: revalidate.default
   }
 }

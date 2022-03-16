@@ -9,14 +9,7 @@ import Programs from '@/components/pages/Programs'
 const PageProgramsMbaBlended = ({ programs }) => {
   usePageHandleContext({ programs })
 
-  const data = programs.filter(
-    program =>
-      program?.studyFormat === 'blended' && program?.category?.type === 'mba'
-  )
-
-  return (
-    <Programs programs={data} mbaTypeOfProgram={'mba'} mbaFormat={'blended'} />
-  )
+  return <Programs mbaTypeOfProgram={'mba'} mbaFormat={'blended'} />
 }
 
 export const getStaticProps: GetStaticProps = async context =>

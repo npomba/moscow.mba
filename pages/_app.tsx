@@ -71,10 +71,6 @@ function MyApp({ Component, pageProps, router }) {
   if (!dev) {
     console.log = function () {}
   }
-  let programs = []
-  if (pageProps) {
-    programs = pageProps.programs
-  }
 
   return (
     <>
@@ -88,7 +84,7 @@ function MyApp({ Component, pageProps, router }) {
           <MenuState>
             <ContextJournalState>
               <WrapperPage>
-                <Header programs={programs} />
+                <Header />
                 <Main>
                   <Component {...pageProps} />
                 </Main>

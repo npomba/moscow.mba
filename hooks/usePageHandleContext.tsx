@@ -6,6 +6,7 @@ import {
   TypeLibPrograms
 } from '@/types/index'
 import { useContext, useEffect } from 'react'
+import { createBlended } from '@/helpers/index'
 import { ProgramsContext, ContextJournalContext } from '@/context/index'
 
 type TypeUsePageHandleContextProps = {
@@ -43,7 +44,7 @@ const usePageHandleContext = ({
   // const { setProgram } = useContext(ProgramContext)
 
   useEffect(() => {
-    setPrograms(programs || null)
+    setPrograms(createBlended(programs) || null)
     setJournalCategories(journalCategories || null)
     setJournalTags(journalTags || null)
     setJournalArticles(journalArticles || null)

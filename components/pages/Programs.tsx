@@ -15,21 +15,29 @@ import { CardProgram } from '@/components/cards'
 import { IconCheckCircle } from '@/components/icons'
 import { ProgramsContext } from '@/context/index'
 
-const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
+const PagePrograms = ({ mbaTypeOfProgram, mbaFormat }) => {
   const at = useAt()
 
-  const { studyFields, curStudyField, setCurStudyField } =
+  const { programs, studyFields, curStudyField, setCurStudyField } =
     useContext(ProgramsContext)
+
+  const programsFiltered = programs.filter(
+    program =>
+      program?.studyFormat === mbaFormat &&
+      program?.category?.type === mbaTypeOfProgram
+  )
+
+  const programCards =
+    (at.profession || at.course) && curStudyField
+      ? programsFiltered.filter(
+          program => program?.study_field?.name === curStudyField
+        )
+      : programsFiltered
 
   useEffect(() => {
     if ((at.profession || at.course) && !curStudyField)
       setCurStudyField(studyFields[0])
   }, [at.profession, at.course, curStudyField, setCurStudyField, studyFields])
-
-  const programCards =
-    (at.profession || at.course) && curStudyField
-      ? programs.filter(program => program?.study_field?.name === curStudyField)
-      : programs
 
   return (
     <>
@@ -77,7 +85,7 @@ const PagePrograms = ({ programs, mbaTypeOfProgram, mbaFormat }) => {
                     : 'Программы'}
                 </h2>
                 <span className={stls.qtPrograms}>
-                  <ProgramsQty programs={programs} />
+                  <ProgramsQty programs={programsFiltered} />
                 </span>
               </div>
 

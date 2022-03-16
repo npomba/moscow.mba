@@ -1,20 +1,18 @@
 import stls from '@/styles/components/sections/Programs.module.sass'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import Link from 'next/link'
 import cn from 'classnames'
-import { SetString } from '@/helpers/index'
-import { ProgramSubjects, ProgramsQty } from '@/components/general'
-import { Wrapper } from '@/components/layout'
-import Until from '@/components/costs/Until'
-import Price from '@/components/costs/Price'
-import TrainingPeriod from '@/components/costs/TrainingPeriod'
-import Discount from '@/components/costs/Discount'
-import { IconCheckCircle, IconScreen } from '@/components/icons'
 import langMenu from '@/data/translation/menu'
 import langHeader from '@/data/translation/header'
+import { SetString } from '@/helpers/index'
+import { ProgramsContext } from '@/context/index'
+import { Wrapper } from '@/components/layout'
+import { ProgramSubjects, ProgramsQty } from '@/components/general'
+import { Until, Price, TrainingPeriod, Discount } from '@/components/costs'
+import { IconCheckCircle, IconScreen } from '@/components/icons'
 
-const Programs = ({ programs }) => {
-  const data = programs
+const Programs = () => {
+  const { programs } = useContext(ProgramsContext)
 
   const [isMini, setIsMini] = useState(true)
   const [isMba, setIsMba] = useState(false)
@@ -127,7 +125,7 @@ const Programs = ({ programs }) => {
                     </div>
                   </div>
                   <ProgramsQty
-                    programs={data}
+                    programs={programs}
                     type={'mini'}
                     format={'online'}
                   />
@@ -153,7 +151,7 @@ const Programs = ({ programs }) => {
                     </div>
                   </div>
                   <ul className='program-options-block-list'>
-                    {data.map(item => {
+                    {programs?.map(item => {
                       if (
                         item.category?.type === 'mini' &&
                         item.studyFormat === 'online'
@@ -178,7 +176,7 @@ const Programs = ({ programs }) => {
                   })}>
                   <div className='name'>{SetString(langMenu.blendedTitle)}</div>
                   <ProgramsQty
-                    programs={data}
+                    programs={programs}
                     type={'mini'}
                     format={'blended'}
                   />
@@ -204,7 +202,7 @@ const Programs = ({ programs }) => {
                     </div>
                   </div>
                   <ul className='program-options-block-list'>
-                    {data.map(item => {
+                    {programs?.map(item => {
                       if (
                         item.category?.type === 'mini' &&
                         item.studyFormat === 'blended'
@@ -278,7 +276,11 @@ const Programs = ({ programs }) => {
                       </span>
                     </div>
                   </div>
-                  <ProgramsQty programs={data} type={'mba'} format={'online'} />
+                  <ProgramsQty
+                    programs={programs}
+                    type={'mba'}
+                    format={'online'}
+                  />
                   <div className='price'>
                     {SetString(langMenu.price)}:{' '}
                     <Price discount={true} type={'mba'} format={'online'} />{' '}
@@ -301,7 +303,7 @@ const Programs = ({ programs }) => {
                     </div>
                   </div>
                   <ul className='program-options-block-list'>
-                    {data.map(item => {
+                    {programs?.map(item => {
                       if (
                         item.category?.type === 'mba' &&
                         item.studyFormat === 'online'
@@ -333,7 +335,7 @@ const Programs = ({ programs }) => {
                   })}>
                   <div className='name'>{SetString(langMenu.blendedTitle)}</div>
                   <ProgramsQty
-                    programs={data}
+                    programs={programs}
                     type={'mba'}
                     format={'blended'}
                   />
@@ -359,7 +361,7 @@ const Programs = ({ programs }) => {
                     </div>
                   </div>
                   <ul className='program-options-block-list'>
-                    {data.map(item => {
+                    {programs?.map(item => {
                       if (
                         item.category?.type === 'mba' &&
                         item.studyFormat === 'blended'
