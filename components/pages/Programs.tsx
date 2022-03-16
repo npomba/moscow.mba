@@ -16,10 +16,10 @@ import { IconCheckCircle } from '@/components/icons'
 import { ProgramsContext } from '@/context/index'
 
 const PagePrograms = ({ mbaTypeOfProgram, mbaFormat }) => {
-  const at = useAt()
-
   const { programs, studyFields, curStudyField, setCurStudyField } =
     useContext(ProgramsContext)
+
+  const at = useAt()
 
   const programsFiltered = programs?.filter(
     program =>
