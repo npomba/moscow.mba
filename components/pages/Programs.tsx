@@ -39,6 +39,8 @@ const PagePrograms = ({ mbaTypeOfProgram, mbaFormat }) => {
       setCurStudyField(studyFields[0])
   }, [at.profession, at.course, curStudyField, setCurStudyField, studyFields])
 
+  console.log(programsFiltered)
+
   return (
     <>
       <NextSeo
