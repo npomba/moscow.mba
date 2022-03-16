@@ -15,6 +15,8 @@ const PageProgramsMiniBlendedProgram = ({ program, programs }) => {
       )?.[0]) ||
     null
 
+  if (!programBlended) return
+
   return (
     <BlendedProgram
       program={programBlended}
