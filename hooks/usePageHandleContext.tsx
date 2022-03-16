@@ -5,8 +5,8 @@ import {
   TypeLibJournalArticle,
   TypeLibPrograms
 } from '@/types/index'
-import { ProgramsContext, ContextJournalContext } from '@/context/index'
 import { useContext, useEffect } from 'react'
+import { ProgramsContext, ContextJournalContext } from '@/context/index'
 
 type TypeUsePageHandleContextProps = {
   readonly programs: TypeLibPrograms

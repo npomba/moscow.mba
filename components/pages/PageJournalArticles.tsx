@@ -15,7 +15,7 @@ import {
   SectionJournalMoreTags
 } from '@/components/sections'
 
-type TypePageJournalArticlesProps = {}
+// type TypePageJournalArticlesProps = {}
 
 const PageJournalArticles = () => {
   const { journalTags } = useContext(ContextJournalContext)
@@ -27,7 +27,6 @@ const PageJournalArticles = () => {
         description={truncate(program?.goal, 120)}
         canonical={`https://moscow.mba${router.asPath}`}
       /> */}
-
       <SectionJournalTags />
       <SectionJournalCategories />
       <SectionJournalHeroArticle />

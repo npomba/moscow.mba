@@ -89,14 +89,14 @@ const Footer = () => {
                     </a>
                   </Link>
                 </li>
-                {/* <li className={stls.linkItem}>
+                <li className={stls.linkItem}>
                   <Link href='/journal' locale='ru'>
                     <a className={stls.link}>
                       {at.en && 'Journal'}
                       {at.ru && 'Журнал'}
                     </a>
                   </Link>
-                </li> */}
+                </li>
                 {/* <li>
                 <Link href='/legal/about' locale='ru'>
                   <a>{SetString(lang.legalAboutLink)}</a>

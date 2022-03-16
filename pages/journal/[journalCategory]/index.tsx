@@ -5,7 +5,7 @@ import { TypePageJournalArticlesProps } from '@/types/index'
 import { routesFront } from '@/config/index'
 import { handleGetStaticProps, handleGetStaticPaths } from '@/lib/index'
 import { usePageHandleContext } from '@/hooks/index'
-import { PageJournalArticles } from '@/components/pages'
+import PageJournalArticles from '@/components/pages/PageJournalArticles'
 
 const PageJournalCategory: NextPage<TypePageJournalArticlesProps> = ({
   programs,
