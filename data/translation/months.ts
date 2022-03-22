@@ -1,4 +1,4 @@
-const months = {
+const dataMonths = {
   months: {
     ru: ['месяц', 'месяца', 'месяцев'],
     en: 'month'
@@ -65,4 +65,4 @@ const months = {
   }
 }
 
-export default months
+export default dataMonths

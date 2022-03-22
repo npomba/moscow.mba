@@ -1,25 +1,27 @@
 import stls from '@/styles/components/header/HeaderInformation.module.sass'
-import { SetString, useAt, getClassNames } from '@/helpers/index'
 import Link from 'next/link'
+import cn from 'classnames'
+import { contactData, companyName } from '@/config/index'
+import { useAt, getClassNames } from '@/helpers/index'
+import { Wrapper } from '@/components/layout'
+import { BtnChangeLang } from '@/components/btns'
+import { ImgLogoRabo, ImgLogoMde } from '@/components/images'
 import {
   IconLocation,
   IconLogo,
   IconLogoTitle,
   IconMobilePhone
 } from '@/components/icons'
-import { ImgLogoRabo, ImgLogoMde } from '@/components/images'
-import { BtnChangeLang } from '@/components/btns'
-import cn from 'classnames'
-import contactData from '@/config/contactData'
-import { Wrapper } from '@/components/layout'
 
 const HeaderInformation = ({ classNames = [], handleMenu, openMenu }) => {
-  const container = getClassNames({ classNames })
-  const contactInfo = contactData()
   const at = useAt()
+  const contactInfo = contactData()
 
   return (
-    <div className={cn([stls.container], container)}>
+    <div
+      className={
+        cn([stls.container], getClassNames({ classNames })) || undefined
+      }>
       <Wrapper>
         <Link href='/'>
           <a
@@ -27,7 +29,7 @@ const HeaderInformation = ({ classNames = [], handleMenu, openMenu }) => {
               [stls.logoDisabled]: at.promo
             })}
             onClick={() => handleMenu(false)}
-            aria-label='Moscow Business Academy'>
+            aria-label={companyName}>
             <span className={stls.picture}>
               <IconLogo />
             </span>
@@ -46,8 +48,7 @@ const HeaderInformation = ({ classNames = [], handleMenu, openMenu }) => {
         </div>
         <div className={stls.address}>
           <IconLocation />
-          {SetString(contactInfo.ru.address.city)},{' '}
-          {SetString(contactInfo.ru.address.street)}
+          {contactInfo.ru.address.city}, {contactInfo.ru.address.street}
         </div>
         <div className={stls.phoneLinks}>
           <a className={stls.phoneLink} href={contactInfo.ru.tels[0].href}>

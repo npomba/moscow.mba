@@ -32,6 +32,7 @@ const CardContact = ({
                     str
                   )
                 )}
+                {/* {address} */}
               </span>
             </span>
           </li>

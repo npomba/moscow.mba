@@ -1,4 +1,4 @@
-export default {
+const dataFooter = {
   offerContract: {
     ru: 'Договор Оферты',
     en: 'Offer Contract'
@@ -19,3 +19,5 @@ export default {
     en: 'Legal information'
   }
 }
+
+export default dataFooter

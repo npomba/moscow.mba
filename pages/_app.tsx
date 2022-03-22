@@ -1,17 +1,21 @@
 import App from 'next/app'
+import '@/styles/app.sass'
 import { useEffect, useState } from 'react'
+import Router from 'next/router'
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 import TagManager from 'react-gtm-module'
 import { DefaultSeo, LogoJsonLd } from 'next-seo'
 import SEO from '../seo.config'
 import { Header, Main, WrapperPage, Footer } from '@/components/layout'
-import '@/styles/app.sass'
 import { dev, gtmId } from '@/config/index'
-import NProgress from 'nprogress'
-import Router from 'next/router'
-import 'nprogress/nprogress.css'
-import Script from 'next/script'
-import { MenuState, OverlayState, ProgramsState } from '@/context/index'
-import { ContextJournalState } from '@/context/index'
+// import Script from 'next/script'
+import {
+  MenuState,
+  OverlayState,
+  ProgramsState,
+  ContextJournalState
+} from '@/context/index'
 
 function MyApp({ Component, pageProps, router }) {
   const [loading, setLoading] = useState(false)

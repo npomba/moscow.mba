@@ -96,11 +96,6 @@ const Footer = () => {
                     </a>
                   </Link>
                 </li>
-                {/* <li>
-                <Link href='/legal/about' locale='ru'>
-                  <a>{SetString(lang.legalAboutLink)}</a>
-                </Link>
-              </li> */}
                 <li className={stls.linkItem}>
                   <Link href='/payment' locale='ru'>
                     <a className={stls.link}>{SetString(lang.paymentLink)}</a>
@@ -112,8 +107,7 @@ const Footer = () => {
               <div className={stls.location}>
                 <IconLocation />
                 <span>
-                  {SetString(contactInfo.ru.address.city)},{' '}
-                  {SetString(contactInfo.ru.address.street)}
+                  {contactInfo.ru.address.city}, {contactInfo.ru.address.street}
                 </span>
               </div>
               <ul className={stls.socialsList}>

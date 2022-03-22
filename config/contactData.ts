@@ -1,28 +1,32 @@
-import langContact from '@/data/translation/contact'
-import langCities from '@/data/translation/cities'
-import { useAt } from '@/helpers/index'
+import { useTranslate } from '@/hooks/index'
 
 const useContactInfo = () => {
-  const at = useAt()
   return {
     ru: {
       tels: [
         {
           href: 'tel:+7-800-500-27-47',
           val: '+7 (800) 500-27-47',
-          description: at.en ? 'Free for Russia' : 'Бесплатно по России'
+          description: useTranslate({
+            en: 'Free for Russia',
+            def: 'Бесплатно по России'
+          })
         },
         {
           href: 'tel:+7-495-149-00-20',
           val: '+7 (495) 149-00-20',
-          description: at.en ? 'Free for Moscow' : 'Бесплатно по Москве'
+          description: useTranslate({
+            en: 'Free for Moscow',
+            def: 'Бесплатно по Москве'
+          })
         }
       ],
       address: {
-        city: langCities.moscow,
-        street: at.en
-          ? 'Derbenevskaya Naberezhnaya 11'
-          : 'Дербеневская набережная 11'
+        city: useTranslate({ en: 'Moscow', def: 'Москва' }),
+        street: useTranslate({
+          en: 'Derbenevskaya Naberezhnaya 11',
+          def: 'Дербеневская набережная 11'
+        })
       },
       email: { val: 'info@moscow.mba', mailTo: 'mailto:info@moscow.mba' }
     },
@@ -43,8 +47,14 @@ const useContactInfo = () => {
           }
         ],
         address: {
-          city: langCities.almaty,
-          street: langContact.almatyAddressStreet
+          city: useTranslate({
+            en: 'Almaty',
+            def: 'Алматы'
+          }),
+          street: useTranslate({
+            en: 'Al-Farabi Avenue 17, Nurly Tau BC',
+            def: 'Проспект Аль-Фараби 17, БЦ Нурлы-Тау'
+          })
         },
         email: {
           val: 'almaty@moscow.mba',
@@ -63,8 +73,14 @@ const useContactInfo = () => {
           }
         ],
         address: {
-          city: langCities.shymkent,
-          street: langContact.shymkentAddressStreet
+          city: useTranslate({
+            en: 'Shymkent',
+            def: 'Шымкент'
+          }),
+          street: useTranslate({
+            en: '9 Baytursynov St',
+            def: 'ул.Байтурсынова 9'
+          })
         },
         email: {
           val: 'shymkent@moscow.mba',
@@ -89,8 +105,14 @@ const useContactInfo = () => {
         }
       ],
       address: {
-        city: langCities.tashkent,
-        street: langContact.tashkentAddressStreet
+        city: useTranslate({
+          en: 'Tashkent',
+          def: 'Ташкент'
+        }),
+        street: useTranslate({
+          en: '14 Afrosiab St, Afrosiyab BC',
+          def: 'ул.Афросиаб 14, БЦ "Афросиеб"'
+        })
       },
       email: {
         val: 'tashkent@moscow.mba',
@@ -106,8 +128,14 @@ const useContactInfo = () => {
         }
       ],
       address: {
-        city: langCities.newYork,
-        street: langContact.newyorkAddressStreet
+        city: useTranslate({
+          en: 'New York',
+          def: 'Нью-йорк'
+        }),
+        street: useTranslate({
+          en: 'Loisaida Ave 55',
+          def: 'Loisaida Ave 55'
+        })
       },
       email: { val: 'info@moscow.mba', mailTo: 'mailto:info@moscow.mba' }
     },
@@ -120,8 +148,14 @@ const useContactInfo = () => {
         }
       ],
       address: {
-        city: langCities.barcelona,
-        street: langContact.barcelonaAddressStreet
+        city: useTranslate({
+          en: 'Barcelona',
+          def: 'Барселона'
+        }),
+        street: useTranslate({
+          en: 'Carrer de Gongora 68',
+          def: 'Carrer de Gongora 68'
+        })
       },
       email: { val: 'info@moscow.mba', mailTo: 'mailto:info@moscow.mba' }
     },
@@ -134,8 +168,14 @@ const useContactInfo = () => {
         }
       ],
       address: {
-        city: langCities.berlin,
-        street: langContact.berlinAddressStreet
+        city: useTranslate({
+          en: 'Berlin',
+          def: 'Берлин'
+        }),
+        street: useTranslate({
+          en: 'Goltzstrabe 50',
+          def: 'Goltzstrabe 50'
+        })
       },
       email: { val: 'info@moscow.mba', mailTo: 'mailto:info@moscow.mba' }
     }

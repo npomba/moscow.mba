@@ -1,12 +1,13 @@
 import stls from '@/styles/components/pages/Webinars.module.sass'
+import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
 import Link from 'next/link'
 import cn from 'classnames'
-import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import { useAt } from '@/helpers/index'
 import { Breadcrumbs } from '@/components/general'
-import { WebinarCards } from '@/components/sections'
+// import { WebinarCards } from '@/components/sections'
+import WebinarCards from '@/components/sections/general/WebinarCards'
 
 const Webinars = ({ title, heading, timeframe = 'all' }) => {
   const at = useAt()

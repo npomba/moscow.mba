@@ -8,6 +8,8 @@ type TypeUseTranslate = {
 const useTranslate = ({ en, def }: TypeUseTranslate) => {
   const router = useRouter()
 
+  if (router.locale === 'en-US') return en
+
   return def
 }
 

@@ -1,4 +1,4 @@
-export default {
+const dataCities = {
   moscow: {
     ru: 'Москва',
     en: 'Moscow'
@@ -34,3 +34,5 @@ export default {
     en: 'Berlin'
   }
 }
+
+export default dataCities

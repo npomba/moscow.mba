@@ -1,4 +1,4 @@
-export default {
+const dataContact = {
   almatyAddressStreet: {
     ru: 'Проспект Аль-Фараби 17, БЦ Нурлы-Тау',
     en: 'Al-Farabi Avenue 17, Nurly Tau BC'
@@ -24,3 +24,5 @@ export default {
     en: 'Goltzstrabe 50'
   }
 }
+
+export default dataContact

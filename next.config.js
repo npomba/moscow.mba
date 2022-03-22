@@ -9,8 +9,8 @@ module.exports = {
   //   dest: 'public',
   //   disable: dev
   // },
-  // reactStrictMode: true,
   // staticPageGenerationTimeout: 120,
+  reactStrictMode: true,
   poweredByHeader: false,
   i18n: {
     locales: ['ru', 'en-US'],

@@ -1,4 +1,4 @@
-const menu = {
+const dataMenu = {
   allPrograms: {
     ru: 'Все программы',
     en: 'All programs'
@@ -138,4 +138,4 @@ const menu = {
   }
 }
 
-export default menu
+export default dataMenu

@@ -1,4 +1,4 @@
-const about = {
+const dataAbout = {
   title: {
     ru: 'Об академии',
     en: 'About'
@@ -305,4 +305,4 @@ const about = {
   }
 }
 
-export default about
+export default dataAbout

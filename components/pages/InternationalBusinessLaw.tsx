@@ -2,26 +2,44 @@ import stls from '@/styles/components/pages/InternationalBusinessLaw.module.sass
 import { NextSeo, CourseJsonLd } from 'next-seo'
 import { useRouter } from 'next/router'
 import truncate from 'truncate'
-import {
-  JumbotronProgram,
-  Reviews,
-  ProgramGoal,
-  WhatWillYouLearn,
-  ProgramDesc,
-  HowProcessGoes,
-  ProgramsModules,
-  ContactUs,
-  Qna,
-  Students,
-  Teachers,
-  UpToDateContent,
-  Diploma,
-  CorporateClients,
-  CostOfStudy,
-  Accreditation,
-  Pros,
-  GetStudyPlan
-} from '@/components/sections'
+// import {
+//   JumbotronProgram,
+//   Reviews,
+//   ProgramGoal,
+//   WhatWillYouLearn,
+//   ProgramDesc,
+//   HowProcessGoes,
+//   ProgramsModules,
+//   ContactUs,
+//   Qna,
+//   Students,
+//   Teachers,
+//   UpToDateContent,
+//   Diploma,
+//   CorporateClients,
+//   CostOfStudy,
+//   Accreditation,
+//   Pros,
+//   GetStudyPlan
+// } from '@/components/sections'
+import JumbotronProgram from '@/components/sections/general/JumbotronProgram'
+import Reviews from '@/components/sections/general/Reviews'
+import ProgramGoal from '@/components/sections/general/ProgramGoal'
+import WhatWillYouLearn from '@/components/sections/general/WhatWillYouLearn'
+import ProgramDesc from '@/components/sections/general/ProgramDesc'
+import HowProcessGoes from '@/components/sections/general/HowProcessGoes'
+import ProgramsModules from '@/components/sections/general/ProgramsModules'
+import ContactUs from '@/components/sections/general/ContactUs'
+import Qna from '@/components/sections/general/Qna'
+import Students from '@/components/sections/general/Students'
+import Teachers from '@/components/sections/general/Teachers'
+import UpToDateContent from '@/components/sections/general/UpToDateContent'
+import Diploma from '@/components/sections/general/Diploma'
+import CorporateClients from '@/components/sections/general/CorporateClients'
+import CostOfStudy from '@/components/sections/general/CostOfStudy'
+import Accreditation from '@/components/sections/general/Accreditation'
+import Pros from '@/components/sections/general/Pros'
+import GetStudyPlan from '@/components/sections/general/GetStudyPlan'
 
 const PageOnlineProgram = ({ program, teachers }) => {
   const router = useRouter()

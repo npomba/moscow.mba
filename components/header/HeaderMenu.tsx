@@ -1,7 +1,7 @@
 import stls from '@/styles/components/header/HeaderMenu.module.sass'
 import { useState } from 'react'
-import langMenu from '@/data/translation/menu'
-import { SetString, useAt, useWindowWidth } from '@/helpers/index'
+import { useAt, useWindowWidth } from '@/helpers/index'
+import { useTranslate } from '@/hooks/index'
 import {
   HeaderPrograms,
   HeaderTabs,
@@ -17,30 +17,30 @@ const HeaderMenu = ({ programs, handleMenu }) => {
   const links = [
     {
       href: '/about',
-      val: at.en ? 'About' : 'Об академии',
+      val: useTranslate({ en: 'About', def: 'Об академии' }),
       red: at.about
     },
     {
       href: '/teachers',
-      val: at.en ? 'Experts' : 'Эксперты',
+      val: useTranslate({ en: 'Experts', def: 'Эксперты' }),
       red: at.teachers,
       locale: 'ru'
     },
     {
       href: '/webinars',
-      val: at.en ? 'Webinars' : 'Вебинары',
+      val: useTranslate({ en: 'Webinars', def: 'Вебинары' }),
       red: at.webinars,
       locale: 'ru'
     },
     {
       href: '/contact',
-      val: at.en ? 'Contact' : 'Контакты',
+      val: useTranslate({ en: 'Contact', def: 'Контакты' }),
       red: at.contact,
       locale: 'ru'
     },
     {
       href: '/legal',
-      val: at.en ? 'Legal' : 'Сведения об организации',
+      val: useTranslate({ en: 'Legal', def: 'Сведения об организации' }),
       red: at.legal,
       locale: 'ru'
     }
@@ -57,7 +57,7 @@ const HeaderMenu = ({ programs, handleMenu }) => {
     },
     {
       href: '/programs/profession/online',
-      val: SetString(langMenu.professions)
+      val: useTranslate({ en: 'Professions', def: 'Профессии' })
     },
     // {
     //   href: '/programs/course/online',
@@ -69,7 +69,7 @@ const HeaderMenu = ({ programs, handleMenu }) => {
     // },
     {
       href: '/programs/mini/online',
-      val: SetString(langMenu.allPrograms)
+      val: useTranslate({ en: 'All programs', def: 'Все программы' })
     }
   ]
 

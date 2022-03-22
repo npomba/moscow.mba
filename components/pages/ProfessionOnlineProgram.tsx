@@ -2,24 +2,40 @@ import stls from '@/styles/components/pages/ProfessionOnlineProgram.module.sass'
 import { NextSeo, CourseJsonLd } from 'next-seo'
 import { useRouter } from 'next/router'
 import truncate from 'truncate'
-import {
-  JumbotronProgram,
-  WhoItIsFor,
-  WhatWillYouLearn,
-  ProgramDesc,
-  HowProcessGoes,
-  ProgramsModules,
-  ContactUs,
-  Qna,
-  Teachers,
-  Diploma,
-  CorporateClients,
-  CostOfStudy,
-  HelpWithEmployment,
-  Pros,
-  GetStudyPlan,
-  ProgramDevelopedStandard
-} from '@/components/sections'
+// import {
+//   JumbotronProgram,
+//   WhoItIsFor,
+//   WhatWillYouLearn,
+//   ProgramDesc,
+//   HowProcessGoes,
+//   ProgramsModules,
+//   ContactUs,
+//   Qna,
+//   Teachers,
+//   Diploma,
+//   CorporateClients,
+//   CostOfStudy,
+//   HelpWithEmployment,
+//   Pros,
+//   GetStudyPlan,
+//   ProgramDevelopedStandard
+// } from '@/components/sections'
+import JumbotronProgram from '@/components/sections/general/JumbotronProgram'
+import WhoItIsFor from '@/components/sections/general/WhoItIsFor'
+import WhatWillYouLearn from '@/components/sections/general/WhatWillYouLearn'
+import ProgramDesc from '@/components/sections/general/ProgramDesc'
+import HowProcessGoes from '@/components/sections/general/HowProcessGoes'
+import ProgramsModules from '@/components/sections/general/ProgramsModules'
+import ContactUs from '@/components/sections/general/ContactUs'
+import Qna from '@/components/sections/general/Qna'
+import Teachers from '@/components/sections/general/Teachers'
+import Diploma from '@/components/sections/general/Diploma'
+import CorporateClients from '@/components/sections/general/CorporateClients'
+import CostOfStudy from '@/components/sections/general/CostOfStudy'
+import HelpWithEmployment from '@/components/sections/general/HelpWithEmployment'
+import Pros from '@/components/sections/general/Pros'
+import GetStudyPlan from '@/components/sections/general/GetStudyPlan'
+import ProgramDevelopedStandard from '@/components/sections/general/ProgramDevelopedStandard'
 
 const ProfessionOnlineProgram = ({ program, teachers }) => {
   const data = program

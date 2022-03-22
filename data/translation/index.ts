@@ -1,4 +1,4 @@
-const index = {
+const dataIndex = {
   headerSubtitle: {
     ru: 'Международное бизнес-образование. У нас есть всё для раскрытия Вашего потенциала!',
     en: "International Business Education. We've everything to help you reach your full potential!"
@@ -305,4 +305,4 @@ const index = {
   }
 }
 
-export default index
+export default dataIndex

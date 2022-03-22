@@ -35,6 +35,7 @@ const JumbotronCta = ({ programTitle = null, programId = null }) => {
           src='/assets/images/jumbotron_1.jpg'
           alt={'Аудитория MBA'}
           layout='fill'
+          priority
         />
       </div>
       <Wrapper classNames={[stls.wrapper]}>

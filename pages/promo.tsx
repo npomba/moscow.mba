@@ -6,16 +6,24 @@ import { routesFront } from '@/config/index'
 import { SetString } from '@/helpers/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { usePageHandleContext } from '@/hooks/index'
-import {
-  JumbotronCta,
-  WhatWillYouLearn,
-  CourseOptions,
-  ProgramDesc,
-  ContactUs,
-  Accreditation,
-  Diploma,
-  WhoItIsFor
-} from '@/components/sections'
+// import {
+//   JumbotronCta,
+//   WhatWillYouLearn,
+//   CourseOptions,
+//   ProgramDesc,
+//   ContactUs,
+//   Accreditation,
+//   Diploma,
+//   WhoItIsFor
+// } from '@/components/sections'
+import JumbotronCta from '@/components/sections/general/JumbotronCta'
+import WhatWillYouLearn from '@/components/sections/general/WhatWillYouLearn'
+import CourseOptions from '@/components/sections/general/CourseOptions'
+import ProgramDesc from '@/components/sections/general/ProgramDesc'
+import ContactUs from '@/components/sections/general/ContactUs'
+import Accreditation from '@/components/sections/general/Accreditation'
+import Diploma from '@/components/sections/general/Diploma'
+import WhoItIsFor from '@/components/sections/general/WhoItIsFor'
 
 const PagePromo = ({ programs }) => {
   usePageHandleContext({ programs })

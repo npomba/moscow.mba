@@ -1,5 +1,6 @@
 import stls from '@/styles/components/sections/WebinarCards.module.sass'
-import { WebinarCard } from '@/components/sections'
+// import { WebinarCard } from '@/components/sections'
+import WebinarCard from '@/components/sections/general/WebinarCard'
 
 const WebinarCards = ({ timeframe }) => {
   const data = [

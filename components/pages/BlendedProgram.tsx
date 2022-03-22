@@ -2,29 +2,50 @@ import stls from '@/styles/components/pages/BlendedProgram.module.sass'
 import { NextSeo, CourseJsonLd } from 'next-seo'
 import { useRouter } from 'next/router'
 import truncate from 'truncate'
-import {
-  Reviews,
-  JumbotronProgram,
-  ProgramGoal,
-  WhatWillYouLearn,
-  ProgramDesc,
-  HowProcessGoes,
-  ProgramsModules,
-  ContactUs,
-  Qna,
-  Students,
-  Teachers,
-  UpToDateContent,
-  Diploma,
-  CorporateClients,
-  Accreditation,
-  Pros,
-  BlendedMetups,
-  CostOfStudy,
-  ECTSStandard,
-  CostOfStudyDescription,
-  GetStudyPlan
-} from '@/components/sections'
+// import {
+//   Reviews,
+//   JumbotronProgram,
+//   ProgramGoal,
+//   WhatWillYouLearn,
+//   ProgramDesc,
+//   HowProcessGoes,
+//   ProgramsModules,
+//   ContactUs,
+//   Qna,
+//   Students,
+//   Teachers,
+//   UpToDateContent,
+//   Diploma,
+//   CorporateClients,
+//   Accreditation,
+//   Pros,
+//   BlendedMetups,
+//   CostOfStudy,
+//   ECTSStandard,
+//   CostOfStudyDescription,
+//   GetStudyPlan
+// } from '@/components/sections'
+import Reviews from '@/components/sections/general/Reviews'
+import JumbotronProgram from '@/components/sections/general/JumbotronProgram'
+import ProgramGoal from '@/components/sections/general/ProgramGoal'
+import WhatWillYouLearn from '@/components/sections/general/WhatWillYouLearn'
+import ProgramDesc from '@/components/sections/general/ProgramDesc'
+import HowProcessGoes from '@/components/sections/general/HowProcessGoes'
+import ProgramsModules from '@/components/sections/general/ProgramsModules'
+import ContactUs from '@/components/sections/general/ContactUs'
+import Qna from '@/components/sections/general/Qna'
+import Students from '@/components/sections/general/Students'
+import Teachers from '@/components/sections/general/Teachers'
+import UpToDateContent from '@/components/sections/general/UpToDateContent'
+import Diploma from '@/components/sections/general/Diploma'
+import CorporateClients from '@/components/sections/general/CorporateClients'
+import Accreditation from '@/components/sections/general/Accreditation'
+import Pros from '@/components/sections/general/Pros'
+import BlendedMetups from '@/components/sections/general/BlendedMetups'
+import CostOfStudy from '@/components/sections/general/CostOfStudy'
+import ECTSStandard from '@/components/sections/general/ECTSStandard'
+import CostOfStudyDescription from '@/components/sections/general/CostOfStudyDescription'
+import GetStudyPlan from '@/components/sections/general/GetStudyPlan'
 
 const PageBlendedProgram = ({ program, teachers }) => {
   const router = useRouter()

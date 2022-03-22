@@ -8,7 +8,8 @@ import { handleGetStaticProps } from '@/lib/index'
 import { usePageHandleContext } from '@/hooks/index'
 import { Wrapper } from '@/components/layout'
 import { Breadcrumbs } from '@/components/general'
-import { Teachers } from '@/components/sections'
+// import { Teachers } from '@/components/sections'
+import Teachers from '@/components/sections/general/Teachers'
 
 const PageTeachers = ({ programs, teachers }) => {
   usePageHandleContext({ programs })

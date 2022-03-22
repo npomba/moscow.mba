@@ -2,9 +2,9 @@ import stls from '@/styles/components/sections/Programs.module.sass'
 import { useState, useContext } from 'react'
 import Link from 'next/link'
 import cn from 'classnames'
-import langMenu from '@/data/translation/menu'
 import { useAt, SetString } from '@/helpers/index'
 import { ProgramsContext } from '@/context/index'
+import { useTranslate } from '@/hooks/index'
 import { Wrapper } from '@/components/layout'
 import { ProgramSubjects, ProgramsQty } from '@/components/general'
 import { Until, Price, TrainingPeriod, Discount } from '@/components/costs'
@@ -65,7 +65,9 @@ const Programs = () => {
               </li>
               <li>
                 <Link href='/programs/mini/online' locale='ru'>
-                  <a>{SetString(langMenu.allPrograms)}</a>
+                  <a>
+                    {useTranslate({ en: 'All programs', def: 'Все программы' })}
+                  </a>
                 </Link>
               </li>
             </ul>
@@ -83,15 +85,23 @@ const Programs = () => {
                   </i>
                   <span>
                     <ProgramSubjects type='mini' sum={true} />{' '}
-                    {SetString(langMenu.qtSubjects)}{' '}
+                    {useTranslate({ en: 'subjects', def: 'дисциплин' })}
                   </span>
                 </div>
                 <div className='prog-status'>
-                  {SetString(langMenu.newestPrograms)} 2021{' '}
-                  {SetString(langMenu.newestProgramsYear)}
+                  {useTranslate({
+                    en: 'Newest programs of',
+                    def: 'Новейшие программы'
+                  })}{' '}
+                  2021 {useTranslate({ en: '', def: 'года' })}
                 </div>
               </div>
-              <div className='desc'>{SetString(langMenu.categoryDiscMini)}</div>
+              <div className='desc'>
+                {useTranslate({
+                  en: '',
+                  def: 'Дистанционная программа Mini MBA разработана для специалистов и руководителей, которые хотят систематизировать имеющиеся знания или познакомиться с ключевыми аспектами новой для себя сферы управленческой деятельности'
+                })}
+              </div>
               <ul className='program-options-block-tabs--sctn-programs'>
                 <li>
                   <a
@@ -115,7 +125,10 @@ const Programs = () => {
                     show: isMiniOnline
                   })}>
                   <div className='name'>
-                    {SetString(langMenu.onlineTitle)}
+                    {useTranslate({
+                      en: 'ONLINE',
+                      def: 'Формат ONLINE'
+                    })}
                     <div className='discount'>
                       <div className='size'>
                         <Discount />
@@ -131,15 +144,23 @@ const Programs = () => {
                     format={'online'}
                   />
                   <div className='price'>
-                    {SetString(langMenu.price)}:{' '}
-                    <Price discount={true} type={'mini'} format={'online'} />{' '}
+                    {useTranslate({
+                      en: 'Cost',
+                      def: 'Стоимость'
+                    })}
+                    : <Price discount={true} type={'mini'} format={'online'} />{' '}
                   </div>
                   <div className='info-list'>
                     <div className='info-flex'>
                       <div className='pic'>
                         <IconCheckCircle />
                       </div>
-                      <span>{SetString(langMenu.formatRemote)}</span>
+                      <span>
+                        {useTranslate({
+                          en: 'Remotely',
+                          def: 'Дистанционно'
+                        })}
+                      </span>
                     </div>
                     <div className='info-flex'>
                       <div className='pic'>
@@ -147,7 +168,10 @@ const Programs = () => {
                       </div>
                       <span>
                         <ProgramSubjects type='mini' sum={true} />{' '}
-                        {SetString(langMenu.qtSubjects)}
+                        {useTranslate({
+                          en: 'subjects',
+                          def: 'дисциплин'
+                        })}
                       </span>
                     </div>
                   </div>
@@ -175,14 +199,23 @@ const Programs = () => {
                     'program-options-block': true,
                     show: !isMiniOnline
                   })}>
-                  <div className='name'>{SetString(langMenu.blendedTitle)}</div>
+                  <div className='name'>
+                    {useTranslate({
+                      en: 'BLENDED',
+                      def: 'Формат BLENDED'
+                    })}
+                  </div>
                   <ProgramsQty
                     programs={programs}
                     type={'mini'}
                     format={'blended'}
                   />
                   <div className='price'>
-                    {SetString(langMenu.price)}:{' '}
+                    {useTranslate({
+                      en: 'Cost',
+                      def: 'Стоимость'
+                    })}
+                    :{' '}
                     <Price discount={false} type={'mini'} format={'blended'} />{' '}
                   </div>
                   <div className='info-list'>
@@ -190,7 +223,12 @@ const Programs = () => {
                       <div className='pic'>
                         <IconCheckCircle />
                       </div>
-                      <span>{SetString(langMenu.formatBlended)}</span>
+                      <span>
+                        {useTranslate({
+                          en: 'Half in-person',
+                          def: 'С очными модулями'
+                        })}
+                      </span>
                     </div>
                     <div className='info-flex'>
                       <div className='pic'>
@@ -198,7 +236,10 @@ const Programs = () => {
                       </div>
                       <span>
                         <ProgramSubjects type='mini' sum={true} />{' '}
-                        {SetString(langMenu.qtSubjects)}
+                        {useTranslate({
+                          en: 'subjects',
+                          def: 'дисциплин'
+                        })}
                       </span>
                     </div>
                   </div>
@@ -235,15 +276,30 @@ const Programs = () => {
                   </i>
                   <span>
                     <ProgramSubjects type='mba' sum={true} />{' '}
-                    {SetString(langMenu.qtSubjects)}{' '}
+                    {useTranslate({
+                      en: 'subjects',
+                      def: 'дисциплин'
+                    })}{' '}
                   </span>
                 </div>
                 <div className='prog-status'>
-                  {SetString(langMenu.newestPrograms)} 2021{' '}
-                  {SetString(langMenu.newestProgramsYear)}
+                  {useTranslate({
+                    en: 'Newest programs of',
+                    def: 'Новейшие программы'
+                  })}{' '}
+                  2021{' '}
+                  {useTranslate({
+                    en: '',
+                    def: 'года'
+                  })}
                 </div>
               </div>
-              <div className='desc'>{SetString(langMenu.categoryDiscMba)}</div>
+              <div className='desc'>
+                {useTranslate({
+                  en: '',
+                  def: 'Дистанционная программа MBA разработана для специалистов и руководителей, которые хотят систематизировать имеющиеся знания или познакомиться с ключевыми аспектами новой для себя сферы управленческой деятельности'
+                })}
+              </div>
               <ul className='program-options-block-tabs--sctn-programs'>
                 <li>
                   <a
@@ -267,7 +323,10 @@ const Programs = () => {
                     show: isMbaOnline
                   })}>
                   <div className='name'>
-                    {SetString(langMenu.onlineTitle)}
+                    {useTranslate({
+                      en: 'ONLINE',
+                      def: 'Формат ONLINE'
+                    })}
                     <div className='discount'>
                       <div className='size'>
                         <Discount />
@@ -283,15 +342,23 @@ const Programs = () => {
                     format={'online'}
                   />
                   <div className='price'>
-                    {SetString(langMenu.price)}:{' '}
-                    <Price discount={true} type={'mba'} format={'online'} />{' '}
+                    {useTranslate({
+                      en: 'Cost',
+                      def: 'Стоимость'
+                    })}
+                    : <Price discount={true} type={'mba'} format={'online'} />{' '}
                   </div>
                   <div className='info-list'>
                     <div className='info-flex'>
                       <div className='pic'>
                         <IconCheckCircle />
                       </div>
-                      <span>{SetString(langMenu.formatRemote)}</span>
+                      <span>
+                        {useTranslate({
+                          en: 'Remotely',
+                          def: 'Дистанционно'
+                        })}
+                      </span>
                     </div>
                     <div className='info-flex'>
                       <div className='pic'>
@@ -299,7 +366,10 @@ const Programs = () => {
                       </div>
                       <span>
                         <ProgramSubjects type='mba' sum={true} />{' '}
-                        {SetString(langMenu.qtSubjects)}
+                        {useTranslate({
+                          en: 'subjects',
+                          def: 'дисциплин'
+                        })}
                       </span>
                     </div>
                   </div>
@@ -334,14 +404,16 @@ const Programs = () => {
                     'program-options-block': true,
                     show: !isMbaOnline
                   })}>
-                  <div className='name'>{SetString(langMenu.blendedTitle)}</div>
+                  <div className='name'>
+                    {useTranslate({ en: 'BLENDED', def: 'Формат BLENDED' })}
+                  </div>
                   <ProgramsQty
                     programs={programs}
                     type={'mba'}
                     format={'blended'}
                   />
                   <div className='price'>
-                    {SetString(langMenu.price)}:{' '}
+                    {useTranslate({ en: 'Cost', def: 'Стоимость' })}:{' '}
                     <Price discount={false} type={'mba'} format={'blended'} />{' '}
                   </div>
                   <div className='info-list'>
@@ -349,7 +421,12 @@ const Programs = () => {
                       <div className='pic'>
                         <IconCheckCircle />
                       </div>
-                      <span>{SetString(langMenu.formatBlended)}</span>
+                      <span>
+                        {useTranslate({
+                          en: 'Half In-Person',
+                          def: 'С очными модулями'
+                        })}
+                      </span>
                     </div>
                     <div className='info-flex'>
                       <div className='pic'>
@@ -357,7 +434,10 @@ const Programs = () => {
                       </div>
                       <span>
                         <ProgramSubjects type='mba' sum={true} />{' '}
-                        {SetString(langMenu.qtSubjects)}
+                        {useTranslate({
+                          en: 'subjects',
+                          def: 'дисциплин'
+                        })}
                       </span>
                     </div>
                   </div>
