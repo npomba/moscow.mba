@@ -46,7 +46,7 @@ const getStaticPropsPrograms = async ({
 
   return {
     props: {
-      ...(res?.data || null),
+      ...res?.data,
       programs: createBlended(res?.data?.programs)
     },
     revalidate: revalidate.default

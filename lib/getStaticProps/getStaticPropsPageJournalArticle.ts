@@ -170,7 +170,7 @@ const getStaticPropsPageJournalArticle = async ({
 
   return {
     props: {
-      ...(res?.data || null),
+      ...res?.data,
       programs: createBlended(res?.data?.programs),
       journalArticlesArticle: res?.data?.journalArticlesArticle?.[0] || null,
       gspContextParamsJournalCategory,

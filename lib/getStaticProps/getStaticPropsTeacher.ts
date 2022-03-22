@@ -55,7 +55,7 @@ const getStaticPropsTeacher = async ({
 
   return {
     props: {
-      ...(res?.data || null),
+      ...res?.data,
       programs: createBlended(res?.data?.programs),
       teacher: res?.data.teacher?.[0] || null
     },
