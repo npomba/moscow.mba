@@ -6,6 +6,7 @@ import {
 import { gql } from '@apollo/client'
 import apolloClient from '@/lib/apolloClient'
 import { revalidate } from '@/config/index'
+import { createBlended } from '@/helpers/index'
 
 const getStaticPropsTeachers = async ({
   context
@@ -53,7 +54,10 @@ const getStaticPropsTeachers = async ({
   })
 
   return {
-    props: res?.data || null,
+    props: {
+      ...(res?.data || null),
+      programs: createBlended(res?.data?.programs)
+    },
     revalidate: revalidate.default
   }
 }

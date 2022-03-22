@@ -16,6 +16,7 @@ export const getStaticProps: GetStaticProps = async context =>
   await handleGetStaticProps({
     page: routesFront.program,
     context,
+    format: 'online',
     type: 'mbl',
     slug: 'international-business-law'
   })

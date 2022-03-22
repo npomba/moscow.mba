@@ -30,7 +30,8 @@ export const getStaticProps: GetStaticProps = async context =>
   await handleGetStaticProps({
     page: routesFront.program,
     context,
-    type: 'mba'
+    type: 'mba',
+    format: 'blended'
   })
 
 export const getStaticPaths: GetStaticPaths = async () =>

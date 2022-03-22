@@ -116,6 +116,7 @@ export const getStaticProps: GetStaticProps = async context =>
   await handleGetStaticProps({
     page: routesFront.program,
     context,
+    format: 'blended',
     type: 'executive',
     slug: 'executive'
   })

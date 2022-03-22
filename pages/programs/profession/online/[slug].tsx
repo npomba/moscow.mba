@@ -16,7 +16,8 @@ export const getStaticProps: GetStaticProps = async context =>
   await handleGetStaticProps({
     page: routesFront.program,
     context,
-    type: 'profession'
+    type: 'profession',
+    format: 'online'
   })
 
 export const getStaticPaths: GetStaticPaths = async () =>

@@ -6,6 +6,7 @@ import {
 import { gql } from '@apollo/client'
 import apolloClient from '@/lib/apolloClient'
 import { revalidate } from '@/config/index'
+import { createBlended } from '@/helpers/index'
 
 const getStaticPropsPageJournalArticles = async ({
   context
@@ -75,6 +76,7 @@ const getStaticPropsPageJournalArticles = async ({
   return {
     props: {
       ...(res?.data || null),
+      programs: createBlended(res?.data?.programs),
       gspContextParamsJournalCategory,
       gspContextParamsJournalCategoryTag,
       gspContextParamsJournalCategoryTagArticle

@@ -26,6 +26,7 @@ import {
 type TypeHandleGetStaticPropsProps = {
   page?: TypeRoutesFront[keyof TypeRoutesFront]
   context: GetStaticPropsContext
+  format?: string | null
   type?: string | null
   slug?: string | null
 }
@@ -33,6 +34,7 @@ type TypeHandleGetStaticPropsProps = {
 const handleGetStaticProps = async ({
   page,
   context,
+  format,
   type,
   slug
 }: TypeHandleGetStaticPropsProps): Promise<{
@@ -61,7 +63,7 @@ const handleGetStaticProps = async ({
         return await getStaticPropsPrograms({ context })
 
       case routesFront.program:
-        return await getStaticPropsProgram({ context, type, slug })
+        return await getStaticPropsProgram({ context, format, type, slug })
 
       case routesFront.teachers:
         return await getStaticPropsTeachers({ context })

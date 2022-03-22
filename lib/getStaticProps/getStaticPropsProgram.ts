@@ -3,13 +3,16 @@ import { TypePageProgramProps, TypePageProgramPropsQuery } from '@/types/index'
 import { gql } from '@apollo/client'
 import apolloClient from '@/lib/apolloClient'
 import { revalidate } from '@/config/index'
+import { createBlended } from '@/helpers/index'
 
 const getStaticPropsProgram = async ({
   context,
+  format,
   type,
   slug
 }: {
   context: GetStaticPropsContext
+  format?: string | null
   type?: string | null
   slug?: string | null
 }): Promise<{
@@ -137,7 +140,11 @@ const getStaticPropsProgram = async ({
   return {
     props: {
       ...(res?.data || null),
-      program: res?.data?.program?.[0] || null
+      programs: createBlended(res?.data?.programs),
+      program:
+        createBlended(res?.data?.program)?.filter(
+          program => program?.studyFormat === format
+        )?.[0] || null
     },
     revalidate: revalidate.default
   }
