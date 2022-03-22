@@ -1,5 +1,6 @@
 import stls from '@/styles/components/costs/Price.module.sass'
-import { useAt, toNumberWithSpaces } from '@/helpers/index'
+import { toNumberWithSpaces } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 
 const Price = ({
   discount = false,

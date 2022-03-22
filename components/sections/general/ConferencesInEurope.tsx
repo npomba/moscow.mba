@@ -1,6 +1,7 @@
 import stls from '@/styles/components/sections/ConferencesInEurope.module.sass'
 import Image from 'next/image'
-import { SetString, useAt } from '@/helpers/index'
+import { SetString } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import lang from '@/data/translation/index'
 import imageData from '@/data/images/conferencesInEurope'
 import { base64pixel } from '@/config/index'

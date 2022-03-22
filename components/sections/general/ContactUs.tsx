@@ -1,6 +1,7 @@
 import stls from '@/styles/components/sections/ContactUs.module.sass'
 import cn from 'classnames'
-import { SetString, useAt } from '@/helpers/index'
+import { SetString } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import lang from '@/data/translation/index'
 import { useState } from 'react'
 import { LeadLoaderThankyou } from '@/components/general'

@@ -1,4 +1,4 @@
-import { useAt } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 
 const JumbotronLabel = () => {
   const at = useAt()

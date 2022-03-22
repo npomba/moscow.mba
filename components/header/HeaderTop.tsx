@@ -1,6 +1,5 @@
 import stls from '@/styles/components/header/HeaderTop.module.sass'
-import { useAt } from '@/helpers/index'
-import { useTranslate } from '@/hooks/index'
+import { useAt } from '@/hooks/index'
 import { HeaderNav, HeaderInformation } from '@/components/header'
 
 const HeaderTop = ({ handleMenu, openMenu }) => {
@@ -8,30 +7,30 @@ const HeaderTop = ({ handleMenu, openMenu }) => {
   const links = [
     {
       href: '/about',
-      val: useTranslate({ en: 'About', def: 'Об академии' }),
+      val: at.en ? 'About' : 'Об академии',
       red: at.about
     },
     {
       href: '/teachers',
-      val: useTranslate({ en: 'Experts', def: 'Эксперты' }),
+      val: at.en ? 'Experts' : 'Эксперты',
       red: at.teachers && !at.teachersTeacher,
       locale: 'ru'
     },
     {
       href: '/webinars',
-      val: useTranslate({ en: 'Webinars', def: 'Вебинары' }),
+      val: at.en ? 'Webinars' : 'Вебинары',
       red: at.webinars,
       locale: 'ru'
     },
     {
       href: '/contact',
-      val: useTranslate({ en: 'Contact', def: 'Контакты' }),
+      val: at.en ? 'Contact' : 'Контакты',
       red: at.contact,
       locale: 'ru'
     },
     {
       href: '/legal',
-      val: useTranslate({ en: 'Legal', def: 'Сведения об организации' }),
+      val: at.en ? 'Legal' : 'Сведения об организации',
       red: at.legal,
       locale: 'ru'
     }

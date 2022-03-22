@@ -3,7 +3,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import cn from 'classnames'
-import { useAt } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import { IconTriangleBottom } from '@/components/icons'
 
 const BtnChangeLang = () => {

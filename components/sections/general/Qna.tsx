@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/Qna.module.sass'
-import { useAt } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import Popup from 'reactjs-popup'
 import PopupForm from '@/components/popups/PopupForm'
 import { AccordionsContainer } from '@/components/general'

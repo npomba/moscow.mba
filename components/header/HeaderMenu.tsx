@@ -1,7 +1,7 @@
 import stls from '@/styles/components/header/HeaderMenu.module.sass'
 import { useState } from 'react'
-import { useAt, useWindowWidth } from '@/helpers/index'
-import { useTranslate } from '@/hooks/index'
+import { useWindowWidth } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import {
   HeaderPrograms,
   HeaderTabs,
@@ -17,30 +17,30 @@ const HeaderMenu = ({ programs, handleMenu }) => {
   const links = [
     {
       href: '/about',
-      val: useTranslate({ en: 'About', def: 'Об академии' }),
+      val: at.en ? 'About' : 'Об академии',
       red: at.about
     },
     {
       href: '/teachers',
-      val: useTranslate({ en: 'Experts', def: 'Эксперты' }),
+      val: at.en ? 'Experts' : 'Эксперты',
       red: at.teachers,
       locale: 'ru'
     },
     {
       href: '/webinars',
-      val: useTranslate({ en: 'Webinars', def: 'Вебинары' }),
+      val: at.en ? 'Webinars' : 'Вебинары',
       red: at.webinars,
       locale: 'ru'
     },
     {
       href: '/contact',
-      val: useTranslate({ en: 'Contact', def: 'Контакты' }),
+      val: at.en ? 'Contact' : 'Контакты',
       red: at.contact,
       locale: 'ru'
     },
     {
       href: '/legal',
-      val: useTranslate({ en: 'Legal', def: 'Сведения об организации' }),
+      val: at.en ? 'Legal' : 'Сведения об организации',
       red: at.legal,
       locale: 'ru'
     }
@@ -57,19 +57,11 @@ const HeaderMenu = ({ programs, handleMenu }) => {
     },
     {
       href: '/programs/profession/online',
-      val: useTranslate({ en: 'Professions', def: 'Профессии' })
+      val: at.en ? 'Professions' : 'Профессии'
     },
-    // {
-    //   href: '/programs/course/online',
-    //   val: SetString(langMenu.courses)
-    // },
-    // {
-    //   href: '/programs/international-business-law',
-    //   val: SetString(langMenu.internationalBusinessLaw)
-    // },
     {
       href: '/programs/mini/online',
-      val: useTranslate({ en: 'All programs', def: 'Все программы' })
+      val: at.en ? 'All programs' : 'Все программы'
     }
   ]
 

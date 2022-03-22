@@ -4,14 +4,28 @@ import Image from 'next/image'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { base64pixel } from '@/config/index'
-import { useAt } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import { Wrapper } from '@/components/layout'
 import { Pagination } from '@/components/general'
 import PopupImage from '@/components/popups/PopupImage'
 
 const Diploma = ({ darkBackground = false }) => {
   const at = useAt()
-  const typeOfPage = at.mbl ? 'mba' : at.onWhichPage
+  const typeOfPage = at.mini
+    ? 'mini'
+    : at.mba
+    ? 'mba'
+    : at.profession
+    ? 'profession'
+    : at.course
+    ? 'course'
+    : at.executive
+    ? 'executive'
+    : at.promo
+    ? 'promo'
+    : at.mba
+    ? 'mbl'
+    : 'mba'
   const atPrograms = at.mini || at.mba || at.mbl
 
   const diplomaPaginationImages = at.course

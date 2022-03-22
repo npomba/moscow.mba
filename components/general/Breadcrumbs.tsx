@@ -1,6 +1,6 @@
 import stls from '@/styles/components/general/Breadcrumbs.module.sass'
 import { useRouter } from 'next/router'
-import { useAt } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import { Wrapper } from '@/components/layout'
 import { BreadcrumbItem } from '@/components/general'
 

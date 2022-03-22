@@ -1,6 +1,7 @@
 import stls from '@/styles/components/header/HeaderMobileTabs.module.sass'
 import Link from 'next/link'
-import { useAt, SetString } from '@/helpers/index'
+import { SetString } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import cn from 'classnames'
 import React, { useState } from 'react'
 import { IconLocation } from '@/components/icons'

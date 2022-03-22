@@ -1,10 +1,10 @@
 import stls from '@/styles/components/sections/ProgramsModules.module.sass'
 import cn from 'classnames'
 import {
-  useAt,
   createProgramModulesBase,
   createProgramModulesSpecialized
 } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import {
   ProgramsModule,
   Stickers,

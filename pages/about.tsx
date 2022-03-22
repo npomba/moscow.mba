@@ -5,7 +5,7 @@ import { TypePageTeachersProps } from '@/types/index'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import { routesFront } from '@/config/index'
-import { useTranslate } from '@/hooks/index'
+import { useAt } from '@/hooks/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { usePageHandleContext } from '@/hooks/index'
 // import {
@@ -34,15 +34,18 @@ import ContactUs from '@/components/sections/general/ContactUs'
 const PageAbout: NextPage<TypePageTeachersProps> = ({ programs, teachers }) => {
   usePageHandleContext({ programs })
 
+  const at = useAt()
+
   return (
     <>
       <NextSeo
-        title={`${useTranslate({ en: 'About', def: 'Об академии' })} MBA`}
+        title={`${at.en ? 'About' : 'Об академии'} MBA`}
         description={truncate(
-          `${useTranslate({
-            en: "International Business Education. We've everything to help you reach your full potential!",
-            def: 'Международное бизнес-образование. У нас есть всё для раскрытия Вашего потенциала!'
-          })}`,
+          `${
+            at.en
+              ? "International Business Education. We've everything to help you reach your full potential!"
+              : 'Международное бизнес-образование. У нас есть всё для раскрытия Вашего потенциала!'
+          }`,
           120
         )}
         canonical={`${routesFront.root}${routesFront.about}`}

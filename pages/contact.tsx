@@ -3,7 +3,7 @@ import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass
 import { GetStaticProps } from 'next'
 import { NextSeo, CorporateContactJsonLd } from 'next-seo'
 import truncate from 'truncate'
-import { useAt } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { ContactCards, Breadcrumbs } from '@/components/general'
 import { contactData, routesFront } from '@/config/index'

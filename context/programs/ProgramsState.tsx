@@ -9,7 +9,7 @@ import {
 import { useReducer } from 'react'
 // import { useRouter } from 'next/router'
 import { ProgramsContext, programsReducer } from '@/context/index'
-import { useAt } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 
 const ProgramsState = props => {
   // const router = useRouter()

@@ -1,6 +1,7 @@
 import stls from '@/styles/components/layout/Footer.module.sass'
 import Link from 'next/link'
-import { SetString, useAt } from '@/helpers/index'
+import { SetString } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import lang from '@/data/translation/footer'
 import { contactData } from '@/config/index'
 import {

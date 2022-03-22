@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/WhoItIsFor.module.sass'
 import cn from 'classnames'
-import { useAt } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import { WhoItIsForItem } from '@/components/general'
 import { Wrapper } from '@/components/layout'
 

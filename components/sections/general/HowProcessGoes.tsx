@@ -2,7 +2,7 @@ import stls from '@/styles/components/sections/HowProcessGoes.module.sass'
 import Image from 'next/image'
 import { useState } from 'react'
 import cn from 'classnames'
-import { useAt } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import { Wrapper } from '@/components/layout'
 import studentPhoto from '@/public/assets/images/student-using-laptop.jpg'
 

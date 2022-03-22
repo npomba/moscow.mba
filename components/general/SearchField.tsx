@@ -1,6 +1,6 @@
 import stls from '@/styles/components/general/SearchField.module.sass'
 import { ProgramsContext } from '@/context/index'
-import { useAt } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import { useContext, useState } from 'react'
 import Popup from 'reactjs-popup'
 import Link from 'next/link'

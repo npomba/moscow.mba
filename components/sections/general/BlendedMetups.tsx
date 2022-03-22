@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/BlendedMetups.module.sass'
 import Image from 'next/image'
-import { useAt } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import { Wrapper } from '@/components/layout'
 
 const BlendedMetups = () => {

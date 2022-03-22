@@ -6,7 +6,7 @@ import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import { routesFront, companyName } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
-import { usePageHandleContext, useTranslate } from '@/hooks/index'
+import { usePageHandleContext, useAt } from '@/hooks/index'
 // import {
 //   JumbotronCta,
 //   About,
@@ -31,18 +31,18 @@ import ContactUs from '@/components/sections/general/ContactUs'
 const PageHome: NextPage<TypePageHomeProps> = ({ programs }) => {
   usePageHandleContext({ programs })
 
+  const at = useAt()
+
   return (
     <>
       <NextSeo
         title={companyName}
         description={truncate(
-          `${useTranslate({ en: 'Concur', def: 'Получите' })} ${useTranslate({
-            en: 'relevant',
-            def: 'современное'
-          })} ${useTranslate({
-            en: 'business education from international experts',
-            def: 'бизнес образование от международных экспертов'
-          })}`,
+          `${
+            at.en
+              ? 'Concur relevant business education from international experts'
+              : 'Получите современное бизнес образование от международных экспертов'
+          }`,
           120
         )}
         canonical={routesFront.root}

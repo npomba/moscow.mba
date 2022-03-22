@@ -2,9 +2,9 @@ import stls from '@/styles/components/sections/Programs.module.sass'
 import { useState, useContext } from 'react'
 import Link from 'next/link'
 import cn from 'classnames'
-import { useAt, SetString } from '@/helpers/index'
+import { SetString } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import { ProgramsContext } from '@/context/index'
-import { useTranslate } from '@/hooks/index'
 import { Wrapper } from '@/components/layout'
 import { ProgramSubjects, ProgramsQty } from '@/components/general'
 import { Until, Price, TrainingPeriod, Discount } from '@/components/costs'
@@ -65,9 +65,7 @@ const Programs = () => {
               </li>
               <li>
                 <Link href='/programs/mini/online' locale='ru'>
-                  <a>
-                    {useTranslate({ en: 'All programs', def: 'Все программы' })}
-                  </a>
+                  <a>{at.en ? 'All programs' : 'Все программы'}</a>
                 </Link>
               </li>
             </ul>
@@ -85,22 +83,18 @@ const Programs = () => {
                   </i>
                   <span>
                     <ProgramSubjects type='mini' sum={true} />{' '}
-                    {useTranslate({ en: 'subjects', def: 'дисциплин' })}
+                    {at.en ? 'subjects' : 'дисциплин'}
                   </span>
                 </div>
                 <div className='prog-status'>
-                  {useTranslate({
-                    en: 'Newest programs of',
-                    def: 'Новейшие программы'
-                  })}{' '}
-                  2021 {useTranslate({ en: '', def: 'года' })}
+                  {at.en ? 'Newest programs of' : 'Новейшие программы'} 2021{' '}
+                  {at.en ? '' : 'года'}
                 </div>
               </div>
               <div className='desc'>
-                {useTranslate({
-                  en: '',
-                  def: 'Дистанционная программа Mini MBA разработана для специалистов и руководителей, которые хотят систематизировать имеющиеся знания или познакомиться с ключевыми аспектами новой для себя сферы управленческой деятельности'
-                })}
+                {at.en
+                  ? ''
+                  : 'Дистанционная программа Mini MBA разработана для специалистов и руководителей, которые хотят систематизировать имеющиеся знания или познакомиться с ключевыми аспектами новой для себя сферы управленческой деятельности'}
               </div>
               <ul className='program-options-block-tabs--sctn-programs'>
                 <li>
@@ -125,10 +119,8 @@ const Programs = () => {
                     show: isMiniOnline
                   })}>
                   <div className='name'>
-                    {useTranslate({
-                      en: 'ONLINE',
-                      def: 'Формат ONLINE'
-                    })}
+                    {at.en ? 'ONLINE' : 'Формат ONLINE'}
+
                     <div className='discount'>
                       <div className='size'>
                         <Discount />
@@ -144,23 +136,19 @@ const Programs = () => {
                     format={'online'}
                   />
                   <div className='price'>
-                    {useTranslate({
-                      en: 'Cost',
-                      def: 'Стоимость'
-                    })}
-                    : <Price discount={true} type={'mini'} format={'online'} />{' '}
+                    {at.en ? 'Cost' : 'Стоимость'}
+                    : <Price
+                      discount={true}
+                      type={'mini'}
+                      format={'online'}
+                    />{' '}
                   </div>
                   <div className='info-list'>
                     <div className='info-flex'>
                       <div className='pic'>
                         <IconCheckCircle />
                       </div>
-                      <span>
-                        {useTranslate({
-                          en: 'Remotely',
-                          def: 'Дистанционно'
-                        })}
-                      </span>
+                      <span>{at.en ? 'Remotely' : 'Дистанционно'}</span>
                     </div>
                     <div className='info-flex'>
                       <div className='pic'>
@@ -168,10 +156,7 @@ const Programs = () => {
                       </div>
                       <span>
                         <ProgramSubjects type='mini' sum={true} />{' '}
-                        {useTranslate({
-                          en: 'subjects',
-                          def: 'дисциплин'
-                        })}
+                        {at.en ? 'subjects' : 'дисциплин'}
                       </span>
                     </div>
                   </div>
@@ -200,10 +185,7 @@ const Programs = () => {
                     show: !isMiniOnline
                   })}>
                   <div className='name'>
-                    {useTranslate({
-                      en: 'BLENDED',
-                      def: 'Формат BLENDED'
-                    })}
+                    {at.en ? 'BLENDED' : 'Формат BLENDED'}
                   </div>
                   <ProgramsQty
                     programs={programs}
@@ -211,11 +193,7 @@ const Programs = () => {
                     format={'blended'}
                   />
                   <div className='price'>
-                    {useTranslate({
-                      en: 'Cost',
-                      def: 'Стоимость'
-                    })}
-                    :{' '}
+                    {at.en ? 'Cost' : 'Стоимость'}:{' '}
                     <Price discount={false} type={'mini'} format={'blended'} />{' '}
                   </div>
                   <div className='info-list'>
@@ -224,10 +202,7 @@ const Programs = () => {
                         <IconCheckCircle />
                       </div>
                       <span>
-                        {useTranslate({
-                          en: 'Half in-person',
-                          def: 'С очными модулями'
-                        })}
+                        {at.en ? 'Half in-person' : 'С очными модулями'}
                       </span>
                     </div>
                     <div className='info-flex'>
@@ -236,10 +211,7 @@ const Programs = () => {
                       </div>
                       <span>
                         <ProgramSubjects type='mini' sum={true} />{' '}
-                        {useTranslate({
-                          en: 'subjects',
-                          def: 'дисциплин'
-                        })}
+                        {at.en ? 'subjects' : 'дисциплин'}
                       </span>
                     </div>
                   </div>
@@ -276,29 +248,18 @@ const Programs = () => {
                   </i>
                   <span>
                     <ProgramSubjects type='mba' sum={true} />{' '}
-                    {useTranslate({
-                      en: 'subjects',
-                      def: 'дисциплин'
-                    })}{' '}
+                    {at.en ? 'subjects' : 'дисциплин'}{' '}
                   </span>
                 </div>
                 <div className='prog-status'>
-                  {useTranslate({
-                    en: 'Newest programs of',
-                    def: 'Новейшие программы'
-                  })}{' '}
-                  2021{' '}
-                  {useTranslate({
-                    en: '',
-                    def: 'года'
-                  })}
+                  {at.en ? 'Newest programs of' : 'Новейшие программы'} 2021{' '}
+                  {at.en ? '' : 'года'}
                 </div>
               </div>
               <div className='desc'>
-                {useTranslate({
-                  en: '',
-                  def: 'Дистанционная программа MBA разработана для специалистов и руководителей, которые хотят систематизировать имеющиеся знания или познакомиться с ключевыми аспектами новой для себя сферы управленческой деятельности'
-                })}
+                {at.en
+                  ? ''
+                  : 'Дистанционная программа MBA разработана для специалистов и руководителей, которые хотят систематизировать имеющиеся знания или познакомиться с ключевыми аспектами новой для себя сферы управленческой деятельности'}
               </div>
               <ul className='program-options-block-tabs--sctn-programs'>
                 <li>
@@ -323,10 +284,7 @@ const Programs = () => {
                     show: isMbaOnline
                   })}>
                   <div className='name'>
-                    {useTranslate({
-                      en: 'ONLINE',
-                      def: 'Формат ONLINE'
-                    })}
+                    {at.en ? 'ONLINE' : 'Формат ONLINE'}
                     <div className='discount'>
                       <div className='size'>
                         <Discount />
@@ -342,23 +300,19 @@ const Programs = () => {
                     format={'online'}
                   />
                   <div className='price'>
-                    {useTranslate({
-                      en: 'Cost',
-                      def: 'Стоимость'
-                    })}
-                    : <Price discount={true} type={'mba'} format={'online'} />{' '}
+                    {at.en ? 'Cost' : 'Стоимость'}
+                    : <Price
+                      discount={true}
+                      type={'mba'}
+                      format={'online'}
+                    />{' '}
                   </div>
                   <div className='info-list'>
                     <div className='info-flex'>
                       <div className='pic'>
                         <IconCheckCircle />
                       </div>
-                      <span>
-                        {useTranslate({
-                          en: 'Remotely',
-                          def: 'Дистанционно'
-                        })}
-                      </span>
+                      <span>{at.en ? 'Remotely' : 'Дистанционно'}</span>
                     </div>
                     <div className='info-flex'>
                       <div className='pic'>
@@ -366,10 +320,7 @@ const Programs = () => {
                       </div>
                       <span>
                         <ProgramSubjects type='mba' sum={true} />{' '}
-                        {useTranslate({
-                          en: 'subjects',
-                          def: 'дисциплин'
-                        })}
+                        {at.en ? 'subjects' : 'дисциплин'}
                       </span>
                     </div>
                   </div>
@@ -405,7 +356,7 @@ const Programs = () => {
                     show: !isMbaOnline
                   })}>
                   <div className='name'>
-                    {useTranslate({ en: 'BLENDED', def: 'Формат BLENDED' })}
+                    {at.en ? 'BLENDED' : 'Формат BLENDED'}
                   </div>
                   <ProgramsQty
                     programs={programs}
@@ -413,7 +364,7 @@ const Programs = () => {
                     format={'blended'}
                   />
                   <div className='price'>
-                    {useTranslate({ en: 'Cost', def: 'Стоимость' })}:{' '}
+                    {at.en ? 'Cost' : 'Стоимость'}:{' '}
                     <Price discount={false} type={'mba'} format={'blended'} />{' '}
                   </div>
                   <div className='info-list'>
@@ -422,10 +373,7 @@ const Programs = () => {
                         <IconCheckCircle />
                       </div>
                       <span>
-                        {useTranslate({
-                          en: 'Half In-Person',
-                          def: 'С очными модулями'
-                        })}
+                        {at.en ? 'Half In-Person' : 'С очными модулями'}
                       </span>
                     </div>
                     <div className='info-flex'>
@@ -434,10 +382,7 @@ const Programs = () => {
                       </div>
                       <span>
                         <ProgramSubjects type='mba' sum={true} />{' '}
-                        {useTranslate({
-                          en: 'subjects',
-                          def: 'дисциплин'
-                        })}
+                        {at.en ? 'subjects' : 'дисциплин'}
                       </span>
                     </div>
                   </div>

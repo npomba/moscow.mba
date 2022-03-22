@@ -1,4 +1,4 @@
-import { useAt } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 
 const ProgramSubjects = ({ sum = false, type = '', subjects = '' }) => {
   const at = useAt()

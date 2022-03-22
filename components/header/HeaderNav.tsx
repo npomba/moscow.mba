@@ -2,10 +2,11 @@ import stls from '@/styles/components/header/HeaderNav.module.sass'
 import Link from 'next/link'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
-import { useTranslate } from '@/hooks/index'
+import { useAt } from '@/hooks/index'
 import { Wrapper } from '@/components/layout'
 
 const HeaderNav = ({ links, handleMenu, openMenu, classNames = [] }) => {
+  const at = useAt()
   return (
     <div
       className={
@@ -22,7 +23,7 @@ const HeaderNav = ({ links, handleMenu, openMenu, classNames = [] }) => {
               <i className={stls.line} />
               <i className={stls.line} />
             </div>
-            <span>{useTranslate({ en: 'Programs', def: 'Программы' })}</span>
+            <span>{at.en ? 'Programs' : 'Программы'}</span>
           </div>
         </div>
         <ul className={stls.list}>

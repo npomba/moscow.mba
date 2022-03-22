@@ -1,18 +1,12 @@
 import stls from '@/styles/components/cards/CardProgram.module.sass'
 import Link from 'next/link'
-import { useAt } from '@/helpers/index'
-import { useTranslate } from '@/hooks/index'
+import { useAt } from '@/hooks/index'
 import TrainingPeriod from '@/components/costs/TrainingPeriod'
 import Price from '@/components/costs/Price'
 import { IconArrowTopRight } from '@/components/icons'
 
 const CardProgram = ({ professionLayout, program, number, type, format }) => {
   const at = useAt()
-
-  const durationLabel = useTranslate({
-    en: 'month',
-    def: 'мес.' /* TODO: add ru cases ['месяц', 'месяца', 'месяцев'] */
-  })
 
   return (
     <Link href={`/programs/${type}/${format}/${program?.slug}`}>
@@ -27,9 +21,13 @@ const CardProgram = ({ professionLayout, program, number, type, format }) => {
               : at.mba
               ? 'MBA'
               : at.profession
-              ? 'Профессия'
+              ? at.en
+                ? 'Profession'
+                : 'Профессия'
               : at.course
-              ? 'Курс'
+              ? at.en
+                ? 'Course'
+                : 'Курс'
               : ''}
           </span>
         </div>
@@ -46,7 +44,7 @@ const CardProgram = ({ professionLayout, program, number, type, format }) => {
           </div>
           <div className={stls.duration}>
             {program?.duration ? (
-              `${program?.duration?.minStudyMonths} ${durationLabel}`
+              `${program?.duration?.minStudyMonths} ${at.en ? 'month' : 'мес.'}`
             ) : (
               <TrainingPeriod type={type} />
             )}

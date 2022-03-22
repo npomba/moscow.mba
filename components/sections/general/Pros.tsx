@@ -1,6 +1,6 @@
 import stls from '@/styles/components/sections/Pros.module.sass'
 import cn from 'classnames'
-import { useAt } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import Image from 'next/image'
 import { IconCheck } from '@/components/icons'
 import { Wrapper } from '@/components/layout'

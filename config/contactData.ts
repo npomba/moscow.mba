@@ -1,32 +1,26 @@
-import { useTranslate } from '@/hooks/index'
+import { useAt } from '@/hooks/index'
 
 const useContactInfo = () => {
+  const at = useAt()
   return {
     ru: {
       tels: [
         {
           href: 'tel:+7-800-500-27-47',
           val: '+7 (800) 500-27-47',
-          description: useTranslate({
-            en: 'Free for Russia',
-            def: 'Бесплатно по России'
-          })
+          description: at.en ? 'Free for Russia' : 'Бесплатно по России'
         },
         {
           href: 'tel:+7-495-149-00-20',
           val: '+7 (495) 149-00-20',
-          description: useTranslate({
-            en: 'Free for Moscow',
-            def: 'Бесплатно по Москве'
-          })
+          description: at.en ? 'Free for Moscow' : 'Бесплатно по Москве'
         }
       ],
       address: {
-        city: useTranslate({ en: 'Moscow', def: 'Москва' }),
-        street: useTranslate({
-          en: 'Derbenevskaya Naberezhnaya 11',
-          def: 'Дербеневская набережная 11'
-        })
+        city: at.en ? 'Moscow' : 'Москва',
+        street: at.en
+          ? 'Derbenevskaya Naberezhnaya 11'
+          : 'Дербеневская набережная 11'
       },
       email: { val: 'info@moscow.mba', mailTo: 'mailto:info@moscow.mba' }
     },
@@ -47,14 +41,10 @@ const useContactInfo = () => {
           }
         ],
         address: {
-          city: useTranslate({
-            en: 'Almaty',
-            def: 'Алматы'
-          }),
-          street: useTranslate({
-            en: 'Al-Farabi Avenue 17, Nurly Tau BC',
-            def: 'Проспект Аль-Фараби 17, БЦ Нурлы-Тау'
-          })
+          city: at.en ? 'Almaty' : 'Алматы',
+          street: at.en
+            ? 'Al-Farabi Avenue 17, Nurly Tau BC'
+            : 'Проспект Аль-Фараби 17, БЦ Нурлы-Тау'
         },
         email: {
           val: 'almaty@moscow.mba',
@@ -73,14 +63,8 @@ const useContactInfo = () => {
           }
         ],
         address: {
-          city: useTranslate({
-            en: 'Shymkent',
-            def: 'Шымкент'
-          }),
-          street: useTranslate({
-            en: '9 Baytursynov St',
-            def: 'ул.Байтурсынова 9'
-          })
+          city: at.en ? 'Shymkent' : 'Шымкент',
+          street: at.en ? '9 Baytursynov St' : 'ул.Байтурсынова 9'
         },
         email: {
           val: 'shymkent@moscow.mba',
@@ -105,14 +89,10 @@ const useContactInfo = () => {
         }
       ],
       address: {
-        city: useTranslate({
-          en: 'Tashkent',
-          def: 'Ташкент'
-        }),
-        street: useTranslate({
-          en: '14 Afrosiab St, Afrosiyab BC',
-          def: 'ул.Афросиаб 14, БЦ "Афросиеб"'
-        })
+        city: at.en ? 'Tashkent' : 'Ташкент',
+        street: at.en
+          ? '14 Afrosiab St, Afrosiyab BC'
+          : 'ул.Афросиаб 14, БЦ "Афросиеб"'
       },
       email: {
         val: 'tashkent@moscow.mba',
@@ -128,14 +108,8 @@ const useContactInfo = () => {
         }
       ],
       address: {
-        city: useTranslate({
-          en: 'New York',
-          def: 'Нью-йорк'
-        }),
-        street: useTranslate({
-          en: 'Loisaida Ave 55',
-          def: 'Loisaida Ave 55'
-        })
+        city: at.en ? 'New York' : 'Нью-йорк',
+        street: 'Loisaida Ave 55'
       },
       email: { val: 'info@moscow.mba', mailTo: 'mailto:info@moscow.mba' }
     },
@@ -148,14 +122,8 @@ const useContactInfo = () => {
         }
       ],
       address: {
-        city: useTranslate({
-          en: 'Barcelona',
-          def: 'Барселона'
-        }),
-        street: useTranslate({
-          en: 'Carrer de Gongora 68',
-          def: 'Carrer de Gongora 68'
-        })
+        city: at.en ? 'Barcelona' : 'Барселона',
+        street: 'Carrer de Gongora 68'
       },
       email: { val: 'info@moscow.mba', mailTo: 'mailto:info@moscow.mba' }
     },
@@ -168,14 +136,8 @@ const useContactInfo = () => {
         }
       ],
       address: {
-        city: useTranslate({
-          en: 'Berlin',
-          def: 'Берлин'
-        }),
-        street: useTranslate({
-          en: 'Goltzstrabe 50',
-          def: 'Goltzstrabe 50'
-        })
+        city: at.en ? 'Berlin' : 'Берлин',
+        street: 'Goltzstrabe 50'
       },
       email: { val: 'info@moscow.mba', mailTo: 'mailto:info@moscow.mba' }
     }

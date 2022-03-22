@@ -1,7 +1,7 @@
 import stls from '@/styles/components/popups/PopupThankyou.module.sass'
 import { useEffect } from 'react'
 import TagManager from 'react-gtm-module'
-import { useAt } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import { IconClose, IconCheck } from '@/components/icons'
 
 const Thankyou = ({ closePopUp = null, programId, programTitle }) => {
