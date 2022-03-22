@@ -11,7 +11,7 @@
     "generateicons": "npx pwa-asset-generator ./public/assets/images/icon.png ./public/assets/images/icons -p \"0\" -b \"#ff3535\""
   },
   "dependencies": {
-    "@apollo/client": "^3.5.8",
+    "@apollo/client": "3.5.8",
     "@maxmind/geoip2-node": "^3.4.0",
     "axios": "^0.25.0",
     "classnames": "^2.3.1",
