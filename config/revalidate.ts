@@ -1,5 +1,5 @@
 const revalidate = {
-  default: 60,
+  default: 60 * 60 * 24 * 7,
   // default: false,
   day: 60 * 60 * 24,
   hour: 60 * 60,
