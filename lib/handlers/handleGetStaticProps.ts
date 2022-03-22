@@ -104,7 +104,9 @@ const handleGetStaticProps = async ({
   } catch (err) {
     console.log(err)
     return {
-      props: null,
+      props: {
+        programs: []
+      },
       revalidate: revalidate.default
     }
   }
