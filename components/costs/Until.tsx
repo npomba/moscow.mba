@@ -25,7 +25,7 @@ const Until = ({ preposition = true, executive = false }) => {
     currentMonth =
       currentMonth + 7 > 11 ? currentMonth + 7 - 11 : currentMonth + 7
 
-
+  const prepositionStatic = useTranslate({ en: '', def: '' })
 
   return (
     <>
