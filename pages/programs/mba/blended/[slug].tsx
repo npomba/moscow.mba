@@ -8,22 +8,17 @@ import BlendedProgram from '@/components/pages/BlendedProgram'
 const PageProgramsMbaBlendedProgram = ({ program, programs }) => {
   usePageHandleContext({ programs })
 
-  const id = uuidv4()
-  const programBlended =
-    (program && {
-      ...program,
-      studyFormat: studyFormats.blended,
-      id,
-      _id: id
-    }) ||
-    null
+  // const id = uuidv4()
+  // const programBlended =
+  //   (program && {
+  //     ...program,
+  //     studyFormat: studyFormats.blended,
+  //     id,
+  //     _id: id
+  //   }) ||
+  //   null
 
-  return (
-    <BlendedProgram
-      program={programBlended}
-      teachers={programBlended?.teachers}
-    />
-  )
+  return <BlendedProgram program={program} teachers={program?.teachers} />
 }
 
 export const getStaticProps: GetStaticProps = async context =>

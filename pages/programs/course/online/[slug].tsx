@@ -7,7 +7,7 @@ import CourseOnlineProgram from '@/components/pages/CourseOnlineProgram'
 const PageProgramsCourseOnlineProgram = ({ program, programs }) => {
   usePageHandleContext({ programs })
 
-  return <CourseOnlineProgram program={program} teachers={program.teachers} />
+  return <CourseOnlineProgram program={program} teachers={program?.teachers} />
 }
 
 export const getStaticProps: GetStaticProps = async context =>

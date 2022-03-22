@@ -8,7 +8,7 @@ const PageProgramsProfessionOnlineProgram = ({ program, programs }) => {
   usePageHandleContext({ programs })
 
   return (
-    <ProfessionOnlineProgram program={program} teachers={program.teachers} />
+    <ProfessionOnlineProgram program={program} teachers={program?.teachers} />
   )
 }
 
