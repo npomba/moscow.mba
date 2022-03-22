@@ -1,6 +1,7 @@
 import langMenu from '@/data/translation/menu'
 import langMonths from '@/data/translation/months'
 import { SetString } from '@/helpers/index'
+import { useTranslate } from '@/hooks/index'
 
 const Until = ({ preposition = true, executive = false }) => {
   const currentDate = new Date()
@@ -23,6 +24,8 @@ const Until = ({ preposition = true, executive = false }) => {
   if (executive)
     currentMonth =
       currentMonth + 7 > 11 ? currentMonth + 7 - 11 : currentMonth + 7
+
+
 
   return (
     <>

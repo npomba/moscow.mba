@@ -1,4 +1,4 @@
-export default {
+const months = {
   months: {
     ru: ['месяц', 'месяца', 'месяцев'],
     en: 'month'
@@ -64,3 +64,5 @@ export default {
     en: 'December'
   }
 }
+
+export default months
