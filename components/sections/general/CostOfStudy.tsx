@@ -1,7 +1,6 @@
 import stls from '@/styles/components/sections/CostOfStudy.module.sass'
 import classNames from 'classnames'
 import Popup from 'reactjs-popup'
-import 'reactjs-popup/dist/index.css'
 import Until from '@/components/costs/Until'
 import PopupForm from '@/components/popups/PopupForm'
 import { useAt } from '@/hooks/index'

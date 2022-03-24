@@ -3,7 +3,6 @@ import cn from 'classnames'
 import Image from 'next/image'
 import PopupForm from '@/components/popups/PopupForm'
 import Popup from 'reactjs-popup'
-import 'reactjs-popup/dist/index.css'
 import { IconBell } from '@/components/icons'
 
 const WebinarCard = ({
