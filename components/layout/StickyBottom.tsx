@@ -2,12 +2,13 @@ import stls from '@/styles/components/layout/StickyBottom.module.sass'
 import cn from 'classnames'
 import { useEffect, useContext } from 'react'
 import Link from 'next/link'
-import Until from '@/components/costs/Until'
-import { IconCross, IconClose } from '@/components/icons'
 import Popup from 'reactjs-popup'
-import PopupForm from '@/components/popups/PopupForm'
-import PopupLearnMore from '@/components/popups/PopupLearnMore'
+import { discount } from '@/config/index'
+import { useAt } from '@/hooks/index'
 import { OverlayContext } from '@/context/index'
+import { Until } from '@/components/costs'
+import { PopupForm, PopupLearnMore } from '@/components/popups'
+import { IconCross, IconClose } from '@/components/icons'
 
 const StickyBottom = ({
   openStickyModule,
@@ -15,6 +16,11 @@ const StickyBottom = ({
   closeStickyModule,
   clickedAsk
 }) => {
+  const at = useAt()
+
+  const { overlayIsShown, showOverlay, hideOverlay, toggleOverlay } =
+    useContext(OverlayContext)
+
   useEffect(() => {
     document.addEventListener('scroll', () => {
       // check if on programs page
@@ -40,9 +46,6 @@ const StickyBottom = ({
     })
   }, [hideStickyModule, openStickyModule, clickedAsk])
 
-  const { overlayIsShown, showOverlay, hideOverlay, toggleOverlay } =
-    useContext(OverlayContext)
-
   return (
     <div
       className={cn({
@@ -53,27 +56,36 @@ const StickyBottom = ({
       })}>
       <div className={stls.content}>
         <p className={stls.p}>
-          <strong>Скидка 45%</strong>
+          <strong>
+            {at.en ? `${discount} Discount` : `Скидка ${discount}`}
+          </strong>
           <span className={stls.responsiveSpace}>&nbsp;</span>
           <br className={stls.responsiveBr} />
-          на все Online программы <Until />!
+          {at.en ? 'to all Online programs' : 'на все Online программы'}{' '}
+          <Until />!
         </p>
         <div className={stls.btns}>
           <Link href='/programs/mini/online' locale='ru'>
-            <a className={stls.btn}>СМОТРЕТЬ&nbsp;ПРОГРАММЫ</a>
+            <a className={stls.btn}>
+              {at.en ? <>VIEW&nbsp;PROGRAMS</> : <>СМОТРЕТЬ&nbsp;ПРОГРАММЫ</>}
+            </a>
           </Link>
 
           <Popup
             trigger={
               <a className={`${stls.btn} ${stls.pointer}`}>
-                ХОЧУ&nbsp;КОНСУЛЬТАЦИЮ
+                {at.en ? (
+                  <>GET&nbsp;CONSULTATION</>
+                ) : (
+                  <>ХОЧУ&nbsp;КОНСУЛЬТАЦИЮ</>
+                )}
               </a>
             }
             modal
             nested>
             {close => (
               <PopupForm
-                title={'Получите консультацию'}
+                title={at.en ? 'Get consultation' : 'Получите консультацию'}
                 closePopUpForm={close}
               />
             )}
@@ -82,7 +94,9 @@ const StickyBottom = ({
           <div className={`${stls.learnMore}`}>
             <Popup
               trigger={
-                <a className={`${stls.btn} ${stls.pointer}`}>ПОДРОБНЕЕ</a>
+                <a className={`${stls.btn} ${stls.pointer}`}>
+                  {at.en ? 'LEARN MORE' : 'ПОДРОБНЕЕ'}
+                </a>
               }
               modal
               nested>

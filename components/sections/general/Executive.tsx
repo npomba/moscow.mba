@@ -48,7 +48,7 @@ const Executive = () => {
             </div>
             <Link href='/programs/executive/' locale='ru'>
               <a className={stls.button}>
-                {at.en ? 'Узнать подробнее' : 'Learn more'}
+                {at.en ? 'Learn more' : 'Узнать подробнее'}
               </a>
             </Link>
           </div>

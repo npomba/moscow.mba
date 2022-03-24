@@ -5,7 +5,6 @@ import TagManager from 'react-gtm-module'
 import { BtnContact } from '@/components/btns'
 import { v4 as uuidv4 } from 'uuid'
 import { useAt } from '@/hooks/index'
-
 import {
   IconArrowLeft,
   IconTelegram,
@@ -16,6 +15,8 @@ import {
   IconCheck,
   IconPhoneAlt
 } from '@/components/icons'
+
+// TODO: translate this whole file to EN with useAt
 
 const waysToContact = [
   {

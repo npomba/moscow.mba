@@ -230,7 +230,7 @@ const Programs = () => {
                             <Link
                               href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
                               locale='ru'>
-                              <a>
+                              <a className={stls.link}>
                                 {at.en
                                   ? item?.slug?.split('-').join(' ') ||
                                     item?.title
@@ -344,7 +344,7 @@ const Programs = () => {
                             <Link
                               href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
                               locale='ru'>
-                              <a>
+                              <a className={stls.link}>
                                 {at.en
                                   ? item?.slug?.split('-').join(' ') ||
                                     item?.title
@@ -411,7 +411,7 @@ const Programs = () => {
                             <Link
                               href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
                               locale='ru'>
-                              <a>
+                              <a className={stls.link}>
                                 {at.en
                                   ? item?.slug?.split('-').join(' ') ||
                                     item?.title
