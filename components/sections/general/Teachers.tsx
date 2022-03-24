@@ -1,20 +1,16 @@
 import stls from '@/styles/components/sections/Teachers.module.sass'
 import { TypeLibTeacher, TypeLibTeachers } from '@/types/index'
-import Link from 'next/link'
 import { useState } from 'react'
-import Popup from 'reactjs-popup'
-import { SetString } from '@/helpers/index'
-import { useAt } from '@/hooks/index'
-import { useRouter } from 'next/router'
+import Link from 'next/link'
 import Image from 'next/image'
-import PopupForm from '@/components/popups/PopupForm'
-import { PopupTeacher } from '@/components/popups'
-import lang from 'data/translation/about'
-import imagesData from '@/data/images/teachers'
-import { IconCheck, IconMoreThan } from '@/components/icons'
-import { routesFront, base64pixel } from '@/config/index'
+import { useRouter } from 'next/router'
 import cn from 'classnames'
+import Popup from 'reactjs-popup'
+import { routesFront, base64pixel } from '@/config/index'
+import { useAt } from '@/hooks/index'
 import { Wrapper } from '@/components/layout'
+import { PopupForm, PopupTeacher } from '@/components/popups'
+import { IconCheck, IconMoreThan } from '@/components/icons'
 
 const splitParaText = (string, splitBy) => {
   let firstPartOfString, secondPartOfString
@@ -99,67 +95,83 @@ const Teachers = ({
 
   const defaultTeachers = [
     {
-      name: SetString(lang.teachersTeacherOneTitle),
-      desc: SetString(lang.teachersTeacherOneDics),
+      name: at.en ? 'Itskhak Pintosevich' : 'Ицхак Пинтосевич',
+      desc: at.en
+        ? ''
+        : 'Эксперт по личностному росту и развитию бизнеса, почетный профессор университета «Синергия»',
       img: {
         src: '/assets/images/teachers/teacher-1.jpg',
-        alt: SetString(lang.teachersTeacherOneTitle)
+        alt: at.en ? 'Itskhak Pintosevich' : 'Ицхак Пинтосевич'
       }
     },
     {
-      name: SetString(lang.teachersTeacherTwoTitle),
-      desc: SetString(lang.teachersTeacherTwoDics),
+      name: at.en ? 'Ryakovskiy Sergey' : 'Ряковский Сергей',
+      desc: at.en
+        ? ''
+        : 'Эксперт по стратегическому менеджменту. Автор многочисленных пособий по управлению персоналом',
       img: {
         src: '/assets/images/teachers/teacher-2.jpg',
-        alt: SetString(lang.teachersTeacherTwoTitle)
+        alt: at.en ? 'Ryakovskiy Sergey' : 'Ряковский Сергей'
       }
     },
     {
-      name: SetString(lang.teachersTeacherThreeTitle),
-      desc: SetString(lang.teachersTeacherThreeDics),
+      name: at.en ? 'Konoplyanskiy Dmitriy' : 'Коноплянский Дмитрий',
+      desc: at.en
+        ? ''
+        : 'Основатель сети ювелирных салонов в Москве и регионах. Советник группы «НЛМК», «НК РОСНЕФТЬ»',
       img: {
         src: '/assets/images/teachers/teacher-3.jpg',
-        alt: SetString(lang.teachersTeacherThreeTitle)
+        alt: at.en ? 'Konoplyanskiy Dmitriy' : 'Коноплянский Дмитрий'
       }
     },
     {
-      name: SetString(lang.teachersTeacherFourTitle),
-      desc: SetString(lang.teachersTeacherFourDics),
+      name: at.en ? 'Borisov Aleksandr' : 'Борисов Александр',
+      desc: at.en
+        ? ''
+        : 'Эксперт по бизнес-планированию, инвестиционному и финансовому анализу',
       img: {
         src: '/assets/images/teachers/teacher-4.jpg',
-        alt: SetString(lang.teachersTeacherOneTitle)
+        alt: at.en ? 'Borisov Aleksandr' : 'Борисов Александр'
       }
     },
     {
-      name: SetString(lang.teachersTeacherFiveTitle),
-      desc: SetString(lang.teachersTeacherFiveDics),
+      name: at.en ? 'Aleksandr Doderer' : 'Александр Додерер',
+      desc: at.en
+        ? ''
+        : 'Основатель и глава агентства по стратегическим коммуникациям GRUPPE DREI.',
       img: {
         src: '/assets/images/teachers/teacher-5.jpg',
-        alt: SetString(lang.teachersTeacherFiveTitle)
+        alt: at.en ? 'Aleksandr Doderer' : 'Александр Додерер'
       }
     },
     {
-      name: SetString(lang.teachersTeacherSixTitle),
-      desc: SetString(lang.teachersTeacherSixDics),
+      name: at.en ? 'Yannik Transhye' : 'Янник Траншье',
+      desc: at.en
+        ? ''
+        : 'Эксперт в сфере инновационного менеджмента, технологический брокер, предприниматель',
       img: {
         src: '/assets/images/teachers/teacher-6.jpg',
-        alt: SetString(lang.teachersTeacherSixTitle)
+        alt: at.en ? 'Yannik Transhye' : 'Янник Траншье'
       }
     },
     {
-      name: SetString(lang.teachersTeacherSevenTitle),
-      desc: SetString(lang.teachersTeacherSevenDics),
+      name: at.en ? 'Baranova Tatyana' : 'Баранова Татьяна',
+      desc: at.en
+        ? ''
+        : 'Эксперт по деловому этикету и протоколу. «Про ЭТИКЕТ», основатель образовательного проекта',
       img: {
         src: '/assets/images/teachers/teacher-7.jpg',
-        alt: SetString(lang.teachersTeacherSevenTitle)
+        alt: at.en ? 'Baranova Tatyana' : 'Баранова Татьяна'
       }
     },
     {
-      name: SetString(lang.teachersTeacherEightTitle),
-      desc: SetString(lang.teachersTeacherEightDics),
+      name: at.en ? 'Dubovyk Serhey' : 'Дубовик Сергей',
+      desc: at.en
+        ? ''
+        : 'Специалист в области продаж и управления коммерческой деятельностью.',
       img: {
         src: '/assets/images/teachers/teacher-8.jpg',
-        alt: SetString(lang.teachersTeacherEightTitle)
+        alt: at.en ? 'Dubovyk Serhey' : 'Дубовик Сергей'
       }
     }
   ]
@@ -167,29 +179,36 @@ const Teachers = ({
   const title =
     at.profession || at.course ? (
       <h2 className={stls.titleProfession}>
-        {SetString(lang.teachersTitleFirstSecondary)}{' '}
-        <span className='red'>
-          {SetString(lang.teachersTitleRedSecondary)}{' '}
-        </span>
-        {SetString(lang.teachersTitleSecondSecondary)}
+        {at.en ? '' : 'Преподаватели курса -'}{' '}
+        <span className='red'>{at.en ? '' : 'практикующие'} </span>
+        {at.en ? '' : 'эксперты'}
       </h2>
     ) : (
       <h2>
-        {SetString(lang.teachersTitleFirstMain)}{' '}
-        <span className='red'>{SetString(lang.teachersTitleRedMain)} </span>
-        {SetString(lang.teachersTitleSecondMain)}
+        {at.en ? 'Russian and' : 'Российские и'}{' '}
+        <span className='red'>{at.en ? 'international' : 'зарубежные'} </span>
+        {at.en ? 'experts of the program' : 'эксперты программы'}
       </h2>
     )
 
-  const firstParaText = SetString(
+  const firstParaText =
     at.profession || at.course
-      ? lang.teachersListItemDiscSecondary
-      : lang.teachersListItemDiscMain
-  )
-  const secondParaText = SetString(lang.teachersListItemDiscSecond)
-  const teachersProsTitle = SetString(
-    !at.profession && !at.course && lang.teachersProsTitleMain
-  )
+      ? at.en
+        ? ''
+        : 'Имеют опыт работы в крупных российских и зарубежных организациях'
+      : at.en
+      ? 'They have implemented major projects on the markets of Europe and USA'
+      : 'Реализовывали крупные проекты на рынках Европы и США'
+
+  const secondParaText = at.en
+    ? 'They have passed Moscow Academy’s multi-stage verification and have teaching accreditation'
+    : 'Прошли многоэтапную проверку специалистов академии и имеют аккредитацию на преподавание'
+  const teachersProsTitle =
+    !at.profession &&
+    !at.course &&
+    (at.en
+      ? 'More than 150 international-level professors'
+      : 'Более 150 профессоров международного уровня')
 
   const wordToSplitBy = {
     europe: {
@@ -234,13 +253,15 @@ const Teachers = ({
         })}>
         <Wrapper column>
           <div className={stls.sectionPl}>
-            <div className={stls.titlePl}>
-              {SetString(lang.teachersTitleLabel)}
-            </div>
+            <div className={stls.titlePl}>{at.en ? 'experts' : 'эксперты'}</div>
             <div className={stls.content}>
               {title}
               {!at.profession && !at.course && (
-                <div className={stls.text}>{SetString(lang.teachersDics)}</div>
+                <div className={stls.text}>
+                  {at.en
+                    ? 'Learn from the unique foreign experts who adapted their experience for Russian market'
+                    : 'Перенимайте уникальный опыт международных экспертов, адаптированный под рынок РФ'}
+                </div>
               )}
               <div
                 className={cn({
@@ -255,8 +276,12 @@ const Teachers = ({
                     [stls.pic1AtProfession]: at.profession || at.course
                   })}>
                   <Image
-                    src={imagesData.circleSpeakerOne.src}
-                    alt={SetString(imagesData.circleSpeakerOne.alt)}
+                    src={'/assets/images/speaker_1.jpg'}
+                    alt={
+                      at.en
+                        ? 'Expert during a talk'
+                        : 'Спикер на сцене даёт речь'
+                    }
                     width={!at.profession && !at.course ? 425 : 344}
                     height={!at.profession && !at.course ? 422 : 342}
                     layout='responsive'
@@ -271,8 +296,12 @@ const Teachers = ({
                     [stls.pic2AtProfession]: at.profession || at.course
                   })}>
                   <Image
-                    src={imagesData.circleSpeakerTwo.src}
-                    alt={SetString(imagesData.circleSpeakerTwo.alt)}
+                    src={'/assets/images/speaker_2.jpg'}
+                    alt={
+                      at.en
+                        ? 'Expert during a talk'
+                        : 'Спикер на сцене даёт речь'
+                    }
                     width={!at.profession && !at.course ? 236 : 199}
                     height={!at.profession && !at.course ? 236 : 199}
                     layout='responsive'
@@ -291,13 +320,7 @@ const Teachers = ({
                     <IconCheck />
                   </div>
                   <div>
-                    <h5>
-                      {SetString(
-                        at.profession || at.course
-                          ? lang.teachersListItemTitleSecondary
-                          : lang.teachersListItemTitleMain
-                      )}
-                    </h5>
+                    <h5>{at.en ? 'Practitioners' : 'Практикующие эксперты'}</h5>
                     <p>
                       {firstParaPartOne}
                       <span className={stls.breakLine}>{firstParaPartTwo}</span>
@@ -309,7 +332,11 @@ const Teachers = ({
                     <IconCheck />
                   </div>
                   <div>
-                    <h5>{SetString(lang.teachersListItemTitleSecond)}</h5>
+                    <h5>
+                      {at.en
+                        ? 'Multi-stage verification'
+                        : 'Прошли многоэтапную проверку'}
+                    </h5>
                     <p>
                       {secondParaPartOne}
                       <span className={stls.breakLine}>
@@ -325,15 +352,21 @@ const Teachers = ({
                   <div>
                     <h5>
                       {at.profession || at.course
-                        ? SetString(lang.teachersListItemTitleThirdAlt)
-                        : SetString(lang.teachersListItemTitleThird)}
+                        ? at.en
+                          ? 'Rich teaching experience'
+                          : 'Большой опыт преподавания'
+                        : at.en
+                        ? 'International teaching experience'
+                        : 'Международный опыт преподавания'}
                     </h5>
                     <p>
-                      {SetString(
-                        at.profession || at.course
-                          ? lang.teachersListItemDiscThirdSecondary
-                          : lang.teachersListItemDiscThirdMain
-                      )}
+                      {at.profession || at.course
+                        ? at.en
+                          ? ''
+                          : 'Преподают в ведущих российских учебных заведениях'
+                        : at.en
+                        ? 'They work in the leading world-class business schools'
+                        : 'Преподают в ведущих бизнес-школах мира'}
                     </p>
                   </div>
                 </li>
@@ -404,7 +437,7 @@ const Teachers = ({
                       className={cn({
                         button: true
                       })}>
-                      {SetString(lang.getAllTeachersBtn)}
+                      {at.en ? "Get full teacher's list" : 'Запросить список'}
                     </button>
                   }
                   modal
@@ -414,8 +447,16 @@ const Teachers = ({
                       programId={programId}
                       programTitle={programTitle}
                       closePopUpForm={close}
-                      title={SetString(lang.getAllTeachersPopupTitle)}
-                      disc={SetString(lang.teachersPopupFormDics)}
+                      title={
+                        at.en
+                          ? "Get teacher's list"
+                          : 'Получить полный список преподавателей'
+                      }
+                      disc={
+                        at.en
+                          ? 'Submit a request and receive a consultation on experts, programs, discounts, and requirements'
+                          : 'Оставьте заявку и получите консультацию по преподавателям, программам MBA, а также узнайте возможные варианты скидок и требования к поступлению'
+                      }
                     />
                   )}
                 </Popup>
@@ -444,8 +485,16 @@ const Teachers = ({
                       programId={programId}
                       programTitle={programTitle}
                       closePopUpForm={close}
-                      title={SetString(lang.teachersPopupFormTitle)}
-                      disc={SetString(lang.teachersPopupFormDics)}
+                      title={
+                        at.en
+                          ? 'Get to know the experts'
+                          : 'Узнайте своих экспертов'
+                      }
+                      disc={
+                        at.en
+                          ? 'Submit a request and receive a consultation on experts, programs, discounts, and requirements'
+                          : 'Оставьте заявку и получите консультацию по преподавателям, программам MBA, а также узнайте возможные варианты скидок и требования к поступлению'
+                      }
                     />
                   )}
                 </Popup>

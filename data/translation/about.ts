@@ -196,7 +196,7 @@ const dataAbout = {
 
   teachersPopupFormTitle: {
     ru: 'Узнайте своих экспертов',
-    en: 'Get to know experts '
+    en: 'Get to know experts'
   },
 
   teachersPopupFormDics: {
