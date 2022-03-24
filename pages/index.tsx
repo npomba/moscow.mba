@@ -31,8 +31,6 @@ import ContactUs from '@/components/sections/general/ContactUs'
 const PageHome: NextPage<TypePageHomeProps> = ({ programs }) => {
   usePageHandleContext({ programs })
 
-  console.log(programs)
-
   const at = useAt()
 
   return (
