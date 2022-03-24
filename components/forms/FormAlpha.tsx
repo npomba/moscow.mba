@@ -2,14 +2,14 @@ import stls from '@/styles/components/forms/FormAlpha.module.sass'
 import { useRouter } from 'next/router'
 import cn from 'classnames'
 import { useForm } from 'react-hook-form'
-import { SetString, onSubmitForm, getClassNames } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
+import { onSubmitForm, getClassNames } from '@/helpers/index'
 import {
   InputEmail,
   InputName,
   InputPhone,
   InputSubmit
 } from '@/components/inputs'
-import lang from '@/data/translation/index'
 
 type TypeFormValues = {
   name: string
@@ -36,6 +36,8 @@ const FormAlpha = ({
   } = useForm<TypeFormValues>()
 
   const { asPath } = useRouter()
+
+  const at = useAt()
 
   return (
     <form
@@ -66,9 +68,11 @@ const FormAlpha = ({
           className={cn({
             'personal-data': globalStyle
           })}>
-          {SetString(lang.privacyPolicyFirst)}{' '}
-          {/* <a href=''>{SetString(lang.privacyPolicySecond)}</a> */}
-          <span>{SetString(lang.privacyPolicySecond)}</span>
+          {/* TODO: should be a link here to privacy policy */}
+          {at.en
+            ? 'By pressing submit button, you agree to'
+            : 'Нажимая на кнопку, Вы даете согласие на обработку своих'}{' '}
+          <span>{at.en ? 'Privacy Policy' : 'персональных данных'}</span>
         </div>
       )}
     </form>

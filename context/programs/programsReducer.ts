@@ -90,7 +90,7 @@ const programsReducer = (state, action, at = null) => {
           return
         }
         if (
-          (at.ru && item.title.toLowerCase().includes(value)) ||
+          (!at.en && item.title.toLowerCase().includes(value)) ||
           (at.en && item.slug.replace('-', ' ').toLowerCase().includes(value))
         ) {
           return item.title

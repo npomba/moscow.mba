@@ -16,8 +16,9 @@ const ConferencesInEurope = () => {
         <div className={stls.flexContainer}>
           <div className={stls.descContainer}>
             <h2 className={stls.title}>
-              {at.en && <>Conferences</>}
-              {at.ru && (
+              {at.en ? (
+                'Conferences'
+              ) : (
                 <>
                   Организация <br className={stls.laptopDesktopWindescreen} />{' '}
                   конференций

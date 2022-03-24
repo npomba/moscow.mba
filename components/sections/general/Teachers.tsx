@@ -435,8 +435,7 @@ const Teachers = ({
                           shownTeachersCount + showMoreTeachersAddendum
                         )
                       }>
-                      {at.en && 'Request full list'}
-                      {at.ru && 'Запросить полный список'}
+                      {at.en ? 'Request full list' : 'Запросить полный список'}
                     </button>
                   }
                   modal
@@ -459,11 +458,11 @@ const Teachers = ({
                       shownTeachersCount + showMoreTeachersAddendum
                     )
                   }>
-                  {at.en && 'Show more'}
-                  {at.ru &&
-                    `Ещё ${showMoreTeachersAddendum} преподавателя${
-                      teachers?.length ? ` из ${teachers.length}` : undefined
-                    }`}
+                  {at.en
+                    ? 'Show more'
+                    : `Ещё ${showMoreTeachersAddendum} преподавателя${
+                        teachers?.length ? ` из ${teachers.length}` : undefined
+                      }`}
                 </button>
               )}
             </div>

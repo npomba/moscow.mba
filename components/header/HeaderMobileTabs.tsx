@@ -1,13 +1,11 @@
 import stls from '@/styles/components/header/HeaderMobileTabs.module.sass'
 import Link from 'next/link'
-import { SetString } from '@/helpers/index'
 import { useAt } from '@/hooks/index'
 import cn from 'classnames'
 import React, { useState } from 'react'
 import { IconLocation } from '@/components/icons'
 import contactData from '@/config/contactData'
 import { ImgLogoRabo, ImgLogoMde } from '@/components/images'
-import menu from '@/data/translation/menu'
 import HeaderPrograms from '@/components/header/HeaderPrograms'
 import { Wrapper } from '@/components/layout'
 
@@ -63,8 +61,7 @@ const HeaderMobileTabs = ({
             </div>
             <div className={stls.address}>
               <IconLocation />
-              {SetString(contactInfo.ru.address.city)},{' '}
-              {SetString(contactInfo.ru.address.street)}
+              {contactInfo.ru.address.city}, {contactInfo.ru.address.street}
             </div>
           </div>
         </Wrapper>
@@ -76,7 +73,7 @@ const HeaderMobileTabs = ({
         <button className={stls.btn} onClick={() => setOpenMenu(false)}>
           <Wrapper classNames={[stls.wrapperTitle]}>
             <span />
-            {SetString(menu.backBtn)}
+            {at.en ? 'Back' : 'Назад'}
           </Wrapper>
         </button>
         <ul className={cn(stls.menu, stls.programs)}>
@@ -115,7 +112,7 @@ const HeaderMobileTabs = ({
         <button className={stls.btn} onClick={() => setOpenProg(false)}>
           <Wrapper classNames={[stls.wrapperTitle]}>
             <span />
-            {SetString(menu.toProgramsBtn)}
+            {at.en ? 'to programs' : 'к программам'}
           </Wrapper>
         </button>
         <Wrapper>
@@ -126,7 +123,7 @@ const HeaderMobileTabs = ({
           onClick={() => setOpenProg(false)}>
           <Wrapper classNames={[stls.wrapperTitle]}>
             <span />
-            {SetString(menu.toProgramsBtn)}
+            {at.en ? 'to programs' : 'к программам'}
           </Wrapper>
         </button>
       </div>

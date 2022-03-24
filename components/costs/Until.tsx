@@ -1,24 +1,23 @@
-import langMenu from '@/data/translation/menu'
-import langMonths from '@/data/translation/months'
-import { SetString } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 
 const Until = ({ preposition = true, executive = false }) => {
+  const at = useAt()
   const currentDate = new Date()
   const currentDay = currentDate.getDate()
   let currentMonth = currentDate.getMonth()
   const months = [
-    SetString(langMonths.january),
-    SetString(langMonths.february),
-    SetString(langMonths.march),
-    SetString(langMonths.april),
-    SetString(langMonths.may),
-    SetString(langMonths.june),
-    SetString(langMonths.july),
-    SetString(langMonths.august),
-    SetString(langMonths.september),
-    SetString(langMonths.october),
-    SetString(langMonths.november),
-    SetString(langMonths.december)
+    at.en ? 'января' : 'January',
+    at.en ? 'февраля' : 'February',
+    at.en ? 'марта' : 'March',
+    at.en ? 'апреля' : 'April',
+    at.en ? 'Мая' : 'May',
+    at.en ? 'июня' : 'June',
+    at.en ? 'июля' : 'July',
+    at.en ? 'августа' : 'August',
+    at.en ? 'сентября' : 'September',
+    at.en ? 'октября' : 'October',
+    at.en ? 'ноября' : 'November',
+    at.en ? 'декабря' : 'December'
   ]
   if (executive)
     currentMonth =
@@ -26,7 +25,7 @@ const Until = ({ preposition = true, executive = false }) => {
 
   return (
     <>
-      {preposition && SetString(langMenu.discountUntil) + ' '}
+      {preposition && (at.en ? 'until' : 'до')}
       {currentDay < 20 ? '20' : '5'}{' '}
       {(() => {
         let output

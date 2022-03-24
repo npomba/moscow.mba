@@ -1,8 +1,6 @@
 import stls from '@/styles/components/layout/Footer.module.sass'
 import Link from 'next/link'
-import { SetString } from '@/helpers/index'
 import { useAt } from '@/hooks/index'
-import lang from '@/data/translation/footer'
 import { contactData } from '@/config/index'
 import {
   IconLocation,
@@ -91,15 +89,12 @@ const Footer = () => {
                 </li>
                 <li className={stls.linkItem}>
                   <Link href='/journal' locale='ru'>
-                    <a className={stls.link}>
-                      {at.en && 'Journal'}
-                      {at.ru && 'Журнал'}
-                    </a>
+                    <a className={stls.link}>{at.en ? 'Journal' : 'Журнал'}</a>
                   </Link>
                 </li>
                 <li className={stls.linkItem}>
                   <Link href='/payment' locale='ru'>
-                    <a className={stls.link}>{SetString(lang.paymentLink)}</a>
+                    <a className={stls.link}>{at.en ? 'Payment' : 'Оплата'}</a>
                   </Link>
                 </li>
               </ul>
@@ -147,13 +142,13 @@ const Footer = () => {
             href='/legaldocuments/oferta.pdf'
             target='_blank'
             className={stls.legalLink}>
-            {SetString(lang.offerContract)}
+            {at.en ? 'Offer Contract' : 'Договор Оферты'}
           </a>
           <a
             href='/legaldocuments/NDA.pdf'
             target='_blank'
             className={stls.legalLink}>
-            {SetString(lang.privacyPolicy)}
+            {at.en ? 'Privacy Policy' : 'Политика конфиденциальности'}
           </a>
         </div>
       </div>

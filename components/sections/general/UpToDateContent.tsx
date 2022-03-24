@@ -1,11 +1,11 @@
 import stls from '@/styles/components/sections/UpToDateContent.module.sass'
 import Image from 'next/image'
 import cn from 'classnames'
-import { SetString } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import { Wrapper } from '@/components/layout'
-import lang from '@/data/translation/about'
 
 const UpToDateContent = ({ withBottomLine = false }) => {
+  const at = useAt()
   return (
     <section
       className={cn(stls.container, {
@@ -13,16 +13,20 @@ const UpToDateContent = ({ withBottomLine = false }) => {
       })}>
       <Wrapper classNames={[stls.wrapper]}>
         <div className={stls.section}>
-          <h2>{SetString(lang.uptodateTitle)}</h2>
+          <h2>
+            {at.en ? 'Relevant content only' : 'Только актуальный контент'}
+          </h2>
         </div>
         <div className={stls.content}>
           <div className={stls.top}>
             <div className={stls.desc}>
-              {SetString(lang.uptodateDicsFirst)}{' '}
+              {at.en
+                ? 'We film our lectures to create an opportunity'
+                : 'MBAcademy записывает контент очных лекций, поэтому это хорошая возможность'}{' '}
               <strong className={stls.red}>
-                {SetString(lang.uptodateDicsRed)}{' '}
+                {at.en ? 'to learn' : 'получить MBA'}{' '}
               </strong>
-              {SetString(lang.uptodateDicsSecond)}
+              {at.en ? 'without offline presence' : 'не посещая наши кампусы'}
             </div>
             <div className={stls.bottomImg}>
               <Image
@@ -45,25 +49,27 @@ const UpToDateContent = ({ withBottomLine = false }) => {
         <div className={stls.section}>
           <ul className={stls.list}>
             <li>
-              <div className={stls.number}>
-                2021 {SetString(lang.uptodateYear)}
-              </div>
+              <div className={stls.number}>2021 {at.en ? 'year' : 'год'}</div>
               <p>
-                {SetString(lang.uptodateBenefitOneDics)} 2021{' '}
-                {SetString(lang.uptodateYearV2)}
+                {at.en ? 'The newest program of' : 'Новейшая программа'} 2021{' '}
+                {at.en ? '' : 'года'}
               </p>
             </li>
             <li>
               <div className={stls.number}>
-                53 {SetString(lang.uptodateBenefitTwoTitle)}
+                53 {at.en ? 'experts' : 'эксперта'}
               </div>
-              <p>{SetString(lang.uptodateBenefitTwoDics)}</p>
+              <p>
+                {at.en ? 'International experts' : 'Международных экспертов'}
+              </p>
             </li>
             <li>
-              <div className={stls.number}>
-                {SetString(lang.uptodateBenefitThreeTitle)}
-              </div>
-              <p>{SetString(lang.uptodateBenefitThreeDics)}</p>
+              <div className={stls.number}>{at.en ? 'TOP 3' : 'ТОП 3'}</div>
+              <p>
+                {at.en
+                  ? "We're TOP 3 relevant Russian business school"
+                  : 'Входим в топ 3 бизнес-школ РФ по актуальности контента'}
+              </p>
             </li>
           </ul>
         </div>

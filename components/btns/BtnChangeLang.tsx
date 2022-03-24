@@ -15,8 +15,7 @@ const BtnChangeLang = () => {
   return (
     <div className={cn(stls.lang, { [stls.redHighlight]: showMe })}>
       <a className={stls.btn} onClick={showLangMenu}>
-        {at.en && 'EN'}
-        {at.ru && 'RU'}{' '}
+        {at.en ? 'EN' : 'RU'}{' '}
         <IconTriangleBottom fill={`${showMe ? '#FF3535' : '#000'}`} />
       </a>
       <ul className={cn(stls.list, { [stls.show]: showMe })}>

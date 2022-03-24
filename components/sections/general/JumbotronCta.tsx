@@ -128,7 +128,9 @@ const JumbotronCta = ({ programTitle = null, programId = null }) => {
           </div>
         </div>
       </Wrapper>
-      <InfoRectangle />
+      <Wrapper>
+        <InfoRectangle />
+      </Wrapper>
     </section>
   )
 }

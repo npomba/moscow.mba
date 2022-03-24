@@ -1,19 +1,27 @@
 import stls from '@/styles/components/popups/PopupForm.module.sass'
-import { SetString } from '@/helpers/index'
-import lang from '@/data/translation/index'
 import { useState } from 'react'
-import { IconClose } from '@/components/icons'
-import { LeadLoaderThankyou } from '@/components/general'
+import { useAt } from '@/hooks/index'
 import { FormAlpha } from '@/components/forms'
+import { LeadLoaderThankyou } from '@/components/general'
+import { IconClose } from '@/components/icons'
 
 const Form = ({
   closePopUpForm,
   programTitle = null,
   programId = null,
-  title = SetString(lang.helpToChooseTitle),
-  disc = SetString(lang.helpToChooseDics),
+  title,
+  disc = null,
   promoCourseLink = null
 }) => {
+  const at = useAt()
+
+  if (!title) title = at.en ? 'Contact us to get help' : 'Поможем в выборе'
+
+  if (!disc)
+    disc = at.en
+      ? 'Leave your request for a consultation on the MBA programs, their fees, available discounts and admission requirements'
+      : 'Оставьте заявку и получите консультацию по программам MBA, узнайте их точную стоимость, возможные варианты скидок и требования к поступлению'
+
   const [open, setOpen] = useState(false)
   const [openLoader, setOpenLoader] = useState(false)
 

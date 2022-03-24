@@ -2,7 +2,6 @@ import stls from '@/styles/components/sections/Programs.module.sass'
 import { useState, useContext } from 'react'
 import Link from 'next/link'
 import cn from 'classnames'
-import { SetString } from '@/helpers/index'
 import { useAt } from '@/hooks/index'
 import { ProgramsContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
@@ -171,7 +170,12 @@ const Programs = () => {
                             <Link
                               href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
                               locale='ru'>
-                              <a>{SetString(item, true)}</a>
+                              <a className={stls.link}>
+                                {at.en
+                                  ? item?.slug?.split('-').join(' ') ||
+                                    item?.title
+                                  : item?.title}
+                              </a>
                             </Link>
                           </li>
                         )
@@ -226,7 +230,12 @@ const Programs = () => {
                             <Link
                               href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
                               locale='ru'>
-                              <a>{SetString(item, true)}</a>
+                              <a>
+                                {at.en
+                                  ? item?.slug?.split('-').join(' ') ||
+                                    item?.title
+                                  : item?.title}
+                              </a>
                             </Link>
                           </li>
                         )
@@ -335,7 +344,12 @@ const Programs = () => {
                             <Link
                               href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
                               locale='ru'>
-                              <a>{SetString(item, true)}</a>
+                              <a>
+                                {at.en
+                                  ? item?.slug?.split('-').join(' ') ||
+                                    item?.title
+                                  : item?.title}
+                              </a>
                             </Link>
                           </li>
                         )
@@ -397,7 +411,12 @@ const Programs = () => {
                             <Link
                               href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
                               locale='ru'>
-                              <a>{SetString(item, true)}</a>
+                              <a>
+                                {at.en
+                                  ? item?.slug?.split('-').join(' ') ||
+                                    item?.title
+                                  : item?.title}
+                              </a>
                             </Link>
                           </li>
                         )

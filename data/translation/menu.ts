@@ -134,7 +134,7 @@ const dataMenu = {
   },
   linkAllPrograms: {
     ru: 'Посмотреть все',
-    en: 'lookeverything'
+    en: 'View all'
   }
 }
 

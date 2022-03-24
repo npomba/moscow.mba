@@ -1,10 +1,10 @@
 import stls from '@/styles/components/header/HeaderTabs.module.sass'
-import { SetString } from '@/helpers/index'
 import Link from 'next/link'
-import langMenu from '@/data/translation/menu'
+import { useAt } from '@/hooks/index'
 
 const HeaderTabs = ({ tabs, handleMouseEnter, handleMenu, visible }) => {
   const currentTab = (visible && visible.slice(-1) - 1) || 0
+  const at = useAt()
   return (
     <ul className={stls.container}>
       {tabs.map((item, idx) => (
@@ -14,12 +14,12 @@ const HeaderTabs = ({ tabs, handleMouseEnter, handleMenu, visible }) => {
               className={
                 idx === currentTab
                   ? stls.active
-                  : item.val === SetString(langMenu.allPrograms)
+                  : item.val === (at.en ? 'All programs' : 'Все программы')
                   ? stls.all
                   : undefined
               }
               data-tab={
-                item.val !== SetString(langMenu.allPrograms) &&
+                item.val !== (at.en ? 'All programs' : 'Все программы') &&
                 `#header-podmenu-${idx + 1}`
               }
               onClick={() => handleMenu(false)}

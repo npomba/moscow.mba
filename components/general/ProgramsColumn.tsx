@@ -2,13 +2,10 @@ import stls from '@/styles/components/general/ProgramsColumn.module.sass'
 import { useContext, useState } from 'react'
 import Link from 'next/link'
 import cn from 'classnames'
-import { SetString } from '@/helpers/index'
-import Until from '@/components/costs/Until'
-import Price from '@/components/costs/Price'
-import { ProgramSubjects, ProgramsQty } from '@/components/general'
-import TrainingPeriod from '@/components/costs/TrainingPeriod'
-import Discount from '@/components/costs/Discount'
 import { MenuContext, OverlayContext } from '@/context/index'
+import { useAt } from '@/hooks/index'
+import { ProgramSubjects, ProgramsQty } from '@/components/general'
+import { Until, Price, TrainingPeriod, Discount } from '@/components/costs'
 import {
   IconCheckCircle,
   IconScreen,
@@ -16,9 +13,9 @@ import {
   IconClock,
   IconArrowLeft
 } from '@/components/icons'
-import langMenu from '@/data/translation/menu'
 
 const ProgramsColumn = ({ data, id, type }) => {
+  const at = useAt()
   const { closeMenu } = useContext(MenuContext)
   const { hideOverlay } = useContext(OverlayContext)
   const handleLinkClick = () => {
@@ -46,7 +43,11 @@ const ProgramsColumn = ({ data, id, type }) => {
             <Link
               href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
               locale='ru'>
-              <a onClick={handleLinkClick}>{SetString(item, true)}</a>
+              <a onClick={handleLinkClick}>
+                {at.en
+                  ? item?.slug?.split('-').join(' ') || item?.title
+                  : item?.title}
+              </a>
             </Link>
           </li>
         )
@@ -55,7 +56,7 @@ const ProgramsColumn = ({ data, id, type }) => {
           <li key={item.id || item._id} className={stls.listItem}>
             <Link href={`/programs/${type}/${format}`} locale='ru'>
               <a className={stls.link} onClick={handleLinkClick}>
-                {SetString(langMenu.linkAllPrograms)}
+                {at.en ? 'View all' : 'Посмотреть все'}
                 <IconArrowLeft classNames={[stls.arrow]} />
               </a>
             </Link>
@@ -103,7 +104,7 @@ const ProgramsColumn = ({ data, id, type }) => {
             </div>
             <span>
               <ProgramSubjects type={type} subjects='base' />{' '}
-              {SetString(langMenu.categoryAboutManagement)}
+              {at.en ? 'management subjects' : 'дисциплин об управлении'}
             </span>
           </div>
           <div className={stls.infoItemContainer}>
@@ -112,15 +113,19 @@ const ProgramsColumn = ({ data, id, type }) => {
             </div>
             <span>
               <ProgramSubjects type={type} subjects='specialty' />{' '}
-              {SetString(langMenu.categorySpecializedSubjects)}
+              {at.en ? 'specialized subjects' : 'дисциплин специализации'}
             </span>
           </div>
         </div>
         <p className={stls.programDesc}>
           {type === 'mini'
-            ? SetString(langMenu.categoryDiscMini)
+            ? at.en
+              ? ''
+              : 'Дистанционная программа Mini MBA разработана для специалистов и руководителей, которые хотят систематизировать имеющиеся знания или познакомиться с ключевыми аспектами новой для себя сферы управленческой деятельности'
             : type === 'mba'
-            ? SetString(langMenu.categoryDiscMba)
+            ? at.en
+              ? ''
+              : 'Дистанционная программа MBA разработана для специалистов и руководителей, которые хотят систематизировать имеющиеся знания или познакомиться с ключевыми аспектами новой для себя сферы управленческой деятельности'
             : null}
         </p>
       </li>
@@ -130,7 +135,7 @@ const ProgramsColumn = ({ data, id, type }) => {
             [stls.activeOnline]: programFormat === 'online'
           })}>
           <div className={stls.itemTitle}>
-            {SetString(langMenu.onlineTitle)}
+            {at.en ? 'ONLINE' : 'Формат ONLINE'}
             <div className={stls.itemDiscount}>
               <div className={stls.itemDiscountAmount}>
                 <Discount />
@@ -147,7 +152,7 @@ const ProgramsColumn = ({ data, id, type }) => {
             isInsideHeader
           />
           <div className={stls.itemPrice}>
-            {SetString(langMenu.price)}:{' '}
+            {at.en ? 'Cost' : 'Стоимость'}:{' '}
             <Price
               discount={true}
               type={type}
@@ -160,7 +165,7 @@ const ProgramsColumn = ({ data, id, type }) => {
               <div className={stls.iconContainer}>
                 <IconCheckCircle />
               </div>
-              <span>{SetString(langMenu.formatRemote)}</span>
+              <span>{at.en ? 'Remotely' : 'Дистанционно'}</span>
             </div>
             <div className={stls.infoFlexContainer}>
               <div className={stls.iconContainer}>
@@ -168,7 +173,7 @@ const ProgramsColumn = ({ data, id, type }) => {
               </div>
               <span>
                 <ProgramSubjects type={type} sum={true} />{' '}
-                {SetString(langMenu.qtSubjects)}
+                {at.en ? 'subjects' : 'дисциплин'}
               </span>
             </div>
           </div>
@@ -181,7 +186,7 @@ const ProgramsColumn = ({ data, id, type }) => {
             [stls.activeBlended]: programFormat === 'blended'
           })}>
           <div className={stls.itemTitle}>
-            {SetString(langMenu.blendedTitle)}
+            {at.en ? 'BLENDED' : 'Формат BLENDED'}
           </div>
           <ProgramsQty
             programs={data}
@@ -190,7 +195,7 @@ const ProgramsColumn = ({ data, id, type }) => {
             isInsideHeader
           />
           <div className={stls.itemPrice}>
-            {SetString(langMenu.price)}:{' '}
+            {at.en ? 'Cost' : 'Стоимость'}:{' '}
             <Price
               discount={false}
               type={type}
@@ -203,7 +208,7 @@ const ProgramsColumn = ({ data, id, type }) => {
               <div className={stls.iconContainer}>
                 <IconCheckCircle />
               </div>
-              <span>{SetString(langMenu.formatBlended)}</span>
+              <span>{at.en ? 'Half in-person' : 'С очными модулями'}</span>
             </div>
             <div className={stls.infoFlexContainer}>
               <div className={stls.iconContainer}>
@@ -211,7 +216,7 @@ const ProgramsColumn = ({ data, id, type }) => {
               </div>
               <span>
                 <ProgramSubjects type={type} sum={true} />{' '}
-                {SetString(langMenu.qtSubjects)}
+                {at.en ? 'subjects' : 'дисциплин'}
               </span>
             </div>
           </div>
@@ -230,23 +235,27 @@ const ProgramsColumn = ({ data, id, type }) => {
         </div>
         <p className={stls.textBottom}>
           {type === 'mini'
-            ? SetString(langMenu.categoryDiscMini)
+            ? at.en
+              ? ''
+              : 'Дистанционная программа Mini MBA разработана для специалистов и руководителей, которые хотят систематизировать имеющиеся знания или познакомиться с ключевыми аспектами новой для себя сферы управленческой деятельности'
             : type === 'mba'
-            ? SetString(langMenu.categoryDiscMba)
+            ? at.en
+              ? ''
+              : 'Дистанционная программа MBA разработана для специалистов и руководителей, которые хотят систематизировать имеющиеся знания или познакомиться с ключевыми аспектами новой для себя сферы управленческой деятельности'
             : null}
         </p>
         <div className={stls.itemBottom}>
           <IconPaperCorner classNames={[stls.iconBottom]} />
           <span>
             <ProgramSubjects type='mba' subjects='base' />{' '}
-            {SetString(langMenu.categoryAboutManagement)}
+            {at.en ? 'management subjects' : 'дисциплин об управлении'}
           </span>
         </div>
         <div className={stls.itemBottom}>
           <IconPaperCorner classNames={[stls.iconBottom]} />
           <span>
             <ProgramSubjects type='mba' subjects='specialty' />{' '}
-            {SetString(langMenu.categorySpecializedSubjects)}
+            {at.en ? 'specialized subjects' : 'дисциплин специализации'}
           </span>
         </div>
       </div>

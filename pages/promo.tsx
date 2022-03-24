@@ -1,11 +1,9 @@
 import stls from '@/styles/pages/promo/Index.module.sass'
 import { GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
-import lang from '@/data/translation/index'
 import { routesFront } from '@/config/index'
-import { SetString } from '@/helpers/index'
 import { handleGetStaticProps } from '@/lib/index'
-import { usePageHandleContext } from '@/hooks/index'
+import { usePageHandleContext, useAt } from '@/hooks/index'
 // import {
 //   JumbotronCta,
 //   WhatWillYouLearn,
@@ -27,6 +25,9 @@ import WhoItIsFor from '@/components/sections/general/WhoItIsFor'
 
 const PagePromo = ({ programs }) => {
   usePageHandleContext({ programs })
+
+  const at = useAt()
+
   const courseOptions = {
     whoIsFor: [
       {
@@ -73,7 +74,13 @@ const PagePromo = ({ programs }) => {
       <JumbotronCta />
       <div className={stls.container}>
         <CourseOptions />
-        <ContactUs title={SetString(lang.receiveConsultation)} />
+        <ContactUs
+          title={
+            at.en
+              ? 'Receive a consultation on the MBA programs'
+              : 'Получите консультацию по программам'
+          }
+        />
         <WhatWillYouLearn />
         <ProgramDesc />
         <Accreditation />
