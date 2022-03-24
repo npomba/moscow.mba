@@ -1,9 +1,9 @@
 import { GetStaticPropsContext } from 'next'
 import { TypePageDefaultProps, TypePageDefaultPropsQuery } from '@/types/index'
-import { gql } from '@apollo/client'
-import apolloClient from '@/lib/apolloClient'
-import { revalidate } from '@/config/index'
-import { createBlended } from '@/helpers/index'
+import axios from 'axios'
+// import { gql } from '@apollo/client'
+// import apolloClient from '@/lib/apolloClient'
+import { routesBack, revalidate } from '@/config/index'
 
 const getStaticPropsDefault = async ({
   context
@@ -13,35 +13,35 @@ const getStaticPropsDefault = async ({
   props: TypePageDefaultProps
   revalidate: number
 }> => {
-  const res = await apolloClient.query<TypePageDefaultPropsQuery>({
-    query: gql`
-      query GetStaticPropsDefault {
-        programs: products {
-          _id
-          id
-          title
-          slug
-          studyFormat
-          category {
-            type
-            slug
-          }
-          study_field {
-            id
-            name
-            slug
-            description
-          }
-        }
-      }
-    `
-  })
+  const res = await axios.get(
+    `${routesBack.root}${routesBack.getStaticPropsDefault}`
+  )
+  // const res = await apolloClient.query<TypePageDefaultPropsQuery>({
+  //   query: gql`
+  //     query GetStaticPropsDefault {
+  //       programs: products {
+  //         _id
+  //         id
+  //         title
+  //         slug
+  //         studyFormat
+  //         category {
+  //           type
+  //           slug
+  //         }
+  //         study_field {
+  //           id
+  //           name
+  //           slug
+  //           description
+  //         }
+  //       }
+  //     }
+  //   `
+  // })
 
   return {
-    props: {
-      ...res?.data,
-      programs: createBlended(res?.data?.programs)
-    },
+    props: res.data,
     revalidate: revalidate.default
   }
 }

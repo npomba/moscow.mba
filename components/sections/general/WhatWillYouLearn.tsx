@@ -56,8 +56,10 @@ const WhatWillYouLearn = ({ data = null }) => {
               {list &&
                 list.map((item, idx) => {
                   return (
-                    <li key={(item.string || item) + idx} className={stls.item}>
-                      {item.string || item}
+                    <li
+                      key={(item.string || item.toString()) + idx}
+                      className={stls.item}>
+                      {item.string || item.toString()}
                     </li>
                   )
                 })}

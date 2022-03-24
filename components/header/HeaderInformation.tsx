@@ -1,7 +1,7 @@
 import stls from '@/styles/components/header/HeaderInformation.module.sass'
 import Link from 'next/link'
 import cn from 'classnames'
-import { contactData, companyName } from '@/config/index'
+import { routesFront, contactData, companyName } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import { useAt } from '@/hooks/index'
 import { Wrapper } from '@/components/layout'
@@ -24,11 +24,9 @@ const HeaderInformation = ({ classNames = [], handleMenu, openMenu }) => {
         cn([stls.container], getClassNames({ classNames })) || undefined
       }>
       <Wrapper>
-        <Link href='/'>
+        <Link href={at.promo ? routesFront.promo : routesFront.home}>
           <a
-            className={cn(stls.logo, {
-              [stls.logoDisabled]: at.promo
-            })}
+            className={stls.logo}
             onClick={() => handleMenu(false)}
             aria-label={companyName}>
             <span className={stls.picture}>

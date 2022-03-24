@@ -16,7 +16,13 @@ const routesBack = {
   categories: '/categories',
   auth: '/auth',
   authLocal: '/auth/local',
-  leads: '/leads'
+  leads: '/leads',
+  getStaticPropsDefault: '/get-static-props/default',
+  getStaticPropsPageJournalArticle: '/get-static-props/page-journal-article',
+  getStaticPropsPageJournalArticles: '/get-static-props/page-journal-articles',
+  getStaticPropsPagePromo: '/get-static-props/page-promo',
+  getStaticPropsPrograms: '/get-static-props/programs',
+  getStaticPropsTeachers: '/get-static-props/teachers'
 }
 
 export default routesBack

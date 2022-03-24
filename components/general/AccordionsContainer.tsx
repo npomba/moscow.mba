@@ -26,7 +26,7 @@ const AccordionsContainer = ({
       <>
         {accordionsItems.map((item, idx) => (
           <Accordion
-            key={item?.title + idx}
+            key={`${item?.title}-${idx}`}
             accordionItem={item}
             accordionIndex={idx}
             activeAccordion={idx === activeAccordionIndex}
@@ -43,7 +43,7 @@ const AccordionsContainer = ({
       <>
         {accordionsItems.map((item, idx) => (
           <CourseAccordion
-            key={item?.title + idx}
+            key={`${item?.title}-${idx}`}
             course={item}
             accordionIndex={idx}
             activeAccordionIndex={activeAccordionIndex}

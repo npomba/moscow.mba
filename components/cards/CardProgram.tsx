@@ -43,7 +43,7 @@ const CardProgram = ({ professionLayout, program, number, type, format }) => {
             />
           </div>
           <div className={stls.duration}>
-            {program?.duration ? (
+            {program?.duration?.length > 0 ? (
               `${program?.duration?.minStudyMonths} ${at.en ? 'month' : 'мес.'}`
             ) : (
               <TrainingPeriod type={type} />

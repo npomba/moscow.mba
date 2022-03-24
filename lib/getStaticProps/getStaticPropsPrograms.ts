@@ -3,10 +3,10 @@ import {
   TypePageProgramsProps,
   TypePageProgramsPropsQuery
 } from '@/types/index'
-import { gql } from '@apollo/client'
-import apolloClient from '@/lib/apolloClient'
-import { revalidate } from '@/config/index'
-import { createBlended } from '@/helpers/index'
+import axios from 'axios'
+// import { gql } from '@apollo/client'
+// import apolloClient from '@/lib/apolloClient'
+import { routesBack, revalidate } from '@/config/index'
 
 const getStaticPropsPrograms = async ({
   context
@@ -16,39 +16,39 @@ const getStaticPropsPrograms = async ({
   props: TypePageProgramsProps
   revalidate: number
 }> => {
-  const res = await apolloClient.query<TypePageProgramsPropsQuery>({
-    query: gql`
-      query GetStaticPropsPrograms {
-        programs: products {
-          _id
-          id
-          title
-          slug
-          studyFormat
-          price
-          duration {
-            minStudyMonths
-          }
-          category {
-            type
-            slug
-          }
-          study_field {
-            id
-            name
-            slug
-            description
-          }
-        }
-      }
-    `
-  })
+  const res = await axios.get(
+    `${routesBack.root}${routesBack.getStaticPropsPrograms}`
+  )
+  // const res = await apolloClient.query<TypePageProgramsPropsQuery>({
+  //   query: gql`
+  //     query GetStaticPropsPrograms {
+  //       programs: products {
+  //         _id
+  //         id
+  //         title
+  //         slug
+  //         studyFormat
+  //         price
+  //         duration {
+  //           minStudyMonths
+  //         }
+  //         category {
+  //           type
+  //           slug
+  //         }
+  //         study_field {
+  //           id
+  //           name
+  //           slug
+  //           description
+  //         }
+  //       }
+  //     }
+  //   `
+  // })
 
   return {
-    props: {
-      ...res?.data,
-      programs: createBlended(res?.data?.programs)
-    },
+    props: res.data,
     revalidate: revalidate.default
   }
 }
