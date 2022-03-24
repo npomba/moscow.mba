@@ -1,18 +1,23 @@
 import stls from '@/styles/components/inputs/InputName.module.sass'
 import cn from 'classnames'
-import { SetString, handlePlaceholder } from '@/helpers/index'
-import lang from '@/data/translation/index'
+import { useAt } from '@/hooks/index'
+import { handlePlaceholder } from '@/helpers/index'
 
 const InputName = ({ register, errors, width = '25' }) => {
+  const at = useAt()
   return (
     <div className={`input-block width-${width}`}>
       <input
         type='text'
-        aria-label={SetString(lang.inputName)}
+        aria-label={at.en ? 'Name' : 'Имя'}
         {...register('name', {
           maxLength: {
             value: 32,
-            message: `*${SetString(lang.formErrLongName)}`
+            message: `*${
+              at.en
+                ? 'Name should be no longer than 32 symbols'
+                : 'Введите имя не длинее, чем 32 символа'
+            }`
           }
         })}
         onKeyUp={e => handlePlaceholder(e)}
@@ -21,7 +26,7 @@ const InputName = ({ register, errors, width = '25' }) => {
         className={cn({
           'input-placeholder': true
         })}>
-        {SetString(lang.inputName)}
+        {at.en ? 'Name' : 'Имя'}
       </div>
       <p className='inpt-err-msg'>{errors.name && errors.name.message}</p>
     </div>

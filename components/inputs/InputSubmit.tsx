@@ -1,10 +1,11 @@
 import stls from '@/styles/components/inputs/InputSubmit.module.sass'
 import cn from 'classnames'
-import { SetString } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import { IconArrowTopRight } from '@/components/icons'
-import lang from '@/data/translation/index'
 
 const InputSubmit = ({ errors, alpha = false, width = '25', ...props }) => {
+  const at = useAt()
+
   return (
     <div className={`input-block width-${width}`}>
       <button
@@ -17,7 +18,13 @@ const InputSubmit = ({ errors, alpha = false, width = '25', ...props }) => {
           'btn-disabled': errors.name || errors.phone || errors.email
         })}
         disabled={errors.name || errors.phone || errors.email ? true : false}>
-        {alpha ? SetString(lang.inputSubmitAlt) : SetString(lang.inputSubmit)}
+        {alpha
+          ? at.en
+            ? 'Submit'
+            : 'Отправить'
+          : at.en
+          ? 'Submit'
+          : 'Оставить заявку'}
         {alpha && (
           <div className={stls.buttonArrow}>
             <IconArrowTopRight width={'17'} height={'17'} />

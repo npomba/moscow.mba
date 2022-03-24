@@ -1,5 +1,7 @@
+import { discount } from '@/config/index'
+
 const Discount = () => {
-  return <>-45%</>
+  return <>-{discount}</>
 }
 
 export default Discount

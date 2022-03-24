@@ -6,18 +6,18 @@ const Until = ({ preposition = true, executive = false }) => {
   const currentDay = currentDate.getDate()
   let currentMonth = currentDate.getMonth()
   const months = [
-    at.en ? 'января' : 'January',
-    at.en ? 'февраля' : 'February',
-    at.en ? 'марта' : 'March',
-    at.en ? 'апреля' : 'April',
-    at.en ? 'Мая' : 'May',
-    at.en ? 'июня' : 'June',
-    at.en ? 'июля' : 'July',
-    at.en ? 'августа' : 'August',
-    at.en ? 'сентября' : 'September',
-    at.en ? 'октября' : 'October',
-    at.en ? 'ноября' : 'November',
-    at.en ? 'декабря' : 'December'
+    at.en ? 'January' : 'января',
+    at.en ? 'February' : 'февраля',
+    at.en ? 'March' : 'марта',
+    at.en ? 'April' : 'апреля',
+    at.en ? 'May' : 'Мая',
+    at.en ? 'June' : 'июня',
+    at.en ? 'July' : 'июля',
+    at.en ? 'August' : 'августа',
+    at.en ? 'September' : 'сентября',
+    at.en ? 'October' : 'октября',
+    at.en ? 'November' : 'ноября',
+    at.en ? 'December' : 'декабря'
   ]
   if (executive)
     currentMonth =
@@ -25,7 +25,7 @@ const Until = ({ preposition = true, executive = false }) => {
 
   return (
     <>
-      {preposition && (at.en ? 'until' : 'до')}
+      {preposition && (at.en ? 'until ' : 'до ')}
       {currentDay < 20 ? '20' : '5'}{' '}
       {(() => {
         let output

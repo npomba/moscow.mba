@@ -1,5 +1,6 @@
 import App from 'next/app'
 import '@/styles/app.sass'
+import 'reactjs-popup/dist/index.css'
 import { useEffect, useState } from 'react'
 import Router from 'next/router'
 import NProgress from 'nprogress'

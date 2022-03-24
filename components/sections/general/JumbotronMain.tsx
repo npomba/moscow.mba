@@ -1,14 +1,14 @@
 import stls from '@/styles/components/sections/JumbotronMain.module.sass'
 import Link from 'next/link'
 import Image from 'next/image'
-import { SetString } from '@/helpers/index'
-import lang from '@/data/translation/index'
+import { useAt } from '@/hooks/index'
 import { Breadcrumbs } from '@/components/general'
 import { IconArrowTopRight } from '@/components/icons'
 
 import { base64pixel } from '@/config/index'
 
 const JumbotronMain = () => {
+  const at = useAt()
   return (
     <section className={stls.container}>
       <div className={stls.image}>
@@ -35,12 +35,16 @@ const JumbotronMain = () => {
                 />
               </div>
               <h1>Moscow Business Academy</h1>
-              <div className={stls.desc}>{SetString(lang.headerSubtitle)}</div>
+              <div className={stls.desc}>
+                {at.en
+                  ? "International Business Education. We've everything to help you reach your full potential!"
+                  : 'Международное бизнес-образование. У нас есть всё для раскрытия Вашего потенциала!'}
+              </div>
             </div>
           </div>
           <Link href='/programs/mini/online' locale='ru'>
             <a className={stls.square}>
-              <p>{SetString(lang.redCubeLink)}</p>
+              <p>{at.en ? 'Choose program' : 'Подобрать направление'}</p>
               <div className={stls.arrow}>
                 <IconArrowTopRight />
               </div>

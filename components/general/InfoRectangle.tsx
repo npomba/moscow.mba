@@ -1,14 +1,11 @@
 import stls from '@/styles/components/general/InfoRectangle.module.sass'
 import cn from 'classnames'
-import Until from '@/components/costs/Until'
-import TrainingPeriod from '@/components/costs/TrainingPeriod'
-import { SetString } from '@/helpers/index'
 import { useAt } from '@/hooks/index'
-import Price from '@/components/costs/Price'
-import PopupInfo from '@/components/popups/PopupInfo'
+// import { Wrapper } from '@/components/layout'
+import { PopupInfo } from '@/components/popups'
+import { Until, TrainingPeriod } from '@/components/costs'
 import lang from '@/data/translation/index'
 import langMenu from '@/data/translation/menu'
-import { Wrapper } from '@/components/layout'
 
 // TODO:: improve styles for rectangle. It's content is not vertically centered on tablet & laptop, it goes full width on smaller screen but should have padding left & right
 const InfoRectangle = ({
@@ -34,13 +31,21 @@ const InfoRectangle = ({
       {
         itemTitle: 'Форма обучения:',
         itemDetail: at.online
-          ? SetString(langMenu.formatRemote)
+          ? at.en
+            ? 'Remotely'
+            : 'Дистанционно'
           : at.blended
-          ? SetString(langMenu.formatBlended)
+          ? at.en
+            ? 'Half in-person'
+            : 'С очными модулями'
           : at.executive
-          ? SetString(langMenu.formatExecutive)
+          ? at.en
+            ? 'In person'
+            : 'Очно'
           : at.mbl
-          ? SetString(langMenu.formatRemote)
+          ? at.en
+            ? 'Remotely'
+            : 'Дистанционно'
           : ''
       },
       {
@@ -81,13 +86,17 @@ const InfoRectangle = ({
     ],
     academyInfo: [
       {
-        itemDetail: SetString(lang.jumInfoOne)
+        itemDetail: at.en ? 'International diplomas' : 'Международные дипломы'
       },
       {
-        itemDetail: SetString(lang.jumInfoTwo)
+        itemDetail: at.en
+          ? 'Online and offline formats'
+          : 'ONLINE и очные форматы обучения'
       },
       {
-        itemDetail: SetString(lang.jumInfoThree)
+        itemDetail: at.en
+          ? 'Practical examples'
+          : 'Разборы практических бизнес-кейсов'
       }
     ]
   }

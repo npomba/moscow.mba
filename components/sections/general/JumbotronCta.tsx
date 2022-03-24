@@ -1,19 +1,17 @@
 import stls from '@/styles/components/sections/JumbotronCta.module.sass'
-import 'reactjs-popup/dist/index.css'
+import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { SetString } from '@/helpers/index'
+import { discount } from '@/config/index'
 import { useAt } from '@/hooks/index'
-import lang from '@/data/translation/index'
-import { useState } from 'react'
-import Until from '@/components/costs/Until'
+import { Wrapper } from '@/components/layout'
 import {
   Breadcrumbs,
   InfoRectangle,
   LeadLoaderThankyou
 } from '@/components/general'
 import { FormAlpha } from '@/components/forms'
-import { Wrapper } from '@/components/layout'
+import { Until } from '@/components/costs'
 
 const JumbotronCta = ({ programTitle = null, programId = null }) => {
   const at = useAt()
@@ -60,32 +58,37 @@ const JumbotronCta = ({ programTitle = null, programId = null }) => {
                   MINI MBA
                 </li>
                 <li className={stls.desktopLinkBorder}></li>
-                <li className={stls.linkItem}>{SetString(lang.courses)}</li>
+                <li className={stls.linkItem}>{at.en ? 'Courses' : 'Курсы'}</li>
               </ul>
 
               <ul className={stls.mobileLinksList}>
                 <li className={stls.linkItem}>
                   <Link href='/programs' locale='ru'>
-                    <a>{SetString(lang.programsMbaMobileLink)}</a>
+                    <a>{at.en ? 'MBA Programs' : 'Программы MBA'}</a>
                   </Link>
                 </li>
               </ul>
               <h1 className={stls.title}>
-                {SetString(lang.headerTitlePreHighlight)}{' '}
+                {at.en ? 'Concur' : 'Получите'}{' '}
                 <span className={stls.red}>
-                  {SetString(lang.headerTitleHighlight)}
+                  {at.en ? 'relevant' : 'современное'}
                 </span>{' '}
-                {SetString(lang.headerTitlePostHighlight)}
+                {at.en
+                  ? 'business education from international experts'
+                  : 'бизнес образование от международных экспертов'}
               </h1>
               <div className={stls.descTopPart}>
                 <span className={stls.red}>
-                  {SetString(lang.headerDescTopHightlight)}
+                  {at.en ? `${discount} discount` : `Скидка ${discount}`}
                 </span>{' '}
-                {SetString(lang.headerDescTop)} <Until preposition={true} />!
+                {at.en ? 'on all ONLINE programs' : 'на все программы ONLINE'}{' '}
+                <Until preposition={true} />!
               </div>
               <div className={stls.descForm}>
                 <p className={stls.descBottomPart}>
-                  {SetString(lang.headerDescription)}
+                  {at.en
+                    ? 'Get a consultation, discounts information, and requirements by submitting a form'
+                    : 'Оставьте заявку и получите консультацию по программам, а также узнайте возможные варианты скидок и требования к поступлению'}
                 </p>
                 <FormAlpha
                   programTitle={programTitle}
@@ -99,18 +102,26 @@ const JumbotronCta = ({ programTitle = null, programId = null }) => {
             <ul className={stls.prosList}>
               <li className={stls.prosItem}>
                 <div className={stls.prosStatsNumber}>100+</div>
-                <p>{SetString(lang.benefitOneDisc)}</p>
+                <p>
+                  {at.en ? 'MBA Programs and courses' : 'Программ MBA и курсов'}
+                </p>
               </li>
               <li className={stls.prosSeparator}></li>
               <li className={stls.prosItem}>
                 <div className={stls.prosStatsNumber}>2021+</div>
-                <p>{SetString(lang.benefitTwoDisc)}</p>
+                <p>
+                  {at.en
+                    ? 'newest programs of 2021'
+                    : 'Новейшие программы 2021 года'}
+                </p>
               </li>
               <li className={stls.prosSeparator}></li>
 
               <li className={stls.prosItem}>
                 <div className={stls.prosStatsNumber}>150+</div>
-                <p>{SetString(lang.benefitThreeDisc)}</p>
+                <p>
+                  {at.en ? 'international experts' : 'Международных экспертов'}
+                </p>
               </li>
               <li className={stls.prosSeparator}></li>
 
@@ -120,8 +131,12 @@ const JumbotronCta = ({ programTitle = null, programId = null }) => {
                 </div>
                 <p>
                   {at.index
-                    ? SetString(lang.benefitFourDiscAlt)
-                    : SetString(lang.benefitFourDisc)}
+                    ? at.en
+                      ? 'graduates around the world'
+                      : 'Выпускников по всему миру'
+                    : at.en
+                    ? 'students from all over the world'
+                    : 'Студентов по всему миру'}
                 </p>
               </li>
             </ul>

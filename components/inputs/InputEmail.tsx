@@ -1,20 +1,24 @@
 import stls from '@/styles/components/inputs/InputEmail.module.sass'
 import cn from 'classnames'
-import { SetString, handlePlaceholder } from '@/helpers/index'
-import lang from '@/data/translation/index'
+import { useAt } from '@/hooks/index'
+import { handlePlaceholder } from '@/helpers/index'
 
 const InputEmail = ({ register, errors, width = '25', ...props }) => {
+  const at = useAt()
+
   return (
     <div className={`input-block width-${width} ${props.className}`}>
       <input
         {...props}
         type='email'
-        aria-label={SetString(lang.inputEmail)}
+        aria-label={at.en ? 'Email address' : 'Электронная почта'}
         {...register('email', {
           pattern: {
             value:
               /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
-            message: `*${SetString(lang.formErrInvalidEmail)}`
+            message: `*${
+              at.en ? 'Email address invalid' : 'Адрес почты введен неверно'
+            }`
           }
         })}
         onKeyUp={e => handlePlaceholder(e)}
@@ -23,7 +27,7 @@ const InputEmail = ({ register, errors, width = '25', ...props }) => {
         className={cn({
           'input-placeholder': true
         })}>
-        {SetString(lang.inputEmail)}
+        {at.en ? 'Email address' : 'Электронная почта'}
       </div>
       <p className='inpt-err-msg'>{errors.email && errors.email.message}</p>
     </div>

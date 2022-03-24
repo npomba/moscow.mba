@@ -1,19 +1,28 @@
 import stls from '@/styles/components/inputs/InputPhone.module.sass'
 import cn from 'classnames'
-import { SetString, handlePlaceholder } from '@/helpers/index'
-import lang from '@/data/translation/index'
+import { useAt } from '@/hooks/index'
+import { handlePlaceholder } from '@/helpers/index'
 
 const InputPhone = ({ register, errors, width = '25' }) => {
+  const at = useAt()
   return (
     <div className={`input-block width-${width}`}>
       <input
         type='tel'
-        aria-label={SetString(lang.inputPhone)}
+        aria-label={at.en ? 'Phone number' : 'Телефон'}
         {...register('phone', {
-          required: `*${SetString(lang.formErrEmptyPhone)}`,
+          required: `*${
+            at.en
+              ? 'Phone number is required'
+              : 'Пожалуйста, введите Ваш номер телефона'
+          }`,
           minLength: {
             value: 5,
-            message: `*${SetString(lang.formErrShortPhone)}`
+            message: `*${
+              at.en
+                ? 'Phone number is too short'
+                : 'Номер телефона слишком короткий'
+            }`
           }
         })}
         onKeyUp={e => handlePlaceholder(e)}
@@ -22,7 +31,7 @@ const InputPhone = ({ register, errors, width = '25' }) => {
         className={cn({
           'input-placeholder': true
         })}>
-        {SetString(lang.inputPhone)}
+        {at.en ? 'Phone number' : 'Телефон'}
       </div>
       <p className='inpt-err-msg'>{errors.phone && errors.phone.message}</p>
     </div>
