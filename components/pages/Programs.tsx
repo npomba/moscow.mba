@@ -2,9 +2,8 @@ import stls from '@/styles/components/pages/Programs.module.sass'
 import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
-import { SetString } from '@/helpers/index'
 import { useAt } from '@/hooks/index'
-import langMenu from '@/data/translation/menu'
+import { ProgramsContext } from '@/context/index'
 import {
   Breadcrumbs,
   InfoRectangle,
@@ -14,7 +13,6 @@ import {
 } from '@/components/general'
 import { CardProgram } from '@/components/cards'
 import { IconCheckCircle } from '@/components/icons'
-import { ProgramsContext } from '@/context/index'
 
 const PagePrograms = ({ mbaTypeOfProgram, mbaFormat }) => {
   const { programs, studyFields, curStudyField, setCurStudyField } =
@@ -49,7 +47,14 @@ const PagePrograms = ({ mbaTypeOfProgram, mbaFormat }) => {
           at.online ? 'Online' : at.blended ? 'Blended' : ''
         } - Moscow Business Academy`}
         description={
-          at.mini ? truncate(SetString(langMenu.categoryDiscMini), 120) : ''
+          at.mini
+            ? truncate(
+                at.en
+                  ? ''
+                  : 'Дистанционная программа Mini MBA разработана для специалистов и руководителей, которые хотят систематизировать имеющиеся знания или познакомиться с ключевыми аспектами новой для себя сферы управленческой деятельности',
+                120
+              )
+            : ''
         }
         canonical={'https://moscow.mba/programs/mba/online'}
       />
@@ -92,9 +97,13 @@ const PagePrograms = ({ mbaTypeOfProgram, mbaFormat }) => {
 
               <p className={stls.desc}>
                 {at.mini
-                  ? SetString(langMenu.categoryDiscMini)
+                  ? at.en
+                    ? ''
+                    : 'Дистанционная программа Mini MBA разработана для специалистов и руководителей, которые хотят систематизировать имеющиеся знания или познакомиться с ключевыми аспектами новой для себя сферы управленческой деятельности'
                   : at.mba
-                  ? SetString(langMenu.categoryDiscMba)
+                  ? at.en
+                    ? ''
+                    : 'Дистанционная программа MBA разработана для специалистов и руководителей, которые хотят систематизировать имеющиеся знания или познакомиться с ключевыми аспектами новой для себя сферы управленческой деятельности'
                   : ''}
               </p>
 

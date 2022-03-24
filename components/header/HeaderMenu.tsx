@@ -1,7 +1,6 @@
 import stls from '@/styles/components/header/HeaderMenu.module.sass'
 import { useState } from 'react'
-import { useWindowWidth } from '@/helpers/index'
-import { useAt } from '@/hooks/index'
+import { useAt, useWindowWidth } from '@/hooks/index'
 import {
   HeaderPrograms,
   HeaderTabs,

@@ -1,8 +1,8 @@
 import stls from '@/styles/components/popups/PopupInfo.module.sass'
-import Popup from 'reactjs-popup'
-import { IconInfoFRDO } from '@/components/icons'
 import { useEffect, useState } from 'react'
-import { useWindowWidth } from '@/helpers/index'
+import Popup from 'reactjs-popup'
+import { useWindowWidth } from '@/hooks/index'
+import { IconInfoFRDO } from '@/components/icons'
 
 type PopupInfoPropsType = {
   title: string

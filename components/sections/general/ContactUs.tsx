@@ -1,9 +1,7 @@
 import stls from '@/styles/components/sections/ContactUs.module.sass'
 import cn from 'classnames'
-import { SetString } from '@/helpers/index'
-import { useAt } from '@/hooks/index'
-import lang from '@/data/translation/index'
 import { useState } from 'react'
+import { useAt } from '@/hooks/index'
 import { LeadLoaderThankyou } from '@/components/general'
 import { FormAlpha } from '@/components/forms'
 import { Wrapper } from '@/components/layout'
@@ -11,14 +9,21 @@ import { Wrapper } from '@/components/layout'
 const ContactUs = ({
   programTitle = null,
   programId = null,
-  title = SetString(lang.helpToChooseTitle),
+  title = null,
   titleNewStr = null,
-  disc = SetString(lang.helpToChooseDics),
+  desc = null,
   overlapsFooter = false
 }) => {
+  const at = useAt()
+
+  if (!title) title = at.en ? 'Contact us to get help' : 'Поможем в выборе'
+  if (!desc)
+    desc = at.en
+      ? 'Leave your request for a consultation on the MBA programs, their fees, available discounts and admission requirements'
+      : 'Оставьте заявку и получите консультацию по программам MBA, узнайте их точную стоимость, возможные варианты скидок и требования к поступлению'
+
   const [open, setOpen] = useState(false)
   const [openLoader, setOpenLoader] = useState(false)
-  const at = useAt()
 
   return (
     <section
@@ -47,8 +52,10 @@ const ContactUs = ({
         </h2>
         <div className={stls.desc}>
           {at.course || at.profession
-            ? SetString(lang.helpToChooseDicsProfessionCourse)
-            : disc}
+            ? at.en
+              ? 'Leave your request for a consultation on the MBA programs, their fees, available discounts and admission requirements'
+              : 'Оставьте заявку и получите консультацию по программам, узнайте их точную стоимость, возможные варианты скидок и требования к поступлению'
+            : desc}
         </div>
 
         <FormAlpha

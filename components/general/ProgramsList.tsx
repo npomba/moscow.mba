@@ -1,18 +1,15 @@
 import stls from '@/styles/components/general/ProgramsList.module.sass'
 import { Fragment, useContext } from 'react'
-import cn from 'classnames'
 import Link from 'next/link'
-import langMenu from '@/data/translation/menu'
-import { SetString } from '@/helpers/index'
-import Until from '@/components/costs/Until'
-import Discount from '@/components/costs/Discount'
-import menu from '@/data/translation/menu'
+import cn from 'classnames'
+import { useAt } from '@/hooks/index'
 import { ProgramsContext, MenuContext, OverlayContext } from '@/context/index'
-import { IconArrowLeft, IconClock, IconPaperCorner } from '@/components/icons'
-import { TrainingPeriod } from '@/components/costs'
+import { Until, Discount, TrainingPeriod } from '@/components/costs'
 import { ProgramSubjects } from '@/components/general'
+import { IconArrowLeft, IconClock, IconPaperCorner } from '@/components/icons'
 
 const ProgramsList = ({ data, id, type }) => {
+  const at = useAt()
   const { closeMenu } = useContext(MenuContext)
   const { hideOverlay } = useContext(OverlayContext)
   const { studyFields, studyFieldsWithSlugs } = useContext(ProgramsContext)
@@ -54,7 +51,11 @@ const ProgramsList = ({ data, id, type }) => {
                 <Link
                   href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
                   locale='ru'>
-                  <a onClick={handleLinkClick}>{SetString(item, true)}</a>
+                  <a onClick={handleLinkClick}>
+                    {at.en
+                      ? item?.slug?.split('-').join(' ') || item?.title
+                      : item?.title}
+                  </a>
                 </Link>
               </div>
             )
@@ -63,7 +64,7 @@ const ProgramsList = ({ data, id, type }) => {
               <div key={item.id} className={stls.listItem}>
                 <Link href={`/programs/${type}/online`} locale='ru'>
                   <a className={stls.link} onClick={handleLinkClick}>
-                    {SetString(menu.linkAllPrograms)}
+                    {at.en ? 'View all' : 'Посмотреть все'}
                     <IconArrowLeft classNames={[stls.arrow]} />
                   </a>
                 </Link>
@@ -79,9 +80,13 @@ const ProgramsList = ({ data, id, type }) => {
       <div className={stls.programInfo}>
         <div className={stls.programTitle}>
           {type === 'profession'
-            ? SetString(menu.professions)
+            ? at.en
+              ? 'Professions'
+              : 'Профессии'
             : type === 'courses'
-            ? SetString(menu.courses)
+            ? at.en
+              ? 'Courses'
+              : 'Курсы'
             : null}
           <div className={stls.itemDiscount}>
             <div className={stls.itemDiscountAmount}>
@@ -94,9 +99,13 @@ const ProgramsList = ({ data, id, type }) => {
         </div>
         <p className={stls.programDesc}>
           {type === 'profession'
-            ? SetString(langMenu.categoryDiscProfession)
+            ? at.en
+              ? ''
+              : 'Программа профессиональной переподготовки разработана для специалистов и руководителей, которые хотят систематизировать имеющиеся знания или познакомиться с ключевыми аспектами новой для себя сферы управленческой деятельности'
             : type === 'courses'
-            ? SetString(langMenu.categoryDiscMba)
+            ? at.en
+              ? ''
+              : 'Дистанционная программа MBA разработана для специалистов и руководителей, которые хотят систематизировать имеющиеся знания или познакомиться с ключевыми аспектами новой для себя сферы управленческой деятельности'
             : null}
         </p>
       </div>
@@ -126,9 +135,13 @@ const ProgramsList = ({ data, id, type }) => {
       <div className={stls.bottomInfo}>
         <div className={stls.bottomTitle}>
           {type === 'profession'
-            ? SetString(menu.professions)
+            ? at.en
+              ? 'Professions'
+              : 'Профессии'
             : type === 'courses'
-            ? SetString(menu.courses)
+            ? at.en
+              ? 'Courses'
+              : 'Курсы'
             : null}
         </div>
         <div className={stls.itemBottom}>
@@ -137,16 +150,20 @@ const ProgramsList = ({ data, id, type }) => {
         </div>
         <p className={stls.textBottom}>
           {type === 'profession'
-            ? SetString(langMenu.categoryDiscProfession)
+            ? at.en
+              ? ''
+              : 'Программа профессиональной переподготовки разработана для специалистов и руководителей, которые хотят систематизировать имеющиеся знания или познакомиться с ключевыми аспектами новой для себя сферы управленческой деятельности'
             : type === 'courses'
-            ? SetString(langMenu.categoryDiscMba)
+            ? at.en
+              ? ''
+              : 'Дистанционная программа MBA разработана для специалистов и руководителей, которые хотят систематизировать имеющиеся знания или познакомиться с ключевыми аспектами новой для себя сферы управленческой деятельности'
             : null}
         </p>
         <div className={stls.itemBottom}>
           <IconPaperCorner classNames={[stls.iconBottom]} />
           <span>
             <ProgramSubjects type={type} subjects='base' />{' '}
-            {SetString(langMenu.categoryAboutManagement)}
+            {at.en ? 'management subjects' : 'дисциплин об управлении'}
           </span>
         </div>
       </div>
