@@ -1,14 +1,14 @@
 import stls from '@/styles/components/sections/Accreditation.module.sass'
 import Image from 'next/image'
-import { ImgLogoEcicel, ImgLogoRabo, ImgLogoMde } from '@/components/images'
-import imgData from '@/data/images/accreditation'
-import { SetString } from '@/helpers/index'
-import lang from '@/data/translation/about'
-import { IconPaperCorner } from '@/components/icons'
 import { base64pixel } from '@/config/index'
+import { useAt } from '@/hooks/index'
 import { Wrapper } from '@/components/layout'
+import { IconPaperCorner } from '@/components/icons'
+import { ImgLogoEcicel, ImgLogoRabo, ImgLogoMde } from '@/components/images'
 
 const Accreditation = () => {
+  const at = useAt()
+
   const logos = [
     { logo: <ImgLogoEcicel /> },
     { logo: <ImgLogoRabo /> },
@@ -20,8 +20,8 @@ const Accreditation = () => {
       <Wrapper classNames={[stls.wrapper]}>
         <div className={stls.image}>
           <Image
-            src={imgData.accreditationImageAlt.src}
-            alt={SetString(imgData.accreditationImageAlt.alt)}
+            src='/assets/images/accreditation/accreditation.jpg'
+            alt={at.en ? 'Accreditation' : 'Аккредитация'}
             width={648}
             height={899}
             placeholder='blur'
@@ -30,9 +30,13 @@ const Accreditation = () => {
           />
         </div>
         <div className={stls.content}>
-          <h2 className={stls.title}>{SetString(lang.accreditationTitle)}</h2>
+          <h2 className={stls.title}>
+            {at.en ? 'Accreditation and licenses' : 'Аккредитации и лицензии'}
+          </h2>
           <div className={stls.titleDesc}>
-            {SetString(lang.accreditationDics)}
+            {at.en
+              ? 'Moscow Business Academy has all needed licenses and accreditation to graduate world-class MBA specialists'
+              : 'Moscow Business Academy имеет все лицензии и аккредитации, позволяющие готовить специалистов международного уровня в сфере менеджмента и управления'}
           </div>
           <div className={stls.logosContainer}>
             {logos.map(({ logo }, idx) => (
@@ -43,15 +47,29 @@ const Accreditation = () => {
           </div>
           <ul className={stls.list}>
             <li className={stls.listItem}>
-              {SetString(lang.accreditationItemOne)}
+              {at.en
+                ? 'Our programs have been tested by the European accreditation commission ECICEL and fully comply with the standards. The presence of this accreditation guarantees the high quality of education at the Moscow Business Academy'
+                : 'Наши программы прошли строгую проверку европейской аккредитационной комиссии ECICEL и полностью соответствуют всем стандартам. Наличие данной аккредитации гарантирует высокое качество образования в Moscow Business Academy'}
             </li>
             <li className={stls.listItem}>
-              {SetString(lang.accreditationItemTwo)}
+              {at.en
+                ? 'Moscow Business Academy is also a member of Russian Association of Business Education and has a state license, which proves that our programs fully comply with the educational standards of Russian Federation'
+                : 'Moscow Business Academy является членом Российской Ассоциации Бизнес-образования (РАБО). В России членство РАБО имеют ограниченное количество организаций, которые соответствуют требованиям качества образовательных программ'}
             </li>
-            <p>{SetString(lang.accreditationItemTwoPara)}</p>
-            <li className={stls.listItem}>
-              {SetString(lang.accreditationItemThree)}
-            </li>
+            {at.en ? null : (
+              <p>
+                В настоящий момент за РАБО закрепился статус признанного лидера,
+                инициатора и координатора программ подготовки кадров для
+                предпринимательства и бизнеса
+              </p>
+            )}
+
+            {at.en ? null : (
+              <li className={stls.listItem}>
+                Также наша академия имеет государственную лицензию на
+                образовательную деятельность №041221
+              </li>
+            )}
           </ul>
           <a
             href='https://isga.obrnadzor.gov.ru/rlic/details/2df11621-2d30-4173-9389-2fecc24a7639/'
@@ -61,7 +79,11 @@ const Accreditation = () => {
             <div className={stls.iconContainer}>
               <IconPaperCorner />
             </div>
-            <span>{SetString(lang.accreditationLicenseLink)}</span>
+            <span>
+              {at.en
+                ? 'License of the Ministry of Education'
+                : 'Лицензия Министерства Образования'}
+            </span>
           </a>
         </div>
       </Wrapper>

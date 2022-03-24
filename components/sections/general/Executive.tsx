@@ -3,16 +3,14 @@ import cn from 'classnames'
 import Link from 'next/link'
 import Image from 'next/image'
 import { base64pixel } from '@/config/index'
-import { SetString } from '@/helpers/index'
+import { useAt } from '@/hooks/index'
 import { Wrapper } from '@/components/layout'
 import { ProgramSubjects } from '@/components/general'
-import Price from '@/components/costs/Price'
-import TrainingPeriod from '@/components/costs/TrainingPeriod'
-import imageData from '@/data/images/executive'
-import lang from '@/data/translation/index'
-import langMenu from '@/data/translation/menu'
+import { Price, TrainingPeriod } from '@/components/costs'
 
 const Executive = () => {
+  const at = useAt()
+
   return (
     <section className={stls.container}>
       <Wrapper classNames={[stls.wrapper]}>
@@ -22,35 +20,47 @@ const Executive = () => {
               <span>Premium</span>
             </div>
             <h2>Executive MBA</h2>
-            <p className={stls.desc}>{SetString(lang.executiveMBADicsFirst)}</p>
             <p className={stls.desc}>
-              {SetString(lang.executiveMBADicsSecond)}
+              {at.en
+                ? 'Executive MBA was developed for persistent entrepreneurs and top managers of the large enterprises, who got accustomed to being the best and are not ready to quit now'
+                : 'Программа Executive MBA разработана для амбициозных предпринимателей и топ-менеджеров крупных компаний, которые привыкли быть лучшими и не готовы останавливаться на достигнутом'}
+            </p>
+            <p className={stls.desc}>
+              {at.en
+                ? 'This course combines the best homeland business models with the global experience. It will provide you with knowledge needed to achieve a breakthrough in company management. You will make a new step-by-step development strategy which will help you to get a fresh look on your business'
+                : 'Курс, объединивший лучшие отечественные бизнес-практики с глобальным мировым опытом, поможет Вам совершить настоящий прорыв в управлении компанией. Вы построите пошаговую стратегию развития, которая позволит взглянуть на бизнес по-новому'}
             </p>
             <ul className={stls.list}>
               <li className={stls.listItem}>
                 <TrainingPeriod type={'executive'} />
               </li>
               <li className={stls.listItem}>
-                2 {SetString(lang.executiveOfflineModules)}
+                2 {at.en ? 'field courses' : 'выездных модуля'}
               </li>
               <li className={stls.listItem}>
                 <ProgramSubjects sum={true} type={'executive'} />{' '}
-                {SetString(langMenu.qtSubjects)}
+                {at.en ? 'subjects' : 'дисциплин'}
               </li>
             </ul>
             <div className={stls.price}>
-              {SetString(langMenu.price)}:{' '}
+              {at.en ? 'Cost' : 'Стоимость'}:{' '}
               <Price discount={false} type={'executive'} />
             </div>
             <Link href='/programs/executive/' locale='ru'>
-              <a className={stls.button}>{SetString(lang.learnMoreBtn)}</a>
+              <a className={stls.button}>
+                {at.en ? 'Узнать подробнее' : 'Learn more'}
+              </a>
             </Link>
           </div>
           <div className={stls.imagesContainer}>
             <div className={cn(stls.image, stls.imageOne)}>
               <Image
-                src={imageData.largerCircle.src}
-                alt={SetString(imageData.largerCircle.alt)}
+                src={'/assets/images/executive_pic_1.jpg'}
+                alt={
+                  at.en
+                    ? 'Expert is giving talk during conference'
+                    : 'На конференции спикер со сцены даёт речь для слушателей'
+                }
                 width={401}
                 height={400}
                 placeholder='blur'
@@ -59,8 +69,12 @@ const Executive = () => {
             </div>
             <div className={cn(stls.image, stls.imageTwo)}>
               <Image
-                src={imageData.smallerCircle.src}
-                alt={SetString(imageData.smallerCircle.alt)}
+                src={'/assets/images/executive_pic_2.jpg'}
+                alt={
+                  at.en
+                    ? 'Expert is giving talk during conference'
+                    : 'На конференции спикер со сцены даёт речь'
+                }
                 width={221}
                 height={221}
                 placeholder='blur'
@@ -69,7 +83,7 @@ const Executive = () => {
             </div>
             <div className={stls.count}>
               <strong>200+</strong>
-              <span>{SetString(lang.graduates)}</span>
+              <span>{at.en ? 'graduates' : 'Студентов уже обучились'}</span>
             </div>
           </div>
         </div>

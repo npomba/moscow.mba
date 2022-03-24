@@ -1,9 +1,6 @@
 import stls from '@/styles/components/sections/ConferencesInEurope.module.sass'
 import Image from 'next/image'
-import { SetString } from '@/helpers/index'
 import { useAt } from '@/hooks/index'
-import lang from '@/data/translation/index'
-import imageData from '@/data/images/conferencesInEurope'
 import { base64pixel } from '@/config/index'
 import { Wrapper } from '@/components/layout'
 
@@ -29,11 +26,19 @@ const ConferencesInEurope = () => {
                 {at.ru && <>в&nbsp;Европе</>}
               </span>
             </h2>
-            <p className={stls.titleDesc}>{SetString(lang.orgDisc)}</p>
+            <p className={stls.titleDesc}>
+              {at.en
+                ? 'We meet to discuss the most relevant topics several times a year'
+                : 'Несколько раз в год мы проводим конференции на актуальные темы'}
+            </p>
             <div className={stls.image}>
               <Image
-                src={imageData.shorterImage.src}
-                alt={SetString(imageData.shorterImage.alt)}
+                src={'/assets/images/organization_1.jpg'}
+                alt={
+                  at.en
+                    ? 'Students during a conference'
+                    : 'Слушатели на конференции'
+                }
                 width={623}
                 height={364}
                 layout='responsive'
@@ -45,8 +50,8 @@ const ConferencesInEurope = () => {
           <div className={stls.imageContainer}>
             <div className={stls.image}>
               <Image
-                src={imageData.higherImage.src}
-                alt={SetString(imageData.higherImage.alt)}
+                src={'/assets/images/organization_2.jpg'}
+                alt={at.en ? 'Meet up' : 'Митап обучающихся'}
                 width={415}
                 height={690}
                 layout='responsive'

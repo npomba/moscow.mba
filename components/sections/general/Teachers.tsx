@@ -32,6 +32,7 @@ const LiTeacherContent = ({
   teacher: TypeLibTeacher | null
   atStandAlonePage?: boolean
 }) => {
+  const at = useAt()
   return (
     <div className={stls.teachersItem}>
       <div className={stls.teachersItemWrapper}>
@@ -48,7 +49,9 @@ const LiTeacherContent = ({
         </div>
         <div className={stls.teachersItemContent}>
           <div>
-            <div className={stls.name}>{teacher?.name}</div>
+            <div className={stls.name}>
+              {at.en ? teacher?.slug?.split('-').join(' ') : teacher?.name}
+            </div>
             <p className={stls.description}>{teacher?.description}</p>
           </div>
           <div
@@ -59,7 +62,7 @@ const LiTeacherContent = ({
               className={cn(stls.bioP, {
                 [stls.atStandAlonePage]: atStandAlonePage
               })}>
-              Биография
+              {at.en ? 'Learn more' : 'Биография'}
             </p>
             <IconMoreThan classNames={[stls.icon]} />
           </div>
@@ -73,7 +76,7 @@ const LiTeacherContent = ({
           className={cn(stls.bioP, {
             [stls.atStandAlonePage]: atStandAlonePage
           })}>
-          Биография
+          {at.en ? 'Learn more' : 'Биография'}
         </p>
         <IconMoreThan classNames={[stls.icon]} />
       </div>
