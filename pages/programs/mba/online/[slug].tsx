@@ -2,7 +2,7 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
 import { usePageHandleContext } from '@/hooks/index'
 import { routesFront } from '@/config/index'
-import OnlineProgram from '@/components/pages/OnlineProgram'
+import { OnlineProgram } from '@/components/pages'
 
 const PageProgramsMbaOnlineProgram = ({ program, programs }) => {
   usePageHandleContext({ programs })

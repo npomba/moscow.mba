@@ -4,36 +4,25 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import { TypePageJournalArticleProps } from '@/types/index'
 import { Fragment, useEffect, useState } from 'react'
 import { routesFront } from '@/config/index'
-import { getImageHeight } from '@/helpers/index'
 import { handleGetStaticProps, handleGetStaticPaths } from '@/lib/index'
 import { usePageHandleContext } from '@/hooks/index'
-import { GeneralJournalArticleCreatedAt } from '@/components/general'
+import { getImageHeight } from '@/helpers/index'
 import { Wrapper, ContentJournalArticle } from '@/components/layout'
+import { GeneralJournalArticleCreatedAt } from '@/components/general'
+import {
+  SectionJournalParagraph,
+  SectionJournalTitle,
+  SectionJournalPicture,
+  SectionJournalEmphasis,
+  SectionJournalQuote,
+  SectionJournalList,
+  SectionJournalRecommendedProgram,
+  SectionJournalConclusion,
+  SectionJournalTagedArticles,
+  SectionJournalTagsWithPictures,
+  SectionJournalBottom
+} from '@/components/sections'
 import { ImgJournalArticle } from '@/components/images'
-// import {
-//   SectionJournalParagraph,
-//   SectionJournalTitle,
-//   SectionJournalPicture,
-//   SectionJournalEmphasis,
-//   SectionJournalQuote,
-//   SectionJournalList,
-//   SectionJournalRecommendedProgram,
-//   SectionJournalConclusion,
-//   SectionJournalTagedArticles,
-//   SectionJournalTagsWithPictures,
-//   SectionJournalBottom
-// } from '@/components/sections'
-import SectionJournalParagraph from '@/components/sections/journal/SectionJournalParagraph'
-import SectionJournalTitle from '@/components/sections/journal/SectionJournalTitle'
-import SectionJournalPicture from '@/components/sections/journal/SectionJournalPicture'
-import SectionJournalEmphasis from '@/components/sections/journal/SectionJournalEmphasis'
-import SectionJournalQuote from '@/components/sections/journal/SectionJournalQuote'
-import SectionJournalList from '@/components/sections/journal/SectionJournalList'
-import SectionJournalRecommendedProgram from '@/components/sections/journal/SectionJournalRecommendedProgram'
-import SectionJournalConclusion from '@/components/sections/journal/SectionJournalConclusion'
-import SectionJournalTagedArticles from '@/components/sections/journal/SectionJournalTagedArticles'
-import SectionJournalTagsWithPictures from '@/components/sections/journal/SectionJournalTagsWithPictures'
-import SectionJournalBottom from '@/components/sections/journal/SectionJournalBottom'
 
 const PageJournalCategoryTagArticle: NextPage<TypePageJournalArticleProps> = ({
   programs,

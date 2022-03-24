@@ -3,11 +3,10 @@ import breadcrumbsStls from '@/styles/components/general/Breadcrumbs.module.sass
 import { GetStaticProps } from 'next'
 import { NextSeo, CorporateContactJsonLd } from 'next-seo'
 import truncate from 'truncate'
-import { useAt } from '@/hooks/index'
-import { handleGetStaticProps } from '@/lib/index'
-import { ContactCards, Breadcrumbs } from '@/components/general'
 import { contactData, routesFront } from '@/config/index'
-import { usePageHandleContext } from '@/hooks/index'
+import { handleGetStaticProps } from '@/lib/index'
+import { useAt, usePageHandleContext } from '@/hooks/index'
+import { ContactCards, Breadcrumbs } from '@/components/general'
 
 const PageContact = ({ programs }) => {
   usePageHandleContext({ programs })

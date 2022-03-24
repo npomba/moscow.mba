@@ -7,26 +7,17 @@ import truncate from 'truncate'
 import { routesFront, companyName } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { usePageHandleContext, useAt } from '@/hooks/index'
-// import {
-//   JumbotronCta,
-//   About,
-//   ConferencesInEurope,
-//   ForeignAffiliates,
-//   StudentsInternational,
-//   CorporateClients,
-//   Programs,
-//   Executive,
-//   ContactUs
-// } from '@/components/sections'
-import JumbotronCta from '@/components/sections/general/JumbotronCta'
-import About from '@/components/sections/general/About'
-import ConferencesInEurope from '@/components/sections/general/ConferencesInEurope'
-import ForeignAffiliates from '@/components/sections/general/ForeignAffiliates'
-import StudentsInternational from '@/components/sections/general/StudentsInternational'
-import CorporateClients from '@/components/sections/general/CorporateClients'
-import Programs from '@/components/sections/general/Programs'
-import Executive from '@/components/sections/general/Executive'
-import ContactUs from '@/components/sections/general/ContactUs'
+import {
+  JumbotronCta,
+  About,
+  ConferencesInEurope,
+  ForeignAffiliates,
+  StudentsInternational,
+  CorporateClients,
+  Programs,
+  Executive,
+  ContactUs
+} from '@/components/sections'
 
 const PageHome: NextPage<TypePageHomeProps> = ({ programs }) => {
   usePageHandleContext({ programs })

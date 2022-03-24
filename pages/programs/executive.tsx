@@ -6,40 +6,24 @@ import { v4 as uuidv4 } from 'uuid'
 import { studyFormats, routesFront } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { usePageHandleContext } from '@/hooks/index'
-// import {
-//   JumbotronProgram,
-//   AboutExecutive,
-//   ResultsExecutive,
-//   InPersonWithExperts,
-//   ModulesAbroad,
-//   WhoStudies,
-//   ProgramsModules,
-//   ContactUs,
-//   Accreditation,
-//   Teachers,
-//   Rules,
-//   ExecutiveRequirements,
-//   Students,
-//   Reviews,
-//   CostOfStudy,
-//   Qna
-// } from '@/components/sections'
-import JumbotronProgram from '@/components/sections/general/JumbotronProgram'
-import AboutExecutive from '@/components/sections/general/AboutExecutive'
-import ResultsExecutive from '@/components/sections/general/ResultsExecutive'
-import InPersonWithExperts from '@/components/sections/general/InPersonWithExperts'
-import ModulesAbroad from '@/components/sections/general/ModulesAbroad'
-import WhoStudies from '@/components/sections/general/WhoStudies'
-import ProgramsModules from '@/components/sections/general/ProgramsModules'
-import ContactUs from '@/components/sections/general/ContactUs'
-import Accreditation from '@/components/sections/general/Accreditation'
-import Teachers from '@/components/sections/general/Teachers'
-import Rules from '@/components/sections/general/Rules'
-import ExecutiveRequirements from '@/components/sections/general/ExecutiveRequirements'
-import Students from '@/components/sections/general/Students'
-import Reviews from '@/components/sections/general/Reviews'
-import CostOfStudy from '@/components/sections/general/CostOfStudy'
-import Qna from '@/components/sections/general/Qna'
+import {
+  JumbotronProgram,
+  AboutExecutive,
+  ResultsExecutive,
+  InPersonWithExperts,
+  ModulesAbroad,
+  WhoStudies,
+  ProgramsModules,
+  ContactUs,
+  Accreditation,
+  Teachers,
+  Rules,
+  ExecutiveRequirements,
+  Students,
+  Reviews,
+  CostOfStudy,
+  Qna
+} from '@/components/sections'
 
 const PageProgramsExecutive = ({ program, programs }) => {
   usePageHandleContext({ programs })

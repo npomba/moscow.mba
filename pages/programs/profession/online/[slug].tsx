@@ -2,7 +2,7 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
 import { usePageHandleContext } from '@/hooks/index'
 import { routesFront } from '@/config/index'
-import ProfessionOnlineProgram from '@/components/pages/ProfessionOnlineProgram'
+import { ProfessionOnlineProgram } from '@/components/pages'
 
 const PageProgramsProfessionOnlineProgram = ({ program, programs }) => {
   usePageHandleContext({ programs })

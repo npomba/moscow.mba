@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid'
 import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
 import { studyFormats, routesFront } from '@/config/index'
 import { usePageHandleContext } from '@/hooks/index'
-import BlendedProgram from '@/components/pages/BlendedProgram'
+import { BlendedProgram } from '@/components/pages'
 
 const PageProgramsMbaBlendedProgram = ({ program, programs }) => {
   usePageHandleContext({ programs })

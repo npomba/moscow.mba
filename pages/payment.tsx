@@ -4,12 +4,12 @@ import { GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import Image from 'next/image'
-import { handleGetStaticProps } from '@/lib/index'
 import Popup from 'reactjs-popup'
-import PopupForm from '@/components/popups/PopupForm'
 import { contactData, routesFront } from '@/config/index'
-import { Breadcrumbs } from '@/components/general'
+import { handleGetStaticProps } from '@/lib/index'
 import { usePageHandleContext } from '@/hooks/index'
+import { Breadcrumbs } from '@/components/general'
+import { PopupForm } from '@/components/popups'
 
 const PagePayment = ({ programs }) => {
   usePageHandleContext({ programs })

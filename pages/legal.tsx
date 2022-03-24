@@ -7,20 +7,14 @@ import { handleGetStaticProps } from '@/lib/index'
 import { usePageHandleContext } from '@/hooks/index'
 import { Breadcrumbs } from '@/components/general'
 import { Wrapper } from '@/components/layout'
-// import {
-//   CurrentLicenses,
-//   MemberOfRabe,
-//   MemberOfAcicel,
-//   OurDiplomasAndCertificates,
-//   CompanyCard,
-//   LegalDocuments
-// } from '@/components/sections'
-import CurrentLicenses from '@/components/sections/general/CurrentLicenses'
-import MemberOfRabe from '@/components/sections/general/MemberOfRabe'
-import MemberOfAcicel from '@/components/sections/general/MemberOfAcicel'
-import OurDiplomasAndCertificates from '@/components/sections/general/OurDiplomasAndCertificates'
-import CompanyCard from '@/components/sections/general/CompanyCard'
-import LegalDocuments from '@/components/sections/general/LegalDocuments'
+import {
+  CurrentLicenses,
+  MemberOfRabe,
+  MemberOfAcicel,
+  OurDiplomasAndCertificates,
+  CompanyCard,
+  LegalDocuments
+} from '@/components/sections'
 
 const PageLegal = ({ programs }) => {
   usePageHandleContext({ programs })

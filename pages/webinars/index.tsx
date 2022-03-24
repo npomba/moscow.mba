@@ -2,7 +2,7 @@ import { GetStaticProps } from 'next'
 import { routesFront } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { usePageHandleContext } from '@/hooks/index'
-import Webinars from '@/components/pages/Webinars'
+import { Webinars } from '@/components/pages'
 
 const PageWebinars = ({ programs }) => {
   usePageHandleContext({ programs })

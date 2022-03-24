@@ -8,28 +8,18 @@ import { routesFront } from '@/config/index'
 import { useAt } from '@/hooks/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { usePageHandleContext } from '@/hooks/index'
-// import {
-//   JumbotronMain,
-//   About,
-//   ConferencesInEurope,
-//   ForeignAffiliates,
-//   StudentsInternational,
-//   CorporateClients,
-//   Teachers,
-//   UpToDateContent,
-//   Accreditation,
-//   ContactUs
-// } from '@/components/sections'
-import JumbotronMain from '@/components/sections/general/JumbotronMain'
-import About from '@/components/sections/general/About'
-import ConferencesInEurope from '@/components/sections/general/ConferencesInEurope'
-import ForeignAffiliates from '@/components/sections/general/ForeignAffiliates'
-import StudentsInternational from '@/components/sections/general/StudentsInternational'
-import CorporateClients from '@/components/sections/general/CorporateClients'
-import Teachers from '@/components/sections/general/Teachers'
-import UpToDateContent from '@/components/sections/general/UpToDateContent'
-import Accreditation from '@/components/sections/general/Accreditation'
-import ContactUs from '@/components/sections/general/ContactUs'
+import {
+  JumbotronMain,
+  About,
+  ConferencesInEurope,
+  ForeignAffiliates,
+  StudentsInternational,
+  CorporateClients,
+  Teachers,
+  UpToDateContent,
+  Accreditation,
+  ContactUs
+} from '@/components/sections'
 
 const PageAbout: NextPage<TypePageTeachersProps> = ({ programs, teachers }) => {
   usePageHandleContext({ programs })
