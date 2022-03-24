@@ -7,29 +7,32 @@ import { useAt } from '@/hooks/index'
 import { IconTriangleBottom } from '@/components/icons'
 
 const BtnChangeLang = () => {
-  const [showMe, setShowMe] = useState(false)
-  const showLangMenu = () => setShowMe(!showMe)
+  const [isVisible, setIsVisible] = useState(false)
   const router = useRouter()
   const at = useAt()
 
   return (
-    <div className={cn(stls.lang, { [stls.redHighlight]: showMe })}>
-      <a className={stls.btn} onClick={showLangMenu}>
+    <div className={cn(stls.lang, { [stls.redHighlight]: isVisible })}>
+      <a className={stls.btn} onClick={() => setIsVisible(!isVisible)}>
         {at.en ? 'EN' : 'RU'}{' '}
-        <IconTriangleBottom fill={`${showMe ? '#FF3535' : '#000'}`} />
+        <IconTriangleBottom fill={`${isVisible ? '#FF3535' : '#000'}`} />
       </a>
-      <ul className={cn(stls.list, { [stls.show]: showMe })}>
+      <ul className={cn(stls.list, { [stls.show]: isVisible })}>
         <li className={stls.listItem}>
           <Link href={`${router.pathname}`} locale='ru'>
-            <a className={stls.listItemLink} onClick={showLangMenu}>
-              <span>🇷🇺</span>РУССКИЙ
+            <a
+              className={stls.listItemLink}
+              onClick={() => setIsVisible(!isVisible)}>
+              <span>&#x1F1F7;&#x1F1FA; {/* ru flag */}</span>РУССКИЙ
             </a>
           </Link>
         </li>
         <li className={stls.listItem}>
           <Link href={`${router.pathname}`} locale='en-US'>
-            <a className={stls.listItemLink} onClick={showLangMenu}>
-              <span>🇺🇸</span>ENGLISH
+            <a
+              className={stls.listItemLink}
+              onClick={() => setIsVisible(!isVisible)}>
+              <span>&#x1F1FA;&#x1F1F8; {/* us flag */}</span>ENGLISH
             </a>
           </Link>
         </li>
