@@ -14,7 +14,7 @@ import truncate from 'truncate'
 //   Teachers,
 //   Diploma,
 //   CorporateClients,
-//   CostOfStudy,
+//   SectionStudyCost,
 //   HelpWithEmployment,
 //   Pros,
 //   GetStudyPlan,
@@ -31,7 +31,7 @@ import Qna from '@/components/sections/general/Qna'
 import Teachers from '@/components/sections/general/Teachers'
 import Diploma from '@/components/sections/general/Diploma'
 import CorporateClients from '@/components/sections/general/CorporateClients'
-import CostOfStudy from '@/components/sections/general/CostOfStudy'
+import SectionStudyCost from '@/components/sections/general/SectionStudyCost'
 import HelpWithEmployment from '@/components/sections/general/HelpWithEmployment'
 import Pros from '@/components/sections/general/Pros'
 import GetStudyPlan from '@/components/sections/general/GetStudyPlan'
@@ -74,12 +74,12 @@ const ProfessionOnlineProgram = ({ program, teachers }) => {
       <HelpWithEmployment />
       <CorporateClients partnershipTitle />
       <Diploma />
-      <CostOfStudy
-        programId={data?._id}
-        programTitle={data?.title}
-        programFormat={data?.studyFormat}
-        programType={data?.category?.type}
-        programPrice={data?.price}
+      <SectionStudyCost
+        id={program?._id}
+        title={program?.title}
+        format={program?.studyFormat}
+        type={program?.category?.type}
+        price={program?.price}
       />
       <Qna programId={data?._id} programTitle={data?.title} />
       <ContactUs

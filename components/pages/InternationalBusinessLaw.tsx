@@ -17,7 +17,7 @@ import truncate from 'truncate'
 //   UpToDateContent,
 //   Diploma,
 //   CorporateClients,
-//   CostOfStudy,
+//   SectionStudyCost,
 //   Accreditation,
 //   Pros,
 //   GetStudyPlan
@@ -36,7 +36,7 @@ import Teachers from '@/components/sections/general/Teachers'
 import UpToDateContent from '@/components/sections/general/UpToDateContent'
 import Diploma from '@/components/sections/general/Diploma'
 import CorporateClients from '@/components/sections/general/CorporateClients'
-import CostOfStudy from '@/components/sections/general/CostOfStudy'
+import SectionStudyCost from '@/components/sections/general/SectionStudyCost'
 import Accreditation from '@/components/sections/general/Accreditation'
 import Pros from '@/components/sections/general/Pros'
 import GetStudyPlan from '@/components/sections/general/GetStudyPlan'
@@ -80,11 +80,12 @@ const PageOnlineProgram = ({ program, teachers }) => {
       <Diploma />
       <Students />
       <Reviews />
-      <CostOfStudy
-        programId={program?._id}
-        programTitle={program?.title}
-        programFormat={program?.studyFormat}
-        programType={program?.category?.type}
+      <SectionStudyCost
+        id={program?._id}
+        title={program?.title}
+        format={program?.studyFormat}
+        type={program?.category?.type}
+        price={program?.price}
       />
       <Qna programId={program?._id} programTitle={program?.title} />
       <ContactUs

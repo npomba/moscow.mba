@@ -21,7 +21,7 @@ import {
   ExecutiveRequirements,
   Students,
   Reviews,
-  CostOfStudy,
+  SectionStudyCost,
   Qna
 } from '@/components/sections'
 
@@ -77,10 +77,12 @@ const PageProgramsExecutive = ({ program, programs }) => {
       <ExecutiveRequirements />
       <Students />
       <Reviews />
-      <CostOfStudy
-        programId={programBlended?._id}
-        programTitle={programBlended?.title}
-        programType='executive'
+      <SectionStudyCost
+        id={program?._id}
+        title={program?.title}
+        format={program?.studyFormat}
+        type={program?.category?.type}
+        price={program?.price}
       />
       <Qna
         programId={programBlended?._id}

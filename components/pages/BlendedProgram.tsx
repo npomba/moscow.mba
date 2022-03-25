@@ -20,9 +20,8 @@ import truncate from 'truncate'
 //   Accreditation,
 //   Pros,
 //   BlendedMetups,
-//   CostOfStudy,
+//   SectionStudyCost,
 //   ECTSStandard,
-//   CostOfStudyDescription,
 //   GetStudyPlan
 // } from '@/components/sections'
 import Reviews from '@/components/sections/general/Reviews'
@@ -42,9 +41,8 @@ import CorporateClients from '@/components/sections/general/CorporateClients'
 import Accreditation from '@/components/sections/general/Accreditation'
 import Pros from '@/components/sections/general/Pros'
 import BlendedMetups from '@/components/sections/general/BlendedMetups'
-import CostOfStudy from '@/components/sections/general/CostOfStudy'
+import SectionStudyCost from '@/components/sections/general/SectionStudyCost'
 import ECTSStandard from '@/components/sections/general/ECTSStandard'
-import CostOfStudyDescription from '@/components/sections/general/CostOfStudyDescription'
 import GetStudyPlan from '@/components/sections/general/GetStudyPlan'
 
 const PageBlendedProgram = ({ program, teachers }) => {
@@ -86,13 +84,13 @@ const PageBlendedProgram = ({ program, teachers }) => {
       <Diploma />
       <Students />
       <Reviews />
-      <CostOfStudy
-        programId={program?._id}
-        programTitle={program?.title}
-        programFormat={program?.studyFormat}
-        programType={program?.category?.type}
+      <SectionStudyCost
+        id={program?._id}
+        title={program?.title}
+        format={program?.studyFormat}
+        type={program?.category?.type}
+        price={program?.price}
       />
-      <CostOfStudyDescription />
       <Qna programId={program?._id} programTitle={program?.title} />
       <ContactUs
         programId={program?._id}

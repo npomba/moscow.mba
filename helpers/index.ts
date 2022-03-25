@@ -13,4 +13,5 @@ export { default as onSubmitForm } from '@/helpers/general/onSubmitForm'
 export { default as toNumberWithSpaces } from '@/helpers/general/toNumberWithSpaces'
 
 // ./ruCases
+export { default as ruCaseMonth } from '@/helpers/ruCases/ruCaseMonth'
 export { default as ruCaseProgram } from '@/helpers/ruCases/ruCaseProgram'
