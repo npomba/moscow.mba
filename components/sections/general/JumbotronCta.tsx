@@ -108,11 +108,11 @@ const JumbotronCta = ({ programTitle = null, programId = null }) => {
               </li>
               <li className={stls.prosSeparator}></li>
               <li className={stls.prosItem}>
-                <div className={stls.prosStatsNumber}>2021+</div>
+                <div className={stls.prosStatsNumber}>2022+</div>
                 <p>
                   {at.en
-                    ? 'newest programs of 2021'
-                    : 'Новейшие программы 2021 года'}
+                    ? 'newest programs of 2022'
+                    : 'Новейшие программы 2022 года'}
                 </p>
               </li>
               <li className={stls.prosSeparator}></li>
