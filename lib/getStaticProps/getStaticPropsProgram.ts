@@ -17,7 +17,7 @@ const getStaticPropsProgram = async ({
   slug?: string | null
 }): Promise<{
   props: TypePageProgramProps
-  revalidate: number
+  revalidate: number | boolean
 }> => {
   const res = await axios.get(
     `${routesBack.root}${routesBack.getStaticPropsPrograms}/${type || 'mini'}/${

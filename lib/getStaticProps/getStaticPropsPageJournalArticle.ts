@@ -14,7 +14,7 @@ const getStaticPropsPageJournalArticle = async ({
   context: GetStaticPropsContext
 }): Promise<{
   props: TypePageJournalArticleProps
-  revalidate: number
+  revalidate: number | boolean
 }> => {
   const gspContextParamsJournalCategory =
     context?.params?.journalCategory?.toString() || null
