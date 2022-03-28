@@ -14,7 +14,7 @@ const getStaticPropsTeachers = async ({
   context: GetStaticPropsContext
 }): Promise<{
   props: TypePageTeachersProps
-  revalidate: number
+  revalidate: number | boolean
 }> => {
   const res = await axios.get(
     `${routesBack.root}${routesBack.getStaticPropsTeachers}`

@@ -14,7 +14,7 @@ const getStaticPropsPrograms = async ({
   context: GetStaticPropsContext
 }): Promise<{
   props: TypePageProgramsProps
-  revalidate: number
+  revalidate: number | boolean
 }> => {
   const res = await axios.get(
     `${routesBack.root}${routesBack.getStaticPropsPrograms}`
