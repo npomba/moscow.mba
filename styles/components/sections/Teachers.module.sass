@@ -63,7 +63,6 @@
       margin-right: 0
 
 .teachersPros
-  color: #fff
   font-weight: bold
   font-size: 36px
   line-height: 1.2
@@ -76,6 +75,15 @@
     font-size: 28px
   @include m.media(phone)
     font-size: 24px
+
+.h3
+  @include m.media(phone, tablet)
+    font-size: f.px(24)
+  @include m.media(laptop, desktop, widescreen)
+    font-size: f.px(30)
+  font-weight: 500
+  line-height: 120%
+  @include m.dye(c, c.$chi)
 
 .text
   margin-bottom: 36px

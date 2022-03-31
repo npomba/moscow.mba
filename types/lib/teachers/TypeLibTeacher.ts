@@ -10,6 +10,7 @@ type TypeLibTeacher = {
         item: string | null
       }[]
     | null
+  programs: string[] | null
 }
 
 export default TypeLibTeacher

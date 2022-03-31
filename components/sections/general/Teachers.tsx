@@ -1,29 +1,17 @@
 import stls from '@/styles/components/sections/Teachers.module.sass'
 import { TypeLibTeacher, TypeLibTeachers } from '@/types/index'
-import { useState } from 'react'
+import { useState, useContext, useEffect } from 'react'
+import { useRouter } from 'next/router'
 import Link from 'next/link'
 import Image from 'next/image'
-import { useRouter } from 'next/router'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { routesFront, base64pixel } from '@/config/index'
-import { useAt } from '@/hooks/index'
+import { useAt, useDefaultTeachers } from '@/hooks/index'
+import { ProgramsContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
 import { PopupForm, PopupTeacher } from '@/components/popups'
 import { IconCheck, IconMoreThan } from '@/components/icons'
-
-const splitParaText = (string, splitBy) => {
-  let firstPartOfString, secondPartOfString
-  if (string) {
-    const indexOfWordToSplitBy = string.indexOf(splitBy)
-
-    if (indexOfWordToSplitBy === -1) return [string, '']
-
-    firstPartOfString = string.slice(0, indexOfWordToSplitBy)
-    secondPartOfString = string.slice(indexOfWordToSplitBy)
-  }
-  return [firstPartOfString, secondPartOfString]
-}
 
 const LiTeacherContent = ({
   teacher,
@@ -92,160 +80,39 @@ const Teachers = ({
 }) => {
   const at = useAt()
   const router = useRouter()
+  const defaultTeachers = useDefaultTeachers()
+
+  const { programs } = useContext(ProgramsContext)
+
+  const [searchTerm, setSearchTerm] = useState(null)
 
   const [shownTeachersCount, setShownTeachersCount] = useState(8)
   const showMoreTeachersAddendum = 4
 
-  const defaultTeachers = [
-    {
-      name: at.en ? 'Itskhak Pintosevich' : 'Ицхак Пинтосевич',
-      desc: at.en
-        ? ''
-        : 'Эксперт по личностному росту и развитию бизнеса, почетный профессор университета «Синергия»',
-      img: {
-        src: '/assets/images/teachers/teacher-1.jpg',
-        alt: at.en ? 'Itskhak Pintosevich' : 'Ицхак Пинтосевич'
-      }
-    },
-    {
-      name: at.en ? 'Ryakovskiy Sergey' : 'Ряковский Сергей',
-      desc: at.en
-        ? ''
-        : 'Эксперт по стратегическому менеджменту. Автор многочисленных пособий по управлению персоналом',
-      img: {
-        src: '/assets/images/teachers/teacher-2.jpg',
-        alt: at.en ? 'Ryakovskiy Sergey' : 'Ряковский Сергей'
-      }
-    },
-    {
-      name: at.en ? 'Konoplyanskiy Dmitriy' : 'Коноплянский Дмитрий',
-      desc: at.en
-        ? ''
-        : 'Основатель сети ювелирных салонов в Москве и регионах. Советник группы «НЛМК», «НК РОСНЕФТЬ»',
-      img: {
-        src: '/assets/images/teachers/teacher-3.jpg',
-        alt: at.en ? 'Konoplyanskiy Dmitriy' : 'Коноплянский Дмитрий'
-      }
-    },
-    {
-      name: at.en ? 'Borisov Aleksandr' : 'Борисов Александр',
-      desc: at.en
-        ? ''
-        : 'Эксперт по бизнес-планированию, инвестиционному и финансовому анализу',
-      img: {
-        src: '/assets/images/teachers/teacher-4.jpg',
-        alt: at.en ? 'Borisov Aleksandr' : 'Борисов Александр'
-      }
-    },
-    {
-      name: at.en ? 'Aleksandr Doderer' : 'Александр Додерер',
-      desc: at.en
-        ? ''
-        : 'Основатель и глава агентства по стратегическим коммуникациям GRUPPE DREI.',
-      img: {
-        src: '/assets/images/teachers/teacher-5.jpg',
-        alt: at.en ? 'Aleksandr Doderer' : 'Александр Додерер'
-      }
-    },
-    {
-      name: at.en ? 'Yannik Transhye' : 'Янник Траншье',
-      desc: at.en
-        ? ''
-        : 'Эксперт в сфере инновационного менеджмента, технологический брокер, предприниматель',
-      img: {
-        src: '/assets/images/teachers/teacher-6.jpg',
-        alt: at.en ? 'Yannik Transhye' : 'Янник Траншье'
-      }
-    },
-    {
-      name: at.en ? 'Baranova Tatyana' : 'Баранова Татьяна',
-      desc: at.en
-        ? ''
-        : 'Эксперт по деловому этикету и протоколу. «Про ЭТИКЕТ», основатель образовательного проекта',
-      img: {
-        src: '/assets/images/teachers/teacher-7.jpg',
-        alt: at.en ? 'Baranova Tatyana' : 'Баранова Татьяна'
-      }
-    },
-    {
-      name: at.en ? 'Dubovyk Serhey' : 'Дубовик Сергей',
-      desc: at.en
-        ? ''
-        : 'Специалист в области продаж и управления коммерческой деятельностью.',
-      img: {
-        src: '/assets/images/teachers/teacher-8.jpg',
-        alt: at.en ? 'Dubovyk Serhey' : 'Дубовик Сергей'
-      }
-    }
-  ]
-
-  const title =
-    at.profession || at.course ? (
-      <h2 className={stls.titleProfession}>
-        {at.en ? '' : 'Преподаватели курса -'}{' '}
-        <span className='red'>{at.en ? '' : 'практикующие'} </span>
-        {at.en ? '' : 'эксперты'}
-      </h2>
-    ) : (
-      <h2>
-        {at.en ? 'Russian and' : 'Российские и'}{' '}
-        <span className='red'>{at.en ? 'international' : 'зарубежные'} </span>
-        {at.en ? 'experts of the program' : 'эксперты программы'}
-      </h2>
+  const UITeachers: TypeLibTeachers | null = teachers
+    ?.filter(teacher =>
+      searchTerm
+        ? teacher?.programs?.some(program => program.includes(searchTerm))
+        : teacher
     )
-
-  const firstParaText =
-    at.profession || at.course
-      ? at.en
-        ? ''
-        : 'Имеют опыт работы в крупных российских и зарубежных организациях'
-      : at.en
-      ? 'They have implemented major projects on the markets of Europe and USA'
-      : 'Реализовывали крупные проекты на рынках Европы и США'
-
-  const secondParaText = at.en
-    ? 'They have passed Moscow Academy’s multi-stage verification and have teaching accreditation'
-    : 'Прошли многоэтапную проверку специалистов академии и имеют аккредитацию на преподавание'
-  const teachersProsTitle =
-    !at.profession &&
-    !at.course &&
-    (at.en
-      ? 'More than 150 international-level professors'
-      : 'Более 150 профессоров международного уровня')
-
-  const wordToSplitBy = {
-    europe: {
-      ru: 'Европы',
-      'en-US': 'Europe'
-    },
-    and: {
-      ru: ' и ',
-      'en-US': ' and '
-    },
-    specialists: {
-      ru: 'специалистов',
-      en: 'specialists'
-    }
-  }
-
-  const [firstParaPartOne, firstParaPartTwo] = splitParaText(
-    firstParaText,
-    wordToSplitBy.europe[router.locale]
-  )
-  const [secondParaPartOne, secondParaPartTwo] = splitParaText(
-    secondParaText,
-    wordToSplitBy.and[router.locale]
-  )
-  const [teachersProsPartOne, teachersProsPartTwo] = splitParaText(
-    teachersProsTitle,
-    wordToSplitBy.specialists[router.locale]
-  )
-
-  const UITeachers: TypeLibTeachers | null =
-    teachers?.filter((teacher, idx) => teacher && idx < shownTeachersCount) ||
+    .filter((teacher, idx) => teacher && idx < shownTeachersCount) || [
     defaultTeachers?.filter(
       (teacher, idx) => teacher && idx < shownTeachersCount
     )
+  ]
+
+  const handleSearch = e => {
+    setSearchTerm(e.target.value)
+    // router.replace(
+    //   { query: { q: encodeURIComponent(e.target.value) } },
+    //   undefined,
+    //   { shallow: true }
+    // )
+  }
+
+  useEffect(() => {
+    setSearchTerm(decodeURIComponent(router.query.q?.toString() || ''))
+  }, [router])
 
   return (
     <>
@@ -258,7 +125,32 @@ const Teachers = ({
           <div className={stls.sectionPl}>
             <div className={stls.titlePl}>{at.en ? 'experts' : 'эксперты'}</div>
             <div className={stls.content}>
-              {title}
+              <h2
+                className={cn({
+                  [stls.titleProfession]: at.profession || at.course
+                })}>
+                {at.profession || at.course ? (
+                  at.en ? (
+                    ''
+                  ) : (
+                    <>
+                      Преподаватели курса -{' '}
+                      {<span className={'red'}>практикующие</span>} эксперты
+                    </>
+                  )
+                ) : at.en ? (
+                  <>
+                    Russian and <span className={'red'}>international</span>{' '}
+                    experts
+                  </>
+                ) : (
+                  <>
+                    Российские и <span className={'red'}>зарубежные</span>{' '}
+                    эксперты программы
+                  </>
+                )}
+              </h2>
+
               {!at.profession && !at.course && (
                 <div className={stls.text}>
                   {at.en
@@ -325,8 +217,20 @@ const Teachers = ({
                   <div>
                     <h5>{at.en ? 'Practitioners' : 'Практикующие эксперты'}</h5>
                     <p>
-                      {firstParaPartOne}
-                      <span className={stls.breakLine}>{firstParaPartTwo}</span>
+                      {at.profession || at.course ? (
+                        at.en ? (
+                          ''
+                        ) : (
+                          'Имеют опыт работы в крупных российских и зарубежных организациях'
+                        )
+                      ) : at.en ? (
+                        'They have implemented major projects on the markets of Europe and USA'
+                      ) : (
+                        <>
+                          Реализовывали крупные проекты на рынках
+                          <br /> Европы и США
+                        </>
+                      )}
                     </p>
                   </div>
                 </li>
@@ -341,10 +245,14 @@ const Teachers = ({
                         : 'Прошли многоэтапную проверку'}
                     </h5>
                     <p>
-                      {secondParaPartOne}
-                      <span className={stls.breakLine}>
-                        {secondParaPartTwo}
-                      </span>
+                      {at.en ? (
+                        'They have passed Moscow Academy’s multi-stage verification and have teaching accreditation'
+                      ) : (
+                        <>
+                          Прошли многоэтапную проверку специалистов академии
+                          <br />и имеют аккредитацию на преподавание
+                        </>
+                      )}
                     </p>
                   </div>
                 </li>
@@ -375,11 +283,55 @@ const Teachers = ({
                 </li>
               </ul>
             </div>
-            {!at.profession && !at.course && (
+            {!at.profession && !at.course && at.teachers && (
               <h3 className={stls.teachersPros}>
-                {teachersProsPartOne}
-                <span className={stls.breakLine}>{teachersProsPartTwo}</span>
+                {!at.profession &&
+                  !at.course &&
+                  (at.en ? (
+                    <>
+                      More than 150
+                      <br /> international-level professors
+                    </>
+                  ) : (
+                    <>
+                      Более 150 профессоров <br /> международного уровня
+                    </>
+                  ))}
               </h3>
+            )}
+            {at.teachers && !at.en && (
+              <>
+                <h3 className={stls.h3}>
+                  {at.en ? (
+                    <>
+                      Find experts <br /> of your favorite program
+                    </>
+                  ) : (
+                    <>
+                      Найдите экпертов <br /> интересующей Вас программы
+                    </>
+                  )}
+                </h3>
+                <input
+                  type='text'
+                  className={stls.search}
+                  onChange={handleSearch}
+                  value={searchTerm || ''}
+                />
+                {searchTerm && (
+                  <ul className={stls.searchResults}>
+                    {programs
+                      ?.filter(program => program?.title?.includes(searchTerm))
+                      .filter((_, idx) => idx < 10)
+                      .map((program, idx) => (
+                        <li
+                          key={`Teachers_searchResults_${program?.title}-${idx}`}>
+                          {program?.title}
+                        </li>
+                      ))}
+                  </ul>
+                )}
+              </>
             )}
           </div>
           <ul
@@ -502,19 +454,31 @@ const Teachers = ({
                   )}
                 </Popup>
               ) : (
-                <button
-                  className='button'
-                  onClick={() =>
-                    setShownTeachersCount(
-                      shownTeachersCount + showMoreTeachersAddendum
-                    )
-                  }>
-                  {at.en
-                    ? 'Show more'
-                    : `Ещё ${showMoreTeachersAddendum} преподавателя${
-                        teachers?.length ? ` из ${teachers.length}` : undefined
-                      }`}
-                </button>
+                UITeachers.length >= 8 && (
+                  <button
+                    className='button'
+                    onClick={() =>
+                      setShownTeachersCount(
+                        shownTeachersCount + showMoreTeachersAddendum
+                      )
+                    }>
+                    {at.en
+                      ? 'Show more'
+                      : `Ещё ${showMoreTeachersAddendum} преподавателя${
+                          teachers?.length
+                            ? ` из ${
+                                teachers.filter(teacher =>
+                                  searchTerm
+                                    ? teacher?.programs?.some(program =>
+                                        program?.includes(searchTerm)
+                                      )
+                                    : teacher
+                                ).length
+                              }`
+                            : undefined
+                        }`}
+                  </button>
+                )
               )}
             </div>
           )}
