@@ -330,65 +330,93 @@ const Teachers = ({
                   </>
                 )}
               </h3>
-              <div className={stls.searchInputGroup}>
-                <div
-                  className={cn(stls.searchIcon, {
-                    [stls.searchIconSearthTermIsApplied]:
-                      searchTermIsAppliedtoUrl
-                  })}>
-                  {searchTermIsAppliedtoUrl ? <IconClose /> : <IconSearch />}
+              {at.teachers && !at.en && (
+                <div className={stls.searchGroup}>
+                  <div className={stls.searchInputGroup}>
+                    <div
+                      className={cn(stls.searchIcon, {
+                        [stls.searchIconSearthTermIsApplied]:
+                          searchTermIsAppliedtoUrl
+                      })}>
+                      {searchTermIsAppliedtoUrl ? (
+                        <IconClose />
+                      ) : (
+                        <IconSearch />
+                      )}
+                    </div>
+                    <input
+                      type='text'
+                      placeholder={at.en ? '' : 'Введите название программы...'}
+                      className={cn(stls.search, {
+                        [stls.searchTermIsAppliedtoUrl]:
+                          searchTermIsAppliedtoUrl
+                      })}
+                      onChange={handleSearch}
+                      onFocus={() => {
+                        setSearchInputIsFocused(true)
+                        setSearchTermIsAppliedtoUrl(false)
+                        if (router.query.q) {
+                          router.replace(
+                            { query: { q: undefined } },
+                            undefined,
+                            {
+                              shallow: true,
+                              scroll: false
+                            }
+                          )
+                        }
+                      }}
+                      onBlur={e =>
+                        !e.relatedTarget?.classList?.contains(
+                          'Teachers_search_result'
+                        ) && setSearchInputIsFocused(false)
+                      }
+                      value={searchTerm || ''}
+                    />
+                  </div>
+                  {searchTerm && searchInputIsFocused && (
+                    <ul className={stls.searchResults}>
+                      {programs
+                        ?.filter(program => program.studyFormat === 'online')
+                        ?.filter(program =>
+                          program?.title?.includes(searchTerm)
+                        )
+                        .filter((_, idx) => idx < 10)
+                        .map((program, idx) => (
+                          <li
+                            key={`Teachers_searchResults_${program?.title}-${idx}`}
+                            className={stls.searchResult}>
+                            <a
+                              href='#!'
+                              className={cn(
+                                'Teachers_search_result',
+                                stls.searchResultLink
+                              )} // should be unique className and only used here for onBlur handler
+                              onClick={() => {
+                                applySearchTermToUrl(program?.title || null)
+                                setSearchInputIsFocused(false)
+                              }}
+                              onBlur={e =>
+                                !e.relatedTarget?.classList?.contains(
+                                  'Teachers_search_result'
+                                ) && setSearchInputIsFocused(false)
+                              }>
+                              <span>{program?.title}</span>
+                              <div>
+                                {program?.category?.type === 'mini'
+                                  ? 'Mini MBA'
+                                  : program?.category?.type === 'mba'
+                                  ? 'MBA'
+                                  : program?.category?.type === 'profession'
+                                  ? 'Профессия'
+                                  : 'MBA'}
+                              </div>
+                            </a>
+                          </li>
+                        ))}
+                    </ul>
+                  )}
                 </div>
-                <input
-                  type='text'
-                  className={cn(stls.search, {
-                    [stls.searchTermIsAppliedtoUrl]: searchTermIsAppliedtoUrl
-                  })}
-                  onChange={handleSearch}
-                  onFocus={() => {
-                    setSearchInputIsFocused(true)
-                    setSearchTermIsAppliedtoUrl(false)
-                  }}
-                  onBlur={e =>
-                    !e.relatedTarget?.classList?.contains(
-                      'Teachers_search_result'
-                    ) && setSearchInputIsFocused(false)
-                  }
-                  value={searchTerm || ''}
-                />
-              </div>
-              {searchTerm && searchInputIsFocused && (
-                <ul className={stls.searchResults}>
-                  {programs
-                    ?.filter(program => program.studyFormat === 'online')
-                    ?.filter(program => program?.title?.includes(searchTerm))
-                    .filter((_, idx) => idx < 10)
-                    .map((program, idx) => (
-                      <li
-                        key={`Teachers_searchResults_${program?.title}-${idx}`}>
-                        <a
-                          href='#!'
-                          className='Teachers_search_result' // should be unique className and only used here for onBlur handler
-                          onClick={() => {
-                            applySearchTermToUrl(program?.title || null)
-                            setSearchInputIsFocused(false)
-                          }}
-                          onBlur={e =>
-                            !e.relatedTarget?.classList?.contains(
-                              'Teachers_search_result'
-                            ) && setSearchInputIsFocused(false)
-                          }>
-                          {program?.title}{' '}
-                          {program?.category?.type === 'mini'
-                            ? 'Mini MBA'
-                            : program?.category?.type === 'mba'
-                            ? 'MBA'
-                            : program?.category?.type === 'profession'
-                            ? 'Профессия'
-                            : 'MBA'}{' '}
-                        </a>
-                      </li>
-                    ))}
-                </ul>
               )}
             </>
           )}
