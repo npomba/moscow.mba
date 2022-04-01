@@ -85,6 +85,40 @@
   line-height: 120%
   @include m.dye(c, c.$chi)
 
+.searchInputGroup
+  position: relative
+  max-width: f.px(520)
+  margin-top: f.px(30)
+
+.searchIcon
+  position: absolute
+  top: 50%
+  right: f.px(15)
+  transform: translateY(-50%)
+  max-width: f.px(18)
+  pointer-events: none
+  &.searchIconSearthTermIsApplied
+    & path
+      @include m.dye(stroke, c.$psi)
+
+.search
+  width: 100%
+  padding-top: f.px(12)
+  padding-right: f.px(30+18)
+  padding-bottom: f.px(12)
+  padding-left: f.px(15)
+  border: 0
+  outline: none
+  font-size: f.px(16)
+  font-weight: 500
+  line-height: 120%
+  @include m.dye(bgc, c.$sigma)
+  @include m.dye(c, c.$chi)
+  &.searchTermIsAppliedtoUrl
+    cursor: pointer
+    @include m.dye(bgc, c.$alpha)
+    @include m.dye(c, c.$psi)
+
 .text
   margin-bottom: 36px
   line-height: 1.2
@@ -156,10 +190,13 @@
   display: flex
   flex-wrap: wrap
   margin: 0 -35px
+  margin-top: f.px(60)
   @include m.media(desktop, laptop)
     margin: 0 -15px
+    margin-top: f.px(60)
   @include m.media(tablet, phone)
     margin: 0 -8px
+    margin-top: f.px(60)
   @include m.media(phone)
     display: block
     margin-bottom: 40px

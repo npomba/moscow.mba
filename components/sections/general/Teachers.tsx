@@ -11,7 +11,13 @@ import { useAt, useDefaultTeachers } from '@/hooks/index'
 import { ProgramsContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
 import { PopupForm, PopupTeacher } from '@/components/popups'
-import { IconCheck, IconMoreThan } from '@/components/icons'
+import {
+  IconCheck,
+  IconClose,
+  IconCross,
+  IconMoreThan,
+  IconSearch
+} from '@/components/icons'
 
 const LiTeacherContent = ({
   teacher,
@@ -84,7 +90,10 @@ const Teachers = ({
 
   const { programs } = useContext(ProgramsContext)
 
-  const [searchTerm, setSearchTerm] = useState(null)
+  const [searchTerm, setSearchTerm] = useState<string | null>(null)
+  const [searchInputIsFocused, setSearchInputIsFocused] = useState(null)
+  const [searchTermIsAppliedtoUrl, setSearchTermIsAppliedtoUrl] =
+    useState(false)
 
   const [shownTeachersCount, setShownTeachersCount] = useState(8)
   const showMoreTeachersAddendum = 4
@@ -102,17 +111,25 @@ const Teachers = ({
   ]
 
   const handleSearch = e => {
+    setSearchTermIsAppliedtoUrl(false)
     setSearchTerm(e.target.value)
-    // router.replace(
-    //   { query: { q: encodeURIComponent(e.target.value) } },
-    //   undefined,
-    //   { shallow: true }
-    // )
+  }
+
+  const applySearchTermToUrl = (title: string | null) => {
+    setSearchTerm(title)
+    setSearchTermIsAppliedtoUrl(true)
+    router.replace({ query: { q: encodeURIComponent(title) } }, undefined, {
+      shallow: true,
+      scroll: false
+    })
   }
 
   useEffect(() => {
-    setSearchTerm(decodeURIComponent(router.query.q?.toString() || ''))
-  }, [router])
+    if (!searchTerm && router.query.q) {
+      setSearchTerm(decodeURIComponent(router.query.q.toString()))
+      setSearchTermIsAppliedtoUrl(true)
+    }
+  }, [router, searchTerm])
 
   return (
     <>
@@ -283,7 +300,7 @@ const Teachers = ({
                 </li>
               </ul>
             </div>
-            {!at.profession && !at.course && at.teachers && (
+            {!at.profession && !at.course && !at.teachers && (
               <h3 className={stls.teachersPros}>
                 {!at.profession &&
                   !at.course &&
@@ -299,41 +316,82 @@ const Teachers = ({
                   ))}
               </h3>
             )}
-            {at.teachers && !at.en && (
-              <>
-                <h3 className={stls.h3}>
-                  {at.en ? (
-                    <>
-                      Find experts <br /> of your favorite program
-                    </>
-                  ) : (
-                    <>
-                      Найдите экпертов <br /> интересующей Вас программы
-                    </>
-                  )}
-                </h3>
+          </div>
+          {at.teachers && !at.en && (
+            <>
+              <h3 className={stls.h3}>
+                {at.en ? (
+                  <>
+                    Find experts <br /> of your favorite program
+                  </>
+                ) : (
+                  <>
+                    Найдите экпертов <br /> интересующей Вас программы
+                  </>
+                )}
+              </h3>
+              <div className={stls.searchInputGroup}>
+                <div
+                  className={cn(stls.searchIcon, {
+                    [stls.searchIconSearthTermIsApplied]:
+                      searchTermIsAppliedtoUrl
+                  })}>
+                  {searchTermIsAppliedtoUrl ? <IconClose /> : <IconSearch />}
+                </div>
                 <input
                   type='text'
-                  className={stls.search}
+                  className={cn(stls.search, {
+                    [stls.searchTermIsAppliedtoUrl]: searchTermIsAppliedtoUrl
+                  })}
                   onChange={handleSearch}
+                  onFocus={() => {
+                    setSearchInputIsFocused(true)
+                    setSearchTermIsAppliedtoUrl(false)
+                  }}
+                  onBlur={e =>
+                    !e.relatedTarget?.classList?.contains(
+                      'Teachers_search_result'
+                    ) && setSearchInputIsFocused(false)
+                  }
                   value={searchTerm || ''}
                 />
-                {searchTerm && (
-                  <ul className={stls.searchResults}>
-                    {programs
-                      ?.filter(program => program?.title?.includes(searchTerm))
-                      .filter((_, idx) => idx < 10)
-                      .map((program, idx) => (
-                        <li
-                          key={`Teachers_searchResults_${program?.title}-${idx}`}>
-                          {program?.title}
-                        </li>
-                      ))}
-                  </ul>
-                )}
-              </>
-            )}
-          </div>
+              </div>
+              {searchTerm && searchInputIsFocused && (
+                <ul className={stls.searchResults}>
+                  {programs
+                    ?.filter(program => program.studyFormat === 'online')
+                    ?.filter(program => program?.title?.includes(searchTerm))
+                    .filter((_, idx) => idx < 10)
+                    .map((program, idx) => (
+                      <li
+                        key={`Teachers_searchResults_${program?.title}-${idx}`}>
+                        <a
+                          href='#!'
+                          className='Teachers_search_result' // should be unique className and only used here for onBlur handler
+                          onClick={() => {
+                            applySearchTermToUrl(program?.title || null)
+                            setSearchInputIsFocused(false)
+                          }}
+                          onBlur={e =>
+                            !e.relatedTarget?.classList?.contains(
+                              'Teachers_search_result'
+                            ) && setSearchInputIsFocused(false)
+                          }>
+                          {program?.title}{' '}
+                          {program?.category?.type === 'mini'
+                            ? 'Mini MBA'
+                            : program?.category?.type === 'mba'
+                            ? 'MBA'
+                            : program?.category?.type === 'profession'
+                            ? 'Профессия'
+                            : 'MBA'}{' '}
+                        </a>
+                      </li>
+                    ))}
+                </ul>
+              )}
+            </>
+          )}
           <ul
             className={cn({
               [stls.teachersList]: true,
@@ -454,7 +512,8 @@ const Teachers = ({
                   )}
                 </Popup>
               ) : (
-                UITeachers.length >= 8 && (
+                (UITeachers.length > 8 ||
+                  (UITeachers.length >= 8 && !searchTerm)) && (
                   <button
                     className='button'
                     onClick={() =>
