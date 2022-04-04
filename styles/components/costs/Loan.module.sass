@@ -24,21 +24,31 @@
     z-index: 2
 
 .price
-  margin-right: f.px(20)
-  font-size: f.px(36)
+  @include m.media(phone, tablet)
+    margin-right: f.px(20)
+    font-size: f.px(36)
+  @include m.media(laptop, desktop, widescreen)
+    margin-right: f.px(27)
+    font-size: f.px(62)
   font-weight: 700
   line-height: 120%
   @include m.dye(c, c.$xi)
 
 .priceLabel
-  font-size: f.px(16)
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+  @include m.media(laptop, desktop, widescreen)
+    font-size: f.px(32)
   font-weight: 400
   line-height: 120%
   @include m.dye(c, c.$xi)
 
 .discount
   display: inline-block
-  font-size: f.px(20)
+  @include m.media(phone, tablet)
+    font-size: f.px(20)
+  @include m.media(laptop, desktop, widescreen)
+    font-size: f.px(36)
   font-weight: 700
   line-height: 120%
   @include m.dye(c, c.$tau)
@@ -47,7 +57,10 @@
   text-decoration: line-through
 
 .discountLabel
-  font-size: f.px(14)
+  @include m.media(phone, tablet)
+    font-size: f.px(14)
+  @include m.media(laptop, desktop, widescreen)
+    font-size: f.px(16)
   font-weight: 400
   line-height: 120%
   @include m.dye(c, c.$tau)

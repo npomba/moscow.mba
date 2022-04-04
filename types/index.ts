@@ -1,3 +1,14 @@
+// ./btn
+export type { default as TypeBtn } from '@/types/btn/TypeBtn'
+export type { default as TypeBtnAlphaVariant } from '@/types/btn/TypeBtnAlphaVariant'
+export type { default as TypeBtnBeta } from '@/types/btn/TypeBtnBeta'
+export type { default as TypeBtnBetaVariant } from '@/types/btn/TypeBtnBetaVariant'
+export type { default as TypeBtnDisabled } from '@/types/btn/TypeBtnDisabled'
+export type { default as TypeBtnHref } from '@/types/btn/TypeBtnHref'
+export type { default as TypeBtnTag } from '@/types/btn/TypeBtnTag'
+export type { default as TypeBtnTagWithLink } from '@/types/btn/TypeBtnTagWithLink'
+export type { default as TypeBtnType } from '@/types/btn/TypeBtnType'
+
 // context/journal
 export type { default as TypeContextJournalContext } from '@/types/context/journal/TypeContextJournalContext'
 export type { default as TypeContextJournalState } from '@/types/context/journal/TypeContextJournalState'
@@ -8,6 +19,8 @@ export type { default as TypeChildren } from '@/types/general/TypeChildren'
 export type { default as TypeClassNames } from '@/types/general/TypeClassNames'
 export type { default as TypeColor } from '@/types/general/TypeColor'
 export type { default as TypeColorsKeys } from '@/types/general/TypeColorsKeys'
+export type { default as TypeGeneralAriaLabel } from '@/types/general/TypeGeneralAriaLabel'
+export type { default as TypeGeneralOnClick } from '@/types/general/TypeGeneralOnClick'
 export type { default as TypeImg } from '@/types/general/TypeImg'
 export type { default as TypeImgExtended } from '@/types/general/TypeImgExtended'
 export type { default as TypeOfType } from '@/types/general/TypeOfType'

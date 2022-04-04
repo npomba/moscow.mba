@@ -1,13 +1,16 @@
 import stls from '@/styles/components/sections/general/SectionStudyCost.module.sass'
 import { TypeClassNames } from '@/types/index'
-import { useContext } from 'react'
+import { useContext, MouseEventHandler } from 'react'
 import cn from 'classnames'
+import Popup from 'reactjs-popup'
 import { useAt } from '@/hooks/index'
 import { ProgramContext } from '@/context/index'
 import { getClassNames } from '@/helpers/index'
 import { GeneralStickerDiscount } from '@/components/general'
-import { Loan, Price, TrainingPeriod, Until } from '@/components/costs'
+import { Loan, TrainingPeriod, Until } from '@/components/costs'
 import { Wrapper } from '@/components/layout'
+import { PopupForm } from '@/components/popups'
+import { BtnAlpha } from '@/components/btns'
 
 type TypeSectionStudyCostProps = TypeClassNames
 
@@ -21,7 +24,7 @@ const SectionStudyCost = ({ classNames }: TypeSectionStudyCostProps) => {
     'Интерактивные онлайн-семинары',
     'Карьерные консультации',
     'Дипломы заносятся в ФРДО',
-    'Ежедневная помощь от кураторов и преподавателей'
+    <>Ежедневная помощь от кураторов и&nbsp;преподавателей</>
   ]
 
   const isDiscounted = at.online || at.mbl
@@ -36,7 +39,7 @@ const SectionStudyCost = ({ classNames }: TypeSectionStudyCostProps) => {
           <h2 className={stls.title}>
             {at.en ? 'Study Cost' : 'Стоимость обучения'}
           </h2>
-          <GeneralStickerDiscount />
+          <GeneralStickerDiscount classNames={[stls.stickerDiscount]} />
         </div>
         <div className={stls.content}>
           <div className={stls.left}>
@@ -94,7 +97,7 @@ const SectionStudyCost = ({ classNames }: TypeSectionStudyCostProps) => {
           <div className={stls.right}>
             <div className={stls.ps}>
               <p className={stls.p}>
-                Успех в карьере напрямую связывают с получением образования
+                Успех в карьере напрямую связывают с&nbsp;получением образования
               </p>
               <p className={stls.p}>
                 Получите актульные знания, увеличьте свой доход и продвиньтесь
@@ -113,7 +116,24 @@ const SectionStudyCost = ({ classNames }: TypeSectionStudyCostProps) => {
                 variant='SectionStudyCost'
               />
             </div>
-            <button>Оставить заявку</button>
+            <Popup
+              trigger={() => (
+                <BtnAlpha variant='beta-reverse'>Оставить заявку</BtnAlpha>
+              )}
+              modal
+              lockScroll
+              nested
+              closeOnDocumentClick>
+              {(close: MouseEventHandler) => (
+                <PopupForm
+                  programId={program?.id}
+                  programTitle={program?.title}
+                  title={'Получите консультацию'}
+                  closePopUpForm={close}
+                />
+              )}
+            </Popup>
+
             <p className={stls.btwP}>
               *согласно опросу за 2020 год, 93% наших студентов окупили обучение
               уже на 2-й месяц

@@ -15,49 +15,107 @@
   display: flex
   justify-content: space-between
   align-items: center
-  margin-bottom: f.px(40)
+  @include m.media(phone, tablet, laptop)
+    margin-bottom: f.px(40)
+  @include m.media(desktop, widescreen)
+    position: relative
+    margin-bottom: f.px(78)
 
 .title
   margin: 0
   @include m.media(phone, tablet)
     max-width: 10ch
 
+.stickerDiscount
+  @include m.media(desktop, widescreen)
+    position: absolute
+    bottom: 0
+    right: 0
+
+.content
+  @include m.media(desktop, widescreen)
+    display: flex
+
+$right_gap_right: 5%
+.left
+  @include m.media(desktop, widescreen)
+    flex-basis: 100% - 50% - $right_gap_right
+    padding-right: $right_gap_right
+
+.right
+  @include m.media(desktop, widescreen)
+    flex-basis: 50%
+    padding-left: $right_gap_right
+    border-left: 1px solid
+    @include m.dye(borderc, c.$rho)
+
 .programInfos
-  margin-bottom: f.px(40)
+  @include m.media(phone, tablet)
+    margin-bottom: f.px(40)
+  @include m.media(laptop, desktop, widescreen)
+    display: flex
+    margin-bottom: f.px(49)
 
 .programInfo
+  @include m.media(desktop, widescreen)
+    flex-basis: 50%
+    max-width: 17ch
   & + .programInfo
-    margin-top: f.px(20)
-    padding-top: f.px(20)
-    border-top: 1px solid
+    @include m.media(phone, tablet)
+      margin-top: f.px(20)
+      padding-top: f.px(20)
+      border-top: 1px solid
+    @include m.media(laptop, desktop, widescreen)
+      margin-left: f.px(23)
+      padding-left: f.px(23)
+      border-left: 1px solid
     @include m.dye(borderc, c.$rho)
 
 .programInfoTitle
   margin: 0
-  margin-bottom: f.px(10)
+  @include m.media(phone, tablet)
+    margin-bottom: f.px(10)
+    font-size: f.px(16)
+  @include m.media(laptop, desktop, widescreen)
+    margin-bottom: f.px(15)
+    font-size: f.px(20)
   font-weight: 500
   line-height: 120%
   @include m.dye(c, c.$alpha)
 
 .programInfoContent
   margin: 0
-  font-size: f.px(15)
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+  @include m.media(laptop, desktop, widescreen)
+    font-size: f.px(16)
   font-weight: 300
   line-height: 120%
   @include m.dye(c, c.$tau)
 
 .programAdmission
-  margin-bottom: f.px(40)
+  @include m.media(phone, tablet)
+    margin-bottom: f.px(40)
+  @include m.media(laptop, desktop, widescreen)
+    margin-bottom: f.px(48)
 
 .programAdmissionTitle
   margin: 0
-  margin-bottom: f.px(10)
+  @include m.media(phone, tablet)
+    margin-bottom: f.px(10)
+    font-size: f.px(16)
+  @include m.media(laptop, desktop, widescreen)
+    margin-bottom: f.px(16)
+    font-size: f.px(20)
   font-weight: 500
   line-height: 120%
 
 .programAdmissionContent
   margin: 0
-  font-size: f.px(12)
+  @include m.media(phone, tablet)
+    font-size: f.px(12)
+  @include m.media(laptop, desktop, widescreen)
+    font-size: f.px(14)
   font-weight: 300
   line-height: 120%
   @include m.dye(c, c.$tau)
@@ -65,13 +123,19 @@
 .pros
   margin: 0
   padding: 0
-  margin-bottom: f.px(40)
+  @include m.media(phone, tablet)
+    margin-bottom: f.px(40)
+  @include m.media(laptop, desktop, widescreen)
+    margin-bottom: f.px(48)
 
 .proItem
   position: relative
   padding-left: f.px(15 + 5)
   & + .proItem
-    margin-top: f.px(10)
+    @include m.media(phone, tablet)
+      margin-top: f.px(10)
+    @include m.media(laptop, desktop, widescreen)
+      margin-top: f.px(16)
   &::before
     content: ''
     position: absolute
@@ -86,36 +150,62 @@
 
 .pro
   margin: 0
-  font-size: f.px(15)
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+  @include m.media(laptop, desktop, widescreen)
+    font-size: f.px(20)
+  @include m.media(desktop, widescreen)
+    max-width: 30ch
   font-weight: 300
   line-height: 130%
   @include m.dye(c, c.$chi)
 
 .ps
-  margin-bottom: f.px(40)
+  @include m.media(phone, tablet)
+    margin-bottom: f.px(40)
+  @include m.media(laptop, desktop, widescreen)
+    margin-bottom: f.px(78)  
 
 .p
   margin: 0
   & + .p
-    margin-top: f.px(10)
+    @include m.media(phone, tablet)
+      margin-top: f.px(10)
+    @include m.media(laptop, desktop, widescreen)
+      margin-top: f.px(15)
+  @include m.media(phone, tablet)
+    font-size: f.px(16)
+  @include m.media(laptop, desktop, widescreen)
+    font-size: f.px(22)
   font-weight: 400
   line-height: 120%
   @include m.dye(c, c.$xi)
 
 .getStartedTodayP
   margin: 0
-  margin-bottom: f.px(20)
-  font-size: f.px(20)
+  @include m.media(phone, tablet)
+    margin-bottom: f.px(20)
+    font-size: f.px(20)
+  @include m.media(laptop, desktop, widescreen)
+    margin-bottom: f.px(49)
+    font-size: f.px(24)
   font-weight: 500
   line-height: 120%
   @include m.dye(c, c.$chi)
 
 .loan
-  margin-bottom: f.px(40)
+  @include m.media(phone, tablet)
+    margin-bottom: f.px(40)
+  @include m.media(laptop, desktop, widescreen)
+    margin-bottom: f.px(27)
 
 .btwP
-  margin-top: f.px(10)
-  font-size: f.px(12)
+  @include m.media(phone, tablet)
+    margin-top: f.px(10)
+    font-size: f.px(12)
+  @include m.media(laptop, desktop, widescreen)
+    margin-top: f.px(16)
+    font-size: f.px(14)
   font-weight: 300
   line-height: 120%
   @include m.dye(c, c.$tau)

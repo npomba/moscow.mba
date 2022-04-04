@@ -1,0 +1,24 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+@mixin regular($color1, $color2)
+  @include m.dye(borderc, $color1)
+  outline: f.px(2, em) solid transparent
+  transition: outline-offset .25s ease, transform .05s ease
+  @include m.dye(bgc, $color1) 
+  @include m.dye(c, $color2)
+  &:focus-visible
+    outline-offset: f.px(-6, em)
+    @include m.dye(outline, $color2)
+
+@mixin reverse($color)
+  @include m.dye(borderc, $color)
+  outline: f.px(2, em) solid transparent
+  outline-offset: f.px(-2, em)
+  transition: outline-offset .25s ease, outline-width .25s ease, transform .05s ease
+  @include m.dye(c, $color) 
+  &:focus-visible
+    outline-width: f.px(8, em)
+    outline-offset: f.px(-8, em)
+    @include m.dye(outline, $color)

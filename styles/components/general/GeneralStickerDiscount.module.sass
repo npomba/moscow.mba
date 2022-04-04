@@ -8,23 +8,35 @@
   flex-direction: column
   justify-content: center
   align-items: center
-  min-width: f.px(87)
-  max-width: f.px(87)
-  min-height: f.px(87)
-  max-height: f.px(87)
+  @include m.media(phone, tablet)
+    min-width: f.px(87)
+    max-width: f.px(87)
+    min-height: f.px(87)
+    max-height: f.px(87)
+  @include m.media(laptop, desktop, widescreen)
+    min-width: f.px(128)
+    max-width: f.px(128)
+    min-height: f.px(128)
+    max-height: f.px(128)
   border-radius: 50%
   transform: rotate(15deg)
   @include m.dye(bgc, c.$alpha)
 
 .discount
   font-family: 'Visuelt'
-  font-size: f.px(23)
+  @include m.media(phone, tablet)
+    font-size: f.px(23)
+  @include m.media(laptop, desktop, widescreen)
+    font-size: f.px(34)
   font-weight: 700
   line-height: 120%
   @include m.dye(c, c.$psi)
 
 .until
   font-family: 'MazzardH'
-  font-size: f.px(9)
+  @include m.media(phone, tablet)
+    font-size: f.px(9)
+  @include m.media(laptop, desktop, widescreen)
+    font-size: f.px(13)
   line-height: 120%
   @include m.dye(c, c.$psi)
