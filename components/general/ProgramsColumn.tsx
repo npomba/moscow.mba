@@ -1,5 +1,5 @@
 import stls from '@/styles/components/general/ProgramsColumn.module.sass'
-import { useContext, useState } from 'react'
+import { useContext, useState, Fragment } from 'react'
 import Link from 'next/link'
 import cn from 'classnames'
 import { MenuContext, OverlayContext } from '@/context/index'
@@ -53,14 +53,26 @@ const ProgramsColumn = ({ data, id, type }) => {
         )
       } else if (idx === count) {
         return (
-          <li key={item.id || item._id} className={stls.listItem}>
-            <Link href={`/programs/${type}/${format}`} locale='ru'>
-              <a className={stls.link} onClick={handleLinkClick}>
-                {at.en ? 'View all' : 'Посмотреть все'}
-                <IconArrowLeft classNames={[stls.arrow]} />
-              </a>
-            </Link>
-          </li>
+          <Fragment key={item.id || item._id || `ProgramsColumnItem-${idx}`}>
+            {type === 'mba' && format === 'online' && (
+              <li className={stls.listItem}>
+                <Link href={`/programs/international-business-law`} locale='ru'>
+                  <a onClick={handleLinkClick}>
+                    {at.en ? 'MBL' : 'Магистр международного права'}
+                  </a>
+                </Link>
+              </li>
+            )}
+
+            <li key={item.id || item._id} className={stls.listItem}>
+              <Link href={`/programs/${type}/${format}`} locale='ru'>
+                <a className={stls.link} onClick={handleLinkClick}>
+                  {at.en ? 'View all' : 'Посмотреть все'}
+                  <IconArrowLeft classNames={[stls.arrow]} />
+                </a>
+              </Link>
+            </li>
+          </Fragment>
         )
       }
     })
