@@ -36,7 +36,7 @@
   @include m.media(desktop, widescreen)
     display: flex
 
-$right_gap_right: 5%
+$right_gap_right: 9%
 .left
   @include m.media(desktop, widescreen)
     flex-basis: 100% - 50% - $right_gap_right
@@ -44,7 +44,7 @@ $right_gap_right: 5%
 
 .right
   @include m.media(desktop, widescreen)
-    flex-basis: 50%
+    flex-basis: 50% + $right_gap_right
     padding-left: $right_gap_right
     border-left: 1px solid
     @include m.dye(borderc, c.$rho)
@@ -206,6 +206,8 @@ $right_gap_right: 5%
   @include m.media(laptop, desktop, widescreen)
     margin-top: f.px(16)
     font-size: f.px(14)
+  @include m.media(desktop, widescreen)
+    max-width: 50ch
   font-weight: 300
   line-height: 120%
   @include m.dye(c, c.$tau)
