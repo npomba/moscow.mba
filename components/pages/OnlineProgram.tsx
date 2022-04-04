@@ -21,6 +21,7 @@ import truncate from 'truncate'
 //   Accreditation,
 //   Pros,
 //   SectionStudyCost,
+// SectionCheckPros,
 //   ECTSStandard
 // } from '@/components/sections'
 import JumbotronProgram from '@/components/sections/general/JumbotronProgram'
@@ -39,6 +40,7 @@ import UpToDateContent from '@/components/sections/general/UpToDateContent'
 import Diploma from '@/components/sections/general/Diploma'
 import CorporateClients from '@/components/sections/general/CorporateClients'
 import SectionStudyCost from '@/components/sections/general/SectionStudyCost'
+import SectionCheckPros from '@/components/sections/general/SectionCheckPros'
 import Accreditation from '@/components/sections/general/Accreditation'
 import Pros from '@/components/sections/general/Pros'
 
@@ -80,13 +82,8 @@ const PageOnlineProgram = ({ program, teachers }) => {
       <Diploma />
       <Students />
       <Reviews />
-      <SectionStudyCost
-        id={program?._id}
-        title={program?.title}
-        format={program?.studyFormat}
-        type={program?.category?.type}
-        price={program?.price}
-      />
+      <SectionStudyCost />
+      <SectionCheckPros />
       <Qna programId={program?._id} programTitle={program?.title} />
       <ContactUs
         programId={program?._id}

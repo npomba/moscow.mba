@@ -44,7 +44,7 @@ $right_gap_right: 9%
 
 .right
   @include m.media(desktop, widescreen)
-    flex-basis: 50% + $right_gap_right
+    flex-basis: 50%
     padding-left: $right_gap_right
     border-left: 1px solid
     @include m.dye(borderc, c.$rho)
@@ -125,7 +125,7 @@ $right_gap_right: 9%
   padding: 0
   @include m.media(phone, tablet)
     margin-bottom: f.px(40)
-  @include m.media(laptop, desktop, widescreen)
+  @include m.media(laptop)
     margin-bottom: f.px(48)
 
 .proItem
