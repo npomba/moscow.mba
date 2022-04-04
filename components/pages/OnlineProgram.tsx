@@ -45,8 +45,6 @@ import Pros from '@/components/sections/general/Pros'
 const PageOnlineProgram = ({ program, teachers }) => {
   const router = useRouter()
 
-  console.log(program)
-
   return (
     <>
       <NextSeo

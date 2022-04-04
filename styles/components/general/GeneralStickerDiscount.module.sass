@@ -1,0 +1,30 @@
+@use 'sass:math'
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  min-width: f.px(87)
+  max-width: f.px(87)
+  min-height: f.px(87)
+  max-height: f.px(87)
+  border-radius: 50%
+  transform: rotate(15deg)
+  @include m.dye(bgc, c.$alpha)
+
+.discount
+  font-family: 'Visuelt'
+  font-size: f.px(23)
+  font-weight: 700
+  line-height: 120%
+  @include m.dye(c, c.$psi)
+
+.until
+  font-family: 'MazzardH'
+  font-size: f.px(9)
+  line-height: 120%
+  @include m.dye(c, c.$psi)

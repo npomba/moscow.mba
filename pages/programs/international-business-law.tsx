@@ -5,7 +5,7 @@ import { usePageHandleContext } from '@/hooks/index'
 import { InternationalBusinessLaw } from '@/components/pages'
 
 const PageProgramsInternationalBusinessLaw = ({ program, programs }) => {
-  usePageHandleContext({ programs })
+  usePageHandleContext({ programs, program })
 
   return (
     <InternationalBusinessLaw program={program} teachers={program.teachers} />

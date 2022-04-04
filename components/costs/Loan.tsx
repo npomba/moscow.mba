@@ -1,6 +1,17 @@
 import stls from '@/styles/components/costs/Loan.module.sass'
+import cn from 'classnames'
 import { toNumberWithSpaces } from '@/helpers/index'
 import { useAt } from '@/hooks/index'
+
+type TypeLoanProps = {
+  discount?: boolean
+  type?: string | null
+  format?: string | null
+  notComparingPrices?: boolean
+  renderedByComponent?: string | null
+  programPrice?: number | null
+  variant?: 'SectionStudyCost'
+}
 
 const Loan = ({
   discount = false,
@@ -8,8 +19,9 @@ const Loan = ({
   format = null,
   notComparingPrices = false,
   renderedByComponent = null,
-  programPrice = null
-}) => {
+  programPrice = null,
+  variant
+}: TypeLoanProps) => {
   const at = useAt()
 
   const price = {
@@ -83,23 +95,42 @@ const Loan = ({
   return (
     <>
       <i
-        className={
+        className={cn(
           discount
             ? getPriceClass('new', renderedByComponent)
-            : getPriceClass('simple', renderedByComponent)
-        }>
+            : getPriceClass('simple', renderedByComponent),
+          { [stls.price]: variant === 'SectionStudyCost' }
+        )}>
         {programPrice
           ? toNumberWithSpaces(Math.floor(programPrice / 12))
           : price[regularOrDiscounted]?.[type]?.[format]}{' '}
-        Р. / мес
+        <span
+          className={cn({
+            [stls.priceLabel]: variant === 'SectionStudyCost'
+          })}>
+          Р/мес.
+        </span>
       </i>
       {discount && !at.blended && !notComparingPrices && (
         <>
-          <i className={getPriceClass('old', renderedByComponent)}>
-            {programPrice
-              ? toNumberWithSpaces(Math.floor(regularPrice / 12))
-              : price.loanRegular[type]?.[format]}{' '}
-            Р. / мес
+          <i
+            className={cn(getPriceClass('old', renderedByComponent), {
+              [stls.discount]: variant === 'SectionStudyCost'
+            })}>
+            <span
+              className={cn({
+                [stls.discountNum]: variant === 'SectionStudyCost'
+              })}>
+              {programPrice
+                ? toNumberWithSpaces(Math.floor(regularPrice / 12))
+                : price.loanRegular[type]?.[format]}
+            </span>{' '}
+            <span
+              className={cn({
+                [stls.discountLabel]: variant === 'SectionStudyCost'
+              })}>
+              Р/мес.
+            </span>
           </i>
         </>
       )}

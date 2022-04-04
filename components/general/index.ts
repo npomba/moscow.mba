@@ -9,6 +9,7 @@ export { default as CourseAccordion } from '@/components/general/CourseAccordion
 export { default as Filters } from '@/components/general/Filters'
 export { default as GeneralJournalArticleCreatedAt } from '@/components/general/GeneralJournalArticleCreatedAt'
 export { default as GeneralJournalSectionTitle } from '@/components/general/GeneralJournalSectionTitle'
+export { default as GeneralStickerDiscount } from '@/components/general/GeneralStickerDiscount'
 export { default as HelpWithEmploymentItem } from '@/components/general/HelpWithEmploymentItem'
 export { default as ImageContainer } from '@/components/general/ImageContainer'
 export { default as InfoRectangle } from '@/components/general/InfoRectangle'

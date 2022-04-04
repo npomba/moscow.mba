@@ -3,12 +3,18 @@ import {
   TypeLibJournalTags,
   TypeLibJournalArticles,
   TypeLibJournalArticle,
-  TypeLibPrograms
+  TypeLibPrograms,
+  TypeLibProgram
 } from '@/types/index'
 import { useContext, useEffect } from 'react'
-import { ProgramsContext, ContextJournalContext } from '@/context/index'
+import {
+  ProgramsContext,
+  ProgramContext,
+  ContextJournalContext
+} from '@/context/index'
 
 type TypeUsePageHandleContextProps = {
+  readonly program?: TypeLibProgram
   readonly programs: TypeLibPrograms
   readonly journalCategories?: TypeLibJournalCategories | null
   readonly journalTags?: TypeLibJournalTags | null
@@ -20,6 +26,7 @@ type TypeUsePageHandleContextProps = {
 }
 
 const usePageHandleContext = ({
+  program,
   programs,
   journalCategories,
   journalTags,
@@ -30,6 +37,7 @@ const usePageHandleContext = ({
   gspContextParamsJournalCategoryTagArticle
 }: TypeUsePageHandleContextProps) => {
   const { setPrograms } = useContext(ProgramsContext)
+  const { setProgram } = useContext(ProgramContext)
 
   const {
     setJournalCategories,
@@ -40,9 +48,9 @@ const usePageHandleContext = ({
     setGSPContextParamsJournalCategoryTag,
     setGSPContextParamsJournalCategoryTagArticle
   } = useContext(ContextJournalContext)
-  // const { setProgram } = useContext(ProgramContext)
 
   useEffect(() => {
+    setProgram(program || null)
     setPrograms(programs || null)
     setJournalCategories(journalCategories || null)
     setJournalTags(journalTags || null)
@@ -57,6 +65,7 @@ const usePageHandleContext = ({
     )
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
+    program,
     programs,
     journalCategories,
     journalTags,

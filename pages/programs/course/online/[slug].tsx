@@ -5,7 +5,7 @@ import { routesFront } from '@/config/index'
 import { CourseOnlineProgram } from '@/components/pages'
 
 const PageProgramsCourseOnlineProgram = ({ program, programs }) => {
-  usePageHandleContext({ programs })
+  usePageHandleContext({ programs, program })
 
   return <CourseOnlineProgram program={program} teachers={program?.teachers} />
 }

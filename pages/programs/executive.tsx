@@ -26,7 +26,7 @@ import {
 } from '@/components/sections'
 
 const PageProgramsExecutive = ({ program, programs }) => {
-  usePageHandleContext({ programs })
+  usePageHandleContext({ programs, program })
 
   const id = uuidv4()
   const programBlended =

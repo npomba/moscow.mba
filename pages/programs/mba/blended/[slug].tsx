@@ -6,17 +6,7 @@ import { usePageHandleContext } from '@/hooks/index'
 import { BlendedProgram } from '@/components/pages'
 
 const PageProgramsMbaBlendedProgram = ({ program, programs }) => {
-  usePageHandleContext({ programs })
-
-  // const id = uuidv4()
-  // const programBlended =
-  //   (program && {
-  //     ...program,
-  //     studyFormat: studyFormats.blended,
-  //     id,
-  //     _id: id
-  //   }) ||
-  //   null
+  usePageHandleContext({ programs, program })
 
   return <BlendedProgram program={program} teachers={program?.teachers} />
 }

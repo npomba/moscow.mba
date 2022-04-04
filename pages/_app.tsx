@@ -15,7 +15,8 @@ import {
   MenuState,
   OverlayState,
   ProgramsState,
-  ContextJournalState
+  ContextJournalState,
+  ProgramState
 } from '@/context/index'
 
 function MyApp({ Component, pageProps, router }) {
@@ -85,19 +86,21 @@ function MyApp({ Component, pageProps, router }) {
         url='https://moscow.mba/'
       />
       <ProgramsState>
-        <OverlayState>
-          <MenuState>
-            <ContextJournalState>
-              <WrapperPage>
-                <Header />
-                <Main>
-                  <Component {...pageProps} />
-                </Main>
-                <Footer />
-              </WrapperPage>
-            </ContextJournalState>
-          </MenuState>
-        </OverlayState>
+        <ProgramState>
+          <OverlayState>
+            <MenuState>
+              <ContextJournalState>
+                <WrapperPage>
+                  <Header />
+                  <Main>
+                    <Component {...pageProps} />
+                  </Main>
+                  <Footer />
+                </WrapperPage>
+              </ContextJournalState>
+            </MenuState>
+          </OverlayState>
+        </ProgramState>
       </ProgramsState>
     </>
   )

@@ -1,9 +1,8 @@
+@use 'sass:math'
 @use '@/styles/utils/mixin' as m
-
-.container
-  margin-bottom: 100px
-  @include m.media(laptop, tablet, phone)
-    margin-bottom: 50px
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+@use '@/styles/shared/journal' as j
 
 .wrapper 
   overflow: hidden
@@ -22,11 +21,15 @@
   margin: 0 -25px 63px
   @include m.media(desktop, laptop, tablet, phone)
     margin: 0 -15px 63px
+    margin-bottom: 0
   @include m.media(laptop)
     margin-bottom: 30px
+    margin-bottom: 0
   @include m.media(tablet, phone)
     padding-top: 5px
     margin-bottom: 15px
+    margin-bottom: 0
+  margin-bottom: 0
 
 .item
   margin: 0 25px 50px
