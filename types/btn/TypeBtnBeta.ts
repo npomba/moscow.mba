@@ -4,9 +4,9 @@ import {
   TypeBtnTag,
   TypeBtnType,
   TypeBtnHref,
-  TypeOnClick,
+  TypeGeneralOnClick,
   TypeBtnDisabled,
-  TypeAriaLabel,
+  TypeGeneralAriaLabel,
   TypeBtnBetaVariant
 } from '@/types/index'
 import { HTMLAttributeAnchorTarget } from 'react'
@@ -17,9 +17,9 @@ type TypeBtn = TypeClassNames &
   TypeBtnType &
   TypeBtnHref & {
     target?: HTMLAttributeAnchorTarget
-  } & TypeOnClick &
+  } & TypeGeneralOnClick &
   TypeBtnDisabled &
-  TypeAriaLabel &
+  TypeGeneralAriaLabel &
   TypeBtnBetaVariant
 
 export default TypeBtn
