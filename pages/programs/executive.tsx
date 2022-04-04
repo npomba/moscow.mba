@@ -77,13 +77,7 @@ const PageProgramsExecutive = ({ program, programs }) => {
       <ExecutiveRequirements />
       <Students />
       <Reviews />
-      <SectionStudyCost
-        id={program?._id}
-        title={program?.title}
-        format={program?.studyFormat}
-        type={program?.category?.type}
-        price={program?.price}
-      />
+      <SectionStudyCost />
       <Qna
         programId={programBlended?._id}
         programTitle={programBlended?.title}
