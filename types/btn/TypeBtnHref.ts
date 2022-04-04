@@ -1,7 +1,7 @@
-import { TypeRoute, TypeAnchor } from '@/types/index'
+import { TypeGeneralRoute, TypeGeneralAnchor } from '@/types/index'
 
 type TypeBtnHref = {
-  readonly href?: TypeRoute | TypeAnchor | `http${string}`
+  readonly href?: TypeGeneralRoute | TypeGeneralAnchor | `http${string}`
 }
 
 export default TypeBtnHref
