@@ -19,7 +19,7 @@ const SectionCheckPros = ({ classNames }: TypeSectionCheckProsProps) => {
       content: (
         <>
           Если вы передумаете учиться, мы вернем полную сумму в течение первых
-          двух недель
+          двух&nbsp;недель
         </>
       )
     },
@@ -41,7 +41,7 @@ const SectionCheckPros = ({ classNames }: TypeSectionCheckProsProps) => {
             {contactInfo.ru.tels[0].val}
           </a>{' '}
           <br />
-          Звонок бесплатный.
+          Звонок бесплатный
         </>
       )
     }
