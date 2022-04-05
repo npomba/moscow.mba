@@ -5,11 +5,22 @@
 
 .container
   @include m.media(phone, tablet, laptop)
-    padding-top: f.px(60)
+    // padding-top: f.px(60)
     padding-bottom: f.px(60)
   @include m.media(laptop, desktop, widescreen)
-    padding-top: f.px(130)
-    padding-bottom: f.px(130)
+    // padding-top: f.px(130)
+    // padding-bottom: f.px(130)
+    padding-bottom: f.px(65)
+
+.wrapper
+  @include m.media(phone, tablet, laptop)
+    padding-top: f.px(60)
+    padding-bottom: f.px(60)
+  @include m.media(laptop, desktop)
+    padding: f.px(60)
+  @include m.media(widescreen)
+    padding: f.px(130)
+  @include m.dye(bgc, c.$sigma)
 
 .heading
   display: flex
@@ -29,17 +40,22 @@
 .stickerDiscount
   @include m.media(desktop, widescreen)
     position: absolute
+  @include m.media(desktop)
+    bottom: f.px(-35)
+    right: f.px(-30)
+  @include m.media(widescreen)
     bottom: 0
-    right: 0
+    right: f.px(-65)
 
 .content
   @include m.media(desktop, widescreen)
     display: flex
 
-$right_gap_right: 9%
+$right_gap_right: 6.2%
 .left
   @include m.media(desktop, widescreen)
     flex-basis: 100% - 50% - $right_gap_right
+  @include m.media(desktop)
     padding-right: $right_gap_right
 
 .right

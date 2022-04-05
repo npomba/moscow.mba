@@ -6,22 +6,35 @@
 .container
   @include m.media(phone, tablet, laptop)
     // padding-top: f.px(60)
-    padding-bottom: f.px(60)
+    // padding-bottom: f.px(60)
+    padding-bottom: f.px(120)
   @include m.media(laptop, desktop, widescreen)
     // padding-top: f.px(130)
     padding-bottom: f.px(130)
 
+.wrapper
+  @include m.media(laptop, desktop, widescreen)
+    padding: f.px(65) f.px(130)
+    @include m.dye(bgc, c.$sigma)
+
 .pros
+  margin: 0
+  @include m.media(phone, tablet)
+    padding-top: f.px(30)
+    padding-bottom: f.px(30)
+    border: 1px solid
+    @include m.dye(borderc, c.$nu)
   @include m.media(laptop, desktop, widescreen)
     display: flex
     flex-wrap: wrap
-  margin: 0
-  padding: 0
+    padding: 0
 
 $pro_ml: 11%
 .pro
   display: flex
   @include m.media(phone, tablet)
+    padding-right: f.px(17)
+    padding-left: f.px(17)
     & + .pro
       margin-top: f.px(30)
       padding-top: f.px(30)

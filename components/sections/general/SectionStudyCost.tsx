@@ -34,7 +34,7 @@ const SectionStudyCost = ({ classNames }: TypeSectionStudyCostProps) => {
       className={
         cn([stls.container], getClassNames({ classNames })) || undefined
       }>
-      <Wrapper column>
+      <Wrapper column classNames={[stls.wrapper]}>
         <div className={stls.heading}>
           <h2 className={stls.title}>
             {at.en ? 'Study Cost' : 'Стоимость обучения'}
@@ -56,6 +56,10 @@ const SectionStudyCost = ({ classNames }: TypeSectionStudyCostProps) => {
                         ? 'executive'
                         : at.mbl
                         ? 'mba'
+                        : at.profession
+                        ? 'profession'
+                        : at.course
+                        ? 'course'
                         : null
                     }
                   />

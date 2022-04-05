@@ -52,7 +52,7 @@ const SectionCheckPros = ({ classNames }: TypeSectionCheckProsProps) => {
       className={
         cn([stls.container], getClassNames({ classNames })) || undefined
       }>
-      <Wrapper column>
+      <Wrapper column classNames={[stls.wrapper]}>
         <ul className={stls.pros}>
           {pros.map((pro, idx) => (
             <li key={`${pro.title}-${idx}`} className={stls.pro}>
