@@ -8,10 +8,11 @@ import { routesFront, companyName } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { usePageHandleContext, useAt } from '@/hooks/index'
 import {
+  SectionCorporateClientsHero,
+  SectionCorporateClientsAnyIndustry,
   CorporateClients,
   Diploma,
-  Qna,
-  SectionCorporateClientsHero
+  Qna
 } from '@/components/sections'
 
 const PageCorporateClients: NextPage<TypePageHomeProps> = ({ programs }) => {
@@ -39,6 +40,7 @@ const PageCorporateClients: NextPage<TypePageHomeProps> = ({ programs }) => {
         canonical={routesFront.corporateClients}
       />
       <SectionCorporateClientsHero programId={programId} />
+      <SectionCorporateClientsAnyIndustry />
       <Diploma />
       <CorporateClients />
       <Qna

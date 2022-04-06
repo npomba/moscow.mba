@@ -1,0 +1,83 @@
+@use "sass:math"
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.media(phone, tablet)
+    padding-top: f.px(60)
+    padding-bottom: f.px(60)
+  @include m.media(laptop, desktop, widescreen)
+    padding-top: f.px(130)
+    padding-bottom: f.px(130)
+
+.wrapper
+  @include m.media(laptop, desktop, widescreen)
+    display: flex
+    justify-content: space-between
+
+$left_ldw_ml: 7%
+$left_ldw_fb: math.div(100% - $left_ldw_ml, 2) 
+$right_ldw_fb: math.div(100% - $left_ldw_ml, 2)
+.left
+  position: relative
+  @include m.media(phone, tablet)  
+    padding-top: f.px(32)
+    padding-right: f.px(52)
+    padding-bottom: f.px(32)
+    padding-left: f.px(32)
+  @include m.media(laptop, desktop, widescreen)
+    flex-basis: $left_ldw_fb
+    padding-top: f.px(78)
+    padding-right: f.px(60)
+    padding-bottom: f.px(78)
+    padding-left: f.px(47)
+  @include m.dye(bgc, c.$alpha)  
+  &::after
+    content: ''
+    position: absolute
+    top: 0
+    right: 0
+    @include m.media(phone, tablet)
+      border-width: 0 f.px(34) f.px(34) 0
+    @include m.media(laptop, desktop, widescreen)
+      border-width: 0 f.px(43) f.px(43) 0
+    border-style: solid
+    border-color: c.$theta c.$psi
+
+.right
+  @include m.media(phone, tablet)  
+    margin-top: f.px(40)
+  @include m.media(laptop, desktop, widescreen)
+    flex-basis: $right_ldw_fb
+    margin-left: $left_ldw_ml
+
+.leftP
+  @include m.media(phone, tablet)  
+    font-size: f.px(20)
+  @include m.media(laptop, desktop, widescreen)
+    max-width: 22ch
+    font-size: f.px(30)
+  font-weight: 400
+  line-height: 120%
+  @include m.dye(c, c.$psi)
+
+.rightP
+  @include m.media(phone, tablet)  
+    margin-top: f.px(20)
+    padding-bottom: f.px(20)
+    font-size: f.px(14)
+    font-weight: 700
+  @include m.media(laptop, desktop, widescreen)
+    margin-top: f.px(30)
+    padding-bottom: f.px(30)
+    font-size: f.px(20)
+    font-weight: 500
+  border-bottom: 1px solid
+  @include m.dye(borderc, c.$alpha)
+  line-height: 120%
+  @include m.dye(c, c.$chi)
+
+.hightlight
+  @include m.media(laptop, desktop, widescreen)
+    font-weight: 700

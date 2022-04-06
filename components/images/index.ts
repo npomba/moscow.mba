@@ -1,4 +1,5 @@
 // ./corporateClients
+export { default as ImgCorporateClientsAnyIndustry } from '@/components/images/corporateClients/ImgCorporateClientsAnyIndustry'
 export { default as ImgCorporateClientsBg } from '@/components/images/corporateClients/ImgCorporateClientsBg'
 
 // ./general

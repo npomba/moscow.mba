@@ -1,31 +1,24 @@
 import stls from '@/styles/components/sections/corporateClients/SectionCorporateClientsHero.module.sass'
+import { TypeClassNames } from '@/types/index'
 import { MouseEventHandler } from 'react'
 import Link from 'next/link'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
-import { useAt } from '@/hooks/index'
-import {
-  Breadcrumbs,
-  JumbotronLabel,
-  InfoRectangle
-} from '@/components/general'
+import { routesFront } from '@/config/index'
+import { getClassNames } from '@/helpers/index'
 import { PopupForm } from '@/components/popups'
-import { Loan, Discount, Until } from '@/components/costs'
-import { IconCheckCircleAlt } from '@/components/icons'
 import { ImgCorporateClientsBg } from '@/components/images'
 import { Wrapper } from '@/components/layout'
-import routesFront from '@/config/routesFront'
 import { BtnAlpha } from '@/components/btns'
 
-type SectionCorporateClientsHeroProps = {
+type SectionCorporateClientsHeroProps = TypeClassNames & {
   programId: string
 }
 
 const SectionCorporateClientsHero = ({
+  classNames,
   programId
 }: SectionCorporateClientsHeroProps) => {
-  const at = useAt()
-
   const title = <>Корпоративное обучение для&nbsp;бизнеса</>
 
   const pros = [
@@ -34,7 +27,7 @@ const SectionCorporateClientsHero = ({
       content: 'Программ MBA и курсов'
     },
     {
-      title: '2021',
+      title: '2022',
       content: 'Новейшие программы 2021 года'
     },
     {
@@ -53,7 +46,10 @@ const SectionCorporateClientsHero = ({
   ]
 
   return (
-    <section className={stls.container}>
+    <section
+      className={
+        cn(stls.container, getClassNames({ classNames })) || undefined
+      }>
       <ImgCorporateClientsBg classNames={[stls.bg]} />
       <Wrapper column classNames={[stls.wrapper]}>
         <ul className={stls.breadcrumbs}>
