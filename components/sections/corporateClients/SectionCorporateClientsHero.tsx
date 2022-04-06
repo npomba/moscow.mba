@@ -17,7 +17,13 @@ import { Wrapper } from '@/components/layout'
 import routesFront from '@/config/routesFront'
 import { BtnAlpha } from '@/components/btns'
 
-const SectionCorporateClientsHero = () => {
+type SectionCorporateClientsHeroProps = {
+  programId: string
+}
+
+const SectionCorporateClientsHero = ({
+  programId
+}: SectionCorporateClientsHeroProps) => {
   const at = useAt()
 
   const title = <>Корпоративное обучение для&nbsp;бизнеса</>
@@ -87,7 +93,7 @@ const SectionCorporateClientsHero = () => {
               closeOnDocumentClick>
               {(close: MouseEventHandler) => (
                 <PopupForm
-                  programId={'50e856d1-4610-491f-80f6-e4061e88d200'}
+                  programId={programId}
                   programTitle={title}
                   title={'Получите консультацию'}
                   closePopUpForm={close}

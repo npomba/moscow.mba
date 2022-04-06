@@ -2,6 +2,9 @@
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
 
+.container
+  position: relative
+
 .bg
   &::after
     content: ''
@@ -18,17 +21,22 @@
   position: relative
 
 .breadcrumbs
-  display: flex
-  margin: 0
-  padding: 0
   position: absolute
   @include m.media(phone, tablet)
     top: f.px(18)
   @include m.media(laptop, desktop, widescreen)
     top: f.px(21)
+  display: flex
+  margin: 0
+  padding: 0
+  padding-top: f.px(1)
+  padding-bottom: f.px(1)
+  overflow-x: auto
 
 .breadcrumbItem
   display: flex
+  justify-content: center
+  align-items: center
   @include m.media(laptop, desktop, widescreen)
   & + .breadcrumbItem
     position: relative

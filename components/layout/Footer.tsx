@@ -1,7 +1,7 @@
 import stls from '@/styles/components/layout/Footer.module.sass'
 import Link from 'next/link'
 import { useAt } from '@/hooks/index'
-import { contactData } from '@/config/index'
+import { contactData, routesFront } from '@/config/index'
 import {
   IconLocation,
   IconVk,
@@ -95,6 +95,15 @@ const Footer = () => {
                 <li className={stls.linkItem}>
                   <Link href='/payment' locale='ru'>
                     <a className={stls.link}>{at.en ? 'Payment' : 'Оплата'}</a>
+                  </Link>
+                </li>
+                <li className={stls.linkItem}>
+                  <Link href={routesFront.corporateClients} locale='ru'>
+                    <a className={stls.link}>
+                      {at.en
+                        ? 'Corporate education'
+                        : 'Корпоративное обучение для бизнеса'}
+                    </a>
                   </Link>
                 </li>
               </ul>

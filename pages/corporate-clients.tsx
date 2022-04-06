@@ -7,12 +7,19 @@ import truncate from 'truncate'
 import { routesFront, companyName } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { usePageHandleContext, useAt } from '@/hooks/index'
-import { SectionCorporateClientsHero } from '@/components/sections'
+import {
+  CorporateClients,
+  Diploma,
+  Qna,
+  SectionCorporateClientsHero
+} from '@/components/sections'
 
 const PageCorporateClients: NextPage<TypePageHomeProps> = ({ programs }) => {
   usePageHandleContext({ programs })
 
   const at = useAt()
+
+  const programId = '50e856d1-4610-491f-80f6-e4061e88d200'
 
   return (
     <>
@@ -31,7 +38,13 @@ const PageCorporateClients: NextPage<TypePageHomeProps> = ({ programs }) => {
         )}
         canonical={routesFront.corporateClients}
       />
-      <SectionCorporateClientsHero />
+      <SectionCorporateClientsHero programId={programId} />
+      <Diploma />
+      <CorporateClients />
+      <Qna
+        programId={programId}
+        programTitle={'Корпоративное обучение для бизнеса'}
+      />
     </>
   )
 }
