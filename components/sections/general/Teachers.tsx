@@ -401,8 +401,10 @@ const Teachers = ({
                                   'Teachers_search_result'
                                 ) && setSearchInputIsFocused(false)
                               }>
-                              <span>{program?.title}</span>
-                              <div>
+                              <p className={stls.searchResultTitle}>
+                                {program?.title}
+                              </p>
+                              <div className={stls.searchResultLabel}>
                                 {program?.category?.type === 'mini'
                                   ? 'Mini MBA'
                                   : program?.category?.type === 'mba'

@@ -152,6 +152,13 @@
   @include m.dye(borderc, rgba(c.$chi, .1))
 
 .searchResultLink
+  display: flex
+  @include m.media(phone, tablet)
+    flex-direction: column
+    align-items: flex-start
+  @include m.media(laptop, desktop, widescreen)
+    justify-content: space-between
+    align-items: center
   font-family: Styrene
   font-weight: 300
   line-height: 120%
@@ -159,8 +166,41 @@
   padding: f.px(23) f.px(15)
   transition: color .15s ease-in-out
   @include m.dye(c, c.$chi)
-  &:hover
-    @include m.dye(c, c.$alpha)
+  @include m.media(tablet, laptop, desktop, widescreen)
+    &:hover
+      @include m.dye(c, c.$alpha)
+      & .searchResultLabel
+        @include m.dye(border, c.$alpha)
+        @include m.dye(c, c.$alpha)
+
+.searchResultTitle
+  margin: 0
+  @include m.media(phone, tablet)
+    order: 2
+    font-size: f.px(14)
+  @include m.media(laptop, desktop, widescreen)
+    font-size: f.px(15)
+  line-height: 120%
+
+.searchResultLabel
+  @include m.media(phone, tablet)
+    order: 1
+    margin-bottom: f.px(10)
+    padding: f.px(7)
+    border-radius: f.px(18)
+    font-size: f.px(10)
+  @include m.media(laptop, desktop, widescreen)
+    margin-left: f.px(15)
+    padding: f.px(9) f.px(18)
+    border-radius: f.px(80)
+    font-size: f.px(12)
+  border: 1px solid
+  @include m.dye(border, c.$chi)
+  line-height: 120%
+  letter-spacing: 0.1em
+  text-transform: uppercase
+  transition: color .15s ease-in-out  
+  @include m.dye(c, c.$chi)
 
 .text
   margin-bottom: 36px
