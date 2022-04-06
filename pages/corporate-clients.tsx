@@ -10,6 +10,7 @@ import { usePageHandleContext, useAt } from '@/hooks/index'
 import {
   SectionCorporateClientsHero,
   SectionCorporateClientsAnyIndustry,
+  SectionCorporateClientsSolutions,
   CorporateClients,
   Diploma,
   Qna
@@ -41,6 +42,7 @@ const PageCorporateClients: NextPage<TypePageHomeProps> = ({ programs }) => {
       />
       <SectionCorporateClientsHero programId={programId} />
       <SectionCorporateClientsAnyIndustry />
+      <SectionCorporateClientsSolutions />
       <Diploma />
       <CorporateClients />
       <Qna
