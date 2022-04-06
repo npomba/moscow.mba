@@ -1,3 +1,6 @@
+// ./corporateClients
+export { default as SectionCorporateClientsHero } from '@/components/sections/corporateClients/SectionCorporateClientsHero'
+
 // ./journal
 export { default as SectionJournalAllArticles } from '@/components/sections/journal/SectionJournalAllArticles'
 export { default as SectionJournalBottom } from '@/components/sections/journal/SectionJournalBottom'

@@ -4,6 +4,7 @@ type TypeRoutesFront = {
   about: '/about'
   teachers: '/teachers'
   contact: '/contact'
+  corporateClients: '/corporate-clients'
   legal: '/legal'
   payment: '/payment'
   promo: '/promo'

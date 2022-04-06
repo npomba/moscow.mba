@@ -15,6 +15,18 @@ type TypeImgTemplateProps = TypeClassNames &
     readonly filterAlt?: boolean
     readonly darken?: boolean
     readonly priority?: boolean
+    readonly layout?: 'intrinsic' | 'fixed' | 'responsive' | 'fill'
+    readonly objectFit?:
+      | 'contain'
+      | 'cover'
+      | 'fill'
+      | 'none'
+      | 'scale-down'
+      | 'inherit'
+      | 'initial'
+      | 'revert'
+      | 'unset'
+    readonly objectPosition?: any // replace any type with right one
   }
 
 const ImgTemplate = ({
@@ -28,7 +40,10 @@ const ImgTemplate = ({
   filter,
   filterAlt,
   darken,
-  priority
+  priority,
+  layout,
+  objectFit,
+  objectPosition
 }: TypeImgTemplateProps) => {
   return (
     <div
@@ -60,6 +75,9 @@ const ImgTemplate = ({
         placeholder='blur'
         blurDataURL={base64pixel}
         priority={priority}
+        layout={layout}
+        objectFit={objectFit}
+        objectPosition={objectPosition}
       />
     </div>
   )

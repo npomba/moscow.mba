@@ -1,3 +1,6 @@
+// ./corporateClients
+export { default as ImgCorporateClientsBg } from '@/components/images/corporateClients/ImgCorporateClientsBg'
+
 // ./general
 export { default as ImgLogoEcicel } from '@/components/images/general/ImgLogoEcicel'
 export { default as ImgLogoMde } from '@/components/images/general/ImgLogoMde'

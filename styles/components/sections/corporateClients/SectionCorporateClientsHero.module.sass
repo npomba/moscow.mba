@@ -1,0 +1,160 @@
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.bg
+  &::after
+    content: ''
+    position: absolute
+    z-index: 0
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    margin: auto
+    @include m.dye(bgc, rgba(c.$mu, .6))
+
+.wrapper
+  position: relative
+
+.breadcrumbs
+  display: flex
+  margin: 0
+  padding: 0
+  position: absolute
+  @include m.media(phone, tablet)
+    top: f.px(18)
+  @include m.media(laptop, desktop, widescreen)
+    top: f.px(21)
+
+.breadcrumbItem
+  display: flex
+  @include m.media(laptop, desktop, widescreen)
+  & + .breadcrumbItem
+    position: relative
+    margin-left: f.px(22)
+    padding-left: f.px(22)
+    &::before
+      content: ''
+      position: absolute
+      top: 50%
+      left: 0
+      transform: translateY(-50%)
+      min-width: f.px(4)
+      max-width: f.px(4)
+      min-height: f.px(4)
+      max-height: f.px(4)
+      @include m.dye(bgc, c.$alpha)
+
+.breadcrumb
+  font-size: f.px(14)
+  font-weight: 400
+  line-height: 120%
+
+.breadcrumbLink
+  @include m.dye(c, c.$psi)
+  @include m.media(tablet, laptop, desktop, widescreen)
+  transition: color .15s ease-in-out
+  &:hover
+    @include m.dye(c, c.$alpha)
+
+.breadcrumbSpan
+  @include m.dye(c, c.$lambda)
+
+.content
+  @include m.media(phone, tablet)
+    padding-top: f.px(80)
+    padding-bottom: f.px(80)
+  @include m.media(laptop, desktop, widescreen)
+    padding-top: f.px(142)
+    padding-bottom: f.px(130)
+  @include m.media(desktop, widescreen)
+    display: flex
+    justify-content: space-between
+
+.left
+  @include m.media(widescreen)
+    padding-left: 9.3%
+
+.right
+  @include m.media(phone, tablet)
+    margin-top: f.px(30)
+  @include m.media(laptop)
+    margin-top: f.px(40)
+
+.title
+  margin: 0
+  max-width: 13ch
+  @include m.media(phone, tablet)
+    font-size: f.px(38)
+  @include m.media(laptop, desktop, widescreen)
+    font-size: f.px(62)
+  font-weight: 700
+  line-height: 100%
+  @include m.dye(c, c.$psi)
+
+.subtitle
+  max-width: 44ch
+  margin: 0
+  @include m.media(phone, tablet)
+    margin-top: f.px(10)
+    font-size: f.px(16)
+    line-height: 120%
+    @include m.dye(c, rgba(c.$psi, .77))
+  @include m.media(laptop, desktop, widescreen)
+    margin-top: f.px(20)
+    font-size: f.px(20)
+    line-height: 130%
+    @include m.dye(c, c.$psi)
+  font-weight: 300
+
+.btn
+  @include m.media(phone, tablet)
+    margin-top: f.px(20)
+  @include m.media(laptop, desktop, widescreen)
+    margin-top: f.px(41)
+
+.pros
+  margin: 0
+  padding: 0
+  @include m.media(phone, tablet, laptop)
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    align-items: center
+
+.pro
+  @include m.media(phone)
+    flex-basis: 47%
+  @include m.media(tablet, laptop)
+    flex-basis: 50%
+  @include m.media(phone, tablet, laptop)
+    &:nth-child(n + 3)
+      margin-top: f.px(39)
+  @include m.media(desktop, widescreen)
+    & + .pro
+      margin-top: f.px(37)
+      padding-top: f.px(37)
+      border-top: 1px solid
+      @include m.dye(borderc, rgba(c.$psi, .3))
+
+.proTitle
+  margin: 0
+  @include m.media(phone, tablet)
+    font-size: f.px(32)
+  @include m.media(laptop, desktop, widescreen)
+    font-size: f.px(48)
+  font-weight: 700
+  line-height: 120%
+  @include m.dye(c, c.$psi)
+
+.proContent
+  margin: 0
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+    line-height: 130%
+  @include m.media(laptop, desktop, widescreen)
+    font-size: f.px(16)
+    line-height: 120%
+  font-weight: 300
+  @include m.dye(c, c.$psi)

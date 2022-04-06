@@ -8,6 +8,7 @@ const routesFront: TypeRoutesFront = {
   contact: '/contact',
   legal: '/legal',
   payment: '/payment',
+  corporateClients: '/corporate-clients',
   promo: '/promo',
   journal: '/journal',
   journalCategory: '/journal/[journalCategory]',
