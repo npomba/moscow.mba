@@ -6,7 +6,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
-import { routesFront, base64pixel } from '@/config/index'
+import { routesFront, base64pixel, contactData } from '@/config/index'
 import { useAt, useDefaultTeachers } from '@/hooks/index'
 import { ProgramsContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
@@ -86,6 +86,7 @@ const Teachers = ({
 }) => {
   const at = useAt()
   const router = useRouter()
+  const contactInfo = contactData()
   const defaultTeachers = useDefaultTeachers()
 
   const { programs } = useContext(ProgramsContext)
@@ -425,7 +426,8 @@ const Teachers = ({
           <ul
             className={cn({
               [stls.teachersList]: true,
-              [stls.teachersListProfession]: at.profession || at.course
+              [stls.teachersListProfession]: at.profession || at.course,
+              [stls.teachersListEmpty]: UITeachers?.length === 0
             })}>
             {UITeachers?.length > 0 &&
               UITeachers.map((teacher, idx) => (
@@ -464,7 +466,22 @@ const Teachers = ({
                 </li>
               ))}
           </ul>
-          {UITeachers?.length === 0 && (
+          {UITeachers?.length === 0 && searchTerm && (
+            <div className={stls.nothingFound}>
+              <h3 className={stls.nothingFoundTitle}>Ничего не найдено</h3>
+              <p className={stls.nothingFoundP}>
+                Возможно, вы неправильно ввели запрос, свяжитесь со
+                специалистами приемной комиссии по&nbsp;номеру{' '}
+                <a
+                  className={stls.nothingFoundLink}
+                  href={contactInfo.ru.tels[0].href}>
+                  {contactInfo.ru.tels[0].val}
+                </a>
+                , они вам помогут!
+              </p>
+            </div>
+          )}
+          {UITeachers?.length === 0 && !searchTerm && (
             <div className={stls.getAllTeachers}>
               <h3 className={stls.getAllTeachersTitle}>
                 Получите полный список преподавателей
