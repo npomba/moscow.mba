@@ -12,6 +12,7 @@ import {
   SectionCorporateClientsAnyIndustry,
   SectionCorporateClientsSolutions,
   SectionCorporateClientsStudyDuration,
+  SectionCorporateClientsStudyFormats,
   CorporateClients,
   Diploma,
   Qna
@@ -45,6 +46,7 @@ const PageCorporateClients: NextPage<TypePageHomeProps> = ({ programs }) => {
       <SectionCorporateClientsAnyIndustry />
       <SectionCorporateClientsSolutions />
       <SectionCorporateClientsStudyDuration />
+      <SectionCorporateClientsStudyFormats />
       <Diploma />
       <CorporateClients />
       <Qna

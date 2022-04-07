@@ -8,8 +8,6 @@
     margin-top: f.px(60)
   @include m.media(laptop, desktop, widescreen)
     margin-top: f.px(138)
-  border-bottom: 1px solid 
-  @include m.dye(borderc, c.$nu)
 
 .wrapper
   position: relative
@@ -17,20 +15,6 @@
     padding-bottom: f.px(60)
   @include m.media(laptop, desktop, widescreen)
     padding-bottom: f.px(130)
-  &::after
-    content: ''
-    position: absolute
-    bottom: -1px
-    left: 0
-    @include m.media(phone, tablet)
-      min-width: 20%
-      max-width: 20%
-    @include m.media(laptop, desktop, widescreen)
-      min-width: 13%
-      max-width: 13%
-    min-height: 2px
-    max-height: 2px
-    @include m.dye(bgc, c.$alpha)
 
 .title
   margin: 0
@@ -47,6 +31,8 @@
   padding: 0
   @include m.media(phone, tablet)
     margin-top: f.px(40)
+  @include m.media(laptop)
+    flex-wrap: wrap
   @include m.media(laptop, desktop, widescreen)
     display: flex
     margin-top: f.px(60)
@@ -62,7 +48,21 @@
       border-bottom: 1px solid
       @include m.dye(borderc, c.$nu)
     @include m.dye(borderc, c.$nu)
-  @include m.media(laptop, desktop, widescreen)
+  @include m.media(laptop)
+    flex-direction: column
+    flex-basis: 50%
+    padding: f.px(40)
+    &:nth-child(1),
+    &:nth-child(2)
+      border-top: 1px solid
+      @include m.dye(borderc, c.$nu)
+    border-bottom: 1px solid
+    border-left: 1px solid
+    @include m.dye(borderc, c.$nu)
+    &:nth-child(even)
+      border-right: 1px solid
+      @include m.dye(borderc, c.$nu)
+  @include m.media(desktop, widescreen)
     flex-direction: column
     padding: f.px(40)
     border-top: 1px solid
