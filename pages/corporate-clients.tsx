@@ -14,8 +14,9 @@ import {
   SectionCorporateClientsStudyDuration,
   SectionCorporateClientsStudyFormats,
   SectionCorporateClientsCta,
-  CorporateClients,
   Diploma,
+  SectionCorporateClientsWhyUs,
+  CorporateClients,
   Qna
 } from '@/components/sections'
 
@@ -53,6 +54,7 @@ const PageCorporateClients: NextPage<TypePageHomeProps> = ({ programs }) => {
         programTitle={'Корпоративное обучение для бизнеса'}
       />
       <Diploma />
+      <SectionCorporateClientsWhyUs />
       <CorporateClients />
       <Qna
         programId={programId}

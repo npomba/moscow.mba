@@ -12,6 +12,7 @@ const useAt = () => {
   return {
     index: getSplitedPath[0] === undefined,
     about: getSplitedPath[0] === 'about',
+    corporateClients: getSplitedPath[0] === 'corporate-clients',
     teachers: getSplitedPath[0] === 'teachers',
     teachersTeacher:
       getSplitedPath[0] === 'teachers' && (!!getSplitedPath?.[1] || false),
