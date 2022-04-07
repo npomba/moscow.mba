@@ -1,8 +1,16 @@
 import stls from '@/styles/components/icons/IconCheckCircleAlt.module.sass'
+import { TypeClassNames } from '@/types/index'
+import cn from 'classnames'
+import { getClassNames } from '@/helpers/index'
 
-const IconCheckCircleAlt = () => {
+type TypeIconCheckCircleAltProps = TypeClassNames
+
+const IconCheckCircleAlt = ({ classNames }: TypeIconCheckCircleAltProps) => {
   return (
-    <div className={stls.container}>
+    <div
+      className={
+        cn(stls.container, getClassNames({ classNames })) || undefined
+      }>
       <svg
         width='33'
         height='33'

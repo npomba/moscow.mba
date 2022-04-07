@@ -11,6 +11,7 @@ import {
   SectionCorporateClientsHero,
   SectionCorporateClientsAnyIndustry,
   SectionCorporateClientsSolutions,
+  SectionCorporateClientsStudyDuration,
   CorporateClients,
   Diploma,
   Qna
@@ -43,6 +44,7 @@ const PageCorporateClients: NextPage<TypePageHomeProps> = ({ programs }) => {
       <SectionCorporateClientsHero programId={programId} />
       <SectionCorporateClientsAnyIndustry />
       <SectionCorporateClientsSolutions />
+      <SectionCorporateClientsStudyDuration />
       <Diploma />
       <CorporateClients />
       <Qna

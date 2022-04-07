@@ -1,8 +1,16 @@
 import stls from '@/styles/components/icons/IconCheck.module.sass'
+import { TypeClassNames } from '@/types/index'
+import cn from 'classnames'
+import { getClassNames } from '@/helpers/index'
 
-const IconCheck = ({ stroke = '#fff' }) => {
+type TypeIconCheck = TypeClassNames & { stroke?: string }
+
+const IconCheck = ({ stroke = '#fff', classNames }: TypeIconCheck) => {
   return (
-    <div className={stls.container}>
+    <div
+      className={
+        cn(stls.container, getClassNames({ classNames })) || undefined
+      }>
       <svg viewBox='0 0 29 22' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <title>Галочка</title>
         <path

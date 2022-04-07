@@ -5,9 +5,9 @@
 
 .container
   @include m.media(phone, tablet)
-    padding-top: f.px(0)
+    margin-top: f.px(60)
   @include m.media(laptop, desktop, widescreen)
-    padding-top: f.px(33)
+    margin-top: f.px(138)
   border-bottom: 1px solid 
   @include m.dye(borderc, c.$nu)
 
@@ -34,11 +34,10 @@
 
 .title
   margin: 0
-  max-width: 21ch
   @include m.media(phone, tablet)
-    font-size: f.px(32)
+    font-size: f.px(28)
   @include m.media(laptop, desktop, widescreen)
-    font-size: f.px(48)
+    font-size: f.px(36)
   font-weight: 700
   line-height: 120%
   @include m.dye(c, c.$chi)
@@ -49,75 +48,73 @@
   @include m.media(phone, tablet)
     margin-top: f.px(40)
   @include m.media(laptop, desktop, widescreen)
+    display: flex
     margin-top: f.px(60)
 
 .listItem
+  display: flex
   @include m.media(phone, tablet)
-    & + .listItem
-      margin-top: f.px(40)
-  @include m.media(laptop, desktop, widescreen)
-    display: flex
-    justify-content: space-between
-    & + .listItem
-      margin-top: f.px(60)
-
-.left
-  @include m.media(laptop, desktop, widescreen)
-    flex-basis: 50%
-    padding-right: 7%
-
-.right
-  @include m.media(phone, tablet)
-    margin-top: f.px(20)
-    padding-top: f.px(20)
+    padding: f.px(30) f.px(17)
     border-top: 1px solid
-    @include m.dye(borderc, c.$alpha)
-  @include m.media(laptop, desktop, widescreen)
-    flex-basis: 50%
-    padding-left: 7%
+    border-right: 1px solid
     border-left: 1px solid
-    @include m.dye(borderc, c.$alpha)
+    &:nth-last-child(1)
+      border-bottom: 1px solid
+      @include m.dye(borderc, c.$nu)
+    @include m.dye(borderc, c.$nu)
+  @include m.media(laptop, desktop, widescreen)
+    flex-direction: column
+    padding: f.px(40)
+    border-top: 1px solid
+    border-bottom: 1px solid
+    border-left: 1px solid
+    @include m.dye(borderc, c.$nu)
+    &:nth-child(even)
+      border-right: 1px solid
+      @include m.dye(borderc, c.$nu)
 
-.leftTitle
-  margin: 0
+.icon
+  display: flex
+  justify-content: center
+  align-items: center
   @include m.media(phone, tablet)
-    font-size: f.px(15)
+    min-width: f.px(40)
+    max-width: f.px(40)
+    min-height: f.px(40)
+    max-height: f.px(40)
+    margin-right: f.px(21)
+    & > *
+      max-width: f.px(18)
+  @include m.media(laptop, desktop, widescreen)
+    min-width: f.px(57)
+    max-width: f.px(57)
+    min-height: f.px(57)
+    max-height: f.px(57)
+    & > *
+      max-width: f.px(26)
+  border-radius: 50%
+  @include m.dye(bgc, c.$alpha)
+
+.listItemTitle
+  @include m.media(phone, tablet)
+    font-size: f.px(18)
   @include m.media(laptop, desktop, widescreen)
     font-size: f.px(24)
+    margin-top: f.px(60)
   font-weight: 500
   line-height: 120%
   @include m.dye(c, c.$chi)
 
-.content
-  margin: 0
-  margin-top: f.px(10)
+.listItemContent
   @include m.media(phone, tablet)
+    margin-top: f.px(5)
     font-size: f.px(15)
-    line-height: 130%
-    @include m.dye(c, c.$chi)
   @include m.media(laptop, desktop, widescreen)
-    font-size: f.px(20)
-    line-height: 120%
+    margin-top: f.px(10)
+    font-size: f.px(16)
   font-weight: 300
-
-.rightTitle
-  margin: 0
-  @include m.media(phone, tablet)
-    font-size: f.px(15)
-  @include m.media(laptop, desktop, widescreen)
-    font-size: f.px(24)
-  font-weight: 500
   line-height: 120%
-  @include m.dye(c, c.$alpha)
+  @include m.dye(c, c.$chi)
 
-.content2
-  margin: 0
-  margin-top: f.px(10)
-  @include m.media(phone, tablet)
-    font-size: f.px(15)
-    line-height: 130%
-    @include m.dye(c, c.$chi)
-  @include m.media(laptop, desktop, widescreen)
-    font-size: f.px(20)
-    line-height: 120%
-  font-weight: 300
+.highlight
+  font-weight: 500
