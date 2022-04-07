@@ -12,11 +12,18 @@ const SectionCorporateClientsSolutions = ({
   const list = [
     {
       title: 'Готовые программы обучения',
-      content:
-        'Оперативно зачислим ваших сотрудников на уже сформированные программы без временных затрат на кастомизацию',
+      content: (
+        <>
+          Оперативно зачислим ваших сотрудников на уже сформированные программы
+          без временных затрат на кастомизацию
+        </>
+      ),
       title2: 'Более 100 программ',
-      content2:
-        'На которые можно зачислить сотрудников в течение нескольких дней'
+      content2: (
+        <>
+          На которые можно зачислить сотрудников в&nbsp;течение нескольких дней
+        </>
+      )
     },
     {
       title: 'Кастомизация готовых программ',
@@ -27,12 +34,20 @@ const SectionCorporateClientsSolutions = ({
         'Добавим нужные задания, спикеров и разработаем дополнительные модули'
     },
     {
-      title: 'Разработка программ с 0',
-      content:
-        'Разработаем программы обучения любого формата с учётом особенностей бизнеса и ваших целей',
+      title: <>Разработка программ с&nbsp;0</>,
+      content: (
+        <>
+          Разработаем программы обучения любого формата с&nbsp;учётом
+          особенностей бизнеса и ваших целей
+        </>
+      ),
       title2: 'Максимум эффективности',
-      content2:
-        'Подберем лучших спикеров вашего рынка и индивидуальную траекторию обучения'
+      content2: (
+        <>
+          Подберем лучших спикеров вашего рынка и&nbsp;индивидуальную траекторию
+          обучения
+        </>
+      )
     }
   ]
 
@@ -41,7 +56,7 @@ const SectionCorporateClientsSolutions = ({
       className={
         cn(stls.container, getClassNames({ classNames })) || undefined
       }>
-      <Wrapper column>
+      <Wrapper column classNames={[stls.wrapper]}>
         <h2 className={stls.title}>
           Какие образовательные решения мы&nbsp;можем предложить
         </h2>
@@ -49,11 +64,11 @@ const SectionCorporateClientsSolutions = ({
           {list.map((item, idx) => (
             <li key={`${item.title}-${idx}`} className={stls.listItem}>
               <div className={stls.left}>
-                <h3 className={stls.title}>{item.title}</h3>
+                <h3 className={stls.leftTitle}>{item.title}</h3>
                 <p className={stls.content}>{item.content}</p>
               </div>
               <div className={stls.right}>
-                <h4 className={stls.content2}>{item.title2}</h4>
+                <h4 className={stls.rightTitle}>{item.title2}</h4>
                 <p className={stls.content2}>{item.content2}</p>
               </div>
             </li>
