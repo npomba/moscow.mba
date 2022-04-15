@@ -1,4 +1,7 @@
 // ./corporateClients
+export { default as ImgCorporateClientEcicelLogo } from '@/components/images/corporateClients/ImgCorporateClientEcicelLogo'
+export { default as ImgCorporateClientLicenseLogo } from '@/components/images/corporateClients/ImgCorporateClientLicenseLogo'
+export { default as ImgCorporateClientRaboLogo } from '@/components/images/corporateClients/ImgCorporateClientRaboLogo'
 export { default as ImgCorporateClientsAnyIndustry } from '@/components/images/corporateClients/ImgCorporateClientsAnyIndustry'
 export { default as ImgCorporateClientsBg } from '@/components/images/corporateClients/ImgCorporateClientsBg'
 

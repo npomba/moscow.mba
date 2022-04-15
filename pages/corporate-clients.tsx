@@ -7,6 +7,7 @@ import truncate from 'truncate'
 import { routesFront, companyName } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { usePageHandleContext, useAt } from '@/hooks/index'
+import { Wrapper } from '@/components/layout'
 import {
   SectionCorporateClientsHero,
   SectionCorporateClientsAnyIndustry,
@@ -16,7 +17,9 @@ import {
   SectionCorporateClientsCta,
   Diploma,
   SectionCorporateClientsWhyUs,
+  ContactUs,
   CorporateClients,
+  SectionCorporateClientsAccreditations,
   Qna
 } from '@/components/sections'
 
@@ -55,7 +58,22 @@ const PageCorporateClients: NextPage<TypePageHomeProps> = ({ programs }) => {
       />
       <Diploma />
       <SectionCorporateClientsWhyUs />
+      <ContactUs
+        title={'Возможно учиться в рассрочку на 12 месяцев без переплат'}
+        programId={programId}
+        programTitle={'Корпоративное обучение для бизнеса'}
+        titleMaxWidth='half'
+      />
       <CorporateClients />
+      <SectionCorporateClientsAccreditations />
+      <Wrapper column classNames={[stls.SectionCorporateClientsCta2Wrapper]}>
+        <SectionCorporateClientsCta
+          classNames={[stls.SectionCorporateClientsCta2]}
+          programId={programId}
+          programTitle={'Корпоративное обучение для бизнеса'}
+          cvariant='alpha'
+        />
+      </Wrapper>
       <Qna
         programId={programId}
         programTitle={'Корпоративное обучение для бизнеса'}

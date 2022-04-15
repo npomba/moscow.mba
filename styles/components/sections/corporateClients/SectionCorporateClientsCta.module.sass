@@ -27,6 +27,8 @@
   @include m.media(desktop, widescreen)
     align-items: center
   @include m.dye(bgc, c.$chi)
+  &.cvariant
+    @include m.dye(bgc, c.$alpha)
 
 .title
   margin: 0

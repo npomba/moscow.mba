@@ -11,12 +11,14 @@ import { BtnAlpha } from '@/components/btns'
 type SectionCorporateClientsCtaProps = TypeClassNames & {
   programId: string
   programTitle: string
+  cvariant?: 'alpha'
 }
 
 const SectionCorporateClientsCta = ({
   classNames,
   programId,
-  programTitle
+  programTitle,
+  cvariant = 'alpha'
 }: SectionCorporateClientsCtaProps) => {
   return (
     <section
@@ -24,7 +26,10 @@ const SectionCorporateClientsCta = ({
         cn(stls.container, getClassNames({ classNames })) || undefined
       }>
       <Wrapper column>
-        <div className={stls.content}>
+        <div
+          className={cn(stls.content, {
+            [stls.cvariant]: cvariant === 'alpha'
+          })}>
           <h2 className={stls.title}>
             Если вы не нашли подходящее решение, оставьте заявку, и мы подберем
             для вас курсы или&nbsp;программу

@@ -1,3 +1,20 @@
 @use '@/styles/utils/mixin' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
+
+.SectionCorporateClientsCta2Wrapper
+  position: relative
+  padding: 0
+
+.SectionCorporateClientsCta2
+  position: absolute
+  @include m.media(phone)
+    top: f.px(-450)
+  @include m.media(tablet)
+    top: f.px(-440)
+  @include m.media(laptop)
+    top: f.px(-455)
+  @include m.media(desktop)
+    top: f.px(-420)
+  @include m.media(widescreen)
+    top: f.px(-380)

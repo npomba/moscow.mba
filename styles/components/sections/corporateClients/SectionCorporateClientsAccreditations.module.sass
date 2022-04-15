@@ -1,0 +1,93 @@
+@use "sass:math"
+@use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+
+.container
+  @include m.media(phone, tablet)
+    margin-bottom: f.px(379)
+    padding-top: f.px(80)
+    padding-bottom: f.px(120)
+  @include m.media(laptop, desktop, widescreen)
+    margin-bottom: f.px(254)
+    padding-top: f.px(130)
+    padding-bottom: f.px(253)
+  @include m.dye(bgc, c.$xi)
+
+.title
+  margin: 0
+  @include m.media(phone, tablet)
+    font-size: f.px(32)
+  @include m.media(laptop, desktop, widescreen)
+    font-size: f.px(48)
+  font-weight: 700
+  line-height: 120%
+  @include m.dye(c, c.$psi)
+
+.underTitle
+  margin: 0
+  @include m.media(phone, tablet)
+    margin-top: f.px(10)
+    font-size: f.px(15)
+    line-height: 130%
+  @include m.media(laptop, desktop, widescreen)
+    max-width: 65ch
+    margin-top: f.px(15)
+    font-size: f.px(16)
+    line-height: 120%
+  font-weight: 300
+  @include m.dye(c, c.$kappa)
+
+.list
+  margin: 0
+  padding: 0
+  @include m.media(phone, tablet)
+    margin-top: f.px(30)
+  @include m.media(laptop, desktop, widescreen)
+    display: flex
+    flex-wrap: wrap
+    margin-top: f.px(60)
+
+$listItem_dw_ml: 2.3%
+.listItem
+  display: flex
+  border: 1px solid
+  @include m.dye(borderc, c.$kappa)
+  @include m.media(phone, tablet, laptop)
+    flex-grow: 1
+    flex-direction: column
+    padding: f.px(30)
+    & + .listItem
+      margin-top: f.px(30)
+  @include m.media(desktop, widescreen)
+    align-items: center
+    flex-basis: math.div(100% - $listItem_dw_ml * 1, 2)
+    padding: f.px(42) f.px(30)
+    &:nth-child(n + 3)
+      margin-top: f.px(30)
+    &:nth-child(even)
+      margin-left: $listItem_dw_ml
+
+.img
+  @include m.media(phone, tablet, laptop)
+    margin-bottom: f.px(20)
+  @include m.media(desktop, widescreen)
+    margin-right: f.px(21)
+
+.ImgCorporateClientRaboLogo
+  min-width: f.px(144)
+
+.ImgCorporateClientEcicelLogo
+  min-width: f.px(114)
+
+.ImgCorporateClientLicenseLogo
+  min-width: f.px(52)
+
+.listItemTitle
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+  @include m.media(laptop, desktop, widescreen)
+    font-size: f.px(20)
+  font-weight: 400
+  line-height: 120%
+  @include m.dye(c, c.$psi)

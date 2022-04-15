@@ -1,10 +1,20 @@
 import stls from '@/styles/components/sections/ContactUs.module.sass'
 import cn from 'classnames'
-import { useState } from 'react'
+import { ReactNode, useState } from 'react'
 import { useAt } from '@/hooks/index'
 import { LeadLoaderThankyou } from '@/components/general'
 import { FormAlpha } from '@/components/forms'
 import { Wrapper } from '@/components/layout'
+
+type TContactUsProps = {
+  programTitle?: string | ReactNode
+  programId?: string
+  title?: string | ReactNode
+  titleNewStr?: string | ReactNode
+  desc?: string | ReactNode
+  overlapsFooter?: boolean
+  titleMaxWidth?: 'half'
+}
 
 const ContactUs = ({
   programTitle = null,
@@ -12,8 +22,9 @@ const ContactUs = ({
   title = null,
   titleNewStr = null,
   desc = null,
-  overlapsFooter = false
-}) => {
+  overlapsFooter = false,
+  titleMaxWidth
+}: TContactUsProps) => {
   const at = useAt()
 
   if (!title) title = at.en ? 'Contact us to get help' : 'Поможем в выборе'
@@ -42,7 +53,10 @@ const ContactUs = ({
           programId={programId}
           programTitle={programTitle}
         />
-        <h2 className={stls.title}>
+        <h2
+          className={cn(stls.title, {
+            [stls.titleMaxWidthHalf]: titleMaxWidth === 'half'
+          })}>
           {title}
           {titleNewStr && (
             <>
