@@ -1257,10 +1257,3 @@ html #nprogress .spinner-icon {
 .dblock {
   display: block;
 }
-
-.searchField_popup-content {
-  @include m.media(tablet, phone) {
-    top: 0px !important;
-    margin: 0 !important;
-  }
-}

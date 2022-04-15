@@ -1,127 +1,186 @@
 @use '@/styles/utils/mixin' as m
 @use '@/styles/utils/funcs' as f
-
-.trigger
-  display: flex
-  align-items: center
-  margin-bottom: 30px
-  border-bottom: 1px solid #000
-  max-width: 296px
-
-.icon
-  width: 20px
-  height: 20px
+@use '@/styles/themes/default/colors' as c
 
 .btn
-  background-color: #00000000
-  cursor: pointer
-  border: none
-  padding: 5px 0 5px 12px
-  font-size: 20px
-  &::placeholder
-    color: #000
-    opacity: 1
-
-.container
-  width: 1285px
-  max-height: 80vh
-  overflow: auto
-  background-color: #fff
-  @include m.media( tablet, phone)
-    max-height: 100vh
-  @include m.media(desktop, laptop, tablet, phone)
-    width: 100vw
-    margin: -15px
-  &::-webkit-scrollbar
-    -webkit-appearance: none
-    width: 3px
-  &::-webkit-scrollbar-thumb
-    border-radius: 2px
-    background-color: #FF3535
-    &:hover
-      background-color: #cccc
-
-.search
   display: flex
   align-items: center
-  .icon
-    width: 29px
-    height: 29px
-  @include m.media(tablet, phone)
-    padding: 30px 15px
-  @include m.media(widescreen, desktop, laptop)
-    padding: 42px 47px 35px 42px
+  min-width: 100%
+  max-width: 100%
+  margin: 0
+  padding: 0
+  border: 0
+  border-bottom: 1px solid
+  @include m.dye(borderc, c.$omega)
+  font-family: 'Styrene', sans-serif
+  @include m.media(phone, tablet)
+    margin-bottom: f.px(35)
+    padding-top: f.px(7)
+    padding-bottom: f.px(7)
+    font-size: f.px(16)
+    line-height: f.px(20)
+  @include m.media(laptop, desktop, widescreen)
+    margin-bottom: f.px(40)
+    padding-top: f.px(10)
+    padding-bottom: f.px(10)
+    font-size: f.px(20)
+    line-height: f.px(26)
+  font-weight: 400
+  &::first-letter
+    text-transform: capitalize
+  @include m.dye(c, c.$omega)
+  background: none
 
+.iconSearchAtBtn
+  @include m.media(phone, tablet)
+    max-width: f.px(17)
+  @include m.media(laptop, desktop, widescreen)
+    max-width: f.px(22)
+  margin-right: f.px(9)
 
-.cross
-  cursor: pointer
-  width: 24px
-  height: 24px
-  svg
-    width: 24px
-    height: 24px
+.wrapper
+  position: relative
+  padding: 0
+  @include m.dye(bgc, c.$psi)
+
+.iconCloseBtn
+  position: absolute
+  top: 50%
+  right: f.px(18)
+  transform: translateY(-50%)
+
+.iconClose
+  display: flex
+  min-width: f.px(24)
+  max-width: f.px(24)
+  & > svg
+    min-width: 100%
+    max-width: 100%
+
+.inputGroup
+  position: relative
+  display: flex
+  align-items: center
+
+.iconSearchAtInput
+  position: absolute
+  top: 50%
+  left: f.px(40)
+  transform: translateY(-50%)
+  pointer-events: none
+  @include m.media(phone, tablet)
+    min-width: f.px(18)
+    max-width: f.px(18)
+  @include m.media(laptop, desktop, widescreen)
+    min-width: f.px(24)
+    max-width: f.px(24)
 
 .input
-  width: 100%
-  margin-bottom: 0
-  border: none
+  display: flex
+  flex-grow: 1
+  margin: 0
+  padding: 0
+  border: 0
+  border-bottom: 1px solid
+  @include m.dye(borderc, rgba(c.$chi, .1))
+  padding-top: f.px(30)
+  padding-right: f.px(40 + 24 + 40)
+  padding-bottom: f.px(30)
+  padding-left: f.px(40 + 24 + 40)
   outline: none
-  font-weight: normal
-  font-size: 20px
+  font-family: 'Styrene'
+  font-size: f.px(20)
+  font-weight: 500
   line-height: 120%
-  color: #000
-  margin-left: 20px
+  @include m.dye(c, c.$chi)
   &::placeholder
-    color: #000
-    opacity: 1
+    font-weight: 300
+    @include m.dye(c, c.$omicron)
+
+.label
+  display: flex
+  @include m.dye(c, c.$omega)
 
 .list
-  border: 1px solid #F7F7F7
-  padding: 0px 44px
-  @include m.media(tablet, phone)
-    padding: 0px 15px
+  margin: 0
+  padding: 0
+  max-height: 80vh
+  overflow-y: auto
+  &::-webkit-scrollbar
+    width: f.px(3)
+  &::-webkit-scrollbar-thumb
+    border-radius: f.px(2)
+    @include m.dye(bgc, c.$alpha)
 
-.item
-  padding: 20px 0
-  border-bottom: 1px solid #F7F7F7
-  font-weight: 300
-  font-size: 20px
-  line-height: 120%
-
-.link
+.listItem
   display: flex
-  justify-content: space-between
   align-items: center
-  color: #000
-  &:hover
-    transition: color .3s ease-in-out
-    color: #FF3535
-    .format
-      border-color: #FF3535
+  justify-content: space-between
+  & + .listItem
+    border-top: 1px solid
+    @include m.dye(borderc, rgba(c.$chi, .1))
 
-.strong
-  font-weight: 800
+.listItemLink
+  display: flex
+  align-items: center
+  justify-content: space-between
+  flex-grow: 1
+  padding-top: f.px(20)
+  padding-right: f.px(40)
+  padding-bottom: f.px(20)
+  padding-left: f.px(40)
+  @include m.media(laptop, desktop, widescreen)
+    &:hover
+      & .p
+        @include m.dye(c, c.$alpha)
+      & .label
+        @include m.dye(c, c.$alpha)
+        @include m.dye(borderc, c.$alpha)
 
-.format
-  padding: 10px 20px
-  border: 1px solid #000
-  border-radius: 80px
+.p
+  font-size: f.px(20)
+  font-weight: 300
+  line-height: 120%
+  transition: color .15s ease-in-out
+  @include m.dye(c, c.$chi)
+  &::first-letter
+    text-transform: capitalize
 
-.form
+.label
+  padding-top: f.px(13)
+  padding-right: f.px(30)
+  padding-bottom: f.px(13)
+  padding-left: f.px(30)
+  border-radius: f.px(80)
+  border: 1px solid
+  @include m.dye(borderc, c.$chi)
+  font-size: f.px(12)
+  font-weight: 400
+  letter-spacing: 0.1em
+  text-transform: uppercase
+  transition: color .15s ease-in-out, border-color .15s ease-in-out
+  @include m.dye(c, c.$chi)
+
+.highlight
+  font-weight: 500
+
+// TODO: review styles below
+
+.formAlphaContainer
   width: 100%
   @include m.media(tablet, phone)
     padding: 30px 15px
   @include m.media(widescreen, desktop, laptop)
     padding: 40px
 
-.title
+.formAlphaTitle
   margin-bottom: 20px
   font-weight: 500
   font-size: 24px
   line-height: 120%
   color: #262626
 
-.text
+.formAlphaText
   font-weight: 300
   font-size: 20px
   line-height: 120%
@@ -132,7 +191,7 @@
     font-size: 20px
     margin-bottom: 52px
 
-.content
+.formAlpha
   display: flex
   @include m.media(tablet, phone)
     flex-wrap: nowrap
@@ -154,4 +213,3 @@
     width: 100%
     background-color: #FF3535!important
     color: #fff!important
-
