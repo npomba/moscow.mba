@@ -18,6 +18,7 @@ import {
   Diploma,
   SectionCorporateClientsWhyUs,
   ContactUs,
+  SectionCorporateClientsWeAre,
   CorporateClients,
   SectionCorporateClientsAccreditations,
   Qna
@@ -64,7 +65,8 @@ const PageCorporateClients: NextPage<TypePageHomeProps> = ({ programs }) => {
         programTitle={'Корпоративное обучение для бизнеса'}
         titleMaxWidth='half'
       />
-      <CorporateClients />
+      <SectionCorporateClientsWeAre />
+      <CorporateClients variant='page-corporate-clients' />
       <SectionCorporateClientsAccreditations />
       <Wrapper column classNames={[stls.SectionCorporateClientsCta2Wrapper]}>
         <SectionCorporateClientsCta

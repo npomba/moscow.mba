@@ -18,7 +18,7 @@ const SectionCorporateClientsCta = ({
   classNames,
   programId,
   programTitle,
-  cvariant = 'alpha'
+  cvariant
 }: SectionCorporateClientsCtaProps) => {
   return (
     <section

@@ -5,7 +5,15 @@ import { useAt } from '@/hooks/index'
 import { base64pixel } from '@/config/index'
 import { Wrapper } from '@/components/layout'
 
-const CorporateClients = ({ partnershipTitle = false }) => {
+type TCorporateClients = {
+  variant?: 'page-corporate-clients'
+  partnershipTitle?: boolean
+}
+
+const CorporateClients = ({
+  variant,
+  partnershipTitle = false
+}: TCorporateClients) => {
   const at = useAt()
 
   const title = partnershipTitle ? (
@@ -20,11 +28,13 @@ const CorporateClients = ({ partnershipTitle = false }) => {
         {at.en ? 'Corporate' : 'Корпоративные'} <br />
         {at.en ? 'clients in Russia' : 'клиенты в России'}
       </h2>
-      <p>
-        {at.en
-          ? "Our experts' experience is used by many leading companies in Russia and CIS. Nevertheless it's valuable not only for large-scale, but also for startups and medium-scale companies"
-          : 'Опыт наших экспертов используют многие ведущие компании России и стран СНГ. Наш опыт будет полезен не только гигантам промышленной, добывающей индустрии, крупным сетевикам, но и среднему и малому бизнесу'}
-      </p>
+      {variant !== 'page-corporate-clients' && (
+        <p>
+          {at.en
+            ? "Our experts' experience is used by many leading companies in Russia and CIS. Nevertheless it's valuable not only for large-scale, but also for startups and medium-scale companies"
+            : 'Опыт наших экспертов используют многие ведущие компании России и стран СНГ. Наш опыт будет полезен не только гигантам промышленной, добывающей индустрии, крупным сетевикам, но и среднему и малому бизнесу'}
+        </p>
+      )}
     </>
   )
 
@@ -33,7 +43,9 @@ const CorporateClients = ({ partnershipTitle = false }) => {
       <Wrapper classNames={[stls.wrapper]}>
         <div
           className={cn(stls.titleContainer, {
-            [stls.noPaddingLeft]: partnershipTitle
+            [stls.noPaddingLeft]: partnershipTitle,
+            [stls.variantPageCorporateClients]:
+              variant === 'page-corporate-clients'
           })}>
           <div className={stls.title}>{title}</div>
         </div>

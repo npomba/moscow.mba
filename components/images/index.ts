@@ -4,6 +4,9 @@ export { default as ImgCorporateClientLicenseLogo } from '@/components/images/co
 export { default as ImgCorporateClientRaboLogo } from '@/components/images/corporateClients/ImgCorporateClientRaboLogo'
 export { default as ImgCorporateClientsAnyIndustry } from '@/components/images/corporateClients/ImgCorporateClientsAnyIndustry'
 export { default as ImgCorporateClientsBg } from '@/components/images/corporateClients/ImgCorporateClientsBg'
+export { default as ImgCorporateClientStudentsAtPresentation } from '@/components/images/corporateClients/ImgCorporateClientStudentsAtPresentation'
+export { default as ImgCorporateClientStudentsMeeting } from '@/components/images/corporateClients/ImgCorporateClientStudentsMeeting'
+export { default as ImgCorporateClientStudentsTogether } from '@/components/images/corporateClients/ImgCorporateClientStudentsTogether'
 
 // ./general
 export { default as ImgLogoEcicel } from '@/components/images/general/ImgLogoEcicel'
