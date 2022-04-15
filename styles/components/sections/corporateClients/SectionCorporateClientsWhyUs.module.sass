@@ -20,6 +20,52 @@
   line-height: 120%
   @include m.dye(c, c.$chi)
 
+.list
+  @include m.media(phone, tablet)
+    margin-top: f.px(40)
+  @include m.media(laptop, desktop, widescreen)
+    margin-top: f.px(78)
+  @include m.media(desktop, widescreen)
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+
+$listItem_dw_ml: 2.4%
+.listItem
+  display: flex
+  @include m.media(phone, tablet, laptop)
+    & + .listItem
+      margin-top: f.px(30)
+  @include m.media(desktop, widescreen)
+    flex-basis: math.div(100% - $listItem_dw_ml * 1, 2)
+    &:nth-child(n + 3)
+      margin-top: f.px(30)
+    &:nth-child(even)
+      margin-left: $listItem_dw_ml
+
+.listItemTitle
+  margin: 0
+  @include m.media(phone, tablet)
+    font-size: f.px(20)
+    @include m.dye(c, c.$xi)
+  @include m.media(laptop, desktop, widescreen)
+    font-size: f.px(24)
+    @include m.dye(c, c.$chi)
+  font-weight: 500
+  line-height: 120%
+
+.listItemContent
+  margin: 0
+  margin-top: f.px(10)
+  @include m.media(phone, tablet)
+    font-size: f.px(15)
+    @include m.dye(c, c.$chi)
+  @include m.media(laptop, desktop, widescreen)
+    font-size: f.px(16)
+    @include m.dye(c, c.$chi)
+  font-weight: 300
+  line-height: 120%
+
 .icon
   display: flex
   justify-content: center

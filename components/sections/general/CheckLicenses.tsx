@@ -13,7 +13,7 @@ const CheckLicenses = () => {
           Проверьте действующие лицензии на сайте РОСОБРНАДЗОРА
         </h4>
         <a
-          href='https://islod.obrnadzor.gov.ru/rlic/details/0B100E0A-0A0B-110B-0D10-0E13110C0C111010110E/'
+          href='https://islod.obrnadzor.gov.ru/rlic/details/2df11621-2d30-4173-9389-2fecc24a7639/'
           target='_blank'
           rel='noreferrer'
           className={btnStyles.join(' ')}>
