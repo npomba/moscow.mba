@@ -72,7 +72,7 @@ const Accreditation = () => {
             )}
           </ul>
           <a
-            href='https://isga.obrnadzor.gov.ru/rlic/details/2df11621-2d30-4173-9389-2fecc24a7639/'
+            href='https://islod.obrnadzor.gov.ru/rlic/details/2df11621-2d30-4173-9389-2fecc24a7639/'
             target='_blank'
             rel='noopener noreferrer'
             className={stls.link}>

@@ -1,94 +1,101 @@
 import stls from '@/styles/components/general/SearchField.module.sass'
+import { useContext, useState, MouseEventHandler } from 'react'
+import Link from 'next/link'
+import Popup from 'reactjs-popup'
+import Highlighter from 'react-highlight-words'
+import { colors } from '@/config/index'
 import { ProgramsContext } from '@/context/index'
 import { useAt } from '@/hooks/index'
-import { useContext, useState } from 'react'
-import Popup from 'reactjs-popup'
-import Link from 'next/link'
-import { IconSearch, IconClose } from '@/components/icons'
-import { FormAlpha } from '@/components/forms'
 import { LeadLoaderThankyou } from '@/components/general'
+import { Wrapper } from '@/components/layout'
+import { FormAlpha } from '@/components/forms'
+import { IconSearch, IconClose } from '@/components/icons'
 
 const SearchField = () => {
   const at = useAt()
+
+  const { programs } = useContext(ProgramsContext)
+
+  const [searchTerm, setSearchTerm] = useState('')
+
   const [open, setOpen] = useState(false)
   const [openLoader, setOpenLoader] = useState(false)
 
-  const [value, setValue] = useState('')
-  const { filteredPrograms, setSearchProgram } = useContext(ProgramsContext)
+  const filteredPrograms = programs.filter(
+    program => searchTerm && program?.title?.toLowerCase().includes(searchTerm)
+  )
 
-  const handleSearch = () => setSearchProgram(value.toLowerCase())
+  console.log(filteredPrograms)
 
   return (
     <Popup
-      modal
-      className={'searchField_popup'}
-      onClose={() => close}
       trigger={() => (
-        <div>
-          <div className={stls.trigger}>
-            <div className={stls.icon}>
-              <IconSearch color={'#000'} />
-            </div>
-            <button className={stls.btn}>{value || 'Поиск'}</button>
-          </div>
-        </div>
-      )}>
-      {close => (
-        <div className={stls.container}>
-          <div>
-            <div className={stls.search}>
-              <div className={stls.icon}>
-                <IconSearch color={'#C4C4C4'} />
-              </div>
+        <button className={stls.btn}>
+          <IconSearch classNames={[stls.iconSearchAtBtn]} />{' '}
+          {searchTerm || 'Поиск'}
+        </button>
+      )}
+      modal
+      lockScroll
+      nested
+      closeOnDocumentClick
+      className='popup-SearchField'>
+      {(close: MouseEventHandler) => (
+        <div className={stls.popupContainer}>
+          <Wrapper column classNames={[stls.wrapper]}>
+            <div className={stls.inputGroup}>
+              <IconSearch
+                classNames={[stls.iconSearchAtInput]}
+                color={colors.omicron}
+              />{' '}
               <input
-                className={stls.input}
                 type='text'
-                value={value}
-                onChange={e => setValue(e.target.value)}
+                className={stls.input}
+                value={searchTerm}
                 placeholder={'Поиск'}
-                onKeyUp={handleSearch}
+                onChange={e => setSearchTerm(e.target.value.toLowerCase())}
               />
-              <span className={stls.cross} onClick={() => close()}>
-                <IconClose />
-              </span>
+              <a href='#!' onClick={close} className={stls.iconCloseBtn}>
+                <IconClose
+                  classNames={[stls.iconClose]}
+                  stroke={colors.omicron}
+                />
+              </a>
             </div>
-
             <ul className={stls.list}>
-              {filteredPrograms.map(el => {
-                return (
-                  <li key={el.id} className={stls.item}>
-                    <Link
-                      href={`/programs/${el.category?.slug}/${el.studyFormat}/${el.slug}`}>
-                      <a className={stls.link}>
-                        <span>
-                          {Array.from(el?.title).map((str: string) => {
-                            if (
-                              value.toLowerCase().includes(str.toLowerCase())
-                            ) {
-                              return <span className={stls.strong}>{str}</span>
-                            } else {
-                              return <span>{str}</span>
-                            }
-                          })}
-                        </span>
-                        <span className={stls.format}>
-                          {at.mini
-                            ? 'mini MBA'
-                            : at.mba
-                            ? 'MBA'
-                            : at.profession
-                            ? 'Профессии'
-                            : at.course
-                            ? 'Курсы'
-                            : ''}
-                        </span>
-                      </a>
-                    </Link>
-                  </li>
-                )
-              })}
+              {filteredPrograms.map((program, idx) => (
+                <li
+                  key={program?.id || `SearchField__filteredPrograms-${idx}`}
+                  className={stls.listItem}>
+                  <Link
+                    href={`/programs/${program?.category?.type}/${program?.studyFormat}/${program?.slug}`}>
+                    <a className={stls.listItemLink}>
+                      <p className={stls.p}>
+                        <Highlighter
+                          highlightClassName={stls.highlight}
+                          searchWords={[searchTerm]}
+                          autoEscape={true}
+                          highlightTag={'span'}
+                          textToHighlight={program?.title}
+                        />
+                      </p>
+                      <span className={stls.label}>
+                        {program?.category?.type === 'mini'
+                          ? 'Mini MBA'
+                          : program?.category?.type === 'profession'
+                          ? 'Профессия'
+                          : program?.category?.type === 'course'
+                          ? 'Курс'
+                          : program?.category?.type === 'executive'
+                          ? 'Executive MBA'
+                          : 'MBA'}
+                      </span>
+                    </a>
+                  </Link>
+                </li>
+              ))}
             </ul>
-            {filteredPrograms.length === 0 && value !== '' && (
+            {searchTerm && filteredPrograms.length === 0 && (
               <>
                 <LeadLoaderThankyou
                   open={open}
@@ -98,26 +105,26 @@ const SearchField = () => {
                   programId={null}
                   programTitle={null}
                 />
-                <div className={stls.form}>
-                  <p className={stls.title}>
+                <div className={stls.formAlphaContainer}>
+                  <p className={stls.formAlphaTitle}>
                     По Вашему запросу ничего не найдено
                   </p>
-                  <p className={stls.text}>
+                  <p className={stls.formAlphaText}>
                     Попробуйте ввести запрос по-другому или свяжитесь со
                     специалистом. Вам помогут подобрать нужное направление и
-                    ответят на вопросы.
+                    ответят на вопросы
                   </p>
                   <FormAlpha
                     programTitle={null}
                     setOpenLoader={setOpenLoader}
-                    setOpen={open}
-                    classNames={[stls.content]}
+                    setOpen={setOpen}
+                    classNames={[stls.formAlpha]}
                     globalStyle={false}
                   />
                 </div>
               </>
             )}
-          </div>
+          </Wrapper>
         </div>
       )}
     </Popup>
