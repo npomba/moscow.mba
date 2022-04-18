@@ -1,8 +1,8 @@
 import stls from '@/styles/components/btns/BtnAlpha.module.sass'
 import { TypeBtn } from '@/types/index'
+import Link from 'next/link'
 import cn from 'classnames'
 import { getClassNames } from '@/helpers/index'
-import Link from 'next/link'
 
 type TypeBtnAlphaProps = TypeBtn
 
@@ -11,6 +11,7 @@ const BtnAlpha = ({
   children,
   tag = 'button',
   href,
+  target,
   type,
   disabled,
   ariaLabel,
@@ -43,10 +44,14 @@ const BtnAlpha = ({
 
   const ParentElement = isLink ? Link : tag
   return (
+    // TODO: figure out the way to do this without ts expect error
+    // @ts-expect-error
     <ParentElement
       className={!isLink && container}
       type={type}
       href={href}
+      target={target}
+      rel={target === '_blank' ? 'noopener noreferrer' : undefined}
       scroll={isLink ? scroll : undefined}
       aria-label={ariaLabel}
       disabled={disabled}
