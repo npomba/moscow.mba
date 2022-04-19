@@ -5,6 +5,9 @@ const dev = process.env.NODE_ENV !== 'production'
 // module.exports = withPWA({})
 
 module.exports = {
+  // experimental: {
+  //   esmExternals: false
+  // },
   // pwa: {
   //   dest: 'public',
   //   disable: dev

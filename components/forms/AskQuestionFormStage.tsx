@@ -5,16 +5,24 @@ import TagManager from 'react-gtm-module'
 import { BtnContact } from '@/components/btns'
 import { v4 as uuidv4 } from 'uuid'
 import { useAt } from '@/hooks/index'
-import {
-  IconArrowLeft,
-  IconTelegram,
-  IconWhatsapp,
-  IconViber,
-  IconVk,
-  IconEmail,
-  IconCheck,
-  IconPhoneAlt
-} from '@/components/icons'
+// import {
+//   IconArrowLeft,
+//   IconTelegram,
+//   IconWhatsapp,
+//   IconViber,
+//   IconVk,
+//   IconEmail,
+//   IconCheck,
+//   IconPhoneAlt
+// } from '@/components/icons'
+import IconArrowLeft from '@/components/icons/IconArrowLeft'
+import IconTelegram from '@/components/icons/IconTelegram'
+import IconWhatsapp from '@/components/icons/IconWhatsapp'
+import IconViber from '@/components/icons/IconViber'
+import IconVk from '@/components/icons/IconVk'
+import IconEmail from '@/components/icons/IconEmail'
+import IconCheck from '@/components/icons/IconCheck'
+import IconPhoneAlt from '@/components/icons/IconPhoneAlt'
 
 // TODO: translate this whole file to EN with useAt
 
