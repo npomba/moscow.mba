@@ -109,7 +109,8 @@ const SectionStudyCost = ({ classNames }: TypeSectionStudyCostProps) => {
               </p>
             </div>
             <p className={stls.getStartedTodayP}>
-              Запишитесь на курс MBA сегодня:
+              Запишитесь на курс {!at.profession && !at.course && 'MBA'}{' '}
+              сегодня:
             </p>
             <div className={stls.loan}>
               <Loan
