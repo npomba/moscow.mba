@@ -35,6 +35,7 @@ const PopupInfo: React.FC<PopupInfoPropsType> = ({ title, content }) => {
             <IconInfoFRDO />
           </a>
         )}
+        closeOnDocumentClick
         position={'top right'}
         offsetX={-180}
         offsetY={35}

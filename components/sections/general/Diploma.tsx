@@ -49,7 +49,10 @@ const Diploma = ({ darkBackground = false }) => {
                 </a>
               }
               className='image-popup'
-              modal>
+              modal
+              lockScroll
+              nested
+              closeOnDocumentClick>
               {close => (
                 <PopupImage
                   closePopupImage={close}
@@ -85,7 +88,10 @@ const Diploma = ({ darkBackground = false }) => {
                 </a>
               }
               className='image-popup'
-              modal>
+              modal
+              lockScroll
+              nested
+              closeOnDocumentClick>
               {close => (
                 <PopupImage
                   closePopupImage={close}
@@ -123,7 +129,10 @@ const Diploma = ({ darkBackground = false }) => {
                 </a>
               }
               className='image-popup'
-              modal>
+              modal
+              lockScroll
+              nested
+              closeOnDocumentClick>
               {close => (
                 <PopupImage
                   closePopupImage={close}
@@ -159,7 +168,10 @@ const Diploma = ({ darkBackground = false }) => {
                 </a>
               }
               className='image-popup'
-              modal>
+              modal
+              lockScroll
+              nested
+              closeOnDocumentClick>
               {close => (
                 <PopupImage
                   closePopupImage={close}

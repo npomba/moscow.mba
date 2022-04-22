@@ -261,7 +261,9 @@ const CostOfStudy = ({
               <Popup
                 trigger={<a className={stls.button}>Оставить заявку</a>}
                 modal
-                nested>
+                lockScroll
+                nested
+                closeOnDocumentClick>
                 {close => (
                   <PopupForm
                     programId={programId}

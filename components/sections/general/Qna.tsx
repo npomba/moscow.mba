@@ -123,7 +123,9 @@ const Qna = ({ programId, programTitle }) => {
             <Popup
               trigger={<a className={stls.button}>Задать вопрос</a>}
               modal
-              nested>
+              lockScroll
+              nested
+              closeOnDocumentClick>
               {close => (
                 <PopupForm
                   programId={programId}

@@ -1,10 +1,13 @@
 @use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
 
 .filters
   position: relative
   z-index: 2
-  min-width: 300px
   margin-bottom: 30px
+  @include m.media(desktop, widescreen)
+    min-width: f.px(296)
+    max-width: f.px(296)
   @include m.media(widescreen)
     margin-right: 61px
   @include m.media(desktop)
@@ -28,9 +31,6 @@
 .content
   display: flex
   flex-direction: column
-
-
-
   & a
     display: flex
     align-items: center

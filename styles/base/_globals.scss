@@ -7,6 +7,7 @@ $red: #ff3535;
 $transition: all 0.3s ease-out;
 
 @use '@/styles/utils/mixin' as m;
+@use '@/styles/utils/funcs' as f;
 
 *,
 *:before,
@@ -486,7 +487,10 @@ h2 {
     border-radius: 0;
     border: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.7);
-
+    &:focus-visible {
+      outline: none;
+      border-width: 2px;
+    }
     &.texted {
       & ~ .input-placeholder {
         top: 0;
@@ -1256,4 +1260,21 @@ html #nprogress .spinner-icon {
 
 .dblock {
   display: block;
+}
+
+.popup-SearchField-overlay {
+}
+
+.popup-SearchField-content {
+  align-self: flex-start;
+  @include m.media(phone, tablet) {
+    margin-top: f.px(60) !important;
+  }
+  @include m.media(laptop, desktop, widescreen) {
+    margin-top: f.px(100) !important;
+  }
+  margin-top: 0 !important;
+  margin-right: auto !important;
+  margin-bottom: 0 !important;
+  margin-left: auto !important;
 }

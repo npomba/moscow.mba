@@ -21,27 +21,32 @@ const SearchField = () => {
   const [open, setOpen] = useState(false)
   const [openLoader, setOpenLoader] = useState(false)
 
-  const filteredPrograms = programs.filter(
-    program => searchTerm && program?.title?.toLowerCase().includes(searchTerm)
+  const programsNotBlended = programs.filter(
+    program => program.studyFormat !== 'blended'
   )
 
-  console.log(filteredPrograms)
+  const filteredPrograms = programsNotBlended.filter(
+    program => searchTerm && program?.title?.toLowerCase().includes(searchTerm)
+  )
 
   return (
     <Popup
       trigger={() => (
         <button className={stls.btn}>
-          <IconSearch classNames={[stls.iconSearchAtBtn]} />{' '}
-          {searchTerm || 'Поиск'}
+          <IconSearch classNames={[stls.iconSearchAtBtn]} /> Поиск
         </button>
       )}
       modal
       lockScroll
       nested
       closeOnDocumentClick
+      position={'top center'}
       className='popup-SearchField'>
       {(close: MouseEventHandler) => (
         <div className={stls.popupContainer}>
+          <a href='#!' onClick={close} className={stls.iconCloseBtn}>
+            <IconClose classNames={[stls.iconClose]} stroke={colors.omicron} />
+          </a>
           <Wrapper column classNames={[stls.wrapper]}>
             <div className={stls.inputGroup}>
               <IconSearch
@@ -55,12 +60,17 @@ const SearchField = () => {
                 placeholder={'Поиск'}
                 onChange={e => setSearchTerm(e.target.value.toLowerCase())}
               />
-              <a href='#!' onClick={close} className={stls.iconCloseBtn}>
-                <IconClose
-                  classNames={[stls.iconClose]}
-                  stroke={colors.omicron}
-                />
-              </a>
+              {searchTerm && (
+                <a
+                  href='#!'
+                  onClick={() => setSearchTerm('')}
+                  className={stls.iconClearBtn}>
+                  <IconClose
+                    classNames={[stls.iconClear]}
+                    stroke={colors.alpha}
+                  />
+                </a>
+              )}
             </div>
             <ul className={stls.list}>
               {filteredPrograms.map((program, idx) => (

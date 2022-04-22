@@ -151,7 +151,9 @@ const CourseAccordion = ({
                 <a className={stls.learnMoreBtn}>Узнать больше о программе</a>
               }
               modal
-              nested>
+              lockScroll
+              nested
+              closeOnDocumentClick>
               {close => (
                 <PopupForm
                   title={'Получите консультацию по программе'}

@@ -27,7 +27,9 @@ const PopupLearnMore = ({ close }) => {
             </a>
           }
           modal
-          nested>
+          lockScroll
+          nested
+          closeOnDocumentClick>
           {close => (
             <PopupForm title={'Поможем в выборе!'} closePopUpForm={close} />
           )}

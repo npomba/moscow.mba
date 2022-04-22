@@ -457,7 +457,9 @@ const Teachers = ({
                         </a>
                       }
                       modal
-                      nested>
+                      lockScroll
+                      nested
+                      closeOnDocumentClick>
                       {close => (
                         <PopupTeacher close={close} teacher={teacher} />
                       )}
@@ -501,7 +503,9 @@ const Teachers = ({
                     </button>
                   }
                   modal
-                  nested>
+                  lockScroll
+                  nested
+                  closeOnDocumentClick>
                   {close => (
                     <PopupForm
                       programId={programId}
@@ -539,7 +543,9 @@ const Teachers = ({
                     </button>
                   }
                   modal
-                  nested>
+                  lockScroll
+                  nested
+                  closeOnDocumentClick>
                   {close => (
                     <PopupForm
                       programId={programId}

@@ -13,10 +13,22 @@ const LeadLoaderThankyou = ({
 }) => {
   return (
     <>
-      <Popup open={openLoader} onClose={() => setOpenLoader(false)}>
+      <Popup
+        open={openLoader}
+        modal
+        lockScroll
+        nested
+        closeOnDocumentClick
+        onClose={() => setOpenLoader(false)}>
         <PopupLoader closePopUp={() => setOpenLoader(false)} />
       </Popup>
-      <Popup open={open} closeOnDocumentClick onClose={() => setOpen(false)}>
+      <Popup
+        open={open}
+        modal
+        lockScroll
+        nested
+        closeOnDocumentClick
+        onClose={() => setOpen(false)}>
         <PopupThankyou
           closePopUp={() => setOpen(false)}
           programId={programId}

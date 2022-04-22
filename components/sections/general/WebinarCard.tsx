@@ -49,7 +49,9 @@ const WebinarCard = ({
           </a>
         }
         modal
-        nested>
+        lockScroll
+        nested
+        closeOnDocumentClick>
         {close => (
           <PopupForm
             title={'Узнайте подробнее о вебинаре'}

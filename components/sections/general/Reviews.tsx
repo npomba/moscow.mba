@@ -69,7 +69,9 @@ const Reviews = () => {
                         <Popup
                           trigger={<a className={stls.link}>Читать</a>}
                           modal
-                          nested>
+                          lockScroll
+                          nested
+                          closeOnDocumentClick>
                           {close => (
                             <PopupReview
                               closePopUp={close}

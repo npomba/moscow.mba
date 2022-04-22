@@ -82,7 +82,9 @@ const StickyBottom = ({
               </a>
             }
             modal
-            nested>
+            lockScroll
+            nested
+            closeOnDocumentClick>
             {close => (
               <PopupForm
                 title={at.en ? 'Get consultation' : 'Получите консультацию'}
@@ -99,7 +101,9 @@ const StickyBottom = ({
                 </a>
               }
               modal
-              nested>
+              lockScroll
+              nested
+              closeOnDocumentClick>
               {close => <PopupLearnMore close={close} />}
             </Popup>
           </div>

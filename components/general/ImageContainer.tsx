@@ -22,7 +22,13 @@ const ImageContainer = ({ image, imageWidth, imageHeight }) => {
   )
 
   return (
-    <Popup trigger={container} className='image-popup' modal>
+    <Popup
+      trigger={container}
+      className='image-popup'
+      modal
+      lockScroll
+      nested
+      closeOnDocumentClick>
       {close => <PopupImage closePopupImage={close} image={image} />}
     </Popup>
   )

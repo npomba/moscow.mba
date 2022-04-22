@@ -17,7 +17,9 @@ const GetStudyPlan = () => {
               </a>
             }
             modal
-            nested>
+            lockScroll
+            nested
+            closeOnDocumentClick>
             {close => (
               <PopupForm
                 title={'Получите полный учебный план'}

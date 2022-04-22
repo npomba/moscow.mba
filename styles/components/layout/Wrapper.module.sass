@@ -4,7 +4,9 @@
 
 .page
 	margin: 0 auto
-	width: 1310px
+	// min-width: 100%
+	// width: auto
+	max-width: 1310px
 	padding-left: 10px
 	padding-right: 10px
 	box-sizing: border-box
@@ -18,8 +20,8 @@
 		flex-direction: column
 		justify-content: space-between
 	@include m.media(desktop)
-		width: 1000px
+		max-width: 1000px
 	@include m.media(laptop, tablet)
-		width: 710px
+		max-width: 710px
 	@include m.media(tablet, phone)
-		width: 100%
+		max-width: 100%

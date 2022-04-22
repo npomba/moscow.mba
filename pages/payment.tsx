@@ -116,7 +116,12 @@ const PagePayment = ({ programs }) => {
               Оплата банковской картой
             </a>
 
-            <Popup trigger={<a className={stls.btnAlt}>Помощь</a>} modal nested>
+            <Popup
+              trigger={<a className={stls.btnAlt}>Помощь</a>}
+              modal
+              lockScroll
+              nested
+              closeOnDocumentClick>
               {close => (
                 <PopupForm
                   title={'Помощь с оплатой'}
