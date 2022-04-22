@@ -3,16 +3,24 @@ import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import { useAt } from '@/hooks/index'
-import { ProgramsContext } from '@/context/index'
-import {
-  Breadcrumbs,
-  InfoRectangle,
-  ProgramSubjects,
-  ProgramsQty,
-  Filters
-} from '@/components/general'
-import { CardProgram } from '@/components/cards'
-import { IconCheckCircle } from '@/components/icons'
+// import { ProgramsContext } from '@/context/index'
+import ProgramsContext from '@/context/programs/programsContext'
+// import {
+//   Breadcrumbs,
+//   InfoRectangle,
+//   ProgramSubjects,
+//   ProgramsQty,
+//   Filters
+// } from '@/components/general'
+import Breadcrumbs from '@/components/general/Breadcrumbs'
+import InfoRectangle from '@/components/general/InfoRectangle'
+import ProgramSubjects from '@/components/general/ProgramSubjects'
+import ProgramsQty from '@/components/general/ProgramsQty'
+import Filters from '@/components/general/Filters'
+// import { CardProgram } from '@/components/cards'
+import CardProgram from '@/components/cards/CardProgram'
+// import { IconCheckCircle } from '@/components/icons'
+import IconCheckCircle from '@/components/icons/IconCheckCircle'
 
 const PagePrograms = ({ mbaTypeOfProgram, mbaFormat }) => {
   const { programs, studyFields, curStudyField, setCurStudyField } =

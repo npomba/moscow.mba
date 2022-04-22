@@ -10,6 +10,7 @@
   margin: 0
   padding: 0
   border: 0
+  overflow: hidden
   border-bottom: 1px solid
   @include m.dye(borderc, c.$omega)
   font-family: 'Styrene', sans-serif
@@ -51,8 +52,12 @@
 
 .iconClose
   display: flex
-  min-width: f.px(24)
-  max-width: f.px(24)
+  @include m.media(phone, tablet)
+    min-width: f.px(17)
+    max-width: f.px(17)
+  @include m.media(laptop, desktop, widescreen)
+    min-width: f.px(24)
+    max-width: f.px(24)
   & > svg
     min-width: 100%
     max-width: 100%
@@ -65,13 +70,14 @@
 .iconSearchAtInput
   position: absolute
   top: 50%
-  left: f.px(40)
   transform: translateY(-50%)
   pointer-events: none
   @include m.media(phone, tablet)
+    left: f.px(15)
     min-width: f.px(18)
     max-width: f.px(18)
   @include m.media(laptop, desktop, widescreen)
+    left: f.px(40)
     min-width: f.px(24)
     max-width: f.px(24)
 
@@ -84,9 +90,13 @@
   border-bottom: 1px solid
   @include m.dye(borderc, rgba(c.$chi, .1))
   padding-top: f.px(30)
-  padding-right: f.px(40 + 24 + 40)
   padding-bottom: f.px(30)
-  padding-left: f.px(40 + 24 + 40)
+  @include m.media(phone, tablet)
+    padding-left: f.px(15 + 18 + 20)
+    padding-right: f.px(15 + 18 + 20)
+  @include m.media(laptop, desktop, widescreen)
+    padding-left: f.px(40 + 24 + 40)
+    padding-right: f.px(40 + 24 + 40)
   outline: none
   font-family: 'Styrene'
   font-size: f.px(20)
@@ -122,14 +132,18 @@
 
 .listItemLink
   display: flex
-  align-items: center
   justify-content: space-between
   flex-grow: 1
   padding-top: f.px(20)
-  padding-right: f.px(40)
   padding-bottom: f.px(20)
-  padding-left: f.px(40)
+  @include m.media(phone, tablet)
+    flex-direction: column
+    padding-right: f.px(15)
+    padding-left: f.px(15)
   @include m.media(laptop, desktop, widescreen)
+    align-items: center
+    padding-right: f.px(40)
+    padding-left: f.px(40)
     &:hover
       & .p
         @include m.dye(c, c.$alpha)
@@ -138,7 +152,12 @@
         @include m.dye(borderc, c.$alpha)
 
 .p
-  font-size: f.px(20)
+  @include m.media(phone, tablet)
+    order: 2
+    margin-top: f.px(10)
+    font-size: f.px(16)
+  @include m.media(laptop, desktop, widescreen)
+    font-size: f.px(20)
   font-weight: 300
   line-height: 120%
   transition: color .15s ease-in-out
@@ -147,14 +166,20 @@
     text-transform: capitalize
 
 .label
-  padding-top: f.px(13)
-  padding-right: f.px(30)
-  padding-bottom: f.px(13)
-  padding-left: f.px(30)
-  border-radius: f.px(80)
+  @include m.media(phone, tablet)
+    max-width: max-content
+    padding: f.px(7)
+    border-radius: f.px(18)
+    font-size: f.px(10)
+  @include m.media(laptop, desktop, widescreen)
+    padding-top: f.px(13)
+    padding-right: f.px(30)
+    padding-bottom: f.px(13)
+    padding-left: f.px(30)
+    border-radius: f.px(80)
+    font-size: f.px(12)
   border: 1px solid
   @include m.dye(borderc, c.$chi)
-  font-size: f.px(12)
   font-weight: 400
   letter-spacing: 0.1em
   text-transform: uppercase
