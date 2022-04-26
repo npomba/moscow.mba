@@ -23,6 +23,9 @@ const JumbotronProgram = ({ program }) => {
     (at.course && at.online) ||
     at.mbl
 
+  const studyFieldIsAccounting =
+    program?.study_field?.slug?.trim() === 'accounting-analysis-and-audit'
+
   return (
     <section className={stls.container}>
       <div className={stls.image}>
@@ -92,7 +95,9 @@ const JumbotronProgram = ({ program }) => {
                         type={program?.category?.type}
                         format={program?.studyFormat}
                         notComparingPrices
-                        programPrice={program?.price}
+                        programPrice={
+                          studyFieldIsAccounting ? 59000 : program?.price
+                        }
                       />
                     </p>
                   </div>

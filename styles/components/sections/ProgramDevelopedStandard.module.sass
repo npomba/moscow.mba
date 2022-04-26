@@ -3,14 +3,17 @@
 
 .container
   position: relative
-  margin: 220px 0 110px 0
   display: flex
   justify-content: flex-end
+  margin-top: f.px(220)
+  margin-bottom: f.px(110)
   @include m.media(laptop, tablet, phone)
     display: block
-    margin: 550px 0 110px 0
+    margin-top: f.px(550)
+    margin-bottom: f.px(110)
   @include m.media(phone)
-    margin: 300px 0 60px 0
+    margin-top: f.px(300)
+    margin-bottom: f.px(60)
 
 .icon
   position: absolute
@@ -36,9 +39,11 @@
 
 .content
   padding: 116px 135px 117px 342px
-  max-width: 1100px
+  // max-width: 1100px
   background-color: #262626
   color: #fff
+  @include m.media(widescreen)
+    padding-left: f.px(440)
   @include m.media(desktop, widescreen)
     float: right
   @include m.media(laptop, tablet, phone)
@@ -48,6 +53,17 @@
   @include m.media(tablet, phone)
     padding: 60px 15px
 
+.title
+  @include m.media(laptop, desktop, widescreen)
+    max-width: 16ch
+  font-size: f.px(48)
+  font-weight: 800
+  line-height: 120%
+  margin-bottom: 20px
+  @include m.media(laptop, tablet, phone)
+    font-weight: 700
+    font-size: f.px(32)
+
 .text
   font-weight: 300
   font-size: f.px(20)
@@ -56,12 +72,3 @@
     font-weight: 300
     font-size: f.px(15)
     line-height: 130%
-
-.title
-  font-size: f.px(48)
-  font-weight: 800
-  line-height: 120%
-  margin-bottom: 20px
-  @include m.media(laptop, tablet, phone)
-    font-weight: 700
-    font-size: f.px(32)

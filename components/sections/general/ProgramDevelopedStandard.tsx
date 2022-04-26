@@ -9,7 +9,7 @@ const ProgramDevelopedStandard = () => {
         <IconEmblem classNames={[stls.icon]} />
         <div className={stls.content}>
           <div className={stls.title}>
-            <p>Программа разработана по профстандарту</p>
+            <h2>Программа разработана по&nbsp;профстандарту</h2>
           </div>
           <div className={stls.text}>
             <p>
