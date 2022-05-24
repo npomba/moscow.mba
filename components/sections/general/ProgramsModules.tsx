@@ -59,7 +59,7 @@ const ProgramsModules = ({ program, smallerMb = false }) => {
                 'specializedlAcademicDisciplines' ? (
                 <>
                   <div className={stls.number}>
-                    {program?.specializedSubjects.length}
+                    {program?.specializedSubjects?.length}
                   </div>
                   <p className={stls.p}>дисциплин специализации</p>
                 </>
@@ -94,7 +94,7 @@ const ProgramsModules = ({ program, smallerMb = false }) => {
                   key={`ProgramsModule-${idx}`}
                   title={`${idx + 1} модуль`}
                   subTitle={module.title && module.title}
-                  items={module.subjects}
+                  items={module?.subjects && module.subjects}
                   fadeOutEffect={
                     at.profession ||
                     (at.course &&
@@ -124,7 +124,7 @@ const ProgramsModules = ({ program, smallerMb = false }) => {
                   key={`programModulesSpecialty-${idx}`}
                   title={`${idx + 1} модуль`}
                   subTitle={module.title && module.title}
-                  items={module.subjects}
+                  items={module?.subjects && module.subjects}
                 />
               ))}
             </>
