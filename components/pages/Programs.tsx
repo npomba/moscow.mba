@@ -41,10 +41,27 @@ const PagePrograms = ({ mbaTypeOfProgram, mbaFormat }) => {
         )
       : programsFiltered
 
+  const filteredProgramsBasedOnCategory = programs.filter(
+    program => program?.category?.type === mbaTypeOfProgram
+  )
+
+  const studyFieldsFiltered = studyFields?.filter((studyField, idx) => {
+    return filteredProgramsBasedOnCategory.some(
+      program =>
+        program?.study_field?.name?.toLowerCase() === studyField?.toLowerCase()
+    )
+  })
+
   useEffect(() => {
-    if ((at.profession || at.course) && !curStudyField)
-      setCurStudyField(studyFields[0])
-  }, [at.profession, at.course, curStudyField, setCurStudyField, studyFields])
+    if (at.profession || at.course) setCurStudyField(studyFieldsFiltered[0])
+  }, [
+    at.profession,
+    at.course,
+    curStudyField,
+    setCurStudyField,
+    studyFields,
+    studyFieldsFiltered
+  ])
 
   return (
     <>
@@ -80,7 +97,7 @@ const PagePrograms = ({ mbaTypeOfProgram, mbaFormat }) => {
           <Filters
             mbaTypeOfProgram={mbaTypeOfProgram}
             mbaFormat={mbaFormat}
-            fields={studyFields}
+            fields={studyFieldsFiltered}
             currentField={curStudyField}
             updateCurrentField={setCurStudyField}
           />

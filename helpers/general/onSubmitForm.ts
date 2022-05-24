@@ -19,6 +19,8 @@ const onSubmitForm = async ({
   const referer = JSON.parse(sessionStorage.getItem('referer'))
   values.referer = referer
   sessionStorage.removeItem('referer')
+  const ymUid = JSON.parse(localStorage.getItem('_ym_uid'))
+  values.ymUid = ymUid
   const req = await hitContactRoute(values)
   if (req === 200) {
     setOpenLoader(false)

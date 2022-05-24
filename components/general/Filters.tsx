@@ -60,16 +60,16 @@ const Filters = ({
               </a>
             </Link>
 
-            {/* <Link href={`/programs/course/online`}>
-            <a>
-              <span
-                className={cn({
-                  [stls.circle]: true,
-                  [stls.active]: at.course
-                })}></span>{' '}
-              Курсы
-            </a>
-          </Link> */}
+            <Link href={`/programs/course/online`}>
+              <a>
+                <span
+                  className={cn({
+                    [stls.circle]: true,
+                    [stls.active]: at.course
+                  })}></span>{' '}
+                Курсы
+              </a>
+            </Link>
 
             <Link href='/programs/international-business-law' locale='ru'>
               <a
@@ -92,7 +92,9 @@ const Filters = ({
           <div className={stls.content}>
             <Link href={`/programs/${mbaTypeOfProgram}/blended`}>
               <a
-                className={cn({ [stls.inactiveLink]: at.profession })}
+                className={cn({
+                  [stls.inactiveLink]: at.profession || at.course
+                })}
                 onClick={e => handleLinkClick(e)}>
                 <span
                   className={cn({

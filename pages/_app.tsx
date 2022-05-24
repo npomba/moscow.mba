@@ -75,7 +75,7 @@ function MyApp({ Component, pageProps, router }) {
   }, [router])
 
   if (!dev) {
-    console.log = function () {}
+    console.log = () => undefined
   }
 
   return (

@@ -21,6 +21,14 @@ const HeaderPrograms = ({ programs, visible }) => {
             type={'profession'}
           />
         )
+      case '#header-podmenu-4':
+        return (
+          <ProgramsList
+            data={programs}
+            id={'header-podmenu-4'}
+            type={'course'}
+          />
+        )
       default:
         return (
           <ProgramsColumn
