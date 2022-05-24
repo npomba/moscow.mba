@@ -28,23 +28,23 @@ const useContactInfo = () => {
       {
         tels: [
           {
-            href: 'tel:+7-777-398-97-40',
-            val: '+7 (777) 398-97-40'
+            href: 'tel:+7-727-311-09-11',
+            val: '+7 (727) 311-09-11'
           },
           {
-            href: 'tel:+7-771-766-22-24',
-            val: '+7 (771) 766-22-24'
+            href: 'tel:+7-771-766-22-20',
+            val: '+7 (771) 766-22-20'
           },
           {
-            href: 'tel:+7-727-311-15-00',
-            val: '+7 (727) 311-15-00'
+            href: 'tel:+7-771-766-22-23',
+            val: '+7 (771) 766-22-23'
           }
         ],
         address: {
           city: at.en ? 'Almaty' : 'Алматы',
           street: at.en
-            ? 'Al-Farabi Avenue 17, Nurly Tau BC'
-            : 'Проспект Аль-Фараби 17, БЦ Нурлы-Тау'
+            ? 'Al-Farabi Avenue 17, Nurly Tau BC, block 4B office 1603'
+            : 'Проспект Аль-Фараби 17, БЦ Нурлы-Тау, Блок 4Б офис 1603'
         },
         email: {
           val: 'almaty@moscow.mba',
