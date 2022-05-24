@@ -26,26 +26,26 @@ const createProgramModules = ({ program, type }: createProgramModulesType) => {
 
       let i = -1
 
-      program?.[type].forEach(subject => {
+      program?.[type]?.forEach(subject => {
         subject.title && i++
-        subject.string && output[i].subjects.push(subject.string)
+        subject.string && output?.[i]?.subjects?.push(subject.string)
       })
     } else {
-      const l = Math.ceil(program?.[type].length / 5)
+      const l = Math.ceil(program?.[type]?.length / 5)
       for (let i = 0; i < l; i++) {
         output.push({
           id: uuidv4(),
           title: null,
-          subjects: program?.[type].slice(i * 5, i * 5 + 5)
+          subjects: program?.[type]?.slice(i * 5, i * 5 + 5)
         })
       }
       if (
-        output[output.length - 1] &&
-        output[output.length - 1].subjects.length < 3
+        output?.[output.length - 1] &&
+        output?.[output.length - 1]?.subjects?.length < 3
       ) {
         const lastModule = output.pop()
-        lastModule.subjects.forEach(subject =>
-          output[output.length - 1].subjects.push(subject)
+        lastModule?.subjects?.forEach(subject =>
+          output?.[output.length - 1]?.subjects?.push(subject)
         )
       }
     }
