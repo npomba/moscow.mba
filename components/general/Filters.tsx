@@ -1,22 +1,43 @@
 import stls from '@/styles/components/general/Filters.module.sass'
 import Link from 'next/link'
+import { useContext, useEffect } from 'react'
 import cn from 'classnames'
 import { useAt } from '@/hooks/index'
+import ProgramsContext from '@/context/programs/programsContext'
 import Discount from '@/components/costs/Discount'
 import { SearchField } from '@/components/general'
 
-const Filters = ({
-  mbaTypeOfProgram,
-  mbaFormat,
-  fields,
-  currentField,
-  updateCurrentField
-}) => {
+const Filters = ({ mbaTypeOfProgram, mbaFormat }) => {
+  const { programs, studyFields, curStudyField, setCurStudyField } =
+    useContext(ProgramsContext)
+
   const at = useAt()
 
   const handleLinkClick = e => {
-    if (at.profession) e.preventDefault()
+    if (at.profession || at.course) e.preventDefault()
   }
+
+  const studyFieldsFiltered = Array.from(
+    new Set(
+      programs
+        .filter(
+          program =>
+            program?.studyFormat === mbaFormat &&
+            program?.category?.type === mbaTypeOfProgram
+        )
+        .map(program => program?.study_field?.name)
+    )
+  ).filter(studyField => studyField)
+
+  // setCurStudyField(studyFieldsFiltered?.[0] || null)
+
+  // useEffect(() => {
+  //   if (at.profession || at.course) {
+  //     setCurStudyField(studyFieldsFiltered?.[0] || null)
+  //   } else {
+  //     setCurStudyField(null)
+  //   }
+  // }, [at.profession, at.course, setCurStudyField, studyFieldsFiltered])
 
   return (
     <>
@@ -120,19 +141,19 @@ const Filters = ({
             </Link>
           </div>
         </li>
-        {(at.profession || at.course) && fields && (
+        {(at.profession || at.course) && studyFieldsFiltered && (
           <li>
             <h4 className={stls.title}>Направление</h4>
             <div className={stls.content}>
-              {fields.map((field, idx) => (
+              {studyFieldsFiltered.map((field, idx) => (
                 <button
                   key={`field-btn-${idx}`}
                   className={stls.fieldButton}
-                  onClick={() => updateCurrentField(field)}>
+                  onClick={() => setCurStudyField(field)}>
                   <span
                     className={cn({
                       [stls.circle]: true,
-                      [stls.active]: field === currentField
+                      [stls.active]: field === curStudyField
                     })}></span>
                   {field}
                 </button>

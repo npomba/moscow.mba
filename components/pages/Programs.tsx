@@ -23,8 +23,7 @@ import CardProgram from '@/components/cards/CardProgram'
 import IconCheckCircle from '@/components/icons/IconCheckCircle'
 
 const PagePrograms = ({ mbaTypeOfProgram, mbaFormat }) => {
-  const { programs, studyFields, curStudyField, setCurStudyField } =
-    useContext(ProgramsContext)
+  const { programs, curStudyField } = useContext(ProgramsContext)
 
   const at = useAt()
 
@@ -41,27 +40,33 @@ const PagePrograms = ({ mbaTypeOfProgram, mbaFormat }) => {
         )
       : programsFiltered
 
-  const filteredProgramsBasedOnCategory = programs.filter(
-    program => program?.category?.type === mbaTypeOfProgram
-  )
+  // const studyFieldsFiltered = Array.from(
+  //   new Set(programsFiltered.map(program => program.study_field.name))
+  // )
 
-  const studyFieldsFiltered = studyFields?.filter((studyField, idx) => {
-    return filteredProgramsBasedOnCategory.some(
-      program =>
-        program?.study_field?.name?.toLowerCase() === studyField?.toLowerCase()
-    )
-  })
+  // const studyFieldsFiltered =
+  //   (at.profession || at.course) &&
+  //   studyFields?.filter((studyField, idx) => {
+  //     return programsFiltered.some(
+  //       program =>
+  //         program?.study_field?.name?.toLowerCase() ===
+  //         studyField?.toLowerCase()
+  //     )
+  //   })
 
-  useEffect(() => {
-    if (at.profession || at.course) setCurStudyField(studyFieldsFiltered[0])
-  }, [
-    at.profession,
-    at.course,
-    curStudyField,
-    setCurStudyField,
-    studyFields,
-    studyFieldsFiltered
-  ])
+  // useEffect(() => {
+  //   if (at.profession || at.course) {
+  //     setCurStudyField(studyFields?.[0] || null)
+  //   } else {
+  //     setCurStudyField(null)
+  //   }
+  // }, [
+  //   at.profession,
+  //   at.course,
+  //   setCurStudyField,
+  //   studyFields
+  //   // studyFieldsFiltered
+  // ])
 
   return (
     <>
@@ -94,13 +99,7 @@ const PagePrograms = ({ mbaTypeOfProgram, mbaFormat }) => {
           ПРОГРАММЫ <span>ОБУЧЕНИЯ</span>
         </h1>
         <div className={stls.container}>
-          <Filters
-            mbaTypeOfProgram={mbaTypeOfProgram}
-            mbaFormat={mbaFormat}
-            fields={studyFieldsFiltered}
-            currentField={curStudyField}
-            updateCurrentField={setCurStudyField}
-          />
+          <Filters mbaTypeOfProgram={mbaTypeOfProgram} mbaFormat={mbaFormat} />
           <div className={stls.content}>
             <div className={stls.programMainInfo}>
               <div className={stls.subtitle}>
