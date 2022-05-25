@@ -1,5 +1,6 @@
 import stls from '@/styles/components/layout/Footer.module.sass'
 import Link from 'next/link'
+import cn from 'classnames'
 import { useAt } from '@/hooks/index'
 import { contactData, routesFront } from '@/config/index'
 import {
@@ -129,7 +130,7 @@ const Footer = () => {
                     <IconTelegramAlt />
                   </a>
                 </li>
-                <li className={stls.socialItem}>
+                <li className={cn(stls.socialItem, stls.socialItemWhatsApp)}>
                   <a
                     className={stls.socialLink}
                     // href='https://api.whatsapp.com/send?phone=89258088389text=%D0%94%D0%BE%D0%B1%D1%80%D1%8B%D0%B9%20%D0%B4%D0%B5%D0%BD%D1%8C!'
