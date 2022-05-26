@@ -203,6 +203,8 @@
 .socialsList
   margin-left: auto
   display: flex
+  @include m.media(laptop, desktop, widescreen)
+    display: none
 
 .socialItem
   margin-left: -1px

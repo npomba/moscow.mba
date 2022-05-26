@@ -117,7 +117,7 @@ const Footer = () => {
                 </span>
               </div>
               <ul className={stls.socialsList}>
-                <li className={stls.socialItem}>
+                {/* <li className={stls.socialItem}>
                   <a className={stls.socialLink} href='#!' aria-label='MBA VK'>
                     <IconVk />
                   </a>
@@ -129,7 +129,7 @@ const Footer = () => {
                     aria-label='MBA Telegram'>
                     <IconTelegramAlt />
                   </a>
-                </li>
+                </li> */}
                 <li className={cn(stls.socialItem, stls.socialItemWhatsApp)}>
                   <a
                     className={stls.socialLink}
