@@ -1,6 +1,7 @@
 import stls from '@/styles/components/cards/CardProgram.module.sass'
 import Link from 'next/link'
 import { useAt } from '@/hooks/index'
+import { ruCaseMonth } from '@/helpers/index'
 import TrainingPeriod from '@/components/costs/TrainingPeriod'
 import Price from '@/components/costs/Price'
 import { IconArrowTopRight } from '@/components/icons'
@@ -50,8 +51,10 @@ const CardProgram = ({ professionLayout, program, number, type, format }) => {
             />
           </div>
           <div className={stls.duration}>
-            {program?.duration?.length > 0 ? (
-              `${program?.duration?.minStudyMonths} ${at.en ? 'month' : 'мес.'}`
+            {program?.duration ? (
+              `${program?.duration?.minStudyMonths} ${
+                at.en ? 'month' : ruCaseMonth(program?.duration?.minStudyMonths)
+              }`
             ) : (
               <TrainingPeriod type={type} />
             )}
