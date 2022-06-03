@@ -301,8 +301,8 @@
       margin-bottom: 15px
       padding-top: 15px
       & + .teachersListItem
-        border-top: 1px solid #F7F7F7
-        @include m.dye(borderc, c.$pi)
+        border-top: 1px solid
+        @include m.dye(borderc, c.$nu)
 
 .teachersListProfession
   margin-top: 63px
@@ -452,6 +452,7 @@
 
 .icon
   max-width: f.px(8)
+  max-height: f.px(10)
   margin-left: f.px(10)
 
 .breakLine
@@ -553,3 +554,9 @@
 .tabletLaptopDesktopWidescreen
   @include m.media(phone)
     display: none
+
+.btnShowMore
+  margin-top: f.px(15)
+  &.atTeachers
+    @include m.media(laptop, desktop, widescreen)
+      display: none

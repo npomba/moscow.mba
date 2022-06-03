@@ -36,7 +36,7 @@ const Form = ({
         programTitle={programTitle}
       />
       <div className='popup-content-origin red-bg'>
-        <h2>{title}</h2>
+        <h2 className={stls.title}>{title}</h2>
         <div className='desc'>
           {!programTitle && disc}{' '}
           {programTitle &&

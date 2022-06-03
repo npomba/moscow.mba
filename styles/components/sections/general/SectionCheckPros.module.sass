@@ -42,9 +42,9 @@ $pro_ml: 11%
       @include m.dye(borderc, c.$nu)
   @include m.media(laptop, desktop, widescreen)
     flex-direction: column
-    flex-basis: math.div(100% - $pro_ml * 2, 3)
+    flex-basis: math.div(100% - $pro_ml * 2, 3) - .3%
     margin-right: $pro_ml 
-    &:nth-child(3)
+    &:nth-child(3n)
       margin-right: 0
 
 .icon

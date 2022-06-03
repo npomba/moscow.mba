@@ -18,8 +18,8 @@ const StudentsInternational = () => {
             </h2>
             <p className={stls.desc}>
               {at.en
-                ? 'Students from more than 15 countries get their education in Moscow Business Academy, such as Russia, Great Britain, USA, Germany, Belgium, France, China, Greece, Switzerland, Italy, South Africa, and many others!'
-                : 'В Moscow Business Academy обучаются студенты из более чем 15 стран мира, среди которых Россия, Великобритания, США, Германия, Бельгия, Франция, Китай, Греция, Швейцария, Италия, Южная Африка и многие другие!'}
+                ? 'Students from more than 15 countries get their education in Moscow Business Academy, such as Russia, Great Britain, USA, Germany, Belgium, France, China, Greece, Switzerland, Italy, Kazakhstan, and many others!'
+                : 'В Moscow Business Academy обучаются студенты из более чем 15 стран мира, среди которых Россия, Великобритания, США, Германия, Бельгия, Франция, Китай, Греция, Швейцария, Италия, Казахстан и многие другие!'}
             </p>
           </div>
           <div className={stls.imageContainer}>

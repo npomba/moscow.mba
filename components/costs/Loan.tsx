@@ -101,15 +101,20 @@ const Loan = ({
             : getPriceClass('simple', renderedByComponent),
           { [stls.price]: variant === 'SectionStudyCost' }
         )}>
-        {programPrice
-          ? toNumberWithSpaces(Math.floor(programPrice / 12))
-          : price[regularOrDiscounted]?.[type]?.[format]}{' '}
-        <span
-          className={cn({
-            [stls.priceLabel]: variant === 'SectionStudyCost'
-          })}>
-          Р/мес.
+        <span>
+          {programPrice
+            ? toNumberWithSpaces(Math.floor(programPrice / 12))
+            : price[regularOrDiscounted]?.[type]?.[format]}{' '}
+          <span
+            className={cn({
+              [stls.priceLabel]: variant === 'SectionStudyCost'
+            })}>
+            Р/мес.
+          </span>
         </span>
+        {variant === 'SectionStudyCost' && (
+          <span className={stls.priceLabelInfo}>*рассрочка на 12 месяцев</span>
+        )}
       </i>
       {discount && !at.blended && !notComparingPrices && (
         <>

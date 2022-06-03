@@ -1,6 +1,7 @@
 import stls from '@/styles/pages/teachers/PageTeachersTeacher.module.sass'
 import type { NextPage } from 'next'
 import { GetStaticPaths, GetStaticProps } from 'next'
+import { useRouter } from 'next/router'
 import { TypePageTeacherProps } from '@/types/index'
 import { NextSeo } from 'next-seo'
 import cn from 'classnames'
@@ -19,6 +20,13 @@ const PageTeachersTeacher: NextPage<TypePageTeacherProps> = ({
   teacher
 }) => {
   usePageHandleContext({ programs })
+
+  const router = useRouter()
+
+  // router.beforePopState(state => {
+  //   state.options.scroll = false
+  //   return true
+  // })
 
   const image = (
     <ImgTeachersTeacher
@@ -49,6 +57,11 @@ const PageTeachersTeacher: NextPage<TypePageTeacherProps> = ({
       />
       <section>
         <Wrapper column>
+          {/* <button
+            className={cn('button', stls.btnBack)}
+            onClick={() => router.back()}>
+            Назад
+          </button> */}
           <div className={stls.content}>
             <div className={cn(stls.left, stls.laptopDesktopWidescreen)}>
               {image}

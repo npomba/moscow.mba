@@ -43,7 +43,7 @@ const LiTeacherContent = ({
               className={cn(stls.bioP, {
                 [stls.atStandAlonePage]: atStandAlonePage
               })}>
-              {at.en ? 'Learn more' : 'Биография'}
+              {at.en ? 'Learn more' : 'Подробнее'}
             </p>
             <IconMoreThan classNames={[stls.icon]} />
           </div>
@@ -57,7 +57,7 @@ const LiTeacherContent = ({
           className={cn(stls.bioP, {
             [stls.atStandAlonePage]: atStandAlonePage
           })}>
-          {at.en ? 'Learn more' : 'Биография'}
+          {at.en ? 'Learn more' : 'Подробнее'}
         </p>
         <IconMoreThan classNames={[stls.icon]} />
       </div>

@@ -24,11 +24,14 @@
     z-index: 2
 
 .price
+  display: flex
+  flex-direction: column
   @include m.media(phone, tablet)
-    margin-right: f.px(20)
+    // margin-right: f.px(20)
     font-size: f.px(36)
   @include m.media(laptop, desktop, widescreen)
-    margin-right: f.px(27)
+    // margin-right: f.px(27)
+    // margin-bottom: f.px(10)
     font-size: f.px(62)
   font-weight: 700
   line-height: 120%
@@ -42,6 +45,15 @@
   font-weight: 400
   line-height: 120%
   @include m.dye(c, c.$xi)
+
+.priceLabelInfo
+  @include m.media(phone, tablet)
+    font-size: f.px(14)
+  @include m.media(laptop, desktop, widescreen)
+    font-size: f.px(14)
+  font-weight: 300
+  line-height: 120%
+  @include m.dye(c, c.$tau)
 
 .discount
   display: inline-block

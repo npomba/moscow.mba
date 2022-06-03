@@ -13,6 +13,9 @@ module.exports = {
   //   disable: dev
   // },
   // staticPageGenerationTimeout: 120,
+  // experimental: {
+  //   scrollRestoration: true
+  // },
   reactStrictMode: true,
   poweredByHeader: false,
   i18n: {

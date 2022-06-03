@@ -108,15 +108,15 @@ const ProgramsModules = ({ program, smallerMb = false }) => {
           </>
         )}
 
+        {program &&
+          program?.specializedSubjects?.length > 0 &&
+          !at.profession &&
+          !at.course && (
+            <div className={stls.pl}>
+              <h3 className={stls.h3}>Специализированные дисциплины</h3>
+            </div>
+          )}
         <div className={stls.list}>
-          {program &&
-            program?.specializedSubjects?.length > 0 &&
-            !at.profession &&
-            !at.course && (
-              <div className={stls.pl}>
-                <h3 className={stls.h3}>Специализированные дисциплины</h3>
-              </div>
-            )}
           {program?.specializedSubjects?.length > 0 && (
             <>
               {programModulesSpecialty.map((module, idx) => (

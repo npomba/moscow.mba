@@ -47,7 +47,7 @@ const PageAbout: NextPage<TypePageTeachersProps> = ({ programs, teachers }) => {
       <StudentsInternational />
       <CorporateClients />
       <Teachers teachers={teachers} />
-      <UpToDateContent />
+      <UpToDateContent withBottomLine />
       <Accreditation />
       <ContactUs overlapsFooter />
     </>

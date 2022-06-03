@@ -8,8 +8,9 @@ import 'nprogress/nprogress.css'
 import TagManager from 'react-gtm-module'
 import { DefaultSeo, LogoJsonLd } from 'next-seo'
 import SEO from '../seo.config'
-import { Header, Main, WrapperPage, Footer } from '@/components/layout'
+import { usePreserveScroll } from '@/hooks/index'
 import { dev, gtmId } from '@/config/index'
+import { Header, Main, WrapperPage, Footer } from '@/components/layout'
 // import Script from 'next/script'
 import {
   MenuState,
@@ -20,6 +21,8 @@ import {
 } from '@/context/index'
 
 function MyApp({ Component, pageProps, router }) {
+  usePreserveScroll()
+
   const [loading, setLoading] = useState(false)
   useEffect(() => {
     TagManager.initialize({ gtmId, dataLayerName: 'dataLayer' })

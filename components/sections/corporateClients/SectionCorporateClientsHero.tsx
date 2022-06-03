@@ -28,7 +28,7 @@ const SectionCorporateClientsHero = ({
     },
     {
       title: '2022',
-      content: 'Новейшие программы 2021 года'
+      content: <>Актуальные программы 2022&nbsp;года</>
     },
     {
       title: '2000+',

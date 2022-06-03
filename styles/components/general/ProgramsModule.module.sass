@@ -9,8 +9,9 @@
   position: relative
   display: flex
   align-items: flex-start
-  &:nth-child(odd)
-    margin-right: 30px
+  @include m.media(laptop, desktop, widescreen)
+    &:nth-child(odd)
+      margin-right: 30px
   @include m.media(laptop, tablet, phone)
     display: block
   @include m.media(tablet, phone)

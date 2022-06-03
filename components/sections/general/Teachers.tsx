@@ -56,7 +56,7 @@ const LiTeacherContent = ({
               className={cn(stls.bioP, {
                 [stls.atStandAlonePage]: atStandAlonePage
               })}>
-              {at.en ? 'Learn more' : 'Биография'}
+              {at.en ? 'Learn more' : 'Подробнее'}
             </p>
             <IconMoreThan classNames={[stls.icon]} />
           </div>
@@ -70,7 +70,7 @@ const LiTeacherContent = ({
           className={cn(stls.bioP, {
             [stls.atStandAlonePage]: atStandAlonePage
           })}>
-          {at.en ? 'Learn more' : 'Биография'}
+          {at.en ? 'Learn more' : 'Подробнее'}
         </p>
         <IconMoreThan classNames={[stls.icon]} />
       </div>
@@ -98,16 +98,19 @@ const Teachers = ({
 
   const [shownTeachersCount, setShownTeachersCount] = useState(8)
   const showMoreTeachersAddendum = 4
-
   const UITeachers: TypeLibTeachers | null = teachers
     ?.filter(teacher =>
       searchTerm
         ? teacher?.programs?.some(program => program.includes(searchTerm))
         : teacher
     )
-    .filter((teacher, idx) => teacher && idx < shownTeachersCount) || [
+    .filter(
+      (teacher, idx) =>
+        teacher && (at.programChunk ? teacher : idx < shownTeachersCount)
+    ) || [
     defaultTeachers?.filter(
-      (teacher, idx) => teacher && idx < shownTeachersCount
+      (teacher, idx) =>
+        teacher && (at.programChunk ? teacher : idx < shownTeachersCount)
     )
   ]
 
@@ -564,11 +567,19 @@ const Teachers = ({
                     />
                   )}
                 </Popup>
+              ) : at.about ? (
+                <Link href={routesFront.teachers}>
+                  <a className={cn('button', stls.btnShowMore)}>
+                    Посмотреть всех
+                  </a>
+                </Link>
               ) : (
                 (UITeachers.length > 8 ||
                   (UITeachers.length >= 8 && !searchTerm)) && (
                   <button
-                    className='button'
+                    className={cn('button', stls.btnShowMore, {
+                      [stls.attTeachers]: at.teachers
+                    })}
                     onClick={() =>
                       setShownTeachersCount(
                         shownTeachersCount + showMoreTeachersAddendum

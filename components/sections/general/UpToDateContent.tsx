@@ -21,8 +21,8 @@ const UpToDateContent = ({ withBottomLine = false }) => {
           <div className={stls.top}>
             <div className={stls.desc}>
               {at.en
-                ? 'We film our lectures to create an opportunity'
-                : 'MBAcademy записывает контент очных лекций, поэтому это хорошая возможность'}{' '}
+                ? "It's important to keep up with the latest news and developments in the industry. We have a dedicated team of experts who are constantly updating our database of articles and videos"
+                : 'Для нас важно, чтобы студенты получали только актуальные знания, поэтому наши эксперты постоянно работают над улучшением программ!'}{' '}
               <strong className={stls.red}>
                 {at.en ? 'to learn' : 'получить MBA'}{' '}
               </strong>

@@ -110,9 +110,11 @@ const JumbotronCta = ({ programTitle = null, programId = null }) => {
               <li className={stls.prosItem}>
                 <div className={stls.prosStatsNumber}>2022+</div>
                 <p>
-                  {at.en
-                    ? 'newest programs of 2022'
-                    : 'Новейшие программы 2022 года'}
+                  {at.en ? (
+                    'newest programs of 2022'
+                  ) : (
+                    <>Актуальные программы 2022&nbsp;года</>
+                  )}
                 </p>
               </li>
               <li className={stls.prosSeparator}></li>
@@ -143,7 +145,7 @@ const JumbotronCta = ({ programTitle = null, programId = null }) => {
           </div>
         </div>
       </Wrapper>
-      <Wrapper>
+      <Wrapper classNames={[stls.infoRectangleWrapper]}>
         <InfoRectangle />
       </Wrapper>
     </section>

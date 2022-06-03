@@ -1,5 +1,5 @@
 import stls from '@/styles/components/sections/CheckLicenses.module.sass'
-import { IconRosObrInsignia } from '@/components/icons'
+import { IconRuCoatOfArms } from '@/components/icons'
 
 const CheckLicenses = () => {
   const containerClasses = [stls.container, stls.darkBgColor, stls.noMargin]
@@ -7,8 +7,8 @@ const CheckLicenses = () => {
 
   return (
     <div className={containerClasses.join(' ')}>
+      <IconRuCoatOfArms classNames={[stls.IconRuCoatOfArms]} />
       <div className={stls.content}>
-        <IconRosObrInsignia />
         <h4 className={stls.title}>
           Проверьте действующие лицензии на сайте РОСОБРНАДЗОРА
         </h4>
