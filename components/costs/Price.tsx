@@ -1,6 +1,8 @@
 import stls from '@/styles/components/costs/Price.module.sass'
+import { useEffect, useState } from 'react'
+import { currencyRates, ui } from '@/config/index'
 import { toNumberWithSpaces } from '@/helpers/index'
-import { useAt } from '@/hooks/index'
+import { useAt, useSSLocale } from '@/hooks/index'
 
 const Price = ({
   discount = false,
@@ -11,44 +13,79 @@ const Price = ({
 }) => {
   const at = useAt()
 
+  const SSLocale = useSSLocale()
+
+  const atKz = at.kz || SSLocale === 'kz'
+  const currencySymbol = atKz
+    ? ui.currentlySymbols.tenge
+    : ui.currentlySymbols.rubles
+
   const price = {
     regular: {
       mini: {
-        online: '178 000',
-        blended: '189 000'
+        online: atKz
+          ? toNumberWithSpaces(178000 * currencyRates.tenge)
+          : toNumberWithSpaces(178000),
+        blended: atKz
+          ? toNumberWithSpaces(189000 * currencyRates.tenge)
+          : toNumberWithSpaces(189000)
       },
       mba: {
-        online: '318 000',
-        blended: '328 000'
+        online: atKz
+          ? toNumberWithSpaces(318000 * currencyRates.tenge)
+          : toNumberWithSpaces(318000),
+        blended: atKz
+          ? toNumberWithSpaces(328000 * currencyRates.tenge)
+          : toNumberWithSpaces(328000)
       },
       profession: {
-        online: '70 000'
+        online: atKz
+          ? toNumberWithSpaces(70000 * currencyRates.tenge)
+          : toNumberWithSpaces(70000)
       },
       course: {
-        online: '70 000'
+        online: atKz
+          ? toNumberWithSpaces(70000 * currencyRates.tenge)
+          : toNumberWithSpaces(70000)
       },
       mbl: {
-        online: '318 000'
+        online: atKz
+          ? toNumberWithSpaces(318000 * currencyRates.tenge)
+          : toNumberWithSpaces(318000)
       },
-      executive: '1 400 000'
+      executive: atKz
+        ? toNumberWithSpaces(1400000 * currencyRates.tenge)
+        : toNumberWithSpaces(1400000)
     },
     discounted: {
       mini: {
-        online: '98 000'
+        online: atKz
+          ? toNumberWithSpaces(98000 * currencyRates.tenge)
+          : toNumberWithSpaces(98000)
       },
       mba: {
-        online: '175 000'
+        online: atKz
+          ? toNumberWithSpaces(175000 * currencyRates.tenge)
+          : toNumberWithSpaces(175000)
       },
       profession: {
-        online: '39 000'
+        online: atKz
+          ? toNumberWithSpaces(39000 * currencyRates.tenge)
+          : toNumberWithSpaces(39000)
       },
       course: {
-        online: '39 000'
+        online: atKz
+          ? toNumberWithSpaces(39000 * currencyRates.tenge)
+          : toNumberWithSpaces(39000)
       },
       mbl: {
-        online: '175 000'
+        online: atKz
+          ? toNumberWithSpaces(175000 * currencyRates.tenge)
+          : toNumberWithSpaces(175000)
       },
-      executive: '1 400 000'
+      executive: atKz
+        ? toNumberWithSpaces(1400000 * currencyRates.tenge)
+        : toNumberWithSpaces(1400000)
     }
   }
 
@@ -114,13 +151,15 @@ const Price = ({
         </>
       )
     } else {
-      return price + ' P.'
+      return price + ` ${currencySymbol}`
     }
   }
 
   if ((!format && at.executive) || (!format && type === 'executive'))
     return (
-      <span className={stls.executive}>{price[isDiscounted].executive} Р.</span>
+      <span className={stls.executive}>
+        {price[isDiscounted].executive} {currencySymbol}
+      </span>
     )
 
   return (
@@ -132,7 +171,7 @@ const Price = ({
             : getPriceClass('simple', renderedByComponent)
         }>
         {programPrice
-          ? toNumberWithSpaces(programPrice) + ' P.'
+          ? toNumberWithSpaces(programPrice) + ` ${currencySymbol}`
           : splitMonths(price?.[isDiscounted]?.[type]?.[format])}
       </i>
       {discount && (
@@ -140,7 +179,7 @@ const Price = ({
           {programPrice
             ? toNumberWithSpaces(
                 Math.ceil(((programPrice / 55) * 100) / 1000) * 1000
-              ) + ' P.'
+              ) + ` ${currencySymbol}`
             : splitMonths(price?.regular?.[type]?.[format] || 0)}
         </i>
       )}

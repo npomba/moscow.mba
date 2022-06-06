@@ -29,7 +29,9 @@ const HeaderNav = ({ links, handleMenu, openMenu, classNames = [] }) => {
         <ul className={stls.list}>
           {links.map((item, idx) => (
             <li key={item.val + idx} className={stls.item}>
-              <Link href={item.href} locale={item.locale}>
+              <Link
+                href={item.href}
+                {...(item?.locale ? { locale: item.locale } : undefined)}>
                 <a
                   onClick={() => handleMenu(false)}
                   className={cn(stls.link, {

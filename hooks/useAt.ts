@@ -37,6 +37,7 @@ const useAt = () => {
     mbl: getSplitedPath[1] === 'international-business-law',
     ru: locale === 'ru',
     en: locale === 'en-US',
+    kz: locale === 'kz',
     programChunk: !!getProgramTitle,
     getSplitedPath
   }

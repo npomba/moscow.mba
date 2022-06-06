@@ -2,6 +2,7 @@ import App from 'next/app'
 import '@/styles/app.sass'
 import 'reactjs-popup/dist/index.css'
 import { useEffect, useState } from 'react'
+import Head from 'next/head'
 import Router from 'next/router'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
@@ -52,6 +53,10 @@ function MyApp({ Component, pageProps, router }) {
       sessionStorage.setItem('referer', JSON.stringify(document.referrer))
     }
 
+    const urlParamLocale = router.query.locale
+    urlParamLocale &&
+      sessionStorage.setItem('locale', urlParamLocale.toString())
+
     NProgress.configure({
       // minimum: 0.3,
       // easing: 'ease',
@@ -84,6 +89,12 @@ function MyApp({ Component, pageProps, router }) {
 
   return (
     <>
+      <Head>
+        <meta
+          name='viewport'
+          content='width=device-width, initial-scale=1, maximum-scale=1'
+        />
+      </Head>
       <DefaultSeo {...SEO} />
       <LogoJsonLd
         logo='https://moscow.mba/logo.jpg'

@@ -1,7 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { MetaFonts, MetaManifest } from '@/components/meta'
 
-
 class MyDocument extends Document {
   // static async getInitialProps(ctx) {
   //   const initialProps = await Document.getInitialProps(ctx)
@@ -12,15 +11,15 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <meta charSet='UTF-8'/>
+          <meta charSet='UTF-8' />
           <MetaFonts />
           <MetaManifest />
         </Head>
         <body>
-        <>
-          <Main />
-          <NextScript />
-        </>
+          <>
+            <Main />
+            <NextScript />
+          </>
         </body>
       </Html>
     )

@@ -42,7 +42,7 @@ const ProgramsColumn = ({ data, id, type }) => {
           <li key={item.id || item._id} className={stls.listItem}>
             <Link
               href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
-              locale='ru'>
+              {...(at.en ? { locale: 'ru' } : undefined)}>
               <a onClick={handleLinkClick}>
                 {at.en
                   ? item?.slug?.split('-').join(' ') || item?.title
@@ -56,7 +56,9 @@ const ProgramsColumn = ({ data, id, type }) => {
           <Fragment key={item.id || item._id || `ProgramsColumnItem-${idx}`}>
             {type === 'mba' && format === 'online' && (
               <li className={stls.listItem}>
-                <Link href={`/programs/international-business-law`} locale='ru'>
+                <Link
+                  href={`/programs/international-business-law`}
+                  {...(at.en ? { locale: 'ru' } : undefined)}>
                   <a onClick={handleLinkClick}>
                     {at.en ? 'MBL' : 'Магистр международного права'}
                   </a>
@@ -65,7 +67,9 @@ const ProgramsColumn = ({ data, id, type }) => {
             )}
 
             <li key={item.id || item._id} className={stls.listItem}>
-              <Link href={`/programs/${type}/${format}`} locale='ru'>
+              <Link
+                href={`/programs/${type}/${format}`}
+                {...(at.en ? { locale: 'ru' } : undefined)}>
                 <a className={stls.link} onClick={handleLinkClick}>
                   {at.en ? 'View all' : 'Посмотреть все'}
                   <IconArrowLeft classNames={[stls.arrow]} />

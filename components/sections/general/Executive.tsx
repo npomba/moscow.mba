@@ -46,7 +46,9 @@ const Executive = () => {
               {at.en ? 'Cost' : 'Стоимость'}:{' '}
               <Price discount={false} type={'executive'} />
             </div>
-            <Link href='/programs/executive/' locale='ru'>
+            <Link
+              href='/programs/executive/'
+              {...(at.en ? { locale: 'ru' } : undefined)}>
               <a className={stls.button}>
                 {at.en ? 'Learn more' : 'Узнать подробнее'}
               </a>

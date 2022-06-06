@@ -1,13 +1,15 @@
 import stls from '@/styles/components/popups/PopupLearnMore.module.sass'
-import Discount from '@/components/costs/Discount'
-import { IconClose } from '@/components/icons'
-import Until from '@/components/costs/Until'
 import learmMoreStls from '@/styles/components/layout/StickyBottom.module.sass'
-import Popup from 'reactjs-popup'
-import PopupForm from '@/components/popups/PopupForm'
 import Link from 'next/link'
+import Popup from 'reactjs-popup'
+import Discount from '@/components/costs/Discount'
+import { useAt } from '@/hooks/index'
+import PopupForm from '@/components/popups/PopupForm'
+import Until from '@/components/costs/Until'
+import { IconClose } from '@/components/icons'
 
 const PopupLearnMore = ({ close }) => {
+  const at = useAt()
   return (
     <div className={`${stls.popupLearnMore} red-bg`}>
       <h2 className={stls.title}>
@@ -35,7 +37,9 @@ const PopupLearnMore = ({ close }) => {
           )}
         </Popup>
 
-        <Link href='/programs/mini/online' locale='ru'>
+        <Link
+          href='/programs/mini/online'
+          {...(at.en ? { locale: 'ru' } : undefined)}>
           <a className={`${learmMoreStls.btn} ${stls.btn}`} onClick={close}>
             СМОТРЕТЬ&nbsp;ПРОГРАММЫ
           </a>

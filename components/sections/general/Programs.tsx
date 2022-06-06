@@ -58,12 +58,16 @@ const Programs = () => {
                 </a>
               </li>
               <li>
-                <Link href='/programs/profession/online' locale='ru'>
+                <Link
+                  href='/programs/profession/online'
+                  {...(at.en ? { locale: 'ru' } : undefined)}>
                   <a>Профессии</a>
                 </Link>
               </li>
               <li>
-                <Link href='/programs/mini/online' locale='ru'>
+                <Link
+                  href='/programs/mini/online'
+                  {...(at.en ? { locale: 'ru' } : undefined)}>
                   <a>{at.en ? 'All programs' : 'Все программы'}</a>
                 </Link>
               </li>
@@ -169,7 +173,7 @@ const Programs = () => {
                           <li key={item.id || item._id}>
                             <Link
                               href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
-                              locale='ru'>
+                              {...(at.en ? { locale: 'ru' } : undefined)}>
                               <a className={stls.link}>
                                 {at.en
                                   ? item?.slug?.split('-').join(' ') ||
@@ -229,7 +233,7 @@ const Programs = () => {
                           <li key={item.id || item._id}>
                             <Link
                               href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
-                              locale='ru'>
+                              {...(at.en ? { locale: 'ru' } : undefined)}>
                               <a className={stls.link}>
                                 {at.en
                                   ? item?.slug?.split('-').join(' ') ||
@@ -343,7 +347,7 @@ const Programs = () => {
                           <li key={item.id || item._id}>
                             <Link
                               href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
-                              locale='ru'>
+                              {...(at.en ? { locale: 'ru' } : undefined)}>
                               <a className={stls.link}>
                                 {at.en
                                   ? item?.slug?.split('-').join(' ') ||
@@ -358,7 +362,7 @@ const Programs = () => {
                     <li>
                       <Link
                         href={`/programs/international-business-law`}
-                        locale='ru'>
+                        {...(at.en ? { locale: 'ru' } : undefined)}>
                         <a>Магистр международного бизнес-права</a>
                       </Link>
                     </li>
@@ -410,7 +414,7 @@ const Programs = () => {
                           <li key={item.id || item._id}>
                             <Link
                               href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
-                              locale='ru'>
+                              {...(at.en ? { locale: 'ru' } : undefined)}>
                               <a className={stls.link}>
                                 {at.en
                                   ? item?.slug?.split('-').join(' ') ||

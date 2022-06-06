@@ -23,25 +23,25 @@ const HeaderMenu = ({ programs, handleMenu }) => {
       href: '/teachers',
       val: at.en ? 'Experts' : 'Эксперты',
       red: at.teachers,
-      locale: 'ru'
+      locale: at.en ? 'ru' : undefined
     },
     {
       href: '/webinars',
       val: at.en ? 'Webinars' : 'Вебинары',
       red: at.webinars,
-      locale: 'ru'
+      locale: at.en ? 'ru' : undefined
     },
     {
       href: '/contact',
       val: at.en ? 'Contact' : 'Контакты',
       red: at.contact,
-      locale: 'ru'
+      locale: at.en ? 'ru' : undefined
     },
     {
       href: '/legal',
       val: at.en ? 'Legal' : 'Сведения об организации',
       red: at.legal,
-      locale: 'ru'
+      locale: at.en ? 'ru' : undefined
     }
   ]
 

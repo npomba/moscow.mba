@@ -31,12 +31,14 @@ const PageTeachersTeacher: NextPage<TypePageTeacherProps> = ({
   const image = (
     <ImgTeachersTeacher
       src={teacher?.portrait?.url}
-      width={teacher?.portrait?.url ? 343 : undefined}
+      width={teacher?.portrait?.url ? 270 : undefined}
       height={getImageHeight({
-        width: 343,
+        width: 270,
         widthInitial: teacher?.portrait?.width,
         heightInitial: teacher?.portrait?.height
       })}
+      alt={teacher?.name}
+      title={teacher?.name}
     />
   )
 

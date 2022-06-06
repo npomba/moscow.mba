@@ -7,6 +7,7 @@ import Image from 'next/image'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { routesFront, base64pixel, contactData } from '@/config/index'
+import { getImageHeight } from '@/helpers/index'
 import { useAt, useDefaultTeachers } from '@/hooks/index'
 import { ProgramsContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
@@ -27,6 +28,7 @@ const LiTeacherContent = ({
   atStandAlonePage?: boolean
 }) => {
   const at = useAt()
+
   return (
     <div className={stls.teachersItem}>
       <div className={stls.teachersItemWrapper}>
@@ -34,8 +36,15 @@ const LiTeacherContent = ({
           <Image
             src={teacher?.portrait?.url}
             alt={teacher?.name}
-            width={teacher?.portrait?.width}
-            height={teacher?.portrait?.height}
+            width={teacher?.portrait?.url ? 270 : undefined}
+            height={
+              teacher?.portrait?.url &&
+              getImageHeight({
+                width: 270,
+                widthInitial: teacher?.portrait?.width,
+                heightInitial: teacher?.portrait?.height
+              })
+            }
             layout='responsive'
             placeholder='blur'
             blurDataURL={base64pixel}
@@ -97,7 +106,7 @@ const Teachers = ({
     useState(false)
 
   const [shownTeachersCount, setShownTeachersCount] = useState(8)
-  const showMoreTeachersAddendum = 4
+  const showMoreTeachersAddendum = 12
   const UITeachers: TypeLibTeachers | null = teachers
     ?.filter(teacher =>
       searchTerm
@@ -133,7 +142,15 @@ const Teachers = ({
       setSearchTerm(decodeURIComponent(router.query.q.toString()))
       setSearchTermIsAppliedtoUrl(true)
     }
-  }, [router, searchTerm])
+
+    const shownTeachersCountSS = sessionStorage.getItem('shownTeachersCount')
+
+    if (shownTeachersCountSS && +shownTeachersCountSS > shownTeachersCount) {
+      setShownTeachersCount(+shownTeachersCountSS)
+    }
+
+    sessionStorage.setItem('shownTeachersCount', shownTeachersCount.toString())
+  }, [router, searchTerm, shownTeachersCount])
 
   return (
     <>
@@ -383,7 +400,9 @@ const Teachers = ({
                       {programs
                         ?.filter(program => program.studyFormat === 'online')
                         ?.filter(program =>
-                          program?.title?.includes(searchTerm)
+                          program?.title
+                            ?.toLowerCase()
+                            .includes(searchTerm.toLowerCase())
                         )
                         .filter((_, idx) => idx < 10)
                         .map((program, idx) => (
@@ -587,7 +606,28 @@ const Teachers = ({
                     }>
                     {at.en
                       ? 'Show more'
-                      : `Ещё ${showMoreTeachersAddendum} преподавателя${
+                      : `Ещё ${
+                          shownTeachersCount + showMoreTeachersAddendum >
+                          (teachers?.length
+                            ? teachers.filter(teacher =>
+                                searchTerm
+                                  ? teacher?.programs?.some(program =>
+                                      program?.includes(searchTerm)
+                                    )
+                                  : teacher
+                              ).length
+                            : 0)
+                            ? (teachers?.length
+                                ? teachers.filter(teacher =>
+                                    searchTerm
+                                      ? teacher?.programs?.some(program =>
+                                          program?.includes(searchTerm)
+                                        )
+                                      : teacher
+                                  ).length
+                                : 0) - shownTeachersCount
+                            : showMoreTeachersAddendum
+                        } преподавателей${
                           teachers?.length
                             ? ` из ${
                                 teachers.filter(teacher =>

@@ -42,7 +42,9 @@ const JumbotronMain = () => {
               </div>
             </div>
           </div>
-          <Link href='/programs/mini/online' locale='ru'>
+          <Link
+            href='/programs/mini/online'
+            {...(at.en ? { locale: 'ru' } : undefined)}>
             <a className={stls.square}>
               <p>{at.en ? 'Choose program' : 'Подобрать направление'}</p>
               <div className={stls.arrow}>

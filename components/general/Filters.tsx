@@ -92,7 +92,9 @@ const Filters = ({ mbaTypeOfProgram, mbaFormat }) => {
               </a>
             </Link>
 
-            <Link href='/programs/international-business-law' locale='ru'>
+            <Link
+              href='/programs/international-business-law'
+              {...(at.en ? { locale: 'ru' } : undefined)}>
               <a
                 className={cn({
                   [stls.highlight]: true,
@@ -101,7 +103,9 @@ const Filters = ({ mbaTypeOfProgram, mbaFormat }) => {
                 MBL
               </a>
             </Link>
-            <Link href='/programs/executive' locale='ru'>
+            <Link
+              href='/programs/executive'
+              {...(at.en ? { locale: 'ru' } : undefined)}>
               <a className={stls.highlight}>
                 Executive MBA <span className={stls.premium}>Premium</span>
               </a>

@@ -65,7 +65,9 @@ const StickyBottom = ({
           <Until />!
         </p>
         <div className={stls.btns}>
-          <Link href='/programs/mini/online' locale='ru'>
+          <Link
+            href='/programs/mini/online'
+            {...(at.en ? { locale: 'ru' } : undefined)}>
             <a className={stls.btn}>
               {at.en ? <>VIEW&nbsp;PROGRAMS</> : <>СМОТРЕТЬ&nbsp;ПРОГРАММЫ</>}
             </a>

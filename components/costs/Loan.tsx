@@ -1,7 +1,9 @@
 import stls from '@/styles/components/costs/Loan.module.sass'
+import { useState, useEffect } from 'react'
 import cn from 'classnames'
+import { ui, currencyRates } from '@/config/index'
 import { toNumberWithSpaces } from '@/helpers/index'
-import { useAt } from '@/hooks/index'
+import { useAt, useSSLocale } from '@/hooks/index'
 
 type TypeLoanProps = {
   discount?: boolean
@@ -24,41 +26,73 @@ const Loan = ({
 }: TypeLoanProps) => {
   const at = useAt()
 
+  const SSLocale = useSSLocale()
+
+  const atKz = at.kz || SSLocale === 'kz'
+
+  const currencySymbol = atKz
+    ? `${ui.currentlySymbols.tenge}/мес.`
+    : `${ui.currentlySymbols.rublesAlt}/мес.`
+
   const price = {
     loanRegular: {
       mini: {
-        online: '14 900',
-        blended: '15 800'
+        online: atKz
+          ? toNumberWithSpaces(14900 * currencyRates.tenge)
+          : toNumberWithSpaces(14900),
+        blended: atKz
+          ? toNumberWithSpaces(15800 * currencyRates.tenge)
+          : toNumberWithSpaces(15800)
       },
       mba: {
-        online: '26 500',
-        blended: '27 400'
+        online: atKz
+          ? toNumberWithSpaces(26500 * currencyRates.tenge)
+          : toNumberWithSpaces(26500),
+        blended: atKz
+          ? toNumberWithSpaces(27400 * currencyRates.tenge)
+          : toNumberWithSpaces(27400)
       },
       profession: {
-        online: '6 000'
+        online: atKz
+          ? toNumberWithSpaces(6000 * currencyRates.tenge)
+          : toNumberWithSpaces(6000)
       },
       course: {
-        online: '6 000'
+        online: atKz
+          ? toNumberWithSpaces(6000 * currencyRates.tenge)
+          : toNumberWithSpaces(6000)
       },
       mbl: {
-        online: '26 500'
+        online: atKz
+          ? toNumberWithSpaces(26500 * currencyRates.tenge)
+          : toNumberWithSpaces(26500)
       }
     },
     loanDiscounted: {
       mini: {
-        online: '8 200'
+        online: atKz
+          ? toNumberWithSpaces(8200 * currencyRates.tenge)
+          : toNumberWithSpaces(8200)
       },
       mba: {
-        online: '14 600'
+        online: atKz
+          ? toNumberWithSpaces(14600 * currencyRates.tenge)
+          : toNumberWithSpaces(14600)
       },
       profession: {
-        online: '3 250'
+        online: atKz
+          ? toNumberWithSpaces(3250 * currencyRates.tenge)
+          : toNumberWithSpaces(3250)
       },
       course: {
-        online: '3 250'
+        online: atKz
+          ? toNumberWithSpaces(3250 * currencyRates.tenge)
+          : toNumberWithSpaces(3250)
       },
       mbl: {
-        online: '14 600'
+        online: atKz
+          ? toNumberWithSpaces(14600 * currencyRates.tenge)
+          : toNumberWithSpaces(14600)
       }
     }
   }
@@ -109,7 +143,7 @@ const Loan = ({
             className={cn({
               [stls.priceLabel]: variant === 'SectionStudyCost'
             })}>
-            Р/мес.
+            {currencySymbol}
           </span>
         </span>
         {variant === 'SectionStudyCost' && (
@@ -134,7 +168,7 @@ const Loan = ({
               className={cn({
                 [stls.discountLabel]: variant === 'SectionStudyCost'
               })}>
-              Р/мес.
+              {currencySymbol}
             </span>
           </i>
         </>

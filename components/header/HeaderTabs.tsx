@@ -9,7 +9,7 @@ const HeaderTabs = ({ tabs, handleMouseEnter, handleMenu, visible }) => {
     <ul className={stls.container}>
       {tabs.map((item, idx) => (
         <li key={item.val + idx} className={stls.item}>
-          <Link href={item.href} locale='ru'>
+          <Link href={item.href} {...(at.en ? { locale: 'ru' } : undefined)}>
             <a
               className={
                 idx === currentTab
@@ -34,7 +34,9 @@ const HeaderTabs = ({ tabs, handleMouseEnter, handleMenu, visible }) => {
         <div className={stls.label}>
           <span className={stls.text}>Premium</span>
         </div>
-        <Link href='/programs/executive' locale='ru'>
+        <Link
+          href='/programs/executive'
+          {...(at.en ? { locale: 'ru' } : undefined)}>
           <a className={stls.link} onClick={() => handleMenu(false)}>
             Executive MBA
           </a>

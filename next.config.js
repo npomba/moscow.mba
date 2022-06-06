@@ -19,9 +19,9 @@ module.exports = {
   reactStrictMode: true,
   poweredByHeader: false,
   i18n: {
-    locales: ['ru', 'en-US'],
+    locales: ['ru', 'en-US', 'kz'],
     defaultLocale: 'ru',
-    localeDetection: false
+    localeDetection: true
   },
   images: {
     domains: ['res.cloudinary.com']

@@ -63,7 +63,9 @@ const JumbotronCta = ({ programTitle = null, programId = null }) => {
 
               <ul className={stls.mobileLinksList}>
                 <li className={stls.linkItem}>
-                  <Link href='/programs' locale='ru'>
+                  <Link
+                    href='/programs'
+                    {...(at.en ? { locale: 'ru' } : undefined)}>
                     <a>{at.en ? 'MBA Programs' : 'Программы MBA'}</a>
                   </Link>
                 </li>

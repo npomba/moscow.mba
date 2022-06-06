@@ -34,22 +34,30 @@ const Footer = () => {
             {!at.promo && (
               <ul className={stls.linksList}>
                 <li className={stls.linkItem}>
-                  <Link href='/programs/mini/online' locale='ru'>
+                  <Link
+                    href='/programs/mini/online'
+                    {...(at.en ? { locale: 'ru' } : undefined)}>
                     <a className={stls.link}>MBA Mini</a>
                   </Link>
                 </li>
                 <li className={stls.linkItem}>
-                  <Link href='/programs/mba/online' locale='ru'>
+                  <Link
+                    href='/programs/mba/online'
+                    {...(at.en ? { locale: 'ru' } : undefined)}>
                     <a className={stls.link}>MBA</a>
                   </Link>
                 </li>
                 <li className={stls.linkItem}>
-                  <Link href='/programs/executive' locale='ru'>
+                  <Link
+                    href='/programs/executive'
+                    {...(at.en ? { locale: 'ru' } : undefined)}>
                     <a className={stls.link}>Executive MBA</a>
                   </Link>
                 </li>
                 <li className={stls.linkItem}>
-                  <Link href='/programs/profession/online' locale='ru'>
+                  <Link
+                    href='/programs/profession/online'
+                    {...(at.en ? { locale: 'ru' } : undefined)}>
                     <a className={stls.link}>Профессии</a>
                   </Link>
                 </li>
@@ -61,14 +69,18 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li className={stls.linkItem}>
-                  <Link href='/teachers' locale='ru'>
+                  <Link
+                    href='/teachers'
+                    {...(at.en ? { locale: 'ru' } : undefined)}>
                     <a className={stls.link}>
                       {at.en ? 'Experts' : 'Эксперты'}
                     </a>
                   </Link>
                 </li>
                 <li className={stls.linkItem}>
-                  <Link href='/webinars' locale='ru'>
+                  <Link
+                    href='/webinars'
+                    {...(at.en ? { locale: 'ru' } : undefined)}>
                     <a className={stls.link}>
                       {at.en ? 'Webinars' : 'Вебинары'}
                     </a>
@@ -82,24 +94,32 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li className={stls.linkItem}>
-                  <Link href='/legal' locale='ru'>
+                  <Link
+                    href='/legal'
+                    {...(at.en ? { locale: 'ru' } : undefined)}>
                     <a className={stls.link}>
                       {at.en ? 'Legal' : 'Сведения об организации'}
                     </a>
                   </Link>
                 </li>
                 <li className={stls.linkItem}>
-                  <Link href='/journal' locale='ru'>
+                  <Link
+                    href='/journal'
+                    {...(at.en ? { locale: 'ru' } : undefined)}>
                     <a className={stls.link}>{at.en ? 'Journal' : 'Журнал'}</a>
                   </Link>
                 </li>
                 <li className={stls.linkItem}>
-                  <Link href='/payment' locale='ru'>
+                  <Link
+                    href='/payment'
+                    {...(at.en ? { locale: 'ru' } : undefined)}>
                     <a className={stls.link}>{at.en ? 'Payment' : 'Оплата'}</a>
                   </Link>
                 </li>
                 <li className={stls.linkItem}>
-                  <Link href={routesFront.corporateClients} locale='ru'>
+                  <Link
+                    href={routesFront.corporateClients}
+                    {...(at.en ? { locale: 'ru' } : undefined)}>
                     <a className={stls.link}>
                       {at.en
                         ? 'Corporate education'

@@ -50,7 +50,7 @@ const ProgramsList = ({ data, id, type }) => {
               <div key={item.id} className={stls.listItem}>
                 <Link
                   href={`/programs/${item.category.type}/${item.studyFormat}/${item.slug}`}
-                  locale='ru'>
+                  {...(at.en ? { locale: 'ru' } : undefined)}>
                   <a onClick={handleLinkClick}>
                     {at.en
                       ? item?.slug?.split('-').join(' ') || item?.title
@@ -62,7 +62,9 @@ const ProgramsList = ({ data, id, type }) => {
           } else if (idx === 5) {
             return (
               <div key={item.id} className={stls.listItem}>
-                <Link href={`/programs/${type}/online`} locale='ru'>
+                <Link
+                  href={`/programs/${type}/online`}
+                  {...(at.en ? { locale: 'ru' } : undefined)}>
                   <a className={stls.link} onClick={handleLinkClick}>
                     {at.en ? 'View all' : 'Посмотреть все'}
                     <IconArrowLeft classNames={[stls.arrow]} />
