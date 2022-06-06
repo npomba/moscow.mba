@@ -65,14 +65,22 @@
 
 .iconCloseBtn
 	position: absolute
+	transition: transform .15s ease-in-out
 	@include m.media(phone, tablet)
 		top: f.px(-27)
 		right: f.px(10)
-		transform: translateX(-50%)
+		// transform: translateX(-50%)
+		transform: translateX(-100%) translateY(200%)
+		&:focus-visible
+			transform: translateX(-50%) translateY(0)
 	@include m.media(laptop, desktop, widescreen)
 		top: f.px(-35)
 		right: f.px(3)
-		transform: translateX(-50%)
+		transform: translateX(-100%) translateY(200%)
+		&:focus-visible
+			transform: translateX(-50%) translateY(0)
+
+
 
 .iconClose
 	display: flex
