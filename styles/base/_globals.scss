@@ -1263,15 +1263,19 @@ html #nprogress .spinner-icon {
 }
 
 .popup-SearchField-overlay {
+  overflow-y: scroll;
 }
 
 .popup-SearchField-content {
   align-self: flex-start;
+  // overflow-y: visible;
   @include m.media(phone, tablet) {
     margin-top: f.px(60) !important;
+    margin-bottom: f.px(60) !important;
   }
   @include m.media(laptop, desktop, widescreen) {
     margin-top: f.px(100) !important;
+    margin-bottom: f.px(100) !important;
   }
   margin-top: 0 !important;
   margin-right: auto !important;
