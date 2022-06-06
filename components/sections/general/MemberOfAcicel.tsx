@@ -18,20 +18,22 @@ const MemberOfAcicel = () => {
     <section>
       <Wrapper classNames={[stls.wrapper]}>
         <div className={stls.content}>
-          <div className={stls.descRabe}>
-            <h2 className={stls.subHeading}>Аккредитация Ecicel</h2>
-            <p>
+          <div className={stls.left}>
+            <h2 className={stls.title}>Аккредитация Ecicel</h2>
+            <p className={stls.p}>
               Наши программы прошли строгую проверку европейской
               аккредитационной комиссии ECICEL и полностью соответствуют всем
               стандартам. Наличие данной аккредитации гарантирует высокое
               качество образования в Moscow Business Academy
             </p>
           </div>
-          <ImageContainer
-            image={rabeImage}
-            imageWidth={rabeImage.smallWidth}
-            imageHeight={rabeImage.smallHeight}
-          />
+          <div className={stls.right}>
+            <ImageContainer
+              image={rabeImage}
+              imageWidth={rabeImage.smallWidth}
+              imageHeight={rabeImage.smallHeight}
+            />
+          </div>
         </div>
       </Wrapper>
     </section>
