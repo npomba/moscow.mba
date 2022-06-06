@@ -26,7 +26,6 @@
   @include m.media(tablet, phone)
     padding-bottom: 60px
     overflow: hidden
-
   &:before
       content: ''
       height: 2px
@@ -59,6 +58,8 @@
     margin-top: 19px
     width: 410px
     height: calc(100% - 19px)
+    @include m.media(widescreen)
+      margin-top: auto
     @include m.media(desktop)
       position: absolute
       right: 0
@@ -100,7 +101,7 @@
     line-height: 1.2
     margin-bottom: 76px
     padding-left: 220px
-    max-width: 580px
+    max-width: 30ch
     box-sizing: content-box
     color: #000
     @include m.media(desktop, laptop, tablet, phone)

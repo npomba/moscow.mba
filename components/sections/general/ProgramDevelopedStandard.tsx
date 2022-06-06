@@ -6,18 +6,18 @@ const ProgramDevelopedStandard = () => {
   return (
     <section className={stls.container}>
       <Wrapper classNames={[stls.wrapper]}>
-        <IconEmblem classNames={[stls.icon]} />
+        <div className={stls.iconContainer}>
+          <IconEmblem classNames={[stls.icon]} />
+        </div>
         <div className={stls.content}>
-          <div className={stls.title}>
-            <h2>Программа разработана по&nbsp;профстандарту</h2>
-          </div>
-          <div className={stls.text}>
-            <p>
-              Программа разработана с учетом требований соответствующего
-              профессионального стандарта, утвержденного Министерством труда и
-              социальной защиты Российской Федерации
-            </p>
-          </div>
+          <h2 className={stls.title}>
+            Программа разработана по&nbsp;профстандарту
+          </h2>
+          <p className={stls.p}>
+            Программа разработана с учетом требований соответствующего
+            профессионального стандарта, утвержденного Министерством труда и
+            социальной защиты Российской Федерации
+          </p>
         </div>
       </Wrapper>
     </section>

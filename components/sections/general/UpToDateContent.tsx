@@ -23,10 +23,6 @@ const UpToDateContent = ({ withBottomLine = false }) => {
               {at.en
                 ? "It's important to keep up with the latest news and developments in the industry. We have a dedicated team of experts who are constantly updating our database of articles and videos"
                 : 'Для нас важно, чтобы студенты получали только актуальные знания, поэтому наши эксперты постоянно работают над улучшением программ!'}{' '}
-              <strong className={stls.red}>
-                {at.en ? 'to learn' : 'получить MBA'}{' '}
-              </strong>
-              {at.en ? 'without offline presence' : 'не посещая наши кампусы'}
             </div>
             <div className={stls.bottomImg}>
               <Image
