@@ -13,11 +13,11 @@ const ProgramDesc = () => {
           className={cn(stls.content, {
             [stls.smallPl]: at.profession || at.course || at.promo
           })}>
-          <div className={stls.left}>
-            {!at.profession && !at.course && !at.promo && (
+          {!at.profession && !at.course && !at.promo && (
+            <div className={stls.left}>
               <p className={stls.label}>О&nbsp;программе</p>
-            )}
-          </div>
+            </div>
+          )}
           <div className={stls.right}>
             <h2 className={stls.title}>
               {at.mini && at.online && 'Mini MBA Online'}
@@ -36,13 +36,13 @@ const ProgramDesc = () => {
             <div className={stls.desc}>
               {at.mini &&
                 at.online &&
-                'Программа Mini MBA Online является усеченной версией полуторогодового курса MBA. На курсе Mini MBA Вы сможете повысить свою квалификацию более интенсивно и освоите только ключевые модули длинной программы'}
+                'Программа Mini MBA Online является усеченной версией полуторагодового курса MBA. На курсе Mini MBA Вы сможете повысить свою квалификацию более интенсивно и освоите только ключевые модули длинной программы'}
               {at.mba &&
                 at.online &&
                 'MBA Online — престижная программа высокого уровня, на которой Вы углубленно изучите менеджмент, маркетинг, финансы, получите востребованные soft skills и расширите карьерные возможности'}
               {at.mini &&
                 at.blended &&
-                'Программа Mini MBA Blended является усеченной версией полуторогодового курса MBA. На курсе Mini MBA Вы сможете повысить свою квалификацию более интенсивно и освоите только ключевые модули длинной программы'}
+                'Программа Mini MBA Blended является усеченной версией полуторагодового курса MBA. На курсе Mini MBA Вы сможете повысить свою квалификацию более интенсивно и освоите только ключевые модули длинной программы'}
               {at.mba &&
                 at.blended &&
                 'MBA Blended — престижная программа высокого уровня, на которой Вы углубленно изучите менеджмент, маркетинг, финансы, получите востребованные soft skills и расширите карьерные возможности'}

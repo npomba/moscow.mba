@@ -38,11 +38,14 @@ import HelpWithEmployment from '@/components/sections/general/HelpWithEmployment
 import Pros from '@/components/sections/general/Pros'
 import GetStudyPlan from '@/components/sections/general/GetStudyPlan'
 import ProgramDevelopedStandard from '@/components/sections/general/ProgramDevelopedStandard'
+import SectionIPAR from '@/components/sections/general/SectionIPAR'
 
 const CourseOnlineProgram = ({ program, teachers }) => {
   const data = program
-
   const router = useRouter()
+
+  const studyFieldIsAccounting =
+    program?.study_field?.slug?.trim() === 'accounting-analysis-and-audit'
 
   return (
     <>
@@ -65,6 +68,8 @@ const CourseOnlineProgram = ({ program, teachers }) => {
       <WhatWillYouLearn data={data} />
       <ProgramDesc />
       <ProgramDevelopedStandard />
+      {studyFieldIsAccounting && <SectionIPAR />}
+
       <WhoItIsFor program={program} />
 
       <Pros format={'online'} />

@@ -10,6 +10,7 @@ export { default as ImgCorporateClientStudentsTogether } from '@/components/imag
 
 // ./general
 export { default as ImgLogoEcicel } from '@/components/images/general/ImgLogoEcicel'
+export { default as ImgLogoIPAR } from '@/components/images/general/ImgLogoIPAR'
 export { default as ImgLogoMde } from '@/components/images/general/ImgLogoMde'
 export { default as ImgLogoRabo } from '@/components/images/general/ImgLogoRabo'
 // ./journal

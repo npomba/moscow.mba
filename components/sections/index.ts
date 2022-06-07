@@ -71,6 +71,7 @@ export { default as ResultsExecutive } from '@/components/sections/general/Resul
 export { default as Reviews } from '@/components/sections/general/Reviews'
 export { default as Rules } from '@/components/sections/general/Rules'
 export { default as SectionCheckPros } from '@/components/sections/general/SectionCheckPros'
+export { default as SectionIPAR } from '@/components/sections/general/SectionIPAR'
 export { default as SectionStudyCost } from '@/components/sections/general/SectionStudyCost'
 export { default as Students } from '@/components/sections/general/Students'
 export { default as StudentsInternational } from '@/components/sections/general/StudentsInternational'
