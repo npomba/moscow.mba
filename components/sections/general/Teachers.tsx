@@ -597,7 +597,7 @@ const Teachers = ({
                   (UITeachers.length >= 8 && !searchTerm)) && (
                   <button
                     className={cn('button', stls.btnShowMore, {
-                      [stls.attTeachers]: at.teachers
+                      [stls.atTeachers]: at.teachers
                     })}
                     onClick={() =>
                       setShownTeachersCount(
