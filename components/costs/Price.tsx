@@ -17,6 +17,11 @@ const Price = ({
 
   const atKz =
     at.kz || SSLocale === 'kz' || SSLocale === 'kk' || SSLocale === 'kk_KZ'
+
+  const programPriceKzConsidered = atKz
+    ? programPrice * currencyRates.tenge
+    : programPrice
+
   const currencySymbol = atKz
     ? ui.currentlySymbols.tenge
     : ui.currentlySymbols.rubles
@@ -171,15 +176,15 @@ const Price = ({
             ? getPriceClass('new', renderedByComponent)
             : getPriceClass('simple', renderedByComponent)
         }>
-        {programPrice
-          ? toNumberWithSpaces(programPrice) + ` ${currencySymbol}`
+        {programPriceKzConsidered
+          ? toNumberWithSpaces(programPriceKzConsidered) + ` ${currencySymbol}`
           : splitMonths(price?.[isDiscounted]?.[type]?.[format])}
       </i>
       {discount && (
         <i className={getPriceClass('old', renderedByComponent)}>
-          {programPrice
+          {programPriceKzConsidered
             ? toNumberWithSpaces(
-                Math.ceil(((programPrice / 55) * 100) / 1000) * 1000
+                Math.ceil(((programPriceKzConsidered / 45) * 100) / 1000) * 1000
               ) + ` ${currencySymbol}`
             : splitMonths(price?.regular?.[type]?.[format] || 0)}
         </i>

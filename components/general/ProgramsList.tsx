@@ -146,10 +146,13 @@ const ProgramsList = ({ data, id, type }) => {
               : 'Курсы'
             : null}
         </div>
-        <div className={stls.itemBottom}>
-          <IconClock classNames={[stls.iconBottom]} />
-          <TrainingPeriod type={type} />
-        </div>
+        {(!at.profession || !at.course) && (
+          <div className={stls.itemBottom}>
+            <IconClock classNames={[stls.iconBottom]} />
+            <TrainingPeriod type={type} />
+          </div>
+        )}
+
         <p className={stls.textBottom}>
           {type === 'profession'
             ? at.en

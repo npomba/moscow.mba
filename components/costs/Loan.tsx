@@ -32,6 +32,10 @@ const Loan = ({
   const atKz =
     at.kz || SSLocale === 'kz' || SSLocale === 'kk' || SSLocale === 'kk_KZ'
 
+  const programPriceKzConsidered = atKz
+    ? programPrice * currencyRates.tenge
+    : programPrice
+
   const currencySymbol = atKz
     ? `${ui.currentlySymbols.tenge}/мес.`
     : `${ui.currentlySymbols.rublesAlt}/мес.`
@@ -126,7 +130,8 @@ const Loan = ({
   }
 
   const regularPrice =
-    programPrice && Math.ceil(((programPrice / 55) * 100) / 1000) * 1000
+    programPriceKzConsidered &&
+    Math.ceil(((programPriceKzConsidered / 45) * 100) / 1000) * 1000
 
   return (
     <>
@@ -138,8 +143,8 @@ const Loan = ({
           { [stls.price]: variant === 'SectionStudyCost' }
         )}>
         <span>
-          {programPrice
-            ? toNumberWithSpaces(Math.floor(programPrice / 12))
+          {programPriceKzConsidered
+            ? toNumberWithSpaces(Math.floor(programPriceKzConsidered / 12))
             : price[regularOrDiscounted]?.[type]?.[format]}{' '}
           <span
             className={cn({
@@ -162,7 +167,7 @@ const Loan = ({
               className={cn({
                 [stls.discountNum]: variant === 'SectionStudyCost'
               })}>
-              {programPrice
+              {programPriceKzConsidered
                 ? toNumberWithSpaces(Math.floor(regularPrice / 12))
                 : price.loanRegular[type]?.[format]}
             </span>{' '}

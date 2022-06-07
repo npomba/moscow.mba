@@ -5,7 +5,7 @@ import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { useAt } from '@/hooks/index'
 import { ProgramContext } from '@/context/index'
-import { getClassNames } from '@/helpers/index'
+import { getClassNames, ruCaseMonth } from '@/helpers/index'
 import { GeneralStickerDiscount } from '@/components/general'
 import { Loan, TrainingPeriod, Until } from '@/components/costs'
 import { Wrapper } from '@/components/layout'
@@ -49,23 +49,31 @@ const SectionStudyCost = ({ classNames }: TypeSectionStudyCostProps) => {
             <div className={stls.programInfos}>
               <div className={stls.programInfo}>
                 <p className={stls.programInfoTitle}>
-                  <TrainingPeriod
-                    type={
-                      at.mini
-                        ? 'mini'
-                        : at.mba
-                        ? 'mba'
-                        : at.executive
-                        ? 'executive'
-                        : at.mbl
-                        ? 'mba'
-                        : at.profession
-                        ? 'profession'
-                        : at.course
-                        ? 'course'
-                        : null
-                    }
-                  />
+                  {program?.duration?.minStudyMonths ? (
+                    `${program?.duration?.minStudyMonths} ${
+                      at.en
+                        ? 'month'
+                        : ruCaseMonth(program?.duration?.minStudyMonths)
+                    }`
+                  ) : (
+                    <TrainingPeriod
+                      type={
+                        at.mini
+                          ? 'mini'
+                          : at.mba
+                          ? 'mba'
+                          : at.executive
+                          ? 'executive'
+                          : at.mbl
+                          ? 'mba'
+                          : at.profession
+                          ? 'profession'
+                          : at.course
+                          ? 'course'
+                          : null
+                      }
+                    />
+                  )}
                 </p>
                 <p className={stls.programInfoContent}>
                   Возможно закончить экстерном
