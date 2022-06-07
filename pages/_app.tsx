@@ -54,8 +54,9 @@ function MyApp({ Component, pageProps, router }) {
     }
 
     const urlParamLocale = router.query.locale
-    urlParamLocale &&
-      sessionStorage.setItem('locale', urlParamLocale.toString())
+    urlParamLocale
+      ? sessionStorage.setItem('locale', urlParamLocale.toString())
+      : sessionStorage.removeItem('locale')
 
     NProgress.configure({
       // minimum: 0.3,

@@ -15,7 +15,8 @@ const Price = ({
 
   const SSLocale = useSSLocale()
 
-  const atKz = at.kz || SSLocale === 'kz'
+  const atKz =
+    at.kz || SSLocale === 'kz' || SSLocale === 'kk' || SSLocale === 'kk_KZ'
   const currencySymbol = atKz
     ? ui.currentlySymbols.tenge
     : ui.currentlySymbols.rubles

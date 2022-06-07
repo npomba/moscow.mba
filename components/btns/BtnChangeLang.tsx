@@ -36,6 +36,15 @@ const BtnChangeLang = () => {
             </a>
           </Link>
         </li>
+        {/* <li className={stls.listItem}>
+          <Link href={`${router.pathname}`} locale='kk_KZ'>
+            <a
+              className={stls.listItemLink}
+              onClick={() => setIsVisible(!isVisible)}>
+              <span>&#x1F1FA;&#x1F1F8; </span>ENGLISH
+            </a>
+          </Link>
+        </li> */}
       </ul>
     </div>
   )
