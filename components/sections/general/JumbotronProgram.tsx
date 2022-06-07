@@ -132,7 +132,6 @@ const JumbotronProgram = ({ program }) => {
             format={program?.studyFormat}
             studyDurationMonths={program?.duration?.minStudyMonths}
           />
-          {console.log(program?.duration?.minStudyMonths)}
         </div>
       </div>
     </section>

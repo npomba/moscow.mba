@@ -1,5 +1,6 @@
 import stls from '@/styles/components/costs/Loan.module.sass'
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
 import cn from 'classnames'
 import { ui, currencyRates } from '@/config/index'
 import { toNumberWithSpaces } from '@/helpers/index'

@@ -23,6 +23,7 @@ import {
 
 function MyApp({ Component, pageProps, router }) {
   usePreserveScroll()
+  const urlParamLocale = router.query.locale
 
   const [loading, setLoading] = useState(false)
   useEffect(() => {
@@ -53,10 +54,8 @@ function MyApp({ Component, pageProps, router }) {
       sessionStorage.setItem('referer', JSON.stringify(document.referrer))
     }
 
-    const urlParamLocale = router.query.locale
-    urlParamLocale
-      ? sessionStorage.setItem('locale', urlParamLocale.toString())
-      : sessionStorage.removeItem('locale')
+    urlParamLocale &&
+      sessionStorage.setItem('locale', urlParamLocale.toString())
 
     NProgress.configure({
       // minimum: 0.3,
@@ -81,7 +80,7 @@ function MyApp({ Component, pageProps, router }) {
       Router.events.off('routeChangeComplete', end)
       Router.events.off('routeChangeError', end)
     }
-  }, [router])
+  }, [router, urlParamLocale])
 
   //
   if (!dev) {
