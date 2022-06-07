@@ -8,7 +8,7 @@ const useSSLocale = () => {
     if (ssLocale) {
       setSSLocale(ssLocale)
     }
-  }, [])
+  }, [setSSLocale])
 
   return SSLocale
 }
