@@ -51,7 +51,7 @@ const CardProgram = ({ professionLayout, program, number, type, format }) => {
             />
           </div>
           <div className={stls.duration}>
-            {program?.duration.minStudyMonths ? (
+            {program?.duration?.minStudyMonths ? (
               `${program?.duration?.minStudyMonths} ${
                 at.en ? 'month' : ruCaseMonth(program?.duration?.minStudyMonths)
               }`
