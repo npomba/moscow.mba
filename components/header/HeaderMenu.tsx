@@ -58,10 +58,10 @@ const HeaderMenu = ({ programs, handleMenu }) => {
       href: '/programs/profession/online',
       val: at.en ? 'Professions' : 'Профессии'
     },
-    {
-      href: '/programs/course/online',
-      val: at.en ? 'Courses' : 'Курсы'
-    },
+    // {
+    //   href: '/programs/course/online',
+    //   val: at.en ? 'Courses' : 'Курсы'
+    // },
     {
       href: '/programs/mini/online',
       val: at.en ? 'All programs' : 'Все программы'

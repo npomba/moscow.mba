@@ -81,7 +81,7 @@ const Filters = ({ mbaTypeOfProgram, mbaFormat }) => {
               </a>
             </Link>
 
-            <Link href={`/programs/course/online`}>
+            {/* <Link href={`/programs/course/online`}>
               <a>
                 <span
                   className={cn({
@@ -90,7 +90,7 @@ const Filters = ({ mbaTypeOfProgram, mbaFormat }) => {
                   })}></span>{' '}
                 Курсы
               </a>
-            </Link>
+            </Link> */}
 
             <Link
               href='/programs/international-business-law'
