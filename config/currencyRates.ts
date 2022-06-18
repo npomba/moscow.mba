@@ -1,6 +1,7 @@
 const currencyRates = {
-  ruble: 1,
-  tenge: 7
+  rub: 1,
+  kzt: 7,
+  uzm: 191
 }
 
 export default currencyRates

@@ -19,7 +19,7 @@ module.exports = {
   reactStrictMode: true,
   poweredByHeader: false,
   i18n: {
-    locales: ['ru', 'en-US', 'kk_KZ'],
+    locales: ['ru', 'en-US', 'kk_KZ', 'uz_UZ'],
     defaultLocale: 'ru',
     localeDetection: true
   },

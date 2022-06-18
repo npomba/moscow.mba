@@ -44,6 +44,11 @@ const useAt = () => {
       query.locale === 'kz' ||
       query.locale === 'kk' ||
       query.locale === 'kk_KZ',
+    uz:
+      locale === 'uz' ||
+      locale === 'uz_UZ' ||
+      query.locale === 'uz' ||
+      query.locale === 'uz_UZ',
     programChunk: !!getProgramTitle,
     getSplitedPath
   }

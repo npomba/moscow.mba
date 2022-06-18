@@ -18,80 +18,66 @@ const Price = ({
   const atKz =
     at.kz || SSLocale === 'kz' || SSLocale === 'kk' || SSLocale === 'kk_KZ'
 
-  const programPriceKzConsidered = atKz
-    ? programPrice * currencyRates.tenge
+  const atUz = at.uz || SSLocale === 'uz' || SSLocale === 'uz_UZ'
+
+  const programPriceKzUzConsidered = atKz
+    ? programPrice * currencyRates.kzt
+    : atUz
+    ? programPrice * currencyRates.uzm
     : programPrice
 
   const currencySymbol = atKz
-    ? ui.currentlySymbols.tenge
-    : ui.currentlySymbols.rubles
+    ? ui.currentlySymbols.kzt
+    : atUz
+    ? ui.currentlySymbols.uzm
+    : ui.currentlySymbols.rubAlt
+
+  const setPrice = (rub: number) => {
+    return atKz
+      ? toNumberWithSpaces(rub * currencyRates.kzt)
+      : atUz
+      ? toNumberWithSpaces(rub * currencyRates.uzm)
+      : toNumberWithSpaces(rub)
+  }
 
   const price = {
     regular: {
       mini: {
-        online: atKz
-          ? toNumberWithSpaces(178000 * currencyRates.tenge)
-          : toNumberWithSpaces(178000),
-        blended: atKz
-          ? toNumberWithSpaces(189000 * currencyRates.tenge)
-          : toNumberWithSpaces(189000)
+        online: setPrice(178000),
+        blended: setPrice(189000)
       },
       mba: {
-        online: atKz
-          ? toNumberWithSpaces(318000 * currencyRates.tenge)
-          : toNumberWithSpaces(318000),
-        blended: atKz
-          ? toNumberWithSpaces(328000 * currencyRates.tenge)
-          : toNumberWithSpaces(328000)
+        online: setPrice(318000),
+        blended: setPrice(328000)
       },
       profession: {
-        online: atKz
-          ? toNumberWithSpaces(70000 * currencyRates.tenge)
-          : toNumberWithSpaces(70000)
+        online: setPrice(70000)
       },
       course: {
-        online: atKz
-          ? toNumberWithSpaces(70000 * currencyRates.tenge)
-          : toNumberWithSpaces(70000)
+        online: setPrice(70000)
       },
       mbl: {
-        online: atKz
-          ? toNumberWithSpaces(318000 * currencyRates.tenge)
-          : toNumberWithSpaces(318000)
+        online: setPrice(318000)
       },
-      executive: atKz
-        ? toNumberWithSpaces(1400000 * currencyRates.tenge)
-        : toNumberWithSpaces(1400000)
+      executive: setPrice(1400000)
     },
     discounted: {
       mini: {
-        online: atKz
-          ? toNumberWithSpaces(98000 * currencyRates.tenge)
-          : toNumberWithSpaces(98000)
+        online: setPrice(98000)
       },
       mba: {
-        online: atKz
-          ? toNumberWithSpaces(175000 * currencyRates.tenge)
-          : toNumberWithSpaces(175000)
+        online: setPrice(175000)
       },
       profession: {
-        online: atKz
-          ? toNumberWithSpaces(39000 * currencyRates.tenge)
-          : toNumberWithSpaces(39000)
+        online: setPrice(39000)
       },
       course: {
-        online: atKz
-          ? toNumberWithSpaces(39000 * currencyRates.tenge)
-          : toNumberWithSpaces(39000)
+        online: setPrice(39000)
       },
       mbl: {
-        online: atKz
-          ? toNumberWithSpaces(175000 * currencyRates.tenge)
-          : toNumberWithSpaces(175000)
+        online: setPrice(175000)
       },
-      executive: atKz
-        ? toNumberWithSpaces(1400000 * currencyRates.tenge)
-        : toNumberWithSpaces(1400000)
+      executive: setPrice(1400000)
     }
   }
 
@@ -176,15 +162,17 @@ const Price = ({
             ? getPriceClass('new', renderedByComponent)
             : getPriceClass('simple', renderedByComponent)
         }>
-        {programPriceKzConsidered
-          ? toNumberWithSpaces(programPriceKzConsidered) + ` ${currencySymbol}`
+        {programPriceKzUzConsidered
+          ? toNumberWithSpaces(programPriceKzUzConsidered) +
+            ` ${currencySymbol}`
           : splitMonths(price?.[isDiscounted]?.[type]?.[format])}
       </i>
       {discount && (
         <i className={getPriceClass('old', renderedByComponent)}>
-          {programPriceKzConsidered
+          {programPriceKzUzConsidered
             ? toNumberWithSpaces(
-                Math.ceil(((programPriceKzConsidered / 45) * 100) / 1000) * 1000
+                Math.ceil(((programPriceKzUzConsidered / 45) * 100) / 1000) *
+                  1000
               ) + ` ${currencySymbol}`
             : splitMonths(price?.regular?.[type]?.[format] || 0)}
         </i>

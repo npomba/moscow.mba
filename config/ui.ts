@@ -1,8 +1,9 @@
 const ui = {
   currentlySymbols: {
-    rubles: 'Р.',
-    rublesAlt: 'Р',
-    tenge: '₸'
+    rub: 'Р.',
+    rubAlt: 'Р',
+    kzt: '₸',
+    uzm: "so'm"
   }
 }
 

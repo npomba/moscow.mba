@@ -32,73 +32,63 @@ const Loan = ({
   const atKz =
     at.kz || SSLocale === 'kz' || SSLocale === 'kk' || SSLocale === 'kk_KZ'
 
-  const programPriceKzConsidered = atKz
-    ? programPrice * currencyRates.tenge
+  const atUz = at.uz || SSLocale === 'uz' || SSLocale === 'uz_UZ'
+
+  const programPriceKzUzConsidered = atKz
+    ? programPrice * currencyRates.kzt
+    : atUz
+    ? programPrice * currencyRates.uzm
     : programPrice
 
   const currencySymbol = atKz
-    ? `${ui.currentlySymbols.tenge}/мес.`
-    : `${ui.currentlySymbols.rublesAlt}/мес.`
+    ? `${ui.currentlySymbols.kzt}/мес.`
+    : atUz
+    ? `${ui.currentlySymbols.uzm}/мес.`
+    : `${ui.currentlySymbols.rubAlt}/мес.`
+
+  const setPrice = (rub: number) => {
+    return atKz
+      ? toNumberWithSpaces(rub * currencyRates.kzt)
+      : atUz
+      ? toNumberWithSpaces(rub * currencyRates.uzm)
+      : toNumberWithSpaces(rub)
+  }
 
   const price = {
     loanRegular: {
       mini: {
-        online: atKz
-          ? toNumberWithSpaces(14900 * currencyRates.tenge)
-          : toNumberWithSpaces(14900),
-        blended: atKz
-          ? toNumberWithSpaces(15800 * currencyRates.tenge)
-          : toNumberWithSpaces(15800)
+        online: setPrice(14900),
+        blended: setPrice(15800)
       },
       mba: {
-        online: atKz
-          ? toNumberWithSpaces(26500 * currencyRates.tenge)
-          : toNumberWithSpaces(26500),
-        blended: atKz
-          ? toNumberWithSpaces(27400 * currencyRates.tenge)
-          : toNumberWithSpaces(27400)
+        online: setPrice(26500),
+        blended: setPrice(27400)
       },
       profession: {
-        online: atKz
-          ? toNumberWithSpaces(6000 * currencyRates.tenge)
-          : toNumberWithSpaces(6000)
+        online: setPrice(6000)
       },
       course: {
-        online: atKz
-          ? toNumberWithSpaces(6000 * currencyRates.tenge)
-          : toNumberWithSpaces(6000)
+        online: setPrice(6000)
       },
       mbl: {
-        online: atKz
-          ? toNumberWithSpaces(26500 * currencyRates.tenge)
-          : toNumberWithSpaces(26500)
+        online: setPrice(26500)
       }
     },
     loanDiscounted: {
       mini: {
-        online: atKz
-          ? toNumberWithSpaces(8200 * currencyRates.tenge)
-          : toNumberWithSpaces(8200)
+        online: setPrice(8200)
       },
       mba: {
-        online: atKz
-          ? toNumberWithSpaces(14600 * currencyRates.tenge)
-          : toNumberWithSpaces(14600)
+        online: setPrice(14600)
       },
       profession: {
-        online: atKz
-          ? toNumberWithSpaces(3250 * currencyRates.tenge)
-          : toNumberWithSpaces(3250)
+        online: setPrice(3250)
       },
       course: {
-        online: atKz
-          ? toNumberWithSpaces(3250 * currencyRates.tenge)
-          : toNumberWithSpaces(3250)
+        online: setPrice(3250)
       },
       mbl: {
-        online: atKz
-          ? toNumberWithSpaces(14600 * currencyRates.tenge)
-          : toNumberWithSpaces(14600)
+        online: setPrice(14600)
       }
     }
   }
@@ -130,8 +120,8 @@ const Loan = ({
   }
 
   const regularPrice =
-    programPriceKzConsidered &&
-    Math.ceil(((programPriceKzConsidered / 45) * 100) / 1000) * 1000
+    programPriceKzUzConsidered &&
+    Math.ceil(((programPriceKzUzConsidered / 45) * 100) / 1000) * 1000
 
   return (
     <>
@@ -143,8 +133,8 @@ const Loan = ({
           { [stls.price]: variant === 'SectionStudyCost' }
         )}>
         <span>
-          {programPriceKzConsidered
-            ? toNumberWithSpaces(Math.floor(programPriceKzConsidered / 12))
+          {programPriceKzUzConsidered
+            ? toNumberWithSpaces(Math.floor(programPriceKzUzConsidered / 12))
             : price[regularOrDiscounted]?.[type]?.[format]}{' '}
           <span
             className={cn({
@@ -167,7 +157,7 @@ const Loan = ({
               className={cn({
                 [stls.discountNum]: variant === 'SectionStudyCost'
               })}>
-              {programPriceKzConsidered
+              {programPriceKzUzConsidered
                 ? toNumberWithSpaces(Math.floor(regularPrice / 12))
                 : price.loanRegular[type]?.[format]}
             </span>{' '}
