@@ -23,6 +23,7 @@ import {
   SectionCorporateClientsAccreditations,
   Qna
 } from '@/components/sections'
+import { SeoOrganizationJsonLd } from '@/components/seo'
 
 const PageCorporateClients: NextPage<TypePageHomeProps> = ({ programs }) => {
   usePageHandleContext({ programs })
@@ -31,23 +32,43 @@ const PageCorporateClients: NextPage<TypePageHomeProps> = ({ programs }) => {
 
   const programId = '50e856d1-4610-491f-80f6-e4061e88d200'
 
+  const seoParams = {
+    title: at.en
+      ? companyName
+      : `Корпоративное обучение для бизнеса • MBA - ${companyName}`,
+    desc: truncate(
+      at.en
+        ? ''
+        : 'Подберем или разработаем с нуля образовательные программы с учётом специфики ниши, целей и задач компании',
+      120
+    ),
+    canonical: `${routesFront.root}${routesFront.corporateClients}`
+  }
+
   return (
     <>
       <NextSeo
-        title={
-          at.en
-            ? companyName
-            : `Корпоративное обучение
-        для бизнеса | ${companyName}`
-        }
-        description={truncate(
-          at.en
-            ? ''
-            : 'Подберем или разработаем с нуля образовательные программы с учётом специфики ниши, целей и задач компании',
-          120
-        )}
-        canonical={routesFront.corporateClients}
+        title={seoParams.title}
+        description={seoParams.desc}
+        canonical={seoParams.canonical}
+        openGraph={{
+          url: seoParams.canonical,
+          title: seoParams.title,
+          description: seoParams.desc,
+          images: [
+            {
+              url: `${routesFront.root}${routesFront.assetsImgsIconsManifestIcon512}`,
+              width: 512,
+              height: 512,
+              alt: companyName,
+              type: 'image/png'
+            }
+          ],
+          site_name: companyName
+        }}
       />
+
+      <SeoOrganizationJsonLd />
       <SectionCorporateClientsHero programId={programId} />
       <SectionCorporateClientsAnyIndustry />
       <SectionCorporateClientsSolutions />

@@ -1,7 +1,8 @@
 import stls from '@/styles/pages/promo/Index.module.sass'
 import { GetStaticProps } from 'next'
 import { NextSeo } from 'next-seo'
-import { routesFront } from '@/config/index'
+import truncate from 'truncate'
+import { routesFront, companyName } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { usePageHandleContext, useAt } from '@/hooks/index'
 import {
@@ -14,6 +15,7 @@ import {
   Diploma,
   WhoItIsFor
 } from '@/components/sections'
+import { SeoOrganizationJsonLd } from '@/components/seo'
 
 const PagePromo = ({ programs }) => {
   usePageHandleContext({ programs })
@@ -55,14 +57,35 @@ const PagePromo = ({ programs }) => {
     ]
   }
 
+  const seoParams = {
+    title: `Программы Mini MBA • ${companyName}`,
+    desc: truncate('Программы Mini MBA', 120),
+    canonical: `${routesFront.root}${routesFront.promo}`
+  }
+
   return (
     <>
       <NextSeo
-        title={'Программы Mini MBA - Moscow Business Academy'}
-        description={'Программы Mini MBA'}
-        canonical={'https://moscow.mba/promo'}
+        title={seoParams.title}
+        description={seoParams.desc}
+        canonical={seoParams.canonical}
+        openGraph={{
+          url: seoParams.canonical,
+          title: seoParams.title,
+          description: seoParams.desc,
+          images: [
+            {
+              url: `${routesFront.root}${routesFront.assetsImgsIconsManifestIcon512}`,
+              width: 512,
+              height: 512,
+              alt: companyName,
+              type: 'image/png'
+            }
+          ],
+          site_name: companyName
+        }}
       />
-
+      <SeoOrganizationJsonLd />
       <JumbotronCta />
       <div className={stls.container}>
         <CourseOptions />

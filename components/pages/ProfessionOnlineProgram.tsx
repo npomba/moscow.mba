@@ -43,26 +43,11 @@ import SectionIPAR from '@/components/sections/general/SectionIPAR'
 const ProfessionOnlineProgram = ({ program, teachers }) => {
   const data = program
 
-  const router = useRouter()
-
   const studyFieldIsAccounting =
     program?.study_field?.slug?.trim() === 'accounting-analysis-and-audit'
 
   return (
     <>
-      <NextSeo
-        title={`${data?.title} MBA - Moscow Business Academy`}
-        description={truncate(program?.goal, 120)}
-        canonical={`https://moscow.mba${router.asPath}`}
-      />
-      <CourseJsonLd
-        courseName={`${data?.title} MBA`}
-        provider={{
-          name: 'Moscow Business Academy',
-          url: `https://moscow.mba${router.asPath}`
-        }}
-        description={truncate(program?.goal, 120)}
-      />
       <JumbotronProgram program={data} />
       <WhatWillYouLearn data={data} />
       <ProgramDesc />

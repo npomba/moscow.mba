@@ -24,6 +24,7 @@ import {
   SectionStudyCost,
   Qna
 } from '@/components/sections'
+import { SeoPagesProgram } from '@/components/seo'
 
 const PageProgramsExecutive = ({ program, programs }) => {
   usePageHandleContext({ programs, program })
@@ -40,20 +41,10 @@ const PageProgramsExecutive = ({ program, programs }) => {
 
   return (
     <>
-      <NextSeo
-        title={`${programBlended?.title} - Moscow Business Academy`}
-        description={truncate(programBlended?.description, 120)}
-        canonical={'https://moscow.mba/programs/executive'}
+      <SeoPagesProgram
+        program={programBlended}
+        canonical={`${routesFront.root}${routesFront.programsExecutive}`}
       />
-      <CourseJsonLd
-        courseName={`${programBlended?.title} MBA`}
-        provider={{
-          name: 'Moscow Business Academy',
-          url: 'https://moscow.mba/programs/executive'
-        }}
-        description={truncate(programBlended?.description, 120)}
-      />
-
       <JumbotronProgram program={programBlended && programBlended} />
       <AboutExecutive />
       <ResultsExecutive />

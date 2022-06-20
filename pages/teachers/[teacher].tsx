@@ -14,6 +14,7 @@ import { usePageHandleContext } from '@/hooks/index'
 import { routesFront, companyName } from '@/config/index'
 import { Wrapper } from '@/components/layout'
 import { ImgTeachersTeacher } from '@/components/images'
+import { SeoOrganizationJsonLd } from '@/components/seo'
 
 const PageTeachersTeacher: NextPage<TypePageTeacherProps> = ({
   programs,
@@ -42,21 +43,43 @@ const PageTeachersTeacher: NextPage<TypePageTeacherProps> = ({
     />
   )
 
+  const seoParams = {
+    title: `${teacher?.name || 'Преподаватель'}${` • MBA - ${companyName}`}`,
+    desc: truncate(
+      `${
+        teacher?.description ||
+        'Эксперт по бизнес-планированию, инвестиционному и финансовому анализу'
+      }`,
+      120
+    ),
+    canonical: `${routesFront.root}${routesFront.teachers}/${
+      teacher?.slug || 'teacher'
+    }`
+  }
+
   return (
     <>
       <NextSeo
-        title={`${teacher?.name || 'Преподаватель'}${` | ${companyName}`}`}
-        description={truncate(
-          `${
-            teacher?.description ||
-            'Эксперт по бизнес-планированию, инвестиционному и финансовому анализу'
-          }`,
-          120
-        )}
-        canonical={`${routesFront.root}${routesFront.teachers}/${
-          teacher?.slug || 'teacher'
-        }`}
+        title={seoParams.title}
+        description={seoParams.desc}
+        canonical={seoParams.canonical}
+        openGraph={{
+          url: seoParams.canonical,
+          title: seoParams.title,
+          description: seoParams.desc,
+          images: [
+            {
+              url: `${routesFront.root}${routesFront.assetsImgsIconsManifestIcon512}`,
+              width: 512,
+              height: 512,
+              alt: companyName,
+              type: 'image/png'
+            }
+          ],
+          site_name: companyName
+        }}
       />
+      <SeoOrganizationJsonLd />
       <section>
         <Wrapper column>
           {/* <button

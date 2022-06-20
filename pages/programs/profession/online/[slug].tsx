@@ -3,12 +3,16 @@ import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
 import { usePageHandleContext } from '@/hooks/index'
 import { routesFront } from '@/config/index'
 import { ProfessionOnlineProgram } from '@/components/pages'
+import { SeoOrganizationJsonLd, SeoPagesProgram } from '@/components/seo'
 
 const PageProgramsProfessionOnlineProgram = ({ program, programs }) => {
   usePageHandleContext({ programs, program })
 
   return (
-    <ProfessionOnlineProgram program={program} teachers={program?.teachers} />
+    <>
+      <SeoPagesProgram program={program} />
+      <ProfessionOnlineProgram program={program} teachers={program?.teachers} />
+    </>
   )
 }
 

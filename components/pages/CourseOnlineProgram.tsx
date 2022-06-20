@@ -1,4 +1,4 @@
-import stls from '@/styles/components/pages/ProfessionOnlineProgram.module.sass'
+import stls from '@/styles/components/pages/CourseOnlineProgram.module.sass'
 import { NextSeo, CourseJsonLd } from 'next-seo'
 import { useRouter } from 'next/router'
 import truncate from 'truncate'
@@ -49,29 +49,12 @@ const CourseOnlineProgram = ({ program, teachers }) => {
 
   return (
     <>
-      <NextSeo
-        title={`${data?.title} MBA - Moscow Business Academy`}
-        description={truncate(program?.goal, 120)}
-        canonical={`https://moscow.mba${router.asPath}`}
-      />
-      <CourseJsonLd
-        courseName={`${data?.title} MBA`}
-        provider={{
-          name: 'Moscow Business Academy',
-          url: `https://moscow.mba${router.asPath}`
-        }}
-        description={truncate(program?.goal, 120)}
-      />
-
       <JumbotronProgram program={data} />
-
       <WhatWillYouLearn data={data} />
       <ProgramDesc />
       <ProgramDevelopedStandard />
       {studyFieldIsAccounting && <SectionIPAR />}
-
       <WhoItIsFor program={program} />
-
       <Pros format={'online'} />
       <HowProcessGoes />
       <ProgramsModules program={data} smallerMb />

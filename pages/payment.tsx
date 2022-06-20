@@ -5,27 +5,47 @@ import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import Image from 'next/image'
 import Popup from 'reactjs-popup'
-import { contactData, routesFront } from '@/config/index'
+import { contactData, routesFront, companyName } from '@/config/index'
 import { handleGetStaticProps } from '@/lib/index'
 import { usePageHandleContext } from '@/hooks/index'
 import { Breadcrumbs } from '@/components/general'
 import { PopupForm } from '@/components/popups'
+import { SeoOrganizationJsonLd } from '@/components/seo'
 
 const PagePayment = ({ programs }) => {
   usePageHandleContext({ programs })
 
   const contactInfo = contactData()
 
+  const seoParams = {
+    title: `Оплата обучения в ${companyName}`,
+    desc: truncate('Оплата банковской картой через ПАО СБЕРБАНК', 120),
+    canonical: `${routesFront.root}${routesFront.payment}`
+  }
+
   return (
     <>
       <NextSeo
-        title={'Оплата обучения в Moscow Business Academy'}
-        description={truncate(
-          'Оплата банковской картой через ПАО СБЕРБАНК',
-          120
-        )}
-        canonical={'https://moscow.mba/payment'}
+        title={seoParams.title}
+        description={seoParams.desc}
+        canonical={seoParams.canonical}
+        openGraph={{
+          url: seoParams.canonical,
+          title: seoParams.title,
+          description: seoParams.desc,
+          images: [
+            {
+              url: `${routesFront.root}${routesFront.assetsImgsIconsManifestIcon512}`,
+              width: 512,
+              height: 512,
+              alt: companyName,
+              type: 'image/png'
+            }
+          ],
+          site_name: companyName
+        }}
       />
+      <SeoOrganizationJsonLd />
       <section className={breadcrumbsStls.jumbotronGeneral}>
         <div className={stls.container}>
           <Breadcrumbs />

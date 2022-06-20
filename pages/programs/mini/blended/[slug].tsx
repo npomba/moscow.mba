@@ -4,11 +4,17 @@ import { studyFormats, routesFront } from '@/config/index'
 import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
 import { usePageHandleContext } from '@/hooks/index'
 import { BlendedProgram } from '@/components/pages'
+import { SeoOrganizationJsonLd, SeoPagesProgram } from '@/components/seo'
 
 const PageProgramsMiniBlendedProgram = ({ program, programs }) => {
-  usePageHandleContext({ programs, program})
+  usePageHandleContext({ programs, program })
 
-  return <BlendedProgram program={program} teachers={program?.teachers} />
+  return (
+    <>
+      <SeoPagesProgram program={program} />
+      <BlendedProgram program={program} teachers={program?.teachers} />
+    </>
+  )
 }
 
 export const getStaticProps: GetStaticProps = async context =>

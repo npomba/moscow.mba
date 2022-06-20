@@ -3,11 +3,17 @@ import { handleGetStaticPaths, handleGetStaticProps } from '@/lib/index'
 import { usePageHandleContext } from '@/hooks/index'
 import { routesFront } from '@/config/index'
 import { CourseOnlineProgram } from '@/components/pages'
+import { SeoOrganizationJsonLd, SeoPagesProgram } from '@/components/seo'
 
 const PageProgramsCourseOnlineProgram = ({ program, programs }) => {
   usePageHandleContext({ programs, program })
 
-  return <CourseOnlineProgram program={program} teachers={program?.teachers} />
+  return (
+    <>
+      <SeoPagesProgram program={program} />
+      <CourseOnlineProgram program={program} teachers={program?.teachers} />
+    </>
+  )
 }
 
 export const getStaticProps: GetStaticProps = async context =>

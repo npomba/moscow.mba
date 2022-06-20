@@ -70,25 +70,6 @@ const PagePrograms = ({ mbaTypeOfProgram, mbaFormat }) => {
 
   return (
     <>
-      <NextSeo
-        title={`Программы обучения ${
-          at.mini ? 'Mini MBA' : at.mba ? 'MBA' : ''
-        } ${
-          at.online ? 'Online' : at.blended ? 'Blended' : ''
-        } - Moscow Business Academy`}
-        description={
-          at.mini
-            ? truncate(
-                at.en
-                  ? ''
-                  : 'Дистанционная программа Mini MBA разработана для специалистов и руководителей, которые хотят систематизировать имеющиеся знания или познакомиться с ключевыми аспектами новой для себя сферы управленческой деятельности',
-                120
-              )
-            : ''
-        }
-        canonical={'https://moscow.mba/programs/mba/online'}
-      />
-
       <section className={stls.jumbotronPrograms}>
         <div className={stls.generalContainer}>
           <Breadcrumbs />

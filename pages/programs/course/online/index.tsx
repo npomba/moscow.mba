@@ -5,11 +5,17 @@ import { handleGetStaticProps } from '@/lib/index'
 import { usePageHandleContext } from '@/hooks/index'
 import { routesFront } from '@/config/index'
 import { Programs } from '@/components/pages'
+import { SeoPagesPrograms } from '@/components/seo'
 
 const PageProgramsCourseOnline = ({ programs }) => {
   usePageHandleContext({ programs })
 
-  return <Programs mbaTypeOfProgram={'course'} mbaFormat={'online'} />
+  return (
+    <>
+      <SeoPagesPrograms />
+      <Programs mbaTypeOfProgram={'course'} mbaFormat={'online'} />
+    </>
+  )
 }
 
 export const getStaticProps: GetStaticProps = async context =>

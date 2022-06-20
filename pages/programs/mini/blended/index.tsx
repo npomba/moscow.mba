@@ -5,11 +5,17 @@ import { handleGetStaticProps } from '@/lib/index'
 import { usePageHandleContext } from '@/hooks/index'
 import { routesFront } from '@/config/index'
 import { Programs } from '@/components/pages'
+import { SeoPagesPrograms } from '@/components/seo'
 
 const PageProgramsMiniBlended = ({ programs }) => {
   usePageHandleContext({ programs })
 
-  return <Programs mbaTypeOfProgram={'mini'} mbaFormat={'blended'} />
+  return (
+    <>
+      <SeoPagesPrograms />
+      <Programs mbaTypeOfProgram={'mini'} mbaFormat={'blended'} />
+    </>
+  )
 }
 
 export const getStaticProps: GetStaticProps = async context =>

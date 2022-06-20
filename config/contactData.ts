@@ -8,7 +8,10 @@ const useContactInfo = () => {
         {
           href: 'tel:+7-800-500-27-47',
           val: '+7 (800) 500-27-47',
-          description: at.en ? 'Free for Russia' : 'Бесплатно по России'
+          description: at.en ? 'Free for Russia' : 'Бесплатно по России',
+          contactType: at.en ? 'Customer support' : 'Учебный отдел',
+          areaServed: ['RU', 'KZ', 'UZ'],
+          availableLanguage: ['Russian', 'Kazakh', 'Uzbek']
         },
         {
           href: 'tel:+7-495-149-00-20',
@@ -17,10 +20,12 @@ const useContactInfo = () => {
         }
       ],
       address: {
+        countryCode: 'RU',
         city: at.en ? 'Moscow' : 'Москва',
         street: at.en
           ? 'Derbenevskaya Naberezhnaya 11'
-          : 'Дербеневская набережная 11'
+          : 'Дербеневская набережная 11',
+        zip: '115114'
       },
       email: { val: 'info@moscow.mba', mailTo: 'mailto:info@moscow.mba' }
     },

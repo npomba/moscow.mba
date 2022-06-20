@@ -28,6 +28,7 @@ type TypeRoutesFront = {
   programsMiniBlended: '/programs/mini/blended'
   programsProfessionOnline: '/programs/profession/online'
   teachersTeacher: '/teachers/[teacher]'
+  assetsImgsIconsManifestIcon512: '/assets/images/icons/manifest-icon-512.png'
 }
 
 export default TypeRoutesFront

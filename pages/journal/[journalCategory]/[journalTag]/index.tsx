@@ -6,6 +6,7 @@ import { routesFront } from '@/config/index'
 import { handleGetStaticProps, handleGetStaticPaths } from '@/lib/index'
 import { usePageHandleContext } from '@/hooks/index'
 import { PageJournalArticles } from '@/components/pages'
+import { SeoOrganizationJsonLd } from '@/components/seo'
 
 const PageJournalCategoryTag: NextPage<TypePageJournalArticlesProps> = ({
   programs,

@@ -49,19 +49,6 @@ const PageOnlineProgram = ({ program, teachers }) => {
 
   return (
     <>
-      <NextSeo
-        title={`${program?.title} MBA - Moscow Business Academy`}
-        description={truncate(program?.goal, 120)}
-        canonical={`https://moscow.mba${router.asPath}`}
-      />
-      <CourseJsonLd
-        courseName={`${program?.title} MBA`}
-        provider={{
-          name: 'Moscow Business Academy',
-          url: `https://moscow.mba${router.asPath}`
-        }}
-        description={truncate(program?.goal, 120)}
-      />
       <JumbotronProgram program={program} />
       <ProgramGoal data={program} />
       <WhatWillYouLearn data={program} />

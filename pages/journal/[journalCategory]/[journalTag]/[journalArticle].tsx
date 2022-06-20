@@ -23,6 +23,7 @@ import {
   SectionJournalBottom
 } from '@/components/sections'
 import { ImgJournalArticle } from '@/components/images'
+import { SeoOrganizationJsonLd } from '@/components/seo'
 
 const PageJournalCategoryTagArticle: NextPage<TypePageJournalArticleProps> = ({
   programs,

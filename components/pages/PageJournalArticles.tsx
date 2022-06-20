@@ -30,11 +30,6 @@ const PageJournalArticles = () => {
 
   return (
     <>
-      {/* <NextSeo
-        title={`${data.title} MBA - Moscow Business Academy`}
-        description={truncate(program?.goal, 120)}
-        canonical={`https://moscow.mba${router.asPath}`}
-      /> */}
       <SectionJournalTags />
       <SectionJournalCategories />
       <SectionJournalHeroArticle />
