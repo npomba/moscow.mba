@@ -115,14 +115,12 @@
 
 .mapContainer
   flex-grow: 1
-  margin-top: -11px
-  margin-right: -15px
+  @include m.media(desktop, widescreen)
+    margin-top: -11px
+    margin-right: -15px
   @include m.media(laptop, tablet, phone)
     margin: 0
+    display: flex
+    justify-content: center
+    align-items: center
     width: 100%
-  @include m.media(phone)
-    margin: 0 -100px
-  img
-    max-width: 100%
-    @include m.media(phone)
-      max-width: calc(100% + 200px)

@@ -87,7 +87,7 @@ const ForeignAffiliates = () => {
               }
               width={659}
               height={394}
-              layout='fixed'
+              // layout='fixed'
               placeholder='blur'
               blurDataURL={base64pixel}
             />
