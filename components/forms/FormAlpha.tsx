@@ -1,5 +1,6 @@
 import stls from '@/styles/components/forms/FormAlpha.module.sass'
 import { useRouter } from 'next/router'
+import { useState } from 'react'
 import cn from 'classnames'
 import { useForm } from 'react-hook-form'
 import { useAt } from '@/hooks/index'
@@ -37,22 +38,30 @@ const FormAlpha = ({
 
   const { asPath } = useRouter()
 
+  const [submitIsDisabled, setSubmitIsDisabled] = useState(false)
+
   const at = useAt()
 
   return (
     <form
       method='post'
       className='simple-form'
-      onSubmit={handleSubmit(values =>
-        onSubmitForm({
-          values,
-          programTitle,
-          setOpenLoader,
-          asPath,
-          setOpen,
-          reset
-        })
-      )}>
+      onSubmit={handleSubmit(values => {
+        if (!submitIsDisabled) {
+          setSubmitIsDisabled(true)
+          setTimeout(() => {
+            setSubmitIsDisabled(false)
+          }, 5000)
+          return onSubmitForm({
+            values,
+            programTitle,
+            setOpenLoader,
+            asPath,
+            setOpen,
+            reset
+          })
+        }
+      })}>
       <div
         className={cn(container, {
           'inputs-flex': globalStyle,
