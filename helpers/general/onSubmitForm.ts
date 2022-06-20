@@ -13,7 +13,9 @@ const onSubmitForm = async ({
   values.programTitle = programTitle || ''
   values.leadPage = promoCourseLink ? promoCourseLink : asPath
   const utms = JSON.parse(sessionStorage.getItem('utms'))
-  utms.utm_term = utms.utm_term ? decodeURIComponent(utms.utm_term) : undefined
+  if (utms?.utm_term) {
+    utms.utm_term = decodeURIComponent(utms.utm_term)
+  }
   values.utms = utms
   sessionStorage.removeItem('utms')
   const referer = JSON.parse(sessionStorage.getItem('referer'))
