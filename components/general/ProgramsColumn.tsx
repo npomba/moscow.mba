@@ -88,6 +88,41 @@ const ProgramsColumn = ({ data, id, type }) => {
           {type === 'mini' ? 'Mini MBA' : type === 'mba' ? 'MBA' : null}
         </div>
 
+        <div className={stls.bottomInfo}>
+          {/* <div className={stls.bottomTitle}>
+            {type === 'mini' ? 'Mini MBA' : type === 'mba' ? 'MBA' : null}
+          </div> */}
+          <div className={stls.itemBottom}>
+            <IconClock classNames={[stls.iconBottom]} />
+            <TrainingPeriod type={type} />
+          </div>
+          <p className={stls.textBottom}>
+            {type === 'mini'
+              ? at.en
+                ? ''
+                : 'Дистанционная программа Mini MBA разработана для специалистов и руководителей, которые хотят систематизировать имеющиеся знания или познакомиться с ключевыми аспектами новой для себя сферы управленческой деятельности'
+              : type === 'mba'
+              ? at.en
+                ? ''
+                : 'Дистанционная программа MBA разработана для специалистов и руководителей, которые хотят систематизировать имеющиеся знания или познакомиться с ключевыми аспектами новой для себя сферы управленческой деятельности'
+              : null}
+          </p>
+          <div className={stls.itemBottom}>
+            <IconPaperCorner classNames={[stls.iconBottom]} />
+            <span>
+              <ProgramSubjects type='mba' subjects='base' />{' '}
+              {at.en ? 'management subjects' : 'дисциплин об управлении'}
+            </span>
+          </div>
+          <div className={stls.itemBottom}>
+            <IconPaperCorner classNames={[stls.iconBottom]} />
+            <span>
+              <ProgramSubjects type='mba' subjects='specialty' />{' '}
+              {at.en ? 'specialized subjects' : 'дисциплин специализации'}
+            </span>
+          </div>
+        </div>
+
         <div className={stls.navigation}>
           <button
             className={cn(stls.programBtn, {
@@ -241,40 +276,6 @@ const ProgramsColumn = ({ data, id, type }) => {
           </ul>
         </div>
       </li>
-      <div className={stls.bottomInfo}>
-        <div className={stls.bottomTitle}>
-          {type === 'mini' ? 'Mini MBA' : type === 'mba' ? 'MBA' : null}
-        </div>
-        <div className={stls.itemBottom}>
-          <IconClock classNames={[stls.iconBottom]} />
-          <TrainingPeriod type={type} />
-        </div>
-        <p className={stls.textBottom}>
-          {type === 'mini'
-            ? at.en
-              ? ''
-              : 'Дистанционная программа Mini MBA разработана для специалистов и руководителей, которые хотят систематизировать имеющиеся знания или познакомиться с ключевыми аспектами новой для себя сферы управленческой деятельности'
-            : type === 'mba'
-            ? at.en
-              ? ''
-              : 'Дистанционная программа MBA разработана для специалистов и руководителей, которые хотят систематизировать имеющиеся знания или познакомиться с ключевыми аспектами новой для себя сферы управленческой деятельности'
-            : null}
-        </p>
-        <div className={stls.itemBottom}>
-          <IconPaperCorner classNames={[stls.iconBottom]} />
-          <span>
-            <ProgramSubjects type='mba' subjects='base' />{' '}
-            {at.en ? 'management subjects' : 'дисциплин об управлении'}
-          </span>
-        </div>
-        <div className={stls.itemBottom}>
-          <IconPaperCorner classNames={[stls.iconBottom]} />
-          <span>
-            <ProgramSubjects type='mba' subjects='specialty' />{' '}
-            {at.en ? 'specialized subjects' : 'дисциплин специализации'}
-          </span>
-        </div>
-      </div>
     </ul>
   )
 }

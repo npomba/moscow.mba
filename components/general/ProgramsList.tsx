@@ -111,31 +111,8 @@ const ProgramsList = ({ data, id, type }) => {
             : null}
         </p>
       </div>
-      <div className={stls.itemDetails}>
-        <ul className={stls.list}>
-          {programs?.length > 3 ? (
-            <>
-              <li className={stls.column}>
-                {columnPrograms(
-                  programs.slice(0, Math.ceil(programs.length / 2))
-                )}
-              </li>
-              <li className={stls.column}>
-                {columnPrograms(
-                  programs.slice(
-                    Math.ceil(programs.length / 2),
-                    programs.length
-                  )
-                )}
-              </li>
-            </>
-          ) : (
-            <li className={stls.column}>{columnPrograms(programs)}</li>
-          )}
-        </ul>
-      </div>
       <div className={stls.bottomInfo}>
-        <div className={stls.bottomTitle}>
+        {/* <div className={stls.bottomTitle}>
           {type === 'profession'
             ? at.en
               ? 'Professions'
@@ -145,7 +122,7 @@ const ProgramsList = ({ data, id, type }) => {
               ? 'Courses'
               : 'Курсы'
             : null}
-        </div>
+        </div> */}
         {(!at.profession || !at.course) && (
           <div className={stls.itemBottom}>
             <IconClock classNames={[stls.iconBottom]} />
@@ -171,6 +148,29 @@ const ProgramsList = ({ data, id, type }) => {
             {at.en ? 'management subjects' : 'дисциплин об управлении'}
           </span>
         </div>
+      </div>
+      <div className={stls.itemDetails}>
+        <ul className={stls.list}>
+          {programs?.length > 3 ? (
+            <>
+              <li className={stls.column}>
+                {columnPrograms(
+                  programs.slice(0, Math.ceil(programs.length / 2))
+                )}
+              </li>
+              <li className={stls.column}>
+                {columnPrograms(
+                  programs.slice(
+                    Math.ceil(programs.length / 2),
+                    programs.length
+                  )
+                )}
+              </li>
+            </>
+          ) : (
+            <li className={stls.column}>{columnPrograms(programs)}</li>
+          )}
+        </ul>
       </div>
     </div>
   )

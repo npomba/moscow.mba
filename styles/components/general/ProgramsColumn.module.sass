@@ -1,4 +1,6 @@
 @use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
 $visuelt: 'Visuelt', Arial, Tahoma, sans-serif
 $mazzardH: 'mazzardH', Arial, Tahoma, sans-serif
 
@@ -16,8 +18,9 @@ $mazzardH: 'mazzardH', Arial, Tahoma, sans-serif
     
 .column
   display: flex
-  @include m.media(tablet, phone)
-    overflow: hidden
+  @include m.media(phone, tablet)
+    padding-top: f.px(30)
+    // overflow: hidden
 
 .itemDetails
   line-height: 1.2
@@ -33,13 +36,14 @@ $mazzardH: 'mazzardH', Arial, Tahoma, sans-serif
     @include m.media(laptop)
       padding-bottom: 30px
       border-left: none
-  @include m.media(tablet, phone)
+  @include m.media(phone, tablet)
     display: none
     &.activeOnline
       animation: showColumnLeft .2s 
       width: 100%
       display: block
-      padding: 30px 0
+      padding-top: f.px(15)
+      padding-bottom: f.px(30)
       @keyframes showColumnLeft 
         0% 
           transform: translateX(-100%)
@@ -49,7 +53,8 @@ $mazzardH: 'mazzardH', Arial, Tahoma, sans-serif
       animation: showColumnRight .2s 
       width: 100%
       display: block
-      padding: 30px 0
+      padding-top: f.px(15)
+      padding-bottom: f.px(30)
       margin-right: 0
       @keyframes showColumnRight 
         0% 
@@ -159,10 +164,9 @@ $mazzardH: 'mazzardH', Arial, Tahoma, sans-serif
       left: 0
       top: 8px
       background: #ff3535
-  @include m.media(tablet, phone)
+  @include m.media(phone, tablet)
     padding: 12px 0
-    border-bottom: 1px solid #d9d9d9
-    &:first-child
+    & + .listItem
       border-top: 1px solid #d9d9d9
 
 .programInfo
@@ -190,9 +194,9 @@ $mazzardH: 'mazzardH', Arial, Tahoma, sans-serif
   display: inline-block
   @include m.media(desktop, laptop, tablet, phone)
     font-size: 28px
-  @include m.media(laptop, tablet, phone)
+  @include m.media(phone, tablet, laptop)
     font-weight: 500
-    margin-bottom: 30px
+    margin-bottom: f.px(30)
 
 .programDesc
   line-height: 1.2
@@ -242,7 +246,9 @@ $mazzardH: 'mazzardH', Arial, Tahoma, sans-serif
 .bottomInfo
   @include m.media(desktop, widescreen)
     display: none
-  padding-bottom: 30px
+  // padding-top: f.px(15 * 2)
+  @include m.media(phone, tablet, laptop)
+    padding-bottom: f.px(30)
 
 .bottomTitle
   line-height: 1.2
