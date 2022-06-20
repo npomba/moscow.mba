@@ -98,6 +98,7 @@ const JumbotronCta = ({ programTitle = null, programId = null }) => {
                   setOpen={setOpen}
                   alpha
                   policyPrivacy={false}
+                  formName={`Заявка с формы "Получите современной бизнес образование от международных экспертов"`}
                 />
               </div>
             </div>

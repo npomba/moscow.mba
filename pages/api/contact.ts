@@ -24,7 +24,8 @@ const contact = async (req, res) => {
     leadPage,
     utms,
     referer,
-    ymUid
+    ymUid,
+    formName
   } = req.body
 
   if (name?.includes('@')) {
@@ -114,6 +115,7 @@ const contact = async (req, res) => {
     question: question || null,
     root: root || null,
     leadPage: root + leadPage || null,
+    formName: formName || null,
     ip: ip || null,
     cityEn: (locationData && locationData.city.names.en) || null,
     cityRu: (locationData && locationData.city.names.ru) || null,
@@ -314,6 +316,10 @@ const contact = async (req, res) => {
       {
         tdKey: 'Дубль',
         tdVal: ''
+      },
+      {
+        tdKey: 'Подсказка для менеджера',
+        tdVal: data.formName || ''
       }
     ]
 

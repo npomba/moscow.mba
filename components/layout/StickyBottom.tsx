@@ -91,6 +91,7 @@ const StickyBottom = ({
               <PopupForm
                 title={at.en ? 'Get consultation' : 'Получите консультацию'}
                 closePopUpForm={close}
+                formName='Заявка с модальной формы "Хочу консультацию"'
               />
             )}
           </Popup>

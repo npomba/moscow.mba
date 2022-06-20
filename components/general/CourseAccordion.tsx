@@ -160,6 +160,13 @@ const CourseAccordion = ({
                   closePopUpForm={close}
                   programTitle={course?.title}
                   promoCourseLink={`/programs/${course?.category?.type}/${course?.studyFormat}/${course?.slug}`}
+                  formName={`Заявка с модальной формы "Получите консультацию по программе${
+                    course?.title
+                      ? ` ${course?.category?.type || ''} ${
+                          course?.studyFormat || ''
+                        } ${course.title}`
+                      : ''
+                  }"`}
                 />
               )}
             </Popup>

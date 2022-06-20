@@ -50,6 +50,7 @@ const SectionCorporateClientsCta = ({
                 programTitle={programTitle}
                 title={'Получите консультацию'}
                 closePopUpForm={close}
+                formName='Заявка с модальной формы на корпоративное обучение. Заголовок формы: "Если вы не нашли подходящее решение, оставьте заявку, и мы подберем для вас курсы или программу"'
               />
             )}
           </Popup>

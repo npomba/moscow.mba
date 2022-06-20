@@ -132,6 +132,7 @@ const Qna = ({ programId, programTitle }) => {
                   programTitle={programTitle}
                   title={'Получите консультацию'}
                   closePopUpForm={close}
+                  formName='Заявка с модальной формы "Задать вопрос"'
                 />
               )}
             </Popup>

@@ -33,7 +33,11 @@ const PopupLearnMore = ({ close }) => {
           nested
           closeOnDocumentClick>
           {close => (
-            <PopupForm title={'Поможем в выборе!'} closePopUpForm={close} />
+            <PopupForm
+              title={'Поможем в выборе!'}
+              closePopUpForm={close}
+              formName='Заявка с модальной формы "Хочу консультацию"'
+            />
           )}
         </Popup>
 

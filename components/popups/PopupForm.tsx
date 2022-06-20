@@ -11,7 +11,8 @@ const Form = ({
   programId = null,
   title,
   disc = null,
-  promoCourseLink = null
+  promoCourseLink = null,
+  formName = null
 }) => {
   const at = useAt()
 
@@ -50,6 +51,7 @@ const Form = ({
           setOpenLoader={setOpenLoader}
           setOpen={setOpen}
           width='33'
+          formName={formName}
         />
         <button className='mfp-close' type='button' onClick={closePopUpForm}>
           <IconClose />

@@ -82,6 +82,13 @@ const JumbotronProgram = ({ program }) => {
                       programTitle={program?.title}
                       title={'Получите консультацию'}
                       closePopUpForm={close}
+                      formName={`Заявка с модальной формы первого экрана${
+                        program?.title
+                          ? ` программы ${program?.category?.type || ''} ${
+                              program?.studyFormat || ''
+                            } ${program.title}`
+                          : ''
+                      }`}
                     />
                   )}
                 </Popup>

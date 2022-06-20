@@ -136,6 +136,11 @@ const SearchField = () => {
                       setOpen={setOpen}
                       classNames={[stls.formAlpha]}
                       globalStyle={false}
+                      formName={`Заявка с поисковой формы "По вашему запросу ничего не найдено, свяжитесь со специалистом"${
+                        searchTerm
+                          ? `, запрос пользователя: ${searchTerm?.toString()}`
+                          : ''
+                      }`}
                     />
                   </div>
                 </>

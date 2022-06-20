@@ -270,6 +270,13 @@ const CostOfStudy = ({
                     programTitle={programTitle}
                     title={'Получите консультацию'}
                     closePopUpForm={close}
+                    formName={`Заявка с модальной формы блока "Стоимость обучения"${
+                      programTitle
+                        ? ` для программы ${programType || ''} ${
+                            programFormat || ''
+                          } ${programTitle}`
+                        : ''
+                    }`}
                   />
                 )}
               </Popup>

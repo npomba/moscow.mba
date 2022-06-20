@@ -7,6 +7,7 @@ const onSubmitForm = async ({
   setOpenLoader,
   asPath,
   setOpen,
+  formName,
   reset
 }) => {
   setOpenLoader(o => !o)
@@ -23,6 +24,7 @@ const onSubmitForm = async ({
   sessionStorage.removeItem('referer')
   const ymUid = JSON.parse(localStorage.getItem('_ym_uid'))
   values.ymUid = ymUid
+  values.formName = formName
   const req = await hitContactRoute(values)
   if (req === 200) {
     setOpenLoader(false)

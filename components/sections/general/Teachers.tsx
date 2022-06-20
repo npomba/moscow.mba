@@ -9,7 +9,7 @@ import Popup from 'reactjs-popup'
 import { routesFront, base64pixel, contactData } from '@/config/index'
 import { getImageHeight } from '@/helpers/index'
 import { useAt, useDefaultTeachers } from '@/hooks/index'
-import { ProgramsContext } from '@/context/index'
+import { ProgramContext, ProgramsContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
 import { PopupForm, PopupTeacher } from '@/components/popups'
 import {
@@ -99,6 +99,7 @@ const Teachers = ({
   const defaultTeachers = useDefaultTeachers()
 
   const { programs } = useContext(ProgramsContext)
+  const { program } = useContext(ProgramContext)
 
   const [searchTerm, setSearchTerm] = useState<string | null>(null)
   const [searchInputIsFocused, setSearchInputIsFocused] = useState(null)
@@ -543,6 +544,13 @@ const Teachers = ({
                           ? 'Submit a request and receive a consultation on experts, programs, discounts, and requirements'
                           : 'Оставьте заявку и получите консультацию по преподавателям, программам MBA, а также узнайте возможные варианты скидок и требования к поступлению'
                       }
+                      formName={`Заявка с модальной формы "Получите полный список преподавателей"${
+                        programTitle || program?.title
+                          ? ` программы ${program?.category?.type || ''} ${
+                              program?.studyFormat || ''
+                            } ${programTitle || program.title}`
+                          : ''
+                      }`}
                     />
                   )}
                 </Popup>
@@ -583,6 +591,13 @@ const Teachers = ({
                           ? 'Submit a request and receive a consultation on experts, programs, discounts, and requirements'
                           : 'Оставьте заявку и получите консультацию по преподавателям, программам MBA, а также узнайте возможные варианты скидок и требования к поступлению'
                       }
+                      formName={`Заявка с модальной формы "Запросить полный список преподавателей"${
+                        programTitle || program?.title
+                          ? ` программы ${program?.category?.type || ''} ${
+                              program?.studyFormat || ''
+                            } ${programTitle || program.title}`
+                          : ''
+                      }`}
                     />
                   )}
                 </Popup>

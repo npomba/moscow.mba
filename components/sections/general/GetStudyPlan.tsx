@@ -1,10 +1,13 @@
 import stls from '@/styles/components/sections/GetStudyPlan.module.sass'
 import Popup from 'reactjs-popup'
 import PopupForm from '@/components/popups/PopupForm'
-import React from 'react'
+import { useContext } from 'react'
+import { ProgramContext } from '@/context/index'
 import { Wrapper } from '@/components/layout'
 
 const GetStudyPlan = () => {
+  const { program } = useContext(ProgramContext)
+
   return (
     <section className={stls.container}>
       <Wrapper classNames={[stls.wrapper]}>
@@ -31,6 +34,13 @@ const GetStudyPlan = () => {
                   'Оставьте заявку, менеджер пришлет Вам полный учебный план, а также расскажет о программе и возможных скидках'
                 }
                 closePopUpForm={close}
+                formName={`Заявка с модальной формы "Получите полный учебный план"${
+                  program?.title
+                    ? ` для программы ${program?.category?.type || ''} ${
+                        program?.studyFormat || ''
+                      } ${program.title}`
+                    : ''
+                }`}
               />
             )}
           </Popup>

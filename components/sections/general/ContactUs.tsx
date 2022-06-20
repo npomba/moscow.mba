@@ -76,6 +76,7 @@ const ContactUs = ({
           programTitle={programTitle}
           setOpenLoader={setOpenLoader}
           setOpen={setOpen}
+          formName={`Заявка с формы "${title || 'Свяжитесь с нами'}"`}
         />
       </Wrapper>
     </section>

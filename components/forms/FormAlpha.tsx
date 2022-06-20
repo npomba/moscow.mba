@@ -26,7 +26,8 @@ const FormAlpha = ({
   alpha = false,
   width = '25',
   classNames = [],
-  globalStyle = true
+  globalStyle = true,
+  formName = null
 }) => {
   const container = getClassNames({ classNames })
   const {
@@ -58,6 +59,7 @@ const FormAlpha = ({
             setOpenLoader,
             asPath,
             setOpen,
+            formName,
             reset
           })
         }
