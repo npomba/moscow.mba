@@ -3,7 +3,7 @@ const ui = {
     rub: 'Р.',
     rubAlt: 'Р',
     kzt: '₸',
-    uzm: "so'm"
+    uzm: 'сум'
   }
 }
 

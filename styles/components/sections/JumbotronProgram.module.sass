@@ -51,8 +51,9 @@
     width: 100%
 
 .content
-  padding-left: 220px
-  padding-top: 86px
+  padding-left: 205px
+  // padding-top: 86px
+  padding-top: 108px
   padding-bottom: 108px
   position: relative
   z-index: 2
@@ -160,7 +161,7 @@
   @include m.media(laptop, tablet, phone)
     flex-direction: column
     justify-content: center
-    align-items: center
+    // align-items: center
 
 .descContainer
   flex-shrink: 0
@@ -235,6 +236,9 @@
     display: flex
     margin-left: 0
     width: 100%
+  @include m.media(phone)
+    margin: 0 0 10px
+  @include m.media(tablet, laptop)
     margin: 0 -15px 10px
   @include m.media(phone)
     flex-wrap: wrap

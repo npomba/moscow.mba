@@ -67,7 +67,8 @@ section.jumbotronPrograms
 
 .qtPrograms
   padding: 12px
-  margin-left: 16px
+  @include m.media(laptop, desktop, widescreen)
+    margin-left: 16px
   font-size: 13px
   line-height: 120%
   font-weight: 500
