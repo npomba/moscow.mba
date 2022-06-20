@@ -123,6 +123,27 @@ const Loan = ({
     programPriceKzUzConsidered &&
     Math.ceil(((programPriceKzUzConsidered / 45) * 100) / 1000) * 1000
 
+  const regularPriceUI = programPriceKzUzConsidered
+    ? toNumberWithSpaces(Math.floor(programPriceKzUzConsidered / 12))
+    : price[regularOrDiscounted]?.[type]?.[format]
+
+  const discountPriceUI = programPriceKzUzConsidered
+    ? toNumberWithSpaces(Math.floor(regularPrice / 12))
+    : price.loanRegular[type]?.[format]
+
+  // console.log(regularPriceUI)
+  // console.log(discountPriceUI)
+
+  // regularPriceUI = toNumberWithSpaces(
+  //   Number(regularPriceUI?.trim().replace(/\u00A0/, '')) * 10
+  // )
+
+  // discountPriceUI = toNumberWithSpaces(
+  //   Number(discountPriceUI?.trim().replace(/\u00A0/, '')) / 10
+  // )
+
+  // console.log(regularPriceUI.trim().replace(/\u00A0/, ''))
+
   return (
     <>
       <i
@@ -130,22 +151,25 @@ const Loan = ({
           discount
             ? getPriceClass('new', renderedByComponent)
             : getPriceClass('simple', renderedByComponent),
-          { [stls.price]: variant === 'SectionStudyCost' }
+          {
+            [stls.price]: variant === 'SectionStudyCost',
+            [stls.smallerFontForSmallerLength]:
+              variant === 'SectionStudyCost' &&
+              regularPriceUI?.toString()?.length > 5
+          }
         )}>
         <span>
-          {programPriceKzUzConsidered
-            ? toNumberWithSpaces(Math.floor(programPriceKzUzConsidered / 12))
-            : price[regularOrDiscounted]?.[type]?.[format]}{' '}
+          {regularPriceUI}{' '}
           <span
             className={cn({
-              [stls.priceLabel]: variant === 'SectionStudyCost'
+              [stls.priceLabel]: variant === 'SectionStudyCost',
+              [stls.smallerFontForSmallerLength]:
+                variant === 'SectionStudyCost' &&
+                regularPriceUI?.toString()?.length > 5
             })}>
             {currencySymbol}
           </span>
         </span>
-        {variant === 'SectionStudyCost' && (
-          <span className={stls.priceLabelInfo}>*рассрочка на 12 месяцев</span>
-        )}
       </i>
       {discount && !at.blended && !notComparingPrices && (
         <>
@@ -157,9 +181,7 @@ const Loan = ({
               className={cn({
                 [stls.discountNum]: variant === 'SectionStudyCost'
               })}>
-              {programPriceKzUzConsidered
-                ? toNumberWithSpaces(Math.floor(regularPrice / 12))
-                : price.loanRegular[type]?.[format]}
+              {discountPriceUI}
             </span>{' '}
             <span
               className={cn({
@@ -169,6 +191,9 @@ const Loan = ({
             </span>
           </i>
         </>
+      )}
+      {variant === 'SectionStudyCost' && (
+        <span className={stls.priceLabelInfo}>*рассрочка на 12 месяцев</span>
       )}
     </>
   )
