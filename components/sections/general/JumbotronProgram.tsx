@@ -105,7 +105,8 @@ const JumbotronProgram = ({ program }) => {
                         programPrice={
                           studyFieldIsAccounting ? 59000 : program?.price
                         }
-                      />
+                      />{' '}
+                      на 12 мес.
                     </p>
                   </div>
                 )}
