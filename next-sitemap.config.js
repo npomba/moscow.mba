@@ -20,11 +20,20 @@ module.exports = {
       alternateRefs: config.alternateRefs ?? []
     }
   },
+  // robotsTxtOptions: {
+  //   policies: [
+  //     {
+  //       userAgent: '*',
+  //       allow: '/'
+  //     }
+  //   ]
+  // }
   robotsTxtOptions: {
     policies: [
       {
         userAgent: '*',
-        allow: '/'
+        allow: ['/*.css', '/*.js', '/*.jpg', '/*.png', '/*.gif'],
+        disallow: ['/promo*', '*?']
       }
     ]
   }
