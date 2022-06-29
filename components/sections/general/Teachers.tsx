@@ -116,7 +116,8 @@ const Teachers = ({
     )
     .filter(
       (teacher, idx) =>
-        teacher && (at.programChunk ? teacher : idx < shownTeachersCount)
+        teacher &&
+        (at.programChunk || searchTerm ? teacher : idx < shownTeachersCount)
     ) || [
     defaultTeachers?.filter(
       (teacher, idx) =>
@@ -608,8 +609,8 @@ const Teachers = ({
                   </a>
                 </Link>
               ) : (
-                (UITeachers.length > 8 ||
-                  (UITeachers.length >= 8 && !searchTerm)) && (
+                UITeachers.length > 8 &&
+                !searchTerm && (
                   <button
                     className={cn('button', stls.btnShowMore, {
                       [stls.atTeachers]: at.teachers

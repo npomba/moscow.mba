@@ -68,7 +68,7 @@ const Filters = ({ mbaTypeOfProgram, mbaFormat }) => {
         setCurStudyField(studyFields?.[0] || null)
       }
 
-      console.log('test')
+      // console.log('test')
     } else {
       setCurStudyField(null)
     }
