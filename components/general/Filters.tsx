@@ -1,6 +1,7 @@
 import stls from '@/styles/components/general/Filters.module.sass'
 import Link from 'next/link'
-import { useContext, useEffect } from 'react'
+import { useRouter } from 'next/router'
+import { useContext, useEffect, useState } from 'react'
 import cn from 'classnames'
 import { useAt } from '@/hooks/index'
 import ProgramsContext from '@/context/programs/programsContext'
@@ -11,33 +12,74 @@ const Filters = ({ mbaTypeOfProgram, mbaFormat }) => {
   const { programs, studyFields, curStudyField, setCurStudyField } =
     useContext(ProgramsContext)
 
+  const router = useRouter()
+
+  const [defaultStudyFieldIsSet, setDefaultStudyFieldIsSet] = useState(false)
+  // const [searchTermIsAppliedtoUrl, setSearchTermIsAppliedtoUrl] =
+  //   useState(false)
+
   const at = useAt()
 
   const handleLinkClick = e => {
     if (at.profession || at.course) e.preventDefault()
   }
 
-  const studyFieldsFiltered = Array.from(
-    new Set(
-      programs
-        .filter(
-          program =>
-            program?.studyFormat === mbaFormat &&
-            program?.category?.type === mbaTypeOfProgram
-        )
-        .map(program => program?.study_field?.name)
-    )
-  ).filter(studyField => studyField)
+  // const studyFieldsFiltered = Array.from(
+  //   new Set(
+  //     programs
+  //       .filter(
+  //         program =>
+  //           program?.studyFormat === mbaFormat &&
+  //           program?.category?.type === mbaTypeOfProgram
+  //       )
+  //       .map(program => program?.study_field?.name)
+  //   )
+  // ).filter(studyField => studyField)
 
   // setCurStudyField(studyFieldsFiltered?.[0] || null)
 
-  // useEffect(() => {
-  //   if (at.profession || at.course) {
-  //     setCurStudyField(studyFieldsFiltered?.[0] || null)
-  //   } else {
-  //     setCurStudyField(null)
-  //   }
-  // }, [at.profession, at.course, setCurStudyField, studyFieldsFiltered])
+  const handleSetCurStudyField = (field: string | null) => {
+    if (at.profession || at.course) {
+      router.replace(
+        {
+          query: {
+            curStudyField: encodeURIComponent(field)
+          }
+        },
+        undefined,
+        {
+          shallow: true,
+          scroll: false
+        }
+      )
+      setCurStudyField(field)
+    }
+  }
+
+  useEffect(() => {
+    if (at.profession || at.course) {
+      if (router.query.curStudyField) {
+        setCurStudyField(
+          decodeURIComponent(router.query.curStudyField.toString())
+        )
+      }
+
+      if (!curStudyField) {
+        setCurStudyField(studyFields?.[0] || null)
+      }
+
+      console.log('test')
+    } else {
+      setCurStudyField(null)
+    }
+  }, [
+    at.profession,
+    at.course,
+    // setCurStudyField
+    studyFields,
+    router,
+    curStudyField
+  ])
 
   return (
     <>
@@ -145,15 +187,15 @@ const Filters = ({ mbaTypeOfProgram, mbaFormat }) => {
             </Link>
           </div>
         </li>
-        {(at.profession || at.course) && studyFieldsFiltered && (
+        {(at.profession || at.course) && studyFields && (
           <li>
             <h4 className={stls.title}>Направление</h4>
             <div className={stls.content}>
-              {studyFieldsFiltered.map((field, idx) => (
+              {studyFields.map((field, idx) => (
                 <button
                   key={`field-btn-${idx}`}
                   className={stls.fieldButton}
-                  onClick={() => setCurStudyField(field)}>
+                  onClick={() => handleSetCurStudyField(field)}>
                   <span
                     className={cn({
                       [stls.circle]: true,
