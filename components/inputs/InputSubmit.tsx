@@ -1,5 +1,6 @@
 import stls from '@/styles/components/inputs/InputSubmit.module.sass'
 import cn from 'classnames'
+import { colors } from '@/config/index'
 import { useAt } from '@/hooks/index'
 import { IconArrowTopRight } from '@/components/icons'
 
@@ -26,8 +27,11 @@ const InputSubmit = ({ errors, alpha = false, width = '25', ...props }) => {
           ? 'Submit'
           : 'Оставить заявку'}
         {alpha && (
-          <div className={stls.buttonArrow}>
-            <IconArrowTopRight width={'17'} height={'17'} />
+          <div className={stls.IconArrowTopRightContainer}>
+            <IconArrowTopRight
+              classNames={[stls.IconArrowTopRight]}
+              color={colors.psi}
+            />
           </div>
         )}
       </button>

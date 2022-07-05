@@ -1,4 +1,7 @@
 @use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+@use '@/styles/shared/general' as g
 
 .container
   display: flex
@@ -18,17 +21,14 @@
       background: #ffffff
       box-shadow: 0px 4px 50px rgba(0, 0, 0, 0.09)
       .category
-        color: #ff3535
-        border: 1px solid #FF3535
-        background-color: #fff
-        transition: all 0.3s ease-out
-      & .arrow
-        background: #ff3535
-        svg
-          filter: none
-          opacity: 1
-
-
+        @include m.dye(borderc, c.$alpha)
+        @include m.dye(bgc, c.$psi)
+        @include m.dye(c, c.$alpha)
+      & .IconArrowTopRightContainer
+        @include m.dye(bgc, c.$alpha)
+        & line,
+        & path
+          @include m.dye(stroke, c.$psi)
   @media (max-width: 480px)
     margin: 0 0 10px
     width: 100%
@@ -52,31 +52,29 @@
   @media (max-width: 1329px)
     font-size: 18px
 
-.arrow
-  background: #fff
-  border-radius: 50%
-  height: 58px
-  width: 58px
-  line-height: 69px
-  position: absolute
-  right: 26px
-  text-align: center
-  top: 26px
-  z-index: 3
-  transition: all 0.3s ease-out
-
-  svg
-    position: absolute
-    top: 50%
-    left: 50%
-    transform: translate(-50%, -50%)
-    width: 16px
-    filter: brightness(0)
-    opacity: 0.4
-    transition: all 0.3s ease-out
-
-  @media (max-width: 480px)
+.IconArrowTopRightContainer
+  @include m.media(phone, tablet)
     display: none
+  @include m.media(laptop, desktop, widescreen)
+    position: absolute
+    right: f.px(26)
+    top: f.px(26)
+    @include g.square(f.px(58))
+    display: flex
+    justify-content: center
+    align-items: center
+    border-radius: 50%
+    transition: background-color 0.3s ease-out
+    @include m.dye(bgc, c.$psi)
+
+.IconArrowTopRight
+  @include m.media(phone, tablet)
+    display: none
+  @include m.media(laptop, desktop, widescreen)
+    @include g.square(f.px(17))
+    & line,
+    & path
+      transition: stroke 0.3s ease-out
 
 .number
   position: absolute
@@ -115,4 +113,5 @@
   border-radius: 80px
   color: #808080
   background-color: #E4E4E4
+  transition: border-color 0.3s ease-out, background-color 0.3s ease-out, color 0.3s ease-out
 

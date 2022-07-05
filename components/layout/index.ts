@@ -2,6 +2,7 @@
 export { default as ContentJournalArticle } from '@/components/layout/ContentJournalArticle'
 export { default as Footer } from '@/components/layout/Footer'
 export { default as Header } from '@/components/layout/Header'
+export { default as IconContainer } from '@/components/layout/IconContainer'
 export { default as Main } from '@/components/layout/Main'
 export { default as Overlay } from '@/components/layout/Overlay'
 export { default as StickyBottom } from '@/components/layout/StickyBottom'

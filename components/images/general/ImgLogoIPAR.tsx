@@ -1,12 +1,11 @@
 import { TypeClassNames, TypeImg } from '@/types/index'
-import { FC } from 'react'
 import { useAt } from '@/hooks/index'
 import { ImgTemplate } from '@/components/images'
 import src from '@/public/assets/images/general/logo-ipar.png'
 
 type TImgLogoIPAR = TypeClassNames & TypeImg
 
-const ImgLogoIPAR: FC<TImgLogoIPAR> = ({ classNames, width, height }) => {
+const ImgLogoIPAR = ({ classNames, width, height }: TImgLogoIPAR) => {
   const at = useAt()
 
   const alt = at.en

@@ -2,6 +2,7 @@ import stls from '@/styles/components/general/Pagination.module.sass'
 import { useState } from 'react'
 import cn from 'classnames'
 import { IconSpinner, IconArrowLeft } from '@/components/icons'
+import colors from '@/config/colors'
 
 const Pagination = ({
   numberOfPages,
@@ -14,6 +15,7 @@ const Pagination = ({
   onlyPagination = false,
   semiTransparentBg = false
 }) => {
+  console.log(lastShownItem)
   const [currentPage, setCurrentPage] = useState(0)
 
   const handlePaginationBtnClick = clickedBtnIndex => {
@@ -22,7 +24,7 @@ const Pagination = ({
   }
 
   const handleLoadMoreBtnClick = () => {
-    loadMoreItems(prevLastItem => prevLastItem + 5)
+    loadMoreItems(prevLastItem => prevLastItem + itemsPerPage)
   }
 
   const paginationBtns = []
@@ -58,10 +60,15 @@ const Pagination = ({
         <IconSpinner />
         Еще {itemsPerPage} курсов из {totalItems}
       </button>
-      <button className={stls.toggleItemsBtn} onClick={toggleItems}>
-        <span>Скрыть все</span>
-        <IconArrowLeft fill={'#ff3535'} />
-      </button>
+      {lastShownItem > itemsPerPage && (
+        <button className={stls.toggleItemsBtn} onClick={toggleItems}>
+          <span className={stls.toggleItemsBtnText}>Скрыть все</span>
+          <IconArrowLeft
+            classNames={[stls.IconArrowLeft]}
+            color={colors.alpha}
+          />
+        </button>
+      )}
     </div>
   )
 }

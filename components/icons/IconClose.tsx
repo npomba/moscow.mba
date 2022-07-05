@@ -2,17 +2,19 @@ import stls from '@/styles/components/icons/IconClose.module.sass'
 import { TypeClassNames, TypeColor } from '@/types/index'
 import cn from 'classnames'
 import { colors } from '@/config/index'
-// import { getClassNames } from '@/helpers/index'
-import { GeneralIconContainer } from '@/components/general'
+import { getClassNames } from '@/helpers/index'
+import { IconContainer } from '@/components/layout'
 
-type TIconClose = TypeClassNames & {
+type TIconCloseProps = TypeClassNames & {
   stroke?: TypeColor
 }
 
-const IconClose = ({ classNames, stroke = '#000' }: TIconClose) => {
+const IconClose = ({ classNames, stroke }: TIconCloseProps) => {
   return (
-    // <>IconClose</>
-    <GeneralIconContainer classNames={[cn(stls.container, classNames)]}>
+    <IconContainer
+      classNames={[
+        cn(stls.container, getClassNames({ classNames })) || undefined
+      ]}>
       <svg viewBox='0 0 14 14' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <title>Закрыть</title>
         <path
@@ -28,7 +30,7 @@ const IconClose = ({ classNames, stroke = '#000' }: TIconClose) => {
           strokeLinejoin='round'
         />
       </svg>
-    </GeneralIconContainer>
+    </IconContainer>
   )
 }
 

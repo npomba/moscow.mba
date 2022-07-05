@@ -67,7 +67,7 @@ const ProgramsList = ({ data, id, type }) => {
                   {...(at.en ? { locale: 'ru' } : undefined)}>
                   <a className={stls.link} onClick={handleLinkClick}>
                     {at.en ? 'View all' : 'Посмотреть все'}
-                    <IconArrowLeft classNames={[stls.arrow]} />
+                    <IconArrowLeft classNames={[stls.IconArrowLeft]} />
                   </a>
                 </Link>
               </div>

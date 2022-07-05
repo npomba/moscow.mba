@@ -1,6 +1,7 @@
 @use '@/styles/utils/mixin' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
+@use '@/styles/shared/general' as g
 
 .container
   height: 100%
@@ -52,11 +53,12 @@
     &:not(:last-child)
       margin-bottom: 10px
     a
-      transition: all .3s ease-out
+      transition: color .3s ease-out
       &:hover
-        .arrow
-          fill: #ff3535
-        color: #ff3535
+        .IconArrowLeft
+          & svg
+            @include m.dye(fill, c.$alpha)
+        @include m.dye(c, c.$alpha)
     
 .listTitle
   font-weight: 500
@@ -74,19 +76,19 @@
     margin: 20px 0
 
 .link
+  display: flex
+  align-items: center
   font-weight: 400
-  position: relative
 
-.arrow
-  position: absolute
-  right: -10px
-  top: 3px
-  width: 7px
-  display: inline-block
-  transform: rotate(-180deg)
-  margin-left: 5px
-  fill: #000
-  transition: all .3s ease-out
+.IconArrowLeft
+  min-width: f.px(7)
+  max-width: f.px(7)
+  min-height: f.px(12)
+  max-height: f.px(12)
+  margin-left: f.px(5)
+  transform: rotate(-180deg) translateY(-1px)
+  & svg
+    transition: fill .3s ease-out
 
 .programInfo
   @include m.media(laptop, tablet, phone)

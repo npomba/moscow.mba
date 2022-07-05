@@ -2,17 +2,19 @@ import stls from '@/styles/components/icons/IconSearch.module.sass'
 import { TypeClassNames, TypeColor } from '@/types/index'
 import cn from 'classnames'
 import { colors } from '@/config/index'
-// import { getClassNames } from '@/helpers/index'
-import { GeneralIconContainer } from '@/components/general'
+import { getClassNames } from '@/helpers/index'
+import { IconContainer } from '@/components/layout'
 
-type TIconSearch = TypeClassNames & {
+type TIconSearchProps = TypeClassNames & {
   color?: TypeColor
 }
 
-const IconSearch = ({ classNames, color }: TIconSearch) => {
+const IconSearch = ({ classNames, color }: TIconSearchProps) => {
   return (
-    // <>IconSearch</>
-    <GeneralIconContainer classNames={[cn(stls.container, classNames)]}>
+    <IconContainer
+      classNames={[
+        cn(stls.container, getClassNames({ classNames })) || undefined
+      ]}>
       <svg viewBox='0 0 30 30' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <rect
           x='20.4531'
@@ -29,7 +31,7 @@ const IconSearch = ({ classNames, color }: TIconSearch) => {
           fill={color || colors.omega}
         />
       </svg>
-    </GeneralIconContainer>
+    </IconContainer>
   )
 }
 

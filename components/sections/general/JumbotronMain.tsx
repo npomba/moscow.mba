@@ -1,11 +1,10 @@
 import stls from '@/styles/components/sections/JumbotronMain.module.sass'
 import Link from 'next/link'
 import Image from 'next/image'
+import { colors, base64pixel } from '@/config/index'
 import { useAt } from '@/hooks/index'
 import { Breadcrumbs } from '@/components/general'
 import { IconArrowTopRight } from '@/components/icons'
-
-import { base64pixel } from '@/config/index'
 
 const JumbotronMain = () => {
   const at = useAt()
@@ -47,8 +46,11 @@ const JumbotronMain = () => {
             {...(at.en ? { locale: 'ru' } : undefined)}>
             <a className={stls.square}>
               <p>{at.en ? 'Choose program' : 'Подобрать направление'}</p>
-              <div className={stls.arrow}>
-                <IconArrowTopRight />
+              <div className={stls.IconArrowTopRightContainer}>
+                <IconArrowTopRight
+                  classNames={[stls.IconArrowTopRight]}
+                  color={colors.psi}
+                />
               </div>
             </a>
           </Link>

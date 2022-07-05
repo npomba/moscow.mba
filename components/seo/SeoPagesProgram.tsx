@@ -1,5 +1,4 @@
 import { TypeLibProgram } from '@/types/index'
-import { FC } from 'react'
 import { NextSeo, CourseJsonLd } from 'next-seo'
 import truncate from 'truncate'
 import { routesFront, companyName } from '@/config/index'
@@ -10,7 +9,7 @@ type TSeoPagesProgram = {
   canonical?: string
 }
 
-const SeoPagesProgram: FC<TSeoPagesProgram> = ({ program, canonical }) => {
+const SeoPagesProgram = ({ program, canonical }: TSeoPagesProgram) => {
   const at = useAt()
 
   const programTitle = program?.title || (at.en ? 'Program' : 'Программа')

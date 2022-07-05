@@ -23,5 +23,7 @@ type TypeColorsKeys =
   | 'chi'
   | 'psi'
   | 'omega'
+  | 'alpha-2'
+  | 'beta-2'
 
 export default TypeColorsKeys

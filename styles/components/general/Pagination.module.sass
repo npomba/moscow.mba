@@ -1,4 +1,7 @@
 @use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+@use '@/styles/shared/general' as g
 
 .onlyPagination
   .paginationBtn
@@ -63,28 +66,29 @@
     display: none
 
 .toggleItemsBtn
-  display: none
-  align-items: center
-  justify-content: center
-  width: auto
-  margin: 0 auto
-  padding: 0 0 5px
-  font-size: 16px
-  font-weight: 300
-  border: none
-  border-bottom: dashed 1px #000
-  background-color: transparent
-  color: #262626
-  @include m.media(tablet, phone)
+  @include m.media(phone, tablet)
     display: flex
-  &.itemsHidden
-    div
-      transform: rotate(270deg)
-    span
-      margin-right: 4px
-  span
-    margin-right: 15px
-  div
-    height: 4px
-    width: 6px
+    justify-content: center
+    align-items: center
+    width: auto
+    margin: 0 auto
+    padding: 0 0 f.px(5)
+    font-size: f.px(16)
+    font-weight: 300
+    border: none
+    border-bottom: 1px dashed #000
+    background-color: transparent
+    color: #262626
+  @include m.media(laptop, desktop, widescreen)
+    display: none
+  
+.IconArrowLeft
+  @include m.media(phone, tablet)
+    min-width: f.px(6)
+    max-width: f.px(6)
+    min-height: f.px(4)
+    max-height: f.px(4)
+    margin-left: f.px(15)
     transform: rotate(90deg)
+  @include m.media(laptop, desktop, widescreen)
+    display: none

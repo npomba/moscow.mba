@@ -1,6 +1,8 @@
+@use 'sass:math'
 @use '@/styles/utils/mixin' as m
 @use '@/styles/utils/funcs' as f
 @use '@/styles/themes/default/colors' as c
+@use '@/styles/shared/general' as g
 @use '@/styles/utils/mixin/media' as bp
   
 .button
@@ -38,12 +40,14 @@
     padding: 20px
     margin-bottom: 30px
 
-.buttonArrow
-  margin-left: 11px
-  width: 38px
-  height: 38px
+.IconArrowTopRightContainer
   display: flex
   justify-content: center
   align-items: center
-  background-color: rgb(#000, 0.1)
+  @include g.square(f.px(38))
+  margin-left: f.px(11)
   border-radius: 50%
+  @include m.dye(bgc, rgba(c.$omega, .1))
+
+.IconArrowTopRight
+  @include g.square(f.px(17))

@@ -1,6 +1,9 @@
 import stls from '@/styles/components/icons/IconECTS.module.sass'
+import { TypeClassNames, TypeColor } from '@/types/index'
 import cn from 'classnames'
+import { colors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { IconContainer } from '@/components/layout'
 
 const IconECTS = ({ classNames = [] }) => {
   const container = getClassNames({ classNames })

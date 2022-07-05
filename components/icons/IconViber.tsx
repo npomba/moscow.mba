@@ -1,4 +1,9 @@
 import stls from '@/styles/components/icons/IconViber.module.sass'
+import { TypeClassNames, TypeColor } from '@/types/index'
+import cn from 'classnames'
+import { colors } from '@/config/index'
+import { getClassNames } from '@/helpers/index'
+import { IconContainer } from '@/components/layout'
 
 const IconViber = () => {
   return (

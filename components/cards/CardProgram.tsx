@@ -15,8 +15,8 @@ const CardProgram = ({ professionLayout, program, number, type, format }) => {
   return (
     <Link href={`/programs/${type}/${format}/${program?.slug}`}>
       <a className={stls.container}>
-        <div className={stls.arrow}>
-          <IconArrowTopRight />
+        <div className={stls.IconArrowTopRightContainer}>
+          <IconArrowTopRight classNames={[stls.IconArrowTopRight]} />
         </div>
         <div>
           <span className={stls.category}>

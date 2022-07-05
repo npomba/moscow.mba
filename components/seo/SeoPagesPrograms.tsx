@@ -1,5 +1,4 @@
 import { TypeLibPrograms } from '@/types/index'
-import { FC } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import { routesFront, companyName } from '@/config/index'
@@ -12,11 +11,11 @@ type TSeoPagesProgram = {
   programs?: TypeLibPrograms | null
 }
 
-const SeoPagesPrograms: FC<TSeoPagesProgram> = ({
+const SeoPagesPrograms = ({
   ofType,
   studyFormat,
   programs
-}) => {
+}: TSeoPagesProgram) => {
   const at = useAt()
 
   const seoParams = {

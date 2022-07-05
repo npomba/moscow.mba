@@ -1,5 +1,3 @@
-// TODO: all icons should be restructured the way it's done in geometrics icons
-
 // ./geometrics
 export { default as IconGeometricRectangle } from '@/components/icons/geometrics/IconGeometricRectangle'
 export { default as IconGeometricRightAngle } from '@/components/icons/geometrics/IconGeometricRightAngle'

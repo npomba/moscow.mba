@@ -1,7 +1,9 @@
 import stls from '@/styles/components/icons/IconCheck.module.sass'
-import { TypeClassNames } from '@/types/index'
+import { TypeClassNames, TypeColor } from '@/types/index'
 import cn from 'classnames'
+import { colors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
+import { IconContainer } from '@/components/layout'
 
 type TypeIconCheck = TypeClassNames & { stroke?: string }
 

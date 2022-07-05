@@ -5,6 +5,7 @@ import TagManager from 'react-gtm-module'
 import { BtnContact } from '@/components/btns'
 import { v4 as uuidv4 } from 'uuid'
 import { useAt } from '@/hooks/index'
+import { colors } from '@/config/index'
 // import {
 //   IconArrowLeft,
 //   IconTelegram,
@@ -158,11 +159,15 @@ const createFormStageTitleContainer = dataToCreateTitleContainer => {
 
   const formStageTitleContainer = (
     <div className={stls.wayToContactTitleContainer}>
-      <div
+      <button
         className={stls.goBackArrow}
         onClick={() => handleUserGoingBack(stageStep)}>
-        <IconArrowLeft />
-      </div>
+        <IconArrowLeft
+          classNames={[stls.IconArrowLeft]}
+          color={colors['beta-2']}
+          title={'Назад'}
+        />
+      </button>
       {wayToContactTitle}
     </div>
   )

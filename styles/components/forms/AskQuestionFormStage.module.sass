@@ -1,6 +1,9 @@
 // @use '@/styles/base' as b
 @use '@/styles/components/layout/StickyBottom.module.sass' as stickyBottom
 @use '@/styles/utils/mixin' as m
+@use '@/styles/utils/funcs' as f
+@use '@/styles/themes/default/colors' as c
+@use '@/styles/shared/general' as g
 
 .questionTextarea
   width: 305px
@@ -41,11 +44,18 @@
 
 .goBackArrow
   position: absolute
-  left: 20px
+  left: f.px(20)
   top: 50%
-  padding: 15px
+  padding: f.px(14)
+  border: initial
   transform: translateY(-50%)
-  cursor: pointer
+  background-color: initial
+
+.IconArrowLeft
+  min-width: f.px(10)
+  max-width: f.px(10)
+  min-height: f.px(17)
+  max-height: f.px(17)
 
 .wayToContactTitle
   font-size: 14px
