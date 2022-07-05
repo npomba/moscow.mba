@@ -138,11 +138,6 @@ module.exports = {
         source: '/programs/mba',
         destination: '/programs/mba/online',
         permanent: true
-      },
-      {
-        source: '/?',
-        destination: '/',
-        permanent: true
       }
     ]
   }
