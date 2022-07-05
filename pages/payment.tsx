@@ -142,6 +142,7 @@ const PagePayment = ({ programs }) => {
               lockScroll
               nested
               closeOnDocumentClick>
+              {/* @ts-expect-error  */}
               {close => (
                 <PopupForm
                   title={'Помощь с оплатой'}

@@ -87,6 +87,7 @@ const StickyBottom = ({
             lockScroll
             nested
             closeOnDocumentClick>
+            {/* @ts-expect-error  */}
             {close => (
               <PopupForm
                 title={at.en ? 'Get consultation' : 'Получите консультацию'}
@@ -107,6 +108,7 @@ const StickyBottom = ({
               lockScroll
               nested
               closeOnDocumentClick>
+              {/* @ts-expect-error  */}
               {close => <PopupLearnMore close={close} />}
             </Popup>
           </div>

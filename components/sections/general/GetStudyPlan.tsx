@@ -23,6 +23,7 @@ const GetStudyPlan = () => {
             lockScroll
             nested
             closeOnDocumentClick>
+            {/* @ts-expect-error  */}
             {close => (
               <PopupForm
                 title={

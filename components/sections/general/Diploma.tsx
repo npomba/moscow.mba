@@ -53,6 +53,7 @@ const Diploma = ({ darkBackground = false }) => {
               lockScroll
               nested
               closeOnDocumentClick>
+              {/* @ts-expect-error  */}
               {close => (
                 <PopupImage
                   closePopupImage={close}
@@ -92,6 +93,7 @@ const Diploma = ({ darkBackground = false }) => {
               lockScroll
               nested
               closeOnDocumentClick>
+              {/* @ts-expect-error  */}
               {close => (
                 <PopupImage
                   closePopupImage={close}
@@ -133,6 +135,7 @@ const Diploma = ({ darkBackground = false }) => {
               lockScroll
               nested
               closeOnDocumentClick>
+              {/* @ts-expect-error  */}
               {close => (
                 <PopupImage
                   closePopupImage={close}
@@ -172,6 +175,7 @@ const Diploma = ({ darkBackground = false }) => {
               lockScroll
               nested
               closeOnDocumentClick>
+              {/* @ts-expect-error  */}
               {close => (
                 <PopupImage
                   closePopupImage={close}

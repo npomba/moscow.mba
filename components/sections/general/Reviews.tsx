@@ -72,6 +72,7 @@ const Reviews = () => {
                           lockScroll
                           nested
                           closeOnDocumentClick>
+                          {/* @ts-expect-error  */}
                           {close => (
                             <PopupReview
                               closePopUp={close}

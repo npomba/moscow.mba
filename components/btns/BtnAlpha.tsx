@@ -45,7 +45,7 @@ const BtnAlpha = ({
   const ParentElement = isLink ? Link : tag
   return (
     // TODO: figure out the way to do this without ts expect error
-    // @ts-expect-error
+    // // @ts-expect-error
     <ParentElement
       className={!isLink && container}
       type={type}

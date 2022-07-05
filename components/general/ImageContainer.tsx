@@ -29,6 +29,7 @@ const ImageContainer = ({ image, imageWidth, imageHeight }) => {
       lockScroll
       nested
       closeOnDocumentClick>
+      {/* @ts-expect-error  */}
       {close => <PopupImage closePopupImage={close} image={image} />}
     </Popup>
   )

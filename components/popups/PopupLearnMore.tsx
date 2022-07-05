@@ -32,6 +32,7 @@ const PopupLearnMore = ({ close }) => {
           lockScroll
           nested
           closeOnDocumentClick>
+          {/* @ts-expect-error  */}
           {close => (
             <PopupForm
               title={'Поможем в выборе!'}

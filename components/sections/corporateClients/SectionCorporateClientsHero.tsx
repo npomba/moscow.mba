@@ -87,6 +87,7 @@ const SectionCorporateClientsHero = ({
               lockScroll
               nested
               closeOnDocumentClick>
+              {/* @ts-expect-error  */}
               {(close: MouseEventHandler) => (
                 <PopupForm
                   programId={programId}

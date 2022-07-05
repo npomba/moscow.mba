@@ -484,6 +484,8 @@ const Teachers = ({
                       lockScroll
                       nested
                       closeOnDocumentClick>
+                      {/* @ts-expect-error  */}
+
                       {close => (
                         <PopupTeacher close={close} teacher={teacher} />
                       )}
@@ -530,6 +532,8 @@ const Teachers = ({
                   lockScroll
                   nested
                   closeOnDocumentClick>
+                  {/* @ts-expect-error  */}
+
                   {close => (
                     <PopupForm
                       programId={programId}
@@ -577,6 +581,7 @@ const Teachers = ({
                   lockScroll
                   nested
                   closeOnDocumentClick>
+                  {/* @ts-expect-error  */}
                   {close => (
                     <PopupForm
                       programId={programId}

@@ -154,7 +154,8 @@ const CourseAccordion = ({
               lockScroll
               nested
               closeOnDocumentClick>
-              {close => (
+              {/* @ts-expect-error  */}
+              {(close: any) => (
                 <PopupForm
                   title={'Получите консультацию по программе'}
                   closePopUpForm={close}

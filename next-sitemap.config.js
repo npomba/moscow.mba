@@ -1,10 +1,12 @@
-module.exports = {
+/** @type {import('next-sitemap').IConfig} */
+
+const config = {
   siteUrl: 'https://moscow.mba',
   changefreq: 'daily',
   priority: 0.7,
-  sitemapSize: 5000,
+  sitemapSize: 7000,
   generateRobotsTxt: true,
-  exclude: ['/payment'],
+  exclude: ['/payment', '/promo*', '*?'],
   alternateRefs: [
     {
       href: 'https://moscow.mba/en-US',
@@ -38,3 +40,5 @@ module.exports = {
     ]
   }
 }
+
+export default config

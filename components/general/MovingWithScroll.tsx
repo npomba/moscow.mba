@@ -1,7 +1,11 @@
 import stls from '@/styles/components/general/MovingWithScroll.module.sass'
+import { TypeChildren } from '@/types/index'
+import { FC } from 'react'
 import { useEffect, useRef, useState } from 'react'
 
-const MovingWithScroll: React.FC = ({ children }) => {
+type TMovingWithScrollProps = TypeChildren
+
+const MovingWithScroll: FC<TMovingWithScrollProps> = ({ children }) => {
   const ref: any = useRef()
   const [move, setMove] = useState(0)
   const [scrollY, setScrollY] = useState(0)

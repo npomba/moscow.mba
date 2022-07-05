@@ -144,6 +144,7 @@ const SectionStudyCost = ({ classNames }: TypeSectionStudyCostProps) => {
               lockScroll
               nested
               closeOnDocumentClick>
+              {/* @ts-expect-error  */}
               {(close: MouseEventHandler) => (
                 <PopupForm
                   programId={program?.id}

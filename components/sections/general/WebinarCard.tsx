@@ -52,6 +52,7 @@ const WebinarCard = ({
         lockScroll
         nested
         closeOnDocumentClick>
+        {/* @ts-expect-error  */}
         {close => (
           <PopupForm
             title={'Узнайте подробнее о вебинаре'}

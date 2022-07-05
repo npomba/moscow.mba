@@ -264,6 +264,7 @@ const CostOfStudy = ({
                 lockScroll
                 nested
                 closeOnDocumentClick>
+                {/* @ts-expect-error  */}
                 {close => (
                   <PopupForm
                     programId={programId}

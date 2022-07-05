@@ -76,6 +76,7 @@ const JumbotronProgram = ({ program }) => {
                   lockScroll
                   nested
                   closeOnDocumentClick>
+                  {/* @ts-expect-error  */}
                   {close => (
                     <PopupForm
                       programId={program?._id}

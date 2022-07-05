@@ -52,6 +52,7 @@ const SearchField = () => {
         onClose={() => setInputIsFocused(false)}
         position={'top center'}
         className='popup-SearchField'>
+        {/* @ts-expect-error  */}
         {(close: MouseEventHandler) => (
           <div className={stls.popupContainer}>
             <a href='#!' onClick={close} className={stls.iconCloseBtn}>

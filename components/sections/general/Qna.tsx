@@ -126,6 +126,7 @@ const Qna = ({ programId, programTitle }) => {
               lockScroll
               nested
               closeOnDocumentClick>
+              {/* @ts-expect-error  */}
               {close => (
                 <PopupForm
                   programId={programId}
