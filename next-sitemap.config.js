@@ -1,18 +1,19 @@
 /** @type {import('next-sitemap').IConfig} */
 
-const config = {
+module.exports = {
   siteUrl: 'https://moscow.mba',
   changefreq: 'daily',
   priority: 0.7,
   sitemapSize: 7000,
   generateRobotsTxt: true,
+  generateIndexSitemap: false,
   exclude: ['/payment', '/promo*', '*?'],
-  alternateRefs: [
-    {
-      href: 'https://moscow.mba/en-US',
-      hreflang: 'en'
-    }
-  ],
+  // alternateRefs: [
+  //   {
+  //     href: 'https://moscow.mba/en-US',
+  //     hreflang: 'en'
+  //   }
+  // ],
   transform: async (config, path) => {
     return {
       loc: path, // => this will be exported as http(s)://<config.siteUrl>/<path>
@@ -40,5 +41,3 @@ const config = {
     ]
   }
 }
-
-export default config
