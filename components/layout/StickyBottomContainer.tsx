@@ -24,27 +24,29 @@ const StickyBottomContainer = () => {
   const handleAskQuestionFormClose = () => setClickedAsk(false)
 
   return (
-    <div className={containerClasses.join(' ')}>
-      {clickedAsk ? (
-        <>
-          <Overlay handleAskQuestionFormClose={handleAskQuestionFormClose} />
-          <AskQuestionForm
-            handleAskQuestionFormClose={handleAskQuestionFormClose}
+    <noindex>
+      <div className={containerClasses.join(' ')}>
+        {clickedAsk ? (
+          <>
+            <Overlay handleAskQuestionFormClose={handleAskQuestionFormClose} />
+            <AskQuestionForm
+              handleAskQuestionFormClose={handleAskQuestionFormClose}
+            />
+          </>
+        ) : (
+          <AskQuestion
+            handleClickedAskQuestion={handleClickedAskQuestion}
+            stickyShown={isStickyBottomShown}
           />
-        </>
-      ) : (
-        <AskQuestion
-          handleClickedAskQuestion={handleClickedAskQuestion}
-          stickyShown={isStickyBottomShown}
+        )}
+        <StickyBottom
+          openStickyModule={() => setIsStickyBottomShown(true)}
+          hideStickyModule={() => setIsStickyBottomShown(false)}
+          closeStickyModule={() => setStickyHasBeenClosed(true)}
+          clickedAsk={clickedAsk}
         />
-      )}
-      <StickyBottom
-        openStickyModule={() => setIsStickyBottomShown(true)}
-        hideStickyModule={() => setIsStickyBottomShown(false)}
-        closeStickyModule={() => setStickyHasBeenClosed(true)}
-        clickedAsk={clickedAsk}
-      />
-    </div>
+      </div>
+    </noindex>
   )
 }
 

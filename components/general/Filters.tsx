@@ -157,8 +157,9 @@ const Filters = ({ mbaTypeOfProgram, mbaFormat }) => {
         <li>
           <h4 className={stls.title}>Формат обучения</h4>
           <div className={stls.content}>
-            <Link href={`/programs/${mbaTypeOfProgram}/blended`}>
+            {at.profession || at.course ? (
               <a
+                href='#!'
                 className={cn({
                   [stls.inactiveLink]: at.profession || at.course
                 })}
@@ -170,7 +171,22 @@ const Filters = ({ mbaTypeOfProgram, mbaFormat }) => {
                   })}></span>{' '}
                 BLENDED (с очными модулями)
               </a>
-            </Link>
+            ) : (
+              <Link href={`/programs/${mbaTypeOfProgram}/blended`}>
+                <a
+                  className={cn({
+                    [stls.inactiveLink]: at.profession || at.course
+                  })}
+                  onClick={e => handleLinkClick(e)}>
+                  <span
+                    className={cn({
+                      [stls.circle]: true,
+                      [stls.active]: at.blended
+                    })}></span>{' '}
+                  BLENDED (с очными модулями)
+                </a>
+              </Link>
+            )}
 
             <Link href={`/programs/${mbaTypeOfProgram}/online`}>
               <a>
