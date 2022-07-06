@@ -26,17 +26,20 @@ const Filters = ({ mbaTypeOfProgram, mbaFormat }) => {
     if (at.profession || at.course) e.preventDefault()
   }
 
-  const studyFieldsFiltered = Array.from(
-    new Set(
-      programs
-        .filter(
-          program =>
-            program?.studyFormat === mbaFormat &&
-            program?.category?.type === mbaTypeOfProgram
-        )
-        .map(program => program?.study_field?.name)
-    )
-  ).filter(studyField => studyField)
+  const studyFieldsFiltered =
+    at.profession || at.course
+      ? Array.from(
+          new Set(
+            programs
+              .filter(
+                program =>
+                  program?.studyFormat === mbaFormat &&
+                  program?.category?.type === mbaTypeOfProgram
+              )
+              .map(program => program?.study_field?.name)
+          )
+        ).filter(studyField => studyField)
+      : []
 
   // setCurStudyField(studyFieldsFiltered?.[0] || null)
 
@@ -91,7 +94,7 @@ const Filters = ({ mbaTypeOfProgram, mbaFormat }) => {
     at.profession,
     at.course,
     // setCurStudyField
-    studyFieldsFiltered,
+    // studyFieldsFiltered,
     router,
     curStudyField,
     isNavigated
