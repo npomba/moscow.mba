@@ -59,7 +59,7 @@ const Filters = ({ mbaTypeOfProgram, mbaFormat }) => {
       // setCurStudyField(field)
     }
   }
-
+  //
   useEffect(() => {
     if ((at.profession || at.course) && !isNavigated) {
       if (router.query.curStudyField) {
