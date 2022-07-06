@@ -9,6 +9,7 @@ type TIconCloseProps = TypeClassNames & {
   stroke?: TypeColor
 }
 
+// TODO: improve structure
 const IconClose = ({ classNames, stroke }: TIconCloseProps) => {
   return (
     <IconContainer

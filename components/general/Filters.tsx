@@ -18,57 +18,55 @@ const Filters = ({ mbaTypeOfProgram, mbaFormat }) => {
   // const [searchTermIsAppliedtoUrl, setSearchTermIsAppliedtoUrl] =
   //   useState(false)
 
+  const [isNavigated, setIsNavigated] = useState(false)
+
   const at = useAt()
 
   const handleLinkClick = e => {
     if (at.profession || at.course) e.preventDefault()
   }
 
-  // const studyFieldsFiltered = Array.from(
-  //   new Set(
-  //     programs
-  //       .filter(
-  //         program =>
-  //           program?.studyFormat === mbaFormat &&
-  //           program?.category?.type === mbaTypeOfProgram
-  //       )
-  //       .map(program => program?.study_field?.name)
-  //   )
-  // ).filter(studyField => studyField)
+  const studyFieldsFiltered = Array.from(
+    new Set(
+      programs
+        .filter(
+          program =>
+            program?.studyFormat === mbaFormat &&
+            program?.category?.type === mbaTypeOfProgram
+        )
+        .map(program => program?.study_field?.name)
+    )
+  ).filter(studyField => studyField)
 
   // setCurStudyField(studyFieldsFiltered?.[0] || null)
 
   const handleSetCurStudyField = (field: string | null) => {
     if (at.profession || at.course) {
-      router.replace(
-        {
-          query: {
-            curStudyField: encodeURIComponent(field)
+      if (field) {
+        router.replace(
+          {
+            query: {
+              curStudyField: encodeURIComponent(field)
+            }
+          },
+          undefined,
+          {
+            shallow: true,
+            scroll: false
           }
-        },
-        undefined,
-        {
-          shallow: true,
-          scroll: false
-        }
-      )
-      setCurStudyField(field)
+        )
+      }
+      // setCurStudyField(field)
     }
   }
 
   useEffect(() => {
-    if (at.profession || at.course) {
+    if ((at.profession || at.course) && !isNavigated) {
       if (router.query.curStudyField) {
         setCurStudyField(
           decodeURIComponent(router.query.curStudyField.toString())
         )
       }
-
-      if (!curStudyField) {
-        setCurStudyField(studyFields?.[0] || null)
-      }
-
-      // console.log('test')
     } else {
       setCurStudyField(null)
     }
@@ -76,9 +74,27 @@ const Filters = ({ mbaTypeOfProgram, mbaFormat }) => {
     at.profession,
     at.course,
     // setCurStudyField
-    studyFields,
+    // studyFieldsFiltered,
     router,
     curStudyField
+  ])
+
+  useEffect(() => {
+    if (at.profession || at.course) {
+      if (!curStudyField && !isNavigated) {
+        setCurStudyField(studyFieldsFiltered?.[0] || null)
+      }
+    } else {
+      setCurStudyField(null)
+    }
+  }, [
+    at.profession,
+    at.course,
+    // setCurStudyField
+    studyFieldsFiltered,
+    router,
+    curStudyField,
+    isNavigated
   ])
 
   return (
@@ -113,7 +129,11 @@ const Filters = ({ mbaTypeOfProgram, mbaFormat }) => {
             </Link>
 
             <Link href={`/programs/profession/online`}>
-              <a>
+              <a
+                onClick={() => {
+                  setCurStudyField(null)
+                  setIsNavigated(true)
+                }}>
                 <span
                   className={cn({
                     [stls.circle]: true,
@@ -123,8 +143,12 @@ const Filters = ({ mbaTypeOfProgram, mbaFormat }) => {
               </a>
             </Link>
 
-            {/* <Link href={`/programs/course/online`}>
-              <a>
+            <Link href={`/programs/course/online`}>
+              <a
+                onClick={() => {
+                  setCurStudyField(null)
+                  setIsNavigated(true)
+                }}>
                 <span
                   className={cn({
                     [stls.circle]: true,
@@ -132,7 +156,7 @@ const Filters = ({ mbaTypeOfProgram, mbaFormat }) => {
                   })}></span>{' '}
                 Курсы
               </a>
-            </Link> */}
+            </Link>
 
             <Link
               href='/programs/international-business-law'
@@ -203,11 +227,11 @@ const Filters = ({ mbaTypeOfProgram, mbaFormat }) => {
             </Link>
           </div>
         </li>
-        {(at.profession || at.course) && studyFields && (
+        {(at.profession || at.course) && studyFieldsFiltered && (
           <li>
             <h4 className={stls.title}>Направление</h4>
             <div className={stls.content}>
-              {studyFields.map((field, idx) => (
+              {studyFieldsFiltered.map((field, idx) => (
                 <button
                   key={`field-btn-${idx}`}
                   className={stls.fieldButton}

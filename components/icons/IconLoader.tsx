@@ -5,6 +5,7 @@ import { colors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import { IconContainer } from '@/components/layout'
 
+// TODO: improve structure
 const IconLoader = () => {
   // <!-- By Sam Herbert (@sherb), for everyone. More @ http://goo.gl/7AJzbL -->
   return (

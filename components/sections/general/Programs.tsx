@@ -66,6 +66,13 @@ const Programs = () => {
               </li>
               <li>
                 <Link
+                  href='/programs/course/online'
+                  {...(at.en ? { locale: 'ru' } : undefined)}>
+                  <a>Курсы</a>
+                </Link>
+              </li>
+              <li>
+                <Link
                   href='/programs/mini/online'
                   {...(at.en ? { locale: 'ru' } : undefined)}>
                   <a>{at.en ? 'All programs' : 'Все программы'}</a>

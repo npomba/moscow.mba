@@ -7,6 +7,7 @@ import { IconContainer } from '@/components/layout'
 
 type TypeIconQuoteProps = TypeClassNames
 
+// TODO: improve structure
 const IconQuote = ({ classNames }: TypeIconQuoteProps) => {
   return (
     <div

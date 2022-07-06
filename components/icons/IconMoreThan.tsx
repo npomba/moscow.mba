@@ -7,6 +7,7 @@ import { IconContainer } from '@/components/layout'
 
 type TypeIconMoreThanProps = TypeClassNames
 
+// TODO: improve structure
 const IconMoreThan = ({ classNames }: TypeIconMoreThanProps) => {
   return (
     <div

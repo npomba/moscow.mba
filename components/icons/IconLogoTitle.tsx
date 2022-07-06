@@ -5,6 +5,7 @@ import { colors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import { IconContainer } from '@/components/layout'
 
+// TODO: improve structure
 const IconLogoTitle = () => {
   return (
     <div className={stls.container}>

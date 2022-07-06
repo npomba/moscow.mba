@@ -7,6 +7,7 @@ import { IconContainer } from '@/components/layout'
 
 type TypeIconCheck = TypeClassNames & { stroke?: string }
 
+// TODO: improve structure
 const IconCheck = ({ stroke = '#fff', classNames }: TypeIconCheck) => {
   return (
     <div

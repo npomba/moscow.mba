@@ -7,6 +7,7 @@ import { IconContainer } from '@/components/layout'
 
 type TypeIconCheckCircleAltProps = TypeClassNames
 
+// TODO: improve structure
 const IconCheckCircleAlt = ({ classNames }: TypeIconCheckCircleAltProps) => {
   return (
     <div

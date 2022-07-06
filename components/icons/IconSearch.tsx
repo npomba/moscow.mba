@@ -9,6 +9,7 @@ type TIconSearchProps = TypeClassNames & {
   color?: TypeColor
 }
 
+// TODO: improve structure
 const IconSearch = ({ classNames, color }: TIconSearchProps) => {
   return (
     <IconContainer

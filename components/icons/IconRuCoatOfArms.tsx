@@ -9,6 +9,7 @@ type TypeIconRuCoatOfArmsProps = TypeClassNames & {
   color?: TypeColor
 }
 
+// TODO: improve structure
 const IconRuCoatOfArms = ({ classNames, color }: TypeIconRuCoatOfArmsProps) => {
   return (
     <div

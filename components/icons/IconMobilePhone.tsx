@@ -5,6 +5,7 @@ import { colors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import { IconContainer } from '@/components/layout'
 
+// TODO: improve structure
 const IconMobilePhone = ({ fill = '#fff', large = false }) => {
   return (
     <div className={`${stls.container} ${large ? stls.large : stls.regular}`}>

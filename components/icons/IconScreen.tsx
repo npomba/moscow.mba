@@ -5,6 +5,7 @@ import { colors } from '@/config/index'
 import { getClassNames } from '@/helpers/index'
 import { IconContainer } from '@/components/layout'
 
+// TODO: improve structure
 const IconScreen = ({ fill = '#D9D9D9' }) => {
   return (
     <div className={stls.container}>
