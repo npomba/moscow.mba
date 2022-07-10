@@ -34,9 +34,6 @@ const usePageHandleContext = ({
 }: TypeUsePageHandleContextProps) => {
   const { setPrograms, setProgram } = useContext(ContextStaticProps)
 
-  setPrograms(programs || [])
-  setProgram(program || null)
-
   const {
     setJournalCategories,
     setJournalTags,
@@ -48,6 +45,9 @@ const usePageHandleContext = ({
   } = useContext(ContextJournalContext)
 
   useEffect(() => {
+    setPrograms(programs || [])
+    setProgram(program || null)
+
     setJournalCategories(journalCategories || null)
     setJournalTags(journalTags || null)
     setJournalArticles(journalArticles || null)

@@ -13,13 +13,8 @@ import Discount from '@/components/costs/Discount'
 import { useAt } from '@/hooks/index'
 import { IconCheckCircleAlt } from '@/components/icons'
 import Loan from '@/components/costs/Loan'
-import { useContext } from 'react'
-import { ContextStaticProps } from '@/context/index'
 
 const JumbotronProgram = ({ program }) => {
-  const { program: programTest } = useContext(ContextStaticProps)
-  console.log(programTest)
-
   const at = useAt()
   const isDiscounted =
     (at.mini && at.online) ||
