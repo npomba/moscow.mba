@@ -25,22 +25,27 @@ function MyApp({ Component, pageProps, router }) {
   const [program, setProgram] = useState(pageProps.program || null)
   const [curStudyField, setCurStudyField] = useState(null)
   const [studyFields, setStudyFields] = useState(
-    Array.from(
-      new Set([
-        ...programs
-          ?.filter(program => program.study_field?.name)
-          ?.map(program => program.study_field?.name)
-      ])
-    )
+    programs?.length > 0
+      ? Array.from(
+          new Set([
+            ...programs
+              ?.filter(program => program.study_field?.name)
+              ?.map(program => program.study_field?.name)
+          ])
+        )
+      : []
   )
   const [studyFieldsWithSlugs, setStudyFieldsWithSlugs] = useState(
-    studyFields?.map(studyField => ({
-      label: studyField,
-      slug: programs?.reduce((acc, cur) => {
-        cur?.study_field?.name === studyField && (acc = cur?.study_field?.slug)
-        return acc.trim()
-      }, '')
-    }))
+    studyFields?.length > 0
+      ? studyFields?.map(studyField => ({
+          label: studyField,
+          slug: programs?.reduce((acc, cur) => {
+            cur?.study_field?.name === studyField &&
+              (acc = cur?.study_field?.slug)
+            return acc.trim()
+          }, '')
+        }))
+      : null
   )
 
   usePreserveScroll()
