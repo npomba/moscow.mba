@@ -3,7 +3,11 @@ import { Fragment, useContext } from 'react'
 import Link from 'next/link'
 import cn from 'classnames'
 import { useAt } from '@/hooks/index'
-import { ProgramsContext, MenuContext, OverlayContext } from '@/context/index'
+import {
+  ContextStaticProps,
+  MenuContext,
+  OverlayContext
+} from '@/context/index'
 import { Until, Discount, TrainingPeriod } from '@/components/costs'
 import { ProgramSubjects } from '@/components/general'
 import { IconArrowLeft, IconClock, IconPaperCorner } from '@/components/icons'
@@ -12,7 +16,8 @@ const ProgramsList = ({ data, id, type }) => {
   const at = useAt()
   const { closeMenu } = useContext(MenuContext)
   const { hideOverlay } = useContext(OverlayContext)
-  const { studyFields, studyFieldsWithSlugs } = useContext(ProgramsContext)
+  const { studyFieldsWithSlugs } = useContext(ContextStaticProps)
+
   const handleLinkClick = () => {
     closeMenu()
     hideOverlay()

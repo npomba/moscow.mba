@@ -15,7 +15,6 @@ const Pagination = ({
   onlyPagination = false,
   semiTransparentBg = false
 }) => {
-  console.log(lastShownItem)
   const [currentPage, setCurrentPage] = useState(0)
 
   const handlePaginationBtnClick = clickedBtnIndex => {

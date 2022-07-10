@@ -9,7 +9,7 @@ import Popup from 'reactjs-popup'
 import { routesFront, base64pixel, contactData } from '@/config/index'
 import { getImageHeight } from '@/helpers/index'
 import { useAt, useDefaultTeachers } from '@/hooks/index'
-import { ProgramContext, ProgramsContext } from '@/context/index'
+import { ContextStaticProps } from '@/context/index'
 import { Wrapper } from '@/components/layout'
 import { PopupForm, PopupTeacher } from '@/components/popups'
 import {
@@ -98,8 +98,7 @@ const Teachers = ({
   const contactInfo = contactData()
   const defaultTeachers = useDefaultTeachers()
 
-  const { programs } = useContext(ProgramsContext)
-  const { program } = useContext(ProgramContext)
+  const { programs, program } = useContext(ContextStaticProps)
 
   const [searchTerm, setSearchTerm] = useState<string | null>(null)
   const [searchInputIsFocused, setSearchInputIsFocused] = useState(null)

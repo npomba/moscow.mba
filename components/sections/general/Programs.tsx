@@ -3,7 +3,7 @@ import { useState, useContext } from 'react'
 import Link from 'next/link'
 import cn from 'classnames'
 import { useAt } from '@/hooks/index'
-import { ProgramsContext } from '@/context/index'
+import { ContextStaticProps } from '@/context/index'
 import { Wrapper } from '@/components/layout'
 import { ProgramSubjects, ProgramsQty } from '@/components/general'
 import { Until, Price, TrainingPeriod, Discount } from '@/components/costs'
@@ -12,7 +12,7 @@ import { IconCheckCircle, IconScreen } from '@/components/icons'
 const Programs = () => {
   const at = useAt()
 
-  const { programs } = useContext(ProgramsContext)
+  const { programs } = useContext(ContextStaticProps)
 
   const [isMini, setIsMini] = useState(true)
   const [isMba, setIsMba] = useState(false)

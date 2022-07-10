@@ -1,11 +1,11 @@
 import stls from '@/styles/components/sections/CourseOptions.module.sass'
 import { useState, useRef, useContext } from 'react'
 import cn from 'classnames'
-import { ProgramsContext } from '@/context/index'
+import { ContextStaticProps } from '@/context/index'
 import { AccordionsContainer, Pagination } from '@/components/general'
 
 const CourseOptions = () => {
-  const { programs } = useContext(ProgramsContext)
+  const { programs } = useContext(ContextStaticProps)
   const programsFiltered = programs.filter(
     program => program?.studyFormat === 'online'
   )

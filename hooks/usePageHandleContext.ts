@@ -7,11 +7,7 @@ import {
   TypeLibProgram
 } from '@/types/index'
 import { useContext, useEffect } from 'react'
-import {
-  ProgramsContext,
-  ProgramContext,
-  ContextJournalContext
-} from '@/context/index'
+import { ContextJournalContext, ContextStaticProps } from '@/context/index'
 
 type TypeUsePageHandleContextProps = {
   readonly program?: TypeLibProgram
@@ -36,8 +32,10 @@ const usePageHandleContext = ({
   gspContextParamsJournalCategoryTag,
   gspContextParamsJournalCategoryTagArticle
 }: TypeUsePageHandleContextProps) => {
-  const { setPrograms } = useContext(ProgramsContext)
-  const { setProgram } = useContext(ProgramContext)
+  const { setPrograms, setProgram } = useContext(ContextStaticProps)
+
+  setPrograms(programs || [])
+  setProgram(program || null)
 
   const {
     setJournalCategories,
@@ -50,8 +48,6 @@ const usePageHandleContext = ({
   } = useContext(ContextJournalContext)
 
   useEffect(() => {
-    setProgram(program || null)
-    setPrograms(programs || null)
     setJournalCategories(journalCategories || null)
     setJournalTags(journalTags || null)
     setJournalArticles(journalArticles || null)

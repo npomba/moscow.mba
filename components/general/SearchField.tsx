@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Popup from 'reactjs-popup'
 import Highlighter from 'react-highlight-words'
 import { colors } from '@/config/index'
-import { ProgramsContext } from '@/context/index'
+import { ContextStaticProps } from '@/context/index'
 import { useAt } from '@/hooks/index'
 import { LeadLoaderThankyou } from '@/components/general'
 import { Wrapper } from '@/components/layout'
@@ -16,7 +16,7 @@ const SearchField = () => {
 
   const [inputIsFocused, setInputIsFocused] = useState(false)
 
-  const { programs } = useContext(ProgramsContext)
+  const { programs } = useContext(ContextStaticProps)
 
   const [searchTerm, setSearchTerm] = useState('')
 

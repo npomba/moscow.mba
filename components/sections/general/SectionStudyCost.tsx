@@ -4,7 +4,7 @@ import { useContext, MouseEventHandler } from 'react'
 import cn from 'classnames'
 import Popup from 'reactjs-popup'
 import { useAt } from '@/hooks/index'
-import { ProgramContext } from '@/context/index'
+import { ContextStaticProps } from '@/context/index'
 import { getClassNames, ruCaseMonth } from '@/helpers/index'
 import { GeneralStickerDiscount } from '@/components/general'
 import { Loan, TrainingPeriod, Until } from '@/components/costs'
@@ -16,7 +16,7 @@ type TypeSectionStudyCostProps = TypeClassNames
 
 const SectionStudyCost = ({ classNames }: TypeSectionStudyCostProps) => {
   const at = useAt()
-  const { program } = useContext(ProgramContext)
+  const { program } = useContext(ContextStaticProps)
 
   const pros = [
     'Практические домашние задания',

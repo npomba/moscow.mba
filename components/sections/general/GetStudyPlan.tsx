@@ -2,11 +2,11 @@ import stls from '@/styles/components/sections/GetStudyPlan.module.sass'
 import Popup from 'reactjs-popup'
 import PopupForm from '@/components/popups/PopupForm'
 import { useContext } from 'react'
-import { ProgramContext } from '@/context/index'
+import { ContextStaticProps } from '@/context/index'
 import { Wrapper } from '@/components/layout'
 
 const GetStudyPlan = () => {
-  const { program } = useContext(ProgramContext)
+  const { program } = useContext(ContextStaticProps)
 
   return (
     <section className={stls.container}>

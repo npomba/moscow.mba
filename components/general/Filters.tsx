@@ -4,13 +4,13 @@ import { useRouter } from 'next/router'
 import { useContext, useEffect, useState } from 'react'
 import cn from 'classnames'
 import { useAt } from '@/hooks/index'
-import ProgramsContext from '@/context/programs/programsContext'
+import { ContextStaticProps } from '@/context/index'
 import Discount from '@/components/costs/Discount'
 import { SearchField } from '@/components/general'
 
 const Filters = ({ mbaTypeOfProgram, mbaFormat }) => {
-  const { programs, studyFields, curStudyField, setCurStudyField } =
-    useContext(ProgramsContext)
+  const { programs, curStudyField, setCurStudyField } =
+    useContext(ContextStaticProps)
 
   const router = useRouter()
 
@@ -43,7 +43,8 @@ const Filters = ({ mbaTypeOfProgram, mbaFormat }) => {
 
   // setCurStudyField(studyFieldsFiltered?.[0] || null)
 
-  const handleSetCurStudyField = (field: string | null) => {
+  // TODO: figure out better types
+  const handleSetCurStudyField = (field: any) => {
     if (at.profession || at.course) {
       if (field) {
         router.replace(
@@ -239,12 +240,14 @@ const Filters = ({ mbaTypeOfProgram, mbaFormat }) => {
                   key={`field-btn-${idx}`}
                   className={stls.fieldButton}
                   onClick={() => handleSetCurStudyField(field)}>
-                  <span
-                    className={cn({
-                      [stls.circle]: true,
-                      [stls.active]: field === curStudyField
-                    })}></span>
-                  {field}
+                  <>
+                    <span
+                      className={cn({
+                        [stls.circle]: true,
+                        [stls.active]: field === curStudyField
+                      })}></span>
+                    {field}
+                  </>
                 </button>
               ))}
             </div>

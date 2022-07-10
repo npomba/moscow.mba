@@ -3,8 +3,7 @@ import { useContext, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import truncate from 'truncate'
 import { useAt } from '@/hooks/index'
-// import { ProgramsContext } from '@/context/index'
-import ProgramsContext from '@/context/programs/programsContext'
+import { ContextStaticProps } from '@/context/index'
 // import {
 //   Breadcrumbs,
 //   InfoRectangle,
@@ -23,7 +22,7 @@ import CardProgram from '@/components/cards/CardProgram'
 import IconCheckCircle from '@/components/icons/IconCheckCircle'
 
 const PagePrograms = ({ mbaTypeOfProgram, mbaFormat }) => {
-  const { programs, curStudyField } = useContext(ProgramsContext)
+  const { programs, curStudyField } = useContext(ContextStaticProps)
 
   const at = useAt()
 
